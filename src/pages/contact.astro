@@ -4,11 +4,13 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+// Formspree form ID — replace YOUR_FORM_ID after creating the form at https://formspree.io/forms
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 ---
 <BaseLayout title="Contact — Peter Law · Toronto Real Estate" description="Get in touch with Peter Law. Email, phone, or book a 15-minute discovery call.">
 
   <TopBar />
-  <Header active={null} ctaLabel="Or book a call" />
+  <Header active="contact" ctaLabel="Or book a call" />
 
   <section class="page-hero">
     <div class="wrap">
@@ -21,7 +23,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <section class="major" style="padding-top:32px;">
     <div class="wrap">
       <div class="contact-grid">
-        <form class="contact-form" method="POST" action="/api/contact">
+        <form class="contact-form" method="POST" action={FORMSPREE_ENDPOINT}>
           <div class="form-row">
             <label for="name">Name <span class="optional">(optional)</span></label>
             <input id="name" name="name" type="text" autocomplete="name" />
@@ -38,11 +40,14 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <label for="message">What do you need? <span class="required">*</span></label>
             <textarea id="message" name="message" rows="6" required placeholder="Where you're looking, when you want to move, anything I should know."></textarea>
           </div>
-          <!-- Honeypot: hidden from humans, bots fill it -->
+          <!-- Formspree honeypot field — bots fill this, real users don't see it -->
           <div class="hp-field" aria-hidden="true">
-            <label for="website">Website (leave blank)</label>
-            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            <label for="_gotcha">Don't fill this out</label>
+            <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
           </div>
+          <!-- Formspree subject + redirect after submit -->
+          <input type="hidden" name="_subject" value="New message from realtorpeterlaw.com" />
+          <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks" />
           <button type="submit" class="btn-primary">Send message
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>

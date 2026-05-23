@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   site: 'https://www.realtorpeterlaw.com',
@@ -7,6 +6,4 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  output: 'hybrid',
-  adapter: vercel(),
 });
