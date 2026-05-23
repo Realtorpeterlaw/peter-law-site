@@ -1,0 +1,17 @@
+---
+interface Props {
+  zh?: boolean;
+}
+const { zh = false } = Astro.props;
+---
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span>647-888-8472</span>
+      <span>peter@realtorpeterlaw.com</span>
+    </div>
+    <div class="topbar-right">
+      {zh ? <a href="/">English</a> : <a href="/zh">中文 · Chinese</a>}
+    </div>
+  </div>
+</div>

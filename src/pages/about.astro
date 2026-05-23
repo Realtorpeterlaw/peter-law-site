@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="About Peter Law — Toronto Real Estate" description="Peter Law: born and raised in downtown Toronto. Former Airbnb host with 400+ five-star reviews. Sales Representative at HomeLife Golconda Realty Inc.">
+
+  <TopBar />
+  <Header active="about" ctaLabel="Book a call" />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">About Peter</div>
+        <h1 class="hero-h">Born here. <em>Built for this market.</em></h1>
+        <p class="hero-sub">A downtown Torontonian, ex-Airbnb host, and full-time real estate agent who genuinely likes the work. Helping people land somewhere they're happy is the whole job.</p>
+        <div class="hero-ctas">
+          <a href={BOOKING_URL} class="btn-primary">
+            Let's talk
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div><div class="hero-photo"><img src="/photos/peter-interior.webp" alt="Peter Law, sitting at home with a coffee, calm afternoon light." width="1500" height="1887" loading="eager" /></div></div>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#story">The story</a></li>
+            <li><a href="#philosophy">Working philosophy</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#brokerage">Brokerage</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="story">The story</h2>
+          <p>Born and raised in downtown Toronto. Spent five years running short-term rentals on Airbnb — over 400 five-star guest reviews across that time. The hospitality work taught me something simple: <strong>people don't remember the listing photo. They remember whether they felt taken care of.</strong></p>
+          <p>I transitioned to real estate full-time so I could bring that same standard to the longer, higher-stakes decisions: renting a first apartment in a new country, signing a multi-year lease, finding a tenant for a unit you depend on for income. The job is the same. The stakes are bigger.</p>
+
+          <h2 id="philosophy">Working philosophy</h2>
+
+          <h3>Preparation is the work</h3>
+          <p>Toronto's rental market doesn't reward improvisation. It rewards the renter or landlord who showed up with their answers already in hand. Most of what I do is making sure that's my client.</p>
+
+          <h3>Bilingual, fully</h3>
+          <p>Not "I know some Chinese" bilingual — I conduct showings, review leases, explain rent control rules in fluent 中文. For Chinese-speaking newcomers, families, and investors, that's often the difference between a confident decision and a confused one.</p>
+
+          <h3>Long horizons over fast closes</h3>
+          <p>The renter I find a great first apartment for becomes the buyer I help five years later. A landlord whose unit I fill thoughtfully becomes the landlord who refers me to their friends. I optimize for that relationship.</p>
+
+          <h2 id="credentials">Credentials</h2>
+          <ul class="bullets">
+            <li>Registered Sales Representative, Real Estate Council of Ontario (RECO)</li>
+            <li>Member, Toronto Regional Real Estate Board (TRREB)</li>
+            <li>Member, Canadian Real Estate Association (CREA)</li>
+            <li>5+ years hospitality experience as an Airbnb host (400+ five-star reviews)</li>
+            <li>Fluent in English and 中文</li>
+          </ul>
+
+          <h2 id="brokerage">Brokerage</h2>
+          <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong><br>215 – 3601 HWY 7 East, Markham, Ontario, L3R 0M3<br>HomeLife is one of Canada's longest-established real estate brands, founded in Toronto in 1985. Golconda Realty is an independently owned and operated franchise serving the GTA.</p>
+
+          <div class="callout"><strong>Public profile:</strong> <a href="https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-215-markham-ontario-l3r0m3" style="text-decoration: underline; text-underline-offset: 3px;">View Peter's REALTOR.ca page</a> for current listings and verified credentials.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="The fastest way to know if we're a fit." lead="A 15-minute call. We talk through your situation. You decide if you want to keep going." ctaTitle="Book a call" />
+  <Footer />
+</BaseLayout>

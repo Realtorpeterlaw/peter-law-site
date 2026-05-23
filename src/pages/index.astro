@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="Peter Law — Toronto rentals, handled the right way." description="Bilingual Toronto real estate. Downtown, waterfront, GTA rentals — pre-approved fast, moved in calmly. Hospitality-grade service from a former Airbnb host with 400+ five-star reviews.">
+
+  <TopBar />
+  <Header />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Toronto · Downtown · Waterfront · GTA</div>
+        <h1 class="hero-h">Toronto rentals, <em>handled the right way.</em></h1>
+        <p class="hero-sub">Bilingual help for newcomers, professionals, and families navigating Toronto's rental market. Pre-approved fast. Moved in calmly. Hospitality-grade service from a former Airbnb host with 400+ five-star reviews.</p>
+        <div class="hero-ctas">
+          <a href={BOOKING_URL} class="btn-primary">
+            Book a 15-min call
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/for-renters" class="btn-secondary">Or — how renting with me works</a>
+        </div>
+        <div class="hero-trust">No pressure, no obligation. Real answers in your first call.</div>
+      </div>
+      <div>
+        <div class="hero-photo">
+          <img src="/photos/peter-portrait.webp" alt="Peter Law, Toronto real estate agent, on a downtown street with the CN Tower behind." width="1500" height="1887" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof-bar">
+    <div class="wrap proof-grid">
+      <div class="proof-item"><div class="proof-num">400+</div><div class="proof-lbl">Airbnb guest reviews</div></div>
+      <div class="proof-item"><div class="proof-num">EN · 中文</div><div class="proof-lbl">Bilingual service</div></div>
+      <div class="proof-item"><div class="proof-num">RECO</div><div class="proof-lbl">Registered, Ontario</div></div>
+      <div class="proof-item"><div class="proof-num">HomeLife</div><div class="proof-lbl">Golconda Realty Inc.</div></div>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Why people choose me</div>
+        <h2 class="section-h">I treat your move the way I treated 400+ guests — like it mattered.</h2>
+        <p class="section-lead">Before real estate, I hosted on Airbnb. Five years, four hundred reviews, one rule: the experience is the product. That's the standard I bring to every rental and every sale.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-quote">
+          <span class="why-quote-mark">"</span>
+          <p>Most agents will show you a place. My job is to make sure you walk in feeling prepared, walk out knowing what to do next, and never feel like you missed something obvious. That's hospitality. That's the work.</p>
+          <div class="attr">— Peter</div>
+        </div>
+        <div class="why-points">
+          <div class="why-point"><div class="why-point-num">01</div><h3>Pre-approval before search</h3><p>We get your documents in order before we step into a single unit. In Toronto's market, you have hours to decide — not days. Preparation is what wins.</p></div>
+          <div class="why-point"><div class="why-point-num">02</div><h3>Bilingual, including paperwork</h3><p>English and 中文 — leases, rent control basics, deposit norms — explained clearly in the language you actually think in.</p></div>
+          <div class="why-point"><div class="why-point-num">03</div><h3>Concierge after move-in</h3><p>Utility setup, lease renewals, building rules, contractor referrals. The job doesn't end at the keys.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="major process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">How working together works</div>
+        <h2 class="section-h">From first call to keys in hand — usually 2–3 weeks.</h2>
+      </div>
+      <div class="process-steps">
+        <div class="step"><div class="step-num">STEP 01</div><h3>15-min intro call</h3><p>Tell me what you need, where, and when. I'll tell you exactly what to expect and what to prepare.</p></div>
+        <div class="step"><div class="step-num">STEP 02</div><h3>Get approval-ready</h3><p>Credit, employment, references, deposit. We package it so landlords say yes the same day.</p></div>
+        <div class="step"><div class="step-num">STEP 03</div><h3>Tour the right ones</h3><p>I filter the market for fit, not just listings. You see 3–5 places worth your time, not 30.</p></div>
+        <div class="step"><div class="step-num">STEP 04</div><h3>Sign, move, settle</h3><p>Lease reviewed line by line. Movers, utilities, building intro — handled.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="major testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Recent moves</div>
+        <h2 class="section-h">Real Torontonians, real wins.</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card"><p class="test-quote">"Moving to Toronto after many years away, the rental process was difficult — but Peter helped me navigate it and made the whole thing seamless and smooth. Definitely recommend."</p><div class="test-attr"><strong>Jethro</strong>Newcomer · Toronto rental · 2026</div></div>
+        <div class="test-card"><p class="test-quote">"Peter took the time to understand our priorities and guided us every step of the way. His patience and calm made the process stress-free — even when decisions felt overwhelming."</p><div class="test-attr"><strong>Olu</strong>Family rental · 2025</div></div>
+        <div class="test-card"><p class="test-quote">"Outstanding throughout my condo search and purchase. Responsive, strategic, patient, and genuinely had my best interests in mind every step of the way."</p><div class="test-attr"><strong>David</strong>Condo purchase · 2026</div></div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+  <Footer />
+</BaseLayout>

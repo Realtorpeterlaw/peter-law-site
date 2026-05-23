@@ -1,0 +1,23 @@
+---
+import Logo from './Logo.astro';
+interface Props {
+  active?: 'renters' | 'landlords' | 'about' | 'journal' | null;
+  ctaLabel?: string;
+}
+const { active = null, ctaLabel = "Book a viewing call" } = Astro.props;
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<header>
+  <div class="wrap head-inner">
+    <a href="/" class="logo" aria-label="Peter Law — home"><Logo /></a>
+    <nav class="primary" aria-label="Primary">
+      <ul>
+        <li><a href="/for-renters" class={active === 'renters' ? 'active' : ''}>For Renters</a></li>
+        <li><a href="/for-landlords" class={active === 'landlords' ? 'active' : ''}>For Landlords</a></li>
+        <li><a href="/about" class={active === 'about' ? 'active' : ''}>About</a></li>
+        <li><a href="/journal" class={active === 'journal' ? 'active' : ''}>Journal</a></li>
+      </ul>
+    </nav>
+    <a href={BOOKING_URL} class="head-cta">{ctaLabel}</a>
+  </div>
+</header>

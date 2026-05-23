@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description?: string;
+  zh?: boolean;
+  bodyClass?: string;
+}
+const {
+  title,
+  description = "Bilingual Toronto real estate. Pre-approved fast, moved in calmly. Hospitality-grade service from a former Airbnb host with 400+ five-star reviews.",
+  zh = false,
+  bodyClass = "",
+} = Astro.props;
+const PLAUSIBLE_DOMAIN = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN; // set in Vercel env vars, e.g. "realtorpeterlaw.com"
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!DOCTYPE html>
+<html lang={zh ? "zh-CN" : "en"}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  {PLAUSIBLE_DOMAIN && (
+    <script is:inline defer data-domain={PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js"></script>
+  )}
+</head>
+<body class={bodyClass + (zh ? ' zh' : '')}>
+  <slot />
+</body>
+</html>

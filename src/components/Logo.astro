@@ -1,0 +1,13 @@
+---
+interface Props {
+  width?: number;
+  tagline?: string;
+}
+const { width = 180, tagline = "TORONTO REAL ESTATE" } = Astro.props;
+---
+<svg viewBox="0 0 280 70" width={width} xmlns="http://www.w3.org/2000/svg" aria-label="Peter Law — Toronto Real Estate">
+  <rect x="6" y="14" width="42" height="42" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="27" y="46" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="400" font-size="22" fill="#1a1a1a">PL</text>
+  <text x="62" y="38" font-family="Fraunces, Georgia, serif" font-weight="400" font-size="22" fill="#1a1a1a">Peter Law</text>
+  <text x="62" y="54" font-family="Inter, sans-serif" font-weight="500" font-size="8" fill="#4a4a4a" letter-spacing="3">{tagline}</text>
+</svg>

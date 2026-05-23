@@ -1,0 +1,34 @@
+---
+interface Props {
+  heading?: string;
+  lead?: string;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaLabel?: string;
+}
+const {
+  heading = "Ready when you are.",
+  lead = "One 15-minute call. No commitment. I'll tell you exactly what your search will look like in this market, what to prepare, and whether I'm the right person to help.",
+  ctaTitle = "Book a viewing call",
+  ctaSubtitle = "15 minutes · Google Meet or phone · Free",
+  ctaLabel = "Pick a time",
+} = Astro.props;
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<section class="cta-section" id="book">
+  <div class="wrap cta-grid">
+    <div>
+      <h2>{heading}</h2>
+      <p>{lead}</p>
+    </div>
+    <div class="cta-box">
+      <h3>{ctaTitle}</h3>
+      <p>{ctaSubtitle}</p>
+      <a href={BOOKING_URL} class="btn-primary">
+        {ctaLabel}
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="alt">Or text 647-888-8472</span>
+    </div>
+  </div>
+</section>

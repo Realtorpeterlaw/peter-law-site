@@ -1,0 +1,50 @@
+---
+import Logo from './Logo.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const REALTOR_CA = "https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-215-markham-ontario-l3r0m3";
+---
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <Logo width={170} />
+        <p>
+          Sales Representative, HomeLife Golconda Realty Inc.<br>
+          215 – 3601 HWY 7 East, Markham, ON L3R 0M3<br>
+          RECO-registered, Ontario.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/for-renters">For Renters</a></li>
+          <li><a href="/for-landlords">For Landlords</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/zh">中文</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>647-888-8472</li>
+          <li>peter@realtorpeterlaw.com</li>
+          <li><a href={BOOKING_URL}>Book a call</a></li>
+          <li><a href={REALTOR_CA}>REALTOR.ca</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://instagram.com/realtorpeterlaw">Instagram</a></li>
+          <li><a href="https://facebook.com/RealtorPeterLaw">Facebook</a></li>
+          <li><a href="https://linkedin.com/in/peter-law-5053a6192">LinkedIn</a></li>
+          <li><a href="https://youtube.com/@Realtorpeterlaw">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Peter Law · Sales Representative, HomeLife Golconda Realty Inc., Brokerage.</div>
+      <div><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
+    </div>
+  </div>
+</footer>

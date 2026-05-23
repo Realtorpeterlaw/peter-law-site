@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout title="For Landlords — Peter Law · Toronto Real Estate" description="Tenant placement and rental management in Toronto. Screening, showings, lease drafting — done right by a hospitality-trained agent who knows what a good tenant looks like.">
+
+  <TopBar />
+  <Header active="landlords" ctaLabel="Book a consultation" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">For landlords</div>
+      <h1>Find a great tenant. Skip the headache.</h1>
+      <p>For Toronto landlords with one unit or a small portfolio: end-to-end tenant placement that prioritizes the tenant you'll still be glad you signed two years from now.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#service">What I do</a></li>
+            <li><a href="#why">Why work with me</a></li>
+            <li><a href="#timeline">Typical timeline</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="service">What I do</h2>
+          <p>Full-service tenant placement. You hand me a unit; I hand you a signed lease with a thoroughly screened tenant who's been set up to succeed.</p>
+          <ul class="bullets">
+            <li><strong>Market pricing</strong> — comparable analysis so you list at the price that fills fast, not slow</li>
+            <li><strong>Listing & marketing</strong> — MLS, social, network. Quality photos and copy. Bilingual reach into the Chinese-speaking renter market</li>
+            <li><strong>Tenant screening</strong> — credit, employment verification, references, in-person assessment</li>
+            <li><strong>Showings</strong> — I'm there. You don't have to be</li>
+            <li><strong>Lease drafting & signing</strong> — Ontario standard form lease, with custom clauses where needed</li>
+            <li><strong>Move-in & key handoff</strong> — including condition report, building introduction, and ongoing point of contact if issues arise</li>
+          </ul>
+
+          <h2 id="why">Why work with me</h2>
+          <div class="why-grid" style="margin-top:32px;">
+            <div class="why-quote">
+              <span class="why-quote-mark">"</span>
+              <p>A great tenant isn't the one with the highest income. It's the one who'll treat your unit like home and renew without drama. I screen for both.</p>
+              <div class="attr">— Peter</div>
+            </div>
+            <div class="why-points">
+              <div class="why-point"><div class="why-point-num">01</div><h3>I screen like a hospitality host</h3><p>Five years and 400+ Airbnb reviews taught me what a low-conflict guest looks like. I bring that same instinct to tenant selection.</p></div>
+              <div class="why-point"><div class="why-point-num">02</div><h3>Bilingual market reach</h3><p>Active outreach into the Chinese-speaking renter community — a segment many agents miss. Often results in faster, higher-quality placements.</p></div>
+              <div class="why-point"><div class="why-point-num">03</div><h3>Lease that protects you</h3><p>Standard form Ontario lease isn't enough on its own. I add the custom clauses — pets, smoking, subletting, utility cost-sharing — that prevent disputes.</p></div>
+            </div>
+          </div>
+
+          <h2 id="timeline">Typical timeline</h2>
+          <ul class="bullets">
+            <li><strong>Week 1</strong> — Consultation, pricing analysis, photography, listing live</li>
+            <li><strong>Weeks 1–2</strong> — Showings (typically 5–10 qualified viewings)</li>
+            <li><strong>Week 2–3</strong> — Application review, screening, recommendation</li>
+            <li><strong>Week 2–3</strong> — Lease signed, first/last collected, key handoff scheduled</li>
+          </ul>
+
+          <h2 id="pricing">Pricing</h2>
+          <p>Standard tenant placement in Toronto: <strong>one month's rent</strong>, paid by the landlord at lease signing. This is the industry norm; I don't bill on top of it for marketing, screening, or lease drafting.</p>
+          <p>For ongoing property management (rent collection, maintenance coordination, lease renewals, annual reviews), pricing is quoted per unit based on scope.</p>
+
+          <h2 id="faq">FAQ</h2>
+          <div class="faq">
+            <details><summary>Do I have to be present for showings?</summary><p>No. I conduct all showings. You can be involved as much or as little as you'd like.</p></details>
+            <details><summary>What if the tenant turns out to be a problem?</summary><p>Thorough screening makes this rare, but it does happen. I help walk you through Landlord and Tenant Board procedures and refer you to a paralegal if it escalates.</p></details>
+            <details><summary>Can you help if I want to sell instead of rent?</summary><p>Yes. I'll give you an honest comparison of rental yield vs. sale price and recommend the path with better returns for your goals.</p></details>
+            <details><summary>Do you manage condos with restrictive board rules?</summary><p>Yes. I'm familiar with status certificate review and the most common condo board approval processes.</p></details>
+            <details><summary>How do you handle Chinese-speaking landlords or tenants?</summary><p>Fluently. Lease explanations, document reviews, all communications can be in 中文.</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Ready to fill your unit?" lead="Tell me about the unit. I'll come back with a price, a marketing plan, and a realistic timeline." ctaTitle="Book a landlord consultation" ctaSubtitle="20 minutes · Phone or in person · Free" />
+  <Footer />
+</BaseLayout>
