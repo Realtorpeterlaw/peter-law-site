@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://www.realtorpeterlaw.com',
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   build: {
-    format: 'file',
+    format: 'directory',
   },
 });
