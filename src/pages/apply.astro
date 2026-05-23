@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+// SingleKey screening link — replace YOUR_SINGLEKEY_LINK after signing up at app.singlekey.com
+const SCREENING_URL = "https://app.singlekey.com/screen/YOUR_SINGLEKEY_LINK";
+---
+<BaseLayout title="Apply to Rent — Peter Law · Toronto Real Estate" description="Submit a verified rental application in 10 minutes. ID, credit, income — all in one pass. The strongest application wins in Toronto's market.">
+
+  <TopBar />
+  <Header active="renters" ctaLabel="Or talk first" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Rental application</div>
+      <h1>One application. One pass. Strongest package wins.</h1>
+      <p>Toronto landlords get five offers in a day. The renter who shows up with everything packaged correctly wins the unit. This is how we package yours.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#what">What you'll need</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#privacy">Privacy &amp; data</a></li>
+            <li><a href="#start">Start the application</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="what">What you'll need (have it ready before you start)</h2>
+          <p>The application takes about 10 minutes if you have everything in hand:</p>
+          <ul class="bullets">
+            <li><strong>Government-issued ID</strong> — driver's license, passport, or PR card. You'll upload a photo.</li>
+            <li><strong>Proof of employment</strong> — recent pay stub or employer letter stating your role, start date, and annual salary.</li>
+            <li><strong>Bank verification</strong> — secure connection to your bank (read-only). Verifies income and account balance. Way faster than uploading 3 months of statements.</li>
+            <li><strong>References</strong> — previous landlord (if any) + one personal or professional reference.</li>
+            <li><strong>Authorization for credit check</strong> — Equifax or TransUnion. Soft pull, doesn't affect your score.</li>
+          </ul>
+
+          <div class="callout"><strong>New to Canada?</strong> No problem. You can use international credit reports, a guarantor letter, or a larger upfront deposit instead of Canadian credit. The application form will guide you through what works.</div>
+
+          <h2 id="how">How it works</h2>
+
+          <h3>Step 1 — Fill the application (10 min)</h3>
+          <p>You click <em>Start your application</em> below. You're handed off to SingleKey, a Canadian screening service I use for every renter. The form is short, secure, and saves your progress if you need a break.</p>
+
+          <h3>Step 2 — I review your package (same day)</h3>
+          <p>The moment you submit, I get the report. Usually I reply within a few hours during business hours, end of next morning at the latest.</p>
+
+          <h3>Step 3 — We start the search</h3>
+          <p>With your package ready, I can submit competitive offers the day a unit lists. No "let me check with my landlord" delays — you're pre-approved before we walk in.</p>
+
+          <h2 id="privacy">Privacy &amp; data</h2>
+          <p>SingleKey is PIPEDA-compliant and handles all sensitive data — ID images, bank connection, credit info. I never see your raw bank login or full ID image. I see the verified summary I need to vouch for you to a landlord.</p>
+          <p>Your data is yours. You can request deletion at any time after our work is done.</p>
+
+          <h2 id="start">Start the application</h2>
+          <p>Click below. You'll be on SingleKey for the next 10 minutes. When you're done, the report comes to me automatically.</p>
+          <p style="margin-top: 32px;">
+            <a href={SCREENING_URL} class="btn-primary">
+              Start your application
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+          <p style="margin-top: 32px; color: var(--ink-mute); font-size: 14px;">Prefer to talk first? <a href={BOOKING_URL} style="text-decoration: underline; text-underline-offset: 3px;">Book a 15-minute call</a> and I'll walk you through it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
