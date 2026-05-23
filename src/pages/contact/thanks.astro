@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+<BaseLayout title="Message sent — Peter Law" description="Thanks for getting in touch.">
+
+  <TopBar />
+  <Header />
+
+  <section class="page-hero" style="padding-bottom:120px;">
+    <div class="wrap" style="text-align:center;">
+      <div class="eyebrow">Message received</div>
+      <h1 style="margin:0 auto 20px;">Thanks — I'll be in touch shortly.</h1>
+      <p style="margin:0 auto 36px;">Most messages get a reply within a few hours during business hours. If it's urgent, text or call <a href="tel:+16478888472" style="text-decoration:underline;text-underline-offset:3px;">647-888-8472</a>.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="/" class="btn-primary">Back to home
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

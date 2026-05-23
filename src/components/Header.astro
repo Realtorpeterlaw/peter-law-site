@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 interface Props {
-  active?: 'renters' | 'landlords' | 'about' | null;
+  active?: 'renters' | 'landlords' | 'about' | 'contact' | null;
   ctaLabel?: string;
 }
 const { active = null, ctaLabel = "Book a viewing call" } = Astro.props;
@@ -15,6 +15,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <li><a href="/for-renters" class={active === 'renters' ? 'active' : ''}>For Renters</a></li>
         <li><a href="/for-landlords" class={active === 'landlords' ? 'active' : ''}>For Landlords</a></li>
         <li><a href="/about" class={active === 'about' ? 'active' : ''}>About</a></li>
+        <li><a href="/contact" class={active === 'contact' ? 'active' : ''}>Contact</a></li>
       </ul>
     </nav>
     <a href={BOOKING_URL} class="head-cta">{ctaLabel}</a>

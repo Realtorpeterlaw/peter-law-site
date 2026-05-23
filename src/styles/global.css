@@ -164,3 +164,29 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .newsletter-embed { display: flex; justify-content: center; min-height: 88px; }
 .newsletter-trust { font-size: 13px; color: var(--ink-mute); margin-top: 18px; }
 @media (max-width: 720px) { .newsletter { padding: 72px 0; } }
+
+/* CONTACT FORM */
+.contact-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 80px; align-items: start; }
+.contact-form { display: flex; flex-direction: column; gap: 22px; }
+.form-row { display: flex; flex-direction: column; gap: 6px; }
+.form-row label { font-size: 13px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0.02em; }
+.form-row label .required { color: var(--ink); }
+.form-row label .optional { color: var(--ink-mute); font-weight: 400; }
+.form-row input, .form-row textarea {
+  font-family: inherit; font-size: 15px;
+  padding: 12px 14px; border: 1px solid var(--rule);
+  border-radius: 4px; background: var(--surface); color: var(--ink);
+  transition: border-color 0.15s;
+}
+.form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--ink); }
+.form-row textarea { resize: vertical; min-height: 140px; font-family: inherit; }
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form button { align-self: flex-start; margin-top: 4px; cursor: pointer; }
+.form-trust { font-size: 13px; color: var(--ink-mute); margin-top: 4px; }
+.contact-side { padding-top: 24px; }
+.contact-side h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 20px; margin-bottom: 18px; }
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 22px; font-size: 15px; color: var(--ink-soft); }
+.contact-list a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); transition: text-decoration-color 0.15s; }
+.contact-list a:hover { text-decoration-color: var(--ink); }
+.contact-lbl { display: block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 4px; font-weight: 600; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
