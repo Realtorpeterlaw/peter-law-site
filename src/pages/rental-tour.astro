@@ -7,7 +7,6 @@ import CTASection from '../components/CTASection.astro';
 
 const TIKTOK_PROFILE = "https://www.tiktok.com/@rentwithpeter";
 
-// 12 featured rental tour videos — 4 cols × 3 rows
 const tours = [
   { id: "7642839542482930964", title: "9 Clegg Rd", tag: "Markham Downtown · 1 bed + den" },
   { id: "7643443700663848212", title: "Liberty Village", tag: "Downtown · utilities included" },
@@ -24,7 +23,7 @@ const tours = [
 ];
 ---
 <BaseLayout
-  title="Rental Tours — Walk Through Toronto Rentals | Peter Law"
+  title="Rental Tours — Toronto Rental Walk-Throughs | Peter Law"
   description="Walk through downtown Toronto, waterfront, and GTA rental units before you book a viewing. Updated weekly from Peter's TikTok."
   bodyClass="tour-page"
 >
@@ -35,7 +34,7 @@ const tours = [
   <section class="page-hero">
     <div class="wrap">
       <div class="eyebrow">Rental tours</div>
-      <h1>Walk through it before you walk through it.</h1>
+      <h1>Know every room before you open the door.</h1>
       <p>Quick video tours of Toronto rentals I've been through this month. Tap a unit you like to ask about it. New videos added every week — also live on <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a> on TikTok.</p>
     </div>
   </section>
@@ -46,15 +45,12 @@ const tours = [
         {tours.map((t) => (
           <div class="tour-card">
             <div class="tour-embed">
-              <blockquote
-                class="tiktok-embed"
-                cite={`https://www.tiktok.com/@rentwithpeter/video/${t.id}`}
-                data-video-id={t.id}
-              >
-                <section>
-                  <a target="_blank" rel="noopener" title="@rentwithpeter" href={`https://www.tiktok.com/@rentwithpeter?refer=embed`}>@rentwithpeter</a>
-                </section>
-              </blockquote>
+              <button class="tour-play-btn" type="button" data-video-id={t.id} aria-label={`Play tour video: ${t.title}`}>
+                <span class="tour-play-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg>
+                </span>
+                <span class="tour-play-hint">Play tour</span>
+              </button>
             </div>
             <div class="tour-meta">
               <div class="tour-title">{t.title}</div>
@@ -81,6 +77,23 @@ const tours = [
   <CTASection heading="See one you like?" lead="Most of these units rent within days. Tell me which one caught your eye and I'll check availability — and tour it with you in person." />
   <Footer />
 
-  <!-- TikTok embed script — loaded once for the whole page -->
-  <script is:inline async src="https://www.tiktok.com/embed.js"></script>
+  <!-- Click-to-load: replace play button with TikTok iframe only when user clicks. No autoplay until then. -->
+  <script>
+    document.querySelectorAll('.tour-play-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const videoId = btn.getAttribute('data-video-id');
+        if (!videoId) return;
+        const parent = btn.parentElement;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.tiktok.com/player/v1/${videoId}?autoplay=1`;
+        iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('title', btn.getAttribute('aria-label') || 'Rental tour video');
+        iframe.className = 'tour-iframe';
+        parent.innerHTML = '';
+        parent.appendChild(iframe);
+      });
+    });
+  </script>
 </BaseLayout>
