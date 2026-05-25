@@ -452,3 +452,9 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .calc-result-breakdown .row strong { color: var(--ink); }
 .calc-disclaimer { font-size: 12px; color: var(--ink-mute); font-style: italic; margin-top: 18px; line-height: 1.6; }
 @media (max-width: 720px) { .calc-fields { grid-template-columns: 1fr; gap: 16px; } .prose-body .calc, .calc-page .calc { padding: 22px; } }
+
+/* CALCULATOR ACRONYM LEGEND */
+.calc-legend { margin-top: 12px; font-size: 12px; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.calc-legend > div { display: inline-flex; gap: 6px; align-items: baseline; }
+.calc-legend dt { font-weight: 600; color: var(--ink-soft); }
+.calc-legend dd { margin: 0; }
