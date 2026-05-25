@@ -39,7 +39,54 @@ import CTASection from '../components/CTASection.astro';
           <p>Free, no obligation. We talk through what you're looking for: neighborhoods, price, timing, must-haves, deal-breakers. I tell you what's realistic in today's market and what you need to prepare.</p>
 
           <h3 id="apply">Step 2 — Get approval-ready</h3>
-          <p>Before we look at a single unit, we package your application: <strong>credit check, proof of income, employer letter, references, ID, and first-and-last deposit confirmation</strong>. Landlords in Toronto often have multiple applications within hours of a listing going up. The strongest package wins.</p>
+          <p>To get started, fill the form below — these basics let me prepare your full package faster and know which landlords to approach.</p>
+          <div class="calc" style="max-width: 660px;">
+            <form method="POST" action="https://formspree.io/f/xnjrzgda">
+              <div class="calc-fields">
+                <div class="calc-field calc-field-full">
+                  <label for="gs-applicants">Name(s) of applicant(s) <span class="hint">*</span></label>
+                  <input id="gs-applicants" name="applicants" type="text" required placeholder="e.g. Sarah Chen, John Smith">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-email">Your email <span class="hint">*</span></label>
+                  <input id="gs-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-phone">Phone <span class="hint">(optional)</span></label>
+                  <input id="gs-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-movein">Move-in date <span class="hint">*</span></label>
+                  <input id="gs-movein" name="move_in_date" type="date" required>
+                </div>
+                <div class="calc-field">
+                  <label for="gs-occupation">Occupation <span class="hint">*</span></label>
+                  <input id="gs-occupation" name="occupation" type="text" required>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="gs-citizenship">Citizenship status <span class="hint">*</span></label>
+                  <select id="gs-citizenship" name="citizenship_status" required>
+                    <option value="">Select…</option>
+                    <option>Canadian Citizen</option>
+                    <option>Permanent Resident</option>
+                    <option>International Student</option>
+                    <option>Work Permit</option>
+                    <option>Visitor / Other</option>
+                  </select>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="gs-gotcha">Don't fill this</label>
+                  <input id="gs-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="New Rental Get-Started Form">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 20px;">
+                Get started
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
 
           <div class="callout"><strong>New to Canada?</strong> No Canadian credit history is the most common reason newcomers get rejected. I'll show you what substitutes work — guarantor letters, larger upfront deposits, employer attestations, international credit reports — and which landlords accept them.</div>
 
