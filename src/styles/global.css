@@ -195,34 +195,3 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .contact-list a:hover { text-decoration-color: var(--ink); }
 .contact-lbl { display: block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 4px; font-weight: 600; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
-
-/* RESOURCE GUIDES (collapsible cards on /for-renters) */
-.guides { background: var(--bg-warm); }
-.guide-cards { display: flex; flex-direction: column; gap: 18px; max-width: 880px; margin: 0 auto; }
-.guide-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; transition: border-color 0.15s; }
-.guide-card[open] { border-color: var(--ink); }
-.guide-card summary { padding: 28px 32px; cursor: pointer; list-style: none; display: flex; flex-direction: column; gap: 6px; position: relative; }
-.guide-card summary::-webkit-details-marker { display: none; }
-.guide-card summary::after { content: "+"; position: absolute; right: 32px; top: 28px; font-size: 28px; font-weight: 300; color: var(--ink-mute); line-height: 1; transition: transform 0.2s; }
-.guide-card[open] summary::after { content: "−"; }
-.guide-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
-.guide-card summary h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2; padding-right: 32px; }
-.guide-card summary > p { color: var(--ink-soft); font-size: 14px; margin: 0; padding-right: 32px; }
-.guide-body { padding: 8px 32px 36px; border-top: 1px solid var(--rule); }
-.guide-body h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 17px; margin-top: 28px; margin-bottom: 8px; color: var(--ink); }
-.guide-body h4:first-child { margin-top: 24px; }
-.guide-body p { color: var(--ink-soft); font-size: 15px; margin-bottom: 12px; }
-.guide-body p strong { color: var(--ink); }
-.guide-body ul { padding-left: 22px; color: var(--ink-soft); font-size: 15px; margin-bottom: 16px; }
-.guide-body ul li { margin-bottom: 6px; }
-.guide-body a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
-.guide-body a:hover { text-decoration-color: var(--ink); }
-.guide-body .resource-links { background: var(--bg-warm); padding: 18px 22px; border-radius: 4px; margin-top: 24px; }
-.guide-body .resource-links h4 { margin-top: 0; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 600; }
-.guide-body .resource-links ul { margin-bottom: 0; padding-left: 18px; }
-.guide-body .legal-note { font-size: 12px; color: var(--ink-mute); font-style: italic; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--rule); }
-@media (max-width: 720px) {
-  .guide-card summary { padding: 22px 24px; }
-  .guide-card summary::after { right: 24px; top: 22px; }
-  .guide-body { padding: 8px 24px 32px; }
-}
