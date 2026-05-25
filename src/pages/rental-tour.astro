@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const TIKTOK_PROFILE = "https://www.tiktok.com/@rentwithpeter";
+
+// 12 featured rental tour videos — 4 cols × 3 rows
+const tours = [
+  { id: "7642839542482930964", title: "9 Clegg Rd", tag: "Markham Downtown · 1 bed + den" },
+  { id: "7643443700663848212", title: "Liberty Village", tag: "Downtown · utilities included" },
+  { id: "7642835431985335573", title: "Danforth · East York", tag: "$2,100/mo · 1 bedroom" },
+  { id: "7638804681673690389", title: "Move-in ready condo", tag: "Tranquil setting" },
+  { id: "7638803774139829524", title: "2-storey unit", tag: "East & west views" },
+  { id: "7638803030602779924", title: "Sizable 1 bed + den", tag: "Unobstructed view" },
+  { id: "7641439020634967317", title: "Markham condos", tag: "Boutique-style" },
+  { id: "7638802160574106900", title: "Brand-new 1 bed + den", tag: "Never lived in" },
+  { id: "7638801525833239828", title: "Waterfront condo", tag: "Lake views" },
+  { id: "7638800822398160148", title: "Junior 1BR", tag: "Waterfront · Lakeshore" },
+  { id: "7638799683430763797", title: "Yonge & Bloor", tag: "Furnished 2 bed/2 bath · Aug 1" },
+  { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 bedroom" },
+];
+---
+<BaseLayout
+  title="Rental Tours — Walk Through Toronto Rentals | Peter Law"
+  description="Walk through downtown Toronto, waterfront, and GTA rental units before you book a viewing. Updated weekly from Peter's TikTok."
+  bodyClass="tour-page"
+>
+
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Rental tours</div>
+      <h1>Walk through it before you walk through it.</h1>
+      <p>Quick video tours of Toronto rentals I've been through this month. Tap a unit you like to ask about it. New videos added every week — also live on <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a> on TikTok.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap-wide">
+      <div class="tour-grid">
+        {tours.map((t) => (
+          <div class="tour-card">
+            <div class="tour-embed">
+              <blockquote
+                class="tiktok-embed"
+                cite={`https://www.tiktok.com/@rentwithpeter/video/${t.id}`}
+                data-video-id={t.id}
+              >
+                <section>
+                  <a target="_blank" rel="noopener" title="@rentwithpeter" href={`https://www.tiktok.com/@rentwithpeter?refer=embed`}>@rentwithpeter</a>
+                </section>
+              </blockquote>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-title">{t.title}</div>
+              <div class="tour-tag">{t.tag}</div>
+              <a href={`/contact?subject=Inquiry%20about%20${encodeURIComponent(t.title)}`} class="tour-cta">
+                Ask about this place
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="tour-bottom">
+        <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" class="btn-primary">
+          Watch all tours on TikTok
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="tour-disclosure">For marketing & educational purposes only. Availability, pricing, and requirements may change. Document requirements vary by landlord. Not intended to solicit clients under contract.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="See one you like?" lead="Most of these units rent within days. Tell me which one caught your eye and I'll check availability — and tour it with you in person." />
+  <Footer />
+
+  <!-- TikTok embed script — loaded once for the whole page -->
+  <script is:inline async src="https://www.tiktok.com/embed.js"></script>
+</BaseLayout>
