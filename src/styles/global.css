@@ -487,3 +487,14 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .prose-body h3 {
   scroll-margin-top: 100px;
 }
+
+/* "(Home)" hint below the logo */
+.logo { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; line-height: 1; }
+.logo-home-hint {
+  font-size: 10px;
+  color: var(--ink-mute);
+  letter-spacing: 0.06em;
+  font-style: italic;
+  padding-left: 62px; /* aligns roughly with the "Peter Law" wordmark portion of the SVG */
+  margin-top: -4px;
+}
