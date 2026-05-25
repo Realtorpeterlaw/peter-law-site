@@ -458,3 +458,13 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .calc-legend > div { display: inline-flex; gap: 6px; align-items: baseline; }
 .calc-legend dt { font-weight: 600; color: var(--ink-soft); }
 .calc-legend dd { margin: 0; }
+
+/* HEADER NAV SEPARATOR */
+.nav-separator {
+  width: 1px;
+  height: 18px;
+  background: var(--rule);
+  align-self: center;
+  margin: 0 4px;
+  list-style: none;
+}
