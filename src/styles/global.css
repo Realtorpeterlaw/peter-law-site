@@ -34,8 +34,8 @@ header { background: var(--bg); border-bottom: 1px solid var(--rule); position: 
 .head-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 16px; }
 .logo svg { display: block; }
 nav.primary ul { display: flex; gap: 36px; list-style: none; align-items: center; }
-nav.primary a { font-size: 14px; font-weight: 500; color: var(--ink-soft); transition: color 0.15s; }
-nav.primary a:hover, nav.primary a.active { color: var(--ink); }
+nav.primary a { font-size: 14px; font-weight: 500; color: var(--ink-soft); transition: color 0.15s; text-decoration: none; text-decoration-thickness: 1.5px; text-underline-offset: 6px; }
+nav.primary a:hover, nav.primary a.active { color: var(--ink); text-decoration: underline; }
 .head-cta { background: var(--ink); color: var(--bg); padding: 10px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; transition: background 0.15s; white-space: nowrap; }
 .head-cta:hover { background: #000; }
 @media (max-width: 900px) { nav.primary { display: none; } }
@@ -467,4 +467,17 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
   align-self: center;
   margin: 0 4px;
   list-style: none;
+}
+
+
+/* HEADER NAV UNDERLINE ON HOVER (dropdown triggers) */
+.dropdown-trigger .trigger-text {
+  text-decoration: none;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+.has-dropdown:hover .dropdown-trigger .trigger-text,
+.has-dropdown:focus-within .dropdown-trigger .trigger-text,
+.dropdown-trigger.active .trigger-text {
+  text-decoration: underline;
 }
