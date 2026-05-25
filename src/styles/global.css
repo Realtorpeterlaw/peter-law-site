@@ -481,3 +481,9 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .dropdown-trigger.active .trigger-text {
   text-decoration: underline;
 }
+
+/* Anchor-link scroll offset for sticky header (prevents heading cut-off when jumping via TOC links) */
+.prose-body h2,
+.prose-body h3 {
+  scroll-margin-top: 100px;
+}
