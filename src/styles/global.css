@@ -161,7 +161,12 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .newsletter-inner .section-eyebrow { margin-bottom: 18px; }
 .newsletter-inner h2.section-h { margin-bottom: 18px; }
 .newsletter-inner .section-lead { max-width: 560px; margin: 0 auto 32px; }
-.newsletter-embed { display: flex; justify-content: center; min-height: 88px; }
+.newsletter-form { display: flex; gap: 8px; justify-content: center; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+.newsletter-form input[type="email"] { flex: 1; min-width: 220px; padding: 14px 18px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); font-size: 15px; font-family: inherit; color: var(--ink); }
+.newsletter-form input[type="email"]:focus { outline: none; border-color: var(--ink); }
+.newsletter-form button { padding: 14px 24px; cursor: pointer; border: none; white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 480px) { .newsletter-form { flex-direction: column; } .newsletter-form button { width: 100%; justify-content: center; } }
 .newsletter-trust { font-size: 13px; color: var(--ink-mute); margin-top: 18px; }
 @media (max-width: 720px) { .newsletter { padding: 72px 0; } }
 

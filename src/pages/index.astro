@@ -100,9 +100,13 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <div class="section-eyebrow">Monthly Market Report</div>
         <h2 class="section-h">What's actually happening with Toronto rentals.</h2>
         <p class="section-lead">Short, free, no sales pitch. Once a month, only when there's something worth saying — rent control updates, neighborhood trends, what newcomers are paying right now.</p>
-        <div class="newsletter-embed">
-          <iframe src="https://embeds.beehiiv.com/512a665e-d813-48a7-a7bb-8d46cdad874d" frameborder="0" scrolling="no" style="margin:0;border-radius:4px;background-color:transparent;width:100%;min-width:280px;max-width:520px;height:88px;" title="Subscribe to the Monthly Market Report"></iframe>
-        </div>
+        <form class="newsletter-form" method="GET" action="https://peters-newsletter-469474.beehiiv.com/subscribe">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input id="newsletter-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            <button type="submit" class="btn-primary">Subscribe
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
         <p class="newsletter-trust">Unsubscribe anytime. Your email isn't shared with anyone.</p>
       </div>
     </div>
