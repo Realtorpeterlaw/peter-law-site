@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="CMHC Insurance Calculator | Peter Law"
+  description="Calculate your CMHC mortgage insurance premium for a high-ratio Canadian mortgage. Includes Ontario PST on the premium."
+  bodyClass="calc-page"
+>
+  <TopBar />
+  <Header active="sales" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">CMHC insurance calculator</div>
+      <h1>What's your CMHC insurance premium?</h1>
+      <p>If your down payment is less than 20%, you need mortgage default insurance (CMHC, Sagen, or Canada Guaranty). The premium is added to your mortgage. In Ontario, PST on the premium is paid upfront at closing.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/payment-calculator">Payment</a></li>
+            <li><a href="/affordability-calculator">Affordability</a></li>
+            <li><a href="/land-transfer-tax-calculator">Land Transfer Tax</a></li>
+            <li><a href="/cmhc-insurance-calculator">CMHC Insurance</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="cmhc-price">Purchase price</label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-price" type="number" value="700000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="cmhc-down">Down payment</label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-down" type="number" value="50000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="cmhc-province">Province</label>
+                <select id="cmhc-province">
+                  <option value="ON" selected>Ontario (8% PST on premium)</option>
+                  <option value="QC">Quebec (9% PST)</option>
+                  <option value="SK">Saskatchewan (6% PST)</option>
+                  <option value="OTHER">Other province (no PST)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">CMHC premium</span>
+                <span id="cmhc-premium">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>Loan-to-value (LTV)</span><strong id="cmhc-ltv">0%</strong></div>
+                <div class="row"><span>Down payment %</span><strong id="cmhc-downpct">0%</strong></div>
+                <div class="row"><span>Premium rate applied</span><strong id="cmhc-rate">—</strong></div>
+                <div class="row"><span>Mortgage before premium</span><strong id="cmhc-mortgage-before">$0</strong></div>
+                <div class="row"><span>Total mortgage (incl. premium)</span><strong id="cmhc-mortgage-after">$0</strong></div>
+                <div class="row" id="cmhc-pst-row" style="display:none;"><span>PST on premium (paid at closing)</span><strong id="cmhc-pst">$0</strong></div>
+              </div>
+              <p id="cmhc-warning" style="display:none; margin-top:16px; padding:12px 16px; background:#fff4d6; border:1px solid #e6c757; color:#6b5300; border-radius:4px; font-size:13px;"></p>
+            </div>
+            <p class="calc-disclaimer">For illustrative purposes only. Premium rates shown are CMHC standard rates for owner-occupied homes; commercial or rental properties have different rates. Sagen and Canada Guaranty are alternative insurers with similar (but not identical) pricing. Minimum down payment in Canada: 5% on first $500,000 + 10% on portion above. Maximum insurable purchase price: $1.5M (as of late 2024).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Tight down payment?" lead="There are smart ways to structure a high-ratio mortgage. Let's talk through your options before you commit." />
+  <Footer />
+
+  <script>
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n) || n < 0) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 2 });
+    }
+    function premiumRate(ltv) {
+      // CMHC standard premium rates as of 2024 (owner-occupied, std amort)
+      if (ltv > 95) return null;
+      if (ltv > 90) return 0.0400;
+      if (ltv > 85) return 0.0310;
+      if (ltv > 80) return 0.0280;
+      return 0;
+    }
+    function minDownPayment(price) {
+      // 5% on first $500k, 10% on remainder up to $1.5M (above $1.5M: not insurable, need 20%)
+      if (price > 1500000) return price * 0.20;
+      if (price <= 500000) return price * 0.05;
+      return 500000 * 0.05 + (price - 500000) * 0.10;
+    }
+    function update() {
+      const price = parseFloat(document.getElementById('cmhc-price').value) || 0;
+      const down = parseFloat(document.getElementById('cmhc-down').value) || 0;
+      const prov = document.getElementById('cmhc-province').value;
+      const mortgageBefore = Math.max(0, price - down);
+      const ltv = price > 0 ? (mortgageBefore / price) * 100 : 0;
+      const downPct = price > 0 ? (down / price) * 100 : 0;
+      const rate = premiumRate(ltv);
+      const minDp = minDownPayment(price);
+
+      document.getElementById('cmhc-ltv').textContent = ltv.toFixed(2) + '%';
+      document.getElementById('cmhc-downpct').textContent = downPct.toFixed(2) + '%';
+      document.getElementById('cmhc-mortgage-before').textContent = fmtCAD(mortgageBefore);
+
+      const warn = document.getElementById('cmhc-warning');
+      if (price > 1500000 && ltv > 80) {
+        warn.style.display = 'block';
+        warn.textContent = 'Properties above $1.5M cannot be insured. You\'ll need at least 20% down (' + fmtCAD(price*0.20) + ').';
+      } else if (ltv > 95) {
+        warn.style.display = 'block';
+        warn.textContent = 'LTV exceeds 95%. You need at least 5% down on the first $500k and 10% on the portion above. Minimum down: ' + fmtCAD(minDp) + '.';
+      } else if (down < minDp && price > 0) {
+        warn.style.display = 'block';
+        warn.textContent = 'Down payment below Canadian minimum (' + fmtCAD(minDp) + ').';
+      } else {
+        warn.style.display = 'none';
+      }
+
+      if (rate === null || rate === 0) {
+        document.getElementById('cmhc-rate').textContent = rate === 0 ? '0% (no insurance required)' : '— (not eligible)';
+        document.getElementById('cmhc-premium').textContent = fmtCAD(0);
+        document.getElementById('cmhc-mortgage-after').textContent = fmtCAD(mortgageBefore);
+        document.getElementById('cmhc-pst-row').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('cmhc-rate').textContent = (rate * 100).toFixed(2) + '% of mortgage';
+      const premium = mortgageBefore * rate;
+      document.getElementById('cmhc-premium').textContent = fmtCAD(premium);
+      document.getElementById('cmhc-mortgage-after').textContent = fmtCAD(mortgageBefore + premium);
+
+      const pstRates = { ON: 0.08, QC: 0.09, SK: 0.06, OTHER: 0 };
+      const pst = premium * (pstRates[prov] || 0);
+      if (pst > 0) {
+        document.getElementById('cmhc-pst').textContent = fmtCAD(pst);
+        document.getElementById('cmhc-pst-row').style.display = 'flex';
+      } else {
+        document.getElementById('cmhc-pst-row').style.display = 'none';
+      }
+    }
+    document.querySelectorAll('#cmhc-price,#cmhc-down,#cmhc-province').forEach(el => {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    });
+    update();
+  </script>
+</BaseLayout>

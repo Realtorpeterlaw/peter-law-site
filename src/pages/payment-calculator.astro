@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Mortgage Payment Calculator (Canadian) | Peter Law"
+  description="Calculate your monthly mortgage payment using Canadian semi-annual compounding. Free, accurate, no signup."
+  bodyClass="calc-page"
+>
+  <TopBar />
+  <Header active="sales" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Mortgage payment calculator</div>
+      <h1>What will your mortgage payment be?</h1>
+      <p>Uses Canadian semi-annual compounding (the actual way Canadian mortgages work). Enter your numbers — results update as you type.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/payment-calculator">Payment</a></li>
+            <li><a href="/affordability-calculator">Affordability</a></li>
+            <li><a href="/land-transfer-tax-calculator">Land Transfer Tax</a></li>
+            <li><a href="/cmhc-insurance-calculator">CMHC Insurance</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="pc-price">Purchase price</label>
+                <div class="input-prefix" data-prefix="$"><input id="pc-price" type="number" value="800000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="pc-down">Down payment</label>
+                <div class="input-prefix" data-prefix="$"><input id="pc-down" type="number" value="160000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="pc-rate">Interest rate <span class="hint">(% per year)</span></label>
+                <input id="pc-rate" type="number" value="5.0" min="0" max="20" step="0.01">
+              </div>
+              <div class="calc-field">
+                <label for="pc-amort">Amortization <span class="hint">(years)</span></label>
+                <select id="pc-amort">
+                  <option value="25" selected>25 years</option>
+                  <option value="30">30 years</option>
+                  <option value="20">20 years</option>
+                  <option value="15">15 years</option>
+                  <option value="10">10 years</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="pc-freq">Payment frequency</label>
+                <select id="pc-freq">
+                  <option value="12" selected>Monthly</option>
+                  <option value="24">Semi-monthly</option>
+                  <option value="26">Bi-weekly</option>
+                  <option value="52">Weekly</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">Your payment</span>
+                <span id="pc-payment">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>Mortgage amount</span><strong id="pc-mortgage">$0</strong></div>
+                <div class="row"><span>Total payments over term</span><strong id="pc-total">$0</strong></div>
+                <div class="row"><span>Total interest paid</span><strong id="pc-interest">$0</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer">For illustrative purposes only. Does not include property tax, insurance, condo fees, or CMHC insurance. Canadian mortgages compound semi-annually. Actual rates and payments vary by lender. Consult a licensed mortgage professional before making decisions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Want a real quote?" lead="I work with a few mortgage brokers I trust. Tell me your situation and I'll connect you with the right person." />
+  <Footer />
+
+  <script>
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n)) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 });
+    }
+    function calcCanadianPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || annualRatePct < 0 || amortYears <= 0) return 0;
+      const semiAnnualRate = annualRatePct / 200;
+      const periodicRate = Math.pow(1 + semiAnnualRate, 2 / paymentsPerYear) - 1;
+      const n = amortYears * paymentsPerYear;
+      if (periodicRate === 0) return principal / n;
+      return principal * periodicRate / (1 - Math.pow(1 + periodicRate, -n));
+    }
+    function update() {
+      const price = parseFloat(document.getElementById('pc-price').value) || 0;
+      const down = parseFloat(document.getElementById('pc-down').value) || 0;
+      const rate = parseFloat(document.getElementById('pc-rate').value) || 0;
+      const amort = parseFloat(document.getElementById('pc-amort').value) || 25;
+      const freq = parseFloat(document.getElementById('pc-freq').value) || 12;
+      const mortgage = Math.max(0, price - down);
+      const payment = calcCanadianPayment(mortgage, rate, amort, freq);
+      const totalPaid = payment * amort * freq;
+      const totalInterest = totalPaid - mortgage;
+      document.getElementById('pc-mortgage').textContent = fmtCAD(mortgage);
+      document.getElementById('pc-payment').textContent = fmtCAD(payment) + ' / ' + ({12:'mo',24:'half-mo',26:'2wk',52:'wk'})[freq];
+      document.getElementById('pc-total').textContent = fmtCAD(totalPaid);
+      document.getElementById('pc-interest').textContent = fmtCAD(totalInterest);
+    }
+    document.querySelectorAll('#pc-price,#pc-down,#pc-rate,#pc-amort,#pc-freq').forEach(el => {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    });
+    update();
+  </script>
+</BaseLayout>

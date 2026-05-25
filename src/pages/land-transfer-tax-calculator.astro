@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Land Transfer Tax Calculator (Ontario + Toronto MLTT) | Peter Law"
+  description="Calculate Ontario Land Transfer Tax and Toronto Municipal LTT, with the first-time homebuyer rebate. Free, accurate, no signup."
+  bodyClass="calc-page"
+>
+  <TopBar />
+  <Header active="sales" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Land transfer tax calculator</div>
+      <h1>What's your Land Transfer Tax bill?</h1>
+      <p>Ontario LTT plus Toronto Municipal LTT (if applicable), with the first-time buyer rebate applied. Updates as you type.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/payment-calculator">Payment</a></li>
+            <li><a href="/affordability-calculator">Affordability</a></li>
+            <li><a href="/land-transfer-tax-calculator">Land Transfer Tax</a></li>
+            <li><a href="/cmhc-insurance-calculator">CMHC Insurance</a></li>
+            <li><a href="/land-transfer-tax">LTT explained</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="ltt-price">Purchase price</label>
+                <div class="input-prefix" data-prefix="$"><input id="ltt-price" type="number" value="900000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-toronto">Property is in City of Toronto?</label>
+                <select id="ltt-toronto">
+                  <option value="yes" selected>Yes — Toronto (both LTTs apply)</option>
+                  <option value="no">No — elsewhere in Ontario</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-firsttime">First-time homebuyer?</label>
+                <select id="ltt-firsttime">
+                  <option value="no" selected>No</option>
+                  <option value="yes">Yes (rebate applies)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-type">Property type</label>
+                <select id="ltt-type">
+                  <option value="single" selected>Single-family residence (1 or 2 units)</option>
+                  <option value="other">Other (3+ units, commercial, etc.)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">Total Land Transfer Tax</span>
+                <span id="ltt-total">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>Ontario provincial LTT</span><strong id="ltt-ontario">$0</strong></div>
+                <div class="row" id="ltt-toronto-row"><span>Toronto Municipal LTT</span><strong id="ltt-mltt">$0</strong></div>
+                <div class="row" id="ltt-rebate-row" style="display:none;"><span>First-time buyer rebate</span><strong id="ltt-rebate">$0</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer">For illustrative purposes only. Toronto MLTT luxury tiers (above $3M) apply only to single-family residences. Non-Resident Speculation Tax (25%) not included — applies to non-residents purchasing in Ontario. Always confirm final figures with your real estate lawyer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Worried about closing costs?" lead="LTT, legal fees, title insurance, adjustments — closing costs in Toronto easily run 2-4% of purchase price. Let's plan your full budget before you write an offer." />
+  <Footer />
+
+  <script>
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n) || n < 0) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 2 });
+    }
+    // Ontario LTT
+    function ontarioLTT(price, isSingleFamily) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [
+        [55000, 0.005],
+        [250000, 0.010],
+        [400000, 0.015],
+        [2000000, 0.020],
+      ];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxableInBracket = Math.min(price, upper) - lower;
+          if (taxableInBracket > 0) t += taxableInBracket * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) {
+        // 2.5% on amount above $2M (single family only); otherwise stays at 2%
+        if (isSingleFamily) {
+          t += (price - 2000000) * 0.025;
+        } else {
+          t += (price - 2000000) * 0.020;
+        }
+      }
+      return t;
+    }
+    // Toronto MLTT
+    function torontoMLTT(price, isSingleFamily) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [
+        [55000, 0.005],
+        [250000, 0.010],
+        [400000, 0.015],
+        [2000000, 0.020],
+      ];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxableInBracket = Math.min(price, upper) - lower;
+          if (taxableInBracket > 0) t += taxableInBracket * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) {
+        if (isSingleFamily) {
+          // 2024 luxury tiers (single family only)
+          const luxuryBrackets = [
+            [3000000, 0.025],
+            [4000000, 0.035],
+            [5000000, 0.045],
+            [10000000, 0.055],
+            [20000000, 0.065],
+          ];
+          let lo = 2000000;
+          for (const [up, rate] of luxuryBrackets) {
+            if (price > lo) {
+              const inBracket = Math.min(price, up) - lo;
+              if (inBracket > 0) t += inBracket * rate;
+            }
+            lo = up;
+          }
+          if (price > 20000000) t += (price - 20000000) * 0.075;
+        } else {
+          t += (price - 2000000) * 0.020;
+        }
+      }
+      return t;
+    }
+    function update() {
+      const price = parseFloat(document.getElementById('ltt-price').value) || 0;
+      const inToronto = document.getElementById('ltt-toronto').value === 'yes';
+      const isFirstTime = document.getElementById('ltt-firsttime').value === 'yes';
+      const isSingle = document.getElementById('ltt-type').value === 'single';
+
+      const ont = ontarioLTT(price, isSingle);
+      const mltt = inToronto ? torontoMLTT(price, isSingle) : 0;
+
+      let ontRebate = 0;
+      let mlttRebate = 0;
+      if (isFirstTime) {
+        ontRebate = Math.min(4000, ont);
+        if (inToronto) mlttRebate = Math.min(4475, mltt);
+      }
+      const totalRebate = ontRebate + mlttRebate;
+      const total = ont + mltt - totalRebate;
+
+      document.getElementById('ltt-ontario').textContent = fmtCAD(ont - ontRebate) + (ontRebate > 0 ? ' (after rebate)' : '');
+      document.getElementById('ltt-mltt').textContent = fmtCAD(mltt - mlttRebate) + (mlttRebate > 0 ? ' (after rebate)' : '');
+      document.getElementById('ltt-total').textContent = fmtCAD(total);
+      document.getElementById('ltt-toronto-row').style.display = inToronto ? 'flex' : 'none';
+      document.getElementById('ltt-rebate-row').style.display = isFirstTime ? 'flex' : 'none';
+      document.getElementById('ltt-rebate').textContent = '−' + fmtCAD(totalRebate);
+    }
+    document.querySelectorAll('#ltt-price,#ltt-toronto,#ltt-firsttime,#ltt-type').forEach(el => {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    });
+    update();
+  </script>
+</BaseLayout>

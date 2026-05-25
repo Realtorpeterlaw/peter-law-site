@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 interface Props {
-  active?: 'rental' | 'about' | 'contact' | null;
+  active?: 'rental' | 'sales' | 'about' | 'contact' | null;
   ctaLabel?: string;
 }
 const { active = null, ctaLabel = "Book a viewing call" } = Astro.props;
@@ -23,6 +23,21 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/rental-tour">Rental Tour</a></li>
             <li><a href="/rent-control">Rent Control</a></li>
             <li><a href="/lease-renewal">Lease Renewal</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <span class={'dropdown-trigger' + (active === 'sales' ? ' active' : '')} tabindex="0" aria-haspopup="true">
+            Sales
+            <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <ul class="dropdown-menu">
+            <li><a href="/free-home-evaluation">Free Home Evaluation</a></li>
+            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
+            <li><a href="/payment-calculator">Payment Calculator</a></li>
+            <li><a href="/affordability-calculator">Affordability Calculator</a></li>
+            <li><a href="/land-transfer-tax-calculator">Land Transfer Tax Calculator</a></li>
+            <li><a href="/cmhc-insurance-calculator">CMHC Insurance Calculator</a></li>
+            <li><a href="/home-insurance-quoter">Home Insurance Quoter</a></li>
           </ul>
         </li>
         <li><a href="/about" class={active === 'about' ? 'active' : ''}>About</a></li>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Land Transfer Tax in Ontario — Buyer Guide | Peter Law"
+  description="What Land Transfer Tax is, how it's calculated in Ontario, the additional Toronto MLTT, and the first-time homebuyer rebate."
+  bodyClass="guide-page"
+>
+  <TopBar />
+  <Header active="sales" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Sales resource</div>
+      <h1>Land Transfer Tax in Ontario.</h1>
+      <p>What it is, how it's calculated, who pays it, and how the first-time homebuyer rebate works.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#what">What it is</a></li>
+            <li><a href="#provincial">Ontario LTT brackets</a></li>
+            <li><a href="#toronto">Toronto MLTT (additional)</a></li>
+            <li><a href="#rebate">First-time buyer rebate</a></li>
+            <li><a href="#nrst">Non-Resident Speculation Tax</a></li>
+            <li><a href="#when">When you pay</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">What Land Transfer Tax is</h2>
+          <p>Land Transfer Tax (LTT) is a one-time tax paid by the buyer when a property changes hands. It's calculated as a percentage of the purchase price using a bracketed/marginal rate system, similar to income tax.</p>
+          <p>If you're buying in Toronto specifically, you pay both <strong>provincial LTT</strong> (collected by the Ontario government) AND <strong>Toronto Municipal LTT (MLTT)</strong> on top — essentially double LTT.</p>
+
+          <h2 id="provincial">Ontario LTT brackets</h2>
+          <p>The provincial rates apply everywhere in Ontario:</p>
+          <ul class="bullets">
+            <li><strong>0.5%</strong> on the first $55,000</li>
+            <li><strong>1.0%</strong> on $55,001 to $250,000</li>
+            <li><strong>1.5%</strong> on $250,001 to $400,000</li>
+            <li><strong>2.0%</strong> on $400,001 to $2,000,000</li>
+            <li><strong>2.5%</strong> on amounts above $2,000,000 <em>(single family residences only)</em></li>
+          </ul>
+
+          <h2 id="toronto">Toronto MLTT (additional)</h2>
+          <p>If the property is within the City of Toronto, you also pay the Municipal Land Transfer Tax. The brackets mirror the Ontario LTT brackets, plus additional luxury tiers introduced in 2024 for properties above $3 million.</p>
+          <div class="callout"><strong>Practical example:</strong> Buying a $900,000 condo in downtown Toronto, your total LTT is roughly $27,950 ($13,950 provincial + $13,950 municipal), before any rebate.</div>
+
+          <h2 id="rebate">First-time homebuyer rebate</h2>
+          <p>Both Ontario and Toronto offer rebates for first-time buyers:</p>
+          <ul class="bullets">
+            <li><strong>Ontario:</strong> up to <strong>$4,000</strong> off your provincial LTT</li>
+            <li><strong>Toronto:</strong> up to <strong>$4,475</strong> off your municipal LTT</li>
+            <li>You qualify if you're 18+, a Canadian citizen or PR, have never owned a home anywhere in the world (and neither has your spouse during your marriage), and will occupy the home as your primary residence within 9 months</li>
+          </ul>
+
+          <h2 id="nrst">Non-Resident Speculation Tax (NRST)</h2>
+          <p>If you're not a Canadian citizen or permanent resident, an additional <strong>25%</strong> tax applies on the purchase price in Ontario. Some exemptions exist (international students, foreign nationals working in Ontario, refugees). Always consult a real estate lawyer before purchasing as a non-resident.</p>
+
+          <h2 id="when">When and how you pay</h2>
+          <p>LTT is paid at <strong>closing</strong>, through your real estate lawyer. It's not a separate cheque you write to the government — it's part of the closing costs the lawyer collects from you and remits to the relevant tax authorities.</p>
+          <p>Plan for LTT as part of your "closing costs" along with legal fees, title insurance, and adjustments. For a Toronto purchase, total closing costs typically run 2-4% of the purchase price.</p>
+
+          <h2 id="calculator">Calculate your LTT</h2>
+          <p><a href="/land-transfer-tax-calculator" style="text-decoration: underline; text-underline-offset: 3px;">Use the Land Transfer Tax calculator →</a></p>
+
+          <p class="legal-note">This guide is informational, not financial or legal advice. Tax rates and rebate amounts are subject to change. Always confirm current figures with your real estate lawyer or the Ministry of Finance before closing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Buying in Toronto?" lead="Closing costs catch a lot of first-time buyers off guard. Let's talk through your full budget before you make an offer." />
+  <Footer />
+</BaseLayout>
