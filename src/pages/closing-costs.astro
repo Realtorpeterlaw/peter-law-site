@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Closing Costs in Ontario — What Buyers Pay | Peter Law"
+  description="Complete breakdown of closing costs when buying a home in Toronto and Ontario: LTT, legal fees, title insurance, adjustments, CMHC PST, and total estimates."
+  bodyClass="guide-page"
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Buyer resource</div>
+      <h1>What you'll actually pay at closing.</h1>
+      <p>Down payment isn't the whole story. Closing costs in Toronto easily run 2-4% of purchase price. Here's the full list, with realistic numbers.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#ltt">Land Transfer Tax</a></li>
+            <li><a href="#legal">Legal fees</a></li>
+            <li><a href="#title">Title insurance</a></li>
+            <li><a href="#adjustments">Adjustments</a></li>
+            <li><a href="#cmhc">CMHC premium &amp; PST</a></li>
+            <li><a href="#inspection">Home inspection</a></li>
+            <li><a href="#condo">Status certificate (condos)</a></li>
+            <li><a href="#tarion">Tarion (new builds)</a></li>
+            <li><a href="#moving">Moving costs</a></li>
+            <li><a href="#total">Total estimate</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="ltt">Land Transfer Tax (the big one)</h2>
+          <p>Provincial + (in Toronto) Municipal Land Transfer Tax. This is usually the largest single closing cost.</p>
+          <ul class="bullets">
+            <li>Outside Toronto: roughly <strong>1.5-2%</strong> of price</li>
+            <li>In Toronto: roughly <strong>3-4%</strong> of price (both LTTs apply)</li>
+            <li>First-time buyer rebate: up to $4,000 (ON) + $4,475 (Toronto)</li>
+          </ul>
+          <p><a href="/land-transfer-tax">Read the full LTT guide and use the calculator →</a></p>
+
+          <h2 id="legal">Legal fees</h2>
+          <p>Your real estate lawyer's fee for handling the transaction.</p>
+          <ul class="bullets">
+            <li><strong>Typical range:</strong> $1,500 – $2,500 for a straightforward transaction</li>
+            <li><strong>Higher for complex deals:</strong> new construction, multiple titles, foreign buyer involvement, or rush closings</li>
+            <li>HST applies on the legal fee (13% in Ontario)</li>
+          </ul>
+          <div class="callout"><strong>Get quotes upfront.</strong> Legal fees vary widely between lawyers. Ask for a flat fee quote that includes disbursements, not just the legal labor.</div>
+
+          <h2 id="title">Title insurance</h2>
+          <p>One-time premium that protects you against title defects, survey errors, and certain forms of fraud. Often required by lenders.</p>
+          <ul class="bullets">
+            <li><strong>Typical cost:</strong> $300 – $500 for a residential property</li>
+            <li>Paid through your lawyer at closing</li>
+            <li>Lasts as long as you own the property</li>
+          </ul>
+
+          <h2 id="adjustments">Property tax and utility adjustments</h2>
+          <p>If the seller has prepaid property taxes or utilities for periods after your closing date, you reimburse them on a prorated basis (or vice versa if they're in arrears).</p>
+          <ul class="bullets">
+            <li><strong>Typical range:</strong> $500 – $3,000 depending on closing date and amounts</li>
+            <li>Your lawyer calculates these — you don't have to</li>
+          </ul>
+
+          <h2 id="cmhc">CMHC premium &amp; PST (if down payment under 20%)</h2>
+          <p>If you're putting less than 20% down, you need mortgage default insurance (CMHC, Sagen, or Canada Guaranty).</p>
+          <ul class="bullets">
+            <li><strong>Premium:</strong> 2.80% to 4.00% of mortgage amount, depending on LTV (added to your mortgage)</li>
+            <li><strong>PST on the premium:</strong> in Ontario, you pay 8% PST on the premium <strong>upfront at closing</strong> (this is the part that hits your closing cost budget, not the premium itself)</li>
+            <li>Example: $500k mortgage × 4.00% premium = $20,000 premium → $1,600 PST due at closing</li>
+          </ul>
+
+          <h2 id="inspection">Home inspection</h2>
+          <p>Optional but recommended for resale homes. Skipped less often for condos, since the status certificate review covers building-level concerns.</p>
+          <ul class="bullets">
+            <li><strong>Typical cost:</strong> $400 – $600 for a condo; $500 – $800 for a house</li>
+            <li>Paid directly to the inspector, usually within 24-48 hours of booking</li>
+          </ul>
+
+          <h2 id="condo">Status certificate review (condos only)</h2>
+          <ul class="bullets">
+            <li><strong>Certificate fee:</strong> $100 (regulated maximum, paid to the condo corporation)</li>
+            <li><strong>Lawyer's review fee:</strong> $200 – $500 to interpret it for you</li>
+          </ul>
+
+          <h2 id="tarion">Tarion warranty (new construction only)</h2>
+          <p>If you're buying a new build from a registered Ontario builder, Tarion enrollment fees apply (the builder usually pays, but check your contract). Roughly $300 – $1,500 depending on home price.</p>
+
+          <h2 id="moving">Moving costs</h2>
+          <p>Not technically a "closing cost" but happens the same week. Budget realistically:</p>
+          <ul class="bullets">
+            <li>DIY (truck rental + boxes): $300 – $600</li>
+            <li>Local professional movers (Toronto): $800 – $2,000</li>
+            <li>Long-distance: $3,000+</li>
+          </ul>
+
+          <h2 id="total">Total estimate (realistic budgeting)</h2>
+          <p>For most Toronto buyers:</p>
+          <div class="callout">
+            <strong>Plan for 2-4% of your purchase price as closing costs, on top of your down payment.</strong>
+            <br><br>
+            On a $700,000 condo, that's $14,000 – $28,000 over and above your down payment. The big swing is LTT (Toronto vs. not) and whether you need CMHC PST.
+          </div>
+          <p>For first-time buyers, the rebates take some sting out of LTT, but the rest is real. Don't drain your down payment to the dollar — keep a closing-cost reserve.</p>
+
+          <p class="legal-note">This guide is informational, not financial or legal advice. Confirm specific amounts with your real estate lawyer and mortgage professional before closing. Numbers in this guide are typical ranges as of late 2024 — fees and rates change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Want a real number for your situation?" lead="Tell me your purchase price and circumstances and I'll give you a realistic closing-cost estimate within an hour. Free, no obligation." />
+  <Footer />
+</BaseLayout>

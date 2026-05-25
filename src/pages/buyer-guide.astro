@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Buyer Guide — Buying a Home in Toronto | Peter Law"
+  description="Plain-English guide to buying a home in Toronto: getting financing ready, making offers, conditions, closing, and the mistakes that cost first-time buyers the most."
+  bodyClass="guide-page"
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Buyer resource</div>
+      <h1>Buying a home in Toronto.</h1>
+      <p>The full process, plain-language, no fluff. From "I'm thinking about it" to "here are my keys."</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#ready">Get financing ready</a></li>
+            <li><a href="#search">Search smart</a></li>
+            <li><a href="#offer">Making an offer</a></li>
+            <li><a href="#conditions">The conditions period</a></li>
+            <li><a href="#closing">Closing day</a></li>
+            <li><a href="#after">After you move in</a></li>
+            <li><a href="#mistakes">Common mistakes</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="ready">Get financing ready (before you search)</h2>
+          <p>The single biggest mistake buyers make in Toronto is starting their search before getting their financing in order. By the time they find something they like, they're 1-2 weeks behind a buyer who came ready, and that's the difference between winning and losing the unit.</p>
+          <h3>What "ready" means:</h3>
+          <ul class="bullets">
+            <li><strong>Pre-approval</strong> (not pre-qualification — there's a difference). A mortgage broker or lender confirms in writing how much they'll lend you, locks in a rate for 90-120 days.</li>
+            <li><strong>Down payment in cash, in your account</strong> — not in a TFSA you'll need to liquidate, not "I'll borrow it from family later." Available, today.</li>
+            <li><strong>Closing costs budgeted</strong> — typically 2-4% of purchase price on top of down payment (<a href="/closing-costs">see Closing Costs</a>).</li>
+            <li><strong>A real estate lawyer chosen</strong> — line them up before you make an offer, not after.</li>
+          </ul>
+          <div class="callout"><strong>How much can you afford?</strong> Use the <a href="/affordability-calculator">affordability calculator</a> to see the maximum a lender will approve based on your income and debts. Then talk to a mortgage broker — actual approval often differs from the calculator by 5-15%.</div>
+
+          <h2 id="search">Search smart</h2>
+          <p>Toronto inventory turns over fast. Strong listings get 5-10 offers within days. Slow listings linger because something's off (price, condition, building issue). Both situations require strategy.</p>
+          <ul class="bullets">
+            <li><strong>Set up an MLS alert</strong> — instant notifications when new listings match your criteria. Most realtors offer this free to active clients.</li>
+            <li><strong>Tour widely at first</strong> — see 8-10 places in your range, even ones that don't seem perfect. You learn the market by walking through it.</li>
+            <li><strong>Don't fall in love with photos.</strong> Wide-angle lenses lie. Always see it in person.</li>
+            <li><strong>Visit at different times.</strong> A condo facing a quiet street at noon may be facing a loud bar district at 11pm.</li>
+          </ul>
+
+          <h2 id="offer">Making an offer</h2>
+          <p>An offer in Ontario uses OREA Form 100 (Agreement of Purchase and Sale). Key components:</p>
+          <ul class="bullets">
+            <li><strong>Price</strong> — your offered amount</li>
+            <li><strong>Deposit</strong> — typically 5% of purchase price, certified cheque or wire, due within 24 hours of acceptance</li>
+            <li><strong>Closing date</strong> — usually 30-90 days from acceptance</li>
+            <li><strong>Conditions</strong> — financing, inspection, status certificate (condos), etc. — see next section</li>
+            <li><strong>Inclusions/exclusions</strong> — what stays (appliances, fixtures, window coverings)</li>
+            <li><strong>Irrevocability period</strong> — how long the seller has to accept (usually 24-48 hours)</li>
+          </ul>
+          <div class="callout"><strong>In multiple-offer situations</strong>, sellers often request "firm" offers (no conditions). This is risky for the buyer but sometimes necessary to win. Discuss with your realtor and lawyer before going firm.</div>
+
+          <h2 id="conditions">The conditions period</h2>
+          <p>If your offer has conditions (usually 5-10 business days), this is when you verify everything:</p>
+          <ul class="bullets">
+            <li><strong>Financing condition</strong> — confirm with your lender that they'll actually fund the mortgage at the agreed price</li>
+            <li><strong>Inspection condition</strong> — hire a licensed home inspector ($400-600), get a written report</li>
+            <li><strong>Status certificate review (condos)</strong> — your lawyer reviews the condo corp's financial health, reserve fund, special assessments, rules</li>
+            <li><strong>Insurance quote</strong> — confirm you can actually insure the property at a reasonable rate</li>
+          </ul>
+          <p>If any condition isn't met, you can walk away and get your deposit back. Once all conditions are waived, the deal is firm — backing out means losing your deposit and potentially being sued.</p>
+
+          <h2 id="closing">Closing day</h2>
+          <p>Closing happens at your lawyer's office. You'll:</p>
+          <ul class="bullets">
+            <li>Sign final mortgage documents</li>
+            <li>Pay closing costs (LTT, legal fees, adjustments) via certified cheque or wire</li>
+            <li>Wait while your lawyer registers the title transfer with the Land Registry</li>
+            <li>Receive your keys (usually late afternoon)</li>
+          </ul>
+          <p>Plan to be available all day. Most closings happen between 3 PM and 6 PM. Don't book movers for the morning of closing — push them to the next day, or evening at earliest.</p>
+
+          <h2 id="after">After you move in</h2>
+          <ul class="bullets">
+            <li><strong>Change the locks</strong> — non-negotiable. Previous tenants/owners may have made copies.</li>
+            <li><strong>Set up utilities</strong> — most need to be transferred or new accounts opened (Toronto Hydro, Enbridge for gas, Toronto Water if not included in condo fees)</li>
+            <li><strong>Update your address</strong> — driver's licence, banks, CRA, employer</li>
+            <li><strong>File your first-time buyer rebate</strong> if applicable — your lawyer should do this automatically at closing for the LTT rebate</li>
+            <li><strong>Keep every closing document</strong> — you'll need them for tax filings and eventually for resale</li>
+          </ul>
+
+          <h2 id="mistakes">Common mistakes (avoid these)</h2>
+          <p><strong>Underestimating closing costs.</strong> Plan 2-4% of price on top of down payment. Toronto buyers regularly forget MLTT exists and find themselves $13-15k short at closing.</p>
+          <p><strong>Buying before getting pre-approved.</strong> You'll lose offers to better-prepared buyers, then end up either over-leveraged or watching the market move while you scramble.</p>
+          <p><strong>Skipping the inspection to win a bidding war.</strong> Saving $500 on inspection while overpaying or buying a hidden $20,000 problem is bad math.</p>
+          <p><strong>Falling in love with the unit, not the building.</strong> The condo board, reserve fund, building age, and maintenance history matter more than the kitchen finishes. Read the status certificate.</p>
+          <p><strong>Going firm without understanding the consequences.</strong> No-conditions offers can win bidding wars but if your financing falls through, you lose your deposit and may be sued for the seller's loss.</p>
+
+          <p class="legal-note">This guide is informational, not financial or legal advice. Talk to a licensed mortgage professional, real estate lawyer, and an experienced realtor before making decisions specific to your situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Thinking about buying?" lead="A 15-minute call to talk through your situation — what you can afford, what's realistic in your price range, what neighborhoods make sense. No commitment." />
+  <Footer />
+</BaseLayout>
