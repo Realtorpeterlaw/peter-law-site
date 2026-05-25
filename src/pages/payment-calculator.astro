@@ -7,7 +7,7 @@ import CTASection from '../components/CTASection.astro';
 ---
 <BaseLayout
   title="Mortgage Calculator (Canadian) | Peter Law"
-  description="Calculate your monthly mortgage payment using Canadian semi-annual compounding. Free, accurate, no signup."
+  description="Comprehensive Canadian mortgage calculator. Compare 3 scenarios side by side. CMHC, Land Transfer Tax, cash to close, monthly expenses, amortization schedule, and stress test — all built-in."
   bodyClass="calc-page"
 >
   <TopBar />
@@ -16,73 +16,120 @@ import CTASection from '../components/CTASection.astro';
   <section class="page-hero">
     <div class="wrap">
       <div class="eyebrow">Mortgage calculator</div>
-      <h1>What will your mortgage payment be?</h1>
-      <p>Find out how much your monthly payments, and interests will be.</p>
+      <h1>Compare 3 mortgage scenarios at once.</h1>
+      <p>Find out how much your monthly payments, and interests will be. Built for Canadian rules: semi-annual compounding, CMHC tiers, Ontario LTT, and federal stress test.</p>
     </div>
   </section>
 
-  <section class="major" style="padding-top: 32px;">
+  <section class="major" style="padding-top: 24px;">
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
           <h4>Buyer resources</h4>
           <ul>
             <li><a href="/buyer-guide">Buyer Guide</a></li>
-            <li><a href="/payment-calculator">Mortgage Calculator</a></li>
-            <li><a href="/affordability-calculator">Affordability Calculator</a></li>
+            <li><a href="/payment-calculator">Mortgage</a></li>
+            <li><a href="/affordability-calculator">Affordability</a></li>
             <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
             <li><a href="/closing-costs">Closing Costs</a></li>
           </ul>
         </aside>
         <div class="prose-body">
-          <div class="calc">
-            <div class="calc-fields">
-              <div class="calc-field">
-                <label for="pc-price">Purchase price</label>
-                <div class="input-prefix" data-prefix="$"><input id="pc-price" type="number" value="800000" min="0" step="1000"></div>
-              </div>
-              <div class="calc-field">
-                <label for="pc-down">Down payment</label>
-                <div class="input-prefix" data-prefix="$"><input id="pc-down" type="number" value="160000" min="0" step="1000"></div>
-              </div>
-              <div class="calc-field">
-                <label for="pc-rate">Interest rate <span class="hint">(% per year)</span></label>
-                <input id="pc-rate" type="number" value="5.0" min="0" max="20" step="0.01">
-              </div>
-              <div class="calc-field">
-                <label for="pc-amort">Amortization <span class="hint">(years)</span></label>
-                <select id="pc-amort">
-                  <option value="25" selected>25 years</option>
-                  <option value="30">30 years</option>
-                  <option value="20">20 years</option>
-                  <option value="15">15 years</option>
-                  <option value="10">10 years</option>
-                </select>
-              </div>
-              <div class="calc-field">
-                <label for="pc-freq">Payment frequency</label>
-                <select id="pc-freq">
-                  <option value="12" selected>Monthly</option>
-                  <option value="24">Semi-monthly</option>
-                  <option value="26">Bi-weekly</option>
-                  <option value="52">Weekly</option>
-                </select>
-              </div>
-            </div>
 
-            <div class="calc-result">
-              <div class="calc-result-main">
-                <span class="label">Your payment</span>
-                <span id="pc-payment">$0</span>
+          <!-- Shared inputs -->
+          <div class="mc-shared">
+            <h3>The basics (applies to all scenarios)</h3>
+            <div class="mc-shared-fields">
+              <div class="calc-field">
+                <label for="mc-price">Purchase price</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="number" value="800000" min="0" step="1000"></div>
               </div>
-              <div class="calc-result-breakdown">
-                <div class="row"><span>Mortgage amount</span><strong id="pc-mortgage">$0</strong></div>
-                <div class="row"><span>Total payments over term</span><strong id="pc-total">$0</strong></div>
-                <div class="row"><span>Total interest paid</span><strong id="pc-interest">$0</strong></div>
+              <div class="calc-field">
+                <label for="mc-toronto">Location</label>
+                <select id="mc-toronto">
+                  <option value="yes" selected>Toronto (both LTTs apply)</option>
+                  <option value="no">Elsewhere in Ontario</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="mc-fthb">First-time homebuyer?</label>
+                <select id="mc-fthb">
+                  <option value="no" selected>No</option>
+                  <option value="yes">Yes (rebate applies)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="mc-tax">Annual property tax</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="number" value="5500" min="0" step="100"></div>
+              </div>
+              <div class="calc-field">
+                <label for="mc-heat">Monthly heating/utilities</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="number" value="180" min="0" step="10"></div>
+              </div>
+              <div class="calc-field">
+                <label for="mc-condo">Monthly condo fee (if any)</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="number" value="0" min="0" step="50"></div>
               </div>
             </div>
-            <p class="calc-disclaimer">For illustrative purposes only. Does not include property tax, insurance, condo fees, or CMHC insurance. Canadian mortgages compound semi-annually. Actual rates and payments vary by lender. Consult a licensed mortgage professional before making decisions.</p>
           </div>
+
+          <!-- 3 scenarios -->
+          <div class="mc-scenarios" id="mc-scenarios"></div>
+
+          <!-- LTT block (shared, depends on price + Toronto + FTHB) -->
+          <div class="mc-ltt-block">
+            <h3>Land Transfer Tax (one-time, paid at closing)</h3>
+            <div class="mc-ltt-rows">
+              <div class="row"><span>Ontario provincial LTT</span><strong id="mc-ltt-ont">$0</strong></div>
+              <div class="row" id="mc-ltt-mltt-row"><span>Toronto Municipal LTT</span><strong id="mc-ltt-mltt">$0</strong></div>
+              <div class="row" id="mc-ltt-rebate-row" style="display:none;"><span>First-time buyer rebate</span><strong id="mc-ltt-rebate">−$0</strong></div>
+              <div class="row total"><span><strong>Total LTT due</strong></span><strong id="mc-ltt-total">$0</strong></div>
+            </div>
+          </div>
+
+          <!-- Cash to close per scenario -->
+          <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; margin-top: 36px; margin-bottom: 16px;">Cash needed to close (per scenario)</h2>
+          <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">Down payment + LTT + estimated legal/title + CMHC PST (if applicable). Doesn't include moving costs or inspection.</p>
+          <div class="mc-scenarios" id="mc-cash-scenarios"></div>
+
+          <!-- Monthly expenses collapsible -->
+          <details class="mc-collapsible">
+            <summary>Monthly expenses breakdown</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Mortgage payment + property tax + heating + condo fee. The full monthly carrying cost per scenario.</p>
+              <div class="mc-scenarios" id="mc-expenses-scenarios"></div>
+            </div>
+          </details>
+
+          <!-- Amortization schedule collapsible -->
+          <details class="mc-collapsible">
+            <summary>Amortization schedule (year by year)</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Principal vs. interest paid each year, plus remaining balance. Pick which scenario to view.</p>
+              <div class="mc-amort-tabs">
+                <button class="mc-amort-tab active" data-scenario="a" type="button">Scenario A</button>
+                <button class="mc-amort-tab" data-scenario="b" type="button">Scenario B</button>
+                <button class="mc-amort-tab" data-scenario="c" type="button">Scenario C</button>
+              </div>
+              <div style="overflow-x: auto;">
+                <table class="mc-table" id="mc-amort-table">
+                  <thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Total paid</th><th>Balance remaining</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+
+          <!-- Stress test collapsible -->
+          <details class="mc-collapsible">
+            <summary>Interest rate stress test</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">What if rates rise when you renew? Monthly payment for Scenario A at the contract rate, +1%, +2%, +3%.</p>
+              <div class="mc-stress-grid" id="mc-stress-grid"></div>
+            </div>
+          </details>
+
+          <p class="calc-disclaimer">For illustrative purposes only. Canadian mortgages compound semi-annually. CMHC premiums shown are standard rates (4.00% / 3.10% / 2.80%) for owner-occupied homes. Federal stress test rule uses the greater of (contract rate + 2%) or 5.25%. Actual rates and lender approvals vary. Consult a licensed mortgage professional before committing.</p>
         </div>
       </div>
     </div>
@@ -92,37 +139,337 @@ import CTASection from '../components/CTASection.astro';
   <Footer />
 
   <script>
-    function fmtCAD(n) {
+    // === FORMATTING ===
+    function fmtCAD(n, dp) {
+      if (dp === undefined) dp = 0;
       if (!isFinite(n) || isNaN(n)) return '$0';
-      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 });
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
     }
-    function calcCanadianPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
-      if (principal <= 0 || annualRatePct < 0 || amortYears <= 0) return 0;
-      const semiAnnualRate = annualRatePct / 200;
-      const periodicRate = Math.pow(1 + semiAnnualRate, 2 / paymentsPerYear) - 1;
+
+    // === CANADIAN MORTGAGE MATH ===
+    function periodicRate(annualRatePct, paymentsPerYear) {
+      const semiAnnual = annualRatePct / 200;
+      return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+    }
+    function periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || amortYears <= 0) return 0;
+      const r = periodicRate(annualRatePct, paymentsPerYear);
       const n = amortYears * paymentsPerYear;
-      if (periodicRate === 0) return principal / n;
-      return principal * periodicRate / (1 - Math.pow(1 + periodicRate, -n));
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
     }
+
+    // === CMHC PREMIUM ===
+    function cmhcPremiumRate(ltv) {
+      if (ltv > 95) return null;
+      if (ltv > 90) return 0.0400;
+      if (ltv > 85) return 0.0310;
+      if (ltv > 80) return 0.0280;
+      return 0;
+    }
+    function minDownPayment(price) {
+      if (price > 1500000) return price * 0.20;
+      if (price <= 500000) return price * 0.05;
+      return 500000 * 0.05 + (price - 500000) * 0.10;
+    }
+
+    // === LTT ===
+    function ontarioLTT(price) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxable = Math.min(price, upper) - lower;
+          if (taxable > 0) t += taxable * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) t += (price - 2000000) * 0.025;
+      return t;
+    }
+    function torontoMLTT(price) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxable = Math.min(price, upper) - lower;
+          if (taxable > 0) t += taxable * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) {
+        const luxury = [[3000000, 0.025], [4000000, 0.035], [5000000, 0.045], [10000000, 0.055], [20000000, 0.065]];
+        let lo = 2000000;
+        for (const [up, rate] of luxury) {
+          if (price > lo) {
+            const inB = Math.min(price, up) - lo;
+            if (inB > 0) t += inB * rate;
+          }
+          lo = up;
+        }
+        if (price > 20000000) t += (price - 20000000) * 0.075;
+      }
+      return t;
+    }
+
+    // === DEFAULT SCENARIOS ===
+    const defaults = {
+      a: { downPct: 5, rate: 5.0, amort: 25, freq: 12, label: 'A — 5% down' },
+      b: { downPct: 10, rate: 5.0, amort: 25, freq: 12, label: 'B — 10% down' },
+      c: { downPct: 20, rate: 5.0, amort: 25, freq: 12, label: 'C — 20% down' },
+    };
+    const freqLabel = { 12: '/mo', 24: '/semi-mo', 26: '/bi-wk', 52: '/wk' };
+
+    // === BUILD INITIAL UI ===
+    function buildScenarioCard(id, def) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(' — ')[1] || ''}</span></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>Down payment</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000"></div></div>
+            <div class="mc-row"><label>Down %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5"></div>
+          </div>
+          <div class="mc-row"><label>Interest rate (%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05"></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>Amortization</label>
+              <select data-input="${id}-amort">
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 years</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 years</option>
+                <option value="20">20 years</option>
+                <option value="15">15 years</option>
+                <option value="10">10 years</option>
+              </select>
+            </div>
+            <div class="mc-row"><label>Frequency</label>
+              <select data-input="${id}-freq">
+                <option value="12" selected>Monthly</option>
+                <option value="24">Semi-monthly</option>
+                <option value="26">Bi-weekly</option>
+                <option value="52">Weekly</option>
+              </select>
+            </div>
+          </div>
+          <div class="mc-row mc-output"><label>CMHC insurance premium</label><span class="value" data-output="${id}-cmhc">$0</span></div>
+          <div class="mc-row mc-output"><label>Total mortgage</label><span class="value" data-output="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-payment"><label>Mortgage payment</label><span class="value" data-output="${id}-pmt">$0</span><span class="freq" data-output="${id}-freqLabel"></span></div>
+        </div>`;
+    }
+
+    function buildCashCard(id) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
+          <div class="mc-row mc-output"><label>Down payment</label><span class="value" data-cash="${id}-down">$0</span></div>
+          <div class="mc-row mc-output"><label>Land Transfer Tax</label><span class="value" data-cash="${id}-ltt">$0</span></div>
+          <div class="mc-row mc-output"><label>Legal fees + title (est.)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
+          <div class="mc-row mc-output"><label>CMHC PST (Ontario, on premium)</label><span class="value" data-cash="${id}-pst">$0</span></div>
+          <div class="mc-row mc-payment"><label>Total cash at closing</label><span class="value" data-cash="${id}-total">$0</span></div>
+        </div>`;
+    }
+
+    function buildExpenseCard(id) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4></div>
+          <div class="mc-row mc-output"><label>Mortgage (monthly)</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-output"><label>Property tax</label><span class="value" data-exp="${id}-tax">$0</span></div>
+          <div class="mc-row mc-output"><label>Heating / utilities</label><span class="value" data-exp="${id}-heat">$0</span></div>
+          <div class="mc-row mc-output"><label>Condo fee</label><span class="value" data-exp="${id}-condo">$0</span></div>
+          <div class="mc-row mc-payment"><label>Total monthly carrying</label><span class="value" data-exp="${id}-total">$0</span></div>
+        </div>`;
+    }
+
+    document.getElementById('mc-scenarios').innerHTML = ['a','b','c'].map(id => buildScenarioCard(id, defaults[id])).join('');
+    document.getElementById('mc-cash-scenarios').innerHTML = ['a','b','c'].map(id => buildCashCard(id)).join('');
+    document.getElementById('mc-expenses-scenarios').innerHTML = ['a','b','c'].map(id => buildExpenseCard(id)).join('');
+
+    // === SYNC down $/% inputs ===
+    function syncDown(id, changed) {
+      const price = parseFloat(document.getElementById('mc-price').value) || 0;
+      const dollarInput = document.querySelector(`[data-input="${id}-down-dollar"]`);
+      const pctInput = document.querySelector(`[data-input="${id}-down-pct"]`);
+      if (changed === 'dollar') {
+        const val = parseFloat(dollarInput.value) || 0;
+        pctInput.value = price > 0 ? (val / price * 100).toFixed(2) : 0;
+      } else if (changed === 'pct') {
+        const val = parseFloat(pctInput.value) || 0;
+        dollarInput.value = Math.round(price * val / 100);
+      } else {
+        // recalculate dollar from current pct (e.g. when price changes)
+        const val = parseFloat(pctInput.value) || 0;
+        dollarInput.value = Math.round(price * val / 100);
+      }
+    }
+
+    // === MAIN UPDATE ===
     function update() {
-      const price = parseFloat(document.getElementById('pc-price').value) || 0;
-      const down = parseFloat(document.getElementById('pc-down').value) || 0;
-      const rate = parseFloat(document.getElementById('pc-rate').value) || 0;
-      const amort = parseFloat(document.getElementById('pc-amort').value) || 25;
-      const freq = parseFloat(document.getElementById('pc-freq').value) || 12;
-      const mortgage = Math.max(0, price - down);
-      const payment = calcCanadianPayment(mortgage, rate, amort, freq);
-      const totalPaid = payment * amort * freq;
-      const totalInterest = totalPaid - mortgage;
-      document.getElementById('pc-mortgage').textContent = fmtCAD(mortgage);
-      document.getElementById('pc-payment').textContent = fmtCAD(payment) + ' / ' + ({12:'mo',24:'half-mo',26:'2wk',52:'wk'})[freq];
-      document.getElementById('pc-total').textContent = fmtCAD(totalPaid);
-      document.getElementById('pc-interest').textContent = fmtCAD(totalInterest);
+      const price = parseFloat(document.getElementById('mc-price').value) || 0;
+      const inToronto = document.getElementById('mc-toronto').value === 'yes';
+      const isFTHB = document.getElementById('mc-fthb').value === 'yes';
+      const annualTax = parseFloat(document.getElementById('mc-tax').value) || 0;
+      const monthlyHeat = parseFloat(document.getElementById('mc-heat').value) || 0;
+      const monthlyCondo = parseFloat(document.getElementById('mc-condo').value) || 0;
+
+      // LTT
+      const ont = ontarioLTT(price);
+      const mltt = inToronto ? torontoMLTT(price) : 0;
+      let ontRebate = 0, mlttRebate = 0;
+      if (isFTHB) {
+        ontRebate = Math.min(4000, ont);
+        if (inToronto) mlttRebate = Math.min(4475, mltt);
+      }
+      const totalRebate = ontRebate + mlttRebate;
+      const ltt = ont + mltt - totalRebate;
+      document.getElementById('mc-ltt-ont').textContent = fmtCAD(ont - ontRebate);
+      document.getElementById('mc-ltt-mltt').textContent = fmtCAD(mltt - mlttRebate);
+      document.getElementById('mc-ltt-mltt-row').style.display = inToronto ? 'flex' : 'none';
+      document.getElementById('mc-ltt-total').textContent = fmtCAD(ltt);
+      document.getElementById('mc-ltt-rebate-row').style.display = isFTHB ? 'flex' : 'none';
+      document.getElementById('mc-ltt-rebate').textContent = '−' + fmtCAD(totalRebate);
+
+      // Per scenario
+      const results = {};
+      ['a','b','c'].forEach(id => {
+        const down = parseFloat(document.querySelector(`[data-input="${id}-down-dollar"]`).value) || 0;
+        const downPct = parseFloat(document.querySelector(`[data-input="${id}-down-pct"]`).value) || 0;
+        const rate = parseFloat(document.querySelector(`[data-input="${id}-rate"]`).value) || 0;
+        const amort = parseFloat(document.querySelector(`[data-input="${id}-amort"]`).value) || 25;
+        const freq = parseFloat(document.querySelector(`[data-input="${id}-freq"]`).value) || 12;
+
+        const mortgageBefore = Math.max(0, price - down);
+        const ltv = price > 0 ? mortgageBefore / price * 100 : 0;
+        const premRate = cmhcPremiumRate(ltv);
+        const premium = (premRate === null || premRate === 0) ? 0 : mortgageBefore * premRate;
+        const totalMortgage = mortgageBefore + premium;
+        const pmt = periodicPayment(totalMortgage, rate, amort, freq);
+
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premium > 0 ? fmtCAD(premium) : '$0 (not required)';
+        document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
+        document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
+        document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
+        const tagEl = document.querySelector(`[data-tag="${id}"]`);
+        if (tagEl) tagEl.textContent = downPct.toFixed(1) + '% down · ' + rate + '%';
+
+        // Cash to close
+        const legal = 2000;
+        const pstOnPrem = premium * 0.08; // Ontario PST on CMHC premium
+        const totalCash = down + ltt + legal + pstOnPrem;
+        document.querySelector(`[data-cash="${id}-down"]`).textContent = fmtCAD(down);
+        document.querySelector(`[data-cash="${id}-ltt"]`).textContent = fmtCAD(ltt);
+        document.querySelector(`[data-cash="${id}-pst"]`).textContent = fmtCAD(pstOnPrem);
+        document.querySelector(`[data-cash="${id}-total"]`).textContent = fmtCAD(totalCash);
+        const cashTag = document.querySelector(`[data-cash-tag="${id}"]`);
+        if (cashTag) cashTag.textContent = downPct.toFixed(1) + '% down';
+
+        // Monthly expenses
+        const monthlyMortgage = freq === 12 ? pmt : pmt * freq / 12;
+        const monthlyTax = annualTax / 12;
+        const monthlyTotal = monthlyMortgage + monthlyTax + monthlyHeat + monthlyCondo;
+        document.querySelector(`[data-exp="${id}-mortgage"]`).textContent = fmtCAD(monthlyMortgage);
+        document.querySelector(`[data-exp="${id}-tax"]`).textContent = fmtCAD(monthlyTax);
+        document.querySelector(`[data-exp="${id}-heat"]`).textContent = fmtCAD(monthlyHeat);
+        document.querySelector(`[data-exp="${id}-condo"]`).textContent = fmtCAD(monthlyCondo);
+        document.querySelector(`[data-exp="${id}-total"]`).textContent = fmtCAD(monthlyTotal);
+
+        results[id] = { mortgage: totalMortgage, rate, amort, freq, pmt };
+      });
+
+      // Amortization schedule (current selected tab)
+      const activeTab = document.querySelector('.mc-amort-tab.active');
+      if (activeTab) renderAmortSchedule(activeTab.getAttribute('data-scenario'), results);
+
+      // Stress test (Scenario A)
+      renderStressTest(results.a);
     }
-    document.querySelectorAll('#pc-price,#pc-down,#pc-rate,#pc-amort,#pc-freq').forEach(el => {
-      el.addEventListener('input', update);
+
+    function renderAmortSchedule(id, results) {
+      const s = results[id];
+      if (!s || s.mortgage <= 0) return;
+      const r = periodicRate(s.rate, s.freq);
+      const n = s.amort * s.freq;
+      let balance = s.mortgage;
+      const yearly = []; // {year, principal, interest, balance}
+      let currentYearP = 0, currentYearI = 0;
+      for (let i = 1; i <= n; i++) {
+        const interest = balance * r;
+        const principal = s.pmt - interest;
+        balance -= principal;
+        currentYearP += principal;
+        currentYearI += interest;
+        if (i % s.freq === 0 || i === n) {
+          yearly.push({
+            year: Math.ceil(i / s.freq),
+            principal: currentYearP,
+            interest: currentYearI,
+            total: currentYearP + currentYearI,
+            balance: Math.max(0, balance),
+          });
+          currentYearP = 0;
+          currentYearI = 0;
+        }
+      }
+      const tbody = document.querySelector('#mc-amort-table tbody');
+      tbody.innerHTML = yearly.map(y =>
+        `<tr><td>Year ${y.year}</td><td>${fmtCAD(y.principal)}</td><td>${fmtCAD(y.interest)}</td><td>${fmtCAD(y.total)}</td><td>${fmtCAD(y.balance)}</td></tr>`
+      ).join('');
+    }
+
+    function renderStressTest(s) {
+      if (!s) return;
+      const grid = document.getElementById('mc-stress-grid');
+      const variants = [
+        { rate: s.rate, label: 'Current', baseClass: 'base' },
+        { rate: s.rate + 1, label: '+1%' },
+        { rate: s.rate + 2, label: '+2%' },
+        { rate: s.rate + 3, label: '+3%' },
+      ];
+      const basePmt = periodicPayment(s.mortgage, s.rate, s.amort, 12);
+      grid.innerHTML = variants.map(v => {
+        const pmt = periodicPayment(s.mortgage, v.rate, s.amort, 12);
+        const delta = pmt - basePmt;
+        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mo' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mo' : '—';
+        return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label} (${v.rate.toFixed(2)}%)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
+      }).join('');
+    }
+
+    // === EVENT WIRING ===
+    function wireDownSync(id) {
+      const dollar = document.querySelector(`[data-input="${id}-down-dollar"]`);
+      const pct = document.querySelector(`[data-input="${id}-down-pct"]`);
+      dollar.addEventListener('input', () => { syncDown(id, 'dollar'); update(); });
+      pct.addEventListener('input', () => { syncDown(id, 'pct'); update(); });
+    }
+    ['a','b','c'].forEach(id => {
+      syncDown(id); // initialize dollar from pct
+      wireDownSync(id);
+      document.querySelectorAll(`[data-input^="${id}-"]`).forEach(el => {
+        if (!el.dataset.input.endsWith('-down-dollar') && !el.dataset.input.endsWith('-down-pct')) {
+          el.addEventListener('input', update);
+          el.addEventListener('change', update);
+        }
+      });
+    });
+    ['mc-price','mc-toronto','mc-fthb','mc-tax','mc-heat','mc-condo'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        if (id === 'mc-price') ['a','b','c'].forEach(s => syncDown(s));
+        update();
+      });
       el.addEventListener('change', update);
     });
+
+    document.querySelectorAll('.mc-amort-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.mc-amort-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        update();
+      });
+    });
+
     update();
   </script>
 </BaseLayout>

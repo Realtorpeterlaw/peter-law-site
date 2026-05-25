@@ -498,3 +498,65 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
   padding-left: 62px; /* aligns roughly with the "Peter Law" wordmark portion of the SVG */
   margin-top: -4px;
 }
+
+/* COMPREHENSIVE MORTGAGE CALCULATOR */
+.mc-shared { background: var(--bg-warm); padding: 24px 28px; border-radius: 6px; margin-bottom: 24px; }
+.mc-shared h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 16px; margin-bottom: 14px; color: var(--ink); }
+.mc-shared-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 720px) { .mc-shared-fields { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .mc-shared-fields { grid-template-columns: 1fr; } }
+
+.mc-scenarios { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 24px; }
+@media (max-width: 1100px) { .mc-scenarios { grid-template-columns: 1fr; gap: 18px; } }
+
+.mc-scenario { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.mc-scenario-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.mc-scenario-header h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 18px; color: var(--ink); }
+.mc-scenario-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+.mc-row { display: flex; flex-direction: column; gap: 4px; }
+.mc-row label { font-size: 12px; color: var(--ink-mute); font-weight: 500; letter-spacing: 0.02em; }
+.mc-row input, .mc-row select { font-family: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--bg); color: var(--ink); width: 100%; }
+.mc-row input:focus, .mc-row select:focus { outline: none; border-color: var(--ink); background: var(--surface); }
+.mc-row.mc-output { background: var(--bg-warm); padding: 8px 12px; border-radius: 4px; }
+.mc-row.mc-output label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+.mc-row.mc-output .value { font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 500; color: var(--ink); }
+.mc-row.mc-payment { background: var(--ink); color: var(--bg); padding: 14px 16px; border-radius: 4px; margin-top: 4px; }
+.mc-row.mc-payment label { color: #d4cfc4; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; }
+.mc-row.mc-payment .value { font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 500; color: var(--bg); line-height: 1.1; }
+.mc-row.mc-payment .freq { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: #b8b3a8; font-weight: 400; margin-top: 2px; }
+.mc-row-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.mc-ltt-block { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 24px; margin-bottom: 24px; }
+.mc-ltt-block h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 18px; margin-bottom: 14px; }
+.mc-ltt-rows { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.mc-ltt-rows .row { display: flex; justify-content: space-between; }
+.mc-ltt-rows .row strong { color: var(--ink); }
+.mc-ltt-rows .row.total { padding-top: 10px; margin-top: 4px; border-top: 1px solid var(--rule); font-size: 16px; }
+
+.mc-collapsible { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 14px; }
+.mc-collapsible summary { cursor: pointer; padding: 18px 24px; list-style: none; display: flex; justify-content: space-between; align-items: center; font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 500; }
+.mc-collapsible summary::-webkit-details-marker { display: none; }
+.mc-collapsible summary::after { content: '+'; font-size: 22px; color: var(--ink-mute); font-weight: 300; }
+.mc-collapsible[open] summary::after { content: '−'; }
+.mc-collapsible-body { padding: 0 24px 24px; border-top: 1px solid var(--rule); padding-top: 18px; }
+
+.mc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.mc-table th, .mc-table td { text-align: right; padding: 6px 8px; }
+.mc-table th { font-weight: 600; color: var(--ink-mute); border-bottom: 1px solid var(--rule); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; }
+.mc-table th:first-child, .mc-table td:first-child { text-align: left; }
+.mc-table tr:nth-child(even) { background: var(--bg-warm); }
+
+.mc-amort-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.mc-amort-tab { padding: 6px 14px; font-size: 12px; font-weight: 500; background: var(--bg); border: 1px solid var(--rule); border-radius: 4px; cursor: pointer; color: var(--ink-soft); }
+.mc-amort-tab.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.mc-stress-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+@media (max-width: 720px) { .mc-stress-grid { grid-template-columns: 1fr 1fr; } }
+.mc-stress-cell { background: var(--bg-warm); padding: 16px; border-radius: 4px; text-align: center; }
+.mc-stress-cell .rate { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.mc-stress-cell .pmt { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 500; margin-top: 6px; }
+.mc-stress-cell .delta { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+.mc-stress-cell.base { background: var(--ink); color: var(--bg); }
+.mc-stress-cell.base .rate { color: #b8b3a8; }
+.mc-stress-cell.base .pmt { color: var(--bg); }
+.mc-stress-cell.base .delta { color: #b8b3a8; }
