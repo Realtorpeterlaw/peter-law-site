@@ -195,3 +195,72 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .contact-list a:hover { text-decoration-color: var(--ink); }
 .contact-lbl { display: block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 4px; font-weight: 600; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+/* HEADER DROPDOWN */
+.has-dropdown { position: relative; }
+.dropdown-trigger {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 0;
+  user-select: none;
+  transition: color 0.15s;
+}
+.dropdown-trigger.active,
+.has-dropdown:hover .dropdown-trigger,
+.has-dropdown:focus-within .dropdown-trigger {
+  color: var(--ink);
+}
+.dropdown-trigger .caret { transition: transform 0.2s; }
+.has-dropdown:hover .dropdown-trigger .caret,
+.has-dropdown:focus-within .dropdown-trigger .caret { transform: rotate(180deg); }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 6px 0;
+  min-width: 200px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.15s, visibility 0s 0.15s, transform 0.15s;
+  z-index: 60;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.15s, visibility 0s, transform 0.15s;
+}
+.dropdown-menu li { margin: 0; }
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.dropdown-menu a:hover { color: var(--ink); background: var(--bg-warm); }
+
+/* Resource guide pages share styling with prose-body */
+.guide-page .prose-body h2 { scroll-margin-top: 90px; }
+.guide-page .resource-links { background: var(--bg-warm); padding: 24px 28px; border-radius: 4px; margin-top: 32px; max-width: 660px; }
+.guide-page .resource-links h3 { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-top: 0; margin-bottom: 12px; }
+.guide-page .resource-links ul { margin-bottom: 0; }
+.guide-page .resource-links a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
+.guide-page .resource-links a:hover { text-decoration-color: var(--ink); }
+.guide-page .legal-note { font-size: 13px; color: var(--ink-mute); font-style: italic; margin-top: 32px; padding: 16px 0; border-top: 1px solid var(--rule); max-width: 660px; }

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Lease Renewal in Ontario — Your Rights as a Tenant | Peter Law"
+  description="What happens when your Ontario lease ends, your right to stay month-to-month, rent increase rules at renewal, and what to do if your landlord wants you out."
+  bodyClass="guide-page"
+>
+
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Tenant resource</div>
+      <h1>Lease renewal in Ontario.</h1>
+      <p>What happens when your fixed term ends, your right to stay, rent rules at renewal, and what to do if your landlord wants you out.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#default">The default: month-to-month</a></li>
+            <li><a href="#stay">Your right to stay</a></li>
+            <li><a href="#rent">Rent at renewal</a></li>
+            <li><a href="#endout">If the landlord wants you out</a></li>
+            <li><a href="#leave">If you want to leave</a></li>
+            <li><a href="#scenarios">Common scenarios</a></li>
+            <li><a href="#help">Where to get help</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="default">The default: month-to-month</h2>
+          <p>In Ontario, when your fixed-term lease ends (usually after 12 months), <strong>it doesn't actually end</strong>. By default, it automatically converts to a month-to-month tenancy on the same terms. You don't need to sign anything new. You don't need the landlord's permission.</p>
+          <p>This is one of the strongest tenant protections in Canada. Many tenants don't know it and end up signing renewals or moving out when they didn't have to.</p>
+
+          <h2 id="stay">Your right to stay</h2>
+          <p>The landlord <strong>cannot force you to sign a new fixed-term lease</strong>. If they pressure you ("you have to renew or move out"), they're wrong. You can simply continue paying rent month-to-month indefinitely.</p>
+          <p>The landlord also cannot end your tenancy just because the fixed term ended. They need <strong>legal grounds</strong> — see below.</p>
+
+          <h2 id="rent">Rent at renewal</h2>
+          <ul class="bullets">
+            <li>Rent can be increased only <strong>once every 12 months</strong>.</li>
+            <li>For rent-controlled units, the increase is capped at the annual guideline. (<a href="/rent-control">See the Rent Control guide.</a>)</li>
+            <li>You must get <strong>90 days' written notice</strong> of any increase, on the proper LTB Form N1.</li>
+            <li>If the landlord offers a new fixed-term lease at a higher rent, you can refuse and stay month-to-month at your current rent (subject to the same N1 increase rules).</li>
+          </ul>
+
+          <h2 id="endout">If the landlord wants you out</h2>
+          <p>A landlord can only end your tenancy on specific legal grounds, with the proper LTB notice form:</p>
+          <ul class="bullets">
+            <li><strong>N4</strong> — Non-payment of rent</li>
+            <li><strong>N5</strong> — Damage, disturbance, or too many occupants</li>
+            <li><strong>N12</strong> — Landlord, purchaser, or close family wants to move in (requires <strong>one month's rent compensation</strong>)</li>
+            <li><strong>N13</strong> — Demolition, major repairs, or conversion (requires <strong>three months' rent compensation</strong> or right of first refusal)</li>
+          </ul>
+          <div class="callout"><strong>If you receive any of these:</strong> don't move out immediately. They're notices, not court orders. You have the right to a hearing at the LTB before any eviction can happen.</div>
+
+          <h2 id="leave">If you want to leave</h2>
+          <ul class="bullets">
+            <li>Give <strong>60 days' written notice</strong> on Form N9.</li>
+            <li>The end date must be the <strong>last day of a rental month</strong> (e.g., the 30th or 31st).</li>
+            <li>For fixed-term leases, the earliest end date is the day after the fixed term ends.</li>
+            <li>You can also end early by mutual agreement with the landlord (Form N11), or by assigning/subletting (with the landlord's reasonable consent).</li>
+          </ul>
+
+          <h2 id="scenarios">Common scenarios</h2>
+          <p><strong>"My landlord sent me a new lease to sign."</strong> You're not required to sign it. You can stay month-to-month on the existing terms.</p>
+          <p><strong>"My landlord raised the rent more than the guideline."</strong> If your unit is rent-controlled, dispute the increase via Form T1 at the LTB. You have one year to file.</p>
+          <p><strong>"My landlord says they're selling, I have to leave."</strong> Selling the property doesn't end your tenancy. The new owner inherits the lease. Only an N12 (signed by the buyer's intent to occupy) can end it — and you're entitled to one month's rent compensation.</p>
+
+          <div class="resource-links" id="help">
+            <h3>Where to get help</h3>
+            <ul class="bullets">
+              <li><a href="https://tribunalsontario.ca/ltb/forms/" target="_blank" rel="noopener">LTB Forms (N1, N4, N9, N11, N12, N13, T1, T2)</a></li>
+              <li><a href="https://stepstojustice.ca/legal-topic/housing-law/" target="_blank" rel="noopener">Steps to Justice — Tenant rights guides</a></li>
+              <li><a href="https://www.legalaid.on.ca/" target="_blank" rel="noopener">Legal Aid Ontario</a> — if you qualify</li>
+              <li><a href="https://www.acto.ca/get-help/" target="_blank" rel="noopener">ACTO — Tenant Duty Counsel</a></li>
+            </ul>
+          </div>
+
+          <p class="legal-note">This guide is informational, not legal advice. For your specific situation, talk to a paralegal, a community legal clinic, or the LTB directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Got a tricky renewal situation?" lead="If you've received an N9, N12, or N13 — or you're not sure how to respond to your landlord — let's talk through it. I deal with this every week." />
+  <Footer />
+</BaseLayout>

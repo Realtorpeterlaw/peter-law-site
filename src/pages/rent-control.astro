@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="Rent Control in Ontario — Tenant Guide | Peter Law"
+  description="Plain-English guide to Ontario rent control: what's covered, the annual guideline, Above-Guideline Increases, and how to dispute an illegal rent increase."
+  bodyClass="guide-page"
+>
+
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Tenant resource</div>
+      <h1>Rent control in Ontario.</h1>
+      <p>What's covered, what's not, how the annual cap actually works, and what to do if your landlord raises rent illegally.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#what">What rent control is</a></li>
+            <li><a href="#covered">Which units are covered</a></li>
+            <li><a href="#guideline">The annual guideline</a></li>
+            <li><a href="#agi">Above-Guideline Increases</a></li>
+            <li><a href="#illegal">If your increase is illegal</a></li>
+            <li><a href="#help">Where to get help</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="what">What rent control is</h2>
+          <p>Ontario's <em>Residential Tenancies Act</em> caps how much a landlord can raise the rent on an existing tenant from one year to the next. The cap is called the <strong>annual rent increase guideline</strong>, and it's set by the provincial government every year.</p>
+
+          <h2 id="covered">Which units are covered</h2>
+          <p>Rent control applies to most residential units in Ontario that were <strong>first occupied as a residence before November 15, 2018</strong>.</p>
+          <p>Units that were first occupied for residential use <strong>on or after November 15, 2018</strong> are <strong>exempt</strong>. The landlord of an exempt unit can raise the rent by any amount at the end of a fixed-term lease.</p>
+          <div class="callout"><strong>Why this matters before you sign:</strong> a brand-new condo built in 2020 is not rent-controlled. A 1970s purpose-built apartment usually is. Over a multi-year stay, the difference can be thousands of dollars. I'll tell you which category a unit falls into before you commit.</div>
+
+          <h2 id="guideline">The annual guideline</h2>
+          <ul class="bullets">
+            <li>The increase guideline is published every year by the Ontario Ministry of Municipal Affairs and Housing.</li>
+            <li>Rent can only be increased <strong>once every 12 months</strong>.</li>
+            <li>You must receive <strong>90 days' written notice</strong> of any increase, on the proper LTB form (<em>N1 — Notice of Rent Increase</em>).</li>
+            <li>An increase that doesn't follow these rules is not legally enforceable.</li>
+          </ul>
+
+          <h2 id="agi">Above-Guideline Increases (AGIs)</h2>
+          <p>A landlord can apply to the Landlord and Tenant Board (LTB) for a rent increase above the annual guideline. AGIs are usually granted for:</p>
+          <ul class="bullets">
+            <li>Extraordinary increases in municipal taxes or utilities</li>
+            <li>Capital expenditures (major repairs or replacements to the building)</li>
+            <li>New or expanded services to the building</li>
+          </ul>
+          <p>AGIs require LTB approval and tenants have the right to dispute the application.</p>
+
+          <h2 id="illegal">If your rent increase is illegal</h2>
+          <ul class="bullets">
+            <li>Don't pay the new amount until you've confirmed it's valid.</li>
+            <li>File a <strong>T1 application</strong> with the LTB to dispute it.</li>
+            <li>You have <strong>one year</strong> from the date of the increase to file.</li>
+            <li>Get the original notice in writing and keep all records.</li>
+          </ul>
+
+          <div class="resource-links">
+            <h3>Where to get help</h3>
+            <ul class="bullets">
+              <li><a href="https://tribunalsontario.ca/ltb/" target="_blank" rel="noopener">Landlord and Tenant Board</a> — forms, applications, hearings</li>
+              <li><a href="https://www.ontario.ca/page/renting-ontario-your-rights" target="_blank" rel="noopener">Ontario.ca — Renting in Ontario: Your rights</a></li>
+              <li><a href="https://stepstojustice.ca/legal-topic/housing-law/" target="_blank" rel="noopener">Steps to Justice — Housing law guides</a></li>
+              <li><a href="https://www.acto.ca/" target="_blank" rel="noopener">Advocacy Centre for Tenants Ontario (ACTO)</a></li>
+            </ul>
+          </div>
+
+          <p class="legal-note">This guide is informational, not legal advice. For your specific situation, talk to a paralegal, a community legal clinic, or the LTB directly. I'm a registered real estate sales representative, not a lawyer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Need a second set of eyes?" lead="If your landlord just raised your rent and you're not sure if it's legal, send me the notice. I'll tell you in 10 minutes whether it's valid or worth disputing." />
+  <Footer />
+</BaseLayout>
