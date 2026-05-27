@@ -560,3 +560,8 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .mc-stress-cell.base .rate { color: #b8b3a8; }
 .mc-stress-cell.base .pmt { color: var(--bg); }
 .mc-stress-cell.base .delta { color: #b8b3a8; }
+
+/* Proof bar item as link */
+a.proof-item.proof-link { display: block; color: inherit; text-decoration: none; transition: color 0.15s; }
+a.proof-item.proof-link:hover { color: var(--ink); }
+a.proof-item.proof-link:hover .proof-num { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
