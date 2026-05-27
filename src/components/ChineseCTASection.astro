@@ -1,0 +1,34 @@
+---
+interface Props {
+  heading?: string;
+  lead?: string;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaLabel?: string;
+}
+const {
+  heading = "准备好了,我们就开始。",
+  lead = "15 分钟的免费通话。无任何义务。我会告诉您在这个市场上您的搜索会是什么样子,需要准备什么,以及我是否是适合帮助您的人。",
+  ctaTitle = "预约通话",
+  ctaSubtitle = "15 分钟 · Google Meet 或电话 · 免费",
+  ctaLabel = "选择时间",
+} = Astro.props;
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<section class="cta-section" id="book">
+  <div class="wrap cta-grid">
+    <div>
+      <h2>{heading}</h2>
+      <p>{lead}</p>
+    </div>
+    <div class="cta-box">
+      <h3>{ctaTitle}</h3>
+      <p>{ctaSubtitle}</p>
+      <a href={BOOKING_URL} class="btn-primary">
+        {ctaLabel}
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="alt">或短信 647-888-8472</span>
+    </div>
+  </div>
+</section>

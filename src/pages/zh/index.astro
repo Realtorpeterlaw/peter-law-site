@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout
+  title="Peter Law - 多伦多房地产"
+  description="Peter Law | 多伦多双语房地产专家。协助租客在多伦多找到获批、可入住的家。从搜寻到拿钥匙的全程服务。致电 647-888-8472。"
+  zh={true}
+>
+
+  <ChineseTopBar />
+  <ChineseHeader />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">多伦多 · 市中心 · 湖滨 · 大多伦多</div>
+        <h1 class="hero-h">多伦多房地产,<em>用对的方式。</em></h1>
+        <p class="hero-sub">协助新移民、专业人士和家庭轻松应对多伦多租赁市场。快速获批,顺利入住。前 Airbnb 房东,400+ 客户好评,提供酒店式服务体验。</p>
+        <div class="hero-ctas hero-ctas-stacked">
+          <a href={BOOKING_URL} class="btn-primary">
+            预约 15 分钟通话
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/zh/free-home-evaluation" class="btn-outline">
+            免费房屋估值
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/zh/for-renters" class="btn-secondary">或者 — 了解我的租赁服务流程</a>
+        </div>
+        <div class="hero-trust">无任何压力,无任何义务。首次通话即可获得实用建议。</div>
+      </div>
+      <div><div class="hero-photo"><img src="/photos/peter-portrait.webp" alt="Peter Law,多伦多双语房地产中介,身后是 CN 塔。" width="1500" height="1887" loading="eager" /></div></div>
+    </div>
+  </section>
+
+  <section class="proof-bar">
+    <div class="wrap proof-grid">
+      <div class="proof-item"><div class="proof-num">400+</div><div class="proof-lbl">Airbnb 客户好评</div></div>
+      <div class="proof-item"><div class="proof-num">EN · 中文</div><div class="proof-lbl">双语服务</div></div>
+      <div class="proof-item"><div class="proof-num">RECO</div><div class="proof-lbl">安省注册</div></div>
+      <div class="proof-item"><div class="proof-num">HomeLife</div><div class="proof-lbl">Golconda Realty Inc.</div></div>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">选择我的理由</div>
+        <h2 class="section-h">每一次搬家,都是别人人生中的重要时刻。我用心对待。</h2>
+        <p class="section-lead">进入房地产前,我做了五年 Airbnb 房东。四百份评价,只遵循一条原则:体验就是产品。我把同样的标准带到每一笔租赁和销售中。</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-quote">
+          <span class="why-quote-mark">"</span>
+          <p>大多数中介只会带你看房。我的工作是确保你走进去时有备而来,走出来时心中有数,绝不会错过任何细节。这就是酒店式服务,也是我的工作。</p>
+          <div class="attr">— Peter</div>
+        </div>
+        <div class="why-points">
+          <div class="why-point"><div class="why-point-num">01</div><h3>看房前先获批</h3><p>在看任何一个单位之前,我们先把所有文件准备好。在多伦多市场,你只有几小时(而非几天)做决定。准备充分才是制胜之道。</p></div>
+          <div class="why-point"><div class="why-point-num">02</div><h3>双语服务</h3><p>中英双语。租约、租金管制、押金规定。用清晰的语言为您解释。</p></div>
+          <div class="why-point"><div class="why-point-num">03</div><h3>专属管家服务</h3><p>登记表格、入住前检查、装修联系人、单元介绍。拿到钥匙不是工作的终点。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="major process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">合作流程</div>
+        <h2 class="section-h">从首次通话到拿到钥匙,<br>通常 2-3 周或更短。</h2>
+      </div>
+      <div class="process-steps">
+        <div class="step"><div class="step-num">第 01 步</div><h3>15 分钟介绍通话</h3><p>免费,无义务。聊聊您的需求:社区、价格、时间、必备条件、不能接受的条件。我会告诉您今天的市场实情和需要准备什么。</p></div>
+        <div class="step"><div class="step-num">第 02 步</div><h3>准备申请材料</h3><p>信用、就业、推荐人、押金。我们打包成一份让房东当天就说"是"的申请材料。</p></div>
+        <div class="step"><div class="step-num">第 03 步</div><h3>看对的房</h3><p>我会在带您看房前先筛选市场。您会看到 3-5 个值得花时间的单位,而不是 30 个。我们一起看;我会做笔记以便诚实比较。</p></div>
+        <div class="step"><div class="step-num">第 04 步</div><h3>签约、搬家、安顿</h3><p>逐条审查每份租约——特别注意租金上涨、附加费用和终止条款。签约后协助办理水电、搬家、交钥匙和入住介绍。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="major testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">近期搬家案例</div>
+        <h2 class="section-h">真实的多伦多客户,真实的成果。</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card"><p class="test-quote">"时隔多年后再次搬到多伦多,租房过程很困难——但 Peter 帮助我顺利完成,整个过程无缝衔接。强烈推荐。"</p><div class="test-attr"><strong>Jethro</strong>新移民 · 多伦多租赁 · 2026</div></div>
+        <div class="test-card"><p class="test-quote">"Peter 花时间了解我们的优先事项,在每一步都给予指导。他的耐心和冷静让整个过程没有压力——即使在决定让人感到不知所措时也是如此。"</p><div class="test-attr"><strong>Olu</strong>家庭租赁 · 2025</div></div>
+        <div class="test-card"><p class="test-quote">"在我寻找和购买公寓的整个过程中表现出色。响应及时、策略到位、有耐心,真正把我的最佳利益放在心上。"</p><div class="test-attr"><strong>David</strong>公寓购买 · 2026</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="major newsletter">
+    <div class="wrap">
+      <div class="newsletter-inner">
+        <div class="section-eyebrow">每月市场报告</div>
+        <h2 class="section-h">多伦多房地产的真实情况。</h2>
+        <p class="section-lead">信息很重要。租赁与销售月报。在下方订阅,保持领先。</p>
+        <form class="newsletter-form" method="GET" action="https://peters-newsletter-469474.beehiiv.com/subscribe">
+          <label for="newsletter-email" class="sr-only">电子邮件</label>
+          <input id="newsletter-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button type="submit" class="btn-primary">订阅
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+        <p class="newsletter-trust">随时取消订阅。您的电子邮件不会与任何人共享。</p>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection />
+  <ChineseFooter />
+</BaseLayout>
