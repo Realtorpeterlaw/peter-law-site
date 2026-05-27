@@ -606,3 +606,8 @@ a.proof-item.proof-link:hover .proof-num { text-decoration: underline; text-deco
   .airbnb-card { grid-template-columns: auto 1fr; row-gap: 20px; padding: 20px; }
   .airbnb-stats { grid-column: 1 / -1; justify-content: space-between; }
 }
+
+/* Airbnb card as link */
+a.airbnb-card { text-decoration: none; color: inherit; transition: border-color 0.15s, transform 0.15s; }
+a.airbnb-card:hover { border-color: var(--ink); }
+a.airbnb-card:hover .airbnb-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
