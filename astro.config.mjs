@@ -6,4 +6,7 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  redirects: {
+    '/zh': '/chinese',
+  },
 });
