@@ -50,11 +50,86 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <section class="major">
     <div class="wrap">
       <div class="why-grid">
-        <div class="why-quote">
-          <span class="why-quote-mark">"</span>
-          <p>大多数中介只会带你看房。我的工作是确保你走进去时有备而来,走出来时心中有数,绝不会错过任何细节。这就是酒店式服务,也是我的工作。</p>
-          <div class="attr">— Peter</div>
-        </div>
+        <form class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda">
+          <div class="quiz-eyebrow">快速租房问卷</div>
+          <h3 class="quiz-heading">您在找什么样的房子?</h3>
+          <p class="quiz-sub">30 秒告诉我基本信息。我会在一天内为您发送匹配的房源。</p>
+          <div class="quiz-fields">
+            <div class="quiz-field">
+              <label for="quiz-beds">卧室</label>
+              <select id="quiz-beds" name="bedrooms" required>
+                <option value="">请选择…</option>
+                <option>单间公寓 Studio</option>
+                <option>1 卧</option>
+                <option>1 卧 + 书房</option>
+                <option>2 卧</option>
+                <option>3 卧</option>
+                <option>4 卧或以上</option>
+              </select>
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-baths">卫浴</label>
+              <select id="quiz-baths" name="bathrooms" required>
+                <option value="">请选择…</option>
+                <option>1</option>
+                <option>1.5</option>
+                <option>2</option>
+                <option>2.5</option>
+                <option>3+</option>
+              </select>
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-parking">停车位</label>
+              <select id="quiz-parking" name="parking" required>
+                <option value="">请选择…</option>
+                <option>不需要</option>
+                <option>1 个</option>
+                <option>2 个</option>
+                <option>3 个或以上</option>
+              </select>
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-budget">月预算</label>
+              <select id="quiz-budget" name="budget" required>
+                <option value="">请选择…</option>
+                <option>$2,000 以下</option>
+                <option>$2,000 – $2,500</option>
+                <option>$2,500 – $3,000</option>
+                <option>$3,000 – $3,500</option>
+                <option>$3,500 – $4,500</option>
+                <option>$4,500 以上</option>
+              </select>
+            </div>
+            <div class="quiz-field quiz-field-full">
+              <label for="quiz-location">偏好地区</label>
+              <select id="quiz-location" name="location" required>
+                <option value="">请选择…</option>
+                <option>市中心核心区</option>
+                <option>King West / Liberty Village</option>
+                <option>Yonge & Bloor / Yorkville</option>
+                <option>湖滨 / Harbourfront</option>
+                <option>Yonge–Eglinton</option>
+                <option>东多伦多 (Leslieville, East York)</option>
+                <option>Markham / 大多伦多北</option>
+                <option>欢迎建议</option>
+              </select>
+            </div>
+            <div class="quiz-field quiz-field-full">
+              <label for="quiz-email">电子邮件 (以便我向您发送匹配房源)</label>
+              <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="quiz-gotcha">请勿填写</label>
+            <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="_subject" value="新租房问卷 (中文版)">
+          <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+          <button type="submit" class="btn-primary quiz-cta">
+            发送问卷
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
         <div class="why-points">
           <div class="why-point"><div class="why-point-num">01</div><h3>看房前先获批</h3><p>在看任何一个单位之前,我们先把所有文件准备好。在多伦多市场,你只有几小时(而非几天)做决定。准备充分才是制胜之道。</p></div>
           <div class="why-point"><div class="why-point-num">02</div><h3>双语服务</h3><p>中英双语。租约、租金管制、押金规定。用清晰的语言为您解释。</p></div>

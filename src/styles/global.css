@@ -713,3 +713,23 @@ body.mobile-menu-open { overflow: hidden; }
   .mobile-menu-toggle { display: flex; }
   .head-cta-desktop { display: none; }
 }
+
+/* QUICK RENTAL SURVEY FORM (replaces .why-quote on home pages) */
+.quiz-form {
+  background: var(--bg-warm);
+  padding: 36px 36px 32px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.quiz-eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 12px; }
+.quiz-heading { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 8px; color: var(--ink); }
+.quiz-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 22px; line-height: 1.5; }
+.quiz-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; margin-bottom: 18px; }
+.quiz-field-full { grid-column: 1 / -1; }
+.quiz-field { display: flex; flex-direction: column; gap: 4px; }
+.quiz-field label { font-size: 12px; color: var(--ink-soft); font-weight: 500; }
+.quiz-field select, .quiz-field input { font-family: inherit; font-size: 14px; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); width: 100%; }
+.quiz-field select:focus, .quiz-field input:focus { outline: none; border-color: var(--ink); }
+.quiz-cta { align-self: flex-start; }
+@media (max-width: 480px) { .quiz-fields { grid-template-columns: 1fr; } .quiz-form { padding: 28px 24px 24px; } }
