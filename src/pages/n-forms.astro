@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const LTB_FORMS_URL = "https://tribunalsontario.ca/ltb/forms-filing-and-fees/";
+---
+<BaseLayout
+  title="N Forms — Ontario LTB Notice Forms Explained | Peter Law"
+  description="Plain-English guide to Ontario Landlord and Tenant Board (LTB) N notice forms — what each is used for, who files it, and where to download the official version."
+  bodyClass="guide-page"
+>
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Rental resource</div>
+      <h1>N Forms — Ontario LTB notice forms.</h1>
+      <p>The forms tenants and landlords in Ontario use to give legal notice — rent increases, terminations, mutual agreements. Plain-English explanations and links to download the official versions.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#intro">What N forms are</a></li>
+            <li><a href="#landlord">Landlord notices</a></li>
+            <li><a href="#tenant">Tenant notices</a></li>
+            <li><a href="#mutual">Mutual agreements</a></li>
+            <li><a href="#download">Where to download</a></li>
+            <li><a href="#help">Get help</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+            <strong>Important — read first.</strong> The descriptions below are informational only. Filling out the wrong form, or filling out the right form incorrectly, can invalidate the notice or create legal exposure. <strong>Always consult a paralegal, lawyer, or community legal clinic for your specific situation.</strong> I am a registered real estate sales representative, not a lawyer.
+          </div>
+
+          <h2 id="intro">What N forms are</h2>
+          <p>"N forms" are the family of notice forms issued by the Ontario Landlord and Tenant Board (LTB). They're how a tenant or landlord gives <strong>legal written notice</strong> for things like rent increases, mutual agreements to end a tenancy, or formal termination on specific grounds. Each N form has its own legal requirements — proper notice periods, required information, and (for some) compensation obligations.</p>
+          <p>N forms are <strong>notices</strong>, not court orders. Receiving one does not by itself end your tenancy or evict you. If a dispute follows, it goes to a hearing at the LTB.</p>
+
+          <h2 id="landlord">Landlord notices</h2>
+
+          <h3>N1 — Notice of Rent Increase</h3>
+          <p>Used by landlords to formally notify a tenant that rent is going up. Requires 90 days' written notice and (for rent-controlled units) cannot exceed the annual guideline.</p>
+
+          <h3>N2 — Notice of Rent Increase (Unit Partially Exempt)</h3>
+          <p>Used for units that are partially exempt from the rent increase guideline (e.g. units first occupied for residential purposes on or after November 15, 2018).</p>
+
+          <h3>N4 — Notice to End Tenancy Early for Non-payment of Rent</h3>
+          <p>The first formal step a landlord takes when a tenant misses rent. Gives the tenant 14 days to pay or vacate. If rent is paid in full within the notice period, the N4 is voided.</p>
+
+          <h3>N5 — Notice to End Tenancy Early for Cause</h3>
+          <p>Used for substantial interference with reasonable enjoyment, damage to the unit, or too many occupants. The tenant has 7 days to correct the issue (first N5); a second N5 within 6 months has no remedy period.</p>
+
+          <h3>N6 — Notice to End Tenancy Early for Cause (Illegal Act or Misrepresentation)</h3>
+          <p>Used for an illegal act in the unit/complex, or for misrepresenting income in a subsidized housing situation. No correction period.</p>
+
+          <h3>N7 — Notice to End Tenancy Early for Cause (Serious Impairment of Safety)</h3>
+          <p>Used for very serious matters: wilful damage, serious impairment of safety, or use of the unit for an illegal business. 10 days' notice. No correction period.</p>
+
+          <h3>N8 — Notice to End Tenancy at End of Term</h3>
+          <p>Used at the end of a fixed-term tenancy for certain specific grounds (e.g. persistent late payment, no longer in employment-based tenancy). Strict requirements; not a general "lease is up, leave" notice — in Ontario, fixed-term leases automatically convert to month-to-month.</p>
+
+          <h3>N12 — Notice to End Tenancy (Landlord, Purchaser, or Family Use)</h3>
+          <p>Used when the landlord, the landlord's family, or a purchaser of the property intends to move into the unit. Requires <strong>60 days' notice</strong> and <strong>one month's rent compensation</strong> to the tenant, or an offer of another acceptable unit. Strict rules — abuse of N12 is a serious offence.</p>
+
+          <h3>N13 — Notice to End Tenancy (Demolition, Repairs, Conversion)</h3>
+          <p>Used when the landlord intends to demolish the unit, do major repairs requiring vacancy, or convert it to non-residential use. Requires <strong>120 days' notice</strong> and <strong>3 months' rent compensation</strong> (or right of first refusal in the repair scenario).</p>
+
+          <h2 id="tenant">Tenant notices</h2>
+
+          <h3>N9 — Tenant's Notice to End the Tenancy</h3>
+          <p>How a tenant gives written notice that they're leaving. Required notice period is <strong>60 days</strong> for monthly tenancies, ending on the last day of a rental period. For fixed-term leases, the earliest end date is the day after the term ends.</p>
+
+          <h3>N15 — Tenant's Notice to End the Tenancy Due to Violence or Other Abuse</h3>
+          <p>Special protection for tenants who need to leave because of sexual or domestic violence. Only <strong>28 days' notice</strong> required. The landlord cannot disclose the reason or that the tenant left.</p>
+
+          <h2 id="mutual">Mutual agreements</h2>
+
+          <h3>N10 — Agreement to Increase the Rent Above the Guideline</h3>
+          <p>Used when the landlord and tenant agree in writing to a rent increase above the annual guideline (e.g. in exchange for an upgrade like air conditioning or a new appliance). Voluntary on both sides.</p>
+
+          <h3>N11 — Agreement to End the Tenancy</h3>
+          <p>Used when the landlord and tenant both agree to end the tenancy on a specific date. Voluntary. Once signed, the tenancy ends on the agreed date.</p>
+          <div class="callout"><strong>Caution with N11.</strong> Some landlords pressure tenants to sign an N11 in situations where the tenant is not legally obligated to leave (e.g. end of fixed term). Tenants are not required to sign. Once signed, you've given up your right to stay. Get independent advice before signing.</div>
+
+          <h2 id="download">Where to download the official forms</h2>
+          <p>The Landlord and Tenant Board publishes all N forms (and their guides) on the official Tribunals Ontario website. Always download from there to make sure you have the current version — forms are occasionally updated.</p>
+          <p style="margin-top: 24px;">
+            <a href={LTB_FORMS_URL} target="_blank" rel="noopener" class="btn-primary">
+              Official LTB Forms — Tribunals Ontario
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+
+          <h2 id="help">Get help</h2>
+          <p>If you've received an N form and aren't sure what to do, or you're a landlord considering one and want to make sure you're doing it correctly, these are the right resources:</p>
+          <div class="resource-links" id="help">
+            <h3>Where to get help</h3>
+            <ul class="bullets">
+              <li><a href="https://tribunalsontario.ca/ltb/" target="_blank" rel="noopener">Landlord and Tenant Board</a> — official forms, applications, hearings</li>
+              <li><a href="https://stepstojustice.ca/legal-topic/housing-law/" target="_blank" rel="noopener">Steps to Justice — Housing law guides</a> — plain-language explanations of tenant and landlord rights</li>
+              <li><a href="https://www.legalaid.on.ca/" target="_blank" rel="noopener">Legal Aid Ontario</a> — free legal assistance if you qualify</li>
+              <li><a href="https://www.acto.ca/get-help/" target="_blank" rel="noopener">ACTO Tenant Duty Counsel</a> — same-day legal advice for tenants in some hearings</li>
+              <li>A <strong>paralegal</strong> registered with the Law Society of Ontario for case-specific advice on forms and hearings</li>
+            </ul>
+          </div>
+
+          <p class="legal-note">This guide is informational, not legal advice. Form descriptions are summaries. Always consult a paralegal, lawyer, or the LTB directly for your specific situation. I'm a registered real estate sales representative, not a lawyer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Need a second set of eyes?" lead="If you've received an N form or are about to issue one, the wording and timing matter. I can refer you to a paralegal I trust and help interpret what you're holding." />
+  <Footer />
+</BaseLayout>
