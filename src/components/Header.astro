@@ -52,6 +52,92 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <li><a href="/contact" class={active === 'contact' ? 'active' : ''}>Contact</a></li>
       </ul>
     </nav>
-    <a href={BOOKING_URL} class="head-cta">{ctaLabel}</a>
+    <a href={BOOKING_URL} class="head-cta head-cta-desktop">{ctaLabel}</a>
+    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav">
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Rental
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/for-renters">For Renters</a></li>
+            <li><a href="/for-landlords">For Landlords</a></li>
+            <li><a href="/rental-tour">Rental Tour</a></li>
+            <li><a href="/rent-control">Rent Control</a></li>
+            <li><a href="/lease-renewal">Lease Renewal</a></li>
+          </ul>
+        </li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Sellers
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/free-home-evaluation">Free Home Evaluation</a></li>
+          </ul>
+        </li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Buyers
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/buyer-guide">Buyer Guide</a></li>
+            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
+            <li><a href="/payment-calculator">Mortgage Calculator</a></li>
+            <li><a href="/affordability-calculator">Affordability Calculator</a></li>
+            <li><a href="/closing-costs">Closing Costs</a></li>
+          </ul>
+        </li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/about" class="mobile-link">About</a></li>
+        <li><a href="/contact" class="mobile-link">Contact</a></li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/zh" class="mobile-link mobile-lang">中文 · Chinese</a></li>
+      </ul>
+      <a href={BOOKING_URL} class="btn-primary mobile-cta">
+        Book a viewing call
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </header>
+
+<script>
+  (function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    function close() {
+      document.body.classList.remove('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    function open() {
+      document.body.classList.add('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    }
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('mobile-menu-open')) close(); else open();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) close();
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    menu.querySelectorAll('.mobile-section-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const li = btn.parentElement;
+        const expanded = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+  })();
+</script>

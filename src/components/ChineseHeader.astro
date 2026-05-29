@@ -52,6 +52,92 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <li><a href="/zh/contact" class={active === 'contact' ? 'active' : ''}>联系</a></li>
       </ul>
     </nav>
-    <a href={BOOKING_URL} class="head-cta">{ctaLabel}</a>
+    <a href={BOOKING_URL} class="head-cta head-cta-desktop">{ctaLabel}</a>
+    <button class="mobile-menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav">
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            租赁
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/zh/for-renters">租客须知</a></li>
+            <li><a href="/zh/for-landlords">房东须知</a></li>
+            <li><a href="/zh/rental-tour">看房视频</a></li>
+            <li><a href="/zh/rent-control">租金管制</a></li>
+            <li><a href="/zh/lease-renewal">租约续签</a></li>
+          </ul>
+        </li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            卖家
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/zh/free-home-evaluation">免费房屋估值</a></li>
+          </ul>
+        </li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            买家
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/zh/buyer-guide">买家指南</a></li>
+            <li><a href="/zh/land-transfer-tax">土地转让税</a></li>
+            <li><a href="/zh/payment-calculator">按揭计算器</a></li>
+            <li><a href="/zh/affordability-calculator">可负担能力计算器</a></li>
+            <li><a href="/zh/closing-costs">交房费用</a></li>
+          </ul>
+        </li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/zh/about" class="mobile-link">关于</a></li>
+        <li><a href="/zh/contact" class="mobile-link">联系</a></li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/" class="mobile-link mobile-lang">English</a></li>
+      </ul>
+      <a href={BOOKING_URL} class="btn-primary mobile-cta">
+        预约咨询
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </header>
+
+<script>
+  (function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    function close() {
+      document.body.classList.remove('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    function open() {
+      document.body.classList.add('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    }
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('mobile-menu-open')) close(); else open();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) close();
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    menu.querySelectorAll('.mobile-section-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const li = btn.parentElement;
+        const expanded = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+  })();
+</script>
