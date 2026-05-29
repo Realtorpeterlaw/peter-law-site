@@ -53,7 +53,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <form class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda">
           <div class="quiz-eyebrow">Quick rental survey</div>
           <h3 class="quiz-heading">What are you looking for?</h3>
-          <p class="quiz-sub">Tell me the basics in 30 seconds. I'll send you matching listings within a day.</p>
+          <p class="quiz-sub">Minimum 1 Year duration.</p>
           <div class="quiz-fields">
             <div class="quiz-field">
               <label for="quiz-beds">Bedrooms</label>
@@ -99,6 +99,10 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
                 <option>$3,500 – $4,500</option>
                 <option>$4,500+</option>
               </select>
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-movein">Move-in date</label>
+              <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
             <div class="quiz-field quiz-field-full">
               <label for="quiz-location">Location preference</label>

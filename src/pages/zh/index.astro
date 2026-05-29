@@ -53,7 +53,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <form class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda">
           <div class="quiz-eyebrow">快速租房问卷</div>
           <h3 class="quiz-heading">您在找什么样的房子?</h3>
-          <p class="quiz-sub">30 秒告诉我基本信息。我会在一天内为您发送匹配的房源。</p>
+          <p class="quiz-sub">最短租期 1 年。</p>
           <div class="quiz-fields">
             <div class="quiz-field">
               <label for="quiz-beds">卧室</label>
@@ -99,6 +99,10 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
                 <option>$3,500 – $4,500</option>
                 <option>$4,500 以上</option>
               </select>
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-movein">入住日期</label>
+              <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
             <div class="quiz-field quiz-field-full">
               <label for="quiz-location">偏好地区</label>
