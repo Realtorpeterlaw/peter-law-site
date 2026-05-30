@@ -18,9 +18,9 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <h1 class="hero-h">Toronto rentals, <em>handled the right way.</em></h1>
         <p class="hero-sub">Helping newcomers, professionals, and families navigating Toronto's Rental Market. Pre-approved fast.</p>
         <div class="hero-ctas hero-ctas-stacked">
-          <a href={BOOKING_URL} class="btn-primary">
-            Book a 15-min call
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="#rental-questionnaire" class="btn-primary">
+            Let's find my rental home
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="/free-home-evaluation" class="btn-outline">
             FREE HOME EVALUATION
@@ -68,7 +68,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <section class="major">
     <div class="wrap">
       <div class="why-grid">
-        <form class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda">
+        <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
           <div class="quiz-eyebrow">Rental Questionnaire</div>
           <h3 class="quiz-heading">What are you looking for?</h3>
           <p class="quiz-sub">Minimum 1 Year duration.</p>
