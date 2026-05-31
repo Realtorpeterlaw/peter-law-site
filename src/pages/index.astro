@@ -123,22 +123,21 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
             <div class="quiz-field quiz-field-full">
-              <label for="quiz-location">Location preference</label>
-              <select id="quiz-location" name="location" required>
-                <option value="">Select…</option>
-                <option>Downtown core</option>
-                <option>King West / Liberty Village</option>
-                <option>Yonge & Bloor / Yorkville</option>
-                <option>Waterfront / Harbourfront</option>
-                <option>Yonge–Eglinton</option>
-                <option>East Toronto (Leslieville, East York)</option>
-                <option>Markham / GTA North</option>
-                <option>Walking distance to Subway Station</option>
-                <option>Walking distance to Union Subway Station</option>
-                <option>Walking distance to UofT St. George</option>
-                <option>Walking distance to Waterfront</option>
-                <option>Open to suggestions</option>
-              </select>
+              <label>Location preference <span class="quiz-hint">(select all that apply)</span></label>
+              <div class="quiz-checkboxes" data-checkbox-group="location">
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Downtown core"> Downtown core</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge & Bloor / Yorkville"> Yonge & Bloor / Yorkville</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Waterfront / Harbourfront"> Waterfront / Harbourfront</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge–Eglinton"> Yonge–Eglinton</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="East Toronto (Leslieville, East York)"> East Toronto (Leslieville, East York)</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Markham / GTA North"> Markham / GTA North</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Subway Station"> Walking distance to Subway Station</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Union Subway Station"> Walking distance to Union Subway Station</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to UofT St. George"> Walking distance to UofT St. George</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Waterfront"> Walking distance to Waterfront</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Open to suggestions"> Open to suggestions</label>
+              </div>
             </div>
             <div class="quiz-field quiz-field-full">
               <label for="quiz-email">Email (so I can send you matches)</label>
@@ -214,4 +213,17 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
   <CTASection />
   <Footer />
+
+  <script>
+    document.querySelectorAll('form.quiz-form').forEach(function(form){
+      form.addEventListener('submit', function(e){
+        var cbs = form.querySelectorAll('input[name="location[]"]');
+        if (cbs.length && ![].some.call(cbs, function(cb){ return cb.checked; })) {
+          e.preventDefault();
+          alert('Please select at least one location preference.');
+          cbs[0].focus();
+        }
+      });
+    });
+  </script>
 </BaseLayout>

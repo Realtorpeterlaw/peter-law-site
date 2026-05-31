@@ -123,22 +123,21 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
             <div class="quiz-field quiz-field-full">
-              <label for="quiz-location">偏好地区</label>
-              <select id="quiz-location" name="location" required>
-                <option value="">请选择…</option>
-                <option>市中心核心区</option>
-                <option>King West / Liberty Village</option>
-                <option>Yonge & Bloor / Yorkville</option>
-                <option>湖滨 / Harbourfront</option>
-                <option>Yonge–Eglinton</option>
-                <option>东多伦多 (Leslieville, East York)</option>
-                <option>Markham / 大多伦多北</option>
-                <option>步行距离地铁站</option>
-                <option>步行距离 Union 地铁站</option>
-                <option>步行距离多大 St. George 校区</option>
-                <option>步行距离湖滨</option>
-                <option>欢迎建议</option>
-              </select>
+              <label>偏好地区 <span class="quiz-hint">(可多选)</span></label>
+              <div class="quiz-checkboxes" data-checkbox-group="location">
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="市中心核心区"> 市中心核心区</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge & Bloor / Yorkville"> Yonge & Bloor / Yorkville</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="湖滨 / Harbourfront"> 湖滨 / Harbourfront</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge–Eglinton"> Yonge–Eglinton</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="东多伦多 (Leslieville, East York)"> 东多伦多 (Leslieville, East York)</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="Markham / 大多伦多北"> Markham / 大多伦多北</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离地铁站"> 步行距离地铁站</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离 Union 地铁站"> 步行距离 Union 地铁站</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离多大 St. George 校区"> 步行距离多大 St. George 校区</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离湖滨"> 步行距离湖滨</label>
+                <label class="quiz-check"><input type="checkbox" name="location[]" value="欢迎建议"> 欢迎建议</label>
+              </div>
             </div>
             <div class="quiz-field quiz-field-full">
               <label for="quiz-email">电子邮件 (以便我向您发送匹配房源)</label>
@@ -214,4 +213,17 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
   <ChineseCTASection />
   <ChineseFooter />
+
+  <script>
+    document.querySelectorAll('form.quiz-form').forEach(function(form){
+      form.addEventListener('submit', function(e){
+        var cbs = form.querySelectorAll('input[name="location[]"]');
+        if (cbs.length && ![].some.call(cbs, function(cb){ return cb.checked; })) {
+          e.preventDefault();
+          alert('请至少选择一个偏好地区。');
+          cbs[0].focus();
+        }
+      });
+    });
+  </script>
 </BaseLayout>
