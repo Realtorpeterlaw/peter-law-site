@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout
+  title="CMHC Insurance Calculator | Peter Law"
+  description="Estimate your CMHC mortgage default insurance premium in seconds. Canadian rules: minimum down payment, LTV-based premium rates, $1.5M insurable cap."
+  bodyClass="calc-page"
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">CMHC insurance calculator</div>
+      <h1>How much will mortgage default insurance cost you?</h1>
+      <p>If your down payment is less than 20%, you'll pay CMHC (or Sagen / Canada Guaranty) insurance. The premium is rolled into your mortgage. This tool estimates how much.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Buyer resources</h4>
+          <ul>
+            <li><a href="/buyer-guide">Buyer Guide</a></li>
+            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
+            <li><a href="/payment-calculator">Mortgage Calculator</a></li>
+            <li><a href="/affordability-calculator">Affordability Calculator</a></li>
+            <li><a href="/cmhc-insurance-calculator">CMHC Insurance Calculator</a></li>
+            <li><a href="/closing-costs">Closing Costs</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-price">Purchase price</label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-price" type="number" value="800000" min="0" step="5000"></div>
+              </div>
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-down">Down payment <span class="hint">(or use the percentage below)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-down" type="number" value="80000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-down-pct">Down payment as % <span class="hint">(updates the dollar amount above)</span></label>
+                <input id="cmhc-down-pct" type="number" value="10" min="0" max="100" step="0.5">
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">CMHC insurance premium</span>
+                <span id="cmhc-premium">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>Mortgage before insurance</span><strong id="cmhc-mortgage-before">$0</strong></div>
+                <div class="row"><span>Loan-to-value (LTV)</span><strong id="cmhc-ltv">0%</strong></div>
+                <div class="row"><span>Premium rate applied</span><strong id="cmhc-rate">0%</strong></div>
+                <div class="row"><span>Total mortgage <span style="font-weight:400;color:var(--ink-mute);">(with insurance added)</span></span><strong id="cmhc-total">$0</strong></div>
+                <div class="row"><span>Minimum down payment required</span><strong id="cmhc-min-down">$0</strong></div>
+                <div class="row" id="cmhc-status-row"><span>Status</span><strong id="cmhc-status" style="color:var(--ink);">—</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer" id="cmhc-disclaimer">Estimates only. Premium rates from CMHC's published schedule. Actual premium charged by CMHC, Sagen, or Canada Guaranty may differ slightly. Ontario charges 8% PST on the premium at closing (it is NOT rolled into the mortgage). Consult a licensed mortgage professional before relying on these figures.</p>
+          </div>
+
+          <h2 style="margin-top:48px;">Quick reference: premium rates by LTV</h2>
+          <table class="cmhc-table">
+            <thead>
+              <tr><th>Loan-to-value</th><th>Premium rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Up to 65%</td><td>0.60%</td></tr>
+              <tr><td>65.01% to 75%</td><td>1.70%</td></tr>
+              <tr><td>75.01% to 80%</td><td>2.40%</td></tr>
+              <tr><td>80.01% to 85%</td><td>2.80%</td></tr>
+              <tr><td>85.01% to 90%</td><td>3.10%</td></tr>
+              <tr><td>90.01% to 95%</td><td>4.00%</td></tr>
+            </tbody>
+          </table>
+
+          <h2 style="margin-top:40px;">Minimum down payment rules</h2>
+          <ul class="bullets">
+            <li><strong>Purchase price ≤ $500,000:</strong> minimum 5% down.</li>
+            <li><strong>$500,001 to $1,500,000:</strong> minimum 5% on the first $500K + 10% on the portion above $500K.</li>
+            <li><strong>Above $1,500,000:</strong> CMHC insurance is NOT available — you'll need a minimum 20% down payment from your own funds.</li>
+          </ul>
+
+          <p class="legal-note" style="margin-top:24px;">This calculator is informational. Premium schedules, eligibility rules, and the $1.5M insurable cap can change. Current rules reflect CMHC's December 15, 2024 update. For a definitive quote, talk to a mortgage broker or your bank. I'm a registered real estate sales representative, not a mortgage advisor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Need this in context of an actual property?" lead="Numbers without a property are abstract. Let's look at real listings in your range and run the full picture — purchase price, down payment, CMHC, land transfer tax, closing costs. One call." />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .cmhc-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  .cmhc-table th, .cmhc-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--rule); }
+  .cmhc-table th { font-weight: 600; color: var(--ink); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bg-warm); }
+  .cmhc-table td:last-child { font-weight: 600; color: var(--ink); font-family: 'Fraunces', Georgia, serif; }
+</style>
+
+<script>
+  (function() {
+    const priceEl = document.getElementById('cmhc-price');
+    const downEl = document.getElementById('cmhc-down');
+    const pctEl = document.getElementById('cmhc-down-pct');
+    const premiumEl = document.getElementById('cmhc-premium');
+    const mortgageBeforeEl = document.getElementById('cmhc-mortgage-before');
+    const ltvEl = document.getElementById('cmhc-ltv');
+    const rateEl = document.getElementById('cmhc-rate');
+    const totalEl = document.getElementById('cmhc-total');
+    const minDownEl = document.getElementById('cmhc-min-down');
+    const statusEl = document.getElementById('cmhc-status');
+
+    function fmt$(n) {
+      return '$' + Math.round(n).toLocaleString('en-CA');
+    }
+
+    function minDown(price) {
+      if (price <= 500000) return price * 0.05;
+      if (price <= 1500000) return 500000 * 0.05 + (price - 500000) * 0.10;
+      return price * 0.20;
+    }
+
+    function premiumRate(ltv) {
+      if (ltv <= 0.65) return 0.0060;
+      if (ltv <= 0.75) return 0.0170;
+      if (ltv <= 0.80) return 0.0240;
+      if (ltv <= 0.85) return 0.0280;
+      if (ltv <= 0.90) return 0.0310;
+      return 0.0400;
+    }
+
+    let syncing = false;
+
+    function syncFromDollar() {
+      if (syncing) return;
+      const price = parseFloat(priceEl.value) || 0;
+      const down = parseFloat(downEl.value) || 0;
+      if (price > 0) {
+        syncing = true;
+        pctEl.value = ((down / price) * 100).toFixed(2);
+        syncing = false;
+      }
+      calc();
+    }
+
+    function syncFromPct() {
+      if (syncing) return;
+      const price = parseFloat(priceEl.value) || 0;
+      const pct = parseFloat(pctEl.value) || 0;
+      syncing = true;
+      downEl.value = Math.round(price * pct / 100);
+      syncing = false;
+      calc();
+    }
+
+    function calc() {
+      const price = parseFloat(priceEl.value) || 0;
+      const down = parseFloat(downEl.value) || 0;
+      const mortgage = Math.max(0, price - down);
+      const ltv = price > 0 ? mortgage / price : 0;
+      const minDp = minDown(price);
+
+      mortgageBeforeEl.textContent = fmt$(mortgage);
+      ltvEl.textContent = (ltv * 100).toFixed(2) + '%';
+      minDownEl.textContent = fmt$(minDp);
+
+      // Status checks
+      if (price > 1500000 && down < price * 0.20) {
+        statusEl.textContent = 'CMHC not available above $1.5M — 20% down required';
+        statusEl.style.color = '#b8002e';
+        premiumEl.textContent = '$0';
+        rateEl.textContent = 'N/A';
+        totalEl.textContent = fmt$(mortgage);
+        return;
+      }
+      if (down < minDp) {
+        statusEl.textContent = 'Down payment below minimum';
+        statusEl.style.color = '#b8002e';
+        premiumEl.textContent = '$0';
+        rateEl.textContent = 'N/A';
+        totalEl.textContent = fmt$(mortgage);
+        return;
+      }
+      if (ltv <= 0.80) {
+        statusEl.textContent = 'No CMHC insurance required (20%+ down)';
+        statusEl.style.color = '#1a6b32';
+        premiumEl.textContent = '$0';
+        rateEl.textContent = '0%';
+        totalEl.textContent = fmt$(mortgage);
+        return;
+      }
+      // Insurable, premium applies
+      const rate = premiumRate(ltv);
+      const premium = mortgage * rate;
+      premiumEl.textContent = fmt$(premium);
+      rateEl.textContent = (rate * 100).toFixed(2) + '%';
+      totalEl.textContent = fmt$(mortgage + premium);
+      statusEl.textContent = 'Insurable — premium added to mortgage';
+      statusEl.style.color = '#1a6b32';
+    }
+
+    priceEl.addEventListener('input', function() {
+      // When price changes, recompute % from dollar
+      syncFromDollar();
+    });
+    downEl.addEventListener('input', syncFromDollar);
+    pctEl.addEventListener('input', syncFromPct);
+
+    calc();
+  })();
+</script>
