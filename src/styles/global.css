@@ -753,8 +753,8 @@ body.mobile-menu-open { overflow: hidden; }
 
 /* BANK OF CANADA RATE WIDGET (small horizontal strip on home pages) */
 .boc-widget { background: var(--surface); border-bottom: 1px solid var(--rule); padding: 16px 0; }
-.boc-widget-row2 { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
-.boc-widget-inner { display: grid; grid-template-columns: 1fr auto 1fr auto auto; align-items: center; gap: 24px; }
+.boc-widget-grid { display: grid; grid-template-columns: 1fr auto 1fr auto auto; align-items: center; column-gap: 24px; row-gap: 14px; }
+.boc-row-rule { grid-column: 1 / -1; border: 0; border-top: 1px solid var(--rule); margin: 0; height: 0; }
 .boc-cell { display: flex; flex-direction: column; gap: 2px; }
 .boc-cell-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
 .boc-cell-value { font-family: 'Fraunces', Georgia, serif; font-size: 25px; font-weight: 500; color: var(--ink); line-height: 1.1; }
@@ -763,7 +763,7 @@ body.mobile-menu-open { overflow: hidden; }
 .boc-source { font-size: 12px; color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: color 0.15s, text-decoration-color 0.15s; }
 .boc-source:hover { color: var(--ink); text-decoration-color: var(--ink); }
 @media (max-width: 720px) {
-  .boc-widget-inner { grid-template-columns: 1fr; gap: 12px; }
+  .boc-widget-grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 12px; }
   .boc-divider { display: none; }
   .boc-source { width: 100%; text-align: center; padding-top: 8px; border-top: 1px solid var(--rule); }
 }
