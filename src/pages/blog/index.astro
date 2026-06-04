@@ -5,33 +5,34 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTASection from '../../components/CTASection.astro';
 
+// Optional SVG icons rendered as a 4x4 square on the left of each blog card.
+// To add an icon to a future post, add a new key here and reference via iconKey on the post.
+const icons = {
+  tou: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="42" r="28" stroke="currentColor" stroke-width="2.4" fill="none"/><line x1="40" y1="18" x2="40" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="60" y1="42" x2="64" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="42" x2="20" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><text x="40" y="50" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="500" fill="currentColor">$</text></svg>`,
+};
+
 const posts = [
   {
     slug: 'time-of-use-tou',
     title: 'BIG SAVINGS, Utility Bill: Time of Use (TOU)',
     eyebrow: 'Home tips · Hydro',
-    excerpt: 'Your hydro bill has three prices. Use power at the right time of day and you pay way less. The schedule, 7 easy ways to save, and a quick math example showing $50/year in savings on the dryer alone.',
     date: 'June 3, 2026',
     readMin: 5,
-    category: 'Home tips',
+    iconKey: 'tou',
   },
   {
     slug: 'bill-60-ontario',
     title: 'Bill 60 Ontario: Tenants and Landlords MUST know',
     eyebrow: 'Legislation · 2026',
-    excerpt: 'Ontario\'s Fighting Delays, Building Faster Act passed in November 2025 and rewrites the playbook for evictions, N12 compensation, fixed-term leases, and rent arrears hearings. Here\'s what changed, what\'s in force yet, and what it means for you.',
     date: 'June 3, 2026',
     readMin: 8,
-    category: 'Legislation',
   },
   {
     slug: 'reverse-mortgage',
     title: 'Reverse Mortgage: What is it?',
     eyebrow: 'Senior Buyers · Financing',
-    excerpt: 'A plain-English breakdown of reverse mortgages in Canada — who can get one (55+), how much you can borrow (typically up to 55% of your home\'s value), what it actually costs, and the real trade-offs before you sign.',
     date: 'June 3, 2026',
     readMin: 7,
-    category: 'Financing',
   },
 ];
 ---
@@ -57,16 +58,20 @@ const posts = [
         {posts.map((post) => (
           <article class="blog-card">
             <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Read: ${post.title}`}>
-              <div class="blog-card-eyebrow">{post.eyebrow}</div>
-              <h2 class="blog-card-title">{post.title}</h2>
-              <p class="blog-card-excerpt">{post.excerpt}</p>
-              <div class="blog-card-meta">
-                <span>{post.date}</span>
-                <span class="blog-card-dot" aria-hidden="true">·</span>
-                <span>{post.readMin} min read</span>
-                <span class="blog-card-read">Read more
-                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
+              {post.iconKey && icons[post.iconKey] && (
+                <div class="blog-card-icon" set:html={icons[post.iconKey]} />
+              )}
+              <div class="blog-card-text">
+                <div class="blog-card-eyebrow">{post.eyebrow}</div>
+                <h2 class="blog-card-title">{post.title}</h2>
+                <div class="blog-card-meta">
+                  <span>{post.date}</span>
+                  <span class="blog-card-dot" aria-hidden="true">·</span>
+                  <span>{post.readMin} min read</span>
+                  <span class="blog-card-read">Read more
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
               </div>
             </a>
           </article>

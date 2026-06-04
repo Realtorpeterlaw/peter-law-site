@@ -5,20 +5,23 @@ import ChineseHeader from '../../../components/ChineseHeader.astro';
 import ChineseFooter from '../../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
+const icons = {
+  tou: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="42" r="28" stroke="currentColor" stroke-width="2.4" fill="none"/><line x1="40" y1="18" x2="40" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="60" y1="42" x2="64" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="42" x2="20" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><text x="40" y="50" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="500" fill="currentColor">$</text></svg>`,
+};
+
 const posts = [
   {
     slug: 'time-of-use-tou',
     title: '电费大省:分时电价(Time of Use, TOU)',
     eyebrow: '家居小贴士 · 水电',
-    excerpt: '您的电费单上有三种电价。在对的时间用电,就能少付一大笔。完整时间表、7 个简单省钱方法,加上一笔小算账 — 仅烘干机一项每年就能省 $50。',
     date: '2026 年 6 月 3 日',
     readMin: 5,
+    iconKey: 'tou',
   },
   {
     slug: 'bill-60-ontario',
     title: '安省 Bill 60:租客与房东必须知道的事',
     eyebrow: '立法 · 2026',
-    excerpt: '安省的《加快建设、减少拖延法》(Fighting Delays, Building Faster Act)于 2025 年 11 月通过,改写了驱逐流程、N12 补偿、固定期限租约以及欠租听证的规则。这里讲清楚改了什么、目前哪些已经生效,以及对您意味着什么。',
     date: '2026 年 6 月 3 日',
     readMin: 8,
   },
@@ -26,7 +29,6 @@ const posts = [
     slug: 'reverse-mortgage',
     title: '反向房贷(Reverse Mortgage):是什么?',
     eyebrow: '长者买家 · 融资',
-    excerpt: '加拿大反向房贷的通俗解读 — 谁可以申请(55 岁以上)、能借多少(通常为房屋估值的 55%)、实际成本是多少,以及签约前真正需要权衡的取舍。',
     date: '2026 年 6 月 3 日',
     readMin: 7,
   },
@@ -55,16 +57,20 @@ const posts = [
         {posts.map((post) => (
           <article class="blog-card">
             <a href={`/chinese/blog/${post.slug}`} class="blog-card-link" aria-label={`阅读:${post.title}`}>
-              <div class="blog-card-eyebrow">{post.eyebrow}</div>
-              <h2 class="blog-card-title">{post.title}</h2>
-              <p class="blog-card-excerpt">{post.excerpt}</p>
-              <div class="blog-card-meta">
-                <span>{post.date}</span>
-                <span class="blog-card-dot" aria-hidden="true">·</span>
-                <span>阅读 {post.readMin} 分钟</span>
-                <span class="blog-card-read">阅读全文
-                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
+              {post.iconKey && icons[post.iconKey] && (
+                <div class="blog-card-icon" set:html={icons[post.iconKey]} />
+              )}
+              <div class="blog-card-text">
+                <div class="blog-card-eyebrow">{post.eyebrow}</div>
+                <h2 class="blog-card-title">{post.title}</h2>
+                <div class="blog-card-meta">
+                  <span>{post.date}</span>
+                  <span class="blog-card-dot" aria-hidden="true">·</span>
+                  <span>阅读 {post.readMin} 分钟</span>
+                  <span class="blog-card-read">阅读全文
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
               </div>
             </a>
           </article>
