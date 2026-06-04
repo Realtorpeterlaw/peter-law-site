@@ -49,6 +49,10 @@ const posts = [
       <div class="eyebrow">Blog</div>
       <h1>Real talk on Toronto real estate.</h1>
       <p>Rumors, trends, markets, and staying ahead.</p>
+      <div class="blog-search" role="search">
+        <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="blog-search-input" type="search" placeholder="Search articles…" aria-label="Search blog articles" autocomplete="off" />
+      </div>
     </div>
   </section>
 
@@ -56,7 +60,7 @@ const posts = [
     <div class="wrap">
       <div class="blog-list">
         {posts.map((post) => (
-          <article class="blog-card">
+          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()}>
             <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Read: ${post.title}`}>
               {post.iconKey && icons[post.iconKey] && (
                 <div class="blog-card-icon" set:html={icons[post.iconKey]} />
@@ -94,6 +98,29 @@ const posts = [
     </div>
   </section>
 
+  <p class="blog-no-results" id="blog-no-results" hidden>No articles match that search yet. Try a different word.</p>
+
   <CTASection heading="Got a question for an article?" lead="If there's a topic you've been Googling and can't find a straight answer to, send it over. I'm always looking for the next one to write." />
   <Footer />
+
+  <script>
+    (function() {
+      const input = document.getElementById('blog-search-input');
+      const cards = document.querySelectorAll('.blog-card');
+      const noResults = document.getElementById('blog-no-results');
+      if (!input || !cards.length) return;
+      function filter() {
+        const q = input.value.trim().toLowerCase();
+        let visibleCount = 0;
+        cards.forEach(function(card) {
+          const text = card.getAttribute('data-search') || '';
+          const match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+        if (noResults) noResults.hidden = (q.length === 0 || visibleCount > 0);
+      }
+      input.addEventListener('input', filter);
+    })();
+  </script>
 </BaseLayout>

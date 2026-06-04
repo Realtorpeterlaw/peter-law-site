@@ -48,6 +48,10 @@ const posts = [
       <div class="eyebrow">博客</div>
       <h1>关于多伦多房地产的实话。</h1>
       <p>传言、趋势、市场,以及保持领先。</p>
+      <div class="blog-search" role="search">
+        <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="blog-search-input" type="search" placeholder="搜索文章…" aria-label="搜索博客文章" autocomplete="off" />
+      </div>
     </div>
   </section>
 
@@ -55,7 +59,7 @@ const posts = [
     <div class="wrap">
       <div class="blog-list">
         {posts.map((post) => (
-          <article class="blog-card">
+          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()}>
             <a href={`/chinese/blog/${post.slug}`} class="blog-card-link" aria-label={`阅读:${post.title}`}>
               {post.iconKey && icons[post.iconKey] && (
                 <div class="blog-card-icon" set:html={icons[post.iconKey]} />
@@ -93,6 +97,29 @@ const posts = [
     </div>
   </section>
 
+  <p class="blog-no-results" id="blog-no-results" hidden>没有匹配的文章。换个关键词试试。</p>
+
   <ChineseCTASection heading="有想看的话题?" lead="如果您一直在 Google 上搜某个问题但找不到直接的答案,把题目发给我。我一直在找下一篇该写什么。" />
   <ChineseFooter />
+
+  <script>
+    (function() {
+      const input = document.getElementById('blog-search-input');
+      const cards = document.querySelectorAll('.blog-card');
+      const noResults = document.getElementById('blog-no-results');
+      if (!input || !cards.length) return;
+      function filter() {
+        const q = input.value.trim().toLowerCase();
+        let visibleCount = 0;
+        cards.forEach(function(card) {
+          const text = card.getAttribute('data-search') || '';
+          const match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+        if (noResults) noResults.hidden = (q.length === 0 || visibleCount > 0);
+      }
+      input.addEventListener('input', filter);
+    })();
+  </script>
 </BaseLayout>
