@@ -12,6 +12,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     <a href="/chinese" class="logo" aria-label="Peter Law — 首页"><Logo tagline="多伦多房地产" /><span class="logo-home-hint">(首页)</span></a>
     <nav class="primary" aria-label="主导航">
       <ul>
+        <li><a href="/chinese/condo" class={active === 'condo' ? 'active' : ''}>公寓</a></li>
         <li class="has-dropdown">
           <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} tabindex="0" aria-haspopup="true">
             <span class="trigger-text">租赁</span>
@@ -48,7 +49,6 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/chinese/closing-costs">交房费用</a></li>
           </ul>
         </li>
-        <li><a href="/chinese/condo" class={active === 'condo' ? 'active' : ''}>公寓</a></li>
         <li><a href="/chinese/blog" class={active === 'blog' ? 'active' : ''}>博客</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li><a href="/chinese/about" class={active === 'about' ? 'active' : ''}>关于</a></li>
@@ -64,6 +64,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu-inner">
       <ul class="mobile-nav">
+        <li><a href="/chinese/condo" class="mobile-link">公寓</a></li>
+        <li class="mobile-divider" aria-hidden="true"></li>
         <li class="mobile-section">
           <button class="mobile-section-btn" type="button" aria-expanded="false">
             租赁
@@ -100,8 +102,6 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/chinese/closing-costs">交房费用</a></li>
           </ul>
         </li>
-        <li class="mobile-divider" aria-hidden="true"></li>
-        <li><a href="/chinese/condo" class="mobile-link">公寓</a></li>
         <li class="mobile-divider" aria-hidden="true"></li>
         <li><a href="/chinese/blog" class="mobile-link">博客</a></li>
         <li class="mobile-divider" aria-hidden="true"></li>

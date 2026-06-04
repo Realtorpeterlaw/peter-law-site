@@ -12,6 +12,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     <a href="/" class="logo" aria-label="Peter Law — home"><Logo /><span class="logo-home-hint">(Homepage)</span></a>
     <nav class="primary" aria-label="Primary">
       <ul>
+        <li><a href="/condo" class={active === 'condo' ? 'active' : ''}>Condo</a></li>
         <li class="has-dropdown">
           <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} tabindex="0" aria-haspopup="true">
             <span class="trigger-text">Rental</span>
@@ -49,7 +50,6 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/closing-costs">Closing Costs</a></li>
           </ul>
         </li>
-        <li><a href="/condo" class={active === 'condo' ? 'active' : ''}>Condo</a></li>
         <li><a href="/blog" class={active === 'blog' ? 'active' : ''}>Blog</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li><a href="/about" class={active === 'about' ? 'active' : ''}>About</a></li>
@@ -65,6 +65,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu-inner">
       <ul class="mobile-nav">
+        <li><a href="/condo" class="mobile-link">Condo</a></li>
+        <li class="mobile-divider" aria-hidden="true"></li>
         <li class="mobile-section">
           <button class="mobile-section-btn" type="button" aria-expanded="false">
             Rental
@@ -102,8 +104,6 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/closing-costs">Closing Costs</a></li>
           </ul>
         </li>
-        <li class="mobile-divider" aria-hidden="true"></li>
-        <li><a href="/condo" class="mobile-link">Condo</a></li>
         <li class="mobile-divider" aria-hidden="true"></li>
         <li><a href="/blog" class="mobile-link">Blog</a></li>
         <li class="mobile-divider" aria-hidden="true"></li>
