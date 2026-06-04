@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="安省租约续签 — 租客权利指南 | Peter Law"
+  description="安省固定租期结束后会发生什么、您有权继续按月留住、续约时的涨租规则,以及房东想让您搬走时该怎么办。"
+  bodyClass="guide-page"
+  zh={true}
+>
+
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租客资源</div>
+      <h1>安省的租约续签。</h1>
+      <p>固定租期结束后会发生什么、您有权继续留住、续约时的涨租规则,以及房东想让您搬走时该怎么办。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#default">默认情况:自动按月续租</a></li>
+            <li><a href="#stay">您有权继续留住</a></li>
+            <li><a href="#rent">续约时的租金规则</a></li>
+            <li><a href="#endout">房东想让您搬走怎么办</a></li>
+            <li><a href="#leave">您想自己搬走怎么办</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="default">默认情况:自动按月续租</h2>
+          <p>在安省,当您的固定租期结束(通常是 12 个月),<strong>租约其实并没有真的"结束"</strong>。在默认情况下,租约会按相同条件自动转为按月续租。您不需要签任何新文件,也不需要房东的同意。</p>
+          <p>这是加拿大对租客最重要的保护之一。很多租客并不知道这一点,结果不必要地签了新租约或者搬走了。</p>
+
+          <h2 id="stay">您有权继续留住</h2>
+          <p>房东<strong>无权强迫您签新的固定期限租约</strong>。如果他们施压(说"您要么续约要么搬走"),那是不对的。您完全可以继续按月付租,无限期住下去。</p>
+          <p>房东也不能仅仅因为固定租期结束就终止您的租赁。要终止租赁,房东必须有<strong>法定理由</strong> — 见下方。</p>
+
+          <h2 id="rent">续约时的租金规则</h2>
+          <ul class="bullets">
+            <li>租金 <strong>每 12 个月最多只能涨一次</strong>。</li>
+            <li>受租金管制的房屋,涨幅不能超过年度指导线。(<a href="/chinese/rent-control">参见租金管制指南</a>)</li>
+            <li>任何涨租必须提前 <strong>90 天书面通知</strong>,使用 LTB 的 N1 表格。</li>
+            <li>如果房东提出一份租金更高的新固定期限租约,您可以拒绝,按现行租金继续按月住(后续仍需遵守 N1 的涨租规则)。</li>
+          </ul>
+
+          <h2 id="endout">房东想让您搬走怎么办</h2>
+          <p>房东只能基于特定的法定理由终止您的租赁,并使用 LTB 指定的通知表格:</p>
+          <ul class="bullets">
+            <li><strong>N4</strong> — 拖欠租金</li>
+            <li><strong>N5</strong> — 损坏房屋、扰乱他人,或超员居住</li>
+            <li><strong>N12</strong> — 房东、买家或近亲属自用(需支付<strong>一个月租金的补偿</strong>)</li>
+            <li><strong>N13</strong> — 拆除、大修或改建(需支付<strong>三个月租金的补偿</strong>,或给予优先承租权)</li>
+          </ul>
+          <div class="callout"><strong>如果您收到上述任一通知:</strong>不要马上搬走。这只是通知,不是法庭命令。在任何驱逐发生之前,您都有权在 LTB 进行听证。</div>
+
+          <h2 id="leave">您想自己搬走怎么办</h2>
+          <ul class="bullets">
+            <li>使用 N9 表格,提前 <strong>60 天书面通知</strong>。</li>
+            <li>终止日期必须是 <strong>某个租期月的最后一天</strong>(例如 30 日或 31 日)。</li>
+            <li>对于固定期限租约,最早的终止日期是固定租期结束之后的第一天。</li>
+            <li>您也可以与房东达成共同协议提前终止(使用 N11 表格),或者通过转租 / 分租(需房东合理同意)结束。</li>
+          </ul>
+
+          <p class="legal-note">本指南仅供参考,不构成法律意见。具体情况请咨询执业律师助理(paralegal)、社区法律诊所,或直接联系 LTB。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="续约遇到棘手情况了?" lead="如果您收到了 N9、N12 或 N13,或者不确定该怎么回应房东 — 我们一起谈一下。这类问题我每周都在处理。" />
+  <ChineseFooter />
+</BaseLayout>

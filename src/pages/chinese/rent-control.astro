@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="安省租金管制 — 租客指南 | Peter Law"
+  description="用通俗易懂的语言介绍安省租金管制:哪些房屋受管制、年度涨幅指导线、超指导线涨幅(AGI)是什么。"
+  bodyClass="guide-page"
+  zh={true}
+>
+
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租客资源</div>
+      <h1>安省租金管制。</h1>
+      <p>哪些房屋受管制、哪些不受、年度涨幅指导线实际是如何运作的。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#what">什么是租金管制</a></li>
+            <li><a href="#covered">哪些房屋受管制</a></li>
+            <li><a href="#guideline">年度涨幅指导线</a></li>
+            <li><a href="#agi">超指导线涨幅(AGI)</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="what">什么是租金管制</h2>
+          <p>安省的《住宅租赁法》(<em>Residential Tenancies Act</em>)对房东每年可以给现有租客涨多少租金设有上限。这个上限叫做<strong>年度租金涨幅指导线</strong>,由省政府每年公布一次。</p>
+
+          <h2 id="covered">哪些房屋受管制</h2>
+          <p>安省大多数住宅,只要在 <strong>2018 年 11 月 15 日之前首次作为住宅使用</strong>,就受租金管制。</p>
+          <p>如果房屋是在 <strong>2018 年 11 月 15 日当日或之后</strong>首次作为住宅使用,则<strong>不受管制</strong>。这类房屋的房东可以在固定租期结束时按任意幅度涨租。</p>
+          <div class="callout"><strong>为什么签约前要弄清楚:</strong>2020 年新建的 condo 通常不受租金管制;1970 年代专为出租建造的公寓楼通常受管制。住几年下来,差距可能是几千甚至上万元。签约之前我会告诉您一套房子属于哪一类。</div>
+
+          <h2 id="guideline">年度涨幅指导线</h2>
+          <ul class="bullets">
+            <li>涨幅指导线每年由安省市政事务及房屋厅(Ministry of Municipal Affairs and Housing)公布。</li>
+            <li>租金 <strong>每 12 个月最多只能涨一次</strong>。</li>
+            <li>房东必须使用 LTB 指定表格(<em>N1 — 涨租通知</em>)提前 <strong>90 天书面通知</strong>。</li>
+            <li>不符合以上规则的涨租,在法律上不具备强制效力。</li>
+          </ul>
+
+          <h2 id="agi">超指导线涨幅(AGIs)</h2>
+          <p>房东可以向房东与租客委员会(LTB)申请超出年度指导线的涨幅。AGIs 通常会因为以下原因获得批准:</p>
+          <ul class="bullets">
+            <li>市政税或公用事业费的额外增加</li>
+            <li>资本性支出(大楼的重大维修或更换)</li>
+            <li>新增或扩展的大楼服务</li>
+          </ul>
+          <p>AGI 需要 LTB 批准,租客也有权对该申请提出异议。</p>
+
+          <p class="legal-note">本指南仅供参考,不构成法律意见。具体情况请咨询执业律师助理(paralegal)、社区法律诊所,或直接联系 LTB。我是注册房地产销售代表,不是律师。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="需要多一双眼睛帮您看一下吗?" lead="如果您的房东刚刚涨了租而您不确定是否合法,把通知发给我。10 分钟之内我会告诉您是否合规、是否值得提出异议。" />
+  <ChineseFooter />
+</BaseLayout>

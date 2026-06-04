@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout title="房东须知 — Peter Law · 多伦多房地产" description="多伦多租客匹配与租赁管理服务。背景调查、看房、租约草拟 — 由一位酒店业出身的中介为您完成,知道什么是好租客的样子。" zh={true}>
+
+  <ChineseTopBar />
+  <ChineseHeader active="rental" ctaLabel="预约咨询" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">房东须知</div>
+      <h1>找到好租客。<br />避开后续麻烦。</h1>
+      <p>面向多伦多有一套或小型房产组合的房东:端到端的租客匹配服务,优先考虑的是两年后您依然庆幸签下的那位租客。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#service">我提供的服务</a></li>
+            <li><a href="#why">为什么选择我</a></li>
+            <li><a href="#timeline">典型时间线</a></li>
+            <li><a href="#pricing">收费方式</a></li>
+            <li><a href="#rta">租赁协议</a></li>
+            <li><a href="#faq">常见问题</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="service">我提供的服务</h2>
+          <p>全方位租客匹配。您把房子交给我;我把签好的租约交给您,租客经过完整背景调查,从入住第一天起就被安顿得清清楚楚。</p>
+          <ul class="bullets">
+            <li><strong>市场定价</strong> — 比对同类房源,定一个能尽快租出、而不是拖得很久的价格</li>
+            <li><strong>挂牌与推广</strong> — MLS、社交媒体、个人渠道。高质量照片与文案</li>
+            <li><strong>租客筛选</strong> — 信用调查、雇主核实、推荐人核实、面对面评估</li>
+            <li><strong>带看</strong> — 我亲自带看。您不必在场</li>
+            <li><strong>租约草拟与签订</strong> — 安省标准租约,必要时加入定制条款</li>
+            <li><strong>入住与交钥匙</strong> — 包括房屋状况记录、大楼介绍,以及之后任何问题的对接联系人</li>
+          </ul>
+
+          <h2 id="why">为什么选择我</h2>
+          <div class="why-grid" style="margin-top:32px;">
+            <div class="why-quote">
+              <span class="why-quote-mark">"</span>
+              <p>好租客不是收入最高的那位。是会把您的房子当家、不闹事按时续约的那位。两个条件我都筛。</p>
+              <div class="attr">— Peter</div>
+            </div>
+            <div class="why-points">
+              <div class="why-point"><div class="why-point-num">01</div><h3>用酒店业的标准做背调</h3><p>四年多的 Airbnb、400+ 客户好评教会了我什么样的客人不会出问题。同样的直觉,用在挑选租客上。</p></div>
+              <div class="why-point"><div class="why-point-num">02</div><h3>双语市场触达</h3><p>主动开发中文租客社群 — 这是很多中介错过的一块。结果通常是更快、更高质量的成交。</p></div>
+              <div class="why-point"><div class="why-point-num">03</div><h3>能真正保护您的租约</h3><p>安省标准租约本身不够全面。我会加上定制条款 — 宠物、吸烟、转租、水电分摊 — 把日后的纠纷提前堵住。</p></div>
+            </div>
+          </div>
+
+          <h2 id="timeline">典型时间线</h2>
+          <ul class="bullets">
+            <li><strong>第一周</strong> — 咨询、定价分析、拍摄、挂牌上线</li>
+            <li><strong>第一到二周</strong> — 带看(通常 5 到 10 组合格租客)</li>
+            <li><strong>第二到三周</strong> — 申请审核、背景调查、推荐人选</li>
+            <li><strong>第二到三周</strong> — 签约、收取首末月租金、安排交钥匙</li>
+          </ul>
+
+          <h2 id="pricing">收费方式</h2>
+          <p>多伦多标准的租客匹配服务:<strong>一个月租金</strong>,由房东在签约时支付。这是行业惯例;推广、背调、租约草拟都不另外收费。</p>
+          <p>如果需要长期物业管理(收租、维修协调、续约、年度回访),按单位另行报价,以服务范围为准。</p>
+
+          <h2 id="rta">安省住宅租赁协议</h2>
+          <p>安省标准租约 — 即 <strong>住宅租赁协议(Form 2229E)</strong> — 是安省政府强制使用的住宅租赁合约,适用于 2018 年 4 月 30 日之后开始的绝大多数住宅租赁。作为房东,您在法律上必须使用这份表格来签订大部分私人租赁。它涵盖了租约必备的 17 项核心条款,并预留了空间用于附加自定义条款(宠物、吸烟、水电费等),只要不与《住宅租赁法》冲突即可。</p>
+          <p style="margin-top: 20px;">
+            <a href="/forms/ontario-residential-tenancy-agreement.pdf" class="btn-primary" download>
+              下载租赁协议(Form 2229E)
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+          <p class="legal-note" style="margin-top: 18px;">来源:安省政府。会不定期更新 — 请到 <a href="https://www.ontario.ca/page/guide-ontarios-standard-lease" target="_blank" rel="noopener" style="text-decoration: underline;">ontario.ca/standard-lease</a> 核对最新版本。</p>
+
+          <h2 id="faq">常见问题</h2>
+          <div class="faq">
+            <details><summary>我需要亲自到场带看吗?</summary><p>不用。所有带看由我负责。您愿意参与多少、就参与多少。</p></details>
+            <details><summary>万一租客后来出问题怎么办?</summary><p>认真背调能把这种情况降到很低,但确实有可能发生。我会陪您走房东与租客委员会(LTB)的流程;如果升级,会推荐合作的执业律师助理(paralegal)。</p></details>
+            <details><summary>如果我想卖而不是租呢?</summary><p>可以。我会诚实地比较一下租金回报率与出售价格,推荐对您目标更有利的那条路。</p></details>
+            <details><summary>有共管公寓(condo)板块限制规则的能做吗?</summary><p>可以。我熟悉状况证明书(status certificate)审阅和大多数 condo 董事会的审批流程。</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="准备好把房子租出去了吗?" lead="跟我说说这套房子。我会回复您一个价格、一份推广方案,以及一个切实可行的时间表。" ctaTitle="预约房东咨询" ctaSubtitle="20 分钟 · 电话或当面 · 免费" />
+  <ChineseFooter />
+</BaseLayout>

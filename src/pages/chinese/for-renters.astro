@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout title="租客须知 — Peter Law · 多伦多房地产" description="与 Peter Law 一起租房的全流程:需要准备什么、可以预期什么、租金管制的基础,以及如何放心签下多伦多的合适租约。" zh={true}>
+
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租客须知</div>
+      <h1>与我一起租房,实际是怎样的。</h1>
+      <p>多伦多租赁市场节奏很快。能拿到心仪房子的人,是有准备的人。这一页就是为了让您成为那样的人。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#process">四步流程</a></li>
+            <li><a href="#documents">所需文件</a></li>
+            <li><a href="#terminate">解除租约</a></li>
+            <li><a href="#faq">常见问题</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="process">四步流程</h2>
+          <p>多数租房失败,不是因为没有合适的房子,而是因为合适的房子出现时租客还没准备好。我们把这个顺序反过来。</p>
+
+          <h3>第一步 — 15 分钟初步通话</h3>
+          <p>免费,无义务。我们聊一聊您要什么:地区、预算、时间、必备条件、不可接受的条件。我会告诉您今天的市场上什么是现实的,以及您需要准备什么。</p>
+
+          <h3 id="apply">第二步 — 准备申请材料</h3>
+          <p>开始的方式很简单:填一下下面的表格 — 这些基本信息能让我更快为您准备完整的申请包,也能让我知道该联系哪些房东。</p>
+          <div class="calc" style="max-width: 660px;">
+            <form method="POST" action="https://formspree.io/f/xnjrzgda">
+              <div class="calc-fields">
+                <div class="calc-field calc-field-full">
+                  <label for="gs-applicants">申请人姓名 <span class="hint">*</span></label>
+                  <input id="gs-applicants" name="applicants" type="text" required placeholder="例如:陈晓琳,John Smith">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-email">电子邮箱 <span class="hint">*</span></label>
+                  <input id="gs-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-phone">电话 <span class="hint">(可选)</span></label>
+                  <input id="gs-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-movein">预期入住日期 <span class="hint">*</span></label>
+                  <input id="gs-movein" name="move_in_date" type="date" required>
+                </div>
+                <div class="calc-field">
+                  <label for="gs-occupation">职业 <span class="hint">*</span></label>
+                  <input id="gs-occupation" name="occupation" type="text" required>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="gs-citizenship">身份状态 <span class="hint">*</span></label>
+                  <select id="gs-citizenship" name="citizenship_status" required>
+                    <option value="">请选择…</option>
+                    <option>加拿大公民</option>
+                    <option>永久居民</option>
+                    <option>国际留学生</option>
+                    <option>工作签证</option>
+                    <option>访客 / 其他</option>
+                  </select>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="gs-gotcha">请勿填写</label>
+                  <input id="gs-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="新租房咨询表 (中文版)">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 20px;">
+                提交
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <div class="callout"><strong>新移民?</strong> 没有加拿大本地信用记录,是新移民被拒最常见的原因。我会告诉您哪些替代材料管用 — 担保人信、提前多缴押金、雇主证明信、海外信用报告 — 也会告诉您哪些房东愿意接受这些材料。</div>
+
+          <h3>第三步 — 看真正合适的房子</h3>
+          <p>在看房之前,我会先帮您过滤市场。您看到的是 3 到 5 套真正值得花时间看的房子,而不是 30 套。我们一起看;我会为每一套做笔记,看完之后我们可以诚实地做比较。</p>
+
+          <h3>第四步 — 签约、搬家、安顿</h3>
+          <p>每一份租约我都会逐条审阅 — 特别关注租金涨幅条款、额外费用、解约条款。签好之后:我帮您处理水电网络、搬家、交钥匙、和大楼方面的对接。</p>
+
+          <h2 id="documents">所需文件</h2>
+          <p>多伦多租赁市场竞争极其激烈。市中心一套一房一厅挂出来,房东通常会在 <strong>48 小时内收到多份申请</strong>。几乎每个申请人都准备好了基本材料:身份证件、雇主信、工资单、信用报告。</p>
+          <p>赢得房子的不是刚好达标的那位,而是申请包让房东读完后没有任何疑问的那位 — 一眼看完就说"就是他了"。这就是我们要达到的标准。</p>
+          <div class="callout"><strong>核心原则:</strong>提交得比要求的多。提交得快。让房东没有理由说"我们还需要您再补充材料"。在多伦多,速度和完整度赢得房子。</div>
+
+          <h3>需要您准备的材料</h3>
+          <ul class="bullets">
+            <li><strong>政府签发的身份证件</strong> — 护照、驾照、加拿大公民卡或安省身份证。最好两份。如果是卡,需要正反面扫描件。</li>
+            <li><strong>雇主信</strong> — 公司抬头纸,签字,出具日期在 30 天以内。需要写明您的职位、入职时间、雇佣类型(全职 / 合约)和年薪。如果是自雇人士,等效材料是过去两年从加拿大税务局(CRA)取得的 Notice of Assessment。</li>
+            <li><strong>工资单</strong> — 最近 2 到 3 次的工资单。如果没有,银行流水显示工资入账可以作为备用。如果是自雇人士,提供过去三个月的公司银行账户流水。</li>
+            <li><strong>信用报告</strong> — 由 Equifax 或 TransUnion 出具,30 天内的。新移民可以补充原籍国的国际信用报告(若有)。<br><br>可以从以下网站获取信用报告:<a href="https://www.equifax.ca" target="_blank" rel="noopener">Equifax.ca</a>、<a href="https://www.transunion.ca" target="_blank" rel="noopener">Transunion.ca</a>、<a href="https://borrowell.com" target="_blank" rel="noopener">Borrowell.com</a></li>
+            <li><strong>租房申请表</strong> — OREA Form 410。下载在下方,填好之后发回给我。</li>
+          </ul>
+
+          <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+            <strong>为什么"超额准备"管用:</strong>
+            <br><br>
+            房东要在很短的时间内做一个长期的决定。文件里的每一个空白都是说"不"的理由,每一份额外的材料都是说"是"的理由。当一位房东看到:身份证件 + 雇主信 + 三个月工资单 + 干净的信用报告 + 推荐人 + 自我介绍信 + 一份完整的 OREA Form 410 — 他对比的是只交了一半材料的其他申请人。您会赢。
+          </div>
+
+          <h3>租房申请表</h3>
+          <p>下载 OREA Form 410(安省住宅租房申请表),填好后发邮件给我。如果有不确定的地方,留空就好,我们通话时一起填。</p>
+          <p style="margin-top: 24px;">
+            <a href="/forms/ontario-rental-application.pdf" class="btn-primary" download>
+              下载租房申请表(PDF)
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+
+          <h2 id="terminate">如何正确解除租约</h2>
+          <p>在安省,提前解除固定期限租约需要满足下列条件之一:(a) 房东书面同意;(b) 找到房东认可的接租人或转租人(房东不得无理拒绝);(c) 法律允许的少数例外情形。固定期限结束后,租约自动转为按月续租,您可以提前 <strong>60 天书面通知</strong>,以租期最后一天为解约生效日。</p>
+          <p>如果您是被要求搬走的一方,请先了解您的权利:口头要求不构成合法通知;N12(房东自用)或 N13(装修)通知有明确的法定要求;某些情况下您还有权获得搬迁补偿。</p>
+
+          <h2 id="faq">常见问题</h2>
+          <div class="faq">
+            <details><summary>租客需要付费吗?</summary><p>不用。在多伦多,租赁交易由房东支付中介佣金,我的服务对您完全免费。</p></details>
+            <details><summary>整个流程多快能完成?</summary><p>从初次通话到拿钥匙,通常 2 到 3 周,前提是您的材料都准备齐全。如果材料完备并且时机配合得好,可以更快。</p></details>
+            <details><summary>我没有加拿大信用记录,还能在多伦多租到房吗?</summary><p>可以,但需要替代材料 — 海外信用报告、担保人、提前多缴押金,或者找愿意接受新移民的房东。我知道哪些房东比较灵活。</p></details>
+            <details><summary>您覆盖哪些区域?</summary><p>多伦多市中心核心区、湖滨与 Harbourfront,以及整个大多伦多地区。只要在多伦多可租,我都可以协助。</p></details>
+            <details><summary>有什么"猫腻"吗?</summary><p>没有。我的报酬由房东支付;我的动机是帮您找到一个您愿意长住的房子。两年后还满意的租客,是会把朋友介绍给我的租客。</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="我们来看看可能的样子。" lead="15 分钟通话。告诉我您要什么,我告诉您什么是现实的、您需要准备什么,以及我是否是适合协助您的人。" />
+  <ChineseFooter />
+</BaseLayout>
