@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
+
+const publishedDate = '2026-06-03';
+const articleTitle = '如何降低您的水电费:分时电价(Time of Use, TOU)';
+const articleDescription = '简单易懂的安省分时电价指南。三种电价分别是多少、什么时候用哪种,以及 7 个不改变生活方式就能省电费的方法。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/time-of-use-tou';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  inLanguage: 'zh-CN',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — 多伦多房地产',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 家居小贴士</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">您的电费单上有三种电价。在对的时间用电,就能少付一大笔。用通俗的话讲清楚怎么操作。</p>
+        <div class="article-byline">
+          <span>作者 <a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 6 月 3 日</time>
+          <span class="dot">·</span>
+          <span>阅读 5 分钟</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页内容</h4>
+            <ul>
+              <li><a href="#what">什么是 TOU</a></li>
+              <li><a href="#prices">三种电价</a></li>
+              <li><a href="#when">什么时候用哪种</a></li>
+              <li><a href="#save">7 个省电费的方法</a></li>
+              <li><a href="#ulo">要不要换 ULO?</a></li>
+              <li><a href="#math">简单算一笔账</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>一句话回答:</strong>安省的电价分三种。最便宜的是晚上和周末。最贵的是工作日白天。如果您把洗衣服、洗碗、给电动车充电这些事挪到便宜的时间做 — 一年下来能省不少钱。关键是要知道哪个时段用哪种电价。</p>
+
+            <div class="callout"><strong>这篇文章写给谁看:</strong>在多伦多或安省任何地方付电费、希望账单变小的人。不需要懂技术,不需要买新设备。</div>
+
+            <h2 id="what">什么是"分时电价"?</h2>
+            <p>分时电价(Time of Use,简称 TOU)是安省最常见的电价方式。价格随时间和季节变化。</p>
+            <p>可以把它想成一家热门餐厅。晚饭点人最多,价格最高。深夜没什么人,价格就低。电也是一样。大家都在用电的时候,价格高;大多数人睡着的时候,价格低。</p>
+
+            <h2 id="prices">三种电价(2026 年冬季)</h2>
+            <p>安省能源委员会(OEB)负责定价。目前的价格是:</p>
+            <ul class="bullets">
+              <li><strong>低谷电价(Off-Peak):每千瓦时 9.8 分</strong> — 最便宜</li>
+              <li><strong>平时电价(Mid-Peak):每千瓦时 15.7 分</strong> — 中间价</li>
+              <li><strong>高峰电价(On-Peak):每千瓦时 20.3 分</strong> — 最贵</li>
+            </ul>
+            <p>高峰电价是低谷电价的 <strong>两倍多</strong>。这就是您可以利用的差价。</p>
+
+            <h2 id="when">什么时候用哪种电价</h2>
+            <p>夏天和冬天的时间表不一样。这里讲简化版。</p>
+
+            <h3>冬季(11 月 1 日 – 4 月 30 日)</h3>
+            <ul class="bullets">
+              <li><strong>高峰(最贵):</strong>工作日早上 7 点–11 点,以及下午 5 点–晚上 7 点。大家上班前和下班回家吃饭的时段。</li>
+              <li><strong>平时(中间):</strong>工作日 11 点–下午 5 点。</li>
+              <li><strong>低谷(最便宜):</strong>工作日晚上 7 点–次日早 7 点。所有周末、所有法定节日。</li>
+            </ul>
+
+            <h3>夏季(5 月 1 日 – 10 月 31 日)</h3>
+            <ul class="bullets">
+              <li><strong>高峰(最贵):</strong>工作日 11 点–下午 5 点。空调全开的炎热下午。</li>
+              <li><strong>平时(中间):</strong>工作日早上 7 点–11 点,以及下午 5 点–晚上 7 点。</li>
+              <li><strong>低谷(最便宜):</strong>工作日晚上 7 点–次日早 7 点。所有周末、所有法定节日。</li>
+            </ul>
+
+            <div class="callout"><strong>简单记法:</strong>周末和半夜永远是便宜的。夏天的中午、冬天的早晚高峰是最贵的。能把大件用电挪到晚上或周末做的,就能省钱。</div>
+
+            <h2 id="save">7 个简单省电费的方法</h2>
+
+            <h3>1. 洗碗机晚上 7 点之后开</h3>
+            <p>白天装碗,晚饭后按启动。同样的碗,价钱减半。</p>
+
+            <h3>2. 周末洗衣服</h3>
+            <p>周六周日全天都是低谷价。把洗衣服攒到周末,烘干也一样。</p>
+
+            <h3>3. 电动车晚上充</h3>
+            <p>睡前插上,早上充满。整夜都按低谷价收费。</p>
+
+            <h3>4. 提前给房子降温或升温</h3>
+            <p>夏天:下午 6 点前把房子降到舒适温度。高峰时段把空调温度调高一点,房子凉气还在,空调可以歇一会儿。</p>
+            <p>冬天:下午 5 点前把房子升温。然后晚高峰时段把恒温器降 1 到 2 度。</p>
+
+            <h3>5. 装一个可编程恒温器</h3>
+            <p>设置一次,每天自动执行。基础款 $40 加币。智能款(Nest、ecobee)很快就能回本。</p>
+
+            <h3>6. 拔掉"幽灵电源"</h3>
+            <p>电视、游戏机、咖啡机、充电器,关机后还在偷偷用电。买一个带开关的插线板。出门上班时一按就全关。</p>
+
+            <h3>7. 换 LED 灯泡</h3>
+            <p>LED 比老式灯泡省电约 80%,而且能用很多年。账单上每次都看得到节省。</p>
+
+            <h2 id="ulo">要不要换 ULO 计划?</h2>
+            <p>ULO 是 "Ultra-Low Overnight"(超低夜间电价)。这是另一种电价方案,也有三种价格,但最便宜的时段更便宜 — 只在深夜(晚上 11 点到早上 7 点)。</p>
+            <p>什么时候适合?<strong>如果</strong>您在深夜给电动车充电、深夜开热水浴缸,或者大部分洗衣都在 11 点到 7 点之间 — 那 ULO 很划算。否则,ULO 的高峰价比普通 TOU 还要贵,反而可能多付钱。</p>
+            <p>简短结论:<strong>电动车车主可以考虑 ULO,其他人继续用普通 TOU 就好。</strong></p>
+
+            <h2 id="math">简单算一笔账</h2>
+            <p>假设您一周用烘干机 3 次,每次用电 3 千瓦时,一周共 9 千瓦时。</p>
+            <ul class="bullets">
+              <li>高峰时段烘干:9 × 20.3 分 = <strong>每周 $1.83</strong></li>
+              <li>低谷时段烘干:9 × 9.8 分 = <strong>每周 $0.88</strong></li>
+              <li>仅烘干机这一项,<strong>一年大约能省 $50</strong> — 只是因为等到晚上 7 点之后再开。</li>
+            </ul>
+            <p>再加上洗碗机、洗衣机、电动车、空调提前降温 — 真正的节省 1 到 2 个月就能看到。</p>
+
+            <p class="legal-note">所示价格为安省能源委员会(OEB)2025 年 11 月 1 日起的居民监管价格计划(RPP)分时电价,即冬季费率。每年 5 月 1 日和 11 月 1 日调整。最新费率请查询您的供电公司网站。OEB 负责定价,本地供电公司(Toronto Hydro、Hydro One 等)负责出账单。本文为通用信息,不构成财务意见。</p>
+
+            <div class="article-share">
+              <p>分享给那些每次打开电费单都头疼的人。或者<a href="/chinese/contact">告诉我下一篇您想看什么主题</a>。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseCTASection heading="最近在买房或租房?" lead="水电费、物业管理费、取暖费 — 加起来不是小数目。我们一起算一下您正在考虑的那个房子真正每月要花多少,而不只是租金或月供。" />
+  <ChineseFooter />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
