@@ -75,6 +75,25 @@ const jsonLd = {
           <div class="prose-body">
             <p><strong>一句话回答:</strong>Bill 60 是安省的一部新法。它修改了租房规则。对房东更便利、流程更快。对租客时间更紧、保护更少。法律于 2025 年 11 月 24 日通过。大部分条款仍在 Tribunals Ontario 分阶段实施 — 行动前请先核实。</p>
 
+            <div class="b60-stats" aria-label="Bill 60 一图速览">
+              <div class="b60-stat">
+                <div class="b60-stat-num">7</div>
+                <div class="b60-stat-cap">天:N4 欠租后可补缴的窗口 <span>(原为 14)</span></div>
+              </div>
+              <div class="b60-stat">
+                <div class="b60-stat-num">15</div>
+                <div class="b60-stat-cap">天:LTB 裁决上诉窗口 <span>(原为 30)</span></div>
+              </div>
+              <div class="b60-stat">
+                <div class="b60-stat-num">50<span class="b60-stat-pct">%</span></div>
+                <div class="b60-stat-cap">提出维修抗辩前需先存入的欠租比例</div>
+              </div>
+              <div class="b60-stat">
+                <div class="b60-stat-num">120</div>
+                <div class="b60-stat-cap">天:N12 达此通知期可免一个月赔付</div>
+              </div>
+            </div>
+
             <div class="callout"><strong>提醒:</strong>Bill 60 是安省过去十年间对租房法律最大的一次调整。一年前的规则今天未必仍成立。发出或回应任何通知前,请先咨询 LTB 或 paralegal。</div>
 
             <h2 id="what">Bill 60 是什么?</h2>
@@ -183,6 +202,25 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  .b60-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 24px 0 28px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--bg-warm); }
+  .b60-stat { padding: 22px 16px; text-align: center; border-right: 1px solid var(--rule); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; }
+  .b60-stat:last-child { border-right: none; }
+  .b60-stat-num { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; }
+  .b60-stat-pct { font-size: 28px; color: var(--ink-soft); margin-left: 1px; }
+  .b60-stat-cap { font-size: 12px; line-height: 1.45; color: var(--ink-soft); max-width: 200px; }
+  .b60-stat-cap span { color: var(--ink-mute); }
+  @media (max-width: 720px) {
+    .b60-stats { grid-template-columns: 1fr 1fr; }
+    .b60-stat { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .b60-stat:nth-child(2) { border-right: none; }
+    .b60-stat:nth-child(3), .b60-stat:nth-child(4) { border-bottom: none; }
+    .b60-stat-num { font-size: 36px; }
+  }
+  @media (max-width: 420px) {
+    .b60-stats { grid-template-columns: 1fr; }
+    .b60-stat { border-right: none; border-bottom: 1px solid var(--rule); }
+    .b60-stat:last-child { border-bottom: none; }
+  }
   .b60-intro { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 18px 22px; margin: 24px 0 28px; border-radius: 4px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
   .b60-intro strong { color: var(--ink); }
   .b60-table-wrap { overflow-x: auto; margin: 0 0 32px; border: 1px solid var(--rule); border-radius: 6px; }
