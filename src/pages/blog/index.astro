@@ -68,9 +68,14 @@ const posts = [
         <div class="eyebrow">Monthly Market Report</div>
         <h3>New articles, in your inbox.</h3>
         <p>Subscribe to the monthly newsletter and you'll get every new explainer the day it goes live. Free, no pitch.</p>
-        <div class="newsletter-embed" style="margin-top:14px;">
-          <iframe src="https://embeds.beehiiv.com/512a665e-d813-48a7-a7bb-8d46cdad874d" frameborder="0" scrolling="no" style="margin:0;border-radius:4px;background-color:transparent;width:100%;min-width:280px;max-width:520px;height:88px;" title="Subscribe to the Monthly Market Report"></iframe>
-        </div>
+        <form class="newsletter-form" method="GET" action="https://peters-newsletter-469474.beehiiv.com/subscribe" style="margin-top:14px;max-width:520px;">
+          <label for="blog-newsletter-email" class="sr-only">Email address</label>
+          <input id="blog-newsletter-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button type="submit" class="btn-primary">Subscribe
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+        <p style="font-size:12px;color:var(--ink-mute);margin-top:10px;">Unsubscribe anytime. Your email isn't shared.</p>
       </div>
     </div>
   </section>

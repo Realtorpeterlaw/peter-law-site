@@ -833,3 +833,8 @@ body.mobile-menu-open { overflow: hidden; }
   .article-body h3 { font-size: 18px; }
   .article-lead { font-size: 17px; }
 }
+
+.back-link { transition: color 0.15s; }
+.back-link:hover { color: var(--ink); }
+.back-link svg { transition: transform 0.15s; }
+.back-link:hover svg { transform: translateX(-2px); }

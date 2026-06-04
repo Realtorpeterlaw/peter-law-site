@@ -25,22 +25,21 @@ const jsonLd = {
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: '安省 Bill 60, 加快建设减少拖延法, 安省驱逐规则 2026, N12 补偿 Bill 60, 固定期限租约 安省, 多伦多房东租客 Bill 60, 住宅租赁法 2026, 安省欠租听证变更',
 };
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
-  bodyClass="article-page"
+  bodyClass="guide-page article-page"
   zh={true}
 >
   <ChineseTopBar />
   <ChineseHeader active="blog" />
 
   <article>
-    <section class="page-hero article-hero">
-      <div class="wrap article-wrap">
-        <div class="eyebrow"><a href="/chinese/blog">博客</a> · 立法</div>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 立法</div>
         <h1>{articleTitle}</h1>
         <p class="article-lead">安省于 2025 年 11 月 24 日通过 Bill 60 — <em>《加快建设、减少拖延法》</em>(Fighting Delays, Building Faster Act)。它改写了驱逐流程、N12 补偿、固定期限租约和欠租听证的规则。本文讲清楚改了什么、目前哪些已经生效,以及对租客和房东实际意味着什么。</p>
         <div class="article-byline">
@@ -53,107 +52,96 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="major article-major">
-      <div class="wrap article-wrap">
-        <div class="article-body">
-
-          <p><strong>一句话回答:</strong>Bill 60 是 Ford 政府在 2025 年 11 月 24 日通过的安省综合性法案。它修订了 16 部法律 — 包括《住宅租赁法》(<em>Residential Tenancies Act</em>)— 缩短驱逐时间表、在部分情况下取消 N12 补偿、终结固定期限租约自动转为按月续租的默认规则,并要求租客在欠租听证中提出维修抗辩之前先存入 50% 的欠款。<strong>截至 2026 年中,RTA 相关条款仍在 Tribunals Ontario 分阶段实施中。</strong></p>
-
-          <div class="callout"><strong>关键背景:</strong>Bill 60 是安省过去十年间最重大的房东与租客法律调整。无论您是目前住在固定期限租约里的租客、考虑做自用驱逐的房东,还是今年正要签新租约的人 — 一年前在安省租赁法下成立的规则,今天未必仍然成立。请仔细阅读,并在依赖任何具体条款行事之前,向 LTB 或 paralegal 核实其实施状态。</div>
-
-          <h2>Bill 60 是什么?</h2>
-          <p>Bill 60 的正式名称是 <strong>《加快建设、减少拖延法,2025》</strong>(Fighting Delays, Building Faster Act, 2025)。这是一部综合性的住房法案 — 即一份同时修订多部法律的法案。安省政府所述的目标有两个:</p>
-          <ul class="bullets">
-            <li><strong>加快住房开发</strong> — 简化规划审批、改革开发费、赋予省级更多覆盖市级规划决定的权力。</li>
-            <li><strong>减少房东与租客委员会(LTB)的延误</strong> — 通过缩短驱逐时间表、移除政府认为造成积压的部分程序性保护来实现。</li>
-          </ul>
-          <p>法案于 2025 年 11 月 24 日三读通过,但大部分条款并非一通过就立刻生效 — 它们在 Tribunals Ontario 更新表格、听证程序和培训材料的过程中分阶段实施。</p>
-
-          <h2>租客和房东都需要知道的 5 项变化</h2>
-
-          <h3>1. N4 欠租通知期缩短</h3>
-          <p>在原规则下,房东发出 N4(因拖欠租金提前终止租约通知)后,租客有 14 天补齐欠款或搬走。Bill 60 将其缩短至 <strong>7 天</strong>。</p>
-          <p><strong>租客影响:</strong>您追上欠租的时间只有原来的一半。设置租金自动扣款比以往任何时候都更重要。</p>
-          <p><strong>房东影响:</strong>如果租金未付,更快进入 LTB 申请流程。整体驱逐时间仍以月计,但起点这一关被压缩了。</p>
-
-          <h3>2. N12 自用驱逐:补偿规则改变</h3>
-          <p>过去,当房东因本人、家庭成员或买家计划入住而终止租约(N12),房东必须支付租客<strong>相当于一个月租金的补偿</strong>,或提供另一套可接受的住房。</p>
-          <p>在 Bill 60 下,如果房东提前 <strong>120 天</strong>通知,补偿要求被取消。常规的 60 天 N12 仍需补偿。</p>
-          <p><strong>租客影响:</strong>如果您收到 120 天 N12,不再自动获得一个月租金补偿。如果您认为该通知并非出于善意,您仍有权在 LTB 提出异议 — 滥用 N12 仍然是严重违法,最高可处 $50,000 罚款。</p>
-          <p><strong>房东影响:</strong>对正当的自用驱逐而言,这是实打实的成本节省;但代价是更长的通知期。</p>
-
-          <h3>3. 固定期限租约不再自动转为按月续租</h3>
-          <p>这是租客保护被削弱最大的一项。在原规则下,固定期限租约(通常 12 个月)结束后,会按相同条件自动转为按月租约。租客有权无限期住下去,只按年度租金指导线涨幅承担涨租。</p>
-          <p>Bill 60 取消了这一自动转换。房东现在可以在固定租期结束时灵活地终止租约、重新协商条款,或提出另一份不同租金的新固定期限租约。</p>
-          <p><strong>租客影响:</strong>这是对租客打击最大的一项。如果您的固定租期结束、房东想让您搬走 — 或想大幅涨租 — 您原来的默认保护没有了。</p>
-          <p><strong>房东影响:</strong>更多灵活性,也更多责任 — 房东现在需要主动管理续约,不能被动放任。</p>
-
-          <h3>4. 欠租听证:租客提出维修抗辩须先存入 50%</h3>
-          <p>过去在欠租听证中,租客常用的策略是把维修问题作为抗辩 — 主张因房东未尽维修义务,所以不应缴清全部租金。这往往会拖延驱逐程序。</p>
-          <p>在 Bill 60 下,租客如果想在欠租听证中提出维修抗辩,必须先<strong>将所欠租金的 50% 存入 LTB 信托账户</strong>,其抗辩才会被审理。</p>
-          <p><strong>租客影响:</strong>这是一项重大的诉权变化。确有维修问题但无法在短时间内拿出争议租金 50% 的租客,可能很难为自己辩护。</p>
-          <p><strong>房东影响:</strong>听证更干净,程序性延误减少。</p>
-
-          <h3>5. LTB 上诉窗口缩短</h3>
-          <p>对 LTB 驱逐令的上诉窗口已从 <strong>30 天缩短至 15 天</strong>。</p>
-          <p><strong>租客影响:</strong>找 paralegal、整理证据、提交上诉的时间被压缩。一旦收到不利裁决,请尽快寻求帮助。</p>
-          <p><strong>房东影响:</strong>胜诉后更快获得确定性。</p>
-
-          <h2>已经生效 vs 仍在等待实施</h2>
-          <p>这一点非常重要,也常被误读。Bill 60 已于 2025 年 11 月 24 日<em>通过</em>,但 RTA 相关条款需要 Tribunals Ontario 更新表格、听证脚本、培训材料和运营流程。截至 2026 年中,部分住宅租赁条款仍在分阶段实施中。</p>
-          <div class="callout"><strong>采取行动前请注意:</strong>如果您是房东,准备发出 7 天 N4 或无补偿的 120 天 N12,<em>请先向 LTB 或 paralegal 核实实施状态。</em>发出错误的通知,或依赖尚未生效的条款,可能使整个案件无效。租客同样如此 — 收到您怀疑不符合当前规则的通知时,先寻求建议,不要默认它有效。</div>
-
-          <h2>对多伦多租客的实际建议</h2>
-          <ul class="bullets">
-            <li><strong>设置租金自动扣款。</strong>7 天的 N4 窗口已经不允许任何"忘记"。如果您一直用支票或手动 e-transfer 付租,请改成自动预授权扣款。</li>
-            <li><strong>不要默认固定期限租约自动续。</strong>在租期结束前 60 到 90 天,与房东沟通对方意图。如果对方想签更高租金的新固定期限租约,您还有协商空间 — 但必须及早开始对话。</li>
-            <li><strong>维修问题要随时存档。</strong>如果将来可能用它作为抗辩,就必须有书面证据链 — 给房东的书面请求、有日期的照片、维修人员到访记录。不要等到听证才开始收集。</li>
-            <li><strong>收到 N12 不要默认它有效。</strong>N12 滥用是安省房东与租客争议中最常上 LTB 的问题。一次 paralegal 审阅的费用,远低于丢掉房子的代价。</li>
-          </ul>
-
-          <h2>对多伦多房东的实际建议</h2>
-          <ul class="bullets">
-            <li><strong>不要急着用新规则。</strong>在 RTA 修订完全实施之前,使用尚未生效条款发出的通知可能让您的案件作废。行动前先核实状态。</li>
-            <li><strong>租赁期间全程留档。</strong>Bill 60 在程序上对房东有利,但您仍需举证。维修记录、与租客的沟通、房屋状况报告 — 当作明天就要上 LTB 一样存档。</li>
-            <li><strong>谨慎使用固定期限的灵活性。</strong>过于激进的续约条款可能短期对您有利,但会破坏与租客的关系,也会为下一个选举周期里法律向另一端摆动积累政治压力。</li>
-            <li><strong>"120 天 N12 无补偿"看起来很诱人,但只在您的案件无懈可击时才用。</strong>真正的恶意 N12 在 LTB 现在动辄罚款 5 万以上。补偿规则本身就是一道防止意外的保险 — 拿不准时,不如付补偿。</li>
-          </ul>
-
-          <h2>更大的图景:Bill 60 说明了安省的住房方向</h2>
-          <p>Bill 60 是安省过去十年间最偏向房东的一份住宅租赁立法。它反映了一个明确的政治判断:要增加出租住房供应,就必须提高房东的信心;过去那套程序性保护正在拖累住房市场。</p>
-          <p>批评者认为该法案削弱了重要的租客保护,却并未直接解决可负担性或供应问题。支持者认为它会释放此前因法律风险太高而被房东留在场外的出租单元。</p>
-          <p>两边的说法都可能各有道理。对您现在最重要的,是搞清楚自己正在参与的游戏规则。</p>
-
-          <p class="legal-note">本文仅供参考,不构成法律意见。Bill 60 内容复杂、分阶段实施,并将随 Tribunals Ontario 的推进继续演变。具体情况请咨询在安省律师公会注册的 paralegal、直接联系 LTB,或寻求社区法律诊所协助。资料来源:Globe and Mail 对 Bill 60 通过的报道、Canadian Centre for Housing Rights、Tribunals Ontario 实施指引。我是注册房地产销售代表,不是律师。</p>
-
-          <div class="article-share">
-            <p>在多伦多租房或做房东?<a href="/chinese/contact">把您的具体情况发给我</a>,我会告诉您下一步该怎么走,或在下方订阅,接收下一篇。</p>
-          </div>
-        </div>
-
-        <aside class="article-aside">
-          <div class="article-aside-card">
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
             <h4>本页内容</h4>
             <ul>
-              <li><a href="#">一句话回答</a></li>
-              <li><a href="#">Bill 60 是什么</a></li>
-              <li><a href="#">5 项关键变化</a></li>
-              <li><a href="#">已生效 vs 待实施</a></li>
-              <li><a href="#">租客建议</a></li>
-              <li><a href="#">房东建议</a></li>
-              <li><a href="#">更大的图景</a></li>
+              <li><a href="#what">Bill 60 是什么</a></li>
+              <li><a href="#changes">5 项关键变化</a></li>
+              <li><a href="#status">已生效 vs 待实施</a></li>
+              <li><a href="#tenants">租客建议</a></li>
+              <li><a href="#landlords">房东建议</a></li>
+              <li><a href="#bigger">更大的图景</a></li>
             </ul>
-          </div>
-          <div class="article-aside-card">
-            <h4>相关</h4>
-            <ul>
-              <li><a href="/chinese/blog/reverse-mortgage">反向房贷:是什么?</a></li>
-              <li><a href="/chinese/n-forms">N 表格详解</a></li>
-              <li><a href="/chinese/rent-control">安省租金管制</a></li>
-              <li><a href="/chinese/lease-renewal">租约续签</a></li>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>一句话回答:</strong>Bill 60 是 Ford 政府在 2025 年 11 月 24 日通过的安省综合性法案。它修订了 16 部法律 — 包括《住宅租赁法》(<em>Residential Tenancies Act</em>)— 缩短驱逐时间表、在部分情况下取消 N12 补偿、终结固定期限租约自动转为按月续租的默认规则,并要求租客在欠租听证中提出维修抗辩之前先存入 50% 的欠款。<strong>截至 2026 年中,RTA 相关条款仍在 Tribunals Ontario 分阶段实施中。</strong></p>
+
+            <div class="callout"><strong>关键背景:</strong>Bill 60 是安省过去十年间最重大的房东与租客法律调整。无论您是目前住在固定期限租约里的租客、考虑做自用驱逐的房东,还是今年正要签新租约的人 — 一年前在安省租赁法下成立的规则,今天未必仍然成立。请仔细阅读,并在依赖任何具体条款行事之前,向 LTB 或 paralegal 核实其实施状态。</div>
+
+            <h2 id="what">Bill 60 是什么?</h2>
+            <p>Bill 60 的正式名称是 <strong>《加快建设、减少拖延法,2025》</strong>(Fighting Delays, Building Faster Act, 2025)。这是一部综合性的住房法案 — 即一份同时修订多部法律的法案。安省政府所述的目标有两个:</p>
+            <ul class="bullets">
+              <li><strong>加快住房开发</strong> — 简化规划审批、改革开发费、赋予省级更多覆盖市级规划决定的权力。</li>
+              <li><strong>减少房东与租客委员会(LTB)的延误</strong> — 通过缩短驱逐时间表、移除政府认为造成积压的部分程序性保护来实现。</li>
             </ul>
+            <p>法案于 2025 年 11 月 24 日三读通过,但大部分条款并非一通过就立刻生效 — 它们在 Tribunals Ontario 更新表格、听证程序和培训材料的过程中分阶段实施。</p>
+
+            <h2 id="changes">租客和房东都需要知道的 5 项变化</h2>
+
+            <h3>1. N4 欠租通知期缩短</h3>
+            <p>在原规则下,房东发出 N4(因拖欠租金提前终止租约通知)后,租客有 14 天补齐欠款或搬走。Bill 60 将其缩短至 <strong>7 天</strong>。</p>
+            <p><strong>租客影响:</strong>您追上欠租的时间只有原来的一半。设置租金自动扣款比以往任何时候都更重要。</p>
+            <p><strong>房东影响:</strong>如果租金未付,更快进入 LTB 申请流程。整体驱逐时间仍以月计,但起点这一关被压缩了。</p>
+
+            <h3>2. N12 自用驱逐:补偿规则改变</h3>
+            <p>过去,当房东因本人、家庭成员或买家计划入住而终止租约(N12),房东必须支付租客<strong>相当于一个月租金的补偿</strong>,或提供另一套可接受的住房。</p>
+            <p>在 Bill 60 下,如果房东提前 <strong>120 天</strong>通知,补偿要求被取消。常规的 60 天 N12 仍需补偿。</p>
+            <p><strong>租客影响:</strong>如果您收到 120 天 N12,不再自动获得一个月租金补偿。如果您认为该通知并非出于善意,您仍有权在 LTB 提出异议 — 滥用 N12 仍然是严重违法,最高可处 $50,000 罚款。</p>
+            <p><strong>房东影响:</strong>对正当的自用驱逐而言,这是实打实的成本节省;但代价是更长的通知期。</p>
+
+            <h3>3. 固定期限租约不再自动转为按月续租</h3>
+            <p>这是租客保护被削弱最大的一项。在原规则下,固定期限租约(通常 12 个月)结束后,会按相同条件自动转为按月租约。租客有权无限期住下去,只按年度租金指导线涨幅承担涨租。</p>
+            <p>Bill 60 取消了这一自动转换。房东现在可以在固定租期结束时灵活地终止租约、重新协商条款,或提出另一份不同租金的新固定期限租约。</p>
+            <p><strong>租客影响:</strong>这是对租客打击最大的一项。如果您的固定租期结束、房东想让您搬走 — 或想大幅涨租 — 您原来的默认保护没有了。</p>
+            <p><strong>房东影响:</strong>更多灵活性,也更多责任 — 房东现在需要主动管理续约,不能被动放任。</p>
+
+            <h3>4. 欠租听证:租客提出维修抗辩须先存入 50%</h3>
+            <p>过去在欠租听证中,租客常用的策略是把维修问题作为抗辩 — 主张因房东未尽维修义务,所以不应缴清全部租金。这往往会拖延驱逐程序。</p>
+            <p>在 Bill 60 下,租客如果想在欠租听证中提出维修抗辩,必须先<strong>将所欠租金的 50% 存入 LTB 信托账户</strong>,其抗辩才会被审理。</p>
+            <p><strong>租客影响:</strong>这是一项重大的诉权变化。确有维修问题但无法在短时间内拿出争议租金 50% 的租客,可能很难为自己辩护。</p>
+            <p><strong>房东影响:</strong>听证更干净,程序性延误减少。</p>
+
+            <h3>5. LTB 上诉窗口缩短</h3>
+            <p>对 LTB 驱逐令的上诉窗口已从 <strong>30 天缩短至 15 天</strong>。</p>
+            <p><strong>租客影响:</strong>找 paralegal、整理证据、提交上诉的时间被压缩。一旦收到不利裁决,请尽快寻求帮助。</p>
+            <p><strong>房东影响:</strong>胜诉后更快获得确定性。</p>
+
+            <h2 id="status">已经生效 vs 仍在等待实施</h2>
+            <p>这一点非常重要,也常被误读。Bill 60 已于 2025 年 11 月 24 日<em>通过</em>,但 RTA 相关条款需要 Tribunals Ontario 更新表格、听证脚本、培训材料和运营流程。截至 2026 年中,部分住宅租赁条款仍在分阶段实施中。</p>
+            <div class="callout"><strong>采取行动前请注意:</strong>如果您是房东,准备发出 7 天 N4 或无补偿的 120 天 N12,<em>请先向 LTB 或 paralegal 核实实施状态。</em>发出错误的通知,或依赖尚未生效的条款,可能使整个案件无效。租客同样如此 — 收到您怀疑不符合当前规则的通知时,先寻求建议,不要默认它有效。</div>
+
+            <h2 id="tenants">对多伦多租客的实际建议</h2>
+            <ul class="bullets">
+              <li><strong>设置租金自动扣款。</strong>7 天的 N4 窗口已经不允许任何"忘记"。如果您一直用支票或手动 e-transfer 付租,请改成自动预授权扣款。</li>
+              <li><strong>不要默认固定期限租约自动续。</strong>在租期结束前 60 到 90 天,与房东沟通对方意图。如果对方想签更高租金的新固定期限租约,您还有协商空间 — 但必须及早开始对话。</li>
+              <li><strong>维修问题要随时存档。</strong>如果将来可能用它作为抗辩,就必须有书面证据链 — 给房东的书面请求、有日期的照片、维修人员到访记录。不要等到听证才开始收集。</li>
+              <li><strong>收到 N12 不要默认它有效。</strong>N12 滥用是安省房东与租客争议中最常上 LTB 的问题。一次 paralegal 审阅的费用,远低于丢掉房子的代价。</li>
+            </ul>
+
+            <h2 id="landlords">对多伦多房东的实际建议</h2>
+            <ul class="bullets">
+              <li><strong>不要急着用新规则。</strong>在 RTA 修订完全实施之前,使用尚未生效条款发出的通知可能让您的案件作废。行动前先核实状态。</li>
+              <li><strong>租赁期间全程留档。</strong>Bill 60 在程序上对房东有利,但您仍需举证。维修记录、与租客的沟通、房屋状况报告 — 当作明天就要上 LTB 一样存档。</li>
+              <li><strong>谨慎使用固定期限的灵活性。</strong>过于激进的续约条款可能短期对您有利,但会破坏与租客的关系,也会为下一个选举周期里法律向另一端摆动积累政治压力。</li>
+              <li><strong>"120 天 N12 无补偿"看起来很诱人,但只在您的案件无懈可击时才用。</strong>真正的恶意 N12 在 LTB 现在动辄罚款 5 万以上。补偿规则本身就是一道防止意外的保险 — 拿不准时,不如付补偿。</li>
+            </ul>
+
+            <h2 id="bigger">更大的图景:Bill 60 说明了安省的住房方向</h2>
+            <p>Bill 60 是安省过去十年间最偏向房东的一份住宅租赁立法。它反映了一个明确的政治判断:要增加出租住房供应,就必须提高房东的信心;过去那套程序性保护正在拖累住房市场。</p>
+            <p>批评者认为该法案削弱了重要的租客保护,却并未直接解决可负担性或供应问题。支持者认为它会释放此前因法律风险太高而被房东留在场外的出租单元。</p>
+            <p>两边的说法都可能各有道理。对您现在最重要的,是搞清楚自己正在参与的游戏规则。</p>
+
+            <p class="legal-note">本文仅供参考,不构成法律意见。Bill 60 内容复杂、分阶段实施,并将随 Tribunals Ontario 的推进继续演变。具体情况请咨询在安省律师公会注册的 paralegal、直接联系 LTB,或寻求社区法律诊所协助。资料来源:Globe and Mail 对 Bill 60 通过的报道、Canadian Centre for Housing Rights、Tribunals Ontario 实施指引。我是注册房地产销售代表,不是律师。</p>
+
+            <div class="article-share">
+              <p>在多伦多租房或做房东?<a href="/chinese/contact">把您的具体情况发给我</a>,我会告诉您下一步该怎么走,或在下方订阅,接收下一篇。</p>
+            </div>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   </article>

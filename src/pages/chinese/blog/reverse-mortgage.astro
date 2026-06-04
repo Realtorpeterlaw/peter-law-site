@@ -25,22 +25,21 @@ const jsonLd = {
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: '反向房贷 加拿大, CHIP 反向房贷, HomeEquity Bank, Equitable Bank Flex, 多伦多反向房贷, 55+ 反向房贷, 反向房贷利弊, 加拿大反向房贷利率',
 };
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
-  bodyClass="article-page"
+  bodyClass="guide-page article-page"
   zh={true}
 >
   <ChineseTopBar />
   <ChineseHeader active="blog" />
 
   <article>
-    <section class="page-hero article-hero">
-      <div class="wrap article-wrap">
-        <div class="eyebrow"><a href="/chinese/blog">博客</a> · 融资</div>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 融资</div>
         <h1>{articleTitle}</h1>
         <p class="article-lead">面向 55 岁及以上加拿大业主的通俗解读:反向房贷究竟如何运作、要花多少钱,以及在签字之前银行不会主动告诉您的取舍。</p>
         <div class="article-byline">
@@ -53,124 +52,113 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="major article-major">
-      <div class="wrap article-wrap">
-        <div class="article-body">
-
-          <p><strong>一句话回答:</strong>反向房贷允许 55 岁及以上的加拿大业主以房屋净值为抵押借款,且无需每月还款。贷款本息在房屋出售、业主永久搬离,或最后一位借款人离世时一次性归还。在加拿大,主要有两款产品 — <strong>HomeEquity Bank 的 CHIP 反向房贷</strong>和 <strong>Equitable Bank 的 Flex 反向房贷</strong>。通常可借至房屋估值的 55%。</p>
-
-          <div class="callout"><strong>这篇文章写给谁看:</strong>大多伦多地区 55 岁及以上、正在研究如何在不卖房的情况下盘活房屋资产的业主;或者正在帮父母了解这一选项的成年子女。如果您不满 55 岁,这款产品并不适用 — 可以考虑 HELOC(房屋净值信用额度)或再融资。</div>
-
-          <h2>反向房贷实际是怎么运作的</h2>
-          <p>您已全部或基本付清房贷。贷款方对您的房屋进行估价,根据您的年龄、配偶年龄、房屋价值和所在区域,决定能借给您多少钱。您可以一次性提取,也可以按计划分期提取,或两者结合。<strong>您无需每月还款。</strong>利息按余额累计并复利计算。当您出售房屋、搬入长期护理机构,或离世时,贷款将从售房款中归还。剩余部分归您或您的遗产所有。</p>
-
-          <p>整个过程中,您始终是房屋的业主。您的名字保留在产权上。物业税、保险、维护仍由您负责。</p>
-
-          <h2>谁可以在加拿大申请</h2>
-          <ul class="bullets">
-            <li><strong>年龄:</strong>产权上最年轻的借款人必须年满 55 岁。配偶双方在产权上,则两人都必须满 55 岁。</li>
-            <li><strong>房屋:</strong>必须是您的主要居所(每年居住超过 6 个月)。投资房和度假屋不符合条件。</li>
-            <li><strong>房屋类型:</strong>大多数独立屋、镇屋和 condo 均可。部分物业(房车、合作社住房、某些乡村物业)不符合资格。CHIP 与 Flex 的资格略有差异 — 您的中介或贷款经纪可以帮您核实。</li>
-            <li><strong>房屋估值:</strong>通常有最低门槛(CHIP 约需 25 万加币以上;部分产品更高)。</li>
-            <li><strong>无收入和信用要求。</strong>这正是反向房贷对靠固定退休金生活的长者最具吸引力的一点 — 您的退休金不必"符合"贷款条件,房子符合就够了。</li>
-          </ul>
-
-          <h2>实际能借多少?</h2>
-          <p>通常最高可借 <strong>房屋估值的 55%</strong> — 但具体比例取决于您的年龄、配偶年龄、房屋所在区域与状况,以及贷款方本身。多伦多市中心一套 150 万房子的 75 岁业主,能借到的金额会高于同样房子里的 56 岁业主,因为贷款方预期能更早收回贷款。</p>
-
-          <p>举一个粗略例子:一对 65 岁夫妇,在多伦多拥有一套 120 万的房子,可能可以借到 40 万到 50 万之间。</p>
-
-          <h2>利率是关键问题</h2>
-          <p>大多数文章在这一点上含糊其辞。我们来讲清楚。</p>
-          <p>加拿大反向房贷的利率<strong>明显高于普通房贷利率</strong> — 通常比 5 年固定利率房贷高 1.5% 到 3%。原因:贷款方承担更大风险(无月供、期限长、未来房屋价值不可知),且这一市场竞争小得多。</p>
-          <p>另一个关键点:<strong>利息会复利。</strong>如果您借 30 万、利率 8%、不还任何款项,余额会迅速增长。10 年后,这 30 万会变成约 64.8 万。15 年后,约 95.1 万。</p>
-
-          <div class="callout"><strong>多伦多式算账:</strong>同时,您的房子也在升值。如果一套 120 万的房子以每年 3% 到 4% 的速度升值 15 年,可能值 187 万到 216 万。贷款偿还后剩余的净值,就是留给遗产的部分。房屋升值速度相对于贷款复利增长得越快,这笔账对您越有利。</div>
-
-          <h2>实际的前期成本</h2>
-          <ul class="bullets">
-            <li><strong>估值费:</strong>$300 到 $600(提前支付)</li>
-            <li><strong>独立法律意见:</strong>$300 到 $700 — 法律强制要求,您自行选择律师</li>
-            <li><strong>贷款方的开户/设置费:</strong>通常 $1,500 到 $2,500(通常从贷款中扣除,不必现付)</li>
-            <li><strong>产权保险:</strong>$300 到 $500</li>
-          </ul>
-          <p>合计:通常前期 $2,500 到 $4,000,其中大部分滚入贷款。</p>
-
-          <h2>真正的取舍 — 利与弊</h2>
-
-          <h3>优点</h3>
-          <ul class="bullets">
-            <li><strong>无月供。</strong>现金流不变,对靠固定退休金生活的长者尤其重要。</li>
-            <li><strong>可以留在自己的房子里。</strong>不会被迫出售。如果您对自己的社区、亲友网络、或这栋房子本身有深厚感情,这点很关键。</li>
-            <li><strong>这笔钱是免税的。</strong>它是贷款,不是收入。不会影响 OAS 回收(clawback)或 GIS 资格。</li>
-            <li><strong>无需收入或信用资格。</strong>有净值,就有额度。</li>
-            <li><strong>在加拿大没有负资产风险。</strong>CHIP 和 Flex 都包含"无负资产"保证 — 如果出售时贷款超出房屋价值,差额由贷款方吸收。您的遗产受到保护。</li>
-          </ul>
-
-          <h3>缺点</h3>
-          <ul class="bullets">
-            <li><strong>利率高于其他选项。</strong>如果您能够通过资格审核,HELOC 或常规再融资几乎总是更便宜。</li>
-            <li><strong>复利侵蚀遗产。</strong>留给子女或继承人的金额会明显减少。家庭沟通很重要。</li>
-            <li><strong>开户成本。</strong>绝对金额不大,但对本就昂贵的贷款而言,这是真金白银。</li>
-            <li><strong>灵活性下降。</strong>日后出售会更复杂 — 贷款必须在交接时结清,前几年的提前还款罚金可能不低。</li>
-            <li><strong>配偶产权风险。</strong>如果只有一方在产权上,而该方先离世,在世配偶可能被迫归还贷款。办反向房贷时,务必让双方都在产权上。</li>
-          </ul>
-
-          <h2>反向房贷 vs. HELOC vs. 常规再融资</h2>
-          <p>多数考虑反向房贷的业主,应先评估以下替代方案 — 如果符合资格,这些通常更划算:</p>
-          <ul class="bullets">
-            <li><strong>HELOC(房屋净值信用额度):</strong>利率低得多。要求收入审核与每月利息支付。如果您有稳定收入,这是最佳选项。</li>
-            <li><strong>常规再融资:</strong>用一笔更大的新贷款替换现有房贷。利率低,但需正常月供。要求收入审核。</li>
-            <li><strong>卖房换小:</strong>最常被忽视的选项。一次性释放全部净值,完全不产生利息。代价是搬家 — 情感上与生活上都不轻松 — 但对许多空巢期净值已经很高的多伦多业主而言,这在财务上是更优的路径。</li>
-            <li><strong>反向房贷:</strong>最后选项。适用于:无法通过其他方案审核、不愿搬家、不需以收入资格审核的情形。</li>
-          </ul>
-
-          <h2>反向房贷什么时候真正划算</h2>
-          <p>我见到它确实管用的场景大致是这些:</p>
-          <ul class="bullets">
-            <li>您 70 岁以上,收入固定,深爱自己的房子,需要现金用于医疗、房屋改造,或补充退休金。</li>
-            <li>您无法通过 HELOC 审核(无收入),搬家在情感或生活上都难以承受。</li>
-            <li>您希望趁现在还在世时,把钱赠予子女或孙辈使用,而房屋升值能从容覆盖贷款复利增长。</li>
-            <li>您与继承人就遗产期望有过坦诚对话,他们理解其中的算账逻辑。</li>
-          </ul>
-          <p>不太划算的场景:您还比较年轻、仍有资格 HELOC;您的房子并未升值;您本就愿意考虑换小;您还没有和家人商量过。</p>
-
-          <h2>签约前必问的两个问题</h2>
-          <ol class="bullets" style="list-style: decimal;">
-            <li>"我 5 年后还需要再提取吗?"如果需要,请把贷款结构设为分期提取,而不是一次性拿走全款 — 分期提取能少付不少利息。</li>
-            <li>"我是否已经告知成年子女/继承人?"一次本以为是惊喜的遗产却比预期少很多,足以击穿一段家庭关系。这次对话现在就要谈,而不是等 15 年后在律师办公室才谈。</li>
-          </ol>
-
-          <p class="legal-note">本文仅供参考,不构成财务意见。反向房贷是一项专门的金融产品,对您的遗产有重大影响。签字前请咨询持牌贷款专业人士、独立律师(加拿大反向房贷法律强制要求),并最好咨询一位财务规划师。我是注册房地产销售代表,不是房贷顾问。</p>
-
-          <div class="article-share">
-            <p>觉得有用?<a href="/chinese/contact">把这篇发给正在问这个问题的人</a>,或在下方订阅,接收下一篇。</p>
-          </div>
-        </div>
-
-        <aside class="article-aside">
-          <div class="article-aside-card">
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
             <h4>本页内容</h4>
             <ul>
-              <li><a href="#">一句话回答</a></li>
-              <li><a href="#">如何运作</a></li>
-              <li><a href="#">谁可以申请</a></li>
-              <li><a href="#">能借多少</a></li>
-              <li><a href="#">利率</a></li>
-              <li><a href="#">利与弊</a></li>
-              <li><a href="#">替代方案</a></li>
-              <li><a href="#">什么时候划算</a></li>
+              <li><a href="#how-it-works">如何运作</a></li>
+              <li><a href="#qualifies">谁可以申请</a></li>
+              <li><a href="#how-much">能借多少</a></li>
+              <li><a href="#interest">利率</a></li>
+              <li><a href="#costs">前期成本</a></li>
+              <li><a href="#pros-cons">利与弊</a></li>
+              <li><a href="#alternatives">替代方案</a></li>
+              <li><a href="#when">什么时候划算</a></li>
+              <li><a href="#ask">签约前必问</a></li>
             </ul>
-          </div>
-          <div class="article-aside-card">
-            <h4>相关</h4>
-            <ul>
-              <li><a href="/chinese/blog/bill-60-ontario">安省 Bill 60:租客与房东必须知道</a></li>
-              <li><a href="/chinese/buyer-guide">买家指南</a></li>
-              <li><a href="/chinese/affordability-calculator">可负担能力计算器</a></li>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>一句话回答:</strong>反向房贷允许 55 岁及以上的加拿大业主以房屋净值为抵押借款,且无需每月还款。贷款本息在房屋出售、业主永久搬离,或最后一位借款人离世时一次性归还。在加拿大,主要有两款产品 — <strong>HomeEquity Bank 的 CHIP 反向房贷</strong>和 <strong>Equitable Bank 的 Flex 反向房贷</strong>。通常可借至房屋估值的 55%。</p>
+
+            <div class="callout"><strong>这篇文章写给谁看:</strong>大多伦多地区 55 岁及以上、正在研究如何在不卖房的情况下盘活房屋资产的业主;或者正在帮父母了解这一选项的成年子女。如果您不满 55 岁,这款产品并不适用 — 可以考虑 HELOC(房屋净值信用额度)或再融资。</div>
+
+            <h2 id="how-it-works">反向房贷实际是怎么运作的</h2>
+            <p>您已全部或基本付清房贷。贷款方对您的房屋进行估价,根据您的年龄、配偶年龄、房屋价值和所在区域,决定能借给您多少钱。您可以一次性提取,也可以按计划分期提取,或两者结合。<strong>您无需每月还款。</strong>利息按余额累计并复利计算。当您出售房屋、搬入长期护理机构,或离世时,贷款将从售房款中归还。剩余部分归您或您的遗产所有。</p>
+            <p>整个过程中,您始终是房屋的业主。您的名字保留在产权上。物业税、保险、维护仍由您负责。</p>
+
+            <h2 id="qualifies">谁可以在加拿大申请</h2>
+            <ul class="bullets">
+              <li><strong>年龄:</strong>产权上最年轻的借款人必须年满 55 岁。配偶双方在产权上,则两人都必须满 55 岁。</li>
+              <li><strong>房屋:</strong>必须是您的主要居所(每年居住超过 6 个月)。投资房和度假屋不符合条件。</li>
+              <li><strong>房屋类型:</strong>大多数独立屋、镇屋和 condo 均可。部分物业(房车、合作社住房、某些乡村物业)不符合资格。CHIP 与 Flex 的资格略有差异 — 您的中介或贷款经纪可以帮您核实。</li>
+              <li><strong>房屋估值:</strong>通常有最低门槛(CHIP 约需 25 万加币以上;部分产品更高)。</li>
+              <li><strong>无收入和信用要求。</strong>这正是反向房贷对靠固定退休金生活的长者最具吸引力的一点 — 您的退休金不必"符合"贷款条件,房子符合就够了。</li>
             </ul>
+
+            <h2 id="how-much">实际能借多少?</h2>
+            <p>通常最高可借 <strong>房屋估值的 55%</strong> — 但具体比例取决于您的年龄、配偶年龄、房屋所在区域与状况,以及贷款方本身。多伦多市中心一套 150 万房子的 75 岁业主,能借到的金额会高于同样房子里的 56 岁业主,因为贷款方预期能更早收回贷款。</p>
+            <p>举一个粗略例子:一对 65 岁夫妇,在多伦多拥有一套 120 万的房子,可能可以借到 40 万到 50 万之间。</p>
+
+            <h2 id="interest">利率是关键问题</h2>
+            <p>大多数文章在这一点上含糊其辞。我们来讲清楚。</p>
+            <p>加拿大反向房贷的利率<strong>明显高于普通房贷利率</strong> — 通常比 5 年固定利率房贷高 1.5% 到 3%。原因:贷款方承担更大风险(无月供、期限长、未来房屋价值不可知),且这一市场竞争小得多。</p>
+            <p>另一个关键点:<strong>利息会复利。</strong>如果您借 30 万、利率 8%、不还任何款项,余额会迅速增长。10 年后,这 30 万会变成约 64.8 万。15 年后,约 95.1 万。</p>
+            <div class="callout"><strong>多伦多式算账:</strong>同时,您的房子也在升值。如果一套 120 万的房子以每年 3% 到 4% 的速度升值 15 年,可能值 187 万到 216 万。贷款偿还后剩余的净值,就是留给遗产的部分。房屋升值速度相对于贷款复利增长得越快,这笔账对您越有利。</div>
+
+            <h2 id="costs">实际的前期成本</h2>
+            <ul class="bullets">
+              <li><strong>估值费:</strong>$300 到 $600(提前支付)</li>
+              <li><strong>独立法律意见:</strong>$300 到 $700 — 法律强制要求,您自行选择律师</li>
+              <li><strong>贷款方的开户/设置费:</strong>通常 $1,500 到 $2,500(通常从贷款中扣除,不必现付)</li>
+              <li><strong>产权保险:</strong>$300 到 $500</li>
+            </ul>
+            <p>合计:通常前期 $2,500 到 $4,000,其中大部分滚入贷款。</p>
+
+            <h2 id="pros-cons">真正的取舍 — 利与弊</h2>
+
+            <h3>优点</h3>
+            <ul class="bullets">
+              <li><strong>无月供。</strong>现金流不变,对靠固定退休金生活的长者尤其重要。</li>
+              <li><strong>可以留在自己的房子里。</strong>不会被迫出售。如果您对自己的社区、亲友网络、或这栋房子本身有深厚感情,这点很关键。</li>
+              <li><strong>这笔钱是免税的。</strong>它是贷款,不是收入。不会影响 OAS 回收(clawback)或 GIS 资格。</li>
+              <li><strong>无需收入或信用资格。</strong>有净值,就有额度。</li>
+              <li><strong>在加拿大没有负资产风险。</strong>CHIP 和 Flex 都包含"无负资产"保证 — 如果出售时贷款超出房屋价值,差额由贷款方吸收。您的遗产受到保护。</li>
+            </ul>
+
+            <h3>缺点</h3>
+            <ul class="bullets">
+              <li><strong>利率高于其他选项。</strong>如果您能够通过资格审核,HELOC 或常规再融资几乎总是更便宜。</li>
+              <li><strong>复利侵蚀遗产。</strong>留给子女或继承人的金额会明显减少。家庭沟通很重要。</li>
+              <li><strong>开户成本。</strong>绝对金额不大,但对本就昂贵的贷款而言,这是真金白银。</li>
+              <li><strong>灵活性下降。</strong>日后出售会更复杂 — 贷款必须在交接时结清,前几年的提前还款罚金可能不低。</li>
+              <li><strong>配偶产权风险。</strong>如果只有一方在产权上,而该方先离世,在世配偶可能被迫归还贷款。办反向房贷时,务必让双方都在产权上。</li>
+            </ul>
+
+            <h2 id="alternatives">反向房贷 vs. HELOC vs. 常规再融资</h2>
+            <p>多数考虑反向房贷的业主,应先评估以下替代方案 — 如果符合资格,这些通常更划算:</p>
+            <ul class="bullets">
+              <li><strong>HELOC(房屋净值信用额度):</strong>利率低得多。要求收入审核与每月利息支付。如果您有稳定收入,这是最佳选项。</li>
+              <li><strong>常规再融资:</strong>用一笔更大的新贷款替换现有房贷。利率低,但需正常月供。要求收入审核。</li>
+              <li><strong>卖房换小:</strong>最常被忽视的选项。一次性释放全部净值,完全不产生利息。代价是搬家 — 情感上与生活上都不轻松 — 但对许多空巢期净值已经很高的多伦多业主而言,这在财务上是更优的路径。</li>
+              <li><strong>反向房贷:</strong>最后选项。适用于:无法通过其他方案审核、不愿搬家、不需以收入资格审核的情形。</li>
+            </ul>
+
+            <h2 id="when">反向房贷什么时候真正划算</h2>
+            <p>我见到它确实管用的场景大致是这些:</p>
+            <ul class="bullets">
+              <li>您 70 岁以上,收入固定,深爱自己的房子,需要现金用于医疗、房屋改造,或补充退休金。</li>
+              <li>您无法通过 HELOC 审核(无收入),搬家在情感或生活上都难以承受。</li>
+              <li>您希望趁现在还在世时,把钱赠予子女或孙辈使用,而房屋升值能从容覆盖贷款复利增长。</li>
+              <li>您与继承人就遗产期望有过坦诚对话,他们理解其中的算账逻辑。</li>
+            </ul>
+            <p>不太划算的场景:您还比较年轻、仍有资格 HELOC;您的房子并未升值;您本就愿意考虑换小;您还没有和家人商量过。</p>
+
+            <h2 id="ask">签约前必问的两个问题</h2>
+            <ol class="bullets" style="list-style: decimal;">
+              <li>"我 5 年后还需要再提取吗?"如果需要,请把贷款结构设为分期提取,而不是一次性拿走全款 — 分期提取能少付不少利息。</li>
+              <li>"我是否已经告知成年子女/继承人?"一次本以为是惊喜的遗产却比预期少很多,足以击穿一段家庭关系。这次对话现在就要谈,而不是等 15 年后在律师办公室才谈。</li>
+            </ol>
+
+            <p class="legal-note">本文仅供参考,不构成财务意见。反向房贷是一项专门的金融产品,对您的遗产有重大影响。签字前请咨询持牌贷款专业人士、独立律师(加拿大反向房贷法律强制要求),并最好咨询一位财务规划师。我是注册房地产销售代表,不是房贷顾问。</p>
+
+            <div class="article-share">
+              <p>觉得有用?<a href="/chinese/contact">把这篇发给正在问这个问题的人</a>,或在下方订阅,接收下一篇。</p>
+            </div>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   </article>
