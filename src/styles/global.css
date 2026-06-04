@@ -934,3 +934,35 @@ body.mobile-menu-open { overflow: hidden; }
 @media (max-width: 720px) {
   .condo-grid { grid-template-columns: 1fr; }
 }
+
+/* Condo Developer Poll */
+.poll-status { padding: 12px 18px; border-radius: 6px; margin-bottom: 18px; font-size: 14px; }
+.poll-status-info { background: var(--bg-warm); color: var(--ink); border-left: 3px solid var(--ink); }
+.poll-status-error { background: #fdecec; color: #862027; border-left: 3px solid #862027; }
+.poll-choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.poll-choice { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; padding: 16px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; cursor: pointer; text-align: left; font-family: inherit; color: var(--ink); transition: border-color 0.15s, transform 0.06s, background 0.15s; }
+.poll-choice:hover:not(:disabled) { border-color: var(--ink); }
+.poll-choice:active:not(:disabled) { transform: scale(0.99); }
+.poll-choice:disabled { cursor: not-allowed; opacity: 0.6; }
+.poll-choice-selected { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.poll-choice-selected .poll-choice-meta { color: rgba(255, 255, 255, 0.7); }
+.poll-choice-name { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 17px; line-height: 1.25; }
+.poll-choice-meta { font-size: 12px; color: var(--ink-mute); }
+
+.poll-results { max-width: 820px; }
+.poll-results-header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.poll-results-header h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; color: var(--ink); margin: 0; }
+.poll-results-total { font-size: 13px; color: var(--ink-mute); letter-spacing: 0.04em; }
+.poll-results-list { display: flex; flex-direction: column; gap: 10px; }
+.poll-row { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 8px 0; }
+.poll-row-label { font-size: 14px; color: var(--ink); font-weight: 500; line-height: 1.3; }
+.poll-row-badge { display: inline-block; margin-left: 6px; padding: 2px 7px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; background: var(--ink); color: var(--surface); border-radius: 999px; font-weight: 600; }
+.poll-row-bar-wrap { height: 12px; background: var(--bg-warm); border-radius: 999px; overflow: hidden; }
+.poll-row-bar { height: 100%; background: var(--ink); border-radius: 999px; transition: width 0.4s ease-out; min-width: 0; }
+.poll-row-your .poll-row-bar { background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 100%); }
+.poll-row-count { font-family: 'Fraunces', Georgia, serif; font-size: 14px; color: var(--ink); font-weight: 500; white-space: nowrap; text-align: right; min-width: 90px; }
+.poll-disclaimer { font-size: 12px; color: var(--ink-mute); margin-top: 28px; font-style: italic; }
+@media (max-width: 640px) {
+  .poll-row { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
+  .poll-row-count { text-align: left; min-width: 0; }
+}
