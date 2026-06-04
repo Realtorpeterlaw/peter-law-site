@@ -795,8 +795,8 @@ body.mobile-menu-open { overflow: hidden; }
 /* Article page */
 .article-page .article-hero { padding-bottom: 32px; }
 .article-wrap { max-width: 1100px; margin: 0 auto; }
-.article-lead { font-size: 19px; line-height: 1.55; color: var(--ink-soft); margin-top: 20px; max-width: 760px; }
-.article-byline { margin-top: 20px; font-size: 13px; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.article-lead { font-size: 19px; line-height: 1.55; color: var(--ink-soft); margin: 20px 0 0 0; max-width: 760px; }
+.article-byline { margin-top: 12px; font-size: 13px; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .article-byline a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .article-byline .dot { color: var(--ink-mute); }
 
