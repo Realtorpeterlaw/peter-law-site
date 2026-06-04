@@ -998,3 +998,14 @@ body.mobile-menu-open { overflow: hidden; }
   .lp-bar-wrap { grid-column: 1 / -1; }
   .lp-count { grid-column: 1 / -1; text-align: left; min-width: 0; padding-left: 32px; }
 }
+
+/* Bill 60: collapsible change rows */
+.b60-change { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); margin-bottom: 10px; overflow: hidden; }
+.b60-change[open] { border-color: var(--ink); }
+.b60-change-summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; cursor: pointer; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 17px; line-height: 1.35; color: var(--ink); list-style: none; gap: 16px; }
+.b60-change-summary::-webkit-details-marker { display: none; }
+.b60-change-summary::after { content: '+'; flex-shrink: 0; font-family: 'Fraunces', Georgia, serif; font-size: 24px; line-height: 1; color: var(--ink-mute); transition: transform 0.2s, color 0.15s; }
+.b60-change[open] .b60-change-summary::after { content: '−'; color: var(--ink); }
+.b60-change-summary:hover { background: var(--bg-warm); }
+.b60-change-body { padding: 0 20px 16px; font-size: 15px; line-height: 1.65; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 14px; margin-top: 2px; }
+.b60-change-body p:last-child { margin-bottom: 0; }
