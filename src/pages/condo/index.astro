@@ -23,11 +23,38 @@ import { developers } from '../../data/condo-developers.ts';
         <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         <input id="condo-search-input" type="search" placeholder="Search developers…" aria-label="Search condo developers" autocomplete="off" />
       </div>
-      <div style="margin-top:18px;">
-        <a href="/condo/poll" class="btn-outline" style="display:inline-flex;align-items:center;gap:8px;">
-          Vote in the developer poll
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;padding-bottom:0;">
+    <div class="wrap">
+      <div class="live-poll" id="live-poll" data-state="loading">
+        <div class="live-poll-header">
+          <div>
+            <div class="live-poll-eyebrow">Live poll</div>
+            <h2 class="live-poll-title">Toronto's most-trusted developer</h2>
+          </div>
+          <span class="live-poll-total" id="live-poll-total">Loading…</span>
+        </div>
+
+        <div class="live-poll-results" id="live-poll-results" hidden></div>
+
+        <div class="live-poll-choices" id="live-poll-choices" hidden>
+          <p class="live-poll-prompt">Pick one. One vote per visitor.</p>
+          <div class="live-poll-choices-grid">
+            {developers.map((dev) => (
+              <button type="button" class="live-poll-choice" data-slug={dev.slug} aria-label={`Vote for ${dev.name}`}>{dev.name}</button>
+            ))}
+          </div>
+        </div>
+
+        <div class="live-poll-actions">
+          <button type="button" id="live-poll-toggle" class="btn-outline" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:8px 16px;">
+            Cast your vote
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="live-poll-status" id="live-poll-status" hidden></span>
+        </div>
       </div>
     </div>
   </section>
@@ -71,4 +98,115 @@ import { developers } from '../../data/condo-developers.ts';
       });
     })();
   </script>
+  <script define:vars={{ developers: developers.map((d) => ({ slug: d.slug, name: d.name })) }}>
+    (function() {
+      const root = document.getElementById('live-poll');
+      const totalEl = document.getElementById('live-poll-total');
+      const resultsEl = document.getElementById('live-poll-results');
+      const choicesEl = document.getElementById('live-poll-choices');
+      const toggleBtn = document.getElementById('live-poll-toggle');
+      const statusEl = document.getElementById('live-poll-status');
+      const buttons = Array.from(document.querySelectorAll('.live-poll-choice'));
+      const nameBySlug = Object.fromEntries(developers.map((d) => [d.slug, d.name]));
+
+      function setStatus(msg, kind) {
+        if (!msg) { statusEl.hidden = true; statusEl.textContent = ''; return; }
+        statusEl.hidden = false;
+        statusEl.textContent = msg;
+        statusEl.className = 'live-poll-status' + (kind ? ' live-poll-status-' + kind : '');
+      }
+
+      function renderResults(data) {
+        const tallies = data.results || {};
+        const yourVote = data.your_vote;
+        const total = Object.values(tallies).reduce((a, b) => a + (b || 0), 0);
+        totalEl.textContent = total === 0 ? 'no votes yet' : (total === 1 ? '1 vote' : (total.toLocaleString() + ' votes'));
+
+        const sorted = Object.entries(tallies)
+          .map(([slug, count]) => ({ slug, name: nameBySlug[slug] || slug, count: count || 0 }))
+          .sort((a, b) => b.count - a.count);
+        const maxCount = sorted[0] && sorted[0].count > 0 ? sorted[0].count : 1;
+
+        resultsEl.innerHTML = sorted.slice(0, 10).map(function(row, i) {
+          const pct = total > 0 ? Math.round((row.count / total) * 100) : 0;
+          const widthPct = (row.count / maxCount) * 100;
+          const isYours = row.slug === yourVote;
+          return '<div class="lp-row' + (isYours ? ' lp-row-your' : '') + '">'
+            + '<div class="lp-rank">#' + (i + 1) + '</div>'
+            + '<div class="lp-name">' + row.name + (isYours ? ' <span class="lp-badge">your vote</span>' : '') + '</div>'
+            + '<div class="lp-bar-wrap"><div class="lp-bar" style="width:' + widthPct + '%"></div></div>'
+            + '<div class="lp-count">' + row.count.toLocaleString() + (total > 0 ? ' · ' + pct + '%' : '') + '</div>'
+            + '</div>';
+        }).join('');
+        resultsEl.hidden = false;
+
+        if (yourVote) {
+          // Already voted: hide vote choices + button
+          choicesEl.hidden = true;
+          toggleBtn.hidden = true;
+          root.setAttribute('data-state', 'voted');
+        } else {
+          root.setAttribute('data-state', 'idle');
+        }
+      }
+
+      async function load() {
+        try {
+          const r = await fetch('/api/vote', { method: 'GET' });
+          if (!r.ok) {
+            totalEl.textContent = 'poll unavailable';
+            root.setAttribute('data-state', 'error');
+            return;
+          }
+          const data = await r.json();
+          renderResults(data);
+        } catch (e) {
+          totalEl.textContent = 'offline';
+          root.setAttribute('data-state', 'error');
+        }
+      }
+
+      toggleBtn.addEventListener('click', function() {
+        const wasHidden = choicesEl.hidden;
+        choicesEl.hidden = !wasHidden;
+        toggleBtn.textContent = wasHidden ? 'Hide vote options' : 'Cast your vote';
+      });
+
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', async function() {
+          if (root.getAttribute('data-state') === 'voting') return;
+          const slug = btn.getAttribute('data-slug');
+          root.setAttribute('data-state', 'voting');
+          buttons.forEach(function(b) { b.disabled = true; });
+          btn.classList.add('live-poll-choice-selected');
+          setStatus('Submitting…', 'info');
+          try {
+            const r = await fetch('/api/vote', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ slug: slug }),
+            });
+            const data = await r.json();
+            if (!r.ok) {
+              setStatus(data.error || "Couldn't submit. Try again.", 'error');
+              buttons.forEach(function(b) { b.disabled = false; });
+              btn.classList.remove('live-poll-choice-selected');
+              root.setAttribute('data-state', 'idle');
+              return;
+            }
+            setStatus(data.already_voted ? 'You already voted.' : 'Thanks!', 'info');
+            renderResults(data);
+          } catch (err) {
+            setStatus('Network error.', 'error');
+            buttons.forEach(function(b) { b.disabled = false; });
+            btn.classList.remove('live-poll-choice-selected');
+            root.setAttribute('data-state', 'idle');
+          }
+        });
+      });
+
+      load();
+    })();
+  </script>
+
 </BaseLayout>
