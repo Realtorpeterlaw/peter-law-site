@@ -905,3 +905,6 @@ body.mobile-menu-open { overflow: hidden; }
 .blog-search input:focus { outline: none; border-color: var(--ink); }
 .blog-search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
 .blog-no-results { max-width: 820px; margin: 32px auto 0; padding: 0 24px; font-size: 14px; color: var(--ink-mute); text-align: center; font-style: italic; }
+
+/* Blog index: widen subtitle so the longer category list fits on one line */
+.blog-page .page-hero p { max-width: 820px; }
