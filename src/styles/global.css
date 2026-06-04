@@ -838,3 +838,15 @@ body.mobile-menu-open { overflow: hidden; }
 .back-link:hover { color: var(--ink); }
 .back-link svg { transition: transform 0.15s; }
 .back-link:hover svg { transform: translateX(-2px); }
+
+/* Blog article page-hero: align title/lead/byline to body column (matches .prose-grid layout below) */
+.article-page .page-hero .wrap {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.article-page .page-hero .wrap > * { grid-column: 2; }
+@media (max-width: 900px) {
+  .article-page .page-hero .wrap { display: block; }
+}
