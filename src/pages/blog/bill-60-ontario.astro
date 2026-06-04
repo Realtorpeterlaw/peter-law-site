@@ -7,8 +7,46 @@ import CTASection from '../../components/CTASection.astro';
 
 const publishedDate = '2026-06-03';
 const articleTitle = 'Bill 60 Ontario: Tenants and Landlords MUST know';
-const articleDescription = 'Ontario passed Bill 60 — the Fighting Delays, Building Faster Act — on November 24, 2025. It changes evictions, N12 compensation, fixed-term leases, and rent arrears hearings. Here\'s what changed, what\'s in force, and what it means in practice.';
+const articleDescription = 'A plain-language guide to Ontario\'s Bill 60. Five rule changes for renting, side-by-side before/after, and what to do if you\'re a tenant or landlord.';
 const articleUrl = 'https://www.realtorpeterlaw.com/blog/bill-60-ontario';
+
+const changes = [
+  {
+    n: 1,
+    label: 'Behind on rent? Less time to pay.',
+    old: 'You had 14 days to pay before the landlord could file with the LTB.',
+    new: 'You now have only 7 days.',
+    helps: 'Landlord',
+  },
+  {
+    n: 2,
+    label: 'Landlord moving in? No more $1 month back.',
+    old: 'If the landlord made you leave for personal use (N12), they paid you one month\'s rent.',
+    new: 'If the landlord gives 120 days\' notice, no payment is owed. A 60-day notice still requires the payment.',
+    helps: 'Landlord',
+  },
+  {
+    n: 3,
+    label: 'Your year-long lease no longer auto-renews.',
+    old: 'When your fixed-term lease ended, it automatically rolled into month-to-month. You could stay as long as you wanted.',
+    new: 'It does not auto-renew. The landlord can end it, raise the rent, or sign a new fixed-term lease.',
+    helps: 'Landlord',
+  },
+  {
+    n: 4,
+    label: 'Maintenance complaints at a rent hearing now cost money up front.',
+    old: 'You could raise repair problems as a defense at a non-payment hearing for free.',
+    new: 'You must first pay 50% of the rent you owe into a trust account before the LTB will listen.',
+    helps: 'Landlord',
+  },
+  {
+    n: 5,
+    label: 'Less time to appeal an eviction.',
+    old: 'You had 30 days to appeal.',
+    new: 'You have 15 days.',
+    helps: 'Landlord',
+  },
+];
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -40,13 +78,13 @@ const jsonLd = {
       <div class="wrap">
         <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Legislation</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Ontario passed Bill 60 — the <em>Fighting Delays, Building Faster Act</em> — on November 24, 2025. It rewrites the playbook for evictions, N12 compensation, fixed-term leases, and rent arrears hearings. Here's what changed, what's still pending, and what it means in practice for tenants and landlords.</p>
+        <p class="article-lead">Ontario passed a new law in late 2025 called Bill 60. It changes the rules for renting. Most changes help landlords. Tenants have less time and less power. Here's what changed, in plain words.</p>
         <div class="article-byline">
           <span>By <a href="/about">Peter Law</a></span>
           <span class="dot">·</span>
           <time datetime={publishedDate}>June 3, 2026</time>
           <span class="dot">·</span>
-          <span>8 min read</span>
+          <span>6 min read</span>
         </div>
       </div>
     </section>
@@ -57,87 +95,113 @@ const jsonLd = {
           <aside class="prose-side">
             <h4>On this page</h4>
             <ul>
-              <li><a href="#what">What is Bill 60</a></li>
-              <li><a href="#changes">5 key changes</a></li>
-              <li><a href="#status">What's in force now</a></li>
-              <li><a href="#tenants">For tenants</a></li>
-              <li><a href="#landlords">For landlords</a></li>
-              <li><a href="#bigger">The bigger picture</a></li>
+              <li><a href="#what">What is Bill 60?</a></li>
+              <li><a href="#diagram">Old rules vs new rules</a></li>
+              <li><a href="#five">The 5 changes explained</a></li>
+              <li><a href="#status">Is it active right now?</a></li>
+              <li><a href="#tenants">If you're a tenant</a></li>
+              <li><a href="#landlords">If you're a landlord</a></li>
+              <li><a href="#why">Why this matters</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <p><strong>Quick answer:</strong> Bill 60 is an omnibus Ontario bill passed by the Ford government on November 24, 2025. It amends 16 laws — including the <em>Residential Tenancies Act</em> — to shorten eviction timelines, remove N12 compensation in some cases, end the automatic month-to-month conversion of fixed-term leases, and require tenants to deposit 50% of rent arrears before raising maintenance defences at hearings. <strong>As of mid-2026, the RTA portions are still being phased in by Tribunals Ontario.</strong></p>
+            <p><strong>Quick answer:</strong> Bill 60 is a new Ontario law. It changes the rules for renting. It makes things faster and easier for landlords. It gives tenants less time and less protection. The law passed on November 24, 2025. Most parts are still being phased in by Tribunals Ontario, so always check before you act.</p>
 
-            <div class="callout"><strong>Critical context:</strong> Bill 60 is the biggest shift in Ontario landlord-tenant law in a decade. Whether you're a tenant currently in a fixed-term lease, a landlord considering a personal-use eviction, or someone signing a new lease this year — what was true under Ontario rental law a year ago isn't fully true today. Read carefully, and verify the implementation status with the LTB or a paralegal before relying on any specific provision.</div>
+            <div class="callout"><strong>Heads up:</strong> Bill 60 is the biggest change to Ontario renting law in 10 years. The rules from a year ago may not be the rules today. Always confirm with the LTB or a paralegal before you serve a notice or respond to one.</div>
 
             <h2 id="what">What is Bill 60?</h2>
-            <p>Bill 60's official title is the <strong>Fighting Delays, Building Faster Act, 2025</strong>. It's an omnibus housing bill — meaning a single bill that amends many laws at once. The Ontario government's stated goal is twofold:</p>
+            <p>Bill 60's full name is the <em>Fighting Delays, Building Faster Act, 2025</em>. The government's word for it is "omnibus" — that just means one law that changes many other laws. Bill 60 changes 16 laws at once.</p>
+            <p>The government says it has two goals:</p>
             <ul class="bullets">
-              <li><strong>Speed up housing development</strong> — streamline planning approvals, reform development charges, give the province more power to override municipal planning decisions.</li>
-              <li><strong>Reduce delays at the Landlord and Tenant Board (LTB)</strong> — by shortening eviction timelines and removing certain procedural protections that the government characterizes as creating backlog.</li>
+              <li>Speed up new housing construction.</li>
+              <li>Speed up the Landlord and Tenant Board (LTB). The LTB is the court that handles renting disputes.</li>
             </ul>
-            <p>The bill passed third reading on November 24, 2025, but most provisions aren't simply "live" overnight — they're being implemented in phases as Tribunals Ontario updates forms, hearing procedures, and training materials.</p>
+            <p>To do this, Bill 60 shortens timelines and removes some of the steps tenants used to have. Most of the rule changes help landlords.</p>
 
-            <h2 id="changes">Five changes tenants and landlords need to know</h2>
+            <h2 id="diagram">Old rules vs. new rules — side by side</h2>
+            <p>Five things changed. Here they are at a glance.</p>
 
-            <h3>1. N4 non-payment notice period shortened</h3>
-            <p>Under the previous rules, a landlord serving an N4 (Notice to End Tenancy for Non-Payment of Rent) gave the tenant 14 days to pay the arrears or vacate. Bill 60 reduces this to <strong>7 days</strong>.</p>
-            <p><strong>Tenant impact:</strong> You have half as much time to catch up if you fall behind. Setting up rent autopay matters more than ever.</p>
-            <p><strong>Landlord impact:</strong> Faster path to filing at the LTB if rent isn't paid. The overall eviction timeline is still measured in months, but the entry-point clock is shorter.</p>
+            <div class="b60-intro">Five rules changed. Four cut tenant time or protections. One removes a payment landlords used to owe. Quick-scan view below; full explanations follow.</div>
 
-            <h3>2. N12 personal-use eviction: compensation rules changed</h3>
-            <p>Previously, when a landlord ended a tenancy because they, a family member, or a purchaser intended to move in (an N12), the landlord was required to either pay the tenant <strong>one month's rent in compensation</strong> or offer an acceptable alternative unit.</p>
-            <p>Under Bill 60, if the landlord gives <strong>120 days' notice</strong>, the compensation requirement is removed. A standard 60-day N12 still requires compensation.</p>
-            <p><strong>Tenant impact:</strong> If you receive a 120-day N12, you no longer get an automatic month's rent. You still have the right to challenge the notice at the LTB if you believe it's not made in good faith — abuse of N12 remains a serious offence with potential penalties up to $50,000.</p>
-            <p><strong>Landlord impact:</strong> A real cost savings for legitimate personal-use evictions, but the trade-off is the longer notice period.</p>
+            <div class="b60-table-wrap">
+              <table class="b60-table">
+                <thead>
+                  <tr><th>Rule</th><th>Before Bill 60</th><th>After Bill 60</th></tr>
+                </thead>
+                <tbody>
+                  {changes.map((c) => (
+                    <tr>
+                      <td class="b60-rule">{c.label}</td>
+                      <td class="b60-before">{c.old}</td>
+                      <td class="b60-after">{c.new}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-            <h3>3. Fixed-term leases no longer auto-convert to month-to-month</h3>
-            <p>This is the single biggest change in tenant protection. Under the old rules, when a fixed-term lease (typically 12 months) ended, it automatically converted to a month-to-month tenancy on the same terms. The tenant had the right to stay indefinitely, paying month-to-month, subject only to the annual rent guideline.</p>
-            <p>Bill 60 removes that automatic conversion. Landlords now have flexibility to end the tenancy at the end of the fixed term, renegotiate new terms, or offer a new fixed-term lease at a different rent.</p>
-            <p><strong>Tenant impact:</strong> This is the change that hurts tenants most. If your fixed term ends and your landlord wants you out — or wants a substantial rent increase — your previous default protection is gone.</p>
-            <p><strong>Landlord impact:</strong> More flexibility, but also more responsibility — landlords now need to actively manage renewals, not let them roll over passively.</p>
+            <h2 id="five">The 5 changes explained</h2>
 
-            <h3>4. Rent arrears hearings: tenants must deposit 50% to raise maintenance defences</h3>
-            <p>A common tactic at non-payment hearings was for the tenant to raise maintenance issues as a defence — arguing they shouldn't owe full rent because the landlord failed to maintain the unit. This often delayed eviction proceedings.</p>
-            <p>Under Bill 60, a tenant who wants to raise a maintenance defence at a non-payment hearing must first <strong>deposit 50% of the alleged arrears into the LTB's trust account</strong> before their argument will be heard.</p>
-            <p><strong>Tenant impact:</strong> This is a significant access-to-justice change. Tenants who genuinely have maintenance complaints but can't come up with 50% of the disputed rent on short notice may struggle to defend themselves.</p>
-            <p><strong>Landlord impact:</strong> Cleaner hearings, less procedural delay.</p>
+            <h3>1. Behind on rent? You have less time to catch up.</h3>
+            <p>If you don't pay rent, your landlord sends you a form called an N4. It tells you to pay or move out.</p>
+            <p>Before: you had 14 days. Now: you have only 7 days.</p>
+            <p>What to do: set up automatic rent payments. The grace period is now half what it used to be. One missed reminder can start the eviction clock.</p>
 
-            <h3>5. LTB appeal window shortened</h3>
-            <p>The window to appeal an LTB eviction order has been shortened from <strong>30 days to 15 days</strong>.</p>
-            <p><strong>Tenant impact:</strong> Tighter timeline to find a paralegal, gather evidence, and file. Get help quickly if you receive an unfavourable order.</p>
-            <p><strong>Landlord impact:</strong> Faster certainty after a successful LTB hearing.</p>
+            <h3>2. The "I'm moving in" eviction is now cheaper for landlords.</h3>
+            <p>An N12 notice is when the landlord (or a buyer, or a close family member) wants to live in the home themselves. The landlord has to give you written notice and let you move out.</p>
+            <p>Before: the landlord had to pay you one month's rent as a thank-you for moving. Or offer you another similar place to live.</p>
+            <p>Now: if the landlord gives you 120 days' notice (4 months), they don't have to pay you. A 60-day N12 still includes the one month payment.</p>
+            <p>What to do: if you get an N12, don't assume it's real. Fake N12s are the most common landlord scam. A paralegal review costs less than losing your home. If proven fake at the LTB, the landlord can be fined up to $50,000.</p>
 
-            <h2 id="status">What's actually in force vs. still pending</h2>
-            <p>This is important and frequently mischaracterized. Bill 60 <em>passed</em> on November 24, 2025, but the RTA amendments require Tribunals Ontario to update its forms, hearing scripts, training materials, and operational procedures. As of mid-2026, several of the residential tenancies changes are still being phased in.</p>
-            <div class="callout"><strong>Before you act:</strong> If you're a landlord planning to serve a 7-day N4 or a 120-day N12 with no compensation, <em>confirm the implementation status with the LTB or a paralegal first.</em> Serving the wrong notice or relying on a provision that's not yet in force can invalidate your entire case. Same goes for tenants — if you receive a notice you suspect doesn't comply with current rules, get advice before assuming it's enforceable.</div>
+            <h3>3. Your lease no longer just rolls over.</h3>
+            <p>This is the biggest change for tenants.</p>
+            <p>Most renters sign a one-year lease. Before Bill 60: when that year ended, the lease automatically became month-to-month. You could stay forever. The landlord could only raise rent by the yearly Ontario cap.</p>
+            <p>Now: that automatic roll-over is gone. When your fixed term ends, the landlord can choose what happens next. They can ask you to leave. They can offer a new lease at a higher rent. They can negotiate new terms.</p>
+            <p>What to do: don't wait. Talk to your landlord 2–3 months before your lease ends. Ask what they want to do. Get any new agreement in writing before you sign.</p>
 
-            <h2 id="tenants">What this means for Toronto tenants — practical advice</h2>
+            <h3>4. Raising maintenance complaints at a rent hearing now costs money up front.</h3>
+            <p>A common move: a tenant is behind on rent. The landlord takes them to the LTB. At the hearing, the tenant says "I shouldn't have to pay full rent because the apartment has problems." This often slowed things down.</p>
+            <p>Before: tenants could raise maintenance issues as a free defense.</p>
+            <p>Now: the tenant must first pay 50% of the rent they owe into the LTB's trust account before their complaint is even heard.</p>
+            <p>What to do: if you have real maintenance problems, document them in real time. Send your landlord written requests. Take dated photos. Don't wait for a hearing to start collecting proof.</p>
+
+            <h3>5. Less time to appeal an eviction order.</h3>
+            <p>If the LTB rules against you, you have a window to appeal.</p>
+            <p>Before: 30 days. Now: 15 days.</p>
+            <p>What to do: if you get a decision you don't agree with, find a paralegal that same week. Don't wait.</p>
+
+            <h2 id="status">Is Bill 60 active right now?</h2>
+            <p>Bill 60 passed on November 24, 2025. But "passing" doesn't mean "live." Tribunals Ontario has to update its forms, training, and online systems before each change actually starts.</p>
+            <p>As of mid-2026, several of the renting changes are still being phased in. That's why it matters to confirm before you act.</p>
+            <div class="callout"><strong>Before you do anything:</strong> if you're a landlord serving a 7-day N4 or a 120-day N12 with no payment, ask the LTB whether that exact rule is live yet. If you serve the wrong notice, your whole case can be thrown out. Tenants — same thing. If a notice looks weird or rushed, get advice before assuming it's valid.</div>
+
+            <h2 id="tenants">If you're a tenant in Toronto</h2>
             <ul class="bullets">
-              <li><strong>Set up rent autopay.</strong> The 7-day N4 window leaves no margin for forgetfulness. If you've been paying by cheque or e-transfer manually, switch to automatic pre-authorized withdrawal.</li>
-              <li><strong>Don't assume your fixed-term lease auto-renews.</strong> Talk to your landlord 60-90 days before your lease ends about their intentions. If they want a new fixed term at a higher rent, you have negotiating room — but only if you start the conversation early.</li>
-              <li><strong>Document maintenance issues in real time.</strong> If you might ever need to raise them as a defence, you need a paper trail — written requests to the landlord, photos with dates, contractor visits. Don't wait until a hearing to gather evidence.</li>
-              <li><strong>If you get an N12, don't assume it's valid.</strong> N12 abuse is the most-litigated landlord-tenant issue in Ontario. A paralegal review costs less than losing your home.</li>
+              <li><strong>Turn on auto-pay for rent.</strong> The 7-day N4 window is short. Don't let a forgotten payment start an eviction.</li>
+              <li><strong>Talk to your landlord before your lease ends.</strong> Start 2–3 months out. Don't assume your old rights still apply.</li>
+              <li><strong>Keep maintenance evidence.</strong> Write your requests in email or text. Save photos with dates. You may need them.</li>
+              <li><strong>An N12 is not always real.</strong> If you get one, talk to a paralegal. Common ones cost $200–$500 to review.</li>
+              <li><strong>If you get a bad decision from the LTB, move fast.</strong> 15 days is short.</li>
             </ul>
 
-            <h2 id="landlords">What this means for Toronto landlords — practical advice</h2>
+            <h2 id="landlords">If you're a landlord in Toronto</h2>
             <ul class="bullets">
-              <li><strong>Don't rush to use the new rules.</strong> Until the RTA amendments are fully phased in, serving a notice that relies on an unimplemented provision can blow up your case. Verify status before acting.</li>
-              <li><strong>Document everything during tenancy.</strong> Bill 60 favours landlords procedurally, but you still have to prove your case. Keep maintenance records, tenant communications, and condition reports as if you might end up at the LTB tomorrow.</li>
-              <li><strong>Use the fixed-term flexibility carefully.</strong> Aggressive renewal terms may help you in the short run but they damage tenant relationships and feed political pressure for the law to swing the other way next election cycle.</li>
-              <li><strong>The 120-day N12 with no compensation is appealing, but only if your case is airtight.</strong> Genuine bad-faith N12s are now drawing $50K+ in penalties at the LTB. The compensation rule was partly insurance against accidents — when in doubt, pay the compensation anyway.</li>
+              <li><strong>Don't jump on the new rules yet.</strong> Not every part of Bill 60 is live. Using a rule that isn't active can blow up your case.</li>
+              <li><strong>Document like you might end up at the LTB tomorrow.</strong> Keep maintenance records, tenant emails, condition reports.</li>
+              <li><strong>Be careful with the new fixed-term flexibility.</strong> Aggressive renewal terms can damage tenant relationships and push the law to swing the other way next election.</li>
+              <li><strong>The 120-day N12 with no payment is only worth using if your case is honest.</strong> Fake N12s now draw $50,000+ in penalties at the LTB.</li>
             </ul>
 
-            <h2 id="bigger">Bigger picture: what Bill 60 says about Ontario's housing direction</h2>
-            <p>Bill 60 is the most landlord-favourable piece of residential tenancy legislation Ontario has passed in over a decade. It reflects a deliberate political bet: that increasing rental housing supply requires increasing landlord confidence, and that the previous procedural protections were creating drag the housing market couldn't afford.</p>
-            <p>Critics argue the bill removes important tenant protections without addressing affordability or supply directly. Supporters argue it unlocks rental units that landlords had been holding off-market because the legal risk of taking on tenants was too high.</p>
-            <p>Both can be partially true. What matters for you, today, is knowing the rules of the game you're now playing.</p>
+            <h2 id="why">Why this matters</h2>
+            <p>Bill 60 is the most landlord-friendly Ontario renting law in over a decade. The government's bet is that easier eviction rules will get more landlords to rent out empty units. That should mean more rental supply.</p>
+            <p>Critics say the law removes tenant protections without solving the deeper problem — that rent is too expensive.</p>
+            <p>Both can be partly true. What matters today is knowing the rules of the game you're now playing.</p>
 
-            <p class="legal-note">This article is informational, not legal advice. Bill 60 is complex, partially phased in, and continues to evolve as Tribunals Ontario implements it. For your specific situation, consult a paralegal registered with the Law Society of Ontario, the LTB directly, or a community legal clinic. Sources: Globe and Mail coverage of Bill 60 passage, Canadian Centre for Housing Rights, Tribunals Ontario implementation guidance. I'm a registered real estate sales representative, not a lawyer.</p>
+            <p class="legal-note">This article is information only, not legal advice. Bill 60 is complex and still rolling out. For your situation, talk to a paralegal registered with the Law Society of Ontario, contact the LTB, or visit a community legal clinic. Sources used to build this article: Tribunals Ontario implementation notes, Canadian Centre for Housing Rights, Globe and Mail coverage of the bill, OntarioLandlord.ca implementation tracker. I'm a registered real estate sales representative, not a lawyer.</p>
 
             <div class="article-share">
-              <p>Renting or landlording in Toronto? <a href="/contact">Send me your specific situation</a> and I'll point you to the right next step, or subscribe below for the next article.</p>
+              <p>Renting or landlording in Toronto? <a href="/contact">Send me your specific situation</a> and I'll point you to the right next step.</p>
             </div>
           </div>
         </div>
@@ -145,8 +209,26 @@ const jsonLd = {
     </section>
   </article>
 
-  <CTASection heading="Affected by Bill 60?" lead="If you're a tenant who just got a notice, or a landlord trying to figure out what's in force right now — send me what you have. I'll tell you what I can, and refer you to a paralegal I trust if you need more." />
+  <CTASection heading="Got a Bill 60 question?" lead="Tenant who just got a notice, or a landlord trying to figure out what's in force? Send me what you have. I'll tell you what I can, and refer you to a paralegal I trust if you need more." />
   <Footer />
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 </BaseLayout>
+
+<style>
+  .b60-intro { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 18px 22px; margin: 24px 0 28px; border-radius: 4px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+  .b60-intro strong { color: var(--ink); }
+  .b60-table-wrap { overflow-x: auto; margin: 0 0 32px; border: 1px solid var(--rule); border-radius: 6px; }
+  .b60-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; }
+  .b60-table thead th { background: var(--ink); color: var(--surface); padding: 14px 16px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .b60-table tbody td { padding: 16px; vertical-align: top; border-top: 1px solid var(--rule); line-height: 1.55; }
+  .b60-table tbody tr:nth-child(even) td { background: var(--bg-warm); }
+  .b60-table .b60-rule { font-weight: 600; color: var(--ink); width: 26%; font-size: 14px; }
+  .b60-table .b60-before { color: var(--ink-soft); width: 37%; }
+  .b60-table .b60-after { color: var(--ink); font-weight: 600; width: 37%; }
+  @media (max-width: 600px) {
+    .b60-table-wrap { border-radius: 4px; }
+    .b60-table thead th { font-size: 11px; padding: 12px 14px; }
+    .b60-table tbody td { padding: 14px; font-size: 13.5px; }
+  }
+</style>

@@ -850,3 +850,9 @@ body.mobile-menu-open { overflow: hidden; }
 @media (max-width: 900px) {
   .article-page .page-hero .wrap { display: block; }
 }
+
+/* SEO topic tags at bottom of blog articles */
+.seo-tags { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.seo-tags h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 14px; }
+.seo-tags ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.seo-tags li { font-size: 12px; color: var(--ink-soft); background: var(--bg-warm); border: 1px solid var(--rule); padding: 5px 12px; border-radius: 999px; line-height: 1; }
