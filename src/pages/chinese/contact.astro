@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+---
+<BaseLayout title="联系 — Peter Law · 多伦多房地产" description="联系 Peter Law。发邮件、发短信,或直接预约一次 15 分钟初步通话。" zh={true}>
+
+  <ChineseTopBar />
+  <ChineseHeader active="contact" ctaLabel="或预约通话" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">联系我</div>
+      <h1>拿到真实答案最快的方式。</h1>
+      <p>发消息、发短信,或者直接预约一次通话。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="contact-grid">
+        <form class="contact-form" method="POST" action={FORMSPREE_ENDPOINT}>
+          <div class="form-row">
+            <label for="name">姓名 <span class="optional">(可选)</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" />
+          </div>
+          <div class="form-row">
+            <label for="email">邮箱 <span class="required">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="form-row">
+            <label for="phone">电话 <span class="optional">(可选)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="form-row">
+            <label for="message">您需要什么? <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="6" required placeholder="您在哪一带找房、希望什么时候搬家、有什么是我该知道的。"></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="_gotcha">请勿填写</label>
+            <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="_subject" value="新留言来自 realtorpeterlaw.com (中文版)" />
+          <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks" />
+          <button type="submit" class="btn-primary">发送留言
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+        </form>
+
+        <aside class="contact-side">
+          <h3>联系我</h3>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-lbl">电话 / 短信</span>
+              <a href="tel:+16478888472">647-888-8472</a>
+            </li>
+            <li>
+              <span class="contact-lbl">邮箱</span>
+              <a href="mailto:admin@realtorpeterlaw.com">Admin@RealtorPeterLaw.com</a>
+            </li>
+            <li>
+              <span class="contact-lbl">预约通话</span>
+              <a href={BOOKING_URL}>15 分钟通话</a>
+            </li>
+            <li>
+              <span class="contact-lbl">办公室</span>
+              HomeLife Golconda Realty Inc.<br>215 – 3601 HWY 7 East<br>Markham, ON L3R 0M3<br><a href="tel:+19058888819">905-888-8819</a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <ChineseFooter />
+</BaseLayout>

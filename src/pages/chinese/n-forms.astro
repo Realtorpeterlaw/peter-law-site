@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const LTB_FORMS_URL = "https://tribunalsontario.ca/ltb/forms-filing-and-fees/";
+---
+<BaseLayout
+  title="N 表格详解 — 安省 LTB 通知表格 | Peter Law"
+  description="用通俗语言解读安省房东与租客委员会(LTB)的 N 系列通知表格 — 每份用于什么场景、谁来填、官方版本去哪里下载。"
+  bodyClass="guide-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租赁资源</div>
+      <h1>N 表格 — 安省 LTB 通知表格。</h1>
+      <p>安省的房东与租客用以发出法律通知的表格 — 涨租、终止租约、双方协议。每份的用途、谁来填,以及从哪里下载官方版本。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#intro">N 表格是什么</a></li>
+            <li><a href="#landlord">房东可发出的通知</a></li>
+            <li><a href="#tenant">租客可发出的通知</a></li>
+            <li><a href="#mutual">双方协议</a></li>
+            <li><a href="#download">官方下载</a></li>
+            <li><a href="#help">获取帮助</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+            <strong>重要 — 请先阅读。</strong>下方说明仅供参考。填错表格、或在正确表格上填错内容,都可能使通知失效甚至产生法律责任。<strong>具体情况请务必咨询执业律师助理(paralegal)、律师或社区法律诊所。</strong>我是注册房地产销售代表,不是律师。
+          </div>
+
+          <h2 id="intro">N 表格是什么</h2>
+          <p>"N 表格"是安省房东与租客委员会(LTB)发布的一系列通知表格,房东或租客通过它们发出涉及涨租、双方同意终止租约、或基于特定法定理由的<strong>书面法律通知</strong>。每份 N 表格都有自己的法律要求 — 规定的通知期、必填信息,以及(部分表格)对应的补偿义务。</p>
+          <p>N 表格只是<strong>通知</strong>,不是法庭命令。收到表格本身并不会立刻终止租约或将您赶走。如果之后发生纠纷,会进入 LTB 听证程序。</p>
+
+          <h2 id="landlord">房东可发出的通知</h2>
+
+          <h3>N1 — 涨租通知</h3>
+          <p>房东用于正式通知租客租金上调。需提前 90 天书面通知;受租金管制的房屋,涨幅不得超过年度指导线。</p>
+
+          <h3>N2 — 涨租通知(部分豁免单元)</h3>
+          <p>用于部分豁免年度涨幅指导线的房屋(例如,2018 年 11 月 15 日当日或之后首次作为住宅使用的单元)。</p>
+
+          <h3>N4 — 因拖欠租金提前终止租约通知</h3>
+          <p>租客欠租时房东走的第一步正式程序。给租客 14 天时间补齐租金或搬走。如果在通知期内全额补齐,N4 自动失效。</p>
+
+          <h3>N5 — 因事由提前终止租约通知</h3>
+          <p>适用于严重妨碍他人合理享用、房屋损坏或超员居住等情形。租客在第一份 N5 之后有 7 天时间纠正问题;6 个月内第二次发出的 N5 则没有纠正期。</p>
+
+          <h3>N6 — 因事由提前终止租约通知(违法行为或虚假陈述)</h3>
+          <p>适用于在单位/楼内的违法行为,或在补贴住房情境下对收入作出虚假陈述。无纠正期。</p>
+
+          <h3>N7 — 因事由提前终止租约通知(严重危及安全)</h3>
+          <p>适用于非常严重的情形:故意破坏、严重危害安全,或将房屋用于违法经营。10 天通知期。无纠正期。</p>
+
+          <h3>N8 — 租期结束时终止租约通知</h3>
+          <p>用于固定租期结束时,基于特定法定理由(例如长期晚交租、不再属于雇佣型租赁)。要求严格;<strong>不是</strong>一份普通的"租期结束请走人"通知 — 在安省,固定期限租约会自动转为按月续租。</p>
+
+          <h3>N12 — 终止租约通知(房东、买家或近亲自用)</h3>
+          <p>当房东、房东近亲属,或物业买家本人计划入住该单元时使用。需<strong>提前 60 天</strong>通知,并向租客支付<strong>相当于一个月租金的补偿</strong>,或提供另一套可接受的房屋作为替代。规则严格 — 滥用 N12 是严重违法行为。</p>
+
+          <h3>N13 — 终止租约通知(拆除、大修、改建)</h3>
+          <p>当房东计划拆除该单元、进行需要租客搬出的大修,或将其改作非住宅用途时使用。需<strong>提前 120 天</strong>通知,并支付<strong>相当于 3 个月租金的补偿</strong>(大修情形下,租客享有优先回租权)。</p>
+
+          <h2 id="tenant">租客可发出的通知</h2>
+
+          <h3>N9 — 租客终止租约通知</h3>
+          <p>租客用于书面通知房东将搬离。按月租约需<strong>提前 60 天</strong>通知,终止日为某个租期月的最后一天。固定期限租约的最早终止日为租期结束之后的第一天。</p>
+
+          <h3>N15 — 因暴力或其他虐待终止租约通知</h3>
+          <p>为遭受性暴力或家庭暴力的租客设立的特殊保护通道。仅需<strong>提前 28 天</strong>通知。房东不得透露原因,也不得告知他人租客已搬离。</p>
+
+          <h2 id="mutual">双方协议</h2>
+
+          <h3>N10 — 超指导线涨租协议</h3>
+          <p>房东与租客以书面形式同意超过年度指导线涨租时使用(例如,作为安装空调或更换电器的对价)。双方自愿。</p>
+
+          <h3>N11 — 终止租约协议</h3>
+          <p>房东与租客双方同意在某一具体日期终止租约时使用。自愿。签署之后,租约在约定日期终止。</p>
+          <div class="callout"><strong>N11 需特别小心。</strong>有些房东会在租客没有法律义务搬走的情况下(例如固定租期结束时),施压让租客签 N11。租客没有义务签。一旦签署,您就放弃了继续居住的权利。签字前请先获得独立的法律意见。</div>
+
+          <h2 id="download">官方下载</h2>
+          <p>所有 N 表格(及对应指南)均由安省 LTB 在 Tribunals Ontario 官方网站公开发布。请始终从官方下载,确保拿到的是最新版本 — 表格会不定期更新。</p>
+          <p style="margin-top: 24px;">
+            <a href={LTB_FORMS_URL} target="_blank" rel="noopener" class="btn-primary">
+              LTB 官方表格 — Tribunals Ontario
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+
+          <h2 id="help">获取帮助</h2>
+          <p>如果您收到 N 表格不知如何应对,或您作为房东正在考虑发出 N 表格、想确保流程无误,以下是合适的资源:</p>
+          <div class="resource-links" id="help">
+            <h3>在哪里能获得帮助</h3>
+            <ul class="bullets">
+              <li><a href="https://tribunalsontario.ca/ltb/" target="_blank" rel="noopener">房东与租客委员会(LTB)</a> — 官方表格、申请、听证</li>
+              <li><a href="https://stepstojustice.ca/legal-topic/housing-law/" target="_blank" rel="noopener">Steps to Justice — 住房法律指南</a> — 通俗解释租客与房东权利</li>
+              <li><a href="https://www.legalaid.on.ca/" target="_blank" rel="noopener">Legal Aid Ontario(安省法律援助)</a> — 符合条件者可申请免费法律协助</li>
+              <li><a href="https://www.acto.ca/get-help/" target="_blank" rel="noopener">ACTO 租客值班律师</a> — 部分听证当天为租客提供法律建议</li>
+              <li><strong>执业律师助理(paralegal)</strong>,需在安省律师公会(Law Society of Ontario)注册,可就具体表格和听证提供个案建议</li>
+            </ul>
+          </div>
+
+          <p class="legal-note">本指南仅供参考,不构成法律意见。表格说明为概要描述。具体情况请向 paralegal、律师,或直接联系 LTB 咨询。我是注册房地产销售代表,不是律师。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="需要多一双眼睛帮您看一下?" lead="如果您收到了 N 表格,或者您正准备发一份,措辞和时间都很关键。我可以把您介绍给我信任的 paralegal,并帮您理解手上拿到的是什么。" />
+  <ChineseFooter />
+</BaseLayout>

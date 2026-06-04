@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const SCREENING_URL = "https://app.singlekey.com/screen/YOUR_SINGLEKEY_LINK";
+---
+<BaseLayout title="提交租房申请 — Peter Law · 多伦多房地产" description="10 分钟内提交一份经过核实的租房申请。身份、信用、收入 — 一次搞定。在多伦多市场上,最强的申请赢得房子。" zh={true}>
+
+  <ChineseTopBar />
+  <ChineseHeader active="renters" ctaLabel="或先聊一聊" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租房申请</div>
+      <h1>一份申请。一次完成。最强者拿房。</h1>
+      <p>多伦多的房东一天能收到五份申请。完整、整齐、一次到位的那一份赢得房子。这一页教您如何把您的申请打包到这样的水平。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#what">您需要准备什么</a></li>
+            <li><a href="#how">流程是怎样的</a></li>
+            <li><a href="#privacy">隐私与数据</a></li>
+            <li><a href="#start">开始申请</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="what">您需要准备什么(开始前先备好)</h2>
+          <p>材料齐全的情况下,申请大约 10 分钟可以完成:</p>
+          <ul class="bullets">
+            <li><strong>政府签发的身份证件</strong> — 驾照、护照,或永久居民卡(PR card)。您会上传一张照片。</li>
+            <li><strong>就业证明</strong> — 近期的工资单或雇主信,载明您的职位、入职日期、年薪。</li>
+            <li><strong>银行核实</strong> — 通过安全连接(只读)接入您的银行账户。可核实收入和余额,比上传三个月银行流水快很多。</li>
+            <li><strong>推荐人</strong> — 上一位房东(若有)+ 一位个人或职业推荐人。</li>
+            <li><strong>信用调查授权</strong> — Equifax 或 TransUnion。属于软查询(soft pull),不影响信用分数。</li>
+          </ul>
+
+          <div class="callout"><strong>新移民?</strong> 没问题。可以用海外信用报告、担保人信,或提前多缴押金替代加拿大本地信用。申请表会引导您选择合适的方案。</div>
+
+          <h2 id="how">流程是怎样的</h2>
+
+          <h3>第一步 — 填申请(10 分钟)</h3>
+          <p>点击下方"开始申请"。您会被引导到 SingleKey — 一家我用于每位租客背景调查的加拿大公司。表单简短、加密,中途需要休息时会自动保存进度。</p>
+
+          <h3>第二步 — 我审阅您的资料(当天)</h3>
+          <p>您一提交,我立刻收到报告。工作时间内通常几小时内回复,最迟次日上午之前。</p>
+
+          <h3>第三步 — 我们开始找房</h3>
+          <p>资料准备好之后,只要房子一上线,我就可以为您递交有竞争力的报价。不会再有"让我问一下房东"的拖延 — 我们走进房子之前,您已经预先获批。</p>
+
+          <h2 id="privacy">隐私与数据</h2>
+          <p>SingleKey 符合加拿大《个人信息保护和电子文档法》(PIPEDA),负责处理所有敏感数据 — 身份证件照片、银行连接、信用信息。我看不到您的银行登录原始信息,也看不到完整的证件原图。我只看到经过核实的摘要,足够我向房东为您背书即可。</p>
+          <p>您的数据归您所有。合作结束后,您可以随时申请删除。</p>
+
+          <h2 id="start">开始申请</h2>
+          <p>点击下方按钮。接下来的 10 分钟您会在 SingleKey 上完成。完成后,报告会自动发到我手上。</p>
+          <p style="margin-top: 32px;">
+            <a href={SCREENING_URL} class="btn-primary">
+              开始申请
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+          <p style="margin-top: 32px; color: var(--ink-mute); font-size: 14px;">想先聊一下? <a href={BOOKING_URL} style="text-decoration: underline; text-underline-offset: 3px;">预约一次 15 分钟通话</a>,我会带您过一遍。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseFooter />
+</BaseLayout>

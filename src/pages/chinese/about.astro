@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="关于 Peter Law — 多伦多房地产" description="Peter Law:在多伦多市中心土生土长。前 Airbnb 房东,400+ 客户好评。HomeLife Golconda Realty Inc. 注册销售代表。" zh={true}>
+
+  <ChineseTopBar />
+  <ChineseHeader active="about" ctaLabel="预约通话" />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">关于 Peter</div>
+        <h1 class="hero-h">土生土长,<em>多伦多人。</em></h1>
+        <p class="hero-sub">市中心多伦多人,前 Airbnb 房东,全职房地产代表 — 我把您从 A 点送到 B 点,直到终点线。</p>
+        <div class="hero-ctas">
+          <a href={BOOKING_URL} class="btn-primary">
+            我们聊一聊
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div><div class="hero-photo"><img src="/photos/peter-interior.webp" alt="Peter Law,午后阳光下端着咖啡坐在家里。" width="1500" height="1887" loading="eager" /></div></div>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>关于</h4>
+          <ul>
+            <li><a href="#story">我的故事</a></li>
+            <li><a href="#philosophy">工作理念</a></li>
+            <li><a href="#credentials">资历</a></li>
+            <li><a href="#brokerage">所属公司</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="story">我的故事</h2>
+          <p>在多伦多市中心土生土长。加拿大出生的华人 — 英文流利,在家说广东话。在多伦多租赁市场六年。从 Airbnb 接待开始,考取房地产执照,把业务从租赁拓展到买卖。接待客人的工作教会我一件简单的事:<strong>客人不会记得挂牌照片好不好看。他们记得自己有没有被认真照顾。</strong></p>
+          <p>我转为全职做房地产,就是想把同样的标准带到那些更重要、更长期的决定中:新移民第一次在异国他乡租房、签一份多年期的租约、把一套靠它带来收入的房子托付给一位租客。本质是同一份工作,只是赌注更大了。</p>
+
+          <div class="airbnb-credentials">
+            <a class="airbnb-card" href="https://www.airbnb.ca/users/show/130982023" target="_blank" rel="noopener" aria-label="查看 Peter Law 的 Airbnb 房东资料(在新标签页打开)">
+              <div class="airbnb-photo-wrap">
+                <img src="/photos/peter-portrait.webp" alt="Peter,Airbnb 认证房东" />
+                <span class="airbnb-verified" aria-hidden="true">✓</span>
+              </div>
+              <div class="airbnb-meta">
+                <div class="airbnb-name">Peter</div>
+                <div class="airbnb-role">Airbnb 认证房东</div>
+              </div>
+              <div class="airbnb-stats">
+                <div><span class="stat-num">402</span><span class="stat-lbl">客户好评</span></div>
+                <div><span class="stat-num">4.65<span class="star">★</span></span><span class="stat-lbl">评分</span></div>
+                <div><span class="stat-num">4+</span><span class="stat-lbl">接待年限</span></div>
+              </div>
+            </a>
+          </div>
+
+          <h2 id="philosophy">工作理念</h2>
+
+          <h3>准备本身就是工作</h3>
+          <p>多伦多的租赁市场不奖励临场发挥。它奖励的是早就把答案准备好走进门的那一位 — 不管是租客还是房东。我大部分的工作,就是确保那个人是我的客户。</p>
+
+          <h3>长期关系优先于一次成交</h3>
+          <p>我今天帮一位租客找到第一套理想公寓,五年后他会变成我的买家。我帮一位房东认真挑到一位好租客,他会把朋友介绍给我。我看重的是这种关系。</p>
+
+          <h2 id="credentials">资历</h2>
+          <ul class="bullets">
+            <li>注册销售代表,安省房地产管理委员会(RECO)</li>
+            <li>会员,多伦多区域房地产协会(TRREB)</li>
+            <li>会员,加拿大房地产协会(CREA)</li>
+            <li>4+ 年 Airbnb 接待经验(402 条评论 · 4.65★ 平均评分)</li>
+            <li>英文与中文皆流利</li>
+            <li>在考房地产经纪人执照(进行中)</li>
+          </ul>
+
+          <h2 id="brokerage">所属公司</h2>
+          <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong><br>215 – 3601 HWY 7 East, Markham, Ontario, L3R 0M3<br>HomeLife 是加拿大历史最悠久的房地产品牌之一,1985 年创立于多伦多。Golconda Realty 是一家独立经营的特许加盟公司,服务整个大多伦多地区。</p>
+
+          <div class="callout"><strong>公开资料:</strong> <a href="https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-215-markham-ontario-l3r0m3" style="text-decoration: underline; text-underline-offset: 3px;">查看 Peter 的 REALTOR.ca 页面</a>,了解当前挂牌房源和已核实的资质。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="判断是否合适的最快方式。" lead="15 分钟通话。我们聊聊您的情况。要不要继续,由您决定。" ctaTitle="预约通话" />
+  <ChineseFooter />
+</BaseLayout>
