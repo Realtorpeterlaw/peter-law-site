@@ -78,15 +78,62 @@ const jsonLd = {
 
             <h2 id="prices">三种电价(2026 年冬季)</h2>
             <p>安省能源委员会(OEB)负责定价。目前的价格是:</p>
-            <ul class="bullets">
-              <li><strong>低谷电价(Off-Peak):每千瓦时 9.8 分</strong> — 最便宜</li>
-              <li><strong>平时电价(Mid-Peak):每千瓦时 15.7 分</strong> — 中间价</li>
-              <li><strong>高峰电价(On-Peak):每千瓦时 20.3 分</strong> — 最贵</li>
-            </ul>
+            <div class="tou-tiers">
+              <div class="tou-tier tou-tier-off">
+                <div class="tou-tier-label">低谷</div>
+                <div class="tou-tier-price">9.8<span class="tou-cents">¢</span></div>
+                <div class="tou-tier-sub">每千瓦时 · 最便宜</div>
+              </div>
+              <div class="tou-tier tou-tier-mid">
+                <div class="tou-tier-label">平时</div>
+                <div class="tou-tier-price">15.7<span class="tou-cents">¢</span></div>
+                <div class="tou-tier-sub">每千瓦时</div>
+              </div>
+              <div class="tou-tier tou-tier-on">
+                <div class="tou-tier-label">高峰</div>
+                <div class="tou-tier-price">20.3<span class="tou-cents">¢</span></div>
+                <div class="tou-tier-sub">每千瓦时 · 最贵</div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:var(--ink-mute);margin-top:-12px;">OEB 居民监管价格计划,2025–2026 年冬季。</p>
+
             <p>高峰电价是低谷电价的 <strong>两倍多</strong>。这就是您可以利用的差价。</p>
 
             <h2 id="when">什么时候用哪种电价</h2>
             <p>夏天和冬天的时间表不一样。这里讲简化版。</p>
+
+            <div class="tou-strip-wrap">
+              <div class="tou-strip-row">
+                <div class="tou-strip-label">冬季工作日</div>
+                <div class="tou-strip">
+                  <div class="tou-strip-seg tou-strip-off" style="flex:7"><span>低谷</span></div>
+                  <div class="tou-strip-seg tou-strip-on" style="flex:4"><span>高峰</span></div>
+                  <div class="tou-strip-seg tou-strip-mid" style="flex:6"><span>平时</span></div>
+                  <div class="tou-strip-seg tou-strip-on" style="flex:2"><span>高峰</span></div>
+                  <div class="tou-strip-seg tou-strip-off" style="flex:5"><span>低谷</span></div>
+                </div>
+              </div>
+              <div class="tou-strip-row">
+                <div class="tou-strip-label">夏季工作日</div>
+                <div class="tou-strip">
+                  <div class="tou-strip-seg tou-strip-off" style="flex:7"><span>低谷</span></div>
+                  <div class="tou-strip-seg tou-strip-mid" style="flex:4"><span>平时</span></div>
+                  <div class="tou-strip-seg tou-strip-on" style="flex:6"><span>高峰</span></div>
+                  <div class="tou-strip-seg tou-strip-mid" style="flex:2"><span>平时</span></div>
+                  <div class="tou-strip-seg tou-strip-off" style="flex:5"><span>低谷</span></div>
+                </div>
+              </div>
+              <div class="tou-strip-row">
+                <div class="tou-strip-label">周末与节假日</div>
+                <div class="tou-strip">
+                  <div class="tou-strip-seg tou-strip-off" style="flex:24"><span>低谷 — 全天,全周末</span></div>
+                </div>
+              </div>
+              <div class="tou-strip-hours" aria-hidden="true">
+                <span>0时</span><span>4时</span><span>8时</span><span>12时</span><span>16时</span><span>20时</span><span>24时</span>
+              </div>
+            </div>
+
 
             <h3>冬季(11 月 1 日 – 4 月 30 日)</h3>
             <ul class="bullets">

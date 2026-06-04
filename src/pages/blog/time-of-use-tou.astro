@@ -77,15 +77,62 @@ const jsonLd = {
 
             <h2 id="prices">The 3 prices (as of winter 2026)</h2>
             <p>The Ontario Energy Board sets the prices. Right now they are:</p>
-            <ul class="bullets">
-              <li><strong>Off-Peak: 9.8¢ per kWh</strong> — the cheap price</li>
-              <li><strong>Mid-Peak: 15.7¢ per kWh</strong> — the middle price</li>
-              <li><strong>On-Peak: 20.3¢ per kWh</strong> — the expensive price</li>
-            </ul>
+            <div class="tou-tiers">
+              <div class="tou-tier tou-tier-off">
+                <div class="tou-tier-label">Off-Peak</div>
+                <div class="tou-tier-price">9.8<span class="tou-cents">¢</span></div>
+                <div class="tou-tier-sub">per kWh · cheapest</div>
+              </div>
+              <div class="tou-tier tou-tier-mid">
+                <div class="tou-tier-label">Mid-Peak</div>
+                <div class="tou-tier-price">15.7<span class="tou-cents">¢</span></div>
+                <div class="tou-tier-sub">per kWh</div>
+              </div>
+              <div class="tou-tier tou-tier-on">
+                <div class="tou-tier-label">On-Peak</div>
+                <div class="tou-tier-price">20.3<span class="tou-cents">¢</span></div>
+                <div class="tou-tier-sub">per kWh · most expensive</div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:var(--ink-mute);margin-top:-12px;">OEB Regulated Price Plan, winter 2025–2026.</p>
+
             <p>On-Peak costs <strong>more than 2x</strong> Off-Peak. That's the gap you want to use.</p>
 
             <h2 id="when">When each price is on</h2>
             <p>The schedule flips between summer and winter. Here's the simple version.</p>
+
+            <div class="tou-strip-wrap">
+              <div class="tou-strip-row">
+                <div class="tou-strip-label">Winter weekday</div>
+                <div class="tou-strip">
+                  <div class="tou-strip-seg tou-strip-off" style="flex:7"><span>Off</span></div>
+                  <div class="tou-strip-seg tou-strip-on" style="flex:4"><span>On</span></div>
+                  <div class="tou-strip-seg tou-strip-mid" style="flex:6"><span>Mid</span></div>
+                  <div class="tou-strip-seg tou-strip-on" style="flex:2"><span>On</span></div>
+                  <div class="tou-strip-seg tou-strip-off" style="flex:5"><span>Off</span></div>
+                </div>
+              </div>
+              <div class="tou-strip-row">
+                <div class="tou-strip-label">Summer weekday</div>
+                <div class="tou-strip">
+                  <div class="tou-strip-seg tou-strip-off" style="flex:7"><span>Off</span></div>
+                  <div class="tou-strip-seg tou-strip-mid" style="flex:4"><span>Mid</span></div>
+                  <div class="tou-strip-seg tou-strip-on" style="flex:6"><span>On</span></div>
+                  <div class="tou-strip-seg tou-strip-mid" style="flex:2"><span>Mid</span></div>
+                  <div class="tou-strip-seg tou-strip-off" style="flex:5"><span>Off</span></div>
+                </div>
+              </div>
+              <div class="tou-strip-row">
+                <div class="tou-strip-label">Weekends &amp; holidays</div>
+                <div class="tou-strip">
+                  <div class="tou-strip-seg tou-strip-off" style="flex:24"><span>Off-Peak — all day, every day</span></div>
+                </div>
+              </div>
+              <div class="tou-strip-hours" aria-hidden="true">
+                <span>12am</span><span>4am</span><span>8am</span><span>12pm</span><span>4pm</span><span>8pm</span><span>12am</span>
+              </div>
+            </div>
+
 
             <h3>Winter (November 1 – April 30)</h3>
             <ul class="bullets">
