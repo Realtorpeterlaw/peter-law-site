@@ -908,3 +908,29 @@ body.mobile-menu-open { overflow: hidden; }
 
 /* Blog index: widen subtitle so the longer category list fits on one line */
 .blog-page .page-hero p { max-width: 820px; }
+
+/* Condo developer directory */
+.condo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-width: 1100px; margin-top: 8px; }
+.condo-card { display: flex; align-items: center; gap: 12px; padding: 18px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; text-decoration: none; color: var(--ink); transition: border-color 0.15s, transform 0.15s; }
+.condo-card:hover { border-color: var(--ink); }
+.condo-card:hover .condo-card-arrow svg { transform: translateX(3px); transition: transform 0.15s; }
+.condo-card-name { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; color: var(--ink); flex: 1; min-width: 0; }
+.condo-card-meta { font-size: 12px; color: var(--ink-mute); margin-top: 4px; display: block; }
+.condo-card > .condo-card-name { display: flex; flex-direction: column; }
+.condo-card-arrow { color: var(--ink-mute); flex-shrink: 0; }
+.condo-no-results { font-size: 14px; color: var(--ink-mute); margin-top: 24px; text-align: center; font-style: italic; }
+
+/* Condo developer detail page */
+.condo-facts { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.condo-facts li { display: flex; flex-direction: column; gap: 3px; font-size: 14px; }
+.condo-facts .fact-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+.condo-facts .fact-value { color: var(--ink); font-weight: 400; word-break: break-word; }
+.condo-facts a.fact-value { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
+.condo-facts a.fact-value:hover { text-decoration-color: var(--ink); }
+.condo-projects-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.condo-projects-table th { background: var(--ink); color: var(--surface); padding: 12px 14px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.condo-projects-table td { padding: 12px 14px; border-top: 1px solid var(--rule); color: var(--ink-soft); line-height: 1.5; }
+.condo-projects-table tr:nth-child(even) td { background: var(--bg-warm); }
+@media (max-width: 720px) {
+  .condo-grid { grid-template-columns: 1fr; }
+}

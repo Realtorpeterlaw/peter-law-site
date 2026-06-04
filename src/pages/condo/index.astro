@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+import { developers } from '../../data/condo-developers.ts';
+---
+<BaseLayout
+  title="Toronto Condo Developer Directory | Peter Law"
+  description="Directory of major Toronto and GTA condominium developers — Tridel, Daniels, Menkes, Concord Adex, and more. Search by name to find each builder's projects and official website."
+  bodyClass="condo-page"
+>
+  <TopBar />
+  <Header active="condo" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Condo</div>
+      <h1>Toronto condo developers.</h1>
+      <p>The major builders behind Toronto's skyline. Search by name to find each developer's profile and projects.</p>
+      <div class="blog-search" role="search" style="margin-top:22px;">
+        <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="condo-search-input" type="search" placeholder="Search developers…" aria-label="Search condo developers" autocomplete="off" />
+      </div>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="condo-grid">
+        {developers.map((dev) => (
+          <a href={`/condo/${dev.slug}`} class="condo-card" data-search={`${dev.name} ${dev.headquarters || ''}`.toLowerCase()}>
+            <div class="condo-card-name">{dev.name}</div>
+            <div class="condo-card-meta">{dev.headquarters || ''}{dev.founded ? ` · founded ${dev.founded}` : ''}</div>
+            <div class="condo-card-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+      <p class="condo-no-results" id="condo-no-results" hidden>No developers match that search.</p>
+    </div>
+  </section>
+
+  <CTASection heading="Considering a unit by one of these developers?" lead="I've toured buildings from most of the builders on this list. Tell me which one you're looking at and I'll share what I know — floor plate quirks, fee history, what units have been resaling for." />
+  <Footer />
+
+  <script>
+    (function() {
+      const input = document.getElementById('condo-search-input');
+      const cards = document.querySelectorAll('.condo-card');
+      const noResults = document.getElementById('condo-no-results');
+      if (!input || !cards.length) return;
+      input.addEventListener('input', function() {
+        const q = input.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(function(card) {
+          const text = card.getAttribute('data-search') || '';
+          const match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        if (noResults) noResults.hidden = (q.length === 0 || visible > 0);
+      });
+    })();
+  </script>
+</BaseLayout>
