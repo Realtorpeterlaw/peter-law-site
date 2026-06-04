@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const posts = [
+  {
+    slug: 'bill-60-ontario',
+    title: 'Bill 60 Ontario: What Tenants & Landlords Must Know (2026)',
+    eyebrow: 'Legislation · 2026',
+    excerpt: 'Ontario\'s Fighting Delays, Building Faster Act passed in November 2025 and rewrites the playbook for evictions, N12 compensation, fixed-term leases, and rent arrears hearings. Here\'s what changed, what\'s in force yet, and what it means for you.',
+    date: 'June 3, 2026',
+    readMin: 8,
+    category: 'Legislation',
+  },
+  {
+    slug: 'reverse-mortgage',
+    title: 'Reverse Mortgage: What is it?',
+    eyebrow: 'Senior Buyers · Financing',
+    excerpt: 'A plain-English breakdown of reverse mortgages in Canada — who can get one (55+), how much you can borrow (typically up to 55% of your home\'s value), what it actually costs, and the real trade-offs before you sign.',
+    date: 'June 3, 2026',
+    readMin: 7,
+    category: 'Financing',
+  },
+];
+---
+<BaseLayout
+  title="Toronto Real Estate Blog | Peter Law"
+  description="Real talk on Toronto rentals, sales, financing, and Ontario real estate legislation. Plain-English explainers from a bilingual Toronto realtor. Updated regularly."
+  bodyClass="blog-page"
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Blog</div>
+      <h1>Real talk on Toronto real estate.</h1>
+      <p>Legislation explainers, financing breakdowns, market notes — written for the person buying, renting, or landlording, not for other agents.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="blog-list">
+        {posts.map((post) => (
+          <article class="blog-card">
+            <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Read: ${post.title}`}>
+              <div class="blog-card-eyebrow">{post.eyebrow}</div>
+              <h2 class="blog-card-title">{post.title}</h2>
+              <p class="blog-card-excerpt">{post.excerpt}</p>
+              <div class="blog-card-meta">
+                <span>{post.date}</span>
+                <span class="blog-card-dot" aria-hidden="true">·</span>
+                <span>{post.readMin} min read</span>
+                <span class="blog-card-read">Read more
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="blog-newsletter">
+        <div class="eyebrow">Monthly Market Report</div>
+        <h3>New articles, in your inbox.</h3>
+        <p>Subscribe to the monthly newsletter and you'll get every new explainer the day it goes live. Free, no pitch.</p>
+        <div class="newsletter-embed" style="margin-top:14px;">
+          <iframe src="https://embeds.beehiiv.com/512a665e-d813-48a7-a7bb-8d46cdad874d" frameborder="0" scrolling="no" style="margin:0;border-radius:4px;background-color:transparent;width:100%;min-width:280px;max-width:520px;height:88px;" title="Subscribe to the Monthly Market Report"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Got a question for an article?" lead="If there's a topic you've been Googling and can't find a straight answer to, send it over. I'm always looking for the next one to write." />
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const publishedDate = '2026-06-03';
+const articleTitle = 'Reverse Mortgage: What is it?';
+const articleDescription = 'A plain-English guide to reverse mortgages in Canada — how they work, who qualifies (55+), how much you can borrow, interest rates, fees, and the real trade-offs before you sign. Toronto homeowner edition.';
+const articleUrl = 'https://www.realtorpeterlaw.com/blog/reverse-mortgage';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: {
+    '@type': 'Person',
+    name: 'Peter Law',
+    url: 'https://www.realtorpeterlaw.com/about',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'reverse mortgage Canada, CHIP reverse mortgage, HomeEquity Bank, Equitable Bank Flex reverse mortgage, reverse mortgage Toronto, reverse mortgage 55+, reverse mortgage pros and cons, reverse mortgage interest rates Canada',
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
+  description={articleDescription}
+  bodyClass="article-page"
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero article-hero">
+      <div class="wrap article-wrap">
+        <div class="eyebrow"><a href="/blog">Blog</a> · Financing</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">A plain-English breakdown for Canadian homeowners aged 55+: how reverse mortgages actually work, what they cost, and the trade-offs nobody at the bank wants to spell out before you sign.</p>
+        <div class="article-byline">
+          <span>By <a href="/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>June 3, 2026</time>
+          <span class="dot">·</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major article-major">
+      <div class="wrap article-wrap">
+        <div class="article-body">
+
+          <p><strong>Quick answer:</strong> A reverse mortgage lets a Canadian homeowner aged 55 or older borrow against their home's equity without making monthly payments. The loan plus accumulated interest is repaid when the home is sold, the homeowner moves out permanently, or the last borrower passes away. In Canada, there are essentially two products — <strong>HomeEquity Bank's CHIP Reverse Mortgage</strong> and <strong>Equitable Bank's Flex Reverse Mortgage</strong>. You can typically access up to 55% of your home's appraised value.</p>
+
+          <div class="callout"><strong>Who this article is for:</strong> Toronto-area homeowners 55+ exploring how to unlock equity without selling, or adult children helping parents understand options. If you're under 55, this isn't available to you — see a HELOC or refinance instead.</div>
+
+          <h2>How a reverse mortgage actually works</h2>
+          <p>You own your home outright (or close to it). The lender appraises it, decides how much you can borrow based on your age, your spouse's age, the home's value, and its location. You receive the money as a lump sum, scheduled advances, or both. <strong>You make no monthly payments.</strong> The interest accrues on the balance and compounds over time. When you sell, move into long-term care, or pass away, the loan is repaid from the proceeds of the home sale. Whatever's left over goes to you or your estate.</p>
+
+          <p>You remain the owner of the home throughout. Your name stays on title. Property tax and insurance stay your responsibility. So does maintenance.</p>
+
+          <h2>Who qualifies in Canada</h2>
+          <ul class="bullets">
+            <li><strong>Age:</strong> The youngest borrower on title must be 55 or older. Both spouses on title both have to be 55+.</li>
+            <li><strong>Home:</strong> Must be your primary residence (the home you live in more than 6 months of the year). Investment properties and vacation homes don't qualify.</li>
+            <li><strong>Home type:</strong> Most single-family homes, townhouses, and condos qualify. Some properties (mobile homes, co-ops, certain rural properties) don't. CHIP and Flex have slightly different eligibility — your realtor or mortgage broker can check.</li>
+            <li><strong>Property value:</strong> Generally a minimum appraised value (around $250,000+ for CHIP; higher for some products).</li>
+            <li><strong>No income or credit requirement.</strong> This is the big appeal for retirees on fixed income — your pension doesn't have to "qualify" you. The home does.</li>
+          </ul>
+
+          <h2>How much can you actually borrow?</h2>
+          <p>Typically up to <strong>55% of your home's appraised value</strong> — but the exact percentage depends on your age, your spouse's age, the home's location and condition, and the specific lender. A 75-year-old in downtown Toronto with a $1.5M home will be able to access more than a 56-year-old in the same home, because the lender expects to recoup the loan sooner.</p>
+
+          <p>As a rough example: a 65-year-old couple with a $1.2M home in Toronto might be able to access between $400,000 and $500,000.</p>
+
+          <h2>The interest rate question</h2>
+          <p>This is where most articles get vague. Let's be precise.</p>
+          <p>Reverse mortgage rates in Canada are <strong>materially higher than conventional mortgage rates</strong> — typically 1.5% to 3% higher than a standard 5-year fixed mortgage. The reason: the lender takes on more risk (no monthly payments, long horizon, value of home at the end is unknown) and there's much less competition in the market.</p>
+          <p>The other thing that matters: <strong>interest compounds.</strong> If you borrow $300,000 at 8% and don't make any payments, the balance grows quickly. After 10 years that $300,000 becomes roughly $648,000. After 15 years, roughly $951,000.</p>
+
+          <div class="callout"><strong>Toronto-specific math:</strong> Your home's value is also growing. If your $1.2M home appreciates at 3-4% annually for 15 years, it could be worth $1.87M – $2.16M. The remaining equity after the loan is repaid is what your estate keeps. The faster your home appreciates relative to your loan balance compounds, the better the math works for you.</p>
+
+          <h2>What it actually costs upfront</h2>
+          <ul class="bullets">
+            <li><strong>Appraisal:</strong> $300–$600 (paid upfront)</li>
+            <li><strong>Independent legal advice:</strong> $300–$700 — required, you choose your own lawyer</li>
+            <li><strong>Closing/setup fee from lender:</strong> typically $1,500–$2,500 (often deducted from the loan, not paid out of pocket)</li>
+            <li><strong>Title insurance:</strong> $300–$500</li>
+          </ul>
+          <p>Total: usually $2,500–$4,000 upfront, much of it rolled into the loan.</p>
+
+          <h2>The real trade-offs — pros and cons</h2>
+
+          <h3>Pros</h3>
+          <ul class="bullets">
+            <li><strong>No monthly payments.</strong> Cash flow stays unchanged. Big for retirees on fixed income.</li>
+            <li><strong>You stay in your home.</strong> No forced sale. Important if you're attached to the neighborhood, your support network, or the home itself.</li>
+            <li><strong>The money is tax-free.</strong> It's a loan, not income. Doesn't affect OAS clawback or GIS eligibility.</li>
+            <li><strong>No qualification on income or credit.</strong> If you have the equity, you have access.</li>
+            <li><strong>No risk of negative equity in Canada.</strong> Both CHIP and Flex include a "no negative equity" guarantee — if the loan exceeds the home's value at sale, the lender absorbs the difference. Your estate is protected.</li>
+          </ul>
+
+          <h3>Cons</h3>
+          <ul class="bullets">
+            <li><strong>Higher interest rates than alternatives.</strong> A HELOC or conventional refinance — if you qualify — is almost always cheaper.</li>
+            <li><strong>Compound interest erodes your estate.</strong> The amount you'll leave to children/heirs is meaningfully smaller. Family conversations matter.</li>
+            <li><strong>Setup costs.</strong> Not huge in absolute terms, but real money on top of an already expensive loan.</li>
+            <li><strong>You lose flexibility.</strong> Selling later is more complicated — the loan must be settled at closing, and prepayment penalties can be significant in the first few years.</li>
+            <li><strong>Surviving spouse risk if title isn't done correctly.</strong> If only one spouse is on title and that spouse passes, the surviving spouse can be forced to repay the loan. Always have both spouses on title for a reverse mortgage.</li>
+          </ul>
+
+          <h2>Reverse mortgage vs. HELOC vs. conventional refinance</h2>
+          <p>Most homeowners considering a reverse mortgage should first explore these alternatives — they're often better if you qualify:</p>
+          <ul class="bullets">
+            <li><strong>HELOC (Home Equity Line of Credit):</strong> Much lower interest. Requires income qualification and monthly interest payments. Best if you have steady income.</li>
+            <li><strong>Conventional refinance:</strong> Replace your existing mortgage with a larger one. Lower rate, but full monthly payments. Requires income qualification.</li>
+            <li><strong>Sell and downsize:</strong> Sometimes the most overlooked option. Releases all the equity, no interest accrues. Costs a move — emotional and logistical — but for many Toronto homeowners with empty-nest equity, this is the financially superior path.</li>
+            <li><strong>Reverse mortgage:</strong> Last resort if you can't qualify for the cheaper options or absolutely don't want to move and don't need to qualify on income.</li>
+          </ul>
+
+          <h2>When a reverse mortgage actually makes sense</h2>
+          <p>I see it work well in these specific situations:</p>
+          <ul class="bullets">
+            <li>You're 70+, on a fixed income, deeply attached to your home, and need cash for healthcare, home modifications, or supplementing pension.</li>
+            <li>You don't qualify for a HELOC (no income) and selling would be devastating emotionally or logistically.</li>
+            <li>You want to gift money to children or grandchildren now while you're alive to see it used, and your home appreciation is comfortably outpacing the loan's compound growth.</li>
+            <li>You have a clear-eyed conversation with your heirs about what they'll inherit, and they understand the math.</li>
+          </ul>
+          <p>It rarely makes sense if: you're younger and could still qualify for a HELOC, your home isn't appreciating, you'd be open to downsizing, or you haven't discussed it with your family.</p>
+
+          <h2>Two questions to ask before you sign</h2>
+          <ol class="bullets" style="list-style: decimal;">
+            <li>"Will I still need to access more money in 5 years?" If yes, structure the reverse mortgage as scheduled advances rather than a lump sum — you'll pay less interest by drawing the money over time instead of all upfront.</li>
+            <li>"Have my adult children/heirs been told?" Surprise inheritances becoming smaller-than-expected inheritances destroy family relationships. Have the conversation now, not at the lawyer's office in 15 years.</li>
+          </ol>
+
+          <p class="legal-note">This article is informational, not financial advice. Reverse mortgages are a specific financial product with serious implications for your estate. Speak to a licensed mortgage professional, an independent lawyer (required by law for reverse mortgages in Canada), and ideally a financial planner before signing. I'm a registered real estate sales representative, not a mortgage advisor.</p>
+
+          <div class="article-share">
+            <p>Found this useful? <a href="/contact">Send it to someone who's been asking</a>, or subscribe below for the next one.</p>
+          </div>
+        </div>
+
+        <aside class="article-aside">
+          <div class="article-aside-card">
+            <h4>On this page</h4>
+            <ul>
+              <li><a href="#">Quick answer</a></li>
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Who qualifies</a></li>
+              <li><a href="#">How much you can borrow</a></li>
+              <li><a href="#">Interest rates</a></li>
+              <li><a href="#">Pros &amp; cons</a></li>
+              <li><a href="#">Alternatives</a></li>
+              <li><a href="#">When it makes sense</a></li>
+            </ul>
+          </div>
+          <div class="article-aside-card">
+            <h4>Related</h4>
+            <ul>
+              <li><a href="/blog/bill-60-ontario">Bill 60 Ontario: What Tenants &amp; Landlords Must Know</a></li>
+              <li><a href="/buyer-guide">Buyer Guide</a></li>
+              <li><a href="/affordability-calculator">Affordability Calculator</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </article>
+
+  <CTASection heading="Considering a reverse mortgage?" lead="If you or a parent is exploring this, talk it through with someone who has no incentive to sell you one. I'm not a mortgage broker — I just point you to the right person for your situation." />
+  <Footer />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <meta property="og:type" content="article" slot="head" />
+  <meta property="article:published_time" content={publishedDate} slot="head" />
+  <meta property="article:author" content="Peter Law" slot="head" />
+</BaseLayout>

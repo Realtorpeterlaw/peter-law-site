@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
+
+const posts = [
+  {
+    slug: 'bill-60-ontario',
+    title: '安省 Bill 60:租客与房东必须知道的事(2026)',
+    eyebrow: '立法 · 2026',
+    excerpt: '安省的《加快建设、减少拖延法》(Fighting Delays, Building Faster Act)于 2025 年 11 月通过,改写了驱逐流程、N12 补偿、固定期限租约以及欠租听证的规则。这里讲清楚改了什么、目前哪些已经生效,以及对您意味着什么。',
+    date: '2026 年 6 月 3 日',
+    readMin: 8,
+  },
+  {
+    slug: 'reverse-mortgage',
+    title: '反向房贷(Reverse Mortgage):是什么?',
+    eyebrow: '长者买家 · 融资',
+    excerpt: '加拿大反向房贷的通俗解读 — 谁可以申请(55 岁以上)、能借多少(通常为房屋估值的 55%)、实际成本是多少,以及签约前真正需要权衡的取舍。',
+    date: '2026 年 6 月 3 日',
+    readMin: 7,
+  },
+];
+---
+<BaseLayout
+  title="多伦多房地产博客 | Peter Law"
+  description="关于多伦多租赁、买卖、融资和安省房地产立法的真实解读。由双语多伦多中介撰写的通俗讲解,定期更新。"
+  bodyClass="blog-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">博客</div>
+      <h1>关于多伦多房地产的实话。</h1>
+      <p>立法解读、融资分析、市场观察 — 为正在买房、租房或做房东的您而写,而不是写给同行看的。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="blog-list">
+        {posts.map((post) => (
+          <article class="blog-card">
+            <a href={`/chinese/blog/${post.slug}`} class="blog-card-link" aria-label={`阅读:${post.title}`}>
+              <div class="blog-card-eyebrow">{post.eyebrow}</div>
+              <h2 class="blog-card-title">{post.title}</h2>
+              <p class="blog-card-excerpt">{post.excerpt}</p>
+              <div class="blog-card-meta">
+                <span>{post.date}</span>
+                <span class="blog-card-dot" aria-hidden="true">·</span>
+                <span>阅读 {post.readMin} 分钟</span>
+                <span class="blog-card-read">阅读全文
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="blog-newsletter">
+        <div class="eyebrow">每月市场报告</div>
+        <h3>新文章,直接送到您邮箱。</h3>
+        <p>订阅每月通讯,每一篇新文章上线当天就会送到您手上。免费,不推销。</p>
+        <div class="newsletter-embed" style="margin-top:14px;">
+          <iframe src="https://embeds.beehiiv.com/512a665e-d813-48a7-a7bb-8d46cdad874d" frameborder="0" scrolling="no" style="margin:0;border-radius:4px;background-color:transparent;width:100%;min-width:280px;max-width:520px;height:88px;" title="订阅每月市场报告"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="有想看的话题?" lead="如果您一直在 Google 上搜某个问题但找不到直接的答案,把题目发给我。我一直在找下一篇该写什么。" />
+  <ChineseFooter />
+</BaseLayout>
