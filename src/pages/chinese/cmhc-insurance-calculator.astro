@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="CMHC 保险计算器 | Peter Law"
+  description="几秒钟估算您的 CMHC 房贷违约保险费。加拿大规则:最低首付要求、按贷款价值比的保费率、150 万可保上限。"
+  bodyClass="calc-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">CMHC 保险计算器</div>
+      <h1>您的房贷违约保险要付多少?</h1>
+      <p>如果您的首付不到 20%,您就需要购买 CMHC(或 Sagen / Canada Guaranty)保险。保费会滚入您的贷款本金。本工具帮您估算具体金额。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>买家资源</h4>
+          <ul>
+            <li><a href="/chinese/buyer-guide">买家指南</a></li>
+            <li><a href="/chinese/land-transfer-tax">土地转让税</a></li>
+            <li><a href="/chinese/payment-calculator">房贷计算器</a></li>
+            <li><a href="/chinese/affordability-calculator">可负担能力计算器</a></li>
+            <li><a href="/chinese/cmhc-insurance-calculator">CMHC 保险计算器</a></li>
+            <li><a href="/chinese/closing-costs">交接成本</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-price">购买价格</label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-price" type="number" value="800000" min="0" step="5000"></div>
+              </div>
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-down">首付 <span class="hint">(或使用下方百分比)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-down" type="number" value="80000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-down-pct">首付百分比 <span class="hint">(联动更新上方金额)</span></label>
+                <input id="cmhc-down-pct" type="number" value="10" min="0" max="100" step="0.5">
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">CMHC 保险费</span>
+                <span id="cmhc-premium">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>保险前贷款额</span><strong id="cmhc-mortgage-before">$0</strong></div>
+                <div class="row"><span>贷款价值比(LTV)</span><strong id="cmhc-ltv">0%</strong></div>
+                <div class="row"><span>适用保费率</span><strong id="cmhc-rate">0%</strong></div>
+                <div class="row"><span>总贷款额 <span style="font-weight:400;color:var(--ink-mute);">(含保险)</span></span><strong id="cmhc-total">$0</strong></div>
+                <div class="row"><span>最低首付要求</span><strong id="cmhc-min-down">$0</strong></div>
+                <div class="row" id="cmhc-status-row"><span>状态</span><strong id="cmhc-status" style="color:var(--ink);">—</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer" id="cmhc-disclaimer">仅供估算。保费率参考 CMHC 公布的标准。CMHC、Sagen、Canada Guaranty 实际收取的保费可能略有不同。安省对保费另收 8% PST,在交接日支付(不滚入贷款)。在依据本计算结果做决策前,请咨询持牌贷款专业人士。</p>
+          </div>
+
+          <h2 style="margin-top:48px;">速查:按 LTV 的保费率</h2>
+          <table class="cmhc-table">
+            <thead>
+              <tr><th>贷款价值比(LTV)</th><th>保费率</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>65% 及以下</td><td>0.60%</td></tr>
+              <tr><td>65.01% 到 75%</td><td>1.70%</td></tr>
+              <tr><td>75.01% 到 80%</td><td>2.40%</td></tr>
+              <tr><td>80.01% 到 85%</td><td>2.80%</td></tr>
+              <tr><td>85.01% 到 90%</td><td>3.10%</td></tr>
+              <tr><td>90.01% 到 95%</td><td>4.00%</td></tr>
+            </tbody>
+          </table>
+
+          <h2 style="margin-top:40px;">最低首付规则</h2>
+          <ul class="bullets">
+            <li><strong>房价 ≤ $500,000:</strong>最低首付 5%。</li>
+            <li><strong>$500,001 到 $1,500,000:</strong>头 50 万部分最低 5%,超过 50 万的部分最低 10%。</li>
+            <li><strong>房价超过 $1,500,000:</strong>无法购买 CMHC 保险,首付必须至少 20%,且需为本人资金。</li>
+          </ul>
+
+          <p class="legal-note" style="margin-top:24px;">本计算器仅供参考。保费表、资格规则、150 万可保上限均可能调整。当前规则反映的是 CMHC 在 2024 年 12 月 15 日的更新。如需准确报价,请联系贷款经纪或您的银行。我是注册房地产销售代表,不是房贷顾问。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="需要结合实际房子来看吗?" lead="脱离房子谈数字太抽象。我们一起看一些您预算范围里的真实房源,把全部成本都算上 — 房价、首付、CMHC、土地转让税、交接成本。一次通话就能讲清楚。" />
+  <ChineseFooter />
+
+  <style>
+    .cmhc-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    .cmhc-table th, .cmhc-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--rule); }
+    .cmhc-table th { font-weight: 600; color: var(--ink); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bg-warm); }
+    .cmhc-table td:last-child { font-weight: 600; color: var(--ink); font-family: 'Fraunces', Georgia, serif; }
+  </style>
+
+  <script>
+    (function() {
+      const priceEl = document.getElementById('cmhc-price');
+      const downEl = document.getElementById('cmhc-down');
+      const pctEl = document.getElementById('cmhc-down-pct');
+      const premiumEl = document.getElementById('cmhc-premium');
+      const mortgageBeforeEl = document.getElementById('cmhc-mortgage-before');
+      const ltvEl = document.getElementById('cmhc-ltv');
+      const rateEl = document.getElementById('cmhc-rate');
+      const totalEl = document.getElementById('cmhc-total');
+      const minDownEl = document.getElementById('cmhc-min-down');
+      const statusEl = document.getElementById('cmhc-status');
+
+      function fmt$(n) {
+        return '$' + Math.round(n).toLocaleString('en-CA');
+      }
+
+      function minDown(price) {
+        if (price <= 500000) return price * 0.05;
+        if (price <= 1500000) return 500000 * 0.05 + (price - 500000) * 0.10;
+        return price * 0.20;
+      }
+
+      function premiumRate(ltv) {
+        if (ltv <= 0.65) return 0.0060;
+        if (ltv <= 0.75) return 0.0170;
+        if (ltv <= 0.80) return 0.0240;
+        if (ltv <= 0.85) return 0.0280;
+        if (ltv <= 0.90) return 0.0310;
+        return 0.0400;
+      }
+
+      let syncing = false;
+
+      function syncFromDollar() {
+        if (syncing) return;
+        const price = parseFloat(priceEl.value) || 0;
+        const down = parseFloat(downEl.value) || 0;
+        if (price > 0) {
+          syncing = true;
+          pctEl.value = ((down / price) * 100).toFixed(2);
+          syncing = false;
+        }
+        calc();
+      }
+
+      function syncFromPct() {
+        if (syncing) return;
+        const price = parseFloat(priceEl.value) || 0;
+        const pct = parseFloat(pctEl.value) || 0;
+        syncing = true;
+        downEl.value = Math.round(price * pct / 100);
+        syncing = false;
+        calc();
+      }
+
+      function calc() {
+        const price = parseFloat(priceEl.value) || 0;
+        const down = parseFloat(downEl.value) || 0;
+        const mortgage = Math.max(0, price - down);
+        const ltv = price > 0 ? mortgage / price : 0;
+        const minDp = minDown(price);
+
+        mortgageBeforeEl.textContent = fmt$(mortgage);
+        ltvEl.textContent = (ltv * 100).toFixed(2) + '%';
+        minDownEl.textContent = fmt$(minDp);
+
+        if (price > 1500000 && down < price * 0.20) {
+          statusEl.textContent = '房价超过 150 万,无法购买 CMHC — 首付至少 20%';
+          statusEl.style.color = '#b8002e';
+          premiumEl.textContent = '$0';
+          rateEl.textContent = 'N/A';
+          totalEl.textContent = fmt$(mortgage);
+          return;
+        }
+        if (down < minDp) {
+          statusEl.textContent = '首付低于最低要求';
+          statusEl.style.color = '#b8002e';
+          premiumEl.textContent = '$0';
+          rateEl.textContent = 'N/A';
+          totalEl.textContent = fmt$(mortgage);
+          return;
+        }
+        if (ltv <= 0.80) {
+          statusEl.textContent = '无需 CMHC 保险(首付 ≥ 20%)';
+          statusEl.style.color = '#1a6b32';
+          premiumEl.textContent = '$0';
+          rateEl.textContent = '0%';
+          totalEl.textContent = fmt$(mortgage);
+          return;
+        }
+        const rate = premiumRate(ltv);
+        const premium = mortgage * rate;
+        premiumEl.textContent = fmt$(premium);
+        rateEl.textContent = (rate * 100).toFixed(2) + '%';
+        totalEl.textContent = fmt$(mortgage + premium);
+        statusEl.textContent = '可投保 — 保费滚入贷款';
+        statusEl.style.color = '#1a6b32';
+      }
+
+      priceEl.addEventListener('input', function() { syncFromDollar(); });
+      downEl.addEventListener('input', syncFromDollar);
+      pctEl.addEventListener('input', syncFromPct);
+
+      calc();
+    })();
+  </script>
+</BaseLayout>

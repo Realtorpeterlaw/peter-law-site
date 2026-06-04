@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="可负担能力计算器 | Peter Law"
+  description="您能负担多少?根据收入、负债和加拿大贷款规则(GDS/TDS 比率 + 联邦压力测试),计算您可以获批的最高房价。"
+  bodyClass="calc-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">可负担能力计算器</div>
+      <h1>您实际能负担多少?</h1>
+      <p>根据加拿大贷款规则 — GDS / TDS 比率和联邦房贷压力测试 — 估算您可以获批的最高房价。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>买家资源</h4>
+          <ul>
+            <li><a href="/chinese/buyer-guide">买家指南</a></li>
+            <li><a href="/chinese/payment-calculator">房贷计算器</a></li>
+            <li><a href="/chinese/affordability-calculator">可负担能力计算器</a></li>
+            <li><a href="/chinese/cmhc-insurance-calculator">CMHC 保险计算器</a></li>
+            <li><a href="/chinese/land-transfer-tax">土地转让税</a></li>
+            <li><a href="/chinese/closing-costs">交接成本</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="af-income">家庭年收入 <span class="hint">(税前)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="af-income" type="number" value="120000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="af-debt">每月债务还款 <span class="hint">(车贷、学生贷款、信用卡)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="af-debt" type="number" value="500" min="0" step="50"></div>
+              </div>
+              <div class="calc-field">
+                <label for="af-down">可用首付</label>
+                <div class="input-prefix" data-prefix="$"><input id="af-down" type="number" value="100000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="af-rate">房贷利率 <span class="hint">(% 年息)</span></label>
+                <input id="af-rate" type="number" value="5.0" min="0" max="20" step="0.01">
+              </div>
+              <div class="calc-field">
+                <label for="af-amort">摊销期 <span class="hint">(年)</span></label>
+                <select id="af-amort">
+                  <option value="25" selected>25 年</option>
+                  <option value="30">30 年</option>
+                  <option value="20">20 年</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="af-tax">年物业税 <span class="hint">(大致估算)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="af-tax" type="number" value="4500" min="0" step="100"></div>
+              </div>
+              <div class="calc-field">
+                <label for="af-heat">每月取暖费 <span class="hint">(大致估算)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="af-heat" type="number" value="150" min="0" step="10"></div>
+              </div>
+              <div class="calc-field">
+                <label for="af-condo">每月 Condo 物业费 <span class="hint">(如适用)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="af-condo" type="number" value="0" min="0" step="50"></div>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">可负担最高房价</span>
+                <span id="af-max">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>可获批的最高贷款额</span><strong id="af-mortgage">$0</strong></div>
+                <div class="row"><span>首付</span><strong id="af-dp">$0</strong></div>
+                <div class="row"><span>压力测试利率</span><strong id="af-stress">5.25%</strong></div>
+                <div class="row"><span>预估月供</span><strong id="af-payment">$0</strong></div>
+                <div class="row"><span>使用的 GDS 比率</span><strong>39%</strong></div>
+                <div class="row"><span>使用的 TDS 比率</span><strong>44%</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer">仅供参考。联邦压力测试规则取(合同利率 + 2%)和 5.25% 中较高者。各贷款方采用的合格比率略有不同,实际可获批额度因人而异。本计算未包含 CMHC 保险费用。请咨询持牌贷款专业人士。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="这些数字对您意味着什么?" lead="计算器上的数字是一回事。真正了解您预算范围内能买到什么、哪些区域适合您 — 这是我做的事。我们聊聊。" />
+  <ChineseFooter />
+
+  <script>
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n) || n < 0) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 });
+    }
+    function calcCanadianPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || annualRatePct < 0 || amortYears <= 0) return 0;
+      const semiAnnualRate = annualRatePct / 200;
+      const periodicRate = Math.pow(1 + semiAnnualRate, 2 / paymentsPerYear) - 1;
+      const n = amortYears * paymentsPerYear;
+      if (periodicRate === 0) return principal / n;
+      return principal * periodicRate / (1 - Math.pow(1 + periodicRate, -n));
+    }
+    function update() {
+      const income = parseFloat(document.getElementById('af-income').value) || 0;
+      const monthlyDebt = parseFloat(document.getElementById('af-debt').value) || 0;
+      const down = parseFloat(document.getElementById('af-down').value) || 0;
+      const rate = parseFloat(document.getElementById('af-rate').value) || 0;
+      const amort = parseFloat(document.getElementById('af-amort').value) || 25;
+      const annualTax = parseFloat(document.getElementById('af-tax').value) || 0;
+      const monthlyHeat = parseFloat(document.getElementById('af-heat').value) || 0;
+      const monthlyCondo = parseFloat(document.getElementById('af-condo').value) || 0;
+
+      const stressRate = Math.max(rate + 2, 5.25);
+      document.getElementById('af-stress').textContent = stressRate.toFixed(2) + '%';
+
+      const monthlyIncome = income / 12;
+      const monthlyTax = annualTax / 12;
+      const housingCostsExclMortgage = monthlyTax + monthlyHeat + monthlyCondo * 0.5;
+      const gdsMaxMonthly = monthlyIncome * 0.39 - housingCostsExclMortgage;
+      const tdsMaxMonthly = monthlyIncome * 0.44 - housingCostsExclMortgage - monthlyDebt;
+      const maxMonthlyMortgagePayment = Math.max(0, Math.min(gdsMaxMonthly, tdsMaxMonthly));
+
+      const semiAnnualRate = stressRate / 200;
+      const periodicRate = Math.pow(1 + semiAnnualRate, 1 / 6) - 1;
+      const n = amort * 12;
+      let maxMortgage = 0;
+      if (periodicRate > 0 && maxMonthlyMortgagePayment > 0) {
+        maxMortgage = maxMonthlyMortgagePayment * (1 - Math.pow(1 + periodicRate, -n)) / periodicRate;
+      } else if (maxMonthlyMortgagePayment > 0) {
+        maxMortgage = maxMonthlyMortgagePayment * n;
+      }
+
+      const maxPrice = maxMortgage + down;
+      const actualPayment = calcCanadianPayment(maxMortgage, rate, amort, 12);
+      document.getElementById('af-max').textContent = fmtCAD(maxPrice);
+      document.getElementById('af-mortgage').textContent = fmtCAD(maxMortgage);
+      document.getElementById('af-dp').textContent = fmtCAD(down);
+      document.getElementById('af-payment').textContent = fmtCAD(actualPayment) + ' / 月';
+    }
+    document.querySelectorAll('#af-income,#af-debt,#af-down,#af-rate,#af-amort,#af-tax,#af-heat,#af-condo').forEach(el => {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    });
+    update();
+  </script>
+</BaseLayout>

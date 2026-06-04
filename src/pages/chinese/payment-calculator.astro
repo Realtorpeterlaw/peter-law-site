@@ -1,0 +1,454 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="房贷计算器(加拿大版) | Peter Law"
+  description="加拿大房贷综合计算器。同时对比三种方案。内置 CMHC 保险、土地转让税、交接现金、每月开支、摊销表与压力测试。"
+  bodyClass="calc-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">房贷计算器</div>
+      <h1>一次对比三种房贷方案。</h1>
+      <p>看清楚每月还款和利息会是多少。按照加拿大规则计算:半年复利、CMHC 等级、安省土地转让税、联邦压力测试。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>买家资源</h4>
+          <ul>
+            <li><a href="/chinese/buyer-guide">买家指南</a></li>
+            <li><a href="/chinese/payment-calculator">房贷</a></li>
+            <li><a href="/chinese/affordability-calculator">可负担能力</a></li>
+            <li><a href="/chinese/cmhc-insurance-calculator">CMHC 保险</a></li>
+            <li><a href="/chinese/land-transfer-tax">土地转让税</a></li>
+            <li><a href="/chinese/closing-costs">交接成本</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="mc-shared">
+            <h3>基本信息(三种方案通用)</h3>
+            <div class="mc-shared-fields">
+              <div class="calc-field">
+                <label for="mc-price">购买价格</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="number" value="800000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="mc-toronto">地点</label>
+                <select id="mc-toronto">
+                  <option value="yes" selected>多伦多(适用双重 LTT)</option>
+                  <option value="no">安省其他地区</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="mc-fthb">首次购房者?</label>
+                <select id="mc-fthb">
+                  <option value="no" selected>否</option>
+                  <option value="yes">是(适用退税)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="mc-tax">年物业税</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="number" value="5500" min="0" step="100"></div>
+              </div>
+              <div class="calc-field">
+                <label for="mc-heat">每月取暖/水电</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="number" value="180" min="0" step="10"></div>
+              </div>
+              <div class="calc-field">
+                <label for="mc-condo">每月 Condo 物业费(如有)</label>
+                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="number" value="0" min="0" step="50"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mc-scenarios" id="mc-scenarios"></div>
+
+          <div class="mc-ltt-block">
+            <h3>土地转让税(一次性,交接时支付)</h3>
+            <div class="mc-ltt-rows">
+              <div class="row"><span>安省省级 LTT</span><strong id="mc-ltt-ont">$0</strong></div>
+              <div class="row" id="mc-ltt-mltt-row"><span>多伦多市级 LTT</span><strong id="mc-ltt-mltt">$0</strong></div>
+              <div class="row" id="mc-ltt-rebate-row" style="display:none;"><span>首次买家退税</span><strong id="mc-ltt-rebate">−$0</strong></div>
+              <div class="row total"><span><strong>应缴 LTT 总额</strong></span><strong id="mc-ltt-total">$0</strong></div>
+            </div>
+          </div>
+
+          <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; margin-top: 36px; margin-bottom: 16px;">交接所需现金(各方案分别列出)</h2>
+          <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">首付 + LTT + 律师费/产权估算 + CMHC PST(如适用)。不含搬家费和验房费。</p>
+          <div class="mc-scenarios" id="mc-cash-scenarios"></div>
+
+          <details class="mc-collapsible">
+            <summary>每月开支明细</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">月供 + 物业税 + 取暖 + Condo 物业费。各方案下完整的月度持有成本。</p>
+              <div class="mc-scenarios" id="mc-expenses-scenarios"></div>
+            </div>
+          </details>
+
+          <details class="mc-collapsible">
+            <summary>摊销表(逐年)</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">每年支付的本金 vs 利息,以及剩余本金。选择查看哪个方案。</p>
+              <div class="mc-amort-tabs">
+                <button class="mc-amort-tab active" data-scenario="a" type="button">方案 A</button>
+                <button class="mc-amort-tab" data-scenario="b" type="button">方案 B</button>
+                <button class="mc-amort-tab" data-scenario="c" type="button">方案 C</button>
+              </div>
+              <div style="overflow-x: auto;">
+                <table class="mc-table" id="mc-amort-table">
+                  <thead><tr><th>年份</th><th>本金支付</th><th>利息支付</th><th>总支付</th><th>剩余本金</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+
+          <details class="mc-collapsible">
+            <summary>利率压力测试</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">如果续约时利率上涨怎么办?以方案 A 为例,展示合同利率、+1%、+2%、+3% 下的月供。</p>
+              <div class="mc-stress-grid" id="mc-stress-grid"></div>
+            </div>
+          </details>
+
+          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。所示 CMHC 保费采用自住房标准费率(4.00% / 3.10% / 2.80%)。联邦压力测试规则取(合同利率 + 2%)和 5.25% 中较高者。实际利率与贷款审批因人而异。在做出任何承诺前,请咨询持牌贷款专业人士。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="想拿到真实报价?" lead="我有几位信任的贷款经纪可以推荐。告诉我您的情况,我帮您对接合适的人。" />
+  <ChineseFooter />
+
+  <script>
+    function fmtCAD(n, dp) {
+      if (dp === undefined) dp = 0;
+      if (!isFinite(n) || isNaN(n)) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
+    }
+
+    function periodicRate(annualRatePct, paymentsPerYear) {
+      const semiAnnual = annualRatePct / 200;
+      return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+    }
+    function periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || amortYears <= 0) return 0;
+      const r = periodicRate(annualRatePct, paymentsPerYear);
+      const n = amortYears * paymentsPerYear;
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
+    }
+
+    function cmhcPremiumRate(ltv) {
+      if (ltv > 95) return null;
+      if (ltv > 90) return 0.0400;
+      if (ltv > 85) return 0.0310;
+      if (ltv > 80) return 0.0280;
+      return 0;
+    }
+    function minDownPayment(price) {
+      if (price > 1500000) return price * 0.20;
+      if (price <= 500000) return price * 0.05;
+      return 500000 * 0.05 + (price - 500000) * 0.10;
+    }
+
+    function ontarioLTT(price) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxable = Math.min(price, upper) - lower;
+          if (taxable > 0) t += taxable * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) t += (price - 2000000) * 0.025;
+      return t;
+    }
+    function torontoMLTT(price) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxable = Math.min(price, upper) - lower;
+          if (taxable > 0) t += taxable * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) {
+        const luxury = [[3000000, 0.025], [4000000, 0.035], [5000000, 0.045], [10000000, 0.055], [20000000, 0.065]];
+        let lo = 2000000;
+        for (const [up, rate] of luxury) {
+          if (price > lo) {
+            const inB = Math.min(price, up) - lo;
+            if (inB > 0) t += inB * rate;
+          }
+          lo = up;
+        }
+        if (price > 20000000) t += (price - 20000000) * 0.075;
+      }
+      return t;
+    }
+
+    const defaults = {
+      a: { downPct: 5, rate: 5.0, amort: 25, freq: 12, label: 'A — 5% 首付' },
+      b: { downPct: 10, rate: 5.0, amort: 25, freq: 12, label: 'B — 10% 首付' },
+      c: { downPct: 20, rate: 5.0, amort: 25, freq: 12, label: 'C — 20% 首付' },
+    };
+    const freqLabel = { 12: '/月', 24: '/半月', 26: '/双周', 52: '/周' };
+
+    function buildScenarioCard(id, def) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(' — ')[1] || ''}</span></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>首付金额</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000"></div></div>
+            <div class="mc-row"><label>首付 %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5"></div>
+          </div>
+          <div class="mc-row"><label>利率(%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05"></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>摊销期</label>
+              <select data-input="${id}-amort">
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 年</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 年</option>
+                <option value="20">20 年</option>
+                <option value="15">15 年</option>
+                <option value="10">10 年</option>
+              </select>
+            </div>
+            <div class="mc-row"><label>还款频率</label>
+              <select data-input="${id}-freq">
+                <option value="12" selected>每月</option>
+                <option value="24">半月</option>
+                <option value="26">双周</option>
+                <option value="52">每周</option>
+              </select>
+            </div>
+          </div>
+          <div class="mc-row mc-output"><label>CMHC 保险费</label><span class="value" data-output="${id}-cmhc">$0</span></div>
+          <div class="mc-row mc-output"><label>总贷款额</label><span class="value" data-output="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-payment"><label>月供</label><span class="value" data-output="${id}-pmt">$0</span><span class="freq" data-output="${id}-freqLabel"></span></div>
+        </div>`;
+    }
+
+    function buildCashCard(id) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
+          <div class="mc-row mc-output"><label>首付</label><span class="value" data-cash="${id}-down">$0</span></div>
+          <div class="mc-row mc-output"><label>土地转让税</label><span class="value" data-cash="${id}-ltt">$0</span></div>
+          <div class="mc-row mc-output"><label>律师费 + 产权(估算)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
+          <div class="mc-row mc-output"><label>CMHC PST(安省,对保费征收)</label><span class="value" data-cash="${id}-pst">$0</span></div>
+          <div class="mc-row mc-payment"><label>交接所需总现金</label><span class="value" data-cash="${id}-total">$0</span></div>
+        </div>`;
+    }
+
+    function buildExpenseCard(id) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4></div>
+          <div class="mc-row mc-output"><label>月供</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-output"><label>物业税</label><span class="value" data-exp="${id}-tax">$0</span></div>
+          <div class="mc-row mc-output"><label>取暖 / 水电</label><span class="value" data-exp="${id}-heat">$0</span></div>
+          <div class="mc-row mc-output"><label>Condo 物业费</label><span class="value" data-exp="${id}-condo">$0</span></div>
+          <div class="mc-row mc-payment"><label>月度总持有成本</label><span class="value" data-exp="${id}-total">$0</span></div>
+        </div>`;
+    }
+
+    document.getElementById('mc-scenarios').innerHTML = ['a','b','c'].map(id => buildScenarioCard(id, defaults[id])).join('');
+    document.getElementById('mc-cash-scenarios').innerHTML = ['a','b','c'].map(id => buildCashCard(id)).join('');
+    document.getElementById('mc-expenses-scenarios').innerHTML = ['a','b','c'].map(id => buildExpenseCard(id)).join('');
+
+    function syncDown(id, changed) {
+      const price = parseFloat(document.getElementById('mc-price').value) || 0;
+      const dollarInput = document.querySelector(`[data-input="${id}-down-dollar"]`);
+      const pctInput = document.querySelector(`[data-input="${id}-down-pct"]`);
+      if (changed === 'dollar') {
+        const val = parseFloat(dollarInput.value) || 0;
+        pctInput.value = price > 0 ? (val / price * 100).toFixed(2) : 0;
+      } else if (changed === 'pct') {
+        const val = parseFloat(pctInput.value) || 0;
+        dollarInput.value = Math.round(price * val / 100);
+      } else {
+        const val = parseFloat(pctInput.value) || 0;
+        dollarInput.value = Math.round(price * val / 100);
+      }
+    }
+
+    function update() {
+      const price = parseFloat(document.getElementById('mc-price').value) || 0;
+      const inToronto = document.getElementById('mc-toronto').value === 'yes';
+      const isFTHB = document.getElementById('mc-fthb').value === 'yes';
+      const annualTax = parseFloat(document.getElementById('mc-tax').value) || 0;
+      const monthlyHeat = parseFloat(document.getElementById('mc-heat').value) || 0;
+      const monthlyCondo = parseFloat(document.getElementById('mc-condo').value) || 0;
+
+      const ont = ontarioLTT(price);
+      const mltt = inToronto ? torontoMLTT(price) : 0;
+      let ontRebate = 0, mlttRebate = 0;
+      if (isFTHB) {
+        ontRebate = Math.min(4000, ont);
+        if (inToronto) mlttRebate = Math.min(4475, mltt);
+      }
+      const totalRebate = ontRebate + mlttRebate;
+      const ltt = ont + mltt - totalRebate;
+      document.getElementById('mc-ltt-ont').textContent = fmtCAD(ont - ontRebate);
+      document.getElementById('mc-ltt-mltt').textContent = fmtCAD(mltt - mlttRebate);
+      document.getElementById('mc-ltt-mltt-row').style.display = inToronto ? 'flex' : 'none';
+      document.getElementById('mc-ltt-total').textContent = fmtCAD(ltt);
+      document.getElementById('mc-ltt-rebate-row').style.display = isFTHB ? 'flex' : 'none';
+      document.getElementById('mc-ltt-rebate').textContent = '−' + fmtCAD(totalRebate);
+
+      const results = {};
+      ['a','b','c'].forEach(id => {
+        const down = parseFloat(document.querySelector(`[data-input="${id}-down-dollar"]`).value) || 0;
+        const downPct = parseFloat(document.querySelector(`[data-input="${id}-down-pct"]`).value) || 0;
+        const rate = parseFloat(document.querySelector(`[data-input="${id}-rate"]`).value) || 0;
+        const amort = parseFloat(document.querySelector(`[data-input="${id}-amort"]`).value) || 25;
+        const freq = parseFloat(document.querySelector(`[data-input="${id}-freq"]`).value) || 12;
+
+        const mortgageBefore = Math.max(0, price - down);
+        const ltv = price > 0 ? mortgageBefore / price * 100 : 0;
+        const premRate = cmhcPremiumRate(ltv);
+        const premium = (premRate === null || premRate === 0) ? 0 : mortgageBefore * premRate;
+        const totalMortgage = mortgageBefore + premium;
+        const pmt = periodicPayment(totalMortgage, rate, amort, freq);
+
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premium > 0 ? fmtCAD(premium) : '$0(无需购买)';
+        document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
+        document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
+        document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
+        const tagEl = document.querySelector(`[data-tag="${id}"]`);
+        if (tagEl) tagEl.textContent = downPct.toFixed(1) + '% 首付 · ' + rate + '%';
+
+        const legal = 2000;
+        const pstOnPrem = premium * 0.08;
+        const totalCash = down + ltt + legal + pstOnPrem;
+        document.querySelector(`[data-cash="${id}-down"]`).textContent = fmtCAD(down);
+        document.querySelector(`[data-cash="${id}-ltt"]`).textContent = fmtCAD(ltt);
+        document.querySelector(`[data-cash="${id}-pst"]`).textContent = fmtCAD(pstOnPrem);
+        document.querySelector(`[data-cash="${id}-total"]`).textContent = fmtCAD(totalCash);
+        const cashTag = document.querySelector(`[data-cash-tag="${id}"]`);
+        if (cashTag) cashTag.textContent = downPct.toFixed(1) + '% 首付';
+
+        const monthlyMortgage = freq === 12 ? pmt : pmt * freq / 12;
+        const monthlyTax = annualTax / 12;
+        const monthlyTotal = monthlyMortgage + monthlyTax + monthlyHeat + monthlyCondo;
+        document.querySelector(`[data-exp="${id}-mortgage"]`).textContent = fmtCAD(monthlyMortgage);
+        document.querySelector(`[data-exp="${id}-tax"]`).textContent = fmtCAD(monthlyTax);
+        document.querySelector(`[data-exp="${id}-heat"]`).textContent = fmtCAD(monthlyHeat);
+        document.querySelector(`[data-exp="${id}-condo"]`).textContent = fmtCAD(monthlyCondo);
+        document.querySelector(`[data-exp="${id}-total"]`).textContent = fmtCAD(monthlyTotal);
+
+        results[id] = { mortgage: totalMortgage, rate, amort, freq, pmt };
+      });
+
+      const activeTab = document.querySelector('.mc-amort-tab.active');
+      if (activeTab) renderAmortSchedule(activeTab.getAttribute('data-scenario'), results);
+
+      renderStressTest(results.a);
+    }
+
+    function renderAmortSchedule(id, results) {
+      const s = results[id];
+      if (!s || s.mortgage <= 0) return;
+      const r = periodicRate(s.rate, s.freq);
+      const n = s.amort * s.freq;
+      let balance = s.mortgage;
+      const yearly = [];
+      let currentYearP = 0, currentYearI = 0;
+      for (let i = 1; i <= n; i++) {
+        const interest = balance * r;
+        const principal = s.pmt - interest;
+        balance -= principal;
+        currentYearP += principal;
+        currentYearI += interest;
+        if (i % s.freq === 0 || i === n) {
+          yearly.push({
+            year: Math.ceil(i / s.freq),
+            principal: currentYearP,
+            interest: currentYearI,
+            total: currentYearP + currentYearI,
+            balance: Math.max(0, balance),
+          });
+          currentYearP = 0;
+          currentYearI = 0;
+        }
+      }
+      const tbody = document.querySelector('#mc-amort-table tbody');
+      tbody.innerHTML = yearly.map(y =>
+        `<tr><td>第 ${y.year} 年</td><td>${fmtCAD(y.principal)}</td><td>${fmtCAD(y.interest)}</td><td>${fmtCAD(y.total)}</td><td>${fmtCAD(y.balance)}</td></tr>`
+      ).join('');
+    }
+
+    function renderStressTest(s) {
+      if (!s) return;
+      const grid = document.getElementById('mc-stress-grid');
+      const variants = [
+        { rate: s.rate, label: '当前', baseClass: 'base' },
+        { rate: s.rate + 1, label: '+1%' },
+        { rate: s.rate + 2, label: '+2%' },
+        { rate: s.rate + 3, label: '+3%' },
+      ];
+      const basePmt = periodicPayment(s.mortgage, s.rate, s.amort, 12);
+      grid.innerHTML = variants.map(v => {
+        const pmt = periodicPayment(s.mortgage, v.rate, s.amort, 12);
+        const delta = pmt - basePmt;
+        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/月' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/月' : '—';
+        return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label}(${v.rate.toFixed(2)}%)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
+      }).join('');
+    }
+
+    function wireDownSync(id) {
+      const dollar = document.querySelector(`[data-input="${id}-down-dollar"]`);
+      const pct = document.querySelector(`[data-input="${id}-down-pct"]`);
+      dollar.addEventListener('input', () => { syncDown(id, 'dollar'); update(); });
+      pct.addEventListener('input', () => { syncDown(id, 'pct'); update(); });
+    }
+    ['a','b','c'].forEach(id => {
+      syncDown(id);
+      wireDownSync(id);
+      document.querySelectorAll(`[data-input^="${id}-"]`).forEach(el => {
+        if (!el.dataset.input.endsWith('-down-dollar') && !el.dataset.input.endsWith('-down-pct')) {
+          el.addEventListener('input', update);
+          el.addEventListener('change', update);
+        }
+      });
+    });
+    ['mc-price','mc-toronto','mc-fthb','mc-tax','mc-heat','mc-condo'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        if (id === 'mc-price') ['a','b','c'].forEach(s => syncDown(s));
+        update();
+      });
+      el.addEventListener('change', update);
+    });
+
+    document.querySelectorAll('.mc-amort-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.mc-amort-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        update();
+      });
+    });
+
+    update();
+  </script>
+</BaseLayout>

@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="买家指南 — 在多伦多买房 | Peter Law"
+  description="多伦多买房全流程指南:贷款准备、Offer 报价、条件期、交接日,以及首次买家最常踩的坑。"
+  bodyClass="guide-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">买家资源</div>
+      <h1>在多伦多买房。</h1>
+      <p>完整流程,通俗讲清楚,不绕弯子。从"我在考虑"到"这是我的钥匙"。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#ready">提前准备好贷款</a></li>
+            <li><a href="#search">聪明地搜寻</a></li>
+            <li><a href="#offer">报 Offer</a></li>
+            <li><a href="#conditions">条件期</a></li>
+            <li><a href="#closing">交接日</a></li>
+            <li><a href="#after">入住之后</a></li>
+            <li><a href="#mistakes">常见错误</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="ready">提前准备好贷款(在开始看房之前)</h2>
+          <p>买家在多伦多犯的最大错误,是在贷款没安排好之前就开始看房。等他们看上一套房子的时候,已经比早就准备好的买家慢了 1 到 2 周 — 这正好是输赢的差距。</p>
+          <h3>"准备好"是什么意思:</h3>
+          <ul class="bullets">
+            <li><strong>预批(Pre-approval)</strong> — 不是预审(Pre-qualification),两者完全不同。贷款经纪或银行书面确认能借给您多少钱,并锁定一个 90 到 120 天有效的利率。</li>
+            <li><strong>首付要以现金形式放在您的账户里</strong> — 不能是还在 TFSA 里临时变现的、也不能是"晚点再问家人借"的钱。今天就要能动用。</li>
+            <li><strong>预算里要包含交接成本</strong> — 通常是房价的 2% 到 4%,在首付之外(<a href="/chinese/closing-costs">参见交接成本</a>)。</li>
+            <li><strong>提前选定一位房地产律师</strong> — 在报 Offer 之前就联系好,而不是之后。</li>
+          </ul>
+          <div class="callout"><strong>您能负担多少?</strong> 使用<a href="/chinese/affordability-calculator">可负担能力计算器</a>,看看根据您的收入和负债,贷款方最多能批给您多少。然后再找一位贷款经纪谈一谈 — 实际批准的额度,通常会和计算器有 5% 到 15% 的出入。</div>
+
+          <h2 id="search">聪明地搜寻</h2>
+          <p>多伦多的房源流转很快。热门挂牌几天之内就会收到 5 到 10 份 Offer。冷门挂牌之所以挂着没人要,通常是因为有什么问题(价格、状况、大楼本身)。两种情况都需要策略。</p>
+          <ul class="bullets">
+            <li><strong>设置 MLS 提醒</strong> — 新挂牌符合您条件时即时通知您。大多数中介都会给签约客户免费设置。</li>
+            <li><strong>初期多看一些</strong> — 在您预算范围内看 8 到 10 套,包括不一定完美的。多伦多市场是要靠脚走出来的。</li>
+            <li><strong>不要爱上照片。</strong> 广角镜会撒谎。一定要去现场看。</li>
+            <li><strong>不同时间段都去一趟。</strong> 中午面对一条安静街道的 condo,晚上 11 点可能正对着一条嘈杂的酒吧街。</li>
+          </ul>
+
+          <h2 id="offer">报 Offer</h2>
+          <p>安省的 Offer 使用 OREA Form 100(买卖协议,Agreement of Purchase and Sale)。关键内容:</p>
+          <ul class="bullets">
+            <li><strong>价格</strong> — 您出的价格</li>
+            <li><strong>定金(Deposit)</strong> — 通常是房价的 5%,以本票或电汇形式,在 Offer 被接受后 24 小时内交付</li>
+            <li><strong>交接日(Closing date)</strong> — 通常是 Offer 接受后的 30 到 90 天</li>
+            <li><strong>条件(Conditions)</strong> — 贷款、验房、状况证明(condo 适用)等等 — 见下一节</li>
+            <li><strong>附带项(Inclusions/exclusions)</strong> — 什么留下来(家电、固定装置、窗帘)</li>
+            <li><strong>有效期(Irrevocability)</strong> — 卖家有多长时间接受(通常 24 到 48 小时)</li>
+          </ul>
+          <div class="callout"><strong>在多 Offer 竞争中</strong>,卖家经常要求"无条件"Offer。这对买家来说有风险,但有时候为了赢得房子又必须如此。决定走"无条件"路线前,一定先和您的中介、律师商量。</div>
+
+          <h2 id="conditions">条件期</h2>
+          <p>如果您的 Offer 有条件(通常 5 到 10 个工作日),这就是核实一切的时段:</p>
+          <ul class="bullets">
+            <li><strong>贷款条件</strong> — 让您的贷款方确认会按照成交价实际放款</li>
+            <li><strong>验房条件</strong> — 请一位持牌验房师($400 到 600),拿到一份书面报告</li>
+            <li><strong>状况证明审阅(condo)</strong> — 您的律师会审阅 condo 管理公司的财务健康度、储备金、特别评估、规章</li>
+            <li><strong>保险报价</strong> — 确认能以合理价格为这套房子投保</li>
+          </ul>
+          <p>任何一项条件不满足,您都可以走人并退回定金。一旦所有条件解除,合同即为最终生效 — 这之后退出意味着失去定金,还可能被卖家起诉。</p>
+
+          <h2 id="closing">交接日</h2>
+          <p>交接发生在您律师的办公室。您会:</p>
+          <ul class="bullets">
+            <li>签署最终的贷款文件</li>
+            <li>支付交接成本(土地转让税、律师费、调整费),以本票或电汇</li>
+            <li>等待律师在土地登记处完成产权过户登记</li>
+            <li>拿到钥匙(通常是下午晚些时候)</li>
+          </ul>
+          <p>那一天最好全天空出来。大多数交接发生在下午 3 点到 6 点之间。不要把搬家公司预约在交接当天的上午 — 改到第二天,或者最早也是当天晚上。</p>
+
+          <h2 id="after">入住之后</h2>
+          <ul class="bullets">
+            <li><strong>换锁</strong> — 没有商量余地。前租客或前业主可能配过钥匙副本。</li>
+            <li><strong>开通公用事业</strong> — 大多数都需要过户或新开账户(Toronto Hydro 电力、Enbridge 天然气、Toronto Water 自来水如果不包含在 condo 物业费里)</li>
+            <li><strong>更新地址</strong> — 驾照、银行、CRA、雇主</li>
+            <li><strong>申请首次买家退税</strong>(如适用) — 您的律师应当在交接时自动为您办理 LTT 退税</li>
+            <li><strong>保存所有交接文件</strong> — 报税时要用,日后转售时也要用</li>
+          </ul>
+
+          <h2 id="mistakes">常见错误(请避免)</h2>
+          <p><strong>低估交接成本。</strong> 除首付外,另外预留房价的 2% 到 4%。多伦多买家经常忘记还有市级土地转让税(MLTT)的存在,等到交接时才发现自己还差 1.3 到 1.5 万。</p>
+          <p><strong>没拿到预批就开始报价。</strong> 您会输给准备得更充分的买家,然后要么过度借贷,要么眼看着市场上涨而自己手忙脚乱。</p>
+          <p><strong>为了赢竞价而省去验房。</strong> 省下 500 元验房费但多付了几万,或者买回家一个隐藏的两万元问题,这账算下来非常不划算。</p>
+          <p><strong>爱上了房子本身,却忽略了大楼。</strong> Condo 管理公司、储备金、楼龄、维护历史 — 这些远比厨房装修重要。状况证明一定要看。</p>
+          <p><strong>不了解后果就走"无条件"。</strong> 无条件 Offer 能赢竞价,但如果贷款最终批不下来,您会失去定金,还可能被卖家起诉赔偿损失。</p>
+
+          <p class="legal-note">本指南仅供参考,不构成财务或法律意见。在做与您具体情况相关的决策之前,请咨询持牌贷款专业人士、房地产律师,以及有经验的房地产中介。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="在考虑买房?" lead="15 分钟通话,我们聊聊您的情况 — 您能负担多少、您的预算范围里什么是现实的、哪些地区适合您。没有任何承诺。" />
+  <ChineseFooter />
+</BaseLayout>
