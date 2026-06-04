@@ -6,6 +6,7 @@ import ChineseFooter from '../../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 const icons = {
+  scroll: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="18" width="44" height="44" fill="var(--bg-warm)" stroke="none"/><line x1="18" y1="18" x2="18" y2="62" stroke="currentColor" stroke-width="2"/><line x1="62" y1="18" x2="62" y2="62" stroke="currentColor" stroke-width="2"/><ellipse cx="40" cy="18" rx="22" ry="5" stroke="currentColor" stroke-width="2" fill="var(--bg-warm)"/><ellipse cx="40" cy="62" rx="22" ry="5" stroke="currentColor" stroke-width="2" fill="var(--bg-warm)"/><line x1="26" y1="30" x2="54" y2="30" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="26" y1="38" x2="54" y2="38" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="26" y1="46" x2="46" y2="46" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`,
   tou: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="2.4" fill="none"/><line x1="40" y1="14" x2="40" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="62" y1="40" x2="66" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="40" x2="30" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="40" y1="40" x2="54" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="40" r="2" fill="currentColor"/></svg>`,
 };
 
@@ -20,6 +21,7 @@ const posts = [
   },
   {
     slug: 'bill-60-ontario',
+    iconKey: 'scroll',
     title: '安省 Bill 60:租客与房东必须知道的事',
     eyebrow: '立法 · 2026',
     date: '2026 年 6 月 3 日',
