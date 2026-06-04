@@ -495,7 +495,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
   color: var(--ink-mute);
   letter-spacing: 0.06em;
   font-style: italic;
-  padding-left: 62px; /* aligns roughly with the "Peter Law" wordmark portion of the SVG */
+  padding-left: 40px; /* aligns with "TORONTO REAL ESTATE" tagline in the SVG */
   margin-top: -4px;
 }
 
