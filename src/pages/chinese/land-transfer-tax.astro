@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="安省土地转让税 — 买家指南 | Peter Law"
+  description="什么是土地转让税、安省如何计算、多伦多 MLTT 附加税,以及首次买家退税。"
+  bodyClass="guide-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">买家资源</div>
+      <h1>安省土地转让税。</h1>
+      <p>什么是 LTT、如何计算、谁来交,以及首次买家退税是怎么运作的。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#what">什么是 LTT</a></li>
+            <li><a href="#provincial">安省 LTT 税率档</a></li>
+            <li><a href="#toronto">多伦多 MLTT(附加)</a></li>
+            <li><a href="#rebate">首次买家退税</a></li>
+            <li><a href="#nrst">非居民投机税(NRST)</a></li>
+            <li><a href="#when">何时支付</a></li>
+            <li><a href="#calculator">计算器</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">什么是土地转让税</h2>
+          <p>土地转让税(Land Transfer Tax,简称 LTT)是产权转让时由买家一次性支付的税款。按购买价格的百分比计算,采用类似所得税的累进式分档。</p>
+          <p>如果您是在多伦多市内购买,您需要同时缴纳<strong>安省省级 LTT</strong>(由安省政府征收)和<strong>多伦多市级 LTT(MLTT)</strong> — 也就是 LTT 双倍征收。</p>
+
+          <h2 id="provincial">安省 LTT 税率档</h2>
+          <p>省级税率适用于安省全境:</p>
+          <ul class="bullets">
+            <li>前 $55,000 部分,税率 <strong>0.5%</strong></li>
+            <li>$55,001 至 $250,000 部分,税率 <strong>1.0%</strong></li>
+            <li>$250,001 至 $400,000 部分,税率 <strong>1.5%</strong></li>
+            <li>$400,001 至 $2,000,000 部分,税率 <strong>2.0%</strong></li>
+            <li>$2,000,000 以上部分,税率 <strong>2.5%</strong> <em>(仅限单户住宅)</em></li>
+          </ul>
+
+          <h2 id="toronto">多伦多 MLTT(附加)</h2>
+          <p>如果房产位于多伦多市内,您还需缴纳市级土地转让税。税率档与安省 LTT 完全一致,另加 2024 年新增的针对 300 万以上房产的"豪宅"税级。</p>
+          <div class="callout"><strong>实际例子:</strong>在多伦多市中心购买一套 $900,000 的 condo,总 LTT 约为 $27,950($13,950 省级 + $13,950 市级),退税之前。</div>
+
+          <h2 id="rebate">首次买家退税</h2>
+          <p>安省与多伦多分别为首次买家提供退税:</p>
+          <ul class="bullets">
+            <li><strong>安省:</strong>最多减免 <strong>$4,000</strong> 省级 LTT</li>
+            <li><strong>多伦多:</strong>最多减免 <strong>$4,475</strong> 市级 LTT</li>
+            <li>资格要求:18 岁及以上;加拿大公民或永久居民;从未在全球任何地方拥有过住宅(配偶在婚姻存续期间同样不能拥有过);在房产交接后 9 个月内将该房产作为主要居所入住</li>
+          </ul>
+
+          <h2 id="nrst">非居民投机税(NRST)</h2>
+          <p>如果您不是加拿大公民或永久居民,在安省购房需额外缴纳房价 <strong>25%</strong> 的税款。有一些豁免情形(国际留学生、在安省工作的外籍人士、难民)。作为非居民购房前,请务必咨询房地产律师。</p>
+
+          <h2 id="when">何时及如何支付</h2>
+          <p>LTT 在<strong>交接(closing)</strong>时通过您的房地产律师代为缴纳。这不是您单独开一张支票给政府 — 而是律师从您支付的交接款项中代收并代缴。</p>
+          <p>把 LTT 视为"交接成本"的一部分,与律师费、产权保险、调整款一起预算。多伦多购房的总交接成本通常占房价的 2% 到 4%。</p>
+
+          <h2 id="calculator">计算您的 LTT</h2>
+          <p>输入房价和几项基本信息。结果会实时更新。</p>
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="ltt-price">购买价格</label>
+                <div class="input-prefix" data-prefix="$"><input id="ltt-price" type="number" value="900000" min="0" step="1000"></div>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-toronto">房产位于多伦多市?</label>
+                <select id="ltt-toronto">
+                  <option value="yes" selected>是 — 多伦多(适用双重 LTT)</option>
+                  <option value="no">否 — 安省其他地区</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-firsttime">首次购房者?</label>
+                <select id="ltt-firsttime">
+                  <option value="no" selected>否</option>
+                  <option value="yes">是(适用退税)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-type">房产类型</label>
+                <select id="ltt-type">
+                  <option value="single" selected>单户住宅(1 或 2 个单元)</option>
+                  <option value="other">其他(3 个以上单元、商业等)</option>
+                </select>
+              </div>
+            </div>
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">应缴土地转让税合计</span>
+                <span id="ltt-total">$0</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>安省省级 LTT</span><strong id="ltt-ontario">$0</strong></div>
+                <div class="row" id="ltt-toronto-row"><span>多伦多市级 LTT</span><strong id="ltt-mltt">$0</strong></div>
+                <div class="row" id="ltt-rebate-row" style="display:none;"><span>首次买家退税</span><strong id="ltt-rebate">$0</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer">仅供参考。多伦多 MLTT 豪宅税级(300 万以上)仅适用于单户住宅。NRST(25% 非居民税)不包含在内。最终数额请以您的房地产律师确认为准。</p>
+            <dl class="calc-legend">
+              <div><dt>LTT</dt><dd>Land Transfer Tax(土地转让税)</dd></div>
+              <div><dt>MLTT</dt><dd>Municipal Land Transfer Tax(多伦多市级)</dd></div>
+              <div><dt>NRST</dt><dd>Non-Resident Speculation Tax(非居民投机税)</dd></div>
+            </dl>
+          </div>
+
+          <p class="legal-note">本指南仅供参考,不构成财务或法律意见。税率和退税金额可能调整。请在交接前向您的房地产律师或安省财政部核实最新数额。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="在多伦多买房?" lead="交接成本经常让首次买家措手不及。在报价之前,我们一起把您的完整预算过一遍。" />
+  <ChineseFooter />
+
+  <script>
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n) || n < 0) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 2 });
+    }
+    function ontarioLTT(price, isSingleFamily) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxableInBracket = Math.min(price, upper) - lower;
+          if (taxableInBracket > 0) t += taxableInBracket * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) t += (price - 2000000) * (isSingleFamily ? 0.025 : 0.020);
+      return t;
+    }
+    function torontoMLTT(price, isSingleFamily) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxableInBracket = Math.min(price, upper) - lower;
+          if (taxableInBracket > 0) t += taxableInBracket * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) {
+        if (isSingleFamily) {
+          const luxury = [[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]];
+          let lo = 2000000;
+          for (const [up, rate] of luxury) {
+            if (price > lo) {
+              const inB = Math.min(price, up) - lo;
+              if (inB > 0) t += inB * rate;
+            }
+            lo = up;
+          }
+          if (price > 20000000) t += (price - 20000000) * 0.075;
+        } else {
+          t += (price - 2000000) * 0.020;
+        }
+      }
+      return t;
+    }
+    function update() {
+      const price = parseFloat(document.getElementById('ltt-price').value) || 0;
+      const inToronto = document.getElementById('ltt-toronto').value === 'yes';
+      const isFirstTime = document.getElementById('ltt-firsttime').value === 'yes';
+      const isSingle = document.getElementById('ltt-type').value === 'single';
+      const ont = ontarioLTT(price, isSingle);
+      const mltt = inToronto ? torontoMLTT(price, isSingle) : 0;
+      let ontRebate = 0, mlttRebate = 0;
+      if (isFirstTime) {
+        ontRebate = Math.min(4000, ont);
+        if (inToronto) mlttRebate = Math.min(4475, mltt);
+      }
+      const totalRebate = ontRebate + mlttRebate;
+      const total = ont + mltt - totalRebate;
+      document.getElementById('ltt-ontario').textContent = fmtCAD(ont - ontRebate) + (ontRebate > 0 ? '(退税后)' : '');
+      document.getElementById('ltt-mltt').textContent = fmtCAD(mltt - mlttRebate) + (mlttRebate > 0 ? '(退税后)' : '');
+      document.getElementById('ltt-total').textContent = fmtCAD(total);
+      document.getElementById('ltt-toronto-row').style.display = inToronto ? 'flex' : 'none';
+      document.getElementById('ltt-rebate-row').style.display = isFirstTime ? 'flex' : 'none';
+      document.getElementById('ltt-rebate').textContent = '−' + fmtCAD(totalRebate);
+    }
+    document.querySelectorAll('#ltt-price,#ltt-toronto,#ltt-firsttime,#ltt-type').forEach(el => {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    });
+    update();
+  </script>
+</BaseLayout>

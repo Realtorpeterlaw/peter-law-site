@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout
+  title="安省交接成本 — 买家会支付什么 | Peter Law"
+  description="在多伦多和安省买房时所有交接成本的完整明细:LTT、律师费、产权保险、调整款、CMHC PST,以及合计估算。"
+  bodyClass="guide-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">买家资源</div>
+      <h1>交接当天您实际会支付什么。</h1>
+      <p>首付不是全部。多伦多的交接成本动辄占房价的 2% 到 4%。这里是完整清单,附实际可参考的数字。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#ltt">土地转让税</a></li>
+            <li><a href="#legal">律师费</a></li>
+            <li><a href="#title">产权保险</a></li>
+            <li><a href="#adjustments">调整款</a></li>
+            <li><a href="#cmhc">CMHC 保费与 PST</a></li>
+            <li><a href="#inspection">验房</a></li>
+            <li><a href="#condo">状况证明(condo)</a></li>
+            <li><a href="#tarion">Tarion(新楼盘)</a></li>
+            <li><a href="#moving">搬家费</a></li>
+            <li><a href="#total">合计估算</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="ltt">土地转让税(最大头)</h2>
+          <p>省级 LTT +(多伦多市内)市级 LTT。通常是交接成本里最大的一笔。</p>
+          <ul class="bullets">
+            <li>多伦多以外:约房价的 <strong>1.5% 到 2%</strong></li>
+            <li>多伦多市内:约房价的 <strong>3% 到 4%</strong>(适用双重 LTT)</li>
+            <li>首次买家退税:最多 $4,000(安省)+ $4,475(多伦多)</li>
+          </ul>
+          <p><a href="/chinese/land-transfer-tax">查看完整 LTT 指南并使用计算器 →</a></p>
+
+          <h2 id="legal">律师费</h2>
+          <p>房地产律师处理交易的服务费。</p>
+          <ul class="bullets">
+            <li><strong>常见区间:</strong>$1,500 – $2,500,适用于简单交易</li>
+            <li><strong>复杂情形会更高:</strong>新建房屋、多张产权、外籍买家、急加急交接</li>
+            <li>律师费需另加 HST(安省 13%)</li>
+          </ul>
+          <div class="callout"><strong>提前拿到报价。</strong>不同律师收费差距很大。问清楚是不是包含杂项(disbursements)的固定报价,不只是"律师工时"。</div>
+
+          <h2 id="title">产权保险</h2>
+          <p>一次性保费,保障您不受产权瑕疵、测量错误、某些类型的欺诈影响。贷款方通常要求购买。</p>
+          <ul class="bullets">
+            <li><strong>常见费用:</strong>住宅房产 $300 – $500</li>
+            <li>由律师在交接时代缴</li>
+            <li>有效期与您持有该房产的期间一致</li>
+          </ul>
+
+          <h2 id="adjustments">物业税与公用事业调整款</h2>
+          <p>如果卖家在交接日之后的时间段内已经预付了物业税或水电费,您需按比例补偿给卖家(反过来,如果他们欠款,情况则相反)。</p>
+          <ul class="bullets">
+            <li><strong>常见区间:</strong>$500 – $3,000,视交接日和金额而定</li>
+            <li>由您的律师计算 — 不需要您自己算</li>
+          </ul>
+
+          <h2 id="cmhc">CMHC 保费与 PST(首付不足 20% 时)</h2>
+          <p>如果您的首付不足 20%,您必须购买房贷违约保险(CMHC、Sagen 或 Canada Guaranty)。</p>
+          <ul class="bullets">
+            <li><strong>保费:</strong>占贷款额的 2.80% 到 4.00%,取决于 LTV(滚入贷款本金)</li>
+            <li><strong>保费的 PST:</strong>安省对保费征收 8% PST,需在<strong>交接日一次性支付</strong>(这才是真正影响您交接成本预算的部分,而不是保费本身)</li>
+            <li>示例:50 万贷款 × 4.00% 保费 = 2 万保费 → 交接时需付 $1,600 的 PST</li>
+          </ul>
+
+          <h2 id="inspection">验房</h2>
+          <p>对二手房可选但强烈建议。Condo 可以省略的频率稍高,因为状况证明已涵盖大楼层面的问题。</p>
+          <ul class="bullets">
+            <li><strong>常见费用:</strong>Condo $400 – $600;house $500 – $800</li>
+            <li>直接付给验房师,通常在预约后 24 到 48 小时内付清</li>
+          </ul>
+
+          <h2 id="condo">状况证明审阅(仅 condo)</h2>
+          <ul class="bullets">
+            <li><strong>证明本身的费用:</strong>$100(法规上限,付给 condo 管理公司)</li>
+            <li><strong>律师审阅费:</strong>$200 – $500,由律师为您解读</li>
+          </ul>
+
+          <h2 id="tarion">Tarion 保修(仅新建房)</h2>
+          <p>如果您从安省注册建筑商处购买新建房,需要缴纳 Tarion 注册费(通常由建筑商支付,但请核对您的合同)。视房价不同,约 $300 – $1,500。</p>
+
+          <h2 id="moving">搬家费</h2>
+          <p>严格来说不算"交接成本",但通常发生在同一周内。请实际预算:</p>
+          <ul class="bullets">
+            <li>自行搬家(租货车 + 纸箱):$300 – $600</li>
+            <li>本地专业搬家公司(多伦多):$800 – $2,000</li>
+            <li>长途搬家:$3,000 起</li>
+          </ul>
+
+          <h2 id="total">合计估算(实际预算)</h2>
+          <p>对大多数多伦多买家而言:</p>
+          <div class="callout">
+            <strong>除首付外,另外预留房价的 2% 到 4% 作为交接成本。</strong>
+            <br><br>
+            一套 $700,000 的 condo,这意味着除首付之外还要准备 $14,000 到 $28,000。差距最大的两块是 LTT(看是否在多伦多)以及您是否需要支付 CMHC PST。
+          </div>
+          <p>首次买家有退税可以减轻 LTT 的负担,但其余部分都是实打实的钱。不要把首付花到一分不剩 — 留一笔交接成本备用金。</p>
+
+          <p class="legal-note">本指南仅供参考,不构成财务或法律意见。具体金额请在交接前向您的房地产律师和贷款专业人士确认。本页所列数字为 2024 年下半年的常见范围 — 费率会变化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="想要针对您情况的真实数字?" lead="告诉我您的购房价格和具体情况,我会在一小时内给您一份切实可参考的交接成本估算。免费,无义务。" />
+  <ChineseFooter />
+</BaseLayout>

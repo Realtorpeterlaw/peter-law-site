@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+---
+<BaseLayout
+  title="免费房屋估值 — 您的多伦多房产现在值多少? | Peter Law"
+  description="获取一份免费、无义务的多伦多房产市场估值。由熟悉您所在社区的中介在 48 小时内提供详细 CMA 报告。"
+  bodyClass="calc-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="sellers" ctaLabel="或预约通话" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">免费房屋估值</div>
+      <h1>您的房子今天到底值多少?</h1>
+      <p>由熟悉您所在社区的多伦多中介出具的详细市场比对分析(CMA)。免费,无义务,48 小时内送达。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#what">您会拿到什么</a></li>
+            <li><a href="#how">流程是怎样的</a></li>
+            <li><a href="#why">为什么选择我</a></li>
+            <li><a href="#form">提交估值申请</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">您会拿到什么</h2>
+          <ul class="bullets">
+            <li><strong>一份详细的 CMA(市场比对分析)</strong> — 您所在 1 公里范围内近期可比单元的成交数据,按面积、状况、配套调整</li>
+            <li><strong>一个切实可参考的价格区间</strong> — 保守价、预期价、进取价 — 基于当前市场动态</li>
+            <li><strong>提升价值的具体建议</strong> — 该修什么、该如何陈设、什么不必动</li>
+            <li><strong>诚实的时间预期</strong> — 类似房产近期的成交速度,分价格段说明</li>
+          </ul>
+
+          <h2 id="how">流程是怎样的</h2>
+          <ol class="bullets" style="list-style: decimal;">
+            <li>您填写下方表格 — 大约 3 分钟</li>
+            <li>我调取 TRREB 的成交数据和您所在区域的活跃挂牌</li>
+            <li>我做一次实地或线上看房(您选)— 通常 24 小时内完成</li>
+            <li>您在提交申请的 48 小时内收到书面估值(PDF + 邮件概要)</li>
+          </ol>
+
+          <h2 id="why">为什么选择我</h2>
+          <p>没人喜欢机械式的"中介模板"。多伦多市中心、湖滨、大多伦多地区的每一份估值都是我亲自做。如果您的房产不在我具备实际市场认知的区域,我会直接告诉您,并把您推荐给真正了解该区的同行。不会有骚扰式跟进。</p>
+
+          <h2 id="form">提交估值申请</h2>
+          <div class="calc">
+            <form method="POST" action={FORMSPREE_ENDPOINT}>
+              <div class="calc-fields">
+                <div class="calc-field">
+                  <label for="fhe-name">姓名 <span class="hint">*</span></label>
+                  <input id="fhe-name" name="name" type="text" required autocomplete="name">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-email">邮箱 <span class="hint">*</span></label>
+                  <input id="fhe-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-phone">电话</label>
+                  <input id="fhe-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-type">房产类型</label>
+                  <select id="fhe-type" name="property_type">
+                    <option>Condo</option>
+                    <option>House — 独立屋</option>
+                    <option>House — 半独立屋</option>
+                    <option>Townhouse(镇屋)</option>
+                    <option>其他</option>
+                  </select>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="fhe-address">房产地址 <span class="hint">*</span></label>
+                  <input id="fhe-address" name="address" type="text" required placeholder="123 Main St, Toronto, ON">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-beds">卧室数</label>
+                  <input id="fhe-beds" name="bedrooms" type="number" min="0" max="10" step="1">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-baths">浴室数</label>
+                  <input id="fhe-baths" name="bathrooms" type="number" min="0" max="10" step="0.5">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-sqft">大致面积(平方英尺)</label>
+                  <input id="fhe-sqft" name="sqft" type="number" min="100" step="50" placeholder="例如:750">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-timeline">出售时间安排</label>
+                  <select id="fhe-timeline" name="timeline">
+                    <option>只是想了解一下</option>
+                    <option>未来 3 到 6 个月内考虑</option>
+                    <option>1 到 3 个月内准备就绪</option>
+                    <option>现在就要挂牌 / 紧急</option>
+                  </select>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="fhe-notes">还有什么需要告诉我? <span class="hint">(近期装修、车位、景观等)</span></label>
+                  <input id="fhe-notes" name="notes" type="text">
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="fhe-gotcha">请勿填写</label>
+                  <input id="fhe-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="新免费房屋估值申请 (中文版)">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 24px;">
+                提交估值申请
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseFooter />
+</BaseLayout>

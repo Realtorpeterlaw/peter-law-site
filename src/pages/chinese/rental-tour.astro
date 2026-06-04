@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const TIKTOK_PROFILE = "https://www.tiktok.com/@rentwithpeter";
+
+const tours = [
+  { id: "7642839542482930964", title: "9 Clegg Rd", tag: "Markham 市中心 · 1 房 + den" },
+  { id: "7643443700663848212", title: "Liberty Village", tag: "市中心 · 包水电" },
+  { id: "7642835431985335573", title: "Danforth · East York", tag: "$2,100/月 · 1 房" },
+  { id: "7638804681673690389", title: "拎包入住 condo", tag: "环境安静" },
+  { id: "7638803774139829524", title: "两层单元", tag: "东西两面景观" },
+  { id: "7638803030602779924", title: "宽敞 1 房 + den", tag: "无遮挡景观" },
+  { id: "7641439020634967317", title: "Markham condos", tag: "精品式公寓" },
+  { id: "7638802160574106900", title: "全新 1 房 + den", tag: "从未入住" },
+  { id: "7638801525833239828", title: "湖滨 condo", tag: "湖景" },
+  { id: "7638800822398160148", title: "Junior 1 房", tag: "湖滨 · Lakeshore" },
+  { id: "7638799683430763797", title: "Yonge & Bloor", tag: "带家具 2 房 / 2 卫 · 8 月 1 日入住" },
+  { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 房" },
+];
+---
+<BaseLayout
+  title="看房视频 — 多伦多租房实地走访 | Peter Law"
+  description="预约看房之前,先走一遍多伦多市中心、湖滨、大多伦多的租赁房源。Peter 的 TikTok 每天更新。"
+  bodyClass="tour-page"
+  zh={true}
+>
+
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">看房视频</div>
+      <h1>开门之前,先看清每一间房。</h1>
+      <p>本月我走访过的多伦多租赁房源短视频。看到喜欢的,点一下问我详情。每天都有新视频更新在 <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a> TikTok 频道。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="tour-grid">
+        {tours.map((t) => (
+          <div class="tour-card">
+            <div class="tour-embed">
+              <button class="tour-play-btn" type="button" data-video-id={t.id} aria-label={`播放看房视频:${t.title}`}>
+                <span class="tour-play-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg>
+                </span>
+                <span class="tour-play-hint">播放视频</span>
+              </button>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-title">{t.title}</div>
+              <div class="tour-tag">{t.tag}</div>
+              <a href={`/chinese/contact?subject=Inquiry%20about%20${encodeURIComponent(t.title)}`} class="tour-cta">
+                咨询这套房子
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="tour-bottom">
+        <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" class="btn-primary">
+          在 TikTok 上看全部视频
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="tour-disclosure">仅供推广与信息参考。房源、价格、申请要求可能变动。各房东的具体材料要求不同。本页不针对已签约客户进行招揽。</p>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="看上其中一套?" lead="这些单元大多数几天之内就会被租走。告诉我您看中的是哪一套,我马上确认是否还可租 — 并陪您实地看房。" />
+  <ChineseFooter />
+
+  <script>
+    document.querySelectorAll('.tour-play-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const videoId = btn.getAttribute('data-video-id');
+        if (!videoId) return;
+        const parent = btn.parentElement;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.tiktok.com/player/v1/${videoId}?autoplay=1`;
+        iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('title', btn.getAttribute('aria-label') || '看房视频');
+        iframe.className = 'tour-iframe';
+        parent.innerHTML = '';
+        parent.appendChild(iframe);
+      });
+    });
+  </script>
+</BaseLayout>
