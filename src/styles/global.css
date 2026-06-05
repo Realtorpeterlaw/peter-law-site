@@ -1025,3 +1025,11 @@ body.mobile-menu-open { overflow: hidden; }
   .b60-section-toggle-summary { font-size: 20px; padding: 16px 18px; }
   .b60-section-toggle > ul.bullets { padding: 16px 20px 22px 38px; }
 }
+
+/* Paragraph body inside H2-level collapsible (Bill 60 style) */
+.b60-section-toggle > .b60-section-body { padding: 20px 32px 28px; border-top: 1px solid var(--rule); font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+.b60-section-toggle > .b60-section-body p { margin-bottom: 14px; }
+.b60-section-toggle > .b60-section-body p:last-child { margin-bottom: 0; }
+@media (max-width: 600px) {
+  .b60-section-toggle > .b60-section-body { padding: 16px 20px 22px; font-size: 15.5px; }
+}
