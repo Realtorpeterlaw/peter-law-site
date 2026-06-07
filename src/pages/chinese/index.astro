@@ -86,7 +86,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           <p class="quiz-sub">(最短租期 1 年)</p>
           <div class="quiz-fields">
             <div class="quiz-field">
-              <label for="quiz-beds">卧室</label>
+              <label for="quiz-beds">卧室*</label>
               <select id="quiz-beds" name="bedrooms" required>
                 <option value="">请选择…</option>
                 <option>单间公寓 Studio</option>
@@ -98,7 +98,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </select>
             </div>
             <div class="quiz-field">
-              <label for="quiz-baths">卫浴</label>
+              <label for="quiz-baths">卫浴*</label>
               <select id="quiz-baths" name="bathrooms" required>
                 <option value="">请选择…</option>
                 <option>1</option>
@@ -109,7 +109,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </select>
             </div>
             <div class="quiz-field">
-              <label for="quiz-parking">停车位</label>
+              <label for="quiz-parking">停车位*</label>
               <select id="quiz-parking" name="parking" required>
                 <option value="">请选择…</option>
                 <option>不需要</option>
@@ -119,7 +119,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </select>
             </div>
             <div class="quiz-field">
-              <label for="quiz-budget">月预算</label>
+              <label for="quiz-budget">月预算*</label>
               <select id="quiz-budget" name="budget" required>
                 <option value="">请选择…</option>
                 <option>$2,000 以下</option>
@@ -131,11 +131,11 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </select>
             </div>
             <div class="quiz-field">
-              <label for="quiz-movein">入住日期</label>
+              <label for="quiz-movein">入住日期*</label>
               <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
             <div class="quiz-field quiz-field-full">
-              <label>偏好地区 <span class="quiz-hint">(可多选)</span></label>
+              <label>偏好地区* <span class="quiz-hint">(可多选)</span></label>
               <div class="quiz-checkboxes" data-checkbox-group="location">
                 <label class="quiz-check"><input type="checkbox" name="location[]" value="多伦多市中心(Yonge &amp; Dundas 街)"> 多伦多市中心(Yonge &amp; Dundas 街)</label>
                 <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
@@ -152,7 +152,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </div>
             </div>
             <div class="quiz-field quiz-field-full">
-              <label for="quiz-email">电子邮件 (以便我向您发送匹配房源)</label>
+              <label for="quiz-email">电子邮件* (以便我向您发送匹配房源)</label>
               <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
             </div>
           </div>
