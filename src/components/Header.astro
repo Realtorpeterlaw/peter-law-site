@@ -12,7 +12,15 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     <a href="/" class="logo" aria-label="Peter Law — home"><Logo /><span class="logo-home-hint">(Homepage)</span></a>
     <nav class="primary" aria-label="Primary">
       <ul>
-        <li><a href="/condo" class={active === 'condo' ? 'active' : ''}>Condo</a></li>
+        <li class="has-dropdown">
+          <span class={'dropdown-trigger' + (active === 'condo' ? ' active' : '')} tabindex="0" aria-haspopup="true">
+            <span class="trigger-text">Condo</span>
+            <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <ul class="dropdown-menu">
+            <li><a href="/condo">Top Condo Developers</a></li>
+          </ul>
+        </li>
         <li class="has-dropdown">
           <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} tabindex="0" aria-haspopup="true">
             <span class="trigger-text">Rental</span>
@@ -65,7 +73,15 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu-inner">
       <ul class="mobile-nav">
-        <li><a href="/condo" class="mobile-link">Condo</a></li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Condo
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/condo">Top Condo Developers</a></li>
+          </ul>
+        </li>
         <li class="mobile-divider" aria-hidden="true"></li>
         <li class="mobile-section">
           <button class="mobile-section-btn" type="button" aria-expanded="false">
