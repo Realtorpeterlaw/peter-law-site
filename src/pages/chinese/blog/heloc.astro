@@ -120,6 +120,31 @@ const jsonLd = {
                 <p>取两者中较低者。</p>
                 <p><strong>示例(无现有房贷):</strong>房屋估值 $1,200,000。最高 HELOC = 65% × $1,200,000 = <strong>$780,000</strong>。</p>
                 <p><strong>示例(有现有房贷):</strong>房屋估值 $1,200,000,房贷余额 $500,000。合计上限 = 80% × $1,200,000 = $960,000。减去 $500,000 房贷 → 可用 HELOC = <strong>$460,000</strong>。</p>
+
+                <div class="heloc-formula" aria-label="HELOC 上限计算示例">
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">房屋估值</div>
+                    <div class="heloc-formula-number">$300K</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">×</div>
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">合计 LTV 上限</div>
+                    <div class="heloc-formula-number">80<span class="heloc-pct">%</span></div>
+                    <div class="heloc-formula-sub">= $240K</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">−</div>
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">现有房贷</div>
+                    <div class="heloc-formula-number">$100K</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">=</div>
+                  <div class="heloc-formula-cell heloc-formula-result">
+                    <div class="heloc-formula-label">最高 HELOC</div>
+                    <div class="heloc-formula-number">$140K</div>
+                  </div>
+                </div>
+                <p style="font-size:13px;color:var(--ink-mute);margin-top:-4px;">一个简单示例。把数字换成您自己的,就能看到您的上限。</p>
+
                 <p>您未必会拿到最大值 — 银行会根据您的收入评估愿意批多少。即便数学上是 $460,000,银行也未必会批那么多。</p>
               </div>
             </details>

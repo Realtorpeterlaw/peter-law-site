@@ -119,6 +119,31 @@ const jsonLd = {
                 <p>Whichever is lower wins.</p>
                 <p><strong>Example (no existing mortgage):</strong> Home worth $1,200,000. Max HELOC = 65% × $1,200,000 = <strong>$780,000</strong>.</p>
                 <p><strong>Example (with existing mortgage):</strong> Home worth $1,200,000, mortgage balance $500,000. Max combined = 80% × $1,200,000 = $960,000. Subtract the $500,000 mortgage → HELOC available = <strong>$460,000</strong>.</p>
+
+                <div class="heloc-formula" aria-label="Maximum HELOC formula example">
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">Appraised value</div>
+                    <div class="heloc-formula-number">$300K</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">×</div>
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">Combined LTV cap</div>
+                    <div class="heloc-formula-number">80<span class="heloc-pct">%</span></div>
+                    <div class="heloc-formula-sub">= $240K</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">−</div>
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">Existing mortgage</div>
+                    <div class="heloc-formula-number">$100K</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">=</div>
+                  <div class="heloc-formula-cell heloc-formula-result">
+                    <div class="heloc-formula-label">Max HELOC</div>
+                    <div class="heloc-formula-number">$140K</div>
+                  </div>
+                </div>
+                <p style="font-size:13px;color:var(--ink-mute);margin-top:-4px;">A simple example. Replace the numbers with your own to see your ceiling.</p>
+
                 <p>You won't always get the maximum — the bank will assess your income to see how much they're comfortable approving. Just because the math says $460,000 doesn't mean the bank will approve that much.</p>
               </div>
             </details>

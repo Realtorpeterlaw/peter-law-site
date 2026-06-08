@@ -1036,3 +1036,22 @@ body.mobile-menu-open { overflow: hidden; }
 @media (max-width: 600px) {
   .b60-section-toggle > .b60-section-body { padding: 16px 20px 22px; font-size: 15.5px; }
 }
+
+/* HELOC formula diagram: home value x LTV cap - mortgage = max HELOC */
+.heloc-formula { display: flex; align-items: stretch; gap: 0; margin: 24px 0 18px; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.heloc-formula-cell { flex: 1; min-width: 0; padding: 18px 14px; text-align: center; background: var(--bg-warm); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.heloc-formula-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; line-height: 1.3; }
+.heloc-formula-number { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 30px; color: var(--ink); line-height: 1.05; letter-spacing: -0.02em; }
+.heloc-formula-sub { font-size: 12px; color: var(--ink-soft); }
+.heloc-pct { font-size: 20px; color: var(--ink-soft); margin-left: 1px; }
+.heloc-formula-op { display: flex; align-items: center; justify-content: center; padding: 0 6px; font-family: 'Fraunces', Georgia, serif; font-size: 26px; color: var(--ink-mute); background: var(--surface); flex: 0 0 auto; min-width: 22px; }
+.heloc-formula-result { background: var(--ink); }
+.heloc-formula-result .heloc-formula-label { color: rgba(255, 255, 255, 0.65); }
+.heloc-formula-result .heloc-formula-number { color: var(--surface); }
+.heloc-formula-result .heloc-formula-sub { color: rgba(255, 255, 255, 0.7); }
+@media (max-width: 720px) {
+  .heloc-formula { flex-direction: column; }
+  .heloc-formula-op { padding: 4px 0; min-width: 0; height: auto; font-size: 22px; }
+  .heloc-formula-cell { padding: 14px 12px; }
+  .heloc-formula-number { font-size: 26px; }
+}
