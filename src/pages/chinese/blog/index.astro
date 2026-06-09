@@ -6,6 +6,7 @@ import ChineseFooter from '../../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 const icons = {
+  coins: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="40" cy="62" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><ellipse cx="40" cy="52" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><ellipse cx="40" cy="42" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><ellipse cx="40" cy="32" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><text x="40" y="22" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="500" fill="currentColor">$</text></svg>`,
   key: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="14" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><circle cx="32" cy="32" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="42" y1="42" x2="64" y2="64" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="55" y1="55" x2="62" y2="48" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="60" y1="60" x2="66" y2="54" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
   card: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="24" width="52" height="32" rx="3" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><rect x="14" y="32" width="52" height="6" fill="currentColor"/><text x="40" y="52" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="500" fill="currentColor">$</text></svg>`,
   scroll: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="14" width="44" height="52" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" rx="2"/><path d="M26 28 Q31 25 36 28 T46 28 T54 28" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 38 Q31 35 36 38 T46 38 T54 38" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 48 Q30 45 34 48 T42 48 T48 48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 58 Q31 55 36 58 T46 58 T52 58" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`,
@@ -14,6 +15,13 @@ const icons = {
 };
 
 const posts = [
+  {
+    slug: 'fhsa',
+    title: '首次购房储蓄账户(FHSA):是什么?',
+    eyebrow: '买家储蓄 · 税务',
+    readMin: 8,
+    iconKey: 'coins',
+  },
   {
     slug: 'fthb-rebate',
     title: '2026 首次购房者(FTHB)GST/HST 退税',
