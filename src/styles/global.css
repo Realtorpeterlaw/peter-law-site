@@ -1056,49 +1056,6 @@ body.mobile-menu-open { overflow: hidden; }
   .heloc-formula-number { font-size: 26px; }
 }
 
-/* ===== Article SEO keyword chips — bottom of every blog post ===== */
-.article-keywords {
-  margin-top: 32px;
-  padding: 20px 24px;
-  background: var(--bg-warm);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  max-width: 720px;
-}
-.article-keywords .keyword-label {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: 0.02em;
-  margin-right: 6px;
-  text-transform: uppercase;
-}
-.article-keywords .keyword-chip {
-  display: inline-block;
-  padding: 5px 12px;
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  font-size: 12.5px;
-  color: var(--ink-soft);
-  line-height: 1.4;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-}
-.article-keywords .keyword-chip:hover {
-  background: var(--surface);
-  color: var(--ink);
-  border-color: var(--ink-mute);
-}
-@media (max-width: 640px) {
-  .article-keywords { padding: 16px 18px; gap: 6px; }
-  .article-keywords .keyword-chip { font-size: 12px; padding: 4px 10px; }
-}
-
 /* ===== OESP credit-amounts table & callout-warning ===== */
 .oesp-table {
   width: 100%;
