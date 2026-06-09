@@ -6,6 +6,7 @@ import ChineseFooter from '../../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 const icons = {
+  key: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="14" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><circle cx="32" cy="32" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="42" y1="42" x2="64" y2="64" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="55" y1="55" x2="62" y2="48" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="60" y1="60" x2="66" y2="54" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
   card: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="24" width="52" height="32" rx="3" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><rect x="14" y="32" width="52" height="6" fill="currentColor"/><text x="40" y="52" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="500" fill="currentColor">$</text></svg>`,
   scroll: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="14" width="44" height="52" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" rx="2"/><path d="M26 28 Q31 25 36 28 T46 28 T54 28" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 38 Q31 35 36 38 T46 38 T54 38" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 48 Q30 45 34 48 T42 48 T48 48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 58 Q31 55 36 58 T46 58 T52 58" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`,
   tou: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="2.4" fill="none"/><line x1="40" y1="14" x2="40" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="62" y1="40" x2="66" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="40" x2="30" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="40" y1="40" x2="54" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="40" r="2" fill="currentColor"/></svg>`,
@@ -13,6 +14,13 @@ const icons = {
 };
 
 const posts = [
+  {
+    slug: 'fthb-rebate',
+    title: '2026 首次购房者(FTHB)GST/HST 退税',
+    eyebrow: '买家退税 · 2026',
+    readMin: 8,
+    iconKey: 'key',
+  },
   {
     slug: 'heloc',
     title: 'HELOC(房屋净值信用额度):是什么?',
