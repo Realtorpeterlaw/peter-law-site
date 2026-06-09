@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/TopBar.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import CTASection from '../../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-06-09';
+const articleTitle = '2026:加拿大外国买家禁令';
+const articleDescription = '通俗解读加拿大《禁止非加拿大人购买住宅物业法》——谁算"非加拿大人"、哪些物业受限、工签和配偶豁免怎么运作、处罚有多重,以及为什么禁令延续至2026年12月31日。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/foreign-buyer-ban';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — 多伦多房地产',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'zh-CN',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: '加拿大外国买家禁令, 非加拿大人购房, 多伦多外国买家禁令, 外国买家禁令延期 2026, 工签买房 加拿大, 非加拿大人买公寓, 外国买家禁令豁免, 外国买家禁令处罚, 外国买家法规 2023修订, 加拿大非居民购房',
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 政策</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">加拿大外国买家禁令自2023年1月1日起生效,目前已延期至2026年12月31日。实际覆盖范围比标题听起来要窄,而豁免条款才是关键。本文讲清楚:禁令到底针对谁、覆盖哪些物业,以及为什么很多持工签者、难民和加拿大公民配偶其实仍然可以买房。</p>
+        <div class="article-byline">
+          <span>作者:<a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 6 月 9 日</time>
+          <span class="dot">·</span>
+          <span>9 分钟阅读</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本文目录</h4>
+            <ul>
+              <li><a href="#what">禁令到底是什么</a></li>
+              <li><a href="#who">谁算"非加拿大人"</a></li>
+              <li><a href="#what-property">哪些物业受限</a></li>
+              <li><a href="#exceptions">关键豁免条款</a></li>
+              <li><a href="#work-permit">工签持有者</a></li>
+              <li><a href="#penalties">处罚与后果</a></li>
+              <li><a href="#sale-valid">交易本身还有效吗?</a></li>
+              <li><a href="#agents">如果你是经纪或律师</a></li>
+              <li><a href="#mistakes">常见误区</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>一句话总结:</strong>《禁止非加拿大人购买住宅物业法》禁止大多数非加拿大人在加拿大购买住宅物业。该法自<strong>2023年1月1日</strong>起生效,最初是为期2年的临时措施,后由联邦政府延期至<strong>2026年12月31日</strong>。禁令针对范围明确:只覆盖含3个或以下独立居住单元的住宅物业(独立屋、半独立、镇屋、公寓),且仅适用于人口普查都市区(CMA)和人口普查聚集区(CA)内的物业。它<em>不</em>覆盖非都市区的度假物业、住宅或混合用途的空地、4个单元以上的多户住宅,也不阻止与加拿大配偶共同购买。持有工签且剩余有效期不少于<strong>183天</strong>者可以买一处住宅。违法罚款最高<strong>1万加元</strong>——而且不仅针对买家本人,还包括任何明知故犯地协助、教唆、引诱购买的人。</p>
+
+            <div class="callout"><strong>本文适合谁看:</strong>需要弄清楚联邦外国买家禁令实际覆盖范围的多伦多买家、卖家和地产从业者。如果你是考虑买房的临时居民、配偶非公民的加拿大人,或者代理身份不明买家的经纪——从这里开始。</div>
+
+            <h2 id="what">禁令到底是什么</h2>
+            <p>《禁止非加拿大人购买住宅物业法》(《加拿大法令汇编》2022年第10章第235条)是一项联邦法律,禁止非加拿大人直接或间接在加拿大购买住宅物业。该法于2022年6月23日获得御准,2023年1月1日生效,最初设定为2年的临时措施。2024年2月,联邦政府将其延长两年——目前到期日为<strong>2027年1月1日</strong>(即覆盖至2026年底前的所有购房行为)。</p>
+            <p>从一开始就要理解两件事:</p>
+            <ul class="bullets">
+              <li><strong>这是联邦法律,不是税。</strong>安省的非居民投机税(NRST,目前为25%)是独立的省级措施,适用范围更广,并与联邦禁令同时运作。同一笔交易可能两者都适用。</li>
+              <li><strong>法律本身条文短,细节都在法规里。</strong>该法只有8条。大多数买家实际依赖的豁免——工签、空地、度假屋——都规定在《禁止非加拿大人购买住宅物业法规》中。2023年3月的重大修订放宽了好几类豁免。</li>
+            </ul>
+
+            <details class="b60-section-toggle" id="who">
+              <summary class="b60-section-toggle-summary">谁算"非加拿大人"</summary>
+              <div class="b60-section-body">
+                <p>该法对"非加拿大人"的定义有四种情形,以下任一情形即属于:</p>
+                <ul class="bullets">
+                  <li><strong>个人</strong>——既不是加拿大公民、也未根据《印第安人法》登记、也不是永久居民。</li>
+                  <li><strong>在加拿大及其各省境外注册的公司</strong>。</li>
+                  <li><strong>私人持股的加拿大公司</strong>(股票未在加拿大指定证券交易所上市),且<em>受非加拿大人控制</em>。</li>
+                  <li>法规所规定的其他个人或实体。</li>
+                </ul>
+                <p>关键词是<strong>"控制"</strong>。法规将门槛定为<strong>10%</strong>——直接或间接持有股权或表决权达到10%或以上,即认定为非加拿大人。该门槛在2023年3月修订时被降低,比许多人想象的严格得多。一个加拿大编号公司只要有一名持股10%的外国股东,即被归类为非加拿大人。</p>
+                <p>实际含义:永久居民<strong>不</strong>受禁令限制;公民不受限制;根据《印第安人法》登记者不受限制。其他所有人都需要符合下文列出的豁免条件。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="what-property">
+              <summary class="b60-section-toggle-summary">哪些物业受限</summary>
+              <div class="b60-section-body">
+                <p>法律定义的"住宅物业"比大多数人理解的要窄。它指位于加拿大的不动产,且满足以下任一情形:</p>
+                <ul class="bullets">
+                  <li><strong>含3个或以下居住单元的独立屋或类似建筑</strong>(包括合理用于居住的土地);或</li>
+                  <li><strong>建筑物的某一部分</strong>——半独立屋、镇屋单元、公寓住宅单元或类似——拥有或拟拥有独立产权,与同栋楼其他单元分开。</li>
+                </ul>
+                <p>因此多伦多典型的独立屋、半独立、镇屋或公寓单元都在覆盖范围内。但法规中有两项重要的地理和结构豁免:</p>
+                <div class="callout">
+                  <strong>不在覆盖范围(根据法规):</strong>
+                  <ul class="bullets" style="margin-top:8px;margin-bottom:0;">
+                    <li><strong>含4个及以上居住单元的建筑</strong>——禁令针对自住住房,不针对较大的多户型或公寓楼。</li>
+                    <li><strong>位于人口普查都市区(CMA)和人口普查聚集区(CA)之外的住宅物业</strong>——即非都市地区的度假屋、湖滨别墅等。具体范围由加拿大统计局划定;大多数度假区都在城市边界之外。</li>
+                    <li><strong>住宅或混合用途的空地</strong>——2023年3月27日修订时新增的豁免。非加拿大人现可购买住宅或混合用途的空地,包括用于建房。</li>
+                    <li><strong>以开发为目的的购买</strong>——同样为2023年3月新增,允许非加拿大公司购买住宅物业用于建设更多住宅供给。</li>
+                  </ul>
+                </div>
+                <p>地理豁免影响很大:大多伦多地区是一整个CMA,所以多伦多附近几乎所有住宅购置都在禁令范围内。但非加拿大人在CA边界外的玛斯科卡湖区或Lake of Bays买度假屋,一般不在覆盖范围内。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="exceptions">
+              <summary class="b60-section-toggle-summary">关键豁免条款</summary>
+              <div class="b60-section-body">
+                <p>该法第4(2)条和相关法规一起,为以下几类买家提供豁免,即使他们原本属于非加拿大人:</p>
+                <ul class="bullets">
+                  <li><strong>持有有效身份的临时居民</strong>,且符合法规所列条件——其中最重要的是持有工签的买家(下一节详述)。</li>
+                  <li><strong>受保护人士和难民</strong>——根据《移民与难民保护法》获得难民身份或受保护人士身份的人可以购买。</li>
+                  <li><strong>与合资格配偶或同居伴侣共同购买的非加拿大人。</strong>如果非加拿大人与配偶共同购买住宅物业,且配偶是加拿大公民、《印第安人法》登记人士、永久居民或合资格临时居民,则交易允许。法律将"同居伴侣"定义为以夫妻关系共同生活至少1年。</li>
+                  <li><strong>外国政府以外交或领事目的购买</strong>——大使馆、领事馆等。</li>
+                  <li><strong>在2023年1月1日之前已签署购房合同的人</strong>——之前的交易不受影响。</li>
+                </ul>
+                <p>配偶豁免最常被误解。<em>仅仅</em>非加拿大人与加拿大公民结婚是不够的;两位配偶都必须登记在产权证上。非加拿大人单独购买、加拿大配偶口头同意但不上产权证,仍然违法。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="work-permit">
+              <summary class="b60-section-toggle-summary">工签持有者:最实用的购房路径</summary>
+              <div class="b60-section-body">
+                <p>这是大多伦多买家实际依赖的豁免。根据2023年3月修订后的法规,工签持有者只需满足一个条件即可购买一处住宅:</p>
+                <div class="heloc-formula" aria-label="工签购房要求">
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">有效工签</div>
+                    <div class="heloc-formula-number">183+</div>
+                    <div class="heloc-formula-sub">购房时剩余有效天数</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">→</div>
+                  <div class="heloc-formula-cell heloc-formula-result">
+                    <div class="heloc-formula-label">允许购买</div>
+                    <div class="heloc-formula-number">1</div>
+                    <div class="heloc-formula-sub">处住宅物业</div>
+                  </div>
+                </div>
+                <p><strong>关键事实:</strong></p>
+                <ul class="bullets">
+                  <li>必须是根据《移民与难民保护法规》签发的工签或工作授权。</li>
+                  <li>从<strong>交易完成日</strong>(不是出价日)计算,剩余有效期必须为<strong>183天或以上</strong>。</li>
+                  <li>买家在加拿大没有其他住宅物业。</li>
+                  <li>每人<strong>只能买一处</strong>。买第二处即违法。</li>
+                </ul>
+                <p>2023年初的旧版规定要求过去4年中有3年报税并有相当的加拿大工作记录——这些条件在2023年3月27日修订时已被取消。如果买家凭2023年1、2月的旧建议判断,可能会以为自己不符合资格,实际上已经可以买。</p>
+                <p>2023年3月修订后,<strong>学签持有者一般不</strong>属于此豁免类别——他们已从豁免名单中移除。</p>
+              </div>
+            </details>
+
+            <h2 id="penalties">处罚与后果</h2>
+            <p>违法有两个独立的后果——而买家最容易忽略的是第二个。</p>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">1万加元罚款</summary>
+              <div class="b60-section-body">
+                <p>该法第6条规定,违反禁令属于简易程序定罪罪行,最高罚款<strong>1万加元</strong>。关键是,该罪行同时针对两类人:</p>
+                <ul class="bullets">
+                  <li><strong>非加拿大买家本人</strong>,以及</li>
+                  <li><strong>任何个人或实体</strong>——明知非加拿大人被禁止购买,仍然教唆、引诱、协助或唆使其购买的(包括协助或唆使的未遂行为)。</li>
+                </ul>
+                <p>第二类人涵盖经纪、地产律师、房贷经纪、贷款机构、家庭成员,以及公司高管和董事。"明知"是安全阀——专业人士如果合理相信买家符合资格,不会被追责——但这给经纪和律师施加了实际负担:必须在行动前核实身份。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">法院命令以无利润价格出售</summary>
+              <div class="b60-section-body">
+                <p>该法第7条是更严重的后果。如果非加拿大人因违反第4条被定罪,物业所在省的高等法院可应部长申请,下令将该物业出售。法规要求出售命令必须规定:<strong>非加拿大人所得不得超过其原购买价</strong>。从购买到强制出售之间的所有增值归国家,而非买家。</p>
+                <p>所以现实风险是:非加拿大人违法以120万加元购入多伦多公寓,持有期间升值,被强制以140万出售——损失20万增值、加上律师费、加上1万罚款。从财务逻辑看,根本没有冒险的理由。</p>
+              </div>
+            </details>
+
+            <h2 id="sale-valid">交易本身还有效吗?</h2>
+            <p>该法第5条是一个不太显眼但非常重要的条款:违反禁令<strong>不影响交易本身的有效性</strong>。交易不被撤销,产权正常转移,卖家保留款项。这是立法时刻意的设计——目的是震慑非加拿大买家、惩罚周围协助的人,而不是让卖家面对已经完成的交易被推翻的风险。</p>
+            <p>对卖家和挂牌经纪来说,这是实际的安心保障:如果买家事后被认定违法,交易仍然有效,卖款仍归卖家所有。法律责任在买家这一方,以及任何明知故犯协助交易的顾问身上。</p>
+
+            <h2 id="agents">如果你是经纪或律师</h2>
+            <p>第6条中"教唆、引诱、协助、唆使"的措辞相当宽泛。我在每笔交易中坚持的实务防线:</p>
+            <ul class="bullets">
+              <li><strong>在初次接洽时就询问买家身份,而不是出价时。</strong>在建立档案之前确认公民、永居或工签详情,留出时间规划;签约前一晚才核实,容易走捷径。</li>
+              <li><strong>对临时居民,要看实际证件原件。</strong>不是几个月前的截图。183天的窗口以交易完成日计算——因此应根据预计交易日期,而非今天的日期,核对剩余有效期。</li>
+              <li><strong>如果配偶必须同上产权,在Offer中就写进去。</strong>临到交易前一周再加上加拿大配偶名字,既脆弱也仓促。从一开始就写好。</li>
+              <li><strong>用买家代理协议记录买家声明的内容。</strong>如果买家虚报身份,只有当你的善意询问有书面记录时,第6条的"明知"豁免才能保护你。</li>
+              <li><strong>在Offer日期前先和律师沟通。</strong>多伦多的地产律师是这道防线的第二层;他们在交易关闭时会核实身份。对边缘情况尽早联络律师,可以省下大量金钱和精力。</li>
+            </ul>
+
+            <h2 id="mistakes">2026年常见误区</h2>
+            <ul class="bullets">
+              <li><strong>"永久居民也受禁令限制。"</strong>不,永居可以正常购买。</li>
+              <li><strong>"我配偶是公民,所以我没事。"</strong>仅当两人都登记在产权证上才有效。仅婚姻关系不满足第4(2)(c)条。</li>
+              <li><strong>"我工签还有4个月,赶在到期前关交易就行。"</strong>测试标准是<strong>交易完成日剩余183天</strong>,不是"工签仍然有效"。4个月远低于门槛。</li>
+              <li><strong>"我通过加拿大控股公司持有公司,所以是加拿大买家。"</strong>如果非加拿大人直接或间接持有控股公司10%或以上,该公司在该法下即为非加拿大人。</li>
+              <li><strong>"禁令2024年底就到期了。"</strong>已于2024年2月延期至2026年12月31日。凭旧信息行动的人会很意外。</li>
+              <li><strong>"风险值得——最多也就1万罚款。"</strong>不对。1万罚款只是表面;真正的风险是法院命令以无利润出售,所有升值归国家。</li>
+              <li><strong>"北部度假屋也算。"</strong>一般不算,如果在人口普查都市区(CMA)或聚集区(CA)边界之外。下手前先查统计局边界。</li>
+            </ul>
+
+            <h2>结语</h2>
+            <p>"外国买家禁令"这个标题有误导性。它实际上是一项目标明确的联邦禁令,有许多重要的豁免——工签持有者、难民、加拿大公民配偶、度假物业、空地、多户住宅都被排除在外。被禁令绊住的买家,通常不是因为规则不公,而是因为没有在初期就核实身份,或者没有跟上2023年3月的修订。如果你在多伦多买房,身份不是"加拿大公民"或"永久居民",那么真正要做的工作在交易开始之前——准备材料、确认剩余天数、规划产权登记——而不是关闭交易那天。</p>
+            <p>不确定自己属于哪一类?<a href="/chinese/contact">给我发个消息</a>,告诉我你的情况,我会告诉你是否需要律师介入,还是路径其实非常清晰。</p>
+
+            <p class="article-source"><strong>主要来源:</strong>加拿大司法部 ——《<a href="https://laws-lois.justice.gc.ca/eng/acts/P-25.2/page-1.html" target="_blank" rel="noopener noreferrer">禁止非加拿大人购买住宅物业法</a>》(S.C. 2022,c. 10,s. 235)及相关《禁止非加拿大人购买住宅物业法规》。延期决定由加拿大财政部于2024年2月公布。</p>
+            <p class="article-disclaimer"><em>本文仅供一般参考,不构成法律意见。该法、相关法规及修订涉及具体细节;合资格买家身份应在交易关闭前,由地产律师正式核实。</em></p>
+
+            <div class="article-keywords">
+              <span class="keyword-label">主题标签:</span>
+              <span class="keyword-chip">外国买家禁令</span>
+              <span class="keyword-chip">非加拿大人法</span>
+              <span class="keyword-chip">工签购房</span>
+              <span class="keyword-chip">配偶豁免</span>
+              <span class="keyword-chip">CMA/CA边界</span>
+              <span class="keyword-chip">空地豁免</span>
+              <span class="keyword-chip">10%控制门槛</span>
+              <span class="keyword-chip">第6条处罚</span>
+              <span class="keyword-chip">强制出售令</span>
+              <span class="keyword-chip">2026年延期</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="是非居民、工签持有者或混合身份夫妻在买房?"
+      body="不要等到出Offer才弄清楚禁令是否对你适用。用通俗的话告诉我你的情况,我会告诉你需要准备哪些材料,以及什么时候该让律师介入。"
+      ctaPrimary={{ href: '/chinese/contact', label: '联系 Peter' }}
+      ctaSecondary={{ href: '/chinese/blog', label: '更多多伦多政策解读' }}
+    />
+  </article>
+
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>

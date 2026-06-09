@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-06-09';
+const articleTitle = "2026: Canada's Foreign Buyer Ban";
+const articleDescription = "A plain-English guide to Canada's Prohibition on the Purchase of Residential Property by Non-Canadians Act — who counts as a non-Canadian, what properties are covered, the work-permit and spousal exceptions, penalties, and what stays in effect through December 31, 2026.";
+const articleUrl = 'https://www.realtorpeterlaw.com/blog/foreign-buyer-ban';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'Canada foreign buyer ban, Prohibition on the Purchase of Residential Property by Non-Canadians Act, foreign buyer ban Toronto, foreign buyer ban extension 2026, work permit home purchase Canada, non-Canadian condo purchase, foreign buyer ban exceptions, foreign buyer ban penalty, foreign buyer ban regulations, Toronto real estate non-resident',
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Policy</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Canada's foreign buyer ban has been in force since January 1, 2023, and remains in effect through December 31, 2026. The rules are narrower than the headline suggests — and the carve-outs matter. Here's who the ban actually applies to, what properties are covered, and the exceptions that let many work-permit holders, refugees, and spouses of Canadians still purchase.</p>
+        <div class="article-byline">
+          <span>By <a href="/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>June 9, 2026</time>
+          <span class="dot">·</span>
+          <span>9 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>On this page</h4>
+            <ul>
+              <li><a href="#what">What the ban actually is</a></li>
+              <li><a href="#who">Who counts as a "non-Canadian"</a></li>
+              <li><a href="#what-property">What properties are covered</a></li>
+              <li><a href="#exceptions">The exceptions that matter</a></li>
+              <li><a href="#work-permit">Work permit holders</a></li>
+              <li><a href="#penalties">Penalties &amp; consequences</a></li>
+              <li><a href="#sale-valid">Does the sale still go through?</a></li>
+              <li><a href="#agents">If you're a realtor or lawyer</a></li>
+              <li><a href="#mistakes">Common mistakes</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>Quick answer:</strong> The <em>Prohibition on the Purchase of Residential Property by Non-Canadians Act</em> prohibits most non-Canadians from purchasing residential property in Canada. It came into force <strong>January 1, 2023</strong>, was originally a 2-year measure, and was extended by the federal government to run through <strong>December 31, 2026</strong>. The ban is targeted: it applies to residential property with 3 or fewer dwelling units (houses, semi-detached, rowhouses, condo units), and only inside Census Metropolitan Areas and Census Agglomerations. It does <em>not</em> apply to recreational properties in non-urban areas, vacant land zoned residential, larger multi-unit residential, or property purchased through a Canadian spouse. Work-permit holders with at least 183 days remaining on their permit can purchase one residential property. The fine for breaching the Act is up to <strong>$10,000</strong> — and it applies not only to the non-Canadian buyer but also to anyone who knowingly counsels, induces, or aids the purchase.</p>
+
+            <div class="callout"><strong>Who this article is for:</strong> Toronto buyers, sellers, and real estate professionals who need a clear, practical read on what the federal foreign buyer ban does and doesn't cover. If you're a temporary resident considering a purchase, a Canadian whose spouse is a non-citizen, or an agent representing a buyer whose status is unclear — start here.</div>
+
+            <h2 id="what">What the ban actually is</h2>
+            <p>The <em>Prohibition on the Purchase of Residential Property by Non-Canadians Act</em> (Statutes of Canada 2022, chapter 10, section 235) is a federal statute that prohibits non-Canadians from purchasing residential property in Canada, directly or indirectly. It was assented to on June 23, 2022, came into force on January 1, 2023, and was originally set to expire after two years. In February 2024, the federal government extended the prohibition for an additional two years — it now expires <strong>January 1, 2027</strong> (i.e., it covers purchases through the end of 2026).</p>
+            <p>Two things to understand from the start:</p>
+            <ul class="bullets">
+              <li><strong>It's a federal law, not a tax.</strong> Ontario's Non-Resident Speculation Tax (NRST, currently 25%) is a separate provincial measure that applies to a wider group of buyers and continues to operate alongside the federal ban. The two can both apply to the same transaction.</li>
+              <li><strong>The statute is short; the regulations do the heavy lifting.</strong> The Act itself is only eight sections. The carve-outs that most buyers actually rely on — for work permit holders, for vacant land, for recreational property — live in the <em>Regulations</em> that the Governor in Council issued under the Act, including significant amendments in March 2023 that opened up several categories.</li>
+            </ul>
+
+            <details class="b60-section-toggle" id="who">
+              <summary class="b60-section-toggle-summary">Who counts as a "non-Canadian"</summary>
+              <div class="b60-section-body">
+                <p>The Act defines a non-Canadian in four ways. You're a non-Canadian if you are:</p>
+                <ul class="bullets">
+                  <li><strong>An individual who is not</strong> a Canadian citizen, a person registered under the <em>Indian Act</em>, or a permanent resident of Canada.</li>
+                  <li><strong>A corporation incorporated outside Canada or any Canadian province.</strong></li>
+                  <li><strong>A privately-held Canadian corporation</strong> (one whose shares are not listed on a designated Canadian stock exchange) that is <em>controlled</em> by a non-Canadian individual or foreign corporation.</li>
+                  <li><strong>Any other person or entity prescribed by regulation.</strong></li>
+                </ul>
+                <p>The phrase doing the most work there is <strong>"controlled"</strong>. The Regulations set the threshold at <strong>10%</strong> — direct or indirect ownership of 10% or more of the value of the equity, or voting rights, makes a Canadian corporation a "non-Canadian" for purposes of the Act. This was lowered from a higher threshold in the March 2023 amendments and is significantly stricter than most people assume. A Canadian numbered company with a single 10%-foreign-owned shareholder is caught.</p>
+                <p>What this means in practice: permanent residents are <strong>not</strong> subject to the ban. Citizens are not subject to the ban. People registered under the <em>Indian Act</em> are not subject to the ban. Everyone else needs to fit inside one of the exceptions discussed below.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="what-property">
+              <summary class="b60-section-toggle-summary">What properties are covered</summary>
+              <div class="b60-section-body">
+                <p>"Residential property" under the Act is more narrowly defined than most people realize. It means real property in Canada that is:</p>
+                <ul class="bullets">
+                  <li><strong>A detached house or similar building containing 3 or fewer dwelling units</strong> (with the land reasonably necessary for its use as a residence); or</li>
+                  <li><strong>A part of a building</strong> that is a semi-detached house, rowhouse unit, residential condominium unit, or similar — owned or intended to be owned separately from other units in the building.</li>
+                </ul>
+                <p>So the typical detached house, semi, townhouse, or condo unit in Toronto is covered. But there are two important geographic and structural carve-outs in the Regulations:</p>
+                <div class="callout">
+                  <strong>Not covered (per the Regulations):</strong>
+                  <ul class="bullets" style="margin-top:8px;margin-bottom:0;">
+                    <li><strong>Buildings with 4 or more dwelling units</strong> — the ban targets owner-occupied housing, not larger multi-family or apartment buildings.</li>
+                    <li><strong>Residential property outside a Census Metropolitan Area (CMA) or Census Agglomeration (CA)</strong> — i.e., recreational properties and cottages in non-urban areas. Statistics Canada defines which areas qualify; most of cottage country falls outside the urban boundaries.</li>
+                    <li><strong>Vacant land zoned for residential or mixed use</strong> — this exemption was added by the March 27, 2023 amendments. Non-Canadians can now purchase vacant residential or mixed-use land, including for the purpose of building.</li>
+                    <li><strong>Purchases made for the purpose of development</strong> — also added in March 2023, this allows non-Canadian corporations to acquire residential property for the purpose of building more residential supply.</li>
+                  </ul>
+                </div>
+                <p>The geographic carve-out is significant: the Greater Toronto Area is one large CMA, so almost any Toronto-area residential purchase is captured. But a non-Canadian buying a cottage on Lake of Bays or in Muskoka outside the CA boundary is generally not.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="exceptions">
+              <summary class="b60-section-toggle-summary">The exceptions that matter</summary>
+              <div class="b60-section-body">
+                <p>Section 4(2) of the Act and the Regulations together carve out several classes of buyer who can still purchase even though they would otherwise count as non-Canadian:</p>
+                <ul class="bullets">
+                  <li><strong>Temporary residents with valid status</strong> who satisfy the conditions in the Regulations — most importantly, work permit holders (covered in detail in the next section).</li>
+                  <li><strong>Protected persons and refugees</strong> — anyone who has been granted refugee protection or protected-person status under the <em>Immigration and Refugee Protection Act</em> can purchase.</li>
+                  <li><strong>Non-Canadians purchasing with a qualifying spouse or common-law partner.</strong> If a non-Canadian and their spouse buy residential property together, and the spouse is a Canadian citizen, person registered under the <em>Indian Act</em>, permanent resident, or qualifying temporary resident, the purchase is permitted. The Act defines common-law partner as having cohabited in a conjugal relationship for at least one year.</li>
+                  <li><strong>Foreign states purchasing for diplomatic or consular purposes</strong> — embassies, consulates, etc.</li>
+                  <li><strong>Anyone who became bound under a purchase agreement before January 1, 2023</strong> — pre-existing deals are grandfathered.</li>
+                </ul>
+                <p>The spousal exception is the one most often misunderstood. It is <em>not</em> enough that the non-Canadian buyer is married to a Canadian; both spouses must be on title. A non-Canadian buying solo with their Canadian spouse's blessing — but not on title — is still in breach.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="work-permit">
+              <summary class="b60-section-toggle-summary">Work permit holders: the practical path in</summary>
+              <div class="b60-section-body">
+                <p>This is the carve-out most Toronto buyers actually rely on. As amended in March 2023, the Regulations let a work permit holder purchase one residential property if they meet a single test:</p>
+                <div class="heloc-formula" aria-label="Work permit purchase requirement">
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">Valid work permit</div>
+                    <div class="heloc-formula-number">183+</div>
+                    <div class="heloc-formula-sub">days of validity remaining at purchase</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">→</div>
+                  <div class="heloc-formula-cell heloc-formula-result">
+                    <div class="heloc-formula-label">Permitted</div>
+                    <div class="heloc-formula-number">1</div>
+                    <div class="heloc-formula-sub">residential property</div>
+                  </div>
+                </div>
+                <p><strong>The key facts:</strong></p>
+                <ul class="bullets">
+                  <li>The permit must be a work permit or work authorization issued under the <em>Immigration and Refugee Protection Regulations</em>.</li>
+                  <li>It must have <strong>183 days or more</strong> of validity remaining as of the purchase date — measured from the date of closing, not the offer date.</li>
+                  <li>The buyer must not already own residential property in Canada.</li>
+                  <li>It's <strong>one property per holder</strong>. A second purchase is a breach.</li>
+                </ul>
+                <p>The earlier 2023 version of this rule required tax filings in 3 of the previous 4 years and meaningful Canadian employment history — those conditions were removed by the March 27, 2023 amendments. A buyer working off old advice from January or February 2023 may believe they don't qualify when in fact they do.</p>
+                <p>Study permit holders are <strong>not</strong> generally covered by this carve-out as of the March 2023 amendments — they were removed from the exempt class.</p>
+              </div>
+            </details>
+
+            <h2 id="penalties">Penalties &amp; consequences</h2>
+            <p>There are two separate consequences for breaching the Act — and the second one is the one buyers often miss.</p>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">The $10,000 fine</summary>
+              <div class="b60-section-body">
+                <p>Section 6 of the Act makes it a summary conviction offence to contravene the prohibition. The maximum fine is <strong>$10,000</strong>. Crucially, the offence catches two groups:</p>
+                <ul class="bullets">
+                  <li><strong>The non-Canadian buyer</strong>, and</li>
+                  <li><strong>Any person or entity</strong> who counsels, induces, aids, or abets — or attempts to counsel, induce, aid, or abet — a non-Canadian to purchase residential property, <em>knowing</em> the non-Canadian is prohibited under the Act.</li>
+                </ul>
+                <p>That second group includes realtors, real estate lawyers, mortgage brokers, lenders, family members, and corporate officers and directors. The "knowingly" element is the safety valve — a professional who reasonably believed the buyer qualified is not caught — but it puts a real burden on agents and lawyers to verify status before acting.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">Court-ordered sale at no profit</summary>
+              <div class="b60-section-body">
+                <p>Section 7 of the Act is the more serious consequence. If a non-Canadian is convicted of breaching section 4, the superior court of the province where the property is located can — on application of the Minister — order the property to be sold. The Regulations require the order to provide that <strong>the non-Canadian receives no more than the price they originally paid</strong>. Any appreciation between purchase and forced sale goes to the Crown, not the buyer.</p>
+                <p>So the realistic exposure for a non-Canadian who buys a $1.2M Toronto condo in breach, holds it through appreciation, and is forced to sell at $1.4M is: lose the $200K of appreciation, plus legal fees, plus the $10,000 fine. The financial logic is straightforward — there is no upside to taking the chance.</p>
+              </div>
+            </details>
+
+            <h2 id="sale-valid">Does the sale still go through?</h2>
+            <p>Section 5 of the Act is one of its most-important quiet provisions: a contravention of the prohibition <strong>does not affect the validity of the sale</strong>. The transaction itself is not void. Title transfers. The seller keeps the money. This was a deliberate design choice — the goal is to deter non-Canadian buyers and punish the chain of people around them, not to put sellers at risk of having a closed deal unwound after the fact.</p>
+            <p>For sellers and listing agents, this is the practical reassurance: if your buyer turns out to be in breach, the sale stands and you keep your proceeds. The legal exposure is on the buyer's side and on any advisor who knowingly facilitated.</p>
+
+            <h2 id="agents">If you're a realtor or lawyer</h2>
+            <p>The "counsels, induces, aids, or abets" language in section 6 is broad. Practical guardrails I follow on every deal:</p>
+            <ul class="bullets">
+              <li><strong>Ask the buyer status question at intake, not at offer.</strong> Verifying citizenship, PR status, or work permit details before you've built a file gives you time to plan; doing it the night before signing forces shortcuts.</li>
+              <li><strong>For temporary residents, ask for the actual document.</strong> Not a screenshot from months ago. The 183-day window is measured at closing — so check the expiry against the projected closing date, not today's date.</li>
+              <li><strong>If both spouses must be on title, get that into the offer.</strong> Adding a Canadian spouse to title as a Saturday-morning amendment a week before closing is brittle. Build it into the offer.</li>
+              <li><strong>Use the buyer rep agreement to document what the buyer told you.</strong> If a buyer misrepresents their status, the "knowingly" carve-out in section 6 protects you only if your good-faith inquiry is on the record.</li>
+              <li><strong>Talk to the lawyer before the offer date.</strong> Real estate lawyers in Toronto are the second line of defence on this; they verify status as part of the closing file. Getting them involved early on borderline files saves money and stress.</li>
+            </ul>
+
+            <h2 id="mistakes">Common mistakes I see in 2026</h2>
+            <ul class="bullets">
+              <li><strong>"Permanent residents are caught by the ban."</strong> They're not. PRs can buy normally.</li>
+              <li><strong>"My spouse is a citizen so I'm fine."</strong> Only if both of you are on title. Marriage alone doesn't satisfy section 4(2)(c).</li>
+              <li><strong>"My work permit has 4 months left, I'll close before it expires."</strong> The test is <strong>183 days remaining at closing</strong>, not "still valid". Four months is well under the threshold.</li>
+              <li><strong>"It's a corporation I own through a Canadian holdco, so it's a Canadian buyer."</strong> If non-Canadian ownership of the holdco reaches 10% — direct or indirect — the corporate buyer is a non-Canadian under the Act.</li>
+              <li><strong>"The ban expired at the end of 2024."</strong> It was extended in February 2024 to run through December 31, 2026. Anyone working from old advice is in for a surprise.</li>
+              <li><strong>"It's worth the risk — the worst they can do is fine me $10,000."</strong> Not true. The $10K fine is the headline; the real exposure is the court-ordered sale at no profit, with appreciation forfeited.</li>
+              <li><strong>"Recreational property up north counts."</strong> Generally not, if it's outside a Census Metropolitan Area or Census Agglomeration. Check the StatsCan boundary before assuming.</li>
+            </ul>
+
+            <h2>Bottom line</h2>
+            <p>The headline name — "foreign buyer ban" — is misleading. It's a targeted federal prohibition with significant carve-outs for work permit holders, refugees, spouses of Canadians, recreational property, vacant land, and multi-unit residential. Most buyers caught off guard by it are caught not because the rule is unfair, but because they didn't verify status properly at intake or didn't read the March 2023 amendments. If you're a Toronto buyer whose status is anything other than "Canadian citizen" or "permanent resident", the work to do is at the front of the deal — gathering documents, confirming days remaining, structuring title — not at the closing table.</p>
+            <p>If you're not sure where you fit, ask. <a href="/contact">Send me a quick note</a> with your situation and I'll tell you whether you need a lawyer involved, or whether the path forward is straightforward.</p>
+
+            <p class="article-source"><strong>Primary source:</strong> Department of Justice Canada — <a href="https://laws-lois.justice.gc.ca/eng/acts/P-25.2/page-1.html" target="_blank" rel="noopener noreferrer"><em>Prohibition on the Purchase of Residential Property by Non-Canadians Act</em></a> (S.C. 2022, c. 10, s. 235), and the associated <em>Prohibition on the Purchase of Residential Property by Non-Canadians Regulations</em>. The expiry-date extension was announced by the Department of Finance in February 2024.</p>
+            <p class="article-disclaimer"><em>This article is for general information and is not legal advice. The Act, Regulations, and amendments are technical; a qualifying buyer's status should always be confirmed by a real estate lawyer before closing.</em></p>
+
+            <div class="article-keywords">
+              <span class="keyword-label">Topics:</span>
+              <span class="keyword-chip">Foreign Buyer Ban</span>
+              <span class="keyword-chip">Non-Canadians Act</span>
+              <span class="keyword-chip">Work Permit Purchase</span>
+              <span class="keyword-chip">Spousal Exception</span>
+              <span class="keyword-chip">CMA/CA Boundary</span>
+              <span class="keyword-chip">Vacant Land Carve-Out</span>
+              <span class="keyword-chip">10% Control Test</span>
+              <span class="keyword-chip">Section 6 Penalty</span>
+              <span class="keyword-chip">Court-Ordered Sale</span>
+              <span class="keyword-chip">Extension to 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Buying as a non-resident, work permit holder, or mixed-status couple?"
+      body="Don't wait until the offer is in to figure out whether the federal ban catches you. Tell me your situation in plain English and I'll tell you what document trail you need to put together — and when to bring in a lawyer."
+      ctaPrimary={{ href: '/contact', label: 'Talk to Peter' }}
+      ctaSecondary={{ href: '/blog', label: 'More on Toronto policy' }}
+    />
+  </article>
+
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
