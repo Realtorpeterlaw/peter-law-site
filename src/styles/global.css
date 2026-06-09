@@ -56,6 +56,9 @@ h1.hero-h em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
 .hero-trust { margin-top: 28px; font-size: 13px; color: var(--ink-mute); }
 .hero-photo { aspect-ratio: 4/5; background: #efeae0; border-radius: 4px; position: relative; overflow: hidden; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-photo-link { display: block; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; border-radius: 4px; }
+.hero-photo-link:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -16px rgba(0,0,0,0.25); }
+.hero-photo-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .hero-photo .placeholder-tag { position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.65); color: #fff; font-size: 11px; padding: 6px 12px; border-radius: 3px; letter-spacing: 0.08em; text-transform: uppercase; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } .hero { padding: 56px 0 72px; } }
 
