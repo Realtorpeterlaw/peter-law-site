@@ -1118,7 +1118,39 @@ body.mobile-menu-open { overflow: hidden; }
   border: 1px solid var(--rule);
   border-radius: 6px;
   padding: 34px 38px;
+  position: relative;
 }
+
+.deals-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  padding: 0;
+  z-index: 2;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.deals-arrow:hover {
+  background: var(--ink);
+  color: var(--surface);
+  border-color: var(--ink);
+  box-shadow: 0 4px 14px -6px rgba(0,0,0,0.25);
+}
+.deals-arrow:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.deals-prev { left: 10px; }
+.deals-next { right: 10px; }
 
 .deals-track {
   display: grid;
@@ -1228,6 +1260,9 @@ body.mobile-menu-open { overflow: hidden; }
 @media (max-width: 640px) {
   .recent-deals { padding: 14px 0 20px; }
   .deals-carousel { padding: 24px 22px; border-radius: 4px; }
+  .deals-arrow { width: 28px; height: 28px; }
+  .deals-prev { left: 6px; }
+  .deals-next { right: 6px; }
   .deal-eyebrow { margin-bottom: 18px; }
   .deal-rent-amount { font-size: 34px; }
   .deal-rent-period { font-size: 12.5px; }

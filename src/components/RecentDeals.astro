@@ -54,11 +54,19 @@ const eyebrow = zh ? '近期成交' : 'Recent deals';
 const carouselLabel = zh ? '近期成交轮播' : 'Recent deals carousel';
 const goLabel = zh ? '前往第 ' : 'Go to slide ';
 const goLabelSuffix = zh ? ' 条' : '';
+const prevLabel = zh ? '上一条' : 'Previous deal';
+const nextLabel = zh ? '下一条' : 'Next deal';
 ---
 
 <section class="recent-deals" aria-label={carouselLabel}>
   <div class="wrap">
     <div class="deals-carousel" data-rotate-ms="6500">
+      <button type="button" class="deals-arrow deals-prev" aria-label={prevLabel}>
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 1L3 7l6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="deals-arrow deals-next" aria-label={nextLabel}>
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 1l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
       <div class="deals-track">
         {deals.map((d, i) => (
           <article
@@ -126,6 +134,10 @@ const goLabelSuffix = zh ? ' 条' : '';
         dots.forEach(function (dot, i) {
           dot.addEventListener('click', function () { show(i); stop(); start(); });
         });
+        var prev = carousel.querySelector('.deals-prev');
+        var next = carousel.querySelector('.deals-next');
+        if (prev) prev.addEventListener('click', function () { show(current - 1); stop(); start(); });
+        if (next) next.addEventListener('click', function () { show(current + 1); stop(); start(); });
         carousel.addEventListener('mouseenter', stop);
         carousel.addEventListener('mouseleave', start);
         carousel.addEventListener('focusin', stop);
