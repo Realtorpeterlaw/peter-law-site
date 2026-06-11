@@ -9,10 +9,7 @@ const { zh = false } = Astro.props;
 const deals = getDeals(zh);
 
 const eyebrow = zh ? '成交记录' : 'Closed Deals';
-const heading = zh ? '近期完成的全部签约' : 'Recent closed transactions';
-const lead = zh
-  ? '近期在多伦多及大多地区(及汉密尔顿)完成的租赁及购房交易记录。'
-  : "A running record of recent rentals and sales I've closed across the GTA and Hamilton.";
+const heading = zh ? '成交记录:大多伦多地区' : 'Deal History: Greater Toronto Area';
 ---
 
 <section id="recent-deals" class="major recent-deals-archive">
@@ -20,7 +17,6 @@ const lead = zh
     <div class="section-head">
       <div class="section-eyebrow">{eyebrow}</div>
       <h2 class="section-h">{heading}</h2>
-      <p class="section-lead">{lead}</p>
     </div>
     <div class="deals-archive-grid">
       {deals.map((d) => (
