@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+import RecentDealsArchive from '../components/RecentDealsArchive.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="Past Deals — Peter Law Toronto Real Estate" description="A running record of recent rentals and sales closed by Peter Law across the Greater Toronto Area.">
+  <TopBar />
+  <Header active="about" ctaLabel="Book a call" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow"><a href="/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>About</a> · Past Deals</div>
+      <h1>Deal History: Greater Toronto Area</h1>
+      <p class="article-lead">A running list of recently closed transactions. Updated as new deals close.</p>
+    </div>
+  </section>
+
+  <RecentDealsArchive />
+
+  <CTASection heading="Looking for your next place?" lead="The same playbook that closed these deals is the one I'll use for yours. Fifteen-minute intro call, no obligation." ctaTitle="Book a call" />
+  <Footer />
+</BaseLayout>
