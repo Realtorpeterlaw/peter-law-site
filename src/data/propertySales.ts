@@ -38,8 +38,8 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表卖家方',
     photo: '/photos/77-mcgill-st.png',
     detailsUrl: '#',
-    details_en: 'Breaking Record Sale in my career. Represented Sellers. Builders/Developers were interested in the property, made some calls and got the HIGHEST price compared to the other 2 houses.',
-    details_zh: '我职业生涯中的破纪录成交 · 代表卖家方 · 多家开发商对该物业有意,经过几通电话沟通,最终在三栋同类房屋中拿下最高成交价。',
+    details_en: 'Highest Sale in my Career. Represented Sellers. Builders/Developers were interested in the property, made some calls and got the HIGHEST price compared to the other 2 houses.',
+    details_zh: '我职业生涯中价格最高的一单成交 · 代表卖家方 · 多家开发商对该物业有意,经过几通电话沟通,最终在三栋同类房屋中拿下最高成交价。',
   },
   {
     category: 'Condo',
