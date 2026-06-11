@@ -61,10 +61,10 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <li><a href="/blog" class={active === 'blog' ? 'active' : ''}>Blog</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} tabindex="0" aria-haspopup="true">
+          <a href="/about" class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} aria-haspopup="true">
             <span class="trigger-text">About</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="/about">About Me</a></li>
             <li><a href="/past-deals">Sale History</a></li>
