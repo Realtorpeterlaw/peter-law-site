@@ -2,7 +2,7 @@
 // Add new listings here. category drives the filter system.
 
 export interface PropertySale {
-  category: 'House' | 'Condo';
+  category: 'House' | 'Condo' | 'Rental';
   price: string;
   propertyName_en: string;
   propertyName_zh: string;

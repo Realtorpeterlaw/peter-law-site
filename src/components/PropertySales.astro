@@ -10,14 +10,16 @@ const labels = zh
   ? {
       housesTab: '独立屋',
       condosTab: '公寓',
+      rentalTab: '租赁',
       viewDetails: '查看详情 →',
       bedroom: '卧室',
       bathroom: '浴室',
       emptyState: '该分类下暂无成交记录。',
     }
   : {
-      housesTab: 'Houses',
-      condosTab: 'Condos',
+      housesTab: 'House',
+      condosTab: 'Condo',
+      rentalTab: 'Rental',
       viewDetails: 'View details →',
       bedroom: 'Bedroom',
       bathroom: 'Bathroom',
@@ -29,6 +31,7 @@ const labels = zh
     <div class="sales-filter" role="tablist" aria-label="Filter by property type">
       <button type="button" class="sales-filter-tab is-active" data-filter="House" role="tab" aria-selected="true">{labels.housesTab}</button>
       <button type="button" class="sales-filter-tab" data-filter="Condo" role="tab" aria-selected="false">{labels.condosTab}</button>
+      <button type="button" class="sales-filter-tab" data-filter="Rental" role="tab" aria-selected="false">{labels.rentalTab}</button>
     </div>
     <div class="sales-grid" data-empty-text={labels.emptyState}>
       {propertySales.map((p) => (
