@@ -1,4 +1,5 @@
 ---
+import RecentDeals from '../../components/RecentDeals.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
@@ -46,6 +47,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
       <a class="proof-item proof-link" href="https://www.homelifegolconda.com/" target="_blank" rel="noopener"><div class="proof-num">HomeLife</div><div class="proof-lbl">Golconda Realty Inc.</div></a>
     </div>
   </section>
+
+  <RecentDeals zh={true} />
 
   <section class="boc-widget" aria-label="加拿大银行利率与安大略省租金涨幅指导">
     <div class="wrap">

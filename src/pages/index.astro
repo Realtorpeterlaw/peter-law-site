@@ -1,4 +1,5 @@
 ---
+import RecentDeals from '../components/RecentDeals.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
@@ -48,6 +49,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
       <a class="proof-item proof-link" href="https://www.homelifegolconda.com/" target="_blank" rel="noopener"><div class="proof-num">HomeLife</div><div class="proof-lbl">Golconda Realty Inc.</div></a>
     </div>
   </section>
+
+  <RecentDeals />
 
   <section class="boc-widget" aria-label="Bank of Canada interest rate and Ontario rent increase guideline">
     <div class="wrap">

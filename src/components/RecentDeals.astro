@@ -1,0 +1,160 @@
+---
+export interface Props {
+  zh?: boolean;
+}
+const { zh = false } = Astro.props;
+
+const deals = zh ? [
+  {
+    moveIn: '入住:2026 年 6 月',
+    intersection: 'Jarvis St 与 Carlton St',
+    rent: '$2,050',
+    period: '/ 月',
+    note: '国际背景租客 · 仅以首月加末月租金完成签约。',
+  },
+  {
+    moveIn: '入住:2026 年 6 月',
+    intersection: 'Jarvis St 与 Queen St E',
+    rent: '$2,400',
+    period: '/ 月',
+    note: '流程顺畅,快速签约。',
+  },
+  {
+    moveIn: '入住:2026 年 7 月',
+    intersection: 'Jarvis St 与 Dundas St E',
+    rent: '$2,400',
+    period: '/ 月',
+    note: '国际背景租客 · 仅以首月加末月租金完成签约 · 协议每月减租 $450。',
+  },
+] : [
+  {
+    moveIn: 'Move-in June 2026',
+    intersection: 'Jarvis St & Carlton St',
+    rent: '$2,050',
+    period: '/ month',
+    note: 'International Worker, secured First and Last months Rent ONLY!',
+  },
+  {
+    moveIn: 'Move-in June 2026',
+    intersection: 'Jarvis St & Queen St E',
+    rent: '$2,400',
+    period: '/ month',
+    note: 'Quick & Smooth transaction.',
+  },
+  {
+    moveIn: 'Move-in July 2026',
+    intersection: 'Jarvis St & Dundas St E',
+    rent: '$2,400',
+    period: '/ month',
+    note: 'International Worker, secured First and Last months Rent ONLY! +$450 Discount!!',
+  },
+];
+
+const eyebrow = zh ? '近期成交 · 2026' : 'Recent deals · 2026';
+const headline = zh ? '活跃于市场' : 'Active in the market';
+const prevLabel = zh ? '上一条' : 'Previous deal';
+const nextLabel = zh ? '下一条' : 'Next deal';
+const goLabel = zh ? '前往第' : 'Go to slide';
+const goLabelSuffix = zh ? ' 条' : '';
+const carouselLabel = zh ? '近期成交轮播' : 'Recent deals carousel';
+---
+
+<section class="recent-deals" aria-label={carouselLabel}>
+  <div class="wrap">
+    <div class="recent-deals-header">
+      <div class="eyebrow">{eyebrow}</div>
+      <h2>{headline}</h2>
+    </div>
+
+    <div class="deals-carousel" data-rotate-ms="6500">
+      <div class="deals-track">
+        {deals.map((d, i) => (
+          <article
+            class={`deal-card ${i === 0 ? 'is-active' : ''}`}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${i + 1} / ${deals.length}`}
+            data-slide={i}
+          >
+            <div class="deal-card-inner">
+              <div class="deal-eyebrow">{d.moveIn}</div>
+              <div class="deal-location">{d.intersection}</div>
+              <div class="deal-rent">
+                <span class="deal-rent-amount">{d.rent}</span>
+                <span class="deal-rent-period">{d.period}</span>
+              </div>
+              <p class="deal-note">{d.note}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="deals-controls">
+        <button type="button" class="deals-arrow deals-prev" aria-label={prevLabel}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 1L3 7l6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="deals-dots" role="tablist">
+          {deals.map((_, i) => (
+            <button
+              type="button"
+              class={`deals-dot ${i === 0 ? 'is-active' : ''}`}
+              data-dot={i}
+              aria-label={`${goLabel} ${i + 1}${goLabelSuffix}`}
+            ></button>
+          ))}
+        </div>
+        <button type="button" class="deals-arrow deals-next" aria-label={nextLabel}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    function initRecentDeals() {
+      document.querySelectorAll('.deals-carousel').forEach(function (carousel) {
+        var cards = carousel.querySelectorAll('.deal-card');
+        var dots = carousel.querySelectorAll('.deals-dot');
+        var prev = carousel.querySelector('.deals-prev');
+        var next = carousel.querySelector('.deals-next');
+        var current = 0;
+        var intervalId = null;
+        var rotateMs = parseInt(carousel.getAttribute('data-rotate-ms') || '6500', 10);
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function show(i) {
+          current = (i + cards.length) % cards.length;
+          cards.forEach(function (c, idx) { c.classList.toggle('is-active', idx === current); });
+          dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === current); });
+        }
+        function start() {
+          if (intervalId || reduceMotion) return;
+          intervalId = setInterval(function () { show(current + 1); }, rotateMs);
+        }
+        function stop() {
+          if (intervalId) { clearInterval(intervalId); intervalId = null; }
+        }
+
+        dots.forEach(function (dot, i) {
+          dot.addEventListener('click', function () { show(i); stop(); start(); });
+        });
+        if (prev) prev.addEventListener('click', function () { show(current - 1); stop(); start(); });
+        if (next) next.addEventListener('click', function () { show(current + 1); stop(); start(); });
+
+        carousel.addEventListener('mouseenter', stop);
+        carousel.addEventListener('mouseleave', start);
+        carousel.addEventListener('focusin', stop);
+        carousel.addEventListener('focusout', start);
+
+        start();
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initRecentDeals);
+    } else {
+      initRecentDeals();
+    }
+  })();
+</script>
