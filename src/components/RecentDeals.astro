@@ -15,8 +15,6 @@ const goLabel = zh ? '前往第 ' : 'Go to slide ';
 const goLabelSuffix = zh ? ' 条' : '';
 const prevLabel = zh ? '上一条' : 'Previous deal';
 const nextLabel = zh ? '下一条' : 'Next deal';
-const seeAllLabel = zh ? '查看全部成交记录 →' : 'See all closed deals →';
-const seeAllHref = zh ? '/chinese/about#recent-deals' : '/about#recent-deals';
 ---
 
 <section class="recent-deals" aria-label={carouselLabel}>
@@ -66,9 +64,6 @@ const seeAllHref = zh ? '/chinese/about#recent-deals' : '/about#recent-deals';
           <span class="deals-counter-current">1</span> / <span class="deals-counter-total">{deals.length}</span>
         </div>
       </div>
-    </div>
-    <div class="recent-deals-cta">
-      <a class="recent-deals-cta-link" href={seeAllHref}>{seeAllLabel}</a>
     </div>
   </div>
 </section>
