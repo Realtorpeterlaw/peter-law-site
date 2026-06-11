@@ -88,8 +88,7 @@ const deals = zh ? [
   },
 ];
 
-const sectionEyebrow = zh ? '近期成交' : 'Recent work';
-const sectionHeading = zh ? '本季完成的签约' : 'Closed this season';
+const sectionHeading = zh ? '近期成交记录' : 'Recent Closed Deals';
 const carouselLabel = zh ? '近期成交轮播' : 'Recent deals carousel';
 const goLabel = zh ? '前往第 ' : 'Go to slide ';
 const goLabelSuffix = zh ? ' 条' : '';
@@ -99,6 +98,9 @@ const nextLabel = zh ? '下一条' : 'Next deal';
 
 <section class="recent-deals" aria-label={carouselLabel}>
   <div class="wrap">
+    <header class="recent-deals-heading">
+      <h2 class="section-h">{sectionHeading}</h2>
+    </header>
     <div class="deals-carousel" data-rotate-ms="6500">
       <button type="button" class="deals-arrow deals-prev" aria-label={prevLabel}>
         <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 1L3 7l6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
