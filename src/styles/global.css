@@ -1215,8 +1215,14 @@ body.mobile-menu-open { overflow: hidden; }
   font-weight: 400;
   color: var(--ink);
   margin-top: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 2px;
   letter-spacing: -0.005em;
+}
+.deal-city {
+  font-size: 13px;
+  color: var(--ink-mute);
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
 }
 .deal-note {
   font-size: 15px;
@@ -1266,7 +1272,8 @@ body.mobile-menu-open { overflow: hidden; }
   .deal-eyebrow { margin-bottom: 18px; }
   .deal-rent-amount { font-size: 34px; }
   .deal-rent-period { font-size: 12.5px; }
-  .deal-location { font-size: 18px; margin-bottom: 12px; }
+  .deal-location { font-size: 18px; margin-bottom: 2px; }
+  .deal-city { font-size: 12px; margin-bottom: 12px; }
   .deal-note { font-size: 14px; }
   .deals-footer { margin-top: 20px; }
 }

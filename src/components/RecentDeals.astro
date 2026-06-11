@@ -8,6 +8,7 @@ const deals = zh ? [
   {
     monthYear: '2026 年 6 月',
     intersection: 'Jarvis St 与 Carlton St',
+    city: '多伦多,安省',
     rent: '$2,050',
     period: '/ 月',
     note: '国际背景租客 · 仅以首月加末月租金完成签约。',
@@ -15,6 +16,7 @@ const deals = zh ? [
   {
     monthYear: '2026 年 6 月',
     intersection: 'Jarvis St 与 Queen St E',
+    city: '多伦多,安省',
     rent: '$2,400',
     period: '/ 月',
     note: '流程顺畅,快速签约。',
@@ -22,6 +24,7 @@ const deals = zh ? [
   {
     monthYear: '2026 年 7 月',
     intersection: 'Jarvis St 与 Dundas St E',
+    city: '多伦多,安省',
     rent: '$2,400',
     period: '/ 月',
     note: '国际背景租客 · 仅以首月加末月租金完成签约 · 协议每月减租 $450。',
@@ -29,6 +32,7 @@ const deals = zh ? [
   {
     monthYear: '2026 年 6 月',
     intersection: 'Birchmount Rd 与 Lawrence Ave E',
+    city: '多伦多,安省',
     rent: '$2,000',
     period: '/ 月',
     note: '难得好房,房源紧俏。在挂牌价基础上谈下每月 $100。',
@@ -37,6 +41,7 @@ const deals = zh ? [
   {
     monthYear: 'June 2026',
     intersection: 'Jarvis St & Carlton St',
+    city: 'Toronto, Ontario',
     rent: '$2,050',
     period: '/ month',
     note: 'International Worker, secured First and Last months Rent ONLY!',
@@ -44,6 +49,7 @@ const deals = zh ? [
   {
     monthYear: 'June 2026',
     intersection: 'Jarvis St & Queen St E',
+    city: 'Toronto, Ontario',
     rent: '$2,400',
     period: '/ month',
     note: 'Quick & Smooth transaction.',
@@ -51,6 +57,7 @@ const deals = zh ? [
   {
     monthYear: 'July 2026',
     intersection: 'Jarvis St & Dundas St E',
+    city: 'Toronto, Ontario',
     rent: '$2,400',
     period: '/ month',
     note: 'International Worker, secured First and Last months Rent ONLY! +$450 Discount!!',
@@ -58,6 +65,7 @@ const deals = zh ? [
   {
     monthYear: 'June 2026',
     intersection: 'Birchmount Rd & Lawrence Ave E',
+    city: 'Toronto, Ontario',
     rent: '$2,000',
     period: '/ month',
     note: 'Great catch. Limited supplies. Negotiated $100 from listed price!!',
@@ -97,6 +105,7 @@ const nextLabel = zh ? '下一条' : 'Next deal';
               <span class="deal-rent-period">{d.period}</span>
             </div>
             <div class="deal-location">{d.intersection}</div>
+            <div class="deal-city">{d.city}</div>
             <p class="deal-note">{d.note}</p>
           </article>
         ))}
