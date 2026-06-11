@@ -29,7 +29,7 @@ export const propertySales: PropertySale[] = [
     bathrooms: 3,
     status_en: 'Sold',
     status_zh: '已售',
-    photo: '/photos/77-mcgill-st.webp',
+    photo: '/photos/77-mcgill-st.png',
     detailsUrl: '#',
   },
 ];
