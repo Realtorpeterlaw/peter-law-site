@@ -1117,7 +1117,7 @@ body.mobile-menu-open { overflow: hidden; }
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 6px;
-  padding: 34px 38px;
+  padding: 34px 58px;
   position: relative;
 }
 
@@ -1259,7 +1259,7 @@ body.mobile-menu-open { overflow: hidden; }
 
 @media (max-width: 640px) {
   .recent-deals { padding: 14px 0 20px; }
-  .deals-carousel { padding: 24px 22px; border-radius: 4px; }
+  .deals-carousel { padding: 24px 42px; border-radius: 4px; }
   .deals-arrow { width: 28px; height: 28px; }
   .deals-prev { left: 6px; }
   .deals-next { right: 6px; }
