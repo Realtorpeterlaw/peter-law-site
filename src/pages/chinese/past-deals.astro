@@ -21,6 +21,11 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <div class="hero-photo">
           <img src="/photos/peter-portrait.webp" alt="Peter Law,多伦多房地产销售代表,身后是 CN 塔。" width="1500" height="1887" loading="eager" />
         </div>
+        <div class="agent-byline">
+          <div class="agent-name">Peter Law</div>
+          <div class="agent-title">销售代表</div>
+          <div class="agent-brokerage">Home Life Golconda Realty., Inc</div>
+        </div>
       </div>
     </div>
   </section>
@@ -30,3 +35,34 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <ChineseCTASection heading="在寻找下一个家?" lead="为这些客户达成签约的同一套流程,也会用在您身上。免费 15 分钟介绍通话,无任何义务。" ctaTitle="预约通话" />
   <ChineseFooter />
 </BaseLayout>
+
+<style>
+  .agent-byline { margin-top: 22px; max-width: 480px; }
+  .agent-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .agent-title {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  .agent-brokerage {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 12px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+  }
+  @media (max-width: 640px) {
+    .agent-name { font-size: 26px; }
+    .agent-brokerage { font-size: 19px; }
+  }
+</style>

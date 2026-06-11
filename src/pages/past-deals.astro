@@ -21,6 +21,11 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <div class="hero-photo">
           <img src="/photos/peter-portrait.webp" alt="Peter Law, Toronto real estate sales representative, with the CN Tower behind him." width="1500" height="1887" loading="eager" />
         </div>
+        <div class="agent-byline">
+          <div class="agent-name">Peter Law</div>
+          <div class="agent-title">Sales Representative</div>
+          <div class="agent-brokerage">Home Life Golconda Realty., Inc</div>
+        </div>
       </div>
     </div>
   </section>
@@ -30,3 +35,34 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <CTASection heading="Looking for your next place?" lead="The same playbook that closed these deals is the one I'll use for yours. Fifteen-minute intro call, no obligation." ctaTitle="Book a call" />
   <Footer />
 </BaseLayout>
+
+<style>
+  .agent-byline { margin-top: 22px; max-width: 480px; }
+  .agent-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .agent-title {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  .agent-brokerage {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 12px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+  }
+  @media (max-width: 640px) {
+    .agent-name { font-size: 26px; }
+    .agent-brokerage { font-size: 19px; }
+  }
+</style>
