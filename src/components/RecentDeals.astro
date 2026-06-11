@@ -6,18 +6,21 @@ const { zh = false } = Astro.props;
 
 const deals = zh ? [
   {
+    monthYear: '2026 年 6 月',
     intersection: 'Jarvis St 与 Carlton St',
     rent: '$2,050',
     period: '/ 月',
     note: '国际背景租客 · 仅以首月加末月租金完成签约。',
   },
   {
+    monthYear: '2026 年 6 月',
     intersection: 'Jarvis St 与 Queen St E',
     rent: '$2,400',
     period: '/ 月',
     note: '流程顺畅,快速签约。',
   },
   {
+    monthYear: '2026 年 7 月',
     intersection: 'Jarvis St 与 Dundas St E',
     rent: '$2,400',
     period: '/ 月',
@@ -25,18 +28,21 @@ const deals = zh ? [
   },
 ] : [
   {
+    monthYear: 'June 2026',
     intersection: 'Jarvis St & Carlton St',
     rent: '$2,050',
     period: '/ month',
     note: 'International Worker, secured First and Last months Rent ONLY!',
   },
   {
+    monthYear: 'June 2026',
     intersection: 'Jarvis St & Queen St E',
     rent: '$2,400',
     period: '/ month',
     note: 'Quick & Smooth transaction.',
   },
   {
+    monthYear: 'July 2026',
     intersection: 'Jarvis St & Dundas St E',
     rent: '$2,400',
     period: '/ month',
@@ -63,6 +69,7 @@ const goLabelSuffix = zh ? ' 条' : '';
             data-slide={i}
           >
             <div class="deal-eyebrow">{eyebrow}</div>
+            <div class="deal-month-year">{d.monthYear}</div>
             <div class="deal-rent">
               <span class="deal-rent-amount">{d.rent}</span>
               <span class="deal-rent-period">{d.period}</span>
