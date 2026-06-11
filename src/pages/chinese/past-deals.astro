@@ -4,6 +4,7 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+import PropertySales from '../../components/PropertySales.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
 <BaseLayout title="销售记录 — Peter Law 多伦多房地产" description="Peter Law 在大多伦多地区近期完成的租赁与购房交易记录。" zh={true}>
@@ -29,6 +30,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     </div>
   </section>
 
+
+  <PropertySales zh={true} />
 
   <ChineseCTASection heading="在寻找下一个家?" lead="为这些客户达成签约的同一套流程,也会用在您身上。免费 15 分钟介绍通话,无任何义务。" ctaTitle="预约通话" />
   <ChineseFooter />

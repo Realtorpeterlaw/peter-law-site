@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+import PropertySales from '../components/PropertySales.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
 <BaseLayout title="Sale History — Peter Law Toronto Real Estate" description="A running record of recent rentals and sales closed by Peter Law across the Greater Toronto Area.">
@@ -29,6 +30,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     </div>
   </section>
 
+
+  <PropertySales />
 
   <CTASection heading="Looking for your next place?" lead="The same playbook that closed these deals is the one I'll use for yours. Fifteen-minute intro call, no obligation." ctaTitle="Book a call" />
   <Footer />
