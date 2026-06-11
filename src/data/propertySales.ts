@@ -14,6 +14,8 @@ export interface PropertySale {
   status_zh: string;
   photo: string;
   detailsUrl: string;
+  details_en?: string;
+  details_zh?: string;
   date?: string; // optional 'YYYY-MM' for future sorting
 }
 
@@ -23,8 +25,8 @@ export const propertySales: PropertySale[] = [
     price: '$5,000,000',
     propertyName_en: 'McGill-Granby Residences',
     propertyName_zh: 'McGill-Granby Residences',
-    address_en: '77 McGill Street',
-    address_zh: '77 McGill Street',
+    address_en: '77 McGill Street, Toronto, Ontario',
+    address_zh: '77 McGill Street, 多伦多, 安省',
     bedrooms: 5,
     bathrooms: 3,
     status_en: 'Sold',

@@ -49,7 +49,14 @@ const labels = zh
             <div class="sale-features">
               <span>{p.bedrooms} {labels.bedroom}</span><span class="dot"> · </span><span>{p.bathrooms} {labels.bathroom}</span>
             </div>
-            <a class="sale-details-link" href={p.detailsUrl}>{labels.viewDetails}</a>
+            <details class="sale-details">
+              <summary class="sale-details-summary">{labels.viewDetails}</summary>
+              <div class="sale-details-body">
+                {(zh ? p.details_zh : p.details_en)
+                  ? <p>{zh ? p.details_zh : p.details_en}</p>
+                  : <p class="sale-details-empty">{zh ? '更多详情即将更新。' : 'More details coming soon.'}</p>}
+              </div>
+            </details>
           </div>
         </article>
       ))}
@@ -205,16 +212,38 @@ const labels = zh
     margin-top: 10px;
   }
   .sale-features .dot { color: var(--ink-mute); margin: 0 2px; }
-  .sale-details-link {
+  .sale-details {
     margin-top: 12px;
-    align-self: flex-start;
+    align-self: stretch;
+  }
+  .sale-details-summary {
+    cursor: pointer;
+    list-style: none;
     font-size: 14px;
     color: var(--ink);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
+    display: inline-block;
+    transition: color 0.15s;
   }
-  .sale-details-link:hover { color: var(--ink-soft); }
+  .sale-details-summary::-webkit-details-marker { display: none; }
+  .sale-details-summary::marker { content: ''; }
+  .sale-details-summary:hover { color: var(--ink-soft); }
+  .sale-details[open] .sale-details-summary { color: var(--ink-soft); }
+  .sale-details-body {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .sale-details-body p { margin: 0; }
+  .sale-details-empty {
+    color: var(--ink-mute);
+    font-style: italic;
+  }
 
   .sales-empty {
     text-align: center;
