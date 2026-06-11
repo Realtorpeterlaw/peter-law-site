@@ -44,9 +44,9 @@ export const dealsRaw: DealRaw[] = [
     intersection_zh: 'Jarvis St 与 Queen St E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
-    rent: '$2,400',
-    note_en: 'International Workers, secured First and Last months Rent ONLY! Previously rented for $2,850 per month (2023).',
-    note_zh: '国际背景租客 · 仅以首月加末月租金完成签约 · 该单位 2023 年月租为 $2,850。',
+    rent: '$2,200',
+    note_en: 'Easy and Smooth Transaction. Brand-new, Never lived in Unit:',
+    note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
     date: '2026-07',
