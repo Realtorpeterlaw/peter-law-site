@@ -24,7 +24,11 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <div class="agent-byline">
           <div class="agent-name">Peter Law</div>
           <div class="agent-title">Sales Representative</div>
-          <div class="agent-brokerage">Home Life Golconda Realty., Inc</div>
+          <div class="agent-brokerage">Home Life Golconda Realty., Inc Brokerage.</div>
+          <div class="agent-phones">
+            <div><span class="lbl">DIRECT:</span> <a href="tel:+16478888472">(647) 888 - 8472</a></div>
+            <div><span class="lbl">OFFICE:</span> <a href="tel:+19058888819">(905) 888 - 8819</a></div>
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +81,27 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     letter-spacing: -0.005em;
     line-height: 1.25;
   }
+  .agent-phones {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    font-variant-numeric: tabular-nums;
+  }
+  .agent-phones .lbl {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .agent-phones a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .agent-phones a:hover { border-bottom-color: var(--ink-mute); }
   @media (max-width: 640px) {
     .agent-name { font-size: 26px; }
     .agent-brokerage { font-size: 19px; }
