@@ -1111,13 +1111,19 @@ body.mobile-menu-open { overflow: hidden; }
 
 /* ===== Recent Deals carousel (minimal left-aligned card) ===== */
 .recent-deals { padding: 22px 0 28px; margin-top: -60px; }
-.recent-deals .wrap { max-width: 720px; }
+.recent-deals .wrap { max-width: 960px; }
+.recent-deals-heading { text-align: left; margin-bottom: 26px; max-width: 720px; }
+.recent-deals-heading .section-eyebrow { margin-bottom: 12px; }
+.recent-deals-heading .section-h { margin: 0; }
+@media (max-width: 640px) {
+  .recent-deals-heading { margin-bottom: 18px; }
+}
 
 .deals-carousel {
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 6px;
-  padding: 34px 58px;
+  padding: 36px 58px;
   position: relative;
 }
 
