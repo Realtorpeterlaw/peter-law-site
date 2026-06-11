@@ -1110,7 +1110,7 @@ body.mobile-menu-open { overflow: hidden; }
 }
 
 /* ===== Recent Deals carousel (minimal left-aligned card) ===== */
-.recent-deals { padding: 22px 0 28px; }
+.recent-deals { padding: 22px 0 28px; margin-top: -60px; }
 .recent-deals .wrap { max-width: 720px; }
 
 .deals-carousel {
@@ -1258,7 +1258,7 @@ body.mobile-menu-open { overflow: hidden; }
 }
 
 @media (max-width: 640px) {
-  .recent-deals { padding: 14px 0 20px; }
+  .recent-deals { padding: 14px 0 20px; margin-top: -36px; }
   .deals-carousel { padding: 24px 42px; border-radius: 4px; }
   .deals-arrow { width: 28px; height: 28px; }
   .deals-prev { left: 6px; }
