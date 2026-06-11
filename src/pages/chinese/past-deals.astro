@@ -7,14 +7,19 @@ import ChineseCTASection from '../../components/ChineseCTASection.astro';
 import RecentDealsArchive from '../../components/RecentDealsArchive.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
-<BaseLayout title="成交记录 — Peter Law 多伦多房地产" description="Peter Law 在大多伦多地区近期完成的租赁与购房交易记录。" zh={true}>
+<BaseLayout title="销售记录 — Peter Law 多伦多房地产" description="Peter Law 在大多伦多地区近期完成的租赁与购房交易记录。" zh={true}>
   <ChineseTopBar />
   <ChineseHeader active="about" ctaLabel="预约通话" />
 
-  <section class="page-hero">
-    <div class="wrap">
-      <div class="eyebrow"><a href="/chinese/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>关于</a> · 成交记录</div>
-      <h1>销售记录</h1>
+  <section class="past-hero">
+    <div class="wrap past-hero-grid">
+      <div class="past-hero-photo">
+        <img src="/photos/peter-walking.webp" alt="Peter Law,多伦多房地产销售代表,身后是 CN 塔。" width="1500" height="1887" loading="eager" />
+      </div>
+      <div class="past-hero-text">
+        <div class="eyebrow"><a href="/chinese/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>关于</a> · 销售记录</div>
+        <h1>销售记录</h1>
+      </div>
     </div>
   </section>
 
@@ -23,3 +28,41 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <ChineseCTASection heading="在寻找下一个家?" lead="为这些客户达成签约的同一套流程,也会用在您身上。免费 15 分钟介绍通话,无任何义务。" ctaTitle="预约通话" />
   <ChineseFooter />
 </BaseLayout>
+
+<style>
+  .past-hero { padding: 56px 0 56px; }
+  .past-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .past-hero-photo {
+    aspect-ratio: 4 / 5;
+    background: var(--bg-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 440px;
+  }
+  .past-hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .past-hero-text .eyebrow { margin-bottom: 22px; }
+  .past-hero-text h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.018em;
+    margin: 0;
+    color: var(--ink);
+  }
+  @media (max-width: 900px) {
+    .past-hero { padding: 36px 0 36px; }
+    .past-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .past-hero-photo { max-width: 320px; }
+  }
+</style>
