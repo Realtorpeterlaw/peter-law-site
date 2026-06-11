@@ -12,6 +12,8 @@ export interface PropertySale {
   bathrooms: number;
   status_en: string;
   status_zh: string;
+  representation_en?: string;
+  representation_zh?: string;
   photo: string;
   detailsUrl: string;
   details_en?: string;
@@ -31,6 +33,8 @@ export const propertySales: PropertySale[] = [
     bathrooms: 3,
     status_en: 'Sold',
     status_zh: '已售',
+    representation_en: 'Represented Sellers',
+    representation_zh: '代表卖家方',
     photo: '/photos/77-mcgill-st.png',
     detailsUrl: '#',
     details_en: 'Breaking Record Sale in my career. Represented Sellers. Builders/Developers were interested in the property, made some calls and got the HIGHEST price compared to the other 2 houses.',

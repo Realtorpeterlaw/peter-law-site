@@ -42,7 +42,12 @@ const labels = zh
           <div class="sale-card-info">
             <div class="sale-card-top">
               <div class="sale-price">{p.price}</div>
-              <div class="sale-status">{zh ? p.status_zh : p.status_en}</div>
+              <div class="sale-status-group">
+                <div class="sale-status">{zh ? p.status_zh : p.status_en}</div>
+                {(zh ? p.representation_zh : p.representation_en) && (
+                  <div class="sale-rep">{zh ? p.representation_zh : p.representation_en}</div>
+                )}
+              </div>
             </div>
             <div class="sale-name">{zh ? p.propertyName_en : p.propertyName_en}</div>
             <div class="sale-address">{zh ? p.address_zh : p.address_en}</div>
@@ -186,12 +191,25 @@ const labels = zh
     letter-spacing: -0.01em;
     line-height: 1.1;
   }
+  .sale-status-group {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
   .sale-status {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     color: var(--ink-mute);
     font-weight: 600;
+  }
+  .sale-rep {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    font-style: italic;
   }
 
   .sale-name {
