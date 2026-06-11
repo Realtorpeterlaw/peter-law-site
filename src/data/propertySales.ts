@@ -55,7 +55,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
-    photo: '/photos/55-mercer-st.png',
+    photo: '/photos/55-mercer-st.jpg',
     detailsUrl: '#',
   },
 ];
