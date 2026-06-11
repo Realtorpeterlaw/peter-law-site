@@ -45,8 +45,8 @@ export const dealsRaw: DealRaw[] = [
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
     rent: '$2,400',
-    note_en: "Two (2) Ambitious International Workers secured a 1 Bed + Den for ONLY First and Last month's Rental Deposit. Not Easy. Previously rented for $2,850 per month (2023).",
-    note_zh: '两位有抱负的国际背景租客成功签约一房加书房 · 仅以首月加末月租金完成签约 · 实属不易 · 该单位 2023 年月租为 $2,850。',
+    note_en: 'International Workers, secured First and Last months Rent ONLY! Previously rented for $2,850 per month (2023).',
+    note_zh: '国际背景租客 · 仅以首月加末月租金完成签约 · 该单位 2023 年月租为 $2,850。',
   },
   {
     date: '2026-07',
