@@ -33,5 +33,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     photo: '/photos/77-mcgill-st.png',
     detailsUrl: '#',
+    details_en: 'Breaking Record Sale in my career. Represented Sellers. Builders/Developers were interested in the property, made some calls and got a fantastic price (x2.5) compared to the other 2 houses.',
+    details_zh: '我职业生涯中的破纪录成交 · 代表卖家方 · 多家开发商对该物业有意,经过几通电话沟通,最终成交价比另外两栋同类房屋高出约 2.5 倍。',
   },
 ];
