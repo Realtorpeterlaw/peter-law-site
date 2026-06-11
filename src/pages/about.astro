@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+import RecentDealsArchive from '../components/RecentDealsArchive.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
 <BaseLayout title="About Peter Law — Toronto Real Estate" description="Peter Law: born and raised in downtown Toronto. Former Airbnb host with 400+ guest reviews. Sales Representative at HomeLife Golconda Realty Inc.">
@@ -89,6 +90,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
       </div>
     </div>
   </section>
+
+  <RecentDealsArchive />
 
   <CTASection heading="The fastest way to know if we're a fit." lead="A 15-minute call. We talk through your situation. You decide if you want to keep going." ctaTitle="Book a call" />
   <Footer />

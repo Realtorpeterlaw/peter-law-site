@@ -1282,3 +1282,46 @@ body.mobile-menu-open { overflow: hidden; }
   .deal-note { font-size: 14px; }
   .deals-footer { margin-top: 20px; }
 }
+
+
+/* ===== Recent Deals — CTA link below carousel ===== */
+.recent-deals-cta { margin-top: 18px; text-align: left; max-width: 720px; }
+.recent-deals-cta-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  letter-spacing: 0.01em;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.recent-deals-cta-link:hover { color: var(--ink-soft); }
+
+/* ===== Recent Deals — archive grid on About page ===== */
+.recent-deals-archive .section-head { max-width: 680px; margin-bottom: 36px; }
+.deals-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 22px;
+  max-width: 1000px;
+}
+.deals-archive-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 26px 28px;
+  text-align: left;
+}
+.deals-archive-card .deal-month-year { margin-bottom: 4px; }
+.deals-archive-card .deal-rent { margin-bottom: 4px; }
+.deals-archive-card .deal-rent-amount { font-size: 30px; }
+.deals-archive-card .deal-rent-period { font-size: 12.5px; }
+.deals-archive-card .deal-location { font-size: 18px; margin-top: 6px; margin-bottom: 2px; }
+.deals-archive-card .deal-city { font-size: 12.5px; margin-bottom: 12px; }
+.deals-archive-card .deal-note { font-size: 14px; line-height: 1.55; }
+@media (max-width: 640px) {
+  .deals-archive-grid { grid-template-columns: 1fr; gap: 16px; }
+  .deals-archive-card { padding: 22px 22px; }
+  .deals-archive-card .deal-rent-amount { font-size: 26px; }
+}

@@ -4,6 +4,7 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+import RecentDealsArchive from '../../components/RecentDealsArchive.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
 <BaseLayout title="关于 Peter Law — 多伦多房地产" description="Peter Law:在多伦多市中心土生土长。前 Airbnb 房东,400+ 客户好评。HomeLife Golconda Realty Inc. 注册销售代表。" zh={true}>
@@ -89,6 +90,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
       </div>
     </div>
   </section>
+
+  <RecentDealsArchive zh={true} />
 
   <ChineseCTASection heading="判断是否合适的最快方式。" lead="15 分钟通话。我们聊聊您的情况。要不要继续,由您决定。" ctaTitle="预约通话" />
   <ChineseFooter />

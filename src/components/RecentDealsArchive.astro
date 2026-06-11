@@ -1,0 +1,40 @@
+---
+import { getDeals } from '../data/recentDeals';
+
+export interface Props {
+  zh?: boolean;
+}
+const { zh = false } = Astro.props;
+
+const deals = getDeals(zh);
+
+const eyebrow = zh ? '成交记录' : 'Closed Deals';
+const heading = zh ? '近期完成的全部签约' : 'Recent closed transactions';
+const lead = zh
+  ? '近期在多伦多及大多地区(及汉密尔顿)完成的租赁及购房交易记录。'
+  : "A running record of recent rentals and sales I've closed across the GTA and Hamilton.";
+---
+
+<section id="recent-deals" class="major recent-deals-archive">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{eyebrow}</div>
+      <h2 class="section-h">{heading}</h2>
+      <p class="section-lead">{lead}</p>
+    </div>
+    <div class="deals-archive-grid">
+      {deals.map((d) => (
+        <article class="deals-archive-card">
+          <div class="deal-month-year">{d.monthYear}</div>
+          <div class="deal-rent">
+            <span class="deal-rent-amount">{d.rent}</span>
+            <span class="deal-rent-period">{d.period}</span>
+          </div>
+          <div class="deal-location">{d.intersection}</div>
+          <div class="deal-city">{d.city}</div>
+          <p class="deal-note">{d.note}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
