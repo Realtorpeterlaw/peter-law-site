@@ -13,11 +13,11 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
   <section class="past-hero">
     <div class="wrap past-hero-grid">
+      <div class="past-hero-text">
+        <div class="eyebrow"><a href="/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>About</a> · Past Deals</div>
       <div class="past-hero-photo">
         <img src="/photos/peter-portrait.webp" alt="Peter Law, Toronto real estate sales representative, with the CN Tower behind him." width="1500" height="1887" loading="eager" />
       </div>
-      <div class="past-hero-text">
-        <div class="eyebrow"><a href="/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>About</a> · Past Deals</div>
         <h1>Sale History</h1>
       </div>
     </div>
@@ -33,12 +33,13 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   .past-hero { padding: 56px 0 56px; }
   .past-hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 56px;
     align-items: center;
   }
   .past-hero-photo {
     aspect-ratio: 4 / 5;
+    margin-left: auto;
     background: var(--bg-warm);
     border-radius: 4px;
     overflow: hidden;
