@@ -45,7 +45,7 @@ export const dealsRaw: DealRaw[] = [
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
     rent: '$2,200',
-    note_en: 'Easy and Smooth Transaction. Brand-new, Never lived in Unit:',
+    note_en: 'Easy and Smooth Transaction. Brand-new, Never lived in Unit',
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
