@@ -48,8 +48,8 @@ export const propertySales: PropertySale[] = [
   {
     category: 'Condo',
     price: '$900,000',
-    propertyName_en: 'NO55 Mercer Condo',
-    propertyName_zh: 'NO55 Mercer Condo',
+    propertyName_en: 'NO55 Mercer',
+    propertyName_zh: 'NO55 Mercer',
     address_en: '55 Mercer Street, Toronto, Ontario',
     address_zh: '55 Mercer Street, 多伦多, 安省',
     bedrooms: 2,
@@ -65,8 +65,8 @@ export const propertySales: PropertySale[] = [
   {
     category: 'Condo',
     price: '$751,000',
-    propertyName_en: 'SCALA Condo',
-    propertyName_zh: 'SCALA Condo',
+    propertyName_en: 'SCALA',
+    propertyName_zh: 'SCALA',
     address_en: '25 Adra Grado Way, North York, Ontario',
     address_zh: '25 Adra Grado Way, 北约克, 安省',
     bedrooms: 2,
