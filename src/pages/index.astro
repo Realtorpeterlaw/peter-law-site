@@ -138,6 +138,15 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               <label for="quiz-movein">Move-in date*</label>
               <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
+            <div class="quiz-field">
+              <label for="quiz-notice">Have you given your Landlord 60 days notice?*</label>
+              <select id="quiz-notice" name="landlord_notice_60_days" required>
+                <option value="">Select…</option>
+                <option>Yes</option>
+                <option>No</option>
+                <option>N/A (not applicable)</option>
+              </select>
+            </div>
             <div class="quiz-field quiz-field-full">
               <label>Location preference* <span class="quiz-hint">(select all that apply)</span></label>
               <div class="quiz-checkboxes" data-checkbox-group="location">

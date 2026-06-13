@@ -136,6 +136,15 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               <label for="quiz-movein">入住日期*</label>
               <input id="quiz-movein" name="move_in_date" type="date" required>
             </div>
+            <div class="quiz-field">
+              <label for="quiz-notice">您是否已向房东发出 60 天通知?*</label>
+              <select id="quiz-notice" name="landlord_notice_60_days" required>
+                <option value="">请选择…</option>
+                <option>是</option>
+                <option>否</option>
+                <option>不适用</option>
+              </select>
+            </div>
             <div class="quiz-field quiz-field-full">
               <label>偏好地区* <span class="quiz-hint">(可多选)</span></label>
               <div class="quiz-checkboxes" data-checkbox-group="location">
