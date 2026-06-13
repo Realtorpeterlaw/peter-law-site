@@ -44,8 +44,8 @@ export const propertySales: PropertySale[] = [
   {
     category: 'Condo',
     price: '$900,000',
-    propertyName_en: 'NO55 Mercer Condos',
-    propertyName_zh: 'NO55 Mercer Condos',
+    propertyName_en: 'NO55 Mercer Condo',
+    propertyName_zh: 'NO55 Mercer Condo',
     address_en: '55 Mercer Street, Toronto, Ontario',
     address_zh: '55 Mercer Street, 多伦多, 安省',
     bedrooms: 2,
