@@ -49,6 +49,9 @@ const labels = zh
                 {(zh ? p.representation_zh : p.representation_en) && (
                   <div class="sale-rep">{zh ? p.representation_zh : p.representation_en}</div>
                 )}
+                {(zh ? p.representationNote_zh : p.representationNote_en) && (
+                  <div class="sale-rep-note">{zh ? p.representationNote_zh : p.representationNote_en}</div>
+                )}
               </div>
             </div>
             <div class="sale-name">{zh ? p.propertyName_en : p.propertyName_en}</div>
@@ -212,6 +215,12 @@ const labels = zh
     color: var(--ink-soft);
     letter-spacing: 0.01em;
     font-style: italic;
+  }
+  .sale-rep-note {
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+    margin-top: 2px;
   }
 
   .sale-name {

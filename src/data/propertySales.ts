@@ -15,6 +15,8 @@ export interface PropertySale {
   status_zh: string;
   representation_en?: string;
   representation_zh?: string;
+  representationNote_en?: string;
+  representationNote_zh?: string;
   photo: string;
   detailsUrl: string;
   details_en?: string;
@@ -72,6 +74,8 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
+    representationNote_en: '(Off-market Sale)',
+    representationNote_zh: '(私下成交)',
     photo: '/photos/25-adra-grado-way.jpg',
     detailsUrl: '#',
   },
