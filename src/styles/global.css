@@ -1196,7 +1196,7 @@ body.mobile-menu-open { overflow: hidden; }
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 0;
   line-height: 1;
 }
 .deal-rent-amount {
@@ -1219,7 +1219,7 @@ body.mobile-menu-open { overflow: hidden; }
   font-size: 22px;
   font-weight: 400;
   color: var(--ink);
-  margin-top: 8px;
+  margin-top: 2px;
   margin-bottom: 2px;
   letter-spacing: -0.005em;
 }
