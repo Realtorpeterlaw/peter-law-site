@@ -78,7 +78,7 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表卖家方',
     representationNote_en: '(Off-market Sale)',
     representationNote_zh: '(私下成交)',
-    photo: '/photos/25-adra-grado-way.jpg',
+    photo: '/photos/25-adra-grado-way.png',
     detailsUrl: '#',
   },
   {
@@ -164,7 +164,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
-    photo: '/photos/28-linden-st.jpg',
+    photo: '/photos/28-linden-st.png',
     detailsUrl: '#',
   },
 ];
