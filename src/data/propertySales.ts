@@ -84,8 +84,8 @@ export const propertySales: PropertySale[] = [
   {
     category: 'Condo',
     price: '$908,000',
-    propertyName_en: 'Liberty Central Phase 2 Condo',
-    propertyName_zh: 'Liberty Central Phase 2 Condo',
+    propertyName_en: 'Liberty Central Phase 2',
+    propertyName_zh: 'Liberty Central Phase 2',
     address_en: '49 East Liberty St, Toronto, Ontario',
     address_zh: '49 East Liberty St, 多伦多, 安省',
     bedrooms: 3,
