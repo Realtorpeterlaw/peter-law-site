@@ -38,6 +38,8 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Sellers',
     representation_zh: '代表卖家方',
+    representationNote_en: '(Off-market Sale)',
+    representationNote_zh: '(私下成交)',
     photo: '/photos/77-mcgill-st.png',
     detailsUrl: '#',
     details_en: 'Highest Sale in my Career. Represented Sellers. Builders/Developers were interested in the property, made some calls and got the HIGHEST price compared to the other 2 houses.',
