@@ -111,7 +111,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
-    photo: '/photos/20-thomas-riley-rd.jpg',
+    photo: '/photos/20-thomas-riley-rd.png',
     detailsUrl: '#',
     details_en: 'HIGHEST sold in the building.',
     details_zh: '该栋楼内最高成交价。',
