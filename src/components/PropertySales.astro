@@ -42,18 +42,16 @@ const labels = zh
             <img src={p.photo} alt={`${zh ? p.propertyName_zh : p.propertyName_en}, ${zh ? p.address_zh : p.address_en}`} loading="lazy" />
           </div>
           <div class="sale-card-info">
-            <div class="sale-card-top">
-              <div class="sale-price">{p.price}</div>
-              <div class="sale-status-group">
-                <div class="sale-status">{zh ? p.status_zh : p.status_en}</div>
-                {(zh ? p.representation_zh : p.representation_en) && (
-                  <div class="sale-rep">{zh ? p.representation_zh : p.representation_en}</div>
-                )}
-                {(zh ? p.representationNote_zh : p.representationNote_en) && (
-                  <div class="sale-rep-note">{zh ? p.representationNote_zh : p.representationNote_en}</div>
-                )}
-              </div>
+            <div class="sale-status-group">
+              <div class="sale-status">{zh ? p.status_zh : p.status_en}</div>
+              {(zh ? p.representation_zh : p.representation_en) && (
+                <div class="sale-rep">{zh ? p.representation_zh : p.representation_en}</div>
+              )}
+              {(zh ? p.representationNote_zh : p.representationNote_en) && (
+                <div class="sale-rep-note">{zh ? p.representationNote_zh : p.representationNote_en}</div>
+              )}
             </div>
+            <div class="sale-price">{p.price}</div>
             <div class="sale-name">{zh ? p.propertyName_en : p.propertyName_en}</div>
             <div class="sale-address">{zh ? p.address_zh : p.address_en}</div>
             <div class="sale-features">
@@ -179,7 +177,7 @@ const labels = zh
     display: block;
   }
 
-  .sale-card-info { display: flex; flex-direction: column; }
+  .sale-card-info { display: flex; flex-direction: column; position: relative; padding-right: 130px; }
 
   .sale-card-top {
     display: flex;
@@ -197,6 +195,9 @@ const labels = zh
     line-height: 1.1;
   }
   .sale-status-group {
+    position: absolute;
+    top: 0;
+    right: 0;
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -284,6 +285,8 @@ const labels = zh
   }
 
   @media (max-width: 640px) {
+    .sale-card-info { padding-right: 0; }
+    .sale-status-group { position: static; align-items: flex-start; text-align: left; margin-bottom: 8px; }
     .sale-card { grid-template-columns: 1fr; padding: 18px; gap: 20px; }
     .sale-card-photo { aspect-ratio: 4 / 3; max-height: 240px; }
     .sale-price { font-size: 24px; }
