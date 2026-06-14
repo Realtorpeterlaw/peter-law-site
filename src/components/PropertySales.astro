@@ -55,8 +55,11 @@ const labels = zh
             <div class="sale-name">{zh ? p.propertyName_en : p.propertyName_en}</div>
             <div class="sale-address">{zh ? p.address_zh : p.address_en}</div>
             <div class="sale-features">
-              <span>{p.bedrooms} {labels.bedroom}</span><span class="dot"> · </span><span>{p.bathrooms} {labels.bathroom}</span>{typeof p.parking === 'number' && p.parking > 0 && (<><span class="dot"> · </span><span>{p.parking} {labels.parking}</span></>)}{(zh ? p.houseStyle_zh : p.houseStyle_en) && (<><span>, </span><span>{zh ? p.houseStyle_zh : p.houseStyle_en}</span></>)}
+              <span>{p.bedrooms} {labels.bedroom}</span><span class="dot"> · </span><span>{p.bathrooms} {labels.bathroom}</span>{typeof p.parking === 'number' && p.parking > 0 && (<><span class="dot"> · </span><span>{p.parking} {labels.parking}</span></>)}
             </div>
+            {(zh ? p.houseStyle_zh : p.houseStyle_en) && (
+              <div class="sale-house-style">{zh ? p.houseStyle_zh : p.houseStyle_en}</div>
+            )}
             <details class="sale-details">
               <summary class="sale-details-summary">{labels.viewDetails}</summary>
               <div class="sale-details-body">
@@ -242,6 +245,13 @@ const labels = zh
     margin-top: 10px;
   }
   .sale-features .dot { color: var(--ink-mute); margin: 0 2px; }
+  .sale-house-style {
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+    font-style: italic;
+  }
   .sale-details {
     margin-top: 12px;
     align-self: stretch;
