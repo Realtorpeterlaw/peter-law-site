@@ -198,7 +198,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
-    photo: '/photos/palmerston-little-italy.jpg',
+    photo: '/photos/palmerston-little-italy.png',
     detailsUrl: '#',
   },
   {
@@ -215,7 +215,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
-    photo: '/photos/dufferin-grove.jpg',
+    photo: '/photos/dufferin-grove.png',
     detailsUrl: '#',
   },
 ];
