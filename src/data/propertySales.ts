@@ -248,5 +248,7 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表买家方',
     photo: '/photos/pleasant-view-north-york.png',
     detailsUrl: '#',
+    houseStyle_en: 'Semi-Detached',
+    houseStyle_zh: '半独立屋',
   },
 ];
