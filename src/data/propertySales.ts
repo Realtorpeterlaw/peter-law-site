@@ -21,6 +21,8 @@ export interface PropertySale {
   detailsUrl: string;
   details_en?: string;
   details_zh?: string;
+  houseStyle_en?: string;
+  houseStyle_zh?: string;
   date?: string; // optional 'YYYY-MM' for future sorting
 }
 
@@ -42,6 +44,8 @@ export const propertySales: PropertySale[] = [
     representationNote_zh: '(私下成交)',
     photo: '/photos/77-mcgill-st.png',
     detailsUrl: '#',
+    houseStyle_en: 'Townhouse',
+    houseStyle_zh: '联排别墅',
     details_en: 'Highest Sale in my Career. Represented Sellers. Builders/Developers were interested in the property, made some calls and got the HIGHEST price compared to the other 2 houses.',
     details_zh: '我职业生涯中价格最高的一单成交 · 代表卖家方 · 多家开发商对该物业有意,经过几通电话沟通,最终在三栋同类房屋中拿下最高成交价。',
   },
@@ -132,6 +136,8 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表卖家方',
     photo: '/photos/greensborough-markham.jpg',
     detailsUrl: '#',
+    houseStyle_en: 'Townhouse',
+    houseStyle_zh: '联排别墅',
   },
   {
     category: 'House',
@@ -149,6 +155,8 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表买家方',
     photo: '/photos/lakeshore-village-waterloo.jpg',
     detailsUrl: '#',
+    houseStyle_en: 'Detached House',
+    houseStyle_zh: '独立屋',
   },
   {
     category: 'Condo',
@@ -183,6 +191,8 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表买家方',
     photo: '/photos/mcgill-granby-buyer.jpg',
     detailsUrl: '#',
+    houseStyle_en: 'Townhouse',
+    houseStyle_zh: '联排别墅',
   },
   {
     category: 'House',
@@ -200,6 +210,8 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表买家方',
     photo: '/photos/palmerston-little-italy.png',
     detailsUrl: '#',
+    houseStyle_en: 'Townhouse',
+    houseStyle_zh: '联排别墅',
   },
   {
     category: 'House',
@@ -217,5 +229,7 @@ export const propertySales: PropertySale[] = [
     representation_zh: '代表买家方',
     photo: '/photos/dufferin-grove.png',
     detailsUrl: '#',
+    houseStyle_en: 'Semi-Detached',
+    houseStyle_zh: '半独立屋',
   },
 ];
