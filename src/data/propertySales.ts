@@ -8,8 +8,8 @@ export interface PropertySale {
   propertyName_zh: string;
   address_en: string;
   address_zh: string;
-  bedrooms: number;
-  bathrooms: number;
+  bedrooms: number | string;
+  bathrooms: number | string;
   parking?: number;
   status_en: string;
   status_zh: string;
@@ -165,6 +165,57 @@ export const propertySales: PropertySale[] = [
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
     photo: '/photos/28-linden-st.png',
+    detailsUrl: '#',
+  },
+  {
+    category: 'House',
+    price: '$1,620,000',
+    propertyName_en: 'McGill-Granby Residences',
+    propertyName_zh: 'McGill-Granby Residences',
+    address_en: 'Toronto, Ontario',
+    address_zh: '多伦多, 安省',
+    bedrooms: '5+1',
+    bathrooms: 5,
+    parking: 0,
+    status_en: 'Sold',
+    status_zh: '已售',
+    representation_en: 'Represented Buyer',
+    representation_zh: '代表买家方',
+    photo: '/photos/mcgill-granby-buyer.jpg',
+    detailsUrl: '#',
+  },
+  {
+    category: 'House',
+    price: '$1,565,000',
+    propertyName_en: 'Palmerston Little Italy',
+    propertyName_zh: 'Palmerston Little Italy',
+    address_en: 'Toronto, Ontario',
+    address_zh: '多伦多, 安省',
+    bedrooms: '4+2',
+    bathrooms: 3,
+    parking: 2,
+    status_en: 'Sold',
+    status_zh: '已售',
+    representation_en: 'Represented Buyer',
+    representation_zh: '代表买家方',
+    photo: '/photos/palmerston-little-italy.jpg',
+    detailsUrl: '#',
+  },
+  {
+    category: 'House',
+    price: '$1,430,000',
+    propertyName_en: 'Dufferin Grove',
+    propertyName_zh: 'Dufferin Grove',
+    address_en: 'Toronto, Ontario',
+    address_zh: '多伦多, 安省',
+    bedrooms: '3+1',
+    bathrooms: 2,
+    parking: 2,
+    status_en: 'Sold',
+    status_zh: '已售',
+    representation_en: 'Represented Buyer',
+    representation_zh: '代表买家方',
+    photo: '/photos/dufferin-grove.jpg',
     detailsUrl: '#',
   },
 ];
