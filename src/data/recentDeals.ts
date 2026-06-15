@@ -118,7 +118,7 @@ export function getDeals(zh: boolean): DealView[] {
         rent: d.rent,
         period: zh ? '/ 月' : '/ month',
         note: zh ? d.note_zh : d.note_en,
-        status: zh ? (d.status_zh ?? '租赁') : (d.status_en ?? 'Rental'),
+        status: zh ? (d.status_zh ?? '代表租客方') : (d.status_en ?? 'Represented Tenant'),
       };
     });
 }
