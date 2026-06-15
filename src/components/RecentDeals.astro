@@ -7,7 +7,7 @@ export interface Props {
 const { zh = false } = Astro.props;
 
 const allDeals = getDeals(zh);
-const deals = allDeals.slice(0, 5);
+const deals = allDeals.slice(0, 6);
 
 const sectionHeading = zh ? '近期成交记录' : 'Recent Closed Deals';
 const carouselLabel = zh ? '近期成交轮播' : 'Recent deals carousel';
