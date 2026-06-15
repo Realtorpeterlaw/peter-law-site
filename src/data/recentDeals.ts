@@ -88,6 +88,16 @@ export const dealsRaw: DealRaw[] = [
     note_en: 'Secured this unit for a Married Couple. Smooth and easy transition for my clients! Convenience and AAA Location',
     note_zh: '为一对已婚夫妇成功签约 · 流程顺畅 · 黄金地段 · AAA 级位置。',
   },
+  {
+    date: '2026-07',
+    intersection_en: 'Yonge St & Bloor St E',
+    intersection_zh: 'Yonge St 与 Bloor St E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    rent: '$3,350',
+    note_en: 'Secured this gem for my mature clients. Great layout, new build, with great taste in design.',
+    note_zh: '为成熟客户成功签约这套精品单元 · 户型出色 · 新建项目 · 设计品味卓越。',
+  },
 ];
 
 export function getDeals(zh: boolean): DealView[] {
