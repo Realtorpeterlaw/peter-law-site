@@ -52,7 +52,7 @@ export const dealsRaw: DealRaw[] = [
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
-    date: '2026-07',
+    date: '2026-07-15',
     intersection_en: 'Yonge St & Bloor St E',
     intersection_zh: 'Yonge St 与 Bloor St E',
     city_en: 'Toronto, Ontario',
@@ -62,7 +62,7 @@ export const dealsRaw: DealRaw[] = [
     note_zh: '为成熟客户成功签约这套精品单元 · 户型出色 · 新建项目 · 设计品味卓越。',
   },
   {
-    date: '2026-07',
+    date: '2026-07-08',
     intersection_en: 'Jarvis St & Dundas St E',
     intersection_zh: 'Jarvis St 与 Dundas St E',
     city_en: 'Toronto, Ontario',
