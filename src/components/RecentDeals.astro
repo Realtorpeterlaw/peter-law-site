@@ -38,7 +38,10 @@ const nextLabel = zh ? '下一条' : 'Next deal';
             aria-label={`${i + 1} / ${deals.length}`}
             data-slide={i}
           >
-            <div class="deal-month-year">{d.monthYear}</div>
+            <div class="deal-card-top">
+              <div class="deal-month-year">{d.monthYear}</div>
+              <div class="deal-status">{d.status}</div>
+            </div>
             <div class="deal-rent">
               <span class="deal-rent-amount">{d.rent}</span>
               <span class="deal-rent-period">{d.period}</span>

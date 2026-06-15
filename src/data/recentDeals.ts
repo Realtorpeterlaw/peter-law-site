@@ -10,6 +10,8 @@ export interface DealRaw {
   rent: string;                // shared (currency-agnostic display)
   note_en: string;
   note_zh: string;
+  status_en?: string;          // 'Rental' / 'Sales' / 'Commercial'
+  status_zh?: string;          // '租赁' / '销售' / '商业'
 }
 
 export interface DealView {
@@ -19,6 +21,7 @@ export interface DealView {
   rent: string;
   period: string;
   note: string;
+  status: string;
 }
 
 const MONTHS_EN = [
@@ -115,6 +118,7 @@ export function getDeals(zh: boolean): DealView[] {
         rent: d.rent,
         period: zh ? '/ 月' : '/ month',
         note: zh ? d.note_zh : d.note_en,
+        status: zh ? (d.status_zh ?? '租赁') : (d.status_en ?? 'Rental'),
       };
     });
 }

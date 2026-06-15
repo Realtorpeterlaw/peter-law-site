@@ -1184,13 +1184,25 @@ body.mobile-menu-open { overflow: hidden; }
   font-weight: 600;
   margin-bottom: 22px;
 }
+.deal-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
 .deal-month-year {
   font-family: 'Fraunces', Georgia, serif;
   font-size: 13px;
   font-weight: 400;
   color: var(--ink-mute);
   letter-spacing: 0.01em;
-  margin-bottom: 4px;
+}
+.deal-status {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-mute);
+  font-weight: 600;
 }
 .deal-rent {
   display: inline-flex;
