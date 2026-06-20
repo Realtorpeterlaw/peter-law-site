@@ -24,21 +24,102 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">Toronto · Downtown · Waterfront · GTA</div>
-        <h1 class="hero-h">Toronto rentals, <em>handled the right way.</em></h1>
-        <p class="hero-sub">Helping Newcomers, Professionals, and Families navigate Toronto's Rental Market. Pre-approved fast.</p>
-        <div class="hero-ctas hero-ctas-stacked">
-          <a href="#rental-questionnaire" class="btn-primary">
-            Let's find my rental home
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="/free-home-evaluation" class="btn-outline">
-            FREE HOME EVALUATION
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="/for-renters" class="btn-secondary">Rent Guide (Click Here)</a>
-        </div>
-        <div class="hero-trust">No pressure, no obligation. Real answers in your first call.</div>
+      <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
+                <div class="quiz-eyebrow">Rental Questionnaire</div>
+                <h3 class="quiz-heading">What are you looking for?</h3>
+                <p class="quiz-sub">(Minimum 1 Year duration)</p>
+                <div class="quiz-fields">
+                  <div class="quiz-field">
+                    <label for="quiz-beds">Bedrooms*</label>
+                    <select id="quiz-beds" name="bedrooms" required>
+                      <option value="">Select…</option>
+                      <option>Studio</option>
+                      <option>1 BR</option>
+                      <option>1 BR + Den</option>
+                      <option>2 BR</option>
+                      <option>3 BR</option>
+                      <option>4+ BR</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-baths">Bathrooms*</label>
+                    <select id="quiz-baths" name="bathrooms" required>
+                      <option value="">Select…</option>
+                      <option>1</option>
+                      <option>1.5</option>
+                      <option>2</option>
+                      <option>2.5</option>
+                      <option>3+</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-parking">Parking*</label>
+                    <select id="quiz-parking" name="parking" required>
+                      <option value="">Select…</option>
+                      <option>Not needed</option>
+                      <option>1 spot</option>
+                      <option>2 spots</option>
+                      <option>3+ spots</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-budget">Budget / month*</label>
+                    <select id="quiz-budget" name="budget" required>
+                      <option value="">Select…</option>
+                      <option>Under $2,000</option>
+                      <option>$2,000 – $2,500</option>
+                      <option>$2,500 – $3,000</option>
+                      <option>$3,000 – $3,500</option>
+                      <option>$3,500 – $4,500</option>
+                      <option>$4,500+</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-movein">Move-in date*</label>
+                    <input id="quiz-movein" name="move_in_date" type="date" required>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-notice">Given 60 Days notice to Landlord*</label>
+                    <select id="quiz-notice" name="landlord_notice_60_days" required>
+                      <option value="">Select…</option>
+                      <option>Yes</option>
+                      <option>No</option>
+                      <option>N/A (not applicable)</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field quiz-field-full">
+                    <label>Location preference* <span class="quiz-hint">(select all that apply)</span></label>
+                    <div class="quiz-checkboxes" data-checkbox-group="location">
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Downtown Toronto (Yonge &amp; Dundas St)"> Downtown Toronto (Yonge &amp; Dundas St)</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge & Bloor / Yorkville"> Yonge & Bloor / Yorkville</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Waterfront / Harbourfront"> Waterfront / Harbourfront</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge–Eglinton"> Yonge–Eglinton</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="East Toronto (Leslieville, East York)"> East Toronto (Leslieville, East York)</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Markham / GTA North"> Markham / GTA North</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Subway Station"> Walking distance to Subway Station</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Union Subway Station"> Walking distance to Union Subway Station</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to UofT St. George"> Walking distance to UofT St. George</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Waterfront"> Walking distance to Waterfront</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Open to suggestions"> Open to suggestions</label>
+                    </div>
+                  </div>
+                  <div class="quiz-field quiz-field-full">
+                    <label for="quiz-email">Email*</label>
+                    <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+                  </div>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="quiz-gotcha">Don't fill this</label>
+                  <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="New Quick Rental Survey">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+                <button type="submit" class="btn-primary quiz-cta">
+                  Send me LISTINGS
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </form>
       </div>
       <div>
         <a href="/about" class="hero-photo-link" aria-label="About Peter Law — learn more">
@@ -77,114 +158,6 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         </div>
         <div class="boc-divider" aria-hidden="true"></div>
         <a class="boc-source" href="https://www.ontario.ca/page/residential-rent-increases" target="_blank" rel="noopener">Source: ontario.ca ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="major">
-    <div class="wrap">
-      <div class="why-grid">
-        <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
-          <div class="quiz-eyebrow">Rental Questionnaire</div>
-          <h3 class="quiz-heading">What are you looking for?</h3>
-          <p class="quiz-sub">(Minimum 1 Year duration)</p>
-          <div class="quiz-fields">
-            <div class="quiz-field">
-              <label for="quiz-beds">Bedrooms*</label>
-              <select id="quiz-beds" name="bedrooms" required>
-                <option value="">Select…</option>
-                <option>Studio</option>
-                <option>1 BR</option>
-                <option>1 BR + Den</option>
-                <option>2 BR</option>
-                <option>3 BR</option>
-                <option>4+ BR</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-baths">Bathrooms*</label>
-              <select id="quiz-baths" name="bathrooms" required>
-                <option value="">Select…</option>
-                <option>1</option>
-                <option>1.5</option>
-                <option>2</option>
-                <option>2.5</option>
-                <option>3+</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-parking">Parking*</label>
-              <select id="quiz-parking" name="parking" required>
-                <option value="">Select…</option>
-                <option>Not needed</option>
-                <option>1 spot</option>
-                <option>2 spots</option>
-                <option>3+ spots</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-budget">Budget / month*</label>
-              <select id="quiz-budget" name="budget" required>
-                <option value="">Select…</option>
-                <option>Under $2,000</option>
-                <option>$2,000 – $2,500</option>
-                <option>$2,500 – $3,000</option>
-                <option>$3,000 – $3,500</option>
-                <option>$3,500 – $4,500</option>
-                <option>$4,500+</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-movein">Move-in date*</label>
-              <input id="quiz-movein" name="move_in_date" type="date" required>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-notice">Given 60 Days notice to Landlord*</label>
-              <select id="quiz-notice" name="landlord_notice_60_days" required>
-                <option value="">Select…</option>
-                <option>Yes</option>
-                <option>No</option>
-                <option>N/A (not applicable)</option>
-              </select>
-            </div>
-            <div class="quiz-field quiz-field-full">
-              <label>Location preference* <span class="quiz-hint">(select all that apply)</span></label>
-              <div class="quiz-checkboxes" data-checkbox-group="location">
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Downtown Toronto (Yonge &amp; Dundas St)"> Downtown Toronto (Yonge &amp; Dundas St)</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge & Bloor / Yorkville"> Yonge & Bloor / Yorkville</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Waterfront / Harbourfront"> Waterfront / Harbourfront</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge–Eglinton"> Yonge–Eglinton</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="East Toronto (Leslieville, East York)"> East Toronto (Leslieville, East York)</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Markham / GTA North"> Markham / GTA North</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Subway Station"> Walking distance to Subway Station</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Union Subway Station"> Walking distance to Union Subway Station</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to UofT St. George"> Walking distance to UofT St. George</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Walking distance to Waterfront"> Walking distance to Waterfront</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Open to suggestions"> Open to suggestions</label>
-              </div>
-            </div>
-            <div class="quiz-field quiz-field-full">
-              <label for="quiz-email">Email*</label>
-              <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
-            </div>
-          </div>
-          <div class="hp-field" aria-hidden="true">
-            <label for="quiz-gotcha">Don't fill this</label>
-            <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="_subject" value="New Quick Rental Survey">
-          <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
-          <button type="submit" class="btn-primary quiz-cta">
-            Send me LISTINGS
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </form>
-        <div class="why-points">
-          <div class="why-point"><div class="why-point-num">01</div><h3>Pre-approval before search</h3><p>We get your documents in order before we step into a single unit. In Toronto's market, you have hours to decide — not days. Preparation is what wins.</p></div>
-          <div class="why-point"><div class="why-point-num">02</div><h3>Viewings</h3><p>Input your availability into my Google Calendar to best coordinate an appointment & showing.</p></div>
-          <div class="why-point"><div class="why-point-num">03</div><h3>Concierge Service</h3><p>Registration Forms, Pre-Inspection, contractor referrals, Unit overview. The job doesn't end at the keys.</p></div>
-        </div>
       </div>
     </div>
   </section>

@@ -28,21 +28,102 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">多伦多 · 市中心 · 湖滨 · 大多伦多</div>
-        <h1 class="hero-h">多伦多房地产,<em>用对的方式。</em></h1>
-        <p class="hero-sub">协助新移民、专业人士和家庭轻松应对多伦多租赁市场。快速获批。</p>
-        <div class="hero-ctas hero-ctas-stacked">
-          <a href="#rental-questionnaire" class="btn-primary">
-            找我的理想租房
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="/chinese/free-home-evaluation" class="btn-outline">
-            免费房屋估值
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="/chinese/for-renters" class="btn-secondary">租房指南(点击查看)</a>
-        </div>
-        <div class="hero-trust">无任何压力,无任何义务。首次通话即可获得实用建议。</div>
+      <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
+                <div class="quiz-eyebrow">租房问卷</div>
+                <h3 class="quiz-heading">您在找什么样的房子?</h3>
+                <p class="quiz-sub">(最短租期 1 年)</p>
+                <div class="quiz-fields">
+                  <div class="quiz-field">
+                    <label for="quiz-beds">卧室*</label>
+                    <select id="quiz-beds" name="bedrooms" required>
+                      <option value="">请选择…</option>
+                      <option>单间公寓 Studio</option>
+                      <option>1 卧</option>
+                      <option>1 卧 + 书房</option>
+                      <option>2 卧</option>
+                      <option>3 卧</option>
+                      <option>4 卧或以上</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-baths">卫浴*</label>
+                    <select id="quiz-baths" name="bathrooms" required>
+                      <option value="">请选择…</option>
+                      <option>1</option>
+                      <option>1.5</option>
+                      <option>2</option>
+                      <option>2.5</option>
+                      <option>3+</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-parking">停车位*</label>
+                    <select id="quiz-parking" name="parking" required>
+                      <option value="">请选择…</option>
+                      <option>不需要</option>
+                      <option>1 个</option>
+                      <option>2 个</option>
+                      <option>3 个或以上</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-budget">月预算*</label>
+                    <select id="quiz-budget" name="budget" required>
+                      <option value="">请选择…</option>
+                      <option>$2,000 以下</option>
+                      <option>$2,000 – $2,500</option>
+                      <option>$2,500 – $3,000</option>
+                      <option>$3,000 – $3,500</option>
+                      <option>$3,500 – $4,500</option>
+                      <option>$4,500 以上</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-movein">入住日期*</label>
+                    <input id="quiz-movein" name="move_in_date" type="date" required>
+                  </div>
+                  <div class="quiz-field">
+                    <label for="quiz-notice">已向房东发出 60 天通知*</label>
+                    <select id="quiz-notice" name="landlord_notice_60_days" required>
+                      <option value="">请选择…</option>
+                      <option>是</option>
+                      <option>否</option>
+                      <option>不适用</option>
+                    </select>
+                  </div>
+                  <div class="quiz-field quiz-field-full">
+                    <label>偏好地区* <span class="quiz-hint">(可多选)</span></label>
+                    <div class="quiz-checkboxes" data-checkbox-group="location">
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="多伦多市中心(Yonge &amp; Dundas 街)"> 多伦多市中心(Yonge &amp; Dundas 街)</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge & Bloor / Yorkville"> Yonge & Bloor / Yorkville</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="湖滨 / Harbourfront"> 湖滨 / Harbourfront</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge–Eglinton"> Yonge–Eglinton</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="东多伦多 (Leslieville, East York)"> 东多伦多 (Leslieville, East York)</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="Markham / 大多伦多北"> Markham / 大多伦多北</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离地铁站"> 步行距离地铁站</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离 Union 地铁站"> 步行距离 Union 地铁站</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离多大 St. George 校区"> 步行距离多大 St. George 校区</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离湖滨"> 步行距离湖滨</label>
+                      <label class="quiz-check"><input type="checkbox" name="location[]" value="欢迎建议"> 欢迎建议</label>
+                    </div>
+                  </div>
+                  <div class="quiz-field quiz-field-full">
+                    <label for="quiz-email">电子邮件*</label>
+                    <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+                  </div>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="quiz-gotcha">请勿填写</label>
+                  <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="新租房问卷 (中文版)">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+                <button type="submit" class="btn-primary quiz-cta">
+                  发我房源
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </form>
       </div>
       <div><a href="/chinese/about" class="hero-photo-link" aria-label="关于 Peter Law — 了解更多"><div class="hero-photo"><img src="/photos/peter-portrait.webp" alt="Peter Law,多伦多双语房地产中介,身后是 CN 塔。" width="1500" height="1887" loading="eager" /></div></a></div>
     </div>
@@ -75,114 +156,6 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         </div>
         <div class="boc-divider" aria-hidden="true"></div>
         <a class="boc-source" href="https://www.ontario.ca/page/residential-rent-increases" target="_blank" rel="noopener">来源: ontario.ca ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="major">
-    <div class="wrap">
-      <div class="why-grid">
-        <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
-          <div class="quiz-eyebrow">租房问卷</div>
-          <h3 class="quiz-heading">您在找什么样的房子?</h3>
-          <p class="quiz-sub">(最短租期 1 年)</p>
-          <div class="quiz-fields">
-            <div class="quiz-field">
-              <label for="quiz-beds">卧室*</label>
-              <select id="quiz-beds" name="bedrooms" required>
-                <option value="">请选择…</option>
-                <option>单间公寓 Studio</option>
-                <option>1 卧</option>
-                <option>1 卧 + 书房</option>
-                <option>2 卧</option>
-                <option>3 卧</option>
-                <option>4 卧或以上</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-baths">卫浴*</label>
-              <select id="quiz-baths" name="bathrooms" required>
-                <option value="">请选择…</option>
-                <option>1</option>
-                <option>1.5</option>
-                <option>2</option>
-                <option>2.5</option>
-                <option>3+</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-parking">停车位*</label>
-              <select id="quiz-parking" name="parking" required>
-                <option value="">请选择…</option>
-                <option>不需要</option>
-                <option>1 个</option>
-                <option>2 个</option>
-                <option>3 个或以上</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-budget">月预算*</label>
-              <select id="quiz-budget" name="budget" required>
-                <option value="">请选择…</option>
-                <option>$2,000 以下</option>
-                <option>$2,000 – $2,500</option>
-                <option>$2,500 – $3,000</option>
-                <option>$3,000 – $3,500</option>
-                <option>$3,500 – $4,500</option>
-                <option>$4,500 以上</option>
-              </select>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-movein">入住日期*</label>
-              <input id="quiz-movein" name="move_in_date" type="date" required>
-            </div>
-            <div class="quiz-field">
-              <label for="quiz-notice">已向房东发出 60 天通知*</label>
-              <select id="quiz-notice" name="landlord_notice_60_days" required>
-                <option value="">请选择…</option>
-                <option>是</option>
-                <option>否</option>
-                <option>不适用</option>
-              </select>
-            </div>
-            <div class="quiz-field quiz-field-full">
-              <label>偏好地区* <span class="quiz-hint">(可多选)</span></label>
-              <div class="quiz-checkboxes" data-checkbox-group="location">
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="多伦多市中心(Yonge &amp; Dundas 街)"> 多伦多市中心(Yonge &amp; Dundas 街)</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="King West / Liberty Village"> King West / Liberty Village</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge & Bloor / Yorkville"> Yonge & Bloor / Yorkville</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="湖滨 / Harbourfront"> 湖滨 / Harbourfront</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Yonge–Eglinton"> Yonge–Eglinton</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="东多伦多 (Leslieville, East York)"> 东多伦多 (Leslieville, East York)</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="Markham / 大多伦多北"> Markham / 大多伦多北</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离地铁站"> 步行距离地铁站</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离 Union 地铁站"> 步行距离 Union 地铁站</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离多大 St. George 校区"> 步行距离多大 St. George 校区</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="步行距离湖滨"> 步行距离湖滨</label>
-                <label class="quiz-check"><input type="checkbox" name="location[]" value="欢迎建议"> 欢迎建议</label>
-              </div>
-            </div>
-            <div class="quiz-field quiz-field-full">
-              <label for="quiz-email">电子邮件*</label>
-              <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
-            </div>
-          </div>
-          <div class="hp-field" aria-hidden="true">
-            <label for="quiz-gotcha">请勿填写</label>
-            <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="_subject" value="新租房问卷 (中文版)">
-          <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
-          <button type="submit" class="btn-primary quiz-cta">
-            发我房源
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </form>
-        <div class="why-points">
-          <div class="why-point"><div class="why-point-num">01</div><h3>看房前先获批</h3><p>在看任何一个单位之前,我们先把所有文件准备好。在多伦多市场,你只有几小时(而非几天)做决定。准备充分才是制胜之道。</p></div>
-          <div class="why-point"><div class="why-point-num">02</div><h3>看房</h3><p>请将您的可用时间填入我的 Google 日历,以便安排预约和看房。</p></div>
-          <div class="why-point"><div class="why-point-num">03</div><h3>专属管家服务</h3><p>登记表格、入住前检查、装修联系人、单元介绍。拿到钥匙不是工作的终点。</p></div>
-        </div>
       </div>
     </div>
   </section>
