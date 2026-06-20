@@ -26,7 +26,12 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   </section>
 
   <section class="hero">
-    <div class="wrap hero-grid">
+    <div class="wrap">
+      <header class="hero-headline-block">
+        <div class="eyebrow">多伦多 · 市中心 · 湖滨 · 大多伦多地区</div>
+        <h1 class="hero-h">多伦多租房,<em>用对的方式办对的事。</em></h1>
+      </header>
+      <div class="hero-grid">
       <div>
       <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
                 <div class="quiz-eyebrow">租房问卷</div>
@@ -126,6 +131,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </form>
       </div>
       <div><a href="/chinese/about" class="hero-photo-link" aria-label="关于 Peter Law — 了解更多"><div class="hero-photo"><img src="/photos/peter-portrait.webp" alt="Peter Law,多伦多双语房地产中介,身后是 CN 塔。" width="1500" height="1887" loading="eager" /></div></a></div>
+      </div>
     </div>
   </section>
 
@@ -199,10 +205,25 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
 <style>
   /* Tighten homepage vertical rhythm — only affects this page */
-  .hero { padding-bottom: 40px; }
+  .hero { padding-bottom: 40px; padding-top: 56px; }
   .boc-widget + section.major { padding-top: 56px; }
+  .hero-headline-block { max-width: 760px; margin-bottom: 40px; }
+  .hero-headline-block .eyebrow { margin-bottom: 18px; }
+  .hero-headline-block .hero-h { margin: 0; }
+  .hero-grid { align-items: stretch; }
+  .hero-photo {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 100%;
+  }
+  .hero-photo-link {
+    height: 100%;
+    display: block;
+  }
   @media (max-width: 900px) {
-    .hero { padding-bottom: 28px; }
+    .hero { padding-bottom: 28px; padding-top: 36px; }
+    .hero-headline-block { margin-bottom: 28px; }
+    .hero-photo { aspect-ratio: 4/5; height: auto; min-height: 0; }
   }
   @media (max-width: 720px) {
     .boc-widget + section.major { padding-top: 40px; }
