@@ -44,48 +44,19 @@ import ChineseCTASection from '../../components/ChineseCTASection.astro';
           <div class="callout"><strong>新移民 / 国际背景租客:</strong>若您尚无加拿大信用记录,请提供您已有的材料 — 工签、雇主邀请函、银行对账单、推荐人。房东接受多种替代方案,我会帮您组织成有说服力的申请包。</div>
 
           <h2 id="form">上传表单</h2>
-          <form id="upload-form" class="quiz-form upload-form" method="POST" action="https://formspree.io/f/xnjrzgda" enctype="multipart/form-data">
-            <div class="quiz-fields">
-              <div class="quiz-field">
-                <label for="up-name">姓名*</label>
-                <input id="up-name" name="full_name" type="text" required autocomplete="name">
-              </div>
-              <div class="quiz-field">
-                <label for="up-email">邮箱*</label>
-                <input id="up-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
-              </div>
-              <div class="quiz-field">
-                <label for="up-phone">电话*</label>
-                <input id="up-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(647) 555-0123">
-              </div>
-              <div class="quiz-field">
-                <label for="up-movein">入住日期</label>
-                <input id="up-movein" name="move_in_date" type="date">
-              </div>
-              <div class="quiz-field quiz-field-full">
-                <label for="up-property">您要申请的房源(若已知)</label>
-                <input id="up-property" name="property_interested" type="text" placeholder="例如:77 McGill St, Unit 5">
-              </div>
-              <div class="quiz-field quiz-field-full">
-                <label for="up-files">文件 <span class="quiz-hint">(PDF、JPG、PNG — 单个文件最大约 10 MB)</span></label>
-                <input id="up-files" name="documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.heic,.webp">
-              </div>
-              <div class="quiz-field quiz-field-full">
-                <label for="up-notes">备注 <span class="quiz-hint">(可选 — 任何我需要了解的情况)</span></label>
-                <textarea id="up-notes" name="notes" rows="4" placeholder="例如:刚毕业、由父母担保、从温哥华搬来…"></textarea>
-              </div>
-            </div>
-            <div class="hp-field" aria-hidden="true">
-              <label for="up-gotcha">请勿填写</label>
-              <input id="up-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-            </div>
-            <input type="hidden" name="_subject" value="新租房文件上传(中文版)">
-            <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
-            <button type="submit" class="btn-primary quiz-cta">
-              提交文件
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
+          <div class="google-form-embed">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSf-8MgRK8TtsFhIJ4VjdWaFN3u3XjabMOwB9d5cP3LA_d8hDg/viewform?embedded=true"
+              width="100%"
+              height="1400"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="租房申请文件上传表单"
+              loading="lazy">
+              加载中…
+            </iframe>
+          </div>
 
           <h2 id="privacy">隐私与免责说明</h2>
           <ul class="bullets">

@@ -44,48 +44,19 @@ import CTASection from '../components/CTASection.astro';
           <div class="callout"><strong>Newcomers / international workers:</strong> if you don't have Canadian credit history yet, send what you do have — work permit, employment offer, bank statement, and a reference. Landlords accept alternative packages routinely; I'll position it right.</div>
 
           <h2 id="form">Upload form</h2>
-          <form id="upload-form" class="quiz-form upload-form" method="POST" action="https://formspree.io/f/xnjrzgda" enctype="multipart/form-data">
-            <div class="quiz-fields">
-              <div class="quiz-field">
-                <label for="up-name">Full name*</label>
-                <input id="up-name" name="full_name" type="text" required autocomplete="name">
-              </div>
-              <div class="quiz-field">
-                <label for="up-email">Email*</label>
-                <input id="up-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
-              </div>
-              <div class="quiz-field">
-                <label for="up-phone">Phone*</label>
-                <input id="up-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(647) 555-0123">
-              </div>
-              <div class="quiz-field">
-                <label for="up-movein">Move-in date</label>
-                <input id="up-movein" name="move_in_date" type="date">
-              </div>
-              <div class="quiz-field quiz-field-full">
-                <label for="up-property">Property you're applying for (if known)</label>
-                <input id="up-property" name="property_interested" type="text" placeholder="e.g. 77 McGill St, Unit 5">
-              </div>
-              <div class="quiz-field quiz-field-full">
-                <label for="up-files">Documents <span class="quiz-hint">(PDF, JPG, PNG — max ~10 MB per file)</span></label>
-                <input id="up-files" name="documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.heic,.webp">
-              </div>
-              <div class="quiz-field quiz-field-full">
-                <label for="up-notes">Notes <span class="quiz-hint">(optional — anything I should know about your situation)</span></label>
-                <textarea id="up-notes" name="notes" rows="4" placeholder="e.g. I'm a new grad, my co-signer is my parent, I'm relocating from Vancouver…"></textarea>
-              </div>
-            </div>
-            <div class="hp-field" aria-hidden="true">
-              <label for="up-gotcha">Don't fill this</label>
-              <input id="up-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-            </div>
-            <input type="hidden" name="_subject" value="New Rental Document Upload">
-            <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
-            <button type="submit" class="btn-primary quiz-cta">
-              Submit documents
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
+          <div class="google-form-embed">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSf-8MgRK8TtsFhIJ4VjdWaFN3u3XjabMOwB9d5cP3LA_d8hDg/viewform?embedded=true"
+              width="100%"
+              height="1400"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Rental document upload form"
+              loading="lazy">
+              Loading…
+            </iframe>
+          </div>
 
           <h2 id="privacy">Privacy &amp; disclaimers</h2>
           <ul class="bullets">
