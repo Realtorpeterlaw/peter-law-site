@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+---
+<BaseLayout title="上传租房申请文件 — Peter Law · 多伦多房地产" description="多伦多租客安全上传申请文件:身份证件、收入证明、信用报告等,一次提交即可。" zh={true}>
+
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租赁 · 文件上传</div>
+      <h1>上传您的租房申请文件。</h1>
+      <p class="article-lead">把您要交给房东的所有申请文件一次性上传给我,后续由我打包处理。不再来回发邮件。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>本页内容</h4>
+          <ul>
+            <li><a href="#what">需要上传哪些文件</a></li>
+            <li><a href="#form">上传表单</a></li>
+            <li><a href="#privacy">隐私与免责说明</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">需要上传哪些文件</h2>
+          <p>安省租房申请的标准材料清单:</p>
+          <ul class="bullets">
+            <li><strong>政府签发的带照片身份证件</strong> — 驾照或护照(如有正反面,两面都需要)</li>
+            <li><strong>收入证明</strong> — 最近 2-3 张工资单,或公司抬头出具的在职证明(注明职位、年薪、入职日期)</li>
+            <li><strong>信用报告</strong> — Equifax 或 TransUnion 的最新报告(可在 <a href="https://www.equifax.ca/personal/" target="_blank" rel="noopener">equifax.ca</a> 免费查询)</li>
+            <li><strong>银行对账单</strong> — 最近一个月,显示余额与存款情况</li>
+            <li><strong>前房东推荐</strong> — 姓名 + 电话或邮箱(若能附一段简短书面推荐则更好)</li>
+            <li><strong>OREA Form 410(租房申请表)</strong> — 非必需,但若已填写可加快流程。没有的话我可以提供。</li>
+            <li><strong>担保人 / 共同签约人材料</strong> — 若您的收入不足以达到标准的房租收入比(通常 30%),请同时提供担保人的同一套材料。</li>
+          </ul>
+          <div class="callout"><strong>新移民 / 国际背景租客:</strong>若您尚无加拿大信用记录,请提供您已有的材料 — 工签、雇主邀请函、银行对账单、推荐人。房东接受多种替代方案,我会帮您组织成有说服力的申请包。</div>
+
+          <h2 id="form">上传表单</h2>
+          <form id="upload-form" class="quiz-form upload-form" method="POST" action="https://formspree.io/f/xnjrzgda" enctype="multipart/form-data">
+            <div class="quiz-fields">
+              <div class="quiz-field">
+                <label for="up-name">姓名*</label>
+                <input id="up-name" name="full_name" type="text" required autocomplete="name">
+              </div>
+              <div class="quiz-field">
+                <label for="up-email">邮箱*</label>
+                <input id="up-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+              </div>
+              <div class="quiz-field">
+                <label for="up-phone">电话*</label>
+                <input id="up-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(647) 555-0123">
+              </div>
+              <div class="quiz-field">
+                <label for="up-movein">入住日期</label>
+                <input id="up-movein" name="move_in_date" type="date">
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="up-property">您要申请的房源(若已知)</label>
+                <input id="up-property" name="property_interested" type="text" placeholder="例如:77 McGill St, Unit 5">
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="up-files">文件 <span class="quiz-hint">(PDF、JPG、PNG — 单个文件最大约 10 MB)</span></label>
+                <input id="up-files" name="documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.heic,.webp">
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="up-notes">备注 <span class="quiz-hint">(可选 — 任何我需要了解的情况)</span></label>
+                <textarea id="up-notes" name="notes" rows="4" placeholder="例如:刚毕业、由父母担保、从温哥华搬来…"></textarea>
+              </div>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="up-gotcha">请勿填写</label>
+              <input id="up-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="_subject" value="新租房文件上传(中文版)">
+            <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+            <button type="submit" class="btn-primary quiz-cta">
+              提交文件
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+
+          <h2 id="privacy">隐私与免责说明</h2>
+          <ul class="bullets">
+            <li><strong>您的文件将直接发送给我</strong>,传输过程加密。我会审阅、整理后转交房东;未经您明确同意,不会与任何第三方共享。</li>
+            <li><strong>保留时长。</strong>若成功签约,我会按 RECO 行业规定保留您的文件。若未成交,自最后一次联系起 90 天内,我会删除您上传的所有文件。</li>
+            <li><strong>本表单不构成租约。</strong>提交文件只是开启对话,不代表保留房源、不保证审核通过、不构成法律意义上的报价。</li>
+            <li><strong>接受的文件格式:</strong>PDF、JPG、PNG、HEIC、WebP。请避免发送 ZIP 压缩文件(部分房东邮件系统会拦截)。</li>
+            <li><strong>若文件过大无法上传</strong>(超过约 10 MB),请发送至 <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a>,邮件主题请注明您的姓名。</li>
+            <li><strong>响应时间。</strong>每份提交我会亲自审阅,24 小时内回复(通常当天即可)。</li>
+          </ul>
+          <p class="legal-note">本页用于分享租房申请相关文件,不构成信用调查、背景调查或正式法律文件提交。提交即表示您确认所上传文件归您本人所有,且信息真实准确。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="上传前有疑问?" lead="如果您不确定材料清单 — 或您是尚无加拿大信用记录的新移民 — 预约 15 分钟通话,我帮您把申请包整理好。" ctaTitle="预约通话" />
+  <ChineseFooter />
+</BaseLayout>

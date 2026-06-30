@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+<BaseLayout title="Upload Rental Documents — Peter Law · Toronto Real Estate" description="Secure document submission for rental applicants in Toronto. Upload your ID, pay stubs, credit report, and other rental application documents in one place.">
+
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Rental · Document upload</div>
+      <h1>Upload your rental documents.</h1>
+      <p class="article-lead">Send me everything you'd attach to an Ontario rental application in one upload, and I'll take it from there. No back-and-forth email chain.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>On this page</h4>
+          <ul>
+            <li><a href="#what">What to upload</a></li>
+            <li><a href="#form">Upload form</a></li>
+            <li><a href="#privacy">Privacy &amp; disclaimers</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">What to upload</h2>
+          <p>The standard Ontario rental application packet a landlord will ask for:</p>
+          <ul class="bullets">
+            <li><strong>Government-issued photo ID</strong> — driver's license or passport (front + back if applicable)</li>
+            <li><strong>Proof of income</strong> — last 2-3 pay stubs OR a recent employment letter on company letterhead stating your role, salary, and start date</li>
+            <li><strong>Credit report</strong> — most recent Equifax or TransUnion report (free at <a href="https://www.equifax.ca/personal/" target="_blank" rel="noopener">equifax.ca</a>)</li>
+            <li><strong>Bank statement</strong> — most recent month, showing balance &amp; deposits</li>
+            <li><strong>Previous landlord reference</strong> — name + phone or email (a short paragraph from them is even better)</li>
+            <li><strong>OREA Form 410</strong> (Rental Application) — optional but appreciated, speeds things up. I can send you the form if you don't have it.</li>
+            <li><strong>Guarantor / co-signer documents</strong> — if your income alone doesn't meet the standard rental-to-income ratio (typically 30%), include the same packet for whoever's co-signing</li>
+          </ul>
+          <div class="callout"><strong>Newcomers / international workers:</strong> if you don't have Canadian credit history yet, send what you do have — work permit, employment offer, bank statement, and a reference. Landlords accept alternative packages routinely; I'll position it right.</div>
+
+          <h2 id="form">Upload form</h2>
+          <form id="upload-form" class="quiz-form upload-form" method="POST" action="https://formspree.io/f/xnjrzgda" enctype="multipart/form-data">
+            <div class="quiz-fields">
+              <div class="quiz-field">
+                <label for="up-name">Full name*</label>
+                <input id="up-name" name="full_name" type="text" required autocomplete="name">
+              </div>
+              <div class="quiz-field">
+                <label for="up-email">Email*</label>
+                <input id="up-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+              </div>
+              <div class="quiz-field">
+                <label for="up-phone">Phone*</label>
+                <input id="up-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(647) 555-0123">
+              </div>
+              <div class="quiz-field">
+                <label for="up-movein">Move-in date</label>
+                <input id="up-movein" name="move_in_date" type="date">
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="up-property">Property you're applying for (if known)</label>
+                <input id="up-property" name="property_interested" type="text" placeholder="e.g. 77 McGill St, Unit 5">
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="up-files">Documents <span class="quiz-hint">(PDF, JPG, PNG — max ~10 MB per file)</span></label>
+                <input id="up-files" name="documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.heic,.webp">
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="up-notes">Notes <span class="quiz-hint">(optional — anything I should know about your situation)</span></label>
+                <textarea id="up-notes" name="notes" rows="4" placeholder="e.g. I'm a new grad, my co-signer is my parent, I'm relocating from Vancouver…"></textarea>
+              </div>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="up-gotcha">Don't fill this</label>
+              <input id="up-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="_subject" value="New Rental Document Upload">
+            <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+            <button type="submit" class="btn-primary quiz-cta">
+              Submit documents
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+
+          <h2 id="privacy">Privacy &amp; disclaimers</h2>
+          <ul class="bullets">
+            <li><strong>Your documents go to me directly</strong>, encrypted in transit. I review them, package them for the landlord, and don't share with anyone else without your explicit consent.</li>
+            <li><strong>Retention.</strong> If we close on a unit, I keep your file on record per RECO record-keeping rules. If we don't close, I delete uploaded documents within 90 days of our last contact.</li>
+            <li><strong>This form is not a tenancy agreement.</strong> Submitting documents starts a conversation — it doesn't reserve a unit, guarantee approval, or constitute a legal offer.</li>
+            <li><strong>Acceptable file types:</strong> PDF, JPG, PNG, HEIC, WebP. Avoid sending ZIP files (some landlords' email systems block them).</li>
+            <li><strong>If a file is too large to upload</strong> (over ~10 MB), email it to <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a> with your name in the subject line.</li>
+            <li><strong>Response time.</strong> I review every submission personally and reply within 24 hours, usually same-day.</li>
+          </ul>
+          <p class="legal-note">This page is for sharing documents related to a rental application. It is not a credit check, background check, or legal document submission. By submitting, you confirm the documents are yours to share and accurate to the best of your knowledge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Questions before you upload?" lead="If you're not sure what your packet should include — or you're a newcomer without Canadian credit — book a 15-minute call and I'll talk you through it." ctaTitle="Book a call" />
+  <Footer />
+</BaseLayout>
