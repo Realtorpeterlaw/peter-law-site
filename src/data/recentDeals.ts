@@ -52,6 +52,16 @@ export const dealsRaw: DealRaw[] = [
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
+    date: '2026-07-20',
+    intersection_en: 'Parliament St & Queens Quay E',
+    intersection_zh: 'Parliament St 与 Queens Quay E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    rent: '$2,500',
+    note_en: 'Desired Building, International Worker, New Credit, First and Last ONLY!',
+    note_zh: '理想的物业 · 国际背景租客 · 新建立信用记录 · 仅以首月加末月租金完成签约。',
+  },
+  {
     date: '2026-07-15',
     intersection_en: 'Yonge St & Bloor St E',
     intersection_zh: 'Yonge St 与 Bloor St E',
