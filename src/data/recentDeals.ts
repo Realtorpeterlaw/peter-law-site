@@ -52,6 +52,16 @@ export const dealsRaw: DealRaw[] = [
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
+    date: '2026-07-25',
+    intersection_en: 'Kingston Rd & Lawrence Ave E',
+    intersection_zh: 'Kingston Rd 与 Lawrence Ave E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    rent: '$4,100',
+    note_en: 'Secured a lovely home for an Ambitious family, at a great value!',
+    note_zh: '为一户有抱负的家庭签下心仪的住宅 · 性价比出色。',
+  },
+  {
     date: '2026-07-20',
     intersection_en: 'Parliament St & Queens Quay E',
     intersection_zh: 'Parliament St 与 Queens Quay E',
