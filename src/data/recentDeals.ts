@@ -52,6 +52,16 @@ export const dealsRaw: DealRaw[] = [
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
+    date: '2026-07-30',
+    intersection_en: 'Leslie St & Sheppard Ave E',
+    intersection_zh: 'Leslie St 与 Sheppard Ave E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    rent: '$2,400',
+    note_en: 'Secured this home for a lovely returning client! Gorgeous upgrades, Porcelain bath-tub, and Never lived-in! Negotiated less than listed price.',
+    note_zh: '为回头客户成功签约这套住宅 · 精装升级 · 陶瓷浴缸 · 全新未入住 · 低于挂牌价签下。',
+  },
+  {
     date: '2026-07-25',
     intersection_en: 'Kingston Rd & Lawrence Ave E',
     intersection_zh: 'Kingston Rd 与 Lawrence Ave E',
