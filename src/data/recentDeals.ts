@@ -52,6 +52,18 @@ export const dealsRaw: DealRaw[] = [
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
   },
   {
+    date: '2026-07-31',
+    intersection_en: 'Warden Ave & Hwy 7',
+    intersection_zh: 'Warden Ave 与 Hwy 7',
+    city_en: 'Markham, Ontario',
+    city_zh: '万锦市, 安省',
+    rent: '$2,300',
+    note_en: 'Secured AAA tenant for my 1 Bedroom + Den listing at Markham. Reliable, 9+ additional rental deposit, immediate move-in!',
+    note_zh: '为万锦市的一房加书房房源签下 AAA 级租客 · 可靠 · 额外预付 9+ 个月房租 · 立即入住!',
+    status_en: 'Represented Landlord',
+    status_zh: '代表房东方',
+  },
+  {
     date: '2026-07-30',
     intersection_en: 'Leslie St & Sheppard Ave E',
     intersection_zh: 'Leslie St 与 Sheppard Ave E',
