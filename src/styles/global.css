@@ -1337,18 +1337,3 @@ body.mobile-menu-open { overflow: hidden; }
   .deals-archive-card { padding: 22px 22px; }
   .deals-archive-card .deal-rent-amount { font-size: 26px; }
 }
-
-/* ===== Embedded Google Form on /upload-documents ===== */
-.google-form-embed {
-  max-width: 720px;
-  margin: 24px 0;
-  border-radius: 6px;
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-}
-.google-form-embed iframe {
-  width: 100%;
-  display: block;
-  border: 0;
-}
