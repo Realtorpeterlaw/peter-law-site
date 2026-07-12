@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/TopBar.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import CTASection from '../../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-14';
+const articleTitle = '租赁住房供应计划(RHSP)';
+const articleDescription = '通俗解读多伦多市"租赁住房供应计划(RHSP)"——是什么、谁可以申请、五大资金流、2026 年可负担租金上限,以及未来十年对多伦多租客意味着什么。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/rhsp';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — 多伦多房地产',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'zh-CN',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: '租赁住房供应计划, RHSP 多伦多, 多伦多可负担租金 2026, HousingTO 2020-2030, 可负担租金住房, 租金管制住房, 专用租赁住房, CHPF, ARRCHI, 多伦多租赁供应',
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 多伦多住房</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">多伦多市正在帮助开发商建造更多租赁住房。一部分单位租金上限锁定 40 年,一部分则是普通市场租金。本文用简单的话讲清楚:这个计划是什么、给谁的、对多伦多租客到底意味着什么。</p>
+        <div class="article-byline">
+          <span>作者:<a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 7 月 14 日</time>
+          <span class="dot">·</span>
+          <span>8 分钟阅读</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本文目录</h4>
+            <ul>
+              <li><a href="#what">RHSP 是什么</a></li>
+              <li><a href="#who">谁申请、谁受益</a></li>
+              <li><a href="#rents">2026 可负担租金上限</a></li>
+              <li><a href="#controlled">租金管制住房上限</a></li>
+              <li><a href="#streams">五大资金流</a></li>
+              <li><a href="#matters">对多伦多租客的意义</a></li>
+              <li><a href="#stay">如何跟进最新消息</a></li>
+              <li><a href="#mistakes">常见误区</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>一句话总结:</strong>租赁住房供应计划(RHSP)是多伦多市政府推出的项目。它给开发商资金和费用减免,前提是这些开发商愿意建更多租赁住房。要拿到帮助,项目里<strong>至少 20% 的新单位必须是"可负担租金住房"</strong>,租金上限由市政府锁定 <strong>40 年</strong>。租客不能直接申请这个计划,只有开发商、非营利机构可以。但如果计划顺利,更多多伦多租客将有机会以更低价格签下长期住房。以下是 2026 年的可负担租金上限:<strong>一房 $1,426 · 两房 $2,055 · 三房 $2,290</strong>。</p>
+
+            <div class="callout"><strong>本文适合谁看:</strong>想弄清楚市政府项目中"可负担"到底指什么的多伦多租客、找不到心仪租金水平的新移民,以及所有关心多伦多新租赁供应从哪里来的读者。</div>
+
+            <h2 id="what">RHSP 是什么</h2>
+            <p><em>租赁住房供应计划</em>(简称 RHSP)由多伦多市政府运营,是<em>HousingTO 2020-2030 行动计划</em>中的一部分。这个大计划设定了十年目标:为多伦多新增大量租赁住房。</p>
+            <p>RHSP 是达成这个目标的工具之一。市政府不亲自建房,而是把开发商想要的东西发给他们,换取开发商去建市政府需要的那类住房。市政府提供的包括:</p>
+            <ul class="bullets">
+              <li><strong>拨款(Grant)</strong> — 开发商不用还的资金。</li>
+              <li><strong>贷款(Loan)</strong> — 开发商需在未来偿还,有时甚至是无息贷款。</li>
+              <li><strong>费用减免</strong> — 市政府免除开发商通常要支付的费用(如开发费、许可证费、公园用地费)。</li>
+              <li><strong>物业税豁免</strong> — 只要项目里的可负担租金还在生效期,物业税就可免除。</li>
+            </ul>
+            <p>作为交换,开发商必须承诺项目里<strong>至少 20% 的单位是可负担租金住房</strong>,并且这些单位的租金由市政府锁定 <strong>40 年</strong>。</p>
+
+            <details class="b60-section-toggle" id="who">
+              <summary class="b60-section-toggle-summary">谁申请、谁受益</summary>
+              <div class="b60-section-body">
+                <p>这是最容易搞混的部分。里面涉及两个完全不同的群体。</p>
+                <p><strong>谁申请 RHSP:</strong></p>
+                <ul class="bullets">
+                  <li><strong>私人开发商</strong> — 建设大型新租赁楼的建筑公司。</li>
+                  <li><strong>社区住房机构</strong> — 已经在运营可负担住房的非营利组织和合作社。</li>
+                  <li><strong>原住民住房机构</strong> — 通过专门的资金流,支持在十年计划内为原住民建 5,200 套可负担及支持性住房。</li>
+                </ul>
+                <p><strong>谁最终住进去:</strong></p>
+                <ul class="bullets">
+                  <li>普通多伦多租客 — 楼里按市价出租的单位。</li>
+                  <li>符合<strong>可负担租金</strong>条件的租客 — 占比 20% 以上的部分,租金由市政府锁定 40 年。</li>
+                  <li>需要<strong>按收入比例计租(RGI)</strong>的租客 — 房租按您收入的一定比例计算,不是固定金额。这类单位数量有限,通过市政府独立的等候名单分配。</li>
+                  <li>需要<strong>支持性住房</strong>的租客 — 单位配套心理健康、成瘾治疗或其他社工服务。</li>
+                </ul>
+                <div class="callout"><strong>简单来说:</strong>如果您在多伦多租房,您不会申请 RHSP 本身,但您可能会成为这些楼里的租客。等楼建好开始出租时,您通过该楼的正常租赁流程申请;RGI 单位则通过市政府的集中等候名单。</div>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="rents">
+              <summary class="b60-section-toggle-summary">2026 可负担租金上限</summary>
+              <div class="b60-section-body">
+                <p>市政府对可负担租金住房设有租金上限,每年调整一次,最新一次调整是 2026 年 7 月 1 日。如果您在这类单位签租约,以下是租金的上限:</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>户型</th>
+                      <th>月租上限(2026 年)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>单间(共用厨浴)</td><td>$899</td></tr>
+                    <tr><td>开间(Studio)</td><td>$1,127</td></tr>
+                    <tr><td>一房</td><td>$1,426</td></tr>
+                    <tr><td>两房</td><td>$2,055</td></tr>
+                    <tr><td>三房</td><td>$2,290</td></tr>
+                    <tr><td>四房</td><td>$3,245</td></tr>
+                  </tbody>
+                </table>
+                <p style="font-size:13px;color:var(--ink-mute);margin-top:10px;"><em>来源:多伦多市政府 RHSP 页面。两房、三房数字自 2026 年 7 月 1 日起生效。</em></p>
+                <p style="margin-top:14px;">对比一下:2026 年中,多伦多市中心一房公寓的市场平均租金约为 $2,300-$2,500。RHSP 一房上限 $1,426 相当于比市场价<strong>低约 $1,000/月</strong>,一年可省下<strong>约 $12,000</strong>。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="controlled">
+              <summary class="b60-section-toggle-summary">租金管制住房上限</summary>
+              <div class="b60-section-body">
+                <p>RHSP 还有一个次高的档次,叫做<strong>租金管制住房</strong>。租金没有可负担租金那么低,但仍然设有上限,即市政府所统计的<strong>平均市场租金(AMR)的 150%</strong>。这类单位只有社区住房机构可以提供,私人房东不参与。</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>户型</th>
+                      <th>月租上限(150% AMR)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>开间(Studio)</td><td>$2,184</td></tr>
+                    <tr><td>一房</td><td>$2,572</td></tr>
+                    <tr><td>两房</td><td>$2,977</td></tr>
+                    <tr><td>三房</td><td>$3,385</td></tr>
+                    <tr><td>四房</td><td>$4,867</td></tr>
+                  </tbody>
+                </table>
+                <p>可以把它理解为"中间档"租金 — 补贴不深,但仍有上限,不容易年年大涨。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="streams">
+              <summary class="b60-section-toggle-summary">五大资金流</summary>
+              <div class="b60-section-body">
+                <p>RHSP 把资金分成五个不同的"资金流",每个流面向不同类型的开发商或项目。</p>
+                <ol class="bullets">
+                  <li><strong>社区住房前期开发基金(CHPF)</strong>。给社区住房非营利机构的无息贷款,每套可负担住房最高 $50,000,用于早期设计、评估等前期工作。持续开放接受申请。</li>
+                  <li><strong>可负担租金与租金管制住房激励(ARRCHI)</strong>。免除规划申请费、许可证费、开发费,并在租金锁定期内给予物业税减免。面向非营利机构和私人开发商。持续开放接受申请。</li>
+                  <li><strong>专用租赁住房激励(PBR)</strong>。为普通市价租赁项目递延开发费(有时可无限期递延),前提是项目里至少 20% 是可负担租金住房,且锁定 40 年。<strong>2026 年 6 月,市议会通过 PBR 第二阶段方案</strong>,目标解锁<strong>10,000 套新租赁住房</strong>(其中至少 2,000 套可负担、最多 8,000 套市价)。第二阶段的详细规则仍在制定中。</li>
+                  <li><strong>资本资金流(Capital Funding)</strong>。直接拨款给社区住房机构和私人开发商,用于弥补资金缺口、加快动工。目前无开放申请,未来是否开放取决于市政府预算。</li>
+                  <li><strong>原住民资金流</strong>。专为原住民住房机构设立的拨款和贷款,配合市政府为原住民建 5,200 套可负担住房的十年目标。首次征集申请预计 2026 年夏季启动。</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="matters">
+              <summary class="b60-section-toggle-summary">对多伦多租客的意义</summary>
+              <div class="b60-section-body">
+                <p>就算您从来不会直接申请这些项目,RHSP 依然会影响您所在的租赁市场。原因如下。</p>
+                <ul class="bullets">
+                  <li><strong>供应增加,租金增速放缓。</strong>多伦多的租金问题本质是数学问题:每年涌入的人比新建的住房多。RHSP 这类计划一次能撬动 10,000+ 套新单位,是真正压在"供给端"的分量。</li>
+                  <li><strong>可负担单位的租金上限锁 40 年。</strong>安省的传统"租金管制"其实只限制房东给<em>现有租客</em>的年度涨幅,并不限制房东给新租客开的起始价格。RHSP 里的可负担单位则不同,租金<em>本身</em>被市政府锁定 — 一位租客搬走后,下一位租客的起价基本相同。</li>
+                  <li><strong>新楼往往先租市价单位。</strong>即使是含 20% 可负担单位的项目,其余 80% 会以市场价挂租。所以 RHSP 新楼首次亮相时,通常先以普通市场租金楼盘的面貌出现,里面的可负担名额往往通过独立抽签或专门申请流程分配。</li>
+                  <li><strong>租房申请材料照旧要准备。</strong>可负担租金单位有收入上限,但其他流程(信用调查、推荐人、雇主信、押金)和普通多伦多租赁一样。</li>
+                </ul>
+                <div class="callout"><strong>现实时间线:</strong>RHSP 是十年计划。今天批准的项目通常要 3-5 年才建成。也就是说,2026 年批准的可负担单位大约要到 2029-2031 年才能给多伦多租客入住。这是一个长期供应的故事,不是短期解药。</div>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="stay">
+              <summary class="b60-section-toggle-summary">如何跟进最新消息</summary>
+              <div class="b60-section-body">
+                <p>无论您是想知道 RHSP 新楼何时开租,还是您是符合条件的非营利机构或开发商想申请,这里是保持更新的方式:</p>
+                <ul class="bullets">
+                  <li>在<a href="https://www.toronto.ca/community-people/community-partners/housing-partners/open-requests-for-proposals/" target="_blank" rel="noopener noreferrer">市政府住房合作伙伴页面</a>上<strong>订阅可负担住房邮件列表</strong>。开放征集申请时您会第一时间收到通知。</li>
+                  <li>如果您需要按收入比例计租(RGI)住房,请注册<strong>多伦多社区住房 Access to Housing 等候名单</strong>。RGI 与可负担租金住房是两套独立系统,各自有各自的等候名单。</li>
+                  <li>关注<strong>市议会关于 HousingTO 计划的决议</strong>。PBR 第二阶段方案将在 2026 年夏季敲定,是接下来最大的一波变化。</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="mistakes">
+              <summary class="b60-section-toggle-summary">常见误区</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>"RHSP 就是租金管制。"</strong>不是。安省的租金管制(《住宅租赁法》)限制的是房东给<em>现有租客</em>的年度涨幅。RHSP 直接锁定单位租金<em>本身</em>40 年,保护更强。</li>
+                  <li><strong>"我作为租客可以申请 RHSP。"</strong>不可以。这个项目只面向开发商、非营利机构、原住民住房机构。您在<em>项目建成后</em>申请单位本身,而不是申请项目本身。</li>
+                  <li><strong>"可负担租金只面向低收入者。"</strong>不完全对。虽然有收入上限,但比传统社会房屋宽松得多。护士、教师、酒店业员工、初入职场的技术员工都可能符合条件。</li>
+                  <li><strong>"可负担单位和市价单位在不同的楼里。"</strong>RHSP 项目中,两者通常在同一栋楼里。从外面看不出区别。</li>
+                  <li><strong>"这能解决多伦多的租金危机。"</strong>它有帮助。但 PBR 第二阶段的 10,000 套单位面对的是每年新增约 10 万居民的城市。必要,但不够。</li>
+                </ul>
+              </div>
+            </details>
+
+            <h2>结语</h2>
+            <p>租赁住房供应计划(RHSP)是当前多伦多住房政策中最重要的一块。它不会帮您在这个月找到租房,但在未来 5-10 年内会悄悄为多伦多新增数万套租赁单位 — 其中数千套的租金将被市政府锁定四十年。如果您现在在多伦多租房、或者计划将来租房,订阅市政府邮件列表是一个投入极小、回报可能极大的习惯。</p>
+            <p>想弄清楚 RHSP 与您具体情况的关系 — 无论作为租客、小房东、还是考虑做专用租赁项目的投资人?<a href="/chinese/contact">给我发个消息</a>。</p>
+
+            <p class="article-source"><strong>主要来源:</strong>多伦多市政府 ——《<a href="https://www.toronto.ca/community-people/community-partners/housing-partners/rental-housing-supply-program/" target="_blank" rel="noopener noreferrer">租赁住房供应计划</a>》,以及<em>HousingTO 2020-2030 行动计划</em>。租金水平以 2026 年 7 月 1 日为准。</p>
+            <p class="article-disclaimer"><em>本文仅供一般参考,不构成法律或财务意见。项目细节和租金上限会由市政府定期更新;请以 RHSP 官方页面上的最新数字为准。</em></p>
+
+            <div class="seo-tags" aria-label="关键词">
+              <h4>关键词</h4>
+              <ul>
+                <li>租赁住房供应计划</li>
+                <li>RHSP 多伦多</li>
+                <li>多伦多可负担租金 2026</li>
+                <li>HousingTO 2020-2030</li>
+                <li>可负担租金住房</li>
+                <li>租金管制住房 多伦多</li>
+                <li>专用租赁住房 激励</li>
+                <li>CHPF 前期开发基金</li>
+                <li>ARRCHI 资金流</li>
+                <li>多伦多租赁供应</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="不确定这项政策对您的租房搜索有什么影响?"
+      body="我协助新移民、上班族与家庭在多伦多租赁市场中做出更明智的选择 — 包括追踪 RHSP 新楼何时开租。告诉我您的情况,我会告诉您在您的预算和目标区域内哪些是现实的选择。"
+      ctaPrimary={{ href: '/chinese/contact', label: '联系 Peter' }}
+      ctaSecondary={{ href: '/chinese/blog', label: '更多多伦多政策解读' }}
+    />
+  </article>
+
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>

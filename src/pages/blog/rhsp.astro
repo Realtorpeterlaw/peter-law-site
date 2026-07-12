@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-14';
+const articleTitle = 'Rental Housing Supply Program';
+const articleDescription = "A plain-English guide to the City of Toronto's Rental Housing Supply Program (RHSP). What it is, who can apply, the five funding streams, the 2026 affordable rent levels, and what all of this means for Toronto renters over the next ten years.";
+const articleUrl = 'https://www.realtorpeterlaw.com/blog/rhsp';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'Rental Housing Supply Program, RHSP Toronto, City of Toronto affordable rent 2026, HousingTO 2020-2030, Affordable Rental Homes Toronto, Rent-Controlled Homes, Purpose-Built Rental incentives, CHPF, ARRCHI, Toronto rent supply program',
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Toronto Housing</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">The City of Toronto is helping builders put up more rental homes. Some will be cheap to rent for 40 years. Others will just be regular apartments. Here's what the program is, who it's for, and what it means if you rent in Toronto.</p>
+        <div class="article-byline">
+          <span>By <a href="/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>July 14, 2026</time>
+          <span class="dot">·</span>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>On this page</h4>
+            <ul>
+              <li><a href="#what">What the RHSP is</a></li>
+              <li><a href="#who">Who applies — and who benefits</a></li>
+              <li><a href="#rents">Affordable rent levels for 2026</a></li>
+              <li><a href="#controlled">Rent-controlled rent levels</a></li>
+              <li><a href="#streams">The five funding streams</a></li>
+              <li><a href="#matters">Why this matters for Toronto renters</a></li>
+              <li><a href="#stay">How to stay in the loop</a></li>
+              <li><a href="#mistakes">Common mix-ups</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>Quick answer:</strong> The Rental Housing Supply Program (RHSP) is a City of Toronto program. It gives money and fee breaks to builders who add new rental homes. To get help, at least <strong>20% of the new homes must be Affordable Rental</strong> — meaning the rent stays capped for <strong>40 years</strong>. Renters don't apply for this program. Builders and non-profits do. But if it works, more Toronto renters will have a shot at cheaper long-term homes. Here are the 2026 affordable rent caps: <strong>1-bedroom $1,426 · 2-bedroom $2,055 · 3-bedroom $2,290</strong>.</p>
+
+            <div class="callout"><strong>Who this article is for:</strong> Toronto renters who want to know what "affordable" actually means on the City's programs, newcomers trying to figure out what rents to look for, and anyone curious about where Toronto's new rental supply is coming from.</div>
+
+            <h2 id="what">What the RHSP is</h2>
+            <p>The <em>Rental Housing Supply Program</em> — or RHSP — is run by the City of Toronto. It's part of a bigger plan called the <em>HousingTO 2020-2030 Action Plan</em>. That plan set a ten-year goal to add a lot of new rental homes to the city.</p>
+            <p>The RHSP is one of the tools the City uses to hit that goal. It doesn't build homes itself. Instead, it hands out things builders want, in return for building the kinds of homes the City needs. Those things include:</p>
+            <ul class="bullets">
+              <li><strong>Grants</strong> — money the builder doesn't pay back.</li>
+              <li><strong>Loans</strong> — money the builder pays back later, sometimes with no interest.</li>
+              <li><strong>Fee waivers</strong> — the City drops charges the builder would normally pay to get a project approved (like development charges, permit fees, and parkland fees).</li>
+              <li><strong>Property tax exemptions</strong> — for as long as the affordable rents stay in place.</li>
+            </ul>
+            <p>In return, the builder has to promise that <strong>at least 20% of the homes in the project will be Affordable Rental</strong>, and the rent on those homes has to stay capped by the City for at least <strong>40 years</strong>.</p>
+
+            <details class="b60-section-toggle" id="who">
+              <summary class="b60-section-toggle-summary">Who applies — and who benefits</summary>
+              <div class="b60-section-body">
+                <p>This is the part that trips people up. Two very different groups are involved.</p>
+                <p><strong>Who applies to the RHSP:</strong></p>
+                <ul class="bullets">
+                  <li><strong>Private builders</strong> putting up big new rental buildings.</li>
+                  <li><strong>Community housing providers</strong> — non-profits and co-ops that already run affordable housing.</li>
+                  <li><strong>Indigenous housing organizations</strong> — through a dedicated stream that supports 5,200 new affordable and supportive homes for Indigenous people over the ten-year plan.</li>
+                </ul>
+                <p><strong>Who ends up living in the homes:</strong></p>
+                <ul class="bullets">
+                  <li>Regular Toronto renters — for the market-rate units in the buildings.</li>
+                  <li>Renters who qualify for <strong>Affordable Rental</strong> — the 20%+ portion where rents are capped by the City for 40 years.</li>
+                  <li>Renters who need <strong>Rent-Geared-to-Income (RGI)</strong> homes — where you pay a percentage of your income rather than a set rent. These slots are limited and have long wait-lists managed separately by the City.</li>
+                  <li>Renters who need <strong>supportive housing</strong> — homes bundled with mental health, addiction, or other support services.</li>
+                </ul>
+                <div class="callout"><strong>The short version:</strong> if you rent in Toronto, you don't apply for the RHSP. But you may end up as a tenant in one of the buildings it helps get built. When those buildings finish and start renting, that's when you would apply — through the building's own leasing process or, for RGI units, through the City's centralized wait-list.</div>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="rents">
+              <summary class="b60-section-toggle-summary">Affordable rent levels for 2026</summary>
+              <div class="b60-section-body">
+                <p>The City sets a cap on what an Affordable Rental home can charge. These numbers are updated once a year, most recently on July 1, 2026. If you sign a lease at one of these homes, this is the most your rent can be:</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>Home type</th>
+                      <th>Max monthly rent (2026)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Dwelling room (single room, shared kitchen/bath)</td><td>$899</td></tr>
+                    <tr><td>Studio</td><td>$1,127</td></tr>
+                    <tr><td>1-bedroom</td><td>$1,426</td></tr>
+                    <tr><td>2-bedroom</td><td>$2,055</td></tr>
+                    <tr><td>3-bedroom</td><td>$2,290</td></tr>
+                    <tr><td>4-bedroom</td><td>$3,245</td></tr>
+                  </tbody>
+                </table>
+                <p style="font-size:13px;color:var(--ink-mute);margin-top:10px;"><em>Source: City of Toronto, RHSP page. Rents shown for 2-bedroom and 3-bedroom are effective July 1, 2026.</em></p>
+                <p style="margin-top:14px;">To put those numbers in context: the average market rent for a 1-bedroom condo in downtown Toronto in mid-2026 sits around $2,300-$2,500. So the RHSP 1-bedroom cap of $1,426 is roughly <strong>$1,000 a month less</strong> than the open market — that's around <strong>$12,000 a year</strong> back in your pocket if you land one.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="controlled">
+              <summary class="b60-section-toggle-summary">Rent-controlled rent levels</summary>
+              <div class="b60-section-body">
+                <p>The RHSP has a second, higher tier called <strong>Rent-Controlled Homes</strong>. These aren't as cheap as Affordable Rental, but the rent is still limited — capped at <strong>150% of the average market rent</strong> as tracked by the City. Rent-controlled units are only offered by community housing providers, not private landlords.</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>Home type</th>
+                      <th>Max monthly rent (150% AMR)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Studio</td><td>$2,184</td></tr>
+                    <tr><td>1-bedroom</td><td>$2,572</td></tr>
+                    <tr><td>2-bedroom</td><td>$2,977</td></tr>
+                    <tr><td>3-bedroom</td><td>$3,385</td></tr>
+                    <tr><td>4-bedroom</td><td>$4,867</td></tr>
+                  </tbody>
+                </table>
+                <p>Think of these as "middle-tier" rents. Not deeply subsidized, but still capped, still stable, still protected from big year-over-year jumps.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="streams">
+              <summary class="b60-section-toggle-summary">The five funding streams</summary>
+              <div class="b60-section-body">
+                <p>The RHSP splits its help into five different pots of money, called <em>streams</em>. Each one targets a different type of builder or project.</p>
+                <ol class="bullets">
+                  <li><strong>Community Housing Pre-Development Fund (CHPF).</strong> An interest-free loan of up to $50,000 per affordable home, given to non-profit housing providers. It covers early-stage work like design and studies before a project starts building. Open on a rolling basis.</li>
+                  <li><strong>Affordable Rental and Rent-Controlled Housing Incentives (ARRCHI).</strong> Waives planning fees, permit fees, and development charges. Also gives property tax breaks for as long as the rent stays capped. Open to non-profits and private builders. Open on a rolling basis.</li>
+                  <li><strong>Purpose-Built Rental (PBR) Housing Incentives.</strong> Defers development charges — sometimes indefinitely — on regular market-rate rentals, as long as at least 20% of the project is Affordable Rental for 40 years. In June 2026, City Council approved <strong>Phase 2</strong> of PBR, aiming to unlock <strong>10,000 new rental homes</strong> (at least 2,000 affordable, up to 8,000 market). Phase 2 details are still being finalized.</li>
+                  <li><strong>Capital Funding stream.</strong> Direct grants to community housing providers and private builders to close funding gaps and get projects to shovels-in-ground. No open calls right now — future calls depend on the City's budget.</li>
+                  <li><strong>Indigenous Funding Stream.</strong> A dedicated pot of grants and loans for Indigenous housing organizations. Ties into the City's target of 5,200 new affordable homes for Indigenous people over the plan. First call for applications expected Summer 2026.</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="matters">
+              <summary class="b60-section-toggle-summary">Why this matters for Toronto renters</summary>
+              <div class="b60-section-body">
+                <p>Even if you never apply for any of these programs yourself, the RHSP affects your rental market. Here's why.</p>
+                <ul class="bullets">
+                  <li><strong>More supply means slower rent growth.</strong> Toronto's rent problem is a math problem: more people moving in each year than new homes being built. When programs like RHSP unlock 10,000+ new units, that's real weight on the "supply" side of the equation.</li>
+                  <li><strong>Rent-controlled units stay controlled for 40 years.</strong> Unlike private-sector rentals (where rent control basically only limits year-over-year increases, not what the landlord can charge a new tenant), RHSP affordable units have their <em>absolute</em> rent capped by the City. When one tenant moves out, the next tenant pays roughly the same rent.</li>
+                  <li><strong>New supply usually starts market-rate first.</strong> Even in projects with 20% affordable units, the other 80% will lease at open-market rents. So expect new RHSP-supported buildings to first appear as regular market rentals — the affordable slots inside them typically fill through a separate lottery or application process.</li>
+                  <li><strong>You'll still need a full rental application.</strong> Affordable Rental units come with income limits, but the rest of the process (credit check, references, employment letter, deposits) works the same as any Toronto lease.</li>
+                </ul>
+                <div class="callout"><strong>Realistic timeline:</strong> the RHSP is a ten-year plan. Buildings approved today typically don't finish for 3-5 years. So the affordable units created by the 2026 approvals will start being available to Toronto renters roughly 2029-2031. This is a long-term supply story, not a quick fix.</div>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="stay">
+              <summary class="b60-section-toggle-summary">How to stay in the loop</summary>
+              <div class="b60-section-body">
+                <p>If you want to know when new RHSP-supported buildings start leasing, or if you're an eligible non-profit or builder who wants to apply, here's how to stay updated:</p>
+                <ul class="bullets">
+                  <li><strong>Sign up for the City's affordable housing listserv</strong> at the <a href="https://www.toronto.ca/community-people/community-partners/housing-partners/open-requests-for-proposals/" target="_blank" rel="noopener noreferrer">Housing Partners page</a>. You'll get notified when Calls for Applications open.</li>
+                  <li><strong>Check the Access to Housing (Toronto Community Housing) wait-list</strong> if you're looking for Rent-Geared-to-Income housing. RGI is separate from Affordable Rental and has its own long wait-list.</li>
+                  <li><strong>Watch City Council decisions</strong> on the HousingTO Plan. Phase 2 of the Purpose-Built Rental stream is being finalized summer 2026 and will define the next big wave.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="mistakes">
+              <summary class="b60-section-toggle-summary">Common mix-ups</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>"RHSP is the same as rent control."</strong> It's not. Ontario rent control (under the Residential Tenancies Act) limits how much a landlord can raise rent on an <em>existing</em> tenant year over year. RHSP caps the actual rent number itself for 40 years — a much stronger protection.</li>
+                  <li><strong>"I can apply to the RHSP as a renter."</strong> No. The program is only for builders, non-profits, and Indigenous housing groups. You apply <em>to the buildings</em> once they're renting, not to the program itself.</li>
+                  <li><strong>"Affordable Rental means it's low-income only."</strong> Not quite. There are income limits, but they're broader than most social housing thresholds. Many working renters — nurses, teachers, hospitality workers, entry-level tech workers — qualify.</li>
+                  <li><strong>"The affordable units and the market units are separate buildings."</strong> Under the RHSP, they're usually mixed in the same building. From the outside you can't tell which is which.</li>
+                  <li><strong>"This solves Toronto's rent crisis."</strong> It helps. But 10,000 units under PBR Phase 2 lands against a city that adds roughly 100,000 new residents a year. Necessary, but not sufficient.</li>
+                </ul>
+              </div>
+            </details>
+
+            <h2>Bottom line</h2>
+            <p>The Rental Housing Supply Program is one of the most important pieces of Toronto housing policy today. It won't help you find a rental this month. But over the next 5-10 years it should quietly add tens of thousands of new rental homes to the city — including thousands where the rent is capped by the City for four decades. If you're renting in Toronto now, or planning to, staying signed up for the City's listserv is a small habit that could pay off big when the right building goes live.</p>
+            <p>Have questions about how the RHSP interacts with your specific situation — as a renter, a small landlord, or someone considering a purpose-built rental project? <a href="/contact">Send me a quick note</a>.</p>
+
+            <p class="article-source"><strong>Primary source:</strong> City of Toronto — <a href="https://www.toronto.ca/community-people/community-partners/housing-partners/rental-housing-supply-program/" target="_blank" rel="noopener noreferrer">Rental Housing Supply Program</a>, and the <em>HousingTO 2020-2030 Action Plan</em>. Rent levels are effective as of July 1, 2026.</p>
+            <p class="article-disclaimer"><em>This article is general information and is not legal or financial advice. Program rules and rent caps are updated by the City periodically; confirm current numbers on the official RHSP page before acting on them.</em></p>
+
+            <div class="seo-tags" aria-label="Keywords">
+              <h4>Keywords</h4>
+              <ul>
+                <li>Rental Housing Supply Program</li>
+                <li>RHSP Toronto</li>
+                <li>Toronto affordable rent 2026</li>
+                <li>HousingTO 2020-2030</li>
+                <li>Affordable Rental Homes</li>
+                <li>Rent-Controlled Homes Toronto</li>
+                <li>Purpose-Built Rental incentives</li>
+                <li>CHPF pre-development fund</li>
+                <li>ARRCHI stream</li>
+                <li>Toronto rent supply</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Not sure how this affects your rental hunt?"
+      body="I help newcomers, professionals, and families navigate the Toronto rental market — including tracking new RHSP-supported buildings as they come online. Send me your situation and I'll tell you what's realistic in your price range and neighbourhood."
+      ctaPrimary={{ href: '/contact', label: 'Talk to Peter' }}
+      ctaSecondary={{ href: '/blog', label: 'More Toronto guides' }}
+    />
+  </article>
+
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
