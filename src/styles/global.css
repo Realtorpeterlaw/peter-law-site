@@ -766,7 +766,8 @@ body.mobile-menu-open { overflow: hidden; }
 .boc-source { font-size: 12px; color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: color 0.15s, text-decoration-color 0.15s; }
 .boc-source:hover { color: var(--ink); text-decoration-color: var(--ink); }
 @media (max-width: 720px) {
-  .boc-widget-grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 12px; }
+  .boc-widget-grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 12px; justify-items: center; text-align: center; }
+  .boc-cell { align-items: center; text-align: center; }
   .boc-divider { display: none; }
   .boc-source { width: 100%; text-align: center; padding-top: 8px; border-top: 1px solid var(--rule); }
 }
