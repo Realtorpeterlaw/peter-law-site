@@ -234,4 +234,15 @@ const jsonLd = {
 
   <Footer />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <style is:global>
+    /* Keep the occupancy-status table inside the prose column and let the "meaning" cell wrap */
+    .article-page .prose-body .oesp-table { width: 100%; max-width: 100%; table-layout: fixed; }
+    .article-page .prose-body .oesp-table td,
+    .article-page .prose-body .oesp-table th { white-space: normal; word-wrap: break-word; vertical-align: top; }
+    .article-page .prose-body .oesp-table th:first-child,
+    .article-page .prose-body .oesp-table td:first-child { width: 26%; min-width: 0; }
+    .article-page .prose-body .oesp-table th:last-child,
+    .article-page .prose-body .oesp-table td:last-child { width: 12%; text-align: center; }
+  </style>
 </BaseLayout>
