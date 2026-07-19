@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = '无障碍声明';
+const pageDescription = 'realtorpeterlaw.com 致力于遵循《安省残疾人无障碍法》(AODA)与 WCAG 2.1 Level AA 指南。';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — 多伦多房地产`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">法律 · AODA</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Peter Law 致力于让每一位访客 —— 包括使用辅助技术者以及在视觉、听觉、认知或运动方面存在障碍的人 —— 都能顺畅使用 realtorpeterlaw.com。</p>
+        <div class="article-byline">
+          <span>最近更新:</span>
+          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页目录</h4>
+            <ul>
+              <li><a href="#commitment">我们的承诺</a></li>
+              <li><a href="#standard">遵循的标准</a></li>
+              <li><a href="#measures">已采取的措施</a></li>
+              <li><a href="#alternatives">替代格式</a></li>
+              <li><a href="#limitations">已知局限</a></li>
+              <li><a href="#feedback">反馈渠道</a></li>
+              <li><a href="#contact">联系方式</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <h2 id="commitment">我们的承诺</h2>
+            <p>我们相信每位访客都应能顺畅阅读内容、使用计算器、预约通话并与我们联系。作为安省企业,我们认可《安省残疾人无障碍法(2005)》(AODA)及其《综合无障碍标准条例》所规定的义务,并致力于持续改进。</p>
+
+            <h2 id="standard">遵循的标准</h2>
+            <p>本网站以符合万维网联盟(W3C)发布的 <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> 为目标。WCAG 是加拿大联邦与省级无障碍法规所引用的国际基准。</p>
+
+            <h2 id="measures">已采取的措施</h2>
+            <p>我们为提升本网站无障碍性所采取的措施包括:</p>
+            <ul class="bullets">
+              <li>使用<strong>语义化 HTML</strong>标签(标题、列表、表单、地标),便于屏幕阅读器正确导航。</li>
+              <li>使用<strong>描述性链接文字</strong>,避免"点击这里"等无意义标签。</li>
+              <li>为有意义的图片提供<strong>替代文字</strong>。</li>
+              <li>确保正文与背景之间具有<strong>足够色彩对比度</strong>。</li>
+              <li>菜单与交互元素<strong>可通过键盘操作</strong>,无需鼠标亦可使用本网站。</li>
+              <li>采用<strong>响应式设计</strong>,自动适配手机、平板与桌面屏幕。</li>
+              <li>字体大小<strong>可读且支持浏览器缩放</strong>。</li>
+              <li>在复杂组件(菜单、对话框、可展开区块)上适当使用 <strong>ARIA 属性</strong>。</li>
+              <li>提供<strong>中英双语</strong>版本,降低语言障碍。</li>
+            </ul>
+
+            <h2 id="alternatives">替代格式与沟通支持</h2>
+            <p>如您需要本网站信息的替代格式(大字版、纯文本、音频、无障碍 PDF 或其他格式),或需要沟通支持才能与我们互动,请告诉我们。按 AODA 要求,我们将在合理时间内、无需额外费用为您提供所请求的格式或支持,并在与您沟通偏好后再提供。</p>
+
+            <h2 id="limitations">已知局限</h2>
+            <p>尽管我们尽力而为,本网站部分区域可能尚未完全符合 WCAG 2.1 Level AA。常见局限包括:</p>
+            <ul class="bullets">
+              <li>某些第三方嵌入(日程组件、外部计算器、社交动态)在个别情况下未必完全符合 AA;我们在选择服务商时会考量其无障碍性。</li>
+              <li>较旧的博客文章或 PDF 可能滞后于当前标准 —— 我们正逐步梳理旧档。</li>
+              <li>用于呈现数据的图表与示意图,我们正逐步补充文本说明。</li>
+            </ul>
+            <p>如您遇到具体障碍,阻碍您使用本网站,请告知我们 —— 见下文。</p>
+
+            <h2 id="feedback">反馈渠道</h2>
+            <p>来自辅助技术使用者的反馈,是我们改进本网站最重要的资源之一。若您遇到障碍 —— 某个页面无法正确朗读、某个表单无法填写、某个元素无法通过键盘或语音操作 —— 请告诉我们:</p>
+            <ul class="bullets">
+              <li>您想要完成的操作</li>
+              <li>涉及的页面或功能</li>
+              <li>您所使用的辅助技术或浏览器(若您愿意分享)</li>
+            </ul>
+            <p>我们将在合理时间内确认您的反馈,并告知后续改进计划。</p>
+
+            <h2 id="contact">联系方式</h2>
+            <p>请通过本网站的<a href="/chinese/contact">联系页面</a>发送无障碍反馈或请求。邮寄地址:Peter Law, HomeLife Golconda Realty Inc., Brokerage —— 215, 3601 HWY 7 East, Markham, ON L3R 0M3。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseFooter />
+</BaseLayout>

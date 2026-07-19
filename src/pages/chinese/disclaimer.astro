@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = '免责声明';
+const pageDescription = '关于 realtorpeterlaw.com 所发布信息(含市场数据、税务话题、政府项目及第三方链接)的重要说明。';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — 多伦多房地产`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">法律 · 内容说明</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">本网站上的每一篇文章、计算器与数据,都是为了帮您理解多伦多房地产 —— 而非取代律师、税务师、按揭经纪或房地产代表的意见。依赖此处任何内容前,请阅读以下说明。</p>
+        <div class="article-byline">
+          <span>最近更新:</span>
+          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页目录</h4>
+            <ul>
+              <li><a href="#general">仅供一般参考</a></li>
+              <li><a href="#no-advice">非专业意见</a></li>
+              <li><a href="#accuracy">准确性与时效性</a></li>
+              <li><a href="#market-data">市场数据与房源</a></li>
+              <li><a href="#calculators">计算器与估算</a></li>
+              <li><a href="#no-relationship">不构成客户关系</a></li>
+              <li><a href="#third-party">第三方内容</a></li>
+              <li><a href="#testimonials">客户评价与过往业绩</a></li>
+              <li><a href="#external">外部链接</a></li>
+              <li><a href="#contact">联系方式</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <h2 id="general">仅供一般参考</h2>
+            <p><strong>realtorpeterlaw.com</strong>(下称"本网站")所发布的一切内容 —— 包括博客、指南、表格、计算器与所引用的数据 —— 仅供一般参考,旨在为您自行研究提供起点、帮助您知道该问什么问题。它无法替代针对您具体情况的专业意见。</p>
+
+            <h2 id="no-advice">非专业意见</h2>
+            <p>Peter Law 是安省注册的销售代表 —— 并非律师、税务师、按揭经纪、理财规划师或建筑承包商。本网站中涉及以下主题的内容:</p>
+            <ul class="bullets">
+              <li>税务(HST/GST 退税、土地转让税、资本利得、空置房屋税等);</li>
+              <li>法律(租约、要约、房东/租客纠纷、Bill 60、HCRA 牌照等);</li>
+              <li>按揭与融资(利率、HELOC、反向按揭、可负担性等);</li>
+              <li>政府项目(FHSA、FTHB 退税、RHSP、OESP 等);</li>
+            </ul>
+            <p>应视为一般性教育,而非可直接照做的建议。作出决定前,请向相应的专业人士或负责的政府部门确认最新信息。</p>
+
+            <h2 id="accuracy">准确性与时效性</h2>
+            <p>我们力求撰写准确的内容并注明出处。但房地产规则、税率、市场数据与政府项目变化频繁 —— 有时非常突然。发布时准确的内容,在您阅读时可能已经过时。请留意每篇文章顶部的"发布日期"或"最近更新",并核实其中的事实后再作依据。</p>
+
+            <h2 id="market-data">市场数据与房源</h2>
+            <p>本网站发布的市场统计、销售数据或房源信息,均来自可靠来源 —— 包括多伦多地区房地产协会(TRREB)、MLS® 数据以及公开政府资料 —— 但不作保证。MLS® 数据在发布后可能被更新或更正。"近期成交"或其他页面中提及的物业均为过往交易示例,不构成要约、承诺或对未来结果的预测。</p>
+            <p><strong>MLS®</strong>、<strong>Multiple Listing Service®</strong> 及相关图标由加拿大房地产协会(CREA)所有,用以标识 CREA 会员所提供的服务质量。<strong>REALTOR®</strong>、<strong>REALTORS®</strong> 及 REALTOR® 图标商标由 CREA 控制,用以标识 CREA 会员房地产专业人士。以上均在授权范围内使用。</p>
+
+            <h2 id="calculators">计算器与估算</h2>
+            <p>本网站上任何计算器或估算 —— 包括按揭付款计算器、可负担性计算器、结算成本估算器与土地转让税计算器 —— 均提供近似数字,仅供规划参考。实际数字取决于您的信用、贷款方、成交条件以及我们无法看到的因素。真实数字须由您的贷款方、律师与税务师确认。</p>
+
+            <h2 id="no-relationship">不构成客户关系</h2>
+            <p>浏览本网站、通过联系表格发送信息或安排初步通话,均<strong>不</strong>构成客户关系、代理关系或任何信托义务。房地产客户关系仅在双方签署书面代表协议(《买家代表协议》《卖家代表协议》或类似文件)后才成立。</p>
+
+            <h2 id="third-party">第三方内容</h2>
+            <p>部分内容会引用、摘录或概述政府文件、行业协会指南与新闻报道。凡有相应来源,均会注明并链接。相关第三方的商标与版权仍属其各自所有人。</p>
+
+            <h2 id="testimonials">客户评价与过往业绩</h2>
+            <p>本网站上任何客户评价、成交摘要或对过往交易的引用,均已征得当事人同意,反映特定个人在特定情境下的经历。<strong>过往结果不能作为未来结果的保证。</strong>每一笔房地产交易都不同,结果取决于市场环境、时机、物业特性与谈判等诸多因素,难以完全复制。</p>
+
+            <h2 id="external">外部链接</h2>
+            <p>本网站包含至外部网站(政府页面、新闻来源、行业资源、第三方服务)的链接,仅供方便查阅。我们不控制、不认可、也不对这些网站的内容、准确性或隐私做法承担责任。是否点击外部链接由您自行判断。</p>
+
+            <h2 id="contact">联系方式</h2>
+            <p>对本网站内容有疑问,或发现某处需要更正?请<a href="/chinese/contact">联系 Peter</a>。我们宁愿修正错误,也不愿将其留在网站上。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseFooter />
+</BaseLayout>

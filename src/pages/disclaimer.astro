@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = 'Disclaimer';
+const pageDescription = 'Important notice about the information published on realtorpeterlaw.com — including market data, tax topics, government programs, and third-party links.';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Toronto Real Estate`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+>
+  <TopBar />
+  <Header active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Legal · Content Notice</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Every article, calculator, and figure on this Site is meant to help you understand Toronto real estate — not to replace advice from your lawyer, accountant, mortgage broker, or realtor. Please read the following before relying on anything here.</p>
+        <div class="article-byline">
+          <span>Last updated:</span>
+          <time datetime={publishedDate}>July 19, 2026</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>In this document</h4>
+            <ul>
+              <li><a href="#general">General information only</a></li>
+              <li><a href="#no-advice">No professional advice</a></li>
+              <li><a href="#accuracy">Accuracy &amp; timeliness</a></li>
+              <li><a href="#market-data">Market data &amp; listings</a></li>
+              <li><a href="#calculators">Calculators &amp; estimates</a></li>
+              <li><a href="#no-relationship">No client relationship</a></li>
+              <li><a href="#third-party">Third-party content</a></li>
+              <li><a href="#testimonials">Testimonials &amp; past results</a></li>
+              <li><a href="#external">External links</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <h2 id="general">General information only</h2>
+            <p>Everything published on <strong>realtorpeterlaw.com</strong> (the "Site") — including blog posts, guides, tables, calculators, and quoted rates — is provided for general information purposes only. It is written to give you a starting point for your own research and to help you know what questions to ask. It is not a substitute for individualized professional advice.</p>
+
+            <h2 id="no-advice">No professional advice</h2>
+            <p>Peter Law is a licensed Ontario Sales Representative — not a lawyer, tax accountant, mortgage broker, financial planner, or contractor. Content on the Site that touches on:</p>
+            <ul class="bullets">
+              <li>Tax topics (HST/GST rebates, land transfer tax, capital gains, Vacant Home Tax, etc.);</li>
+              <li>Legal matters (leases, offers, tenant/landlord disputes, Bill 60, HCRA licensing, etc.);</li>
+              <li>Mortgages and financing (rates, HELOCs, reverse mortgages, affordability, etc.);</li>
+              <li>Government programs (FHSA, FTHB rebate, RHSP, OESP, etc.);</li>
+            </ul>
+            <p>should be read as general education, not as advice to act on. Before making a decision, verify the current details with the appropriate qualified professional or the responsible government body.</p>
+
+            <h2 id="accuracy">Accuracy &amp; timeliness</h2>
+            <p>We take care to write accurate content and to cite our sources. However, real estate rules, tax rates, market data, and government programs change frequently — sometimes on very short notice. An article that was current when written may be out of date when you read it. Always check the "Last updated" or "Published" date on each article and confirm the underlying facts before relying on them.</p>
+
+            <h2 id="market-data">Market data &amp; listings</h2>
+            <p>Any market statistics, sales data, or property information published on the Site is derived from sources believed to be reliable — including the Toronto Regional Real Estate Board (TRREB), MLS® system data, and public government sources — but is not guaranteed. MLS® data can change or be corrected after publication. Property listings mentioned in "Recent Closed Deals" or elsewhere on the Site are examples of past transactions and do not represent an offer, guarantee, or predictor of future results.</p>
+            <p>The trademarks <strong>MLS®</strong>, <strong>Multiple Listing Service®</strong>, and the associated logos are owned by The Canadian Real Estate Association (CREA) and identify the quality of services provided by real estate professionals who are members of CREA. The trademarks <strong>REALTOR®</strong>, <strong>REALTORS®</strong>, and the REALTOR® logo are controlled by CREA and identify real estate professionals who are members of CREA. Used under license.</p>
+
+            <h2 id="calculators">Calculators &amp; estimates</h2>
+            <p>Any calculators or estimates on the Site — including mortgage payment calculators, affordability calculators, closing cost estimators, and land transfer tax calculators — provide approximate figures for planning purposes only. Real numbers depend on your credit, lender, closing conditions, and factors we cannot see. Actual figures must be confirmed by your lender, lawyer, and accountant.</p>
+
+            <h2 id="no-relationship">No client relationship</h2>
+            <p>Reading the Site, sending a message through the contact form, or scheduling an introductory call does <strong>not</strong> create a client relationship, an agency relationship, or any fiduciary duty. A real estate client relationship is only established once a written representation agreement (Buyer Representation Agreement, Seller Representation Agreement, or similar) has been signed by both parties.</p>
+
+            <h2 id="third-party">Third-party content</h2>
+            <p>Some Site content references, quotes, or summarizes government publications, industry association guidelines, and news reporting. Where applicable, sources are named and linked. Trademarks and copyrights of those third parties remain the property of their respective owners.</p>
+
+            <h2 id="testimonials">Testimonials &amp; past results</h2>
+            <p>Any client testimonials, deal summaries, or references to past transactions shown on the Site are provided with permission and reflect the experience of specific individuals in specific circumstances. Past results are <strong>not</strong> a guarantee of future results. Every real estate transaction is different, and outcomes depend on many factors — market conditions, timing, property specifics, and negotiation dynamics — that cannot be replicated.</p>
+
+            <h2 id="external">External links</h2>
+            <p>The Site links to external websites (government pages, news sources, industry resources, third-party services). We include them for your convenience. We do not control, endorse, or take responsibility for the content, accuracy, or privacy practices of those websites. Follow any external link at your own discretion.</p>
+
+            <h2 id="contact">Contact</h2>
+            <p>Questions about the content on this Site, or think we've published something that needs correcting? Please <a href="/contact">contact Peter</a>. We'd rather fix a mistake than leave it up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>

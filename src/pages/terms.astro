@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = 'Terms of Service';
+const pageDescription = 'Terms governing use of realtorpeterlaw.com — a personal real estate website operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage.';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Toronto Real Estate`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+>
+  <TopBar />
+  <Header active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Legal · Site Terms</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">These terms cover how you use realtorpeterlaw.com. Nothing here is legal advice — it just sets the ground rules for the site, its content, and the trademarks used on it.</p>
+        <div class="article-byline">
+          <span>Last updated:</span>
+          <time datetime={publishedDate}>July 19, 2026</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>In this document</h4>
+            <ul>
+              <li><a href="#acceptance">Acceptance of terms</a></li>
+              <li><a href="#site-use">Use of the site</a></li>
+              <li><a href="#ip">Intellectual property</a></li>
+              <li><a href="#trademarks">REALTOR® &amp; MLS® trademarks</a></li>
+              <li><a href="#no-advice">No professional advice</a></li>
+              <li><a href="#third-party">Third-party links</a></li>
+              <li><a href="#liability">Limitation of liability</a></li>
+              <li><a href="#changes">Changes to these terms</a></li>
+              <li><a href="#law">Governing law</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <h2 id="acceptance">Acceptance of terms</h2>
+            <p>By visiting or using <strong>realtorpeterlaw.com</strong> (the "Site"), you agree to these Terms of Service. If you do not agree, please do not use the Site. The Site is owned and operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage ("we", "us", "our"), and is registered with the Real Estate Council of Ontario (RECO).</p>
+
+            <h2 id="site-use">Use of the site</h2>
+            <p>You agree to use the Site only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use of the Site. Prohibited behaviour includes but is not limited to:</p>
+            <ul class="bullets">
+              <li>Attempting to gain unauthorized access to the Site, its server, or any connected system.</li>
+              <li>Scraping, harvesting, or otherwise collecting information about other users.</li>
+              <li>Uploading or transmitting viruses, malware, or other harmful code.</li>
+              <li>Copying, reselling, or republishing any Site content without written permission.</li>
+              <li>Using the Site to distribute spam or unsolicited commercial content.</li>
+            </ul>
+
+            <h2 id="ip">Intellectual property</h2>
+            <p>All original content on the Site — including but not limited to written articles, blog posts, guides, calculators, page layouts, photography, illustrations, and code — is the property of Peter Law and is protected by Canadian and international copyright laws. You may view, share, and link to Site pages for personal, non-commercial use. You may not reproduce, republish, redistribute, or use the content for commercial purposes without prior written consent.</p>
+
+            <h2 id="trademarks">REALTOR® and MLS® trademarks</h2>
+            <p>The trademarks <strong>REALTOR®</strong>, <strong>REALTORS®</strong>, and the REALTOR® logo are controlled by The Canadian Real Estate Association (CREA) and identify real estate professionals who are members of CREA. The trademarks <strong>MLS®</strong>, <strong>Multiple Listing Service®</strong>, and the associated logos are owned by CREA and identify the quality of services provided by real estate professionals who are members of CREA. These trademarks are used on the Site under license.</p>
+            <p>Peter Law is a Sales Representative registered with the Real Estate Council of Ontario (RECO) and operates under the Brokerage of HomeLife Golconda Realty Inc.</p>
+
+            <h2 id="no-advice">No professional advice</h2>
+            <p>The Site provides general information about the Ontario and Toronto real estate market, government programs, tax rebates, and related topics. This information is <strong>not legal, tax, financial, mortgage, or professional advice</strong>. Real estate rules, tax rates, and government programs change often — sometimes between the time an article is written and the time you read it. Always verify current details with the appropriate professional (a real estate lawyer, tax accountant, mortgage broker, or the relevant government agency) before making a decision.</p>
+            <p>Reading the Site or contacting us through it does not create a client relationship, an agency relationship, or any fiduciary duty. A client relationship is only formed once a written representation agreement is signed.</p>
+
+            <h2 id="third-party">Third-party links</h2>
+            <p>The Site links to third-party websites (government pages, industry associations, service providers, and news sources) purely for your convenience. We do not endorse, control, or take responsibility for the content, accuracy, or privacy practices of those websites. Your use of a linked third-party site is governed by that site's own terms.</p>
+
+            <h2 id="liability">Limitation of liability</h2>
+            <p>The Site and its content are provided "as is" and "as available" without warranty of any kind, either express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses. To the fullest extent permitted by law, Peter Law and HomeLife Golconda Realty Inc. will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of, or inability to use, the Site or its content — including reliance on any information found on the Site.</p>
+
+            <h2 id="changes">Changes to these terms</h2>
+            <p>We may update these Terms of Service from time to time. The "Last updated" date at the top of this page shows when the most recent change was made. Your continued use of the Site after any change means you accept the updated terms.</p>
+
+            <h2 id="law">Governing law</h2>
+            <p>These Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable in Ontario. Any dispute arising from these Terms or from your use of the Site will be handled in the courts of Ontario.</p>
+
+            <h2 id="contact">Contact</h2>
+            <p>Questions about these Terms of Service? <a href="/contact">Contact Peter</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = '隐私政策';
+const pageDescription = 'realtorpeterlaw.com 依据加拿大 PIPEDA 隐私法收集、使用与保护您个人信息的方式。';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — 多伦多房地产`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">法律 · PIPEDA</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Peter Law 尊重您的隐私。本政策说明本网站收集哪些个人信息、为何收集、如何存储,以及您在加拿大法律下享有的权利。</p>
+        <div class="article-byline">
+          <span>最近更新:</span>
+          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页目录</h4>
+            <ul>
+              <li><a href="#who">我们是谁</a></li>
+              <li><a href="#what">收集哪些信息</a></li>
+              <li><a href="#why">收集目的</a></li>
+              <li><a href="#consent">您的同意</a></li>
+              <li><a href="#third-parties">第三方服务</a></li>
+              <li><a href="#cookies">Cookie 与分析</a></li>
+              <li><a href="#storage">存储与保留</a></li>
+              <li><a href="#security">安全措施</a></li>
+              <li><a href="#rights">您的权利</a></li>
+              <li><a href="#children">儿童</a></li>
+              <li><a href="#changes">政策变更</a></li>
+              <li><a href="#contact">联系方式</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>一句话总结:</strong>本网站只会收集您自愿通过联系表格或电子邮件提交的信息 —— 姓名、联系方式,以及您所写下的内容。这些信息仅用于回复您、以及在您成为客户后为您提供服务。我们绝不出售、绝不为营销目的与第三方分享。您可随时查询、更正或要求删除。</p>
+
+            <h2 id="who">我们是谁</h2>
+            <p>本隐私政策适用于 <strong>realtorpeterlaw.com</strong>(下称"本网站"),由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law 运营,并已在安省地产协会(RECO)注册。就加拿大《个人信息保护与电子文档法》(PIPEDA)而言,Peter Law 是通过本网站收集之个人信息的负责组织。</p>
+
+            <h2 id="what">收集哪些信息</h2>
+            <ul class="bullets">
+              <li><strong>您主动提供的信息。</strong>当您使用联系表格、发送电子邮件、预约通话或订阅更新时,我们会收集您选择分享的信息 —— 通常包括姓名、电子邮件地址、电话号码、留言内容,以及您注明的偏好(如社区、预算、时间线)。</li>
+              <li><strong>客户信息。</strong>若您成为客户,我们可能会根据法律规定收集房地产交易所需的额外信息 —— 依据《犯罪所得(洗钱)及恐怖主义融资法》(PCMLTFA)进行的身份核实、已签署的代表协议、要约及相关文件。</li>
+              <li><strong>自动技术信息。</strong>与大多数网站一样,我们通过服务器日志与分析工具收集基础技术数据 —— 浏览器类型、大致位置(城市或地区)、浏览页面、停留时长。此类信息不会直接识别您的身份。</li>
+            </ul>
+
+            <h2 id="why">收集目的</h2>
+            <p>我们只在合理必要的范围内收集个人信息,具体用途为:</p>
+            <ul class="bullets">
+              <li>回复您的咨询与请求。</li>
+              <li>若您聘请我们作为您的房地产代表,为您提供相关服务。</li>
+              <li>履行适用于安省房地产专业人士的法律、监管及 RECO 义务。</li>
+              <li>了解访客如何使用本网站以进行改进(聚合分析,非个人追踪)。</li>
+            </ul>
+            <p>我们<strong>不会</strong>出售、出租或交易您的个人信息。我们不会用于向您推送广告,也不会为营销目的与任何无关第三方分享。</p>
+
+            <h2 id="consent">您的同意</h2>
+            <p>通过联系表格、电子邮件、预约通话或以其他方式向本网站发送信息,即表示您同意按上述目的收集与使用该信息。您可随时通过联系我们撤回同意 —— 但须遵守保留记录的法律或监管要求(见下文"存储与保留")。</p>
+
+            <h2 id="third-parties">第三方服务</h2>
+            <p>本网站使用少量第三方服务,可能代为处理有限的个人或技术数据:</p>
+            <ul class="bullets">
+              <li><strong>Vercel</strong> —— 承载本网站并提供基础服务器日志。</li>
+              <li><strong>Formspree 或类似服务</strong> —— 将联系表格提交转发至 Peter 的电子邮箱。</li>
+              <li><strong>Cal.com</strong> —— 支持"预约通话"日程组件。</li>
+              <li><strong>Google 相关服务</strong> —— 如嵌入字体或可选分析工具。</li>
+            </ul>
+            <p>上述服务商各自有独立的隐私政策。我们仅共享其履职所需的最小信息。</p>
+
+            <h2 id="cookies">Cookie 与分析</h2>
+            <p>本网站使用少量第一方 Cookie 以维持基本功能(例如记住您的语言偏好)。所使用的任何分析工具均以聚合方式呈现 —— 我们能看到有多少人访问了哪些页面,但看不到您是谁。您可在浏览器设置中禁用 Cookie;若禁用,部分功能可能无法正常运行。</p>
+
+            <h2 id="storage">存储与保留</h2>
+            <p>个人信息存储在我们服务商运营的服务器上,可能位于加拿大或美国。联系表格与电子邮件往来仅保留至处理咨询所需时间;若您成为客户,则按 RECO 与适用法律要求保留(目前最低为客户关系结束后 6 年)。之后记录将被销毁或去标识化。</p>
+
+            <h2 id="security">安全措施</h2>
+            <p>我们采取合理的技术与组织措施保护个人信息 —— 包括加密连接(HTTPS)、强密码、访问控制,以及采用信誉良好的服务商。无系统能做到绝对安全。若您有理由相信您与本网站的互动不再安全,请立即与我们联系。</p>
+
+            <h2 id="rights">您的权利</h2>
+            <p>根据 PIPEDA,您有权:</p>
+            <ul class="bullets">
+              <li>了解我们持有关于您的哪些个人信息。</li>
+              <li>查阅这些信息(受有限例外情形约束)。</li>
+              <li>要求我们更正任何不准确的信息。</li>
+              <li>在符合法律与合同义务的前提下,撤回对信息进一步使用的同意。</li>
+              <li>先向我们投诉;若未能解决,可向 <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">加拿大隐私专员办公室(OPC)</a> 投诉。</li>
+            </ul>
+
+            <h2 id="children">儿童</h2>
+            <p>本网站并非针对 13 岁以下儿童设计,我们亦不会有意收集儿童的个人信息。若您认为有儿童向本网站提供了个人信息,请与我们联系,我们将予以删除。</p>
+
+            <h2 id="changes">政策变更</h2>
+            <p>我们可能会不时更新本《隐私政策》。页面顶部的"最近更新"日期显示最近一次修改的时间。重大变更将在本网站上突出显示。</p>
+
+            <h2 id="contact">联系方式</h2>
+            <p>如需查询个人信息、要求查阅或更正、或提出隐私投诉,请<a href="/chinese/contact">联系 Peter</a>。我们重视每一次隐私咨询,并将尽快回复。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseFooter />
+</BaseLayout>

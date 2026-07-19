@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = '服务条款';
+const pageDescription = '规范 realtorpeterlaw.com 使用行为的条款 —— 由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law 运营。';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — 多伦多房地产`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">法律 · 网站条款</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">本条款规范您如何使用 realtorpeterlaw.com。此处内容不构成法律意见,仅设定网站、内容与商标使用的基本规则。</p>
+        <div class="article-byline">
+          <span>最近更新:</span>
+          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页目录</h4>
+            <ul>
+              <li><a href="#acceptance">接受条款</a></li>
+              <li><a href="#site-use">网站使用</a></li>
+              <li><a href="#ip">知识产权</a></li>
+              <li><a href="#trademarks">REALTOR® 与 MLS® 商标</a></li>
+              <li><a href="#no-advice">非专业意见</a></li>
+              <li><a href="#third-party">第三方链接</a></li>
+              <li><a href="#liability">责任限制</a></li>
+              <li><a href="#changes">条款变更</a></li>
+              <li><a href="#law">适用法律</a></li>
+              <li><a href="#contact">联系方式</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <h2 id="acceptance">接受条款</h2>
+            <p>访问或使用 <strong>realtorpeterlaw.com</strong>(下称"本网站"),即表示您同意本《服务条款》。若您不同意,请勿使用本网站。本网站由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law("我们")拥有并运营,并已在安省地产协会(RECO)注册。</p>
+
+            <h2 id="site-use">网站使用</h2>
+            <p>您同意仅将本网站用于合法目的,且不得侵犯他人使用本网站的权利或限制他人使用本网站。禁止行为包括但不限于:</p>
+            <ul class="bullets">
+              <li>企图未经授权访问本网站、其服务器或任何相关系统。</li>
+              <li>抓取、采集或以其他方式收集其他访客的信息。</li>
+              <li>上传或传输病毒、恶意软件或其他有害代码。</li>
+              <li>未经书面许可,复制、转售或再发布本网站的任何内容。</li>
+              <li>利用本网站分发垃圾信息或未经请求的商业内容。</li>
+            </ul>
+
+            <h2 id="ip">知识产权</h2>
+            <p>本网站所有原创内容 —— 包括但不限于文章、博客、指南、计算器、页面布局、摄影作品、插图与代码 —— 均属 Peter Law 所有,受加拿大及国际版权法保护。您可为个人非商业用途浏览、分享或链接本网站页面。未经事先书面同意,不得复制、再发布、转载或用于商业目的。</p>
+
+            <h2 id="trademarks">REALTOR® 与 MLS® 商标</h2>
+            <p><strong>REALTOR®</strong>、<strong>REALTORS®</strong> 及 REALTOR® 图标商标由加拿大房地产协会(CREA)控制,用以标识 CREA 会员房地产专业人士。<strong>MLS®</strong>、<strong>Multiple Listing Service®</strong> 及相关图标由 CREA 所有,用以标识 CREA 会员所提供的服务质量。本网站在获得授权的前提下使用上述商标。</p>
+            <p>Peter Law 是在 RECO 注册的销售代表,隶属于 HomeLife Golconda Realty Inc. 经纪公司。</p>
+
+            <h2 id="no-advice">非专业意见</h2>
+            <p>本网站提供关于安省与多伦多房地产市场、政府项目、税收优惠等主题的一般性信息。这些内容<strong>不构成法律、税务、财务、按揭或其他专业意见</strong>。房地产规则、税率与政府项目经常变动 —— 有时在文章发布之后到您阅读之时之间就已发生变化。做出决定之前,请务必向相应的专业人士(房地产律师、税务师、按揭经纪或相关政府机构)核实最新信息。</p>
+            <p>阅读本网站或通过本网站与我们联系,并不构成客户关系、代理关系或任何信托义务。客户关系仅在双方签署书面代表协议后才成立。</p>
+
+            <h2 id="third-party">第三方链接</h2>
+            <p>本网站链接至第三方网站(政府页面、行业协会、服务提供商、新闻来源),仅为方便您查阅。我们不认可、不控制、也不对这些网站的内容、准确性或隐私做法承担责任。您对第三方网站的使用,受该网站自身条款约束。</p>
+
+            <h2 id="liability">责任限制</h2>
+            <p>本网站及其内容按"现状"与"可用即用"的原则提供,不作任何明示或默示的保证。我们不保证本网站不中断、无错误或无病毒。在法律允许的最大范围内,Peter Law 及 HomeLife Golconda Realty Inc. 对您因使用或无法使用本网站或其内容 —— 包括对本网站信息的依赖 —— 而产生的任何直接、间接、附带、后果性或惩罚性损害不承担责任。</p>
+
+            <h2 id="changes">条款变更</h2>
+            <p>我们可能会不时更新本《服务条款》。页面顶部的"最近更新"日期显示最近一次修改的时间。您在变更后继续使用本网站,即视为接受更新后的条款。</p>
+
+            <h2 id="law">适用法律</h2>
+            <p>本条款受安大略省法律及适用于安省的加拿大联邦法律管辖。因本条款或您对本网站的使用所产生的任何争议,均由安省法院处理。</p>
+
+            <h2 id="contact">联系方式</h2>
+            <p>对本《服务条款》有疑问?<a href="/chinese/contact">联系 Peter</a>。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseFooter />
+</BaseLayout>

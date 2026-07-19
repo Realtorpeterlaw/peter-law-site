@@ -423,6 +423,9 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 /* FOOTER 5-COLUMN VARIANT */
 .foot-grid-5 { grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; }
 @media (max-width: 900px) { .foot-grid-5 { grid-template-columns: 1fr 1fr; } }
+.foot-grid-6 { grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr 1fr; }
+@media (max-width: 1100px) { .foot-grid-6 { grid-template-columns: 1fr 1fr 1fr; } }
+@media (max-width: 700px) { .foot-grid-6 { grid-template-columns: 1fr 1fr; } }
 
 /* CALCULATOR / FORM PAGES */
 .prose-body .calc, .calc-page .calc { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 32px; max-width: 720px; margin-top: 24px; margin-bottom: 24px; }

@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = 'Accessibility Statement';
+const pageDescription = 'How realtorpeterlaw.com works to meet the Accessibility for Ontarians with Disabilities Act (AODA) and WCAG 2.1 Level AA guidelines.';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Toronto Real Estate`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+>
+  <TopBar />
+  <Header active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Legal · AODA</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Peter Law is committed to making realtorpeterlaw.com accessible to everyone — including people who use assistive technology and people with vision, hearing, cognitive, or motor disabilities.</p>
+        <div class="article-byline">
+          <span>Last updated:</span>
+          <time datetime={publishedDate}>July 19, 2026</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>In this document</h4>
+            <ul>
+              <li><a href="#commitment">Our commitment</a></li>
+              <li><a href="#standard">Standard we follow</a></li>
+              <li><a href="#measures">Measures in place</a></li>
+              <li><a href="#alternatives">Accessible formats</a></li>
+              <li><a href="#limitations">Known limitations</a></li>
+              <li><a href="#feedback">Feedback</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <h2 id="commitment">Our commitment</h2>
+            <p>We believe every visitor should be able to read our content, use our calculators, book a call, and contact us with ease. As an Ontario business, we recognize our obligations under the <em>Accessibility for Ontarians with Disabilities Act, 2005</em> (AODA) and its <em>Integrated Accessibility Standards Regulation</em>, and we are committed to ongoing improvement.</p>
+
+            <h2 id="standard">Standard we follow</h2>
+            <p>The Site aims to conform to <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>, published by the World Wide Web Consortium (W3C). WCAG is the international benchmark referenced by Canadian federal and provincial accessibility regulations.</p>
+
+            <h2 id="measures">Measures in place</h2>
+            <p>Steps we've taken to make the Site more accessible include:</p>
+            <ul class="bullets">
+              <li><strong>Semantic HTML</strong> for headings, lists, forms, and landmarks so screen readers can navigate content correctly.</li>
+              <li><strong>Descriptive link text</strong> instead of vague labels like "click here".</li>
+              <li><strong>Alternative text</strong> on meaningful images.</li>
+              <li><strong>Sufficient colour contrast</strong> between text and background.</li>
+              <li><strong>Keyboard-navigable menus and interactive elements</strong>, so the Site can be used without a mouse.</li>
+              <li><strong>Responsive design</strong> that adapts to phones, tablets, and desktop screens.</li>
+              <li><strong>Readable font sizes</strong> with support for browser text-resizing.</li>
+              <li><strong>ARIA attributes</strong> on complex components (menus, dialogs, expandable sections) where appropriate.</li>
+              <li><strong>A bilingual site</strong> (English and 中文) to reduce language barriers.</li>
+            </ul>
+
+            <h2 id="alternatives">Accessible formats &amp; communication supports</h2>
+            <p>If you need information from this Site in an alternative format (large print, plain text, audio, an accessible PDF, or another format), or if you need a communication support to interact with us, please reach out. We will provide the requested format or support in a timely manner, at no additional cost, and after consulting with you on your preferences — as required by AODA.</p>
+
+            <h2 id="limitations">Known limitations</h2>
+            <p>Despite our best efforts, some areas of the Site may not yet fully meet WCAG 2.1 Level AA. Common limitations include:</p>
+            <ul class="bullets">
+              <li>Certain third-party embeds (scheduling widgets, external calculators, social feeds) may not fully meet AA in every case; we choose providers based partly on their accessibility.</li>
+              <li>Older blog posts or PDFs may lag behind current standards while we work through the archive.</li>
+              <li>Charts and diagrams that convey data are being progressively supplemented with text-based descriptions.</li>
+            </ul>
+            <p>If you encounter a specific barrier that keeps you from using the Site, please tell us — see below.</p>
+
+            <h2 id="feedback">Feedback</h2>
+            <p>Feedback from users of assistive technology is one of the most valuable tools we have for improving the Site. If you experience a barrier — a page that won't read correctly, a form you can't complete, an element you can't operate with keyboard or voice — please let us know:</p>
+            <ul class="bullets">
+              <li>What you were trying to do</li>
+              <li>The page or feature involved</li>
+              <li>The assistive technology or browser you were using, if you're comfortable sharing</li>
+            </ul>
+            <p>We will acknowledge your feedback within a reasonable time and respond with what we plan to do.</p>
+
+            <h2 id="contact">Contact</h2>
+            <p>Please send accessibility feedback or requests through our <a href="/contact">contact page</a>. Mailing address: Peter Law, HomeLife Golconda Realty Inc., Brokerage — 215, 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>

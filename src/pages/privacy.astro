@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = 'Privacy Policy';
+const pageDescription = 'How realtorpeterlaw.com collects, uses, and protects your personal information under Canadian privacy law (PIPEDA).';
+---
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Toronto Real Estate`}
+  description={pageDescription}
+  bodyClass="guide-page article-page"
+>
+  <TopBar />
+  <Header active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Legal · PIPEDA</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Peter Law respects your privacy. This policy explains what personal information the Site collects, why it's collected, how it's stored, and the rights you have under Canadian law.</p>
+        <div class="article-byline">
+          <span>Last updated:</span>
+          <time datetime={publishedDate}>July 19, 2026</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>In this document</h4>
+            <ul>
+              <li><a href="#who">Who we are</a></li>
+              <li><a href="#what">What we collect</a></li>
+              <li><a href="#why">Why we collect it</a></li>
+              <li><a href="#consent">Your consent</a></li>
+              <li><a href="#third-parties">Third-party services</a></li>
+              <li><a href="#cookies">Cookies &amp; analytics</a></li>
+              <li><a href="#storage">Storage &amp; retention</a></li>
+              <li><a href="#security">Security</a></li>
+              <li><a href="#rights">Your rights</a></li>
+              <li><a href="#children">Children</a></li>
+              <li><a href="#changes">Changes</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p><strong>Short version:</strong> The only personal information this Site collects is what you voluntarily send through the contact form or by email — your name, contact details, and whatever you write in your message. It's used to reply to you and, if you become a client, to serve you. It is not sold. It is not shared with third parties for marketing. You can ask to see it, correct it, or have it deleted at any time.</p>
+
+            <h2 id="who">Who we are</h2>
+            <p>This privacy policy applies to <strong>realtorpeterlaw.com</strong> (the "Site"), operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage, registered with the Real Estate Council of Ontario (RECO). For the purpose of Canada's <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA), Peter Law acts as the organization responsible for the handling of personal information collected through the Site.</p>
+
+            <h2 id="what">What we collect</h2>
+            <ul class="bullets">
+              <li><strong>Information you provide directly.</strong> When you use the contact form, email us, book a call, or subscribe to updates, we collect the information you choose to share — typically your name, email address, phone number, message, and any preferences you note (e.g., neighbourhood, budget, timeline).</li>
+              <li><strong>Client information.</strong> If you become a client, we may collect additional information required by law for real estate transactions — identity verification under the <em>Proceeds of Crime (Money Laundering) and Terrorist Financing Act</em> (PCMLTFA), signed representation agreements, offers, and related documents.</li>
+              <li><strong>Automatic technical information.</strong> Like most websites, we collect basic technical data through server logs and analytics — browser type, general location (city or region), pages viewed, and time on page. This does not personally identify you.</li>
+            </ul>
+
+            <h2 id="why">Why we collect it</h2>
+            <p>We collect personal information only for purposes that a reasonable person would consider appropriate in the circumstances. Specifically:</p>
+            <ul class="bullets">
+              <li>To respond to your questions and requests.</li>
+              <li>To provide real estate services if you engage us as your representative.</li>
+              <li>To meet legal, regulatory, and RECO obligations that apply to real estate professionals in Ontario.</li>
+              <li>To understand how visitors use the Site so we can improve it (aggregate analytics, not individual tracking).</li>
+            </ul>
+            <p>We do <strong>not</strong> sell, rent, or trade your personal information. We do not use it for advertising to you or sharing with unrelated third parties for marketing.</p>
+
+            <h2 id="consent">Your consent</h2>
+            <p>By submitting the contact form, emailing us, booking a call, or otherwise sending information through the Site, you consent to the collection and use of that information for the purposes described above. You can withdraw your consent at any time by contacting us — subject to any legal or regulatory requirement to retain records (see "Storage &amp; retention" below).</p>
+
+            <h2 id="third-parties">Third-party services</h2>
+            <p>The Site uses a small number of third-party services that may process limited personal or technical data on our behalf:</p>
+            <ul class="bullets">
+              <li><strong>Vercel</strong> — hosts the Site and provides basic server logs.</li>
+              <li><strong>Formspree or similar</strong> — routes contact-form submissions to Peter's email.</li>
+              <li><strong>Cal.com</strong> — powers the "Book a call" scheduling widget.</li>
+              <li><strong>Google-owned services</strong> — if used, e.g., embedded fonts or optional analytics.</li>
+            </ul>
+            <p>Each of these providers has its own privacy policy. We only share the minimum information required for them to perform their function.</p>
+
+            <h2 id="cookies">Cookies &amp; analytics</h2>
+            <p>The Site uses a small number of first-party cookies for basic functionality (remembering your language preference, for example). Any analytics used are aggregate — we see how many people visit which pages, not who you are. You can disable cookies in your browser settings; some parts of the Site may not work as expected if you do.</p>
+
+            <h2 id="storage">Storage &amp; retention</h2>
+            <p>Personal information is stored on servers operated by our service providers, which may be located in Canada or the United States. We keep contact-form submissions and email correspondence only as long as needed to serve the inquiry or, if you become a client, as required by RECO and applicable law (currently a minimum of six years after the end of the client relationship). After that, records are destroyed or de-identified.</p>
+
+            <h2 id="security">Security</h2>
+            <p>We take reasonable technical and organizational measures to protect personal information — including encrypted connections (HTTPS), strong passwords, access controls, and reputable service providers. No system is perfectly secure. If you have reason to believe your interaction with the Site is no longer secure, please contact us immediately.</p>
+
+            <h2 id="rights">Your rights</h2>
+            <p>Under PIPEDA you have the right to:</p>
+            <ul class="bullets">
+              <li>Know what personal information we hold about you.</li>
+              <li>Access that information (subject to limited exceptions).</li>
+              <li>Ask us to correct any information that is inaccurate.</li>
+              <li>Withdraw your consent to further use of your information, subject to legal and contractual obligations.</li>
+              <li>File a complaint with us — or, if unresolved, with the <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">Office of the Privacy Commissioner of Canada</a>.</li>
+            </ul>
+
+            <h2 id="children">Children</h2>
+            <p>The Site is not directed at children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided personal information, please contact us and we will delete it.</p>
+
+            <h2 id="changes">Changes to this policy</h2>
+            <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page shows when the most recent change was made. Material changes will be highlighted on the Site.</p>
+
+            <h2 id="contact">Contact</h2>
+            <p>To ask about your personal information, request access or correction, or file a privacy concern, please <a href="/contact">contact Peter</a>. We take privacy inquiries seriously and will respond as quickly as reasonably possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>
