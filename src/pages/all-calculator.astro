@@ -1,0 +1,440 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+export const prerender = true;
+---
+<BaseLayout
+  title="ALL Calculator — mortgage, LTT, CMHC, closing costs in one spot | Peter Law"
+  description="One page. Type your income, the price of the place, and what you've saved. See your monthly payment, land transfer tax, mortgage insurance, closing costs, and total cash to close — all at once. No jumping between five calculators."
+  bodyClass="calc-page"
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">ALL calculator</div>
+      <h1>Type three numbers. Get the whole picture.</h1>
+      <p>Your income. The price you're looking at. How much you've saved. That's it. This page does the rest — monthly payment, mortgage insurance, land transfer tax, closing costs, and how much cash you actually need on move-in day — all live, on one screen.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+
+        <!-- INPUT BLOCK -->
+        <div class="ac-inputs">
+          <div class="ac-input-group">
+            <label>1. How much do you make a year? <span class="hint">Before taxes.</span></label>
+            <div class="input-prefix"><input type="number" id="ac-income" value="85000" min="0" step="1000" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>2. Price of the place you want <span class="hint">Condo, townhouse, or house.</span></label>
+            <div class="input-prefix"><input type="number" id="ac-price" value="650000" min="0" step="5000" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>3. How much have you saved? <span class="hint">Cash for down payment + closing costs.</span></label>
+            <div class="input-prefix"><input type="number" id="ac-savings" value="65000" min="0" step="1000" /></div>
+          </div>
+
+          <details class="ac-more">
+            <summary>More settings (optional)</summary>
+            <div class="ac-more-body">
+              <div class="ac-input-group">
+                <label>Mortgage rate <span class="hint">5% is normal in 2026.</span></label>
+                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label>Amortization <span class="hint">How many years to pay it off. Most people pick 25.</span></label>
+                <select id="ac-amort">
+                  <option value="20">20 years</option>
+                  <option value="25" selected>25 years</option>
+                  <option value="30">30 years (only if &lt;20% down and first home)</option>
+                </select>
+              </div>
+              <div class="ac-input-group">
+                <label>Where is it?</label>
+                <select id="ac-location">
+                  <option value="toronto" selected>Inside City of Toronto</option>
+                  <option value="ontario">Rest of Ontario</option>
+                </select>
+              </div>
+              <div class="ac-input-group">
+                <label>Are you a first-time buyer? <span class="hint">Gets you a rebate on land transfer tax.</span></label>
+                <select id="ac-fthb">
+                  <option value="yes" selected>Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- RESULTS BLOCK -->
+        <div class="ac-results">
+          <div class="ac-headline">
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">Your monthly payment</div>
+              <div class="ac-headline-value" id="ac-monthly">$0</div>
+              <div class="ac-headline-sub" id="ac-monthly-sub">Mortgage only. Add property tax + utilities on top.</div>
+            </div>
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">Cash you need on closing day</div>
+              <div class="ac-headline-value" id="ac-cash">$0</div>
+              <div class="ac-headline-sub" id="ac-cash-sub">Down payment + land transfer tax + lawyer + adjustments.</div>
+            </div>
+          </div>
+
+          <div class="ac-verdict" id="ac-verdict">
+            <span class="ac-verdict-dot"></span>
+            <div>
+              <div class="ac-verdict-title" id="ac-verdict-title">Type your numbers above.</div>
+              <div class="ac-verdict-sub" id="ac-verdict-sub">The bank looks at how much of your income goes to housing. Under 32% is safe. Over 39% and the bank probably says no.</div>
+            </div>
+          </div>
+
+          <h3 class="ac-section-h">Where the money goes</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>Down payment</span><strong id="ac-down">$0</strong></div>
+            <div class="ac-row"><span>Total mortgage</span><strong id="ac-mortgage">$0</strong></div>
+            <div class="ac-row"><span>CMHC / default insurance <em class="ac-note" id="ac-cmhc-note"></em></span><strong id="ac-cmhc">$0</strong></div>
+            <div class="ac-row"><span>Ontario land transfer tax</span><strong id="ac-ltt-on">$0</strong></div>
+            <div class="ac-row" id="ac-ltt-mltt-row"><span>Toronto land transfer tax</span><strong id="ac-ltt-mltt">$0</strong></div>
+            <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>First-time buyer rebate</span><strong id="ac-ltt-rebate">−$0</strong></div>
+            <div class="ac-row"><span>Legal + title + adjustments <em class="ac-note">roughly</em></span><strong id="ac-legal">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>Total cash to close</span><strong id="ac-total-cash">$0</strong></div>
+          </div>
+
+          <h3 class="ac-section-h">Reality check</h3>
+          <div class="ac-checks">
+            <div class="ac-check">
+              <div class="ac-check-label">Minimum down payment for this price</div>
+              <div class="ac-check-value" id="ac-mindown">$0</div>
+              <div class="ac-check-sub" id="ac-mindown-sub">You're currently putting down $0 (0%).</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">Stress-test payment</div>
+              <div class="ac-check-value" id="ac-stress">$0/mo</div>
+              <div class="ac-check-sub">The bank tests you at the higher of your rate + 2% or 5.25%. If this fits your income, you're approved.</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">Housing as % of your income</div>
+              <div class="ac-check-value" id="ac-gds">0%</div>
+              <div class="ac-check-sub">Uses stress-test payment + estimated tax + heat. Under 32% is the bank's target.</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">Total mortgage interest over the life of the loan</div>
+              <div class="ac-check-value" id="ac-interest">$0</div>
+              <div class="ac-check-sub">If you never pay extra and the rate never changes.</div>
+            </div>
+          </div>
+
+          <p class="calc-disclaimer">Numbers are illustrative. Canadian mortgages compound semi-annually. CMHC premiums shown are current standard tiers (4.00% / 3.10% / 2.80%) for owner-occupied homes under $1.5M. Federal stress test uses the greater of (your rate + 2%) or 5.25%. Property tax estimate is 0.7% of price / year (Toronto average) and heat is $150/mo — the bank uses similar rough numbers for the GDS ratio. Legal + title + adjustments defaults to $2,500 which is typical for a Toronto resale purchase. Real numbers depend on your credit, lender, property, and closing details. Always confirm with a mortgage broker, lawyer, and accountant before signing anything. See the <a href="/disclaimer#calculators">Disclaimer</a> for full detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Want me to walk you through it in real numbers?" lead="Bring your income and the neighbourhood you're looking at. 15 minutes on the phone and you'll know exactly what price range works for you — and what doesn't." />
+
+  <Footer />
+
+  <script is:inline>
+    // ============================================================
+    // ALL CALCULATOR — one-page mortgage + LTT + CMHC + closing costs
+    // Uses the same Canadian math as the individual calculator pages.
+    // ============================================================
+    (function() {
+      function fmtCAD(n, dp) {
+        if (dp === undefined) dp = 0;
+        if (!isFinite(n) || isNaN(n)) return '$0';
+        return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
+      }
+
+      // Canadian mortgage: semi-annual compounding
+      function periodicRate(annualRatePct, paymentsPerYear) {
+        const semiAnnual = annualRatePct / 200;
+        return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+      }
+      function monthlyPayment(principal, annualRatePct, amortYears) {
+        if (principal <= 0 || amortYears <= 0) return 0;
+        const r = periodicRate(annualRatePct, 12);
+        const n = amortYears * 12;
+        if (r === 0) return principal / n;
+        return principal * r / (1 - Math.pow(1 + r, -n));
+      }
+
+      // CMHC (default insurance) premium — owner-occupied, under $1.5M
+      function cmhcPremiumRate(ltv) {
+        if (ltv > 95) return null;   // not allowed
+        if (ltv > 90) return 0.0400;
+        if (ltv > 85) return 0.0310;
+        if (ltv > 80) return 0.0280;
+        return 0;                    // 20%+ down: no insurance
+      }
+      function minDownPayment(price) {
+        if (price > 1500000) return price * 0.20;
+        if (price <= 500000) return price * 0.05;
+        return 500000 * 0.05 + (price - 500000) * 0.10;
+      }
+
+      // Ontario Land Transfer Tax
+      function ontarioLTT(price) {
+        if (price <= 0) return 0;
+        let t = 0;
+        const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+        let lower = 0;
+        for (const [upper, rate] of brackets) {
+          if (price > lower) {
+            const taxable = Math.min(price, upper) - lower;
+            if (taxable > 0) t += taxable * rate;
+          }
+          lower = upper;
+        }
+        if (price > 2000000) t += (price - 2000000) * 0.025;
+        return t;
+      }
+      // Toronto Municipal LTT (matches provincial brackets + luxury tiers over $2M)
+      function torontoMLTT(price) {
+        if (price <= 0) return 0;
+        let t = 0;
+        const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+        let lower = 0;
+        for (const [upper, rate] of brackets) {
+          if (price > lower) {
+            const taxable = Math.min(price, upper) - lower;
+            if (taxable > 0) t += taxable * rate;
+          }
+          lower = upper;
+        }
+        if (price > 2000000) {
+          const luxury = [[3000000, 0.025], [4000000, 0.035], [5000000, 0.045], [10000000, 0.055], [20000000, 0.065]];
+          let lo = 2000000;
+          for (const [up, rate] of luxury) {
+            if (price > lo) {
+              const inB = Math.min(price, up) - lo;
+              if (inB > 0) t += inB * rate;
+            }
+            lo = up;
+          }
+          if (price > 20000000) t += (price - 20000000) * 0.075;
+        }
+        return t;
+      }
+      // First-time buyer rebates (max)
+      const FTHB_ONT_REBATE = 4000;    // Ontario province
+      const FTHB_TOR_REBATE = 4475;    // City of Toronto
+
+      // ---- WIRE UP ----
+      const $ = (id) => document.getElementById(id);
+      const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb'];
+      inputs.forEach((id) => {
+        const el = $(id);
+        if (!el) return;
+        el.addEventListener('input', recompute);
+        el.addEventListener('change', recompute);
+      });
+
+      function recompute() {
+        const income   = Math.max(0, parseFloat($('ac-income').value)  || 0);
+        const price    = Math.max(0, parseFloat($('ac-price').value)   || 0);
+        const savings  = Math.max(0, parseFloat($('ac-savings').value) || 0);
+        const rate     = Math.max(0, parseFloat($('ac-rate').value)    || 0);
+        const amort    = parseInt($('ac-amort').value, 10) || 25;
+        const loc      = $('ac-location').value; // 'toronto' | 'ontario'
+        const isFTHB   = $('ac-fthb').value === 'yes';
+
+        // ---- DOWN PAYMENT / MORTGAGE / CMHC ----
+        const minDown = minDownPayment(price);
+        // Assume savings covers down payment first (capped at price)
+        const downFromSavings = Math.min(savings, price);
+        const shortfall = Math.max(0, minDown - downFromSavings);
+        const actualDown = downFromSavings;               // what the user is actually putting down
+        const ltv = price > 0 ? (price - actualDown) / price * 100 : 0;
+        const premiumRate = cmhcPremiumRate(ltv);
+        const baseLoan = Math.max(0, price - actualDown);
+        const cmhcPremium = (premiumRate !== null && premiumRate > 0) ? baseLoan * premiumRate : 0;
+        const totalMortgage = baseLoan + cmhcPremium;
+
+        // ---- MONTHLY PAYMENT ----
+        const monthly = monthlyPayment(totalMortgage, rate, amort);
+
+        // ---- LTT ----
+        const lttOnt = ontarioLTT(price);
+        const lttMltt = loc === 'toronto' ? torontoMLTT(price) : 0;
+        let rebate = 0;
+        if (isFTHB) {
+          rebate = Math.min(lttOnt, FTHB_ONT_REBATE);
+          if (loc === 'toronto') rebate += Math.min(lttMltt, FTHB_TOR_REBATE);
+        }
+        const totalLTT = Math.max(0, lttOnt + lttMltt - rebate);
+
+        // ---- CLOSING / LEGAL / TITLE ----
+        const legalEtc = 2500; // typical Toronto resale ballpark
+
+        // ---- CASH TO CLOSE ----
+        const cashToClose = actualDown + totalLTT + legalEtc;
+
+        // ---- STRESS TEST ----
+        const stressRate = Math.max(rate + 2, 5.25);
+        const stressPayment = monthlyPayment(totalMortgage, stressRate, amort);
+
+        // ---- GDS ratio (housing as % of income) ----
+        // GDS = (mortgage stress + property tax est + heat) / income
+        const monthlyIncome = income / 12;
+        const propTaxMo = price * 0.007 / 12; // ~0.7%/yr Toronto average
+        const heatMo = 150;
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + heatMo) / monthlyIncome * 100 : 0;
+
+        // ---- TOTAL INTEREST OVER LIFE OF LOAN ----
+        const totalInterest = monthly * amort * 12 - totalMortgage;
+
+        // ============= RENDER =============
+        $('ac-monthly').textContent = fmtCAD(monthly, 0);
+        $('ac-cash').textContent = fmtCAD(cashToClose, 0);
+
+        $('ac-down').textContent = fmtCAD(actualDown, 0);
+        $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
+        $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
+        $('ac-cmhc-note').textContent = premiumRate === null
+          ? '(not allowed — need at least 5% more)'
+          : premiumRate === 0
+            ? '(you have 20%+ down — no insurance needed)'
+            : '(' + (premiumRate * 100).toFixed(2) + '% of loan)';
+        $('ac-ltt-on').textContent = fmtCAD(lttOnt, 0);
+        $('ac-ltt-mltt').textContent = fmtCAD(lttMltt, 0);
+        $('ac-ltt-mltt-row').style.display = loc === 'toronto' ? '' : 'none';
+        if (rebate > 0) {
+          $('ac-ltt-rebate-row').style.display = '';
+          $('ac-ltt-rebate').textContent = '−' + fmtCAD(rebate, 0);
+        } else {
+          $('ac-ltt-rebate-row').style.display = 'none';
+        }
+        $('ac-legal').textContent = fmtCAD(legalEtc, 0);
+        $('ac-total-cash').textContent = fmtCAD(cashToClose, 0);
+
+        $('ac-mindown').textContent = fmtCAD(minDown, 0);
+        const downPct = price > 0 ? (actualDown / price * 100) : 0;
+        $('ac-mindown-sub').textContent = 'You have $' + Math.round(savings).toLocaleString('en-CA')
+          + '. You\'re putting down ' + downPct.toFixed(1) + '% of the price.'
+          + (shortfall > 0 ? ' Short by ' + fmtCAD(shortfall, 0) + ' — you need more savings before the bank will approve.' : '');
+        $('ac-stress').textContent = fmtCAD(stressPayment, 0) + '/mo';
+        $('ac-gds').textContent = gds.toFixed(1) + '%';
+        $('ac-interest').textContent = fmtCAD(totalInterest, 0);
+
+        // ---- VERDICT ----
+        let vTitle = '';
+        let vSub = '';
+        let vClass = 'ac-verdict-neutral';
+        if (income <= 0 || price <= 0) {
+          vTitle = 'Type your numbers above.';
+          vSub = 'The bank looks at how much of your income goes to housing. Under 32% is safe. Over 39% and the bank probably says no.';
+        } else if (premiumRate === null) {
+          vTitle = 'You need more savings for this price.';
+          vSub = 'The minimum down payment for a home over $1.5M is 20% of the price. You\'re below that. Save more, or look at a lower price.';
+          vClass = 'ac-verdict-red';
+        } else if (shortfall > 0) {
+          vTitle = 'You\'re short on down payment.';
+          vSub = 'You need ' + fmtCAD(minDown, 0) + ' minimum for a ' + fmtCAD(price, 0) + ' home. That\'s ' + fmtCAD(shortfall, 0) + ' more than you\'ve saved. The bank won\'t approve the mortgage yet.';
+          vClass = 'ac-verdict-red';
+        } else if (gds > 39) {
+          vTitle = 'The bank probably won\'t approve this.';
+          vSub = 'At ' + gds.toFixed(1) + '% of income, housing eats too much. Try a lower price, more down payment, or make sure your income proof is strong.';
+          vClass = 'ac-verdict-red';
+        } else if (gds > 32) {
+          vTitle = 'Tight. Doable but you\'ll feel it.';
+          vSub = 'At ' + gds.toFixed(1) + '% of income you\'re inside the bank\'s hard limit (39%) but above the comfortable zone (32%). Vacations, savings, and eating out will be tighter.';
+          vClass = 'ac-verdict-yellow';
+        } else {
+          vTitle = 'You can afford this.';
+          vSub = 'At ' + gds.toFixed(1) + '% of income, housing sits well inside the safe zone. You\'ll have room for savings, emergencies, and the fun stuff.';
+          vClass = 'ac-verdict-green';
+        }
+        const v = $('ac-verdict');
+        v.classList.remove('ac-verdict-neutral', 'ac-verdict-green', 'ac-verdict-yellow', 'ac-verdict-red');
+        v.classList.add(vClass);
+        $('ac-verdict-title').textContent = vTitle;
+        $('ac-verdict-sub').textContent = vSub;
+      }
+
+      recompute();
+    })();
+  </script>
+
+  <style is:global>
+    /* ALL Calculator — layout */
+    .ac-shell { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 32px; align-items: start; }
+    @media (max-width: 960px) { .ac-shell { grid-template-columns: 1fr; } }
+
+    /* Left column — inputs */
+    .ac-inputs { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 26px; position: sticky; top: 92px; }
+    @media (max-width: 960px) { .ac-inputs { position: static; } }
+    .ac-input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+    .ac-input-group:last-child { margin-bottom: 0; }
+    .ac-input-group label { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+    .ac-input-group label .hint { font-weight: 400; color: var(--ink-mute); font-size: 12px; margin-left: 4px; }
+    .ac-input-group .input-prefix { position: relative; }
+    .ac-input-group .input-prefix::before { content: '$'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 15px; pointer-events: none; }
+    .ac-input-group .input-prefix input { padding-left: 28px; }
+    .ac-input-group .input-suffix { position: relative; }
+    .ac-input-group .input-suffix::after { content: '%'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 15px; pointer-events: none; }
+    .ac-input-group input, .ac-input-group select {
+      width: 100%; padding: 10px 12px; font-size: 15px; font-family: inherit; color: var(--ink);
+      background: var(--bg-warm); border: 1px solid var(--rule); border-radius: 4px;
+    }
+    .ac-input-group input:focus, .ac-input-group select:focus { outline: none; border-color: var(--ink); }
+    .ac-more { margin-top: 18px; border-top: 1px solid var(--rule); padding-top: 14px; }
+    .ac-more summary { cursor: pointer; font-size: 13px; font-weight: 500; color: var(--ink-soft); user-select: none; }
+    .ac-more summary::-webkit-details-marker { color: var(--ink-mute); }
+    .ac-more[open] summary { color: var(--ink); }
+    .ac-more-body { margin-top: 16px; }
+    .ac-more-body .ac-input-group { margin-bottom: 14px; }
+
+    /* Right column — results */
+    .ac-results { display: flex; flex-direction: column; gap: 22px; }
+    .ac-headline { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 560px) { .ac-headline { grid-template-columns: 1fr; } }
+    .ac-headline-item { background: var(--bg-warm); border: 1px solid var(--rule); border-radius: 6px; padding: 22px 24px; }
+    .ac-headline-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 8px; }
+    .ac-headline-value { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 36px; line-height: 1.1; color: var(--ink); }
+    .ac-headline-sub { font-size: 12.5px; color: var(--ink-soft); margin-top: 6px; }
+
+    /* Verdict badge */
+    .ac-verdict { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; border-radius: 6px; border: 1px solid var(--rule); background: var(--surface); }
+    .ac-verdict-dot { flex: 0 0 12px; width: 12px; height: 12px; border-radius: 50%; margin-top: 6px; background: var(--ink-mute); }
+    .ac-verdict-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 18px; color: var(--ink); margin-bottom: 4px; }
+    .ac-verdict-sub { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+    .ac-verdict-green  { background: #f0f6f0; border-color: #cfe0cf; }
+    .ac-verdict-green  .ac-verdict-dot { background: #4a8a4a; }
+    .ac-verdict-yellow { background: #fbf6ea; border-color: #ead9a8; }
+    .ac-verdict-yellow .ac-verdict-dot { background: #c69625; }
+    .ac-verdict-red    { background: #fbf0ee; border-color: #e6c7c1; }
+    .ac-verdict-red    .ac-verdict-dot { background: #b64830; }
+
+    /* Section headings */
+    .ac-section-h { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 18px; margin-top: 10px; color: var(--ink); }
+
+    /* Breakdown table */
+    .ac-breakdown { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 22px; display: flex; flex-direction: column; gap: 8px; }
+    .ac-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--ink-soft); gap: 14px; }
+    .ac-row strong { color: var(--ink); font-weight: 500; font-family: 'Fraunces', Georgia, serif; font-size: 15px; white-space: nowrap; }
+    .ac-row .ac-note { font-style: italic; font-size: 12px; color: var(--ink-mute); margin-left: 4px; }
+    .ac-row-total { border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 4px; font-size: 15px; color: var(--ink); }
+    .ac-row-total strong { font-size: 18px; }
+
+    /* Reality-check cards */
+    .ac-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .ac-checks { grid-template-columns: 1fr; } }
+    .ac-check { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; }
+    .ac-check-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 6px; }
+    .ac-check-value { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; color: var(--ink); margin-bottom: 6px; }
+    .ac-check-sub { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
+  </style>
+</BaseLayout>

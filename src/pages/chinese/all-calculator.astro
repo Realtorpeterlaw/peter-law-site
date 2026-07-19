@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+export const prerender = true;
+---
+<BaseLayout
+  title="全能计算器 — 一页搞定按揭、土地转让税、CMHC、交房费用 | Peter Law"
+  description="一页搞定。输入您的年收入、房价、以及已存下的钱 —— 立刻看到月供、土地转让税、按揭保险、交房费用,以及成交当天要准备的现金。不用在 5 个计算器之间来回跳。"
+  bodyClass="calc-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">全能计算器</div>
+      <h1>输入三个数字,看清全部。</h1>
+      <p>年收入、房价、已存下的钱。就这三样 —— 剩下的这一页帮您算完:月供、按揭保险、土地转让税、交房费用,以及成交当天真正要拿出的现金。全部实时更新,一屏看完。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+
+        <!-- 输入区 -->
+        <div class="ac-inputs">
+          <div class="ac-input-group">
+            <label>1. 您一年赚多少? <span class="hint">税前。</span></label>
+            <div class="input-prefix"><input type="number" id="ac-income" value="85000" min="0" step="1000" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>2. 想买的房价 <span class="hint">Condo、镇屋、独立屋均可。</span></label>
+            <div class="input-prefix"><input type="number" id="ac-price" value="650000" min="0" step="5000" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>3. 您已经存了多少? <span class="hint">首付 + 交房费用的现金。</span></label>
+            <div class="input-prefix"><input type="number" id="ac-savings" value="65000" min="0" step="1000" /></div>
+          </div>
+
+          <details class="ac-more">
+            <summary>更多设置(可选)</summary>
+            <div class="ac-more-body">
+              <div class="ac-input-group">
+                <label>按揭利率 <span class="hint">2026 年常见约 5%。</span></label>
+                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label>摊还期 <span class="hint">多少年还清。大多数人选 25 年。</span></label>
+                <select id="ac-amort">
+                  <option value="20">20 年</option>
+                  <option value="25" selected>25 年</option>
+                  <option value="30">30 年(仅限首次购房 &amp; 首付 &lt;20%)</option>
+                </select>
+              </div>
+              <div class="ac-input-group">
+                <label>房子在哪?</label>
+                <select id="ac-location">
+                  <option value="toronto" selected>多伦多市内</option>
+                  <option value="ontario">安省其他地区</option>
+                </select>
+              </div>
+              <div class="ac-input-group">
+                <label>您是首次购房者吗? <span class="hint">可获得土地转让税退税。</span></label>
+                <select id="ac-fthb">
+                  <option value="yes" selected>是</option>
+                  <option value="no">否</option>
+                </select>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 结果区 -->
+        <div class="ac-results">
+          <div class="ac-headline">
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">您的月供</div>
+              <div class="ac-headline-value" id="ac-monthly">$0</div>
+              <div class="ac-headline-sub" id="ac-monthly-sub">仅按揭本息。地税与水电另计。</div>
+            </div>
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">成交当天需准备的现金</div>
+              <div class="ac-headline-value" id="ac-cash">$0</div>
+              <div class="ac-headline-sub" id="ac-cash-sub">首付 + 土地转让税 + 律师费 + 调整项。</div>
+            </div>
+          </div>
+
+          <div class="ac-verdict" id="ac-verdict">
+            <span class="ac-verdict-dot"></span>
+            <div>
+              <div class="ac-verdict-title" id="ac-verdict-title">请在上方输入数字。</div>
+              <div class="ac-verdict-sub" id="ac-verdict-sub">银行会看住房支出占收入的比例。低于 32% 安全,高于 39% 银行一般不批。</div>
+            </div>
+          </div>
+
+          <h3 class="ac-section-h">钱都去了哪里</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>首付</span><strong id="ac-down">$0</strong></div>
+            <div class="ac-row"><span>总按揭金额</span><strong id="ac-mortgage">$0</strong></div>
+            <div class="ac-row"><span>CMHC / 违约保险 <em class="ac-note" id="ac-cmhc-note"></em></span><strong id="ac-cmhc">$0</strong></div>
+            <div class="ac-row"><span>安省土地转让税</span><strong id="ac-ltt-on">$0</strong></div>
+            <div class="ac-row" id="ac-ltt-mltt-row"><span>多伦多土地转让税</span><strong id="ac-ltt-mltt">$0</strong></div>
+            <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>首次购房退税</span><strong id="ac-ltt-rebate">−$0</strong></div>
+            <div class="ac-row"><span>律师 + 产权 + 调整项 <em class="ac-note">估算</em></span><strong id="ac-legal">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>成交总现金</span><strong id="ac-total-cash">$0</strong></div>
+          </div>
+
+          <h3 class="ac-section-h">现实检查</h3>
+          <div class="ac-checks">
+            <div class="ac-check">
+              <div class="ac-check-label">此房价所需最低首付</div>
+              <div class="ac-check-value" id="ac-mindown">$0</div>
+              <div class="ac-check-sub" id="ac-mindown-sub">您目前的首付为 $0(0%)。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">压力测试月供</div>
+              <div class="ac-check-value" id="ac-stress">$0/月</div>
+              <div class="ac-check-sub">银行按(您的利率 + 2%)或 5.25%(取较高者)检验。若您的收入能承受,一般可获批。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">住房占收入比例</div>
+              <div class="ac-check-value" id="ac-gds">0%</div>
+              <div class="ac-check-sub">采用压力测试月供 + 估算地税 + 取暖费。银行目标是低于 32%。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">整个贷款期内的利息总额</div>
+              <div class="ac-check-value" id="ac-interest">$0</div>
+              <div class="ac-check-sub">假设不提前还款、利率不变。</div>
+            </div>
+          </div>
+
+          <p class="calc-disclaimer">数字仅供参考。加拿大按揭为半年复利。CMHC 保费采用当前标准档(4.00% / 3.10% / 2.80%),适用于 150 万元以下自住房。联邦压力测试采用(您的利率 + 2%)或 5.25%(取较高者)。地税按房价 0.7% / 年估算(多伦多平均),取暖费按 $150 / 月估算 —— 银行 GDS 比率使用类似的粗略数值。律师 + 产权 + 调整项默认 $2,500,适合多伦多二手房。真实数字取决于您的信用、贷款方、物业与成交细节。签署任何文件前,请务必与按揭经纪、律师和税务师确认。完整说明见<a href="/chinese/disclaimer#calculators">免责声明</a>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="想让我用真实数字带您走一遍吗?" lead="带上您的收入与心仪社区,15 分钟电话就能弄清哪个价位真正合适,哪个不适合。" />
+
+  <ChineseFooter />
+
+  <script is:inline>
+    (function() {
+      function fmtCAD(n, dp) {
+        if (dp === undefined) dp = 0;
+        if (!isFinite(n) || isNaN(n)) return '$0';
+        return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
+      }
+      function periodicRate(annualRatePct, paymentsPerYear) {
+        const semiAnnual = annualRatePct / 200;
+        return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+      }
+      function monthlyPayment(principal, annualRatePct, amortYears) {
+        if (principal <= 0 || amortYears <= 0) return 0;
+        const r = periodicRate(annualRatePct, 12);
+        const n = amortYears * 12;
+        if (r === 0) return principal / n;
+        return principal * r / (1 - Math.pow(1 + r, -n));
+      }
+      function cmhcPremiumRate(ltv) {
+        if (ltv > 95) return null;
+        if (ltv > 90) return 0.0400;
+        if (ltv > 85) return 0.0310;
+        if (ltv > 80) return 0.0280;
+        return 0;
+      }
+      function minDownPayment(price) {
+        if (price > 1500000) return price * 0.20;
+        if (price <= 500000) return price * 0.05;
+        return 500000 * 0.05 + (price - 500000) * 0.10;
+      }
+      function ontarioLTT(price) {
+        if (price <= 0) return 0;
+        let t = 0;
+        const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+        let lower = 0;
+        for (const [upper, rate] of brackets) {
+          if (price > lower) { const taxable = Math.min(price, upper) - lower; if (taxable > 0) t += taxable * rate; }
+          lower = upper;
+        }
+        if (price > 2000000) t += (price - 2000000) * 0.025;
+        return t;
+      }
+      function torontoMLTT(price) {
+        if (price <= 0) return 0;
+        let t = 0;
+        const brackets = [[55000, 0.005], [250000, 0.010], [400000, 0.015], [2000000, 0.020]];
+        let lower = 0;
+        for (const [upper, rate] of brackets) {
+          if (price > lower) { const taxable = Math.min(price, upper) - lower; if (taxable > 0) t += taxable * rate; }
+          lower = upper;
+        }
+        if (price > 2000000) {
+          const luxury = [[3000000, 0.025], [4000000, 0.035], [5000000, 0.045], [10000000, 0.055], [20000000, 0.065]];
+          let lo = 2000000;
+          for (const [up, rate] of luxury) {
+            if (price > lo) { const inB = Math.min(price, up) - lo; if (inB > 0) t += inB * rate; }
+            lo = up;
+          }
+          if (price > 20000000) t += (price - 20000000) * 0.075;
+        }
+        return t;
+      }
+      const FTHB_ONT_REBATE = 4000;
+      const FTHB_TOR_REBATE = 4475;
+
+      const $ = (id) => document.getElementById(id);
+      const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb'];
+      inputs.forEach((id) => { const el = $(id); if (!el) return; el.addEventListener('input', recompute); el.addEventListener('change', recompute); });
+
+      function recompute() {
+        const income   = Math.max(0, parseFloat($('ac-income').value)  || 0);
+        const price    = Math.max(0, parseFloat($('ac-price').value)   || 0);
+        const savings  = Math.max(0, parseFloat($('ac-savings').value) || 0);
+        const rate     = Math.max(0, parseFloat($('ac-rate').value)    || 0);
+        const amort    = parseInt($('ac-amort').value, 10) || 25;
+        const loc      = $('ac-location').value;
+        const isFTHB   = $('ac-fthb').value === 'yes';
+
+        const minDown = minDownPayment(price);
+        const downFromSavings = Math.min(savings, price);
+        const shortfall = Math.max(0, minDown - downFromSavings);
+        const actualDown = downFromSavings;
+        const ltv = price > 0 ? (price - actualDown) / price * 100 : 0;
+        const premiumRate = cmhcPremiumRate(ltv);
+        const baseLoan = Math.max(0, price - actualDown);
+        const cmhcPremium = (premiumRate !== null && premiumRate > 0) ? baseLoan * premiumRate : 0;
+        const totalMortgage = baseLoan + cmhcPremium;
+
+        const monthly = monthlyPayment(totalMortgage, rate, amort);
+
+        const lttOnt = ontarioLTT(price);
+        const lttMltt = loc === 'toronto' ? torontoMLTT(price) : 0;
+        let rebate = 0;
+        if (isFTHB) {
+          rebate = Math.min(lttOnt, FTHB_ONT_REBATE);
+          if (loc === 'toronto') rebate += Math.min(lttMltt, FTHB_TOR_REBATE);
+        }
+        const totalLTT = Math.max(0, lttOnt + lttMltt - rebate);
+        const legalEtc = 2500;
+        const cashToClose = actualDown + totalLTT + legalEtc;
+
+        const stressRate = Math.max(rate + 2, 5.25);
+        const stressPayment = monthlyPayment(totalMortgage, stressRate, amort);
+
+        const monthlyIncome = income / 12;
+        const propTaxMo = price * 0.007 / 12;
+        const heatMo = 150;
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + heatMo) / monthlyIncome * 100 : 0;
+
+        const totalInterest = monthly * amort * 12 - totalMortgage;
+
+        $('ac-monthly').textContent = fmtCAD(monthly, 0);
+        $('ac-cash').textContent = fmtCAD(cashToClose, 0);
+        $('ac-down').textContent = fmtCAD(actualDown, 0);
+        $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
+        $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
+        $('ac-cmhc-note').textContent = premiumRate === null
+          ? '(不允许 —— 需至少再多 5% 首付)'
+          : premiumRate === 0
+            ? '(首付 20%+ —— 不需保险)'
+            : '(贷款金额的 ' + (premiumRate * 100).toFixed(2) + '%)';
+        $('ac-ltt-on').textContent = fmtCAD(lttOnt, 0);
+        $('ac-ltt-mltt').textContent = fmtCAD(lttMltt, 0);
+        $('ac-ltt-mltt-row').style.display = loc === 'toronto' ? '' : 'none';
+        if (rebate > 0) {
+          $('ac-ltt-rebate-row').style.display = '';
+          $('ac-ltt-rebate').textContent = '−' + fmtCAD(rebate, 0);
+        } else {
+          $('ac-ltt-rebate-row').style.display = 'none';
+        }
+        $('ac-legal').textContent = fmtCAD(legalEtc, 0);
+        $('ac-total-cash').textContent = fmtCAD(cashToClose, 0);
+
+        $('ac-mindown').textContent = fmtCAD(minDown, 0);
+        const downPct = price > 0 ? (actualDown / price * 100) : 0;
+        $('ac-mindown-sub').textContent = '您已存 $' + Math.round(savings).toLocaleString('en-CA')
+          + ',首付占房价的 ' + downPct.toFixed(1) + '%。'
+          + (shortfall > 0 ? ' 还差 ' + fmtCAD(shortfall, 0) + ' —— 银行不会批贷,需再存更多。' : '');
+        $('ac-stress').textContent = fmtCAD(stressPayment, 0) + '/月';
+        $('ac-gds').textContent = gds.toFixed(1) + '%';
+        $('ac-interest').textContent = fmtCAD(totalInterest, 0);
+
+        let vTitle = '';
+        let vSub = '';
+        let vClass = 'ac-verdict-neutral';
+        if (income <= 0 || price <= 0) {
+          vTitle = '请在上方输入数字。';
+          vSub = '银行会看住房支出占收入的比例。低于 32% 安全,高于 39% 银行一般不批。';
+        } else if (premiumRate === null) {
+          vTitle = '此房价所需首付更多。';
+          vSub = '房价超过 150 万元时,最低首付为 20%。您目前低于此门槛,需再存,或考虑低一点的价位。';
+          vClass = 'ac-verdict-red';
+        } else if (shortfall > 0) {
+          vTitle = '首付不够。';
+          vSub = '价位 ' + fmtCAD(price, 0) + ' 的房子最低首付为 ' + fmtCAD(minDown, 0) + '。您比这还差 ' + fmtCAD(shortfall, 0) + '。银行暂不批贷。';
+          vClass = 'ac-verdict-red';
+        } else if (gds > 39) {
+          vTitle = '银行很可能不批。';
+          vSub = '住房占收入 ' + gds.toFixed(1) + '%,比重过高。请考虑更低的价位、更多的首付,或加强收入证明。';
+          vClass = 'ac-verdict-red';
+        } else if (gds > 32) {
+          vTitle = '有点紧,可以但会有压力。';
+          vSub = '住房占收入 ' + gds.toFixed(1) + '%,在银行硬性上限(39%)之内,但高于舒适区(32%)。旅行、储蓄和外出用餐会更紧。';
+          vClass = 'ac-verdict-yellow';
+        } else {
+          vTitle = '您能负担。';
+          vSub = '住房占收入 ' + gds.toFixed(1) + '%,稳稳在安全区。还有空间做储蓄、应急金和娱乐支出。';
+          vClass = 'ac-verdict-green';
+        }
+        const v = $('ac-verdict');
+        v.classList.remove('ac-verdict-neutral', 'ac-verdict-green', 'ac-verdict-yellow', 'ac-verdict-red');
+        v.classList.add(vClass);
+        $('ac-verdict-title').textContent = vTitle;
+        $('ac-verdict-sub').textContent = vSub;
+      }
+      recompute();
+    })();
+  </script>
+</BaseLayout>
