@@ -32,17 +32,24 @@ export const prerender = true;
         <div class="ac-inputs">
           <div class="ac-input-group">
             <label>1. 您一年赚多少? <span class="hint">税前。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-income" value="85000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>2. 想买的房价 <span class="hint">Condo、镇屋、独立屋均可。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-price" value="650000" min="0" step="5000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-price" value="700000" min="0" step="5000" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>3. 您已经存了多少? <span class="hint">首付 + 交房费用的现金。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-savings" value="65000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" /></div>
+          </div>
+
+          <div class="ac-input-group ac-checkbox-group">
+            <label class="ac-checkbox">
+              <input type="checkbox" id="ac-fthb" checked />
+              <span class="ac-checkbox-text">我是首次购房者 <span class="hint">可获得土地转让税退税。</span></span>
+            </label>
           </div>
 
           <details class="ac-more">
@@ -65,13 +72,6 @@ export const prerender = true;
                 <select id="ac-location">
                   <option value="toronto" selected>多伦多市内</option>
                   <option value="ontario">安省其他地区</option>
-                </select>
-              </div>
-              <div class="ac-input-group">
-                <label>您是首次购房者吗? <span class="hint">可获得土地转让税退税。</span></label>
-                <select id="ac-fthb">
-                  <option value="yes" selected>是</option>
-                  <option value="no">否</option>
                 </select>
               </div>
             </div>
@@ -223,7 +223,7 @@ export const prerender = true;
         const rate     = Math.max(0, parseFloat($('ac-rate').value)    || 0);
         const amort    = parseInt($('ac-amort').value, 10) || 25;
         const loc      = $('ac-location').value;
-        const isFTHB   = $('ac-fthb').value === 'yes';
+        const isFTHB   = $('ac-fthb').checked;
 
         const minDown = minDownPayment(price);
         const downFromSavings = Math.min(savings, price);

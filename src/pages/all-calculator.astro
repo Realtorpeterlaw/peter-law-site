@@ -31,17 +31,24 @@ export const prerender = true;
         <div class="ac-inputs">
           <div class="ac-input-group">
             <label>1. How much do you make a year? <span class="hint">Before taxes.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-income" value="85000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>2. Price of the place you want <span class="hint">Condo, townhouse, or house.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-price" value="650000" min="0" step="5000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-price" value="700000" min="0" step="5000" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>3. How much have you saved? <span class="hint">Cash for down payment + closing costs.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-savings" value="65000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" /></div>
+          </div>
+
+          <div class="ac-input-group ac-checkbox-group">
+            <label class="ac-checkbox">
+              <input type="checkbox" id="ac-fthb" checked />
+              <span class="ac-checkbox-text">I'm a first-time buyer <span class="hint">Gets you a rebate on land transfer tax.</span></span>
+            </label>
           </div>
 
           <details class="ac-more">
@@ -64,13 +71,6 @@ export const prerender = true;
                 <select id="ac-location">
                   <option value="toronto" selected>Inside City of Toronto</option>
                   <option value="ontario">Rest of Ontario</option>
-                </select>
-              </div>
-              <div class="ac-input-group">
-                <label>Are you a first-time buyer? <span class="hint">Gets you a rebate on land transfer tax.</span></label>
-                <select id="ac-fthb">
-                  <option value="yes" selected>Yes</option>
-                  <option value="no">No</option>
                 </select>
               </div>
             </div>
@@ -249,7 +249,7 @@ export const prerender = true;
         const rate     = Math.max(0, parseFloat($('ac-rate').value)    || 0);
         const amort    = parseInt($('ac-amort').value, 10) || 25;
         const loc      = $('ac-location').value; // 'toronto' | 'ontario'
-        const isFTHB   = $('ac-fthb').value === 'yes';
+        const isFTHB   = $('ac-fthb').checked;
 
         // ---- DOWN PAYMENT / MORTGAGE / CMHC ----
         const minDown = minDownPayment(price);
@@ -436,5 +436,12 @@ export const prerender = true;
     .ac-check-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 6px; }
     .ac-check-value { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; color: var(--ink); margin-bottom: 6px; }
     .ac-check-sub { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
+
+    /* Checkbox */
+    .ac-checkbox-group { margin-bottom: 4px; }
+    .ac-checkbox { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; user-select: none; padding: 8px 0; }
+    .ac-checkbox input[type="checkbox"] { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--ink); cursor: pointer; flex: 0 0 18px; }
+    .ac-checkbox-text { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+    .ac-checkbox-text .hint { font-weight: 400; color: var(--ink-mute); font-size: 12px; margin-left: 4px; }
   </style>
 </BaseLayout>
