@@ -109,7 +109,7 @@ export const prerender = true;
             <div class="ac-row" id="ac-ltt-mltt-row"><span>Toronto land transfer tax</span><strong id="ac-ltt-mltt">$0</strong></div>
             <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>First-time buyer rebate</span><strong id="ac-ltt-rebate">−$0</strong></div>
             <div class="ac-row"><span>Legal + title + adjustments <em class="ac-note">roughly</em></span><strong id="ac-legal">$0</strong></div>
-            <div class="ac-row ac-row-total"><span>Total cash to close</span><strong id="ac-total-cash">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>Approx. Total cash to close</span><strong id="ac-total-cash">~$0</strong></div>
           </div>
 
           <h3 class="ac-section-h">Reality check</h3>
@@ -318,7 +318,7 @@ export const prerender = true;
           $('ac-ltt-rebate-row').style.display = 'none';
         }
         $('ac-legal').textContent = fmtCAD(legalEtc, 0);
-        $('ac-total-cash').textContent = fmtCAD(cashToClose, 0);
+        $('ac-total-cash').textContent = '~' + fmtCAD(cashToClose, 0);
 
         $('ac-mindown').textContent = fmtCAD(minDown, 0);
         const downPct = price > 0 ? (actualDown / price * 100) : 0;

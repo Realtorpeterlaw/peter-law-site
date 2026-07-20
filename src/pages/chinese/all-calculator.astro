@@ -110,7 +110,7 @@ export const prerender = true;
             <div class="ac-row" id="ac-ltt-mltt-row"><span>多伦多土地转让税</span><strong id="ac-ltt-mltt">$0</strong></div>
             <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>首次购房退税</span><strong id="ac-ltt-rebate">−$0</strong></div>
             <div class="ac-row"><span>律师 + 产权 + 调整项 <em class="ac-note">估算</em></span><strong id="ac-legal">$0</strong></div>
-            <div class="ac-row ac-row-total"><span>成交总现金</span><strong id="ac-total-cash">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>预计成交总现金</span><strong id="ac-total-cash">~$0</strong></div>
           </div>
 
           <h3 class="ac-section-h">现实检查</h3>
@@ -278,7 +278,7 @@ export const prerender = true;
           $('ac-ltt-rebate-row').style.display = 'none';
         }
         $('ac-legal').textContent = fmtCAD(legalEtc, 0);
-        $('ac-total-cash').textContent = fmtCAD(cashToClose, 0);
+        $('ac-total-cash').textContent = '~' + fmtCAD(cashToClose, 0);
 
         $('ac-mindown').textContent = fmtCAD(minDown, 0);
         const downPct = price > 0 ? (actualDown / price * 100) : 0;
