@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+export const prerender = true;
+---
+<BaseLayout
+  title="租房计算器 —— 这个租金您真的负担得起吗? | Peter Law"
+  description="一页搞定。输入月收入、租金以及基础生活开支,立即看出这个租金是否在安全区、有点吃紧、还是超出承受。"
+  bodyClass="calc-page"
+  zh={true}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">租房计算器</div>
+      <h1>这个租金您真的负担得起吗?</h1>
+      <p>输入您的月收入和房子的租金。本页会把租金 + 基础生活开支加起来,再和您的收入比对 —— 直接告诉您:通过、吃紧,还是过高。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+
+        <!-- 输入 -->
+        <div class="ac-inputs">
+          <div class="ac-input-group">
+            <label>1. 您一个月赚多少? <span class="hint">税前。</span></label>
+            <div class="input-prefix"><input type="number" id="rc-income" value="6000" min="0" step="100" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>2. 每月租金 <span class="hint">房东要价。</span></label>
+            <div class="input-prefix"><input type="number" id="rc-rent" value="2200" min="0" step="50" /></div>
+          </div>
+
+          <div class="ac-section-h ac-inline-h">每月开支</div>
+
+          <div class="ac-input-group">
+            <label>3. 网络 <span class="hint">通常每月 $60 至 $100。</span></label>
+            <div class="input-prefix"><input type="number" id="rc-internet" value="80" min="0" step="5" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>4. 租客责任险 <span class="hint">每月 $15 至 $30。</span></label>
+            <div class="input-prefix"><input type="number" id="rc-insurance" value="22" min="0" step="1" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>5. 水电煤气 <span class="hint">每月 $60 至 $200。</span></label>
+            <div class="input-prefix"><input type="number" id="rc-utilities" value="130" min="0" step="5" /></div>
+          </div>
+
+          <p class="rc-hint-note">每套 condo 都不一样 —— 有的租金里包含暖气、水甚至网络,有的完全不含。签约前请务必问清楚,再按实际情况填写上面的数字。</p>
+        </div>
+
+        <!-- 结果 -->
+        <div class="ac-results">
+          <!-- 判定卡 -->
+          <div class="rc-verdict" id="rc-verdict">
+            <div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div>
+            <div class="rc-verdict-body">
+              <div class="rc-verdict-title" id="rc-verdict-title">请在上方输入数字。</div>
+              <div class="rc-verdict-sub" id="rc-verdict-sub">住房占收入 30% 以内是安全区;30-40% 有点吃紧;超过 40%,大多数房东会不批。</div>
+            </div>
+          </div>
+
+          <h3 class="ac-section-h">钱都去了哪里</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>租金</span><strong id="rc-out-rent">$0</strong></div>
+            <div class="ac-row"><span>网络</span><strong id="rc-out-internet">$0</strong></div>
+            <div class="ac-row"><span>租客责任险</span><strong id="rc-out-insurance">$0</strong></div>
+            <div class="ac-row"><span>水电煤气</span><strong id="rc-out-utilities">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>每月住房总支出</span><strong id="rc-out-total">$0</strong></div>
+          </div>
+
+          <h3 class="ac-section-h">现实检查</h3>
+          <div class="ac-checks">
+            <div class="ac-check">
+              <div class="ac-check-label">住房占收入比例</div>
+              <div class="ac-check-value" id="rc-pct">0%</div>
+              <div class="ac-check-sub">租金 + 网络 + 保险 + 水电,除以月收入。30% 以内为安全区。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">住房支出后剩余</div>
+              <div class="ac-check-value" id="rc-leftover">$0</div>
+              <div class="ac-check-sub">每月剩下的钱,用于吃饭、通勤、储蓄、话费与其他一切。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">30% 收入门槛</div>
+              <div class="ac-check-value" id="rc-30line">$0/月</div>
+              <div class="ac-check-sub">安全区上限。若每月住房总支出不超过此值,您就在舒适区内。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">Peter 大致能帮您批下的租金</div>
+              <div class="ac-check-value" id="rc-approve">$0</div>
+              <div class="ac-check-sub">粗略估算 —— 每位房东标准不同。良好信用、担保人或多月预付都可能提升上限。</div>
+            </div>
+          </div>
+
+          <p class="calc-disclaimer">数字仅供参考。多伦多多数房东以月总收入的 30-33% 为可负担门槛;担保人、良好信用、多月预付或公司租赁可适度突破。水电费因楼盘而异,签约前请务必确认租金含哪些项目。本页仅为筛选工具,非批贷通知。签约前请与持牌代表沟通您的具体情况。完整说明见<a href="/chinese/disclaimer#calculators">免责声明</a>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="不确定某套房源适不适合您?" lead="把地址和收入告诉我,我会实话告诉您房东会不会批、价格是否合理、以及是否值得压价。" />
+
+  <ChineseFooter />
+
+  <script is:inline>
+    (function() {
+      function fmtCAD(n, dp) {
+        if (dp === undefined) dp = 0;
+        if (!isFinite(n) || isNaN(n)) return '$0';
+        return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
+      }
+      const ICON_CHECK = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 33 L28 43 L46 23" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      const ICON_WARN  = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="32" y1="18" x2="32" y2="36" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="3.6" fill="currentColor"/></svg>';
+      const ICON_CROSS = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="20" y1="20" x2="44" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><line x1="44" y1="20" x2="20" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>';
+
+      const $ = (id) => document.getElementById(id);
+      ['rc-income', 'rc-rent', 'rc-internet', 'rc-insurance', 'rc-utilities'].forEach((id) => {
+        const el = $(id); if (!el) return;
+        el.addEventListener('input', recompute); el.addEventListener('change', recompute);
+      });
+
+      function recompute() {
+        const income    = Math.max(0, parseFloat($('rc-income').value)    || 0);
+        const rent      = Math.max(0, parseFloat($('rc-rent').value)      || 0);
+        const internet  = Math.max(0, parseFloat($('rc-internet').value)  || 0);
+        const insurance = Math.max(0, parseFloat($('rc-insurance').value) || 0);
+        const utilities = Math.max(0, parseFloat($('rc-utilities').value) || 0);
+
+        const totalHousing = rent + internet + insurance + utilities;
+        const pct = income > 0 ? (totalHousing / income) * 100 : 0;
+        const leftover = income - totalHousing;
+        const safeCeiling = income * 0.30;
+        const approvableRent = Math.max(0, income * 0.30 - internet - insurance - utilities);
+
+        $('rc-out-rent').textContent      = fmtCAD(rent, 0);
+        $('rc-out-internet').textContent  = fmtCAD(internet, 0);
+        $('rc-out-insurance').textContent = fmtCAD(insurance, 0);
+        $('rc-out-utilities').textContent = fmtCAD(utilities, 0);
+        $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
+        $('rc-pct').textContent      = pct.toFixed(1) + '%';
+        $('rc-leftover').textContent = fmtCAD(leftover, 0);
+        $('rc-30line').textContent   = fmtCAD(safeCeiling, 0) + '/月';
+        $('rc-approve').textContent  = fmtCAD(approvableRent, 0);
+
+        const v = $('rc-verdict');
+        const iconEl = $('rc-verdict-icon');
+        let vTitle, vSub, vClass, vIcon;
+
+        if (income <= 0 || rent <= 0) {
+          vTitle = '请在上方输入数字。';
+          vSub = '住房占收入 30% 以内是安全区;30-40% 有点吃紧;超过 40%,大多数房东会不批。';
+          vClass = 'rc-verdict-neutral';
+          vIcon = '';
+        } else if (pct <= 30) {
+          vTitle = '可以 —— 您能负担这个租金。';
+          vSub = '住房占收入 ' + pct.toFixed(1) + '%,在安全区内。这样的申请房东通常都会批。';
+          vClass = 'rc-verdict-green';
+          vIcon = ICON_CHECK;
+        } else if (pct <= 40) {
+          vTitle = '有点吃紧,能承受但会感到压力。';
+          vSub = '住房占收入 ' + pct.toFixed(1) + '%,已越过 30% 舒适线,但仍在能力范围内。购物、通勤、储蓄空间会变紧;房东可能要求担保人或多月预付。';
+          vClass = 'rc-verdict-yellow';
+          vIcon = ICON_WARN;
+        } else {
+          vTitle = '可能,但请与代表沟通。';
+          vSub = '住房占收入 ' + pct.toFixed(1) + '%,大多数房东在此比例会拒批。特殊情况可争取:担保人、多月预付、公司租赁、良好信用。申请前请与持牌代表沟通。';
+          vClass = 'rc-verdict-red';
+          vIcon = ICON_CROSS;
+        }
+        v.classList.remove('rc-verdict-neutral', 'rc-verdict-green', 'rc-verdict-yellow', 'rc-verdict-red');
+        v.classList.add(vClass);
+        iconEl.innerHTML = vIcon;
+        $('rc-verdict-title').textContent = vTitle;
+        $('rc-verdict-sub').textContent = vSub;
+      }
+      recompute();
+    })();
+  </script>
+
+  <style is:global>
+    .ac-input-group label .hint { display: block; font-weight: 400; color: var(--ink-mute); font-size: 12px; margin-top: 4px; margin-left: 0; }
+    .ac-inline-h { margin: 6px 0 -4px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+    .rc-hint-note { margin-top: 6px; padding: 12px 14px; background: var(--bg-warm); border-left: 3px solid rgba(198, 150, 65, 0.55); border-radius: 3px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; }
+
+    .rc-verdict { display: flex; align-items: center; gap: 20px; padding: 22px 24px; border-radius: 8px; border: 1px solid var(--rule); background: var(--surface); transition: background 0.2s, border-color 0.2s; }
+    @media (max-width: 560px) { .rc-verdict { gap: 16px; padding: 18px 18px; } }
+    .rc-verdict-icon { flex: 0 0 72px; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; color: var(--ink-mute); }
+    .rc-verdict-icon svg { width: 100%; height: 100%; }
+    .rc-verdict-body { flex: 1 1 auto; }
+    .rc-verdict-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+    .rc-verdict-sub { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+    .rc-verdict-green   { background: #f0f6f0; border-color: #cfe0cf; }
+    .rc-verdict-green .rc-verdict-icon   { color: #4a8a4a; }
+    .rc-verdict-yellow  { background: #fbf6ea; border-color: #ead9a8; }
+    .rc-verdict-yellow .rc-verdict-icon  { color: #c69625; }
+    .rc-verdict-red     { background: #fbf0ee; border-color: #e6c7c1; }
+    .rc-verdict-red .rc-verdict-icon     { color: #b64830; }
+  </style>
+</BaseLayout>

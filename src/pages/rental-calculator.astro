@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+export const prerender = true;
+---
+<BaseLayout
+  title="Rental Calculator — can you afford this rent? | Peter Law"
+  description="One page. Type what you make, what the rent is, and your basic living costs. See instantly whether the rent fits your income, whether you'll feel it, or whether it's too tight."
+  bodyClass="calc-page"
+>
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Rental calculator</div>
+      <h1>Can you actually afford this rent?</h1>
+      <p>Type what you make per month and what the place costs. This page adds up rent + basic living expenses, checks it against your income, and tells you plainly: green light, tight, or too much.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+
+        <!-- INPUTS -->
+        <div class="ac-inputs">
+          <div class="ac-input-group">
+            <label>1. How much do you make a month? <span class="hint">Before taxes.</span></label>
+            <div class="input-prefix"><input type="number" id="rc-income" value="6000" min="0" step="100" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>2. Rent per month <span class="hint">What the landlord is asking.</span></label>
+            <div class="input-prefix"><input type="number" id="rc-rent" value="2200" min="0" step="50" /></div>
+          </div>
+
+          <div class="ac-section-h ac-inline-h">Monthly expenses</div>
+
+          <div class="ac-input-group">
+            <label>3. Internet <span class="hint">$60 to $100 per month is normal.</span></label>
+            <div class="input-prefix"><input type="number" id="rc-internet" value="80" min="0" step="5" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>4. Tenant Liability Insurance <span class="hint">$15 to $30 per month.</span></label>
+            <div class="input-prefix"><input type="number" id="rc-insurance" value="22" min="0" step="1" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label>5. Utility Bill <span class="hint">$60 to $200 per month.</span></label>
+            <div class="input-prefix"><input type="number" id="rc-utilities" value="130" min="0" step="5" /></div>
+          </div>
+
+          <p class="rc-hint-note">Every condo is different — some include heat, water, or even internet in the rent, others don't. Ask before you sign, then set the numbers above to match.</p>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="ac-results">
+          <!-- Verdict card with big icon -->
+          <div class="rc-verdict" id="rc-verdict">
+            <div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true">
+              <!-- injected by JS: check or cross -->
+            </div>
+            <div class="rc-verdict-body">
+              <div class="rc-verdict-title" id="rc-verdict-title">Type your numbers above.</div>
+              <div class="rc-verdict-sub" id="rc-verdict-sub">Under 30% of income going to housing is the safe zone. Between 30% and 40% is tight. Over 40% and most landlords will pass.</div>
+            </div>
+          </div>
+
+          <h3 class="ac-section-h">Where the money goes</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>Rent</span><strong id="rc-out-rent">$0</strong></div>
+            <div class="ac-row"><span>Internet</span><strong id="rc-out-internet">$0</strong></div>
+            <div class="ac-row"><span>Tenant Liability Insurance</span><strong id="rc-out-insurance">$0</strong></div>
+            <div class="ac-row"><span>Utilities</span><strong id="rc-out-utilities">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>Total monthly housing</span><strong id="rc-out-total">$0</strong></div>
+          </div>
+
+          <h3 class="ac-section-h">Reality check</h3>
+          <div class="ac-checks">
+            <div class="ac-check">
+              <div class="ac-check-label">Housing as % of your income</div>
+              <div class="ac-check-value" id="rc-pct">0%</div>
+              <div class="ac-check-sub">Rent + internet + insurance + utilities, divided by monthly income. Under 30% is the safe zone.</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">Money left after housing</div>
+              <div class="ac-check-value" id="rc-leftover">$0</div>
+              <div class="ac-check-sub">What you have per month for food, transit, savings, phone, and everything else.</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">30%-of-income line</div>
+              <div class="ac-check-value" id="rc-30line">$0/mo</div>
+              <div class="ac-check-sub">The safe-zone ceiling. If your total monthly housing stays under this, you're comfortable.</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">What Peter might get you approved for</div>
+              <div class="ac-check-value" id="rc-approve">$0</div>
+              <div class="ac-check-sub">Rough estimate — landlords vary. Strong credit, guarantor, or upfront months can stretch this.</div>
+            </div>
+          </div>
+
+          <p class="calc-disclaimer">Numbers are illustrative. Most Toronto landlords use 30-33% of gross monthly income as their affordability threshold, though guarantors, strong credit, extra months upfront, or corporate leases can stretch that. Utilities vary widely by building — always ask what's included in the lease. This is a screening tool, not an approval. Discuss your situation with a licensed realtor before signing. See the <a href="/disclaimer#calculators">Disclaimer</a> for full detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Not sure if a listing fits you?" lead="Send me the address and your income — I'll tell you honestly whether the landlord will approve, whether the price is fair, and whether it's the right time to negotiate." />
+
+  <Footer />
+
+  <script is:inline>
+    (function() {
+      function fmtCAD(n, dp) {
+        if (dp === undefined) dp = 0;
+        if (!isFinite(n) || isNaN(n)) return '$0';
+        return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
+      }
+
+      // Big SVG icons for verdict card
+      const ICON_CHECK = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 33 L28 43 L46 23" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      const ICON_WARN  = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="32" y1="18" x2="32" y2="36" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="3.6" fill="currentColor"/></svg>';
+      const ICON_CROSS = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="20" y1="20" x2="44" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><line x1="44" y1="20" x2="20" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>';
+
+      const $ = (id) => document.getElementById(id);
+      const inputs = ['rc-income', 'rc-rent', 'rc-internet', 'rc-insurance', 'rc-utilities'];
+      inputs.forEach((id) => { const el = $(id); if (!el) return; el.addEventListener('input', recompute); el.addEventListener('change', recompute); });
+
+      function recompute() {
+        const income    = Math.max(0, parseFloat($('rc-income').value)    || 0);
+        const rent      = Math.max(0, parseFloat($('rc-rent').value)      || 0);
+        const internet  = Math.max(0, parseFloat($('rc-internet').value)  || 0);
+        const insurance = Math.max(0, parseFloat($('rc-insurance').value) || 0);
+        const utilities = Math.max(0, parseFloat($('rc-utilities').value) || 0);
+
+        const totalHousing = rent + internet + insurance + utilities;
+        const pct = income > 0 ? (totalHousing / income) * 100 : 0;
+        const leftover = income - totalHousing;
+        const safeCeiling = income * 0.30;
+        const approvableRent = Math.max(0, income * 0.30 - internet - insurance - utilities);
+
+        // Breakdown outputs
+        $('rc-out-rent').textContent      = fmtCAD(rent, 0);
+        $('rc-out-internet').textContent  = fmtCAD(internet, 0);
+        $('rc-out-insurance').textContent = fmtCAD(insurance, 0);
+        $('rc-out-utilities').textContent = fmtCAD(utilities, 0);
+        $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
+
+        // Reality-check outputs
+        $('rc-pct').textContent      = pct.toFixed(1) + '%';
+        $('rc-leftover').textContent = fmtCAD(leftover, 0);
+        $('rc-30line').textContent   = fmtCAD(safeCeiling, 0) + '/mo';
+        $('rc-approve').textContent  = fmtCAD(approvableRent, 0);
+
+        // Verdict
+        const v = $('rc-verdict');
+        const iconEl = $('rc-verdict-icon');
+        let vTitle, vSub, vClass, vIcon;
+
+        if (income <= 0 || rent <= 0) {
+          vTitle = 'Type your numbers above.';
+          vSub = 'Under 30% of income going to housing is the safe zone. Between 30% and 40% is tight. Over 40% and most landlords will pass.';
+          vClass = 'rc-verdict-neutral';
+          vIcon = '';
+        } else if (pct <= 30) {
+          vTitle = 'Yes — you can afford this rent.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — inside the safe zone. Landlords approve applications like this all day.';
+          vClass = 'rc-verdict-green';
+          vIcon = ICON_CHECK;
+        } else if (pct <= 40) {
+          vTitle = 'Tight. Doable but you\'ll feel it.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — above the 30% comfort line but still within reach. Groceries, transit, and savings will be tighter. Landlord may ask for guarantor or extra months upfront.';
+          vClass = 'rc-verdict-yellow';
+          vIcon = ICON_WARN;
+        } else {
+          vTitle = 'Possible, but discuss with your Realtor.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — most landlords will say no at this ratio. Exceptions apply: guarantor, upfront rent, corporate lease, strong credit. Talk to a licensed Realtor before you apply.';
+          vClass = 'rc-verdict-red';
+          vIcon = ICON_CROSS;
+        }
+
+        v.classList.remove('rc-verdict-neutral', 'rc-verdict-green', 'rc-verdict-yellow', 'rc-verdict-red');
+        v.classList.add(vClass);
+        iconEl.innerHTML = vIcon;
+        $('rc-verdict-title').textContent = vTitle;
+        $('rc-verdict-sub').textContent = vSub;
+      }
+
+      recompute();
+    })();
+  </script>
+
+  <style is:global>
+    .ac-input-group label .hint { display: block; font-weight: 400; color: var(--ink-mute); font-size: 12px; margin-top: 4px; margin-left: 0; }
+    .ac-inline-h { margin: 6px 0 -4px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+    .rc-hint-note { margin-top: 6px; padding: 12px 14px; background: var(--bg-warm); border-left: 3px solid rgba(198, 150, 65, 0.55); border-radius: 3px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; }
+
+    /* Verdict card */
+    .rc-verdict {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    @media (max-width: 560px) {
+      .rc-verdict { gap: 16px; padding: 18px 18px; }
+    }
+    .rc-verdict-icon { flex: 0 0 72px; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; color: var(--ink-mute); }
+    .rc-verdict-icon svg { width: 100%; height: 100%; }
+    .rc-verdict-body { flex: 1 1 auto; }
+    .rc-verdict-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+    .rc-verdict-sub { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+
+    .rc-verdict-neutral { }
+    .rc-verdict-green   { background: #f0f6f0; border-color: #cfe0cf; }
+    .rc-verdict-green .rc-verdict-icon   { color: #4a8a4a; }
+    .rc-verdict-yellow  { background: #fbf6ea; border-color: #ead9a8; }
+    .rc-verdict-yellow .rc-verdict-icon  { color: #c69625; }
+    .rc-verdict-red     { background: #fbf0ee; border-color: #e6c7c1; }
+    .rc-verdict-red .rc-verdict-icon     { color: #b64830; }
+  </style>
+</BaseLayout>
