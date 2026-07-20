@@ -62,6 +62,20 @@ export const prerender = true;
 
         <!-- 结果 -->
         <div class="ac-results">
+          <!-- 两个头部卡 -->
+          <div class="ac-headline">
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">每月住房总支出</div>
+              <div class="ac-headline-value" id="rc-out-total">$0</div>
+              <div class="ac-headline-sub">租金 + 网络 + 保险 + 水电。</div>
+            </div>
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">住房支出后剩余</div>
+              <div class="ac-headline-value" id="rc-leftover">$0</div>
+              <div class="ac-headline-sub">每月剩余,用于其他所有开支。</div>
+            </div>
+          </div>
+
           <!-- 判定卡 -->
           <div class="rc-verdict" id="rc-verdict">
             <div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div>
@@ -77,7 +91,7 @@ export const prerender = true;
             <div class="ac-row"><span>网络</span><strong id="rc-out-internet">$0</strong></div>
             <div class="ac-row"><span>租客责任险</span><strong id="rc-out-insurance">$0</strong></div>
             <div class="ac-row"><span>水电煤气</span><strong id="rc-out-utilities">$0</strong></div>
-            <div class="ac-row ac-row-total"><span>每月住房总支出</span><strong id="rc-out-total">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>每月住房总支出</span><strong id="rc-out-total-2">$0</strong></div>
           </div>
 
           <h3 class="ac-section-h">现实检查</h3>
@@ -88,19 +102,19 @@ export const prerender = true;
               <div class="ac-check-sub">租金 + 网络 + 保险 + 水电,除以月收入。30% 以内为安全区。</div>
             </div>
             <div class="ac-check">
-              <div class="ac-check-label">住房支出后剩余</div>
-              <div class="ac-check-value" id="rc-leftover">$0</div>
-              <div class="ac-check-sub">每月剩下的钱,用于吃饭、通勤、储蓄、话费与其他一切。</div>
-            </div>
-            <div class="ac-check">
               <div class="ac-check-label">30% 收入门槛</div>
               <div class="ac-check-value" id="rc-30line">$0/月</div>
               <div class="ac-check-sub">安全区上限。若每月住房总支出不超过此值,您就在舒适区内。</div>
             </div>
             <div class="ac-check">
-              <div class="ac-check-label">Peter 大致能帮您批下的租金</div>
+              <div class="ac-check-label">让您留在安全区的租金上限</div>
               <div class="ac-check-value" id="rc-approve">$0</div>
-              <div class="ac-check-sub">粗略估算 —— 每位房东标准不同。良好信用、担保人或多月预付都可能提升上限。</div>
+              <div class="ac-check-sub">根据您其他开支自动算出、让住房比例保持在 30% 的最高租金。仅供参考,非承诺。</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">距离安全区的余量</div>
+              <div class="ac-check-value" id="rc-cushion">$0</div>
+              <div class="ac-check-sub">正值 = 还有余地;负值 = 每月超出 30% 门槛这个金额。</div>
             </div>
           </div>
 
@@ -144,15 +158,18 @@ export const prerender = true;
         const safeCeiling = income * 0.30;
         const approvableRent = Math.max(0, income * 0.30 - internet - insurance - utilities);
 
+        $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
+        $('rc-out-total-2').textContent   = fmtCAD(totalHousing, 0);
+        $('rc-leftover').textContent      = fmtCAD(leftover, 0);
         $('rc-out-rent').textContent      = fmtCAD(rent, 0);
         $('rc-out-internet').textContent  = fmtCAD(internet, 0);
         $('rc-out-insurance').textContent = fmtCAD(insurance, 0);
         $('rc-out-utilities').textContent = fmtCAD(utilities, 0);
-        $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
         $('rc-pct').textContent      = pct.toFixed(1) + '%';
-        $('rc-leftover').textContent = fmtCAD(leftover, 0);
         $('rc-30line').textContent   = fmtCAD(safeCeiling, 0) + '/月';
         $('rc-approve').textContent  = fmtCAD(approvableRent, 0);
+        const cushion = safeCeiling - totalHousing;
+        $('rc-cushion').textContent  = (cushion >= 0 ? '+' : '−') + fmtCAD(Math.abs(cushion), 0) + '/月';
 
         const v = $('rc-verdict');
         const iconEl = $('rc-verdict-icon');

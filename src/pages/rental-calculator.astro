@@ -61,11 +61,23 @@ export const prerender = true;
 
         <!-- RESULTS -->
         <div class="ac-results">
-          <!-- Verdict card with big icon -->
-          <div class="rc-verdict" id="rc-verdict">
-            <div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true">
-              <!-- injected by JS: check or cross -->
+          <!-- Two headline cards, ALL-Calculator style -->
+          <div class="ac-headline">
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">Total monthly housing</div>
+              <div class="ac-headline-value" id="rc-out-total">$0</div>
+              <div class="ac-headline-sub">Rent + internet + insurance + utilities.</div>
             </div>
+            <div class="ac-headline-item">
+              <div class="ac-headline-label">Money left after housing</div>
+              <div class="ac-headline-value" id="rc-leftover">$0</div>
+              <div class="ac-headline-sub">Per month, for everything else.</div>
+            </div>
+          </div>
+
+          <!-- Verdict card with large icon -->
+          <div class="rc-verdict" id="rc-verdict">
+            <div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div>
             <div class="rc-verdict-body">
               <div class="rc-verdict-title" id="rc-verdict-title">Type your numbers above.</div>
               <div class="rc-verdict-sub" id="rc-verdict-sub">Under 30% of income going to housing is the safe zone. Between 30% and 40% is tight. Over 40% and most landlords will pass.</div>
@@ -78,7 +90,7 @@ export const prerender = true;
             <div class="ac-row"><span>Internet</span><strong id="rc-out-internet">$0</strong></div>
             <div class="ac-row"><span>Tenant Liability Insurance</span><strong id="rc-out-insurance">$0</strong></div>
             <div class="ac-row"><span>Utilities</span><strong id="rc-out-utilities">$0</strong></div>
-            <div class="ac-row ac-row-total"><span>Total monthly housing</span><strong id="rc-out-total">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>Total monthly housing</span><strong id="rc-out-total-2">$0</strong></div>
           </div>
 
           <h3 class="ac-section-h">Reality check</h3>
@@ -89,19 +101,19 @@ export const prerender = true;
               <div class="ac-check-sub">Rent + internet + insurance + utilities, divided by monthly income. Under 30% is the safe zone.</div>
             </div>
             <div class="ac-check">
-              <div class="ac-check-label">Money left after housing</div>
-              <div class="ac-check-value" id="rc-leftover">$0</div>
-              <div class="ac-check-sub">What you have per month for food, transit, savings, phone, and everything else.</div>
-            </div>
-            <div class="ac-check">
               <div class="ac-check-label">30%-of-income line</div>
               <div class="ac-check-value" id="rc-30line">$0/mo</div>
               <div class="ac-check-sub">The safe-zone ceiling. If your total monthly housing stays under this, you're comfortable.</div>
             </div>
             <div class="ac-check">
-              <div class="ac-check-label">What Peter might get you approved for</div>
+              <div class="ac-check-label">Rent that keeps you in the safe zone</div>
               <div class="ac-check-value" id="rc-approve">$0</div>
-              <div class="ac-check-sub">Rough estimate — landlords vary. Strong credit, guarantor, or upfront months can stretch this.</div>
+              <div class="ac-check-sub">Auto-calculated max rent that keeps housing at 30% of income given your other costs. A target, not a promise.</div>
+            </div>
+            <div class="ac-check">
+              <div class="ac-check-label">Cushion vs. safe-zone ceiling</div>
+              <div class="ac-check-value" id="rc-cushion">$0</div>
+              <div class="ac-check-sub">Positive number = room to spare; negative = you're over the 30% line by this much per month.</div>
             </div>
           </div>
 
@@ -145,18 +157,21 @@ export const prerender = true;
         const safeCeiling = income * 0.30;
         const approvableRent = Math.max(0, income * 0.30 - internet - insurance - utilities);
 
-        // Breakdown outputs
+        // Headline + breakdown outputs
+        $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
+        $('rc-out-total-2').textContent   = fmtCAD(totalHousing, 0);
+        $('rc-leftover').textContent      = fmtCAD(leftover, 0);
         $('rc-out-rent').textContent      = fmtCAD(rent, 0);
         $('rc-out-internet').textContent  = fmtCAD(internet, 0);
         $('rc-out-insurance').textContent = fmtCAD(insurance, 0);
         $('rc-out-utilities').textContent = fmtCAD(utilities, 0);
-        $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
 
         // Reality-check outputs
         $('rc-pct').textContent      = pct.toFixed(1) + '%';
-        $('rc-leftover').textContent = fmtCAD(leftover, 0);
         $('rc-30line').textContent   = fmtCAD(safeCeiling, 0) + '/mo';
         $('rc-approve').textContent  = fmtCAD(approvableRent, 0);
+        const cushion = safeCeiling - totalHousing;
+        $('rc-cushion').textContent  = (cushion >= 0 ? '+' : '−') + fmtCAD(Math.abs(cushion), 0) + '/mo';
 
         // Verdict
         const v = $('rc-verdict');

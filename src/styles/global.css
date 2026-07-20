@@ -120,6 +120,20 @@ h2.section-h { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-s
 .cta-box .alt { display: block; text-align: center; margin-top: 14px; font-size: 13px; color: #d4cfc4; }
 @media (max-width: 900px) { .cta-grid { grid-template-columns: 1fr; gap: 40px; } .cta-section { padding: 72px 0; } }
 
+/* Professional Affiliations band inside CTASection */
+.cta-section .affiliations { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.affiliations-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #d4cfc4; font-weight: 600; white-space: nowrap; }
+.affiliations-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 12px; }
+.affiliations-list li { margin: 0; }
+.affiliations-list a { display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--bg); font-size: 12.5px; text-decoration: none; transition: background 0.15s ease, border-color 0.15s ease; }
+.affiliations-list a:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.32); }
+.aff-name { color: #d4cfc4; font-weight: 400; font-size: 12px; }
+.aff-acronym { font-weight: 600; letter-spacing: 0.06em; }
+@media (max-width: 720px) {
+  .cta-section .affiliations { margin-top: 40px; padding-top: 22px; gap: 18px; flex-direction: column; align-items: flex-start; }
+  .aff-name { display: none; }
+}
+
 footer { background: var(--bg); color: var(--ink-soft); padding: 64px 0 32px; font-size: 14px; border-top: 1px solid var(--rule); }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule); }
 .foot-col h4 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); margin-bottom: 16px; font-weight: 600; }
