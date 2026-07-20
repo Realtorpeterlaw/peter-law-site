@@ -1457,3 +1457,28 @@ body.mobile-menu-open { overflow: hidden; }
 .rc-icon { flex: 0 0 18px; width: 18px; height: 18px; color: var(--ink-soft); }
 .rc-icon svg { width: 100%; height: 100%; display: block; }
 
+/* Warm-amber secondary CTA — used under the rental questionnaire */
+.quiz-cta-alt { display: flex; align-items: center; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+.quiz-cta-or { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+.btn-warm {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #c69625 0%, #b08017 100%);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  border: 1px solid #a67413;
+  box-shadow: 0 4px 14px -4px rgba(198, 150, 65, 0.55), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+.btn-warm:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #d4a52d 0%, #b8881a 100%);
+  box-shadow: 0 8px 22px -6px rgba(198, 150, 65, 0.7), inset 0 1px 0 rgba(255,255,255,0.22);
+}
+.btn-warm:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (max-width: 480px) {
+  .btn-warm { padding: 12px 18px; font-size: 13.5px; }
+}
+
