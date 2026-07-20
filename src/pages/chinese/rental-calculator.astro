@@ -43,17 +43,17 @@ export const prerender = true;
           <div class="ac-section-h ac-inline-h">每月开支</div>
 
           <div class="ac-input-group">
-            <label>3. 网络 <span class="hint">通常每月 $60 至 $100。</span></label>
+            <label>3. <span class="rc-icon-label"><span class="rc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8.5C5 5.5 8.5 4 12 4s7 1.5 10 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 12c2-2 4.5-3 7-3s5 1 7 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8.5 15.5c1-1 2.2-1.5 3.5-1.5s2.5 0.5 3.5 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="19" r="1.4" fill="currentColor"/></svg></span><span>网络</span></span> <span class="hint">通常每月 $60 至 $100。</span></label>
             <div class="input-prefix"><input type="number" id="rc-internet" value="80" min="0" step="5" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>4. 租客责任险 <span class="hint">每月 $15 至 $30。</span></label>
+            <label>4. <span class="rc-icon-label"><span class="rc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9-4.6-0.6-8-4.5-8-9V6l8-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>租客责任险</span></span> <span class="hint">每月 $15 至 $30。</span></label>
             <div class="input-prefix"><input type="number" id="rc-insurance" value="22" min="0" step="1" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>5. 水电煤气 <span class="hint">每月 $60 至 $200。</span></label>
+            <label>5. <span class="rc-icon-label"><span class="rc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/></svg></span><span>水电煤气</span></span> <span class="hint">每月 $60 至 $200。</span></label>
             <div class="input-prefix"><input type="number" id="rc-utilities" value="130" min="0" step="5" /></div>
           </div>
 
@@ -62,6 +62,24 @@ export const prerender = true;
 
         <!-- 结果 -->
         <div class="ac-results">
+          <!-- 可负担性进度条 -->
+          <div class="rc-meter-card">
+            <div class="rc-meter-head">
+              <div class="rc-meter-title">住房占收入比例</div>
+              <div class="rc-meter-pct"><span id="rc-meter-pct">0%</span></div>
+            </div>
+            <div class="rc-meter-bar" aria-hidden="true">
+              <div class="rc-meter-fill" id="rc-meter-fill" style="width: 0%"></div>
+              <div class="rc-meter-tick" style="left: 30%"><span class="rc-meter-tick-label" style="left: 50%;">30%</span></div>
+              <div class="rc-meter-tick" style="left: 40%"><span class="rc-meter-tick-label" style="left: 50%;">40%</span></div>
+            </div>
+            <div class="rc-meter-tiers">
+              <span class="tier-safe">安全区</span>
+              <span class="tier-tight">吃紧</span>
+              <span class="tier-over">过高</span>
+            </div>
+          </div>
+
           <!-- 两个头部卡 -->
           <div class="ac-headline">
             <div class="ac-headline-item">
@@ -165,6 +183,14 @@ export const prerender = true;
         $('rc-out-internet').textContent  = fmtCAD(internet, 0);
         $('rc-out-insurance').textContent = fmtCAD(insurance, 0);
         $('rc-out-utilities').textContent = fmtCAD(utilities, 0);
+        const clamped = Math.max(0, Math.min(100, pct));
+        const fillEl = $('rc-meter-fill');
+        fillEl.style.width = clamped.toFixed(1) + '%';
+        fillEl.classList.remove('tier-yellow', 'tier-red');
+        if (pct > 40)      fillEl.classList.add('tier-red');
+        else if (pct > 30) fillEl.classList.add('tier-yellow');
+        $('rc-meter-pct').textContent = pct.toFixed(1) + '%';
+
         $('rc-pct').textContent      = pct.toFixed(1) + '%';
         $('rc-30line').textContent   = fmtCAD(safeCeiling, 0) + '/月';
         $('rc-approve').textContent  = fmtCAD(approvableRent, 0);
