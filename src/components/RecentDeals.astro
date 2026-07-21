@@ -9,7 +9,7 @@ const { zh = false } = Astro.props;
 const allDeals = getDeals(zh);
 const deals = allDeals.slice(0, 6);
 
-const sectionHeading = zh ? '近期成交' : 'Recently Closed';
+const sectionHeading = zh ? '近期' : 'Recent';
 const carouselLabel = zh ? '近期成交轮播' : 'Recent deals carousel';
 const goLabel = zh ? '前往第 ' : 'Go to slide ';
 const goLabelSuffix = zh ? ' 条' : '';
