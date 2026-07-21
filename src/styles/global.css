@@ -1358,8 +1358,8 @@ body.mobile-menu-open { overflow: hidden; }
   .deals-archive-card .deal-rent-amount { font-size: 26px; }
 }
 
-/* CALCULATOR SHELL — shared by ALL Calculator and Rental Calculator */
-/* ALL Calculator — layout */
+/* CALCULATOR SHELL — shared by BUY Calculator and Rental Calculator */
+/* BUY Calculator — layout */
 .ac-shell { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 32px; align-items: start; }
 @media (max-width: 960px) { .ac-shell { grid-template-columns: 1fr; } }
 
