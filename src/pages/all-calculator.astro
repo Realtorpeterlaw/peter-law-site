@@ -51,6 +51,25 @@ export const prerender = true;
             </label>
           </div>
 
+          <div class="ac-input-group">
+            <label>4. Property Type <span class="hint">Changes what monthly costs apply.</span></label>
+            <select id="ac-proptype">
+              <option value="freehold" selected>Freehold (House)</option>
+              <option value="freehold-hoa">Freehold with HOA</option>
+              <option value="condo">Condo</option>
+            </select>
+          </div>
+
+          <div class="ac-input-group" id="ac-tax-row">
+            <label>5. Property Taxes <span class="hint">Per month. Leave blank to auto-estimate at 0.7% of price / yr.</span></label>
+            <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="e.g. 400" /></div>
+          </div>
+
+          <div class="ac-input-group" id="ac-fee-row" style="display:none;">
+            <label id="ac-fee-label">6. HOA Fee <span class="hint">Per month.</span></label>
+            <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="e.g. 150" /></div>
+          </div>
+
           <details class="ac-more">
             <summary>More settings (optional)</summary>
             <div class="ac-more-body">
@@ -83,7 +102,7 @@ export const prerender = true;
             <div class="ac-headline-item">
               <div class="ac-headline-label">Your monthly payment</div>
               <div class="ac-headline-value" id="ac-monthly">$0</div>
-              <div class="ac-headline-sub" id="ac-monthly-sub">Mortgage only. Add property tax + utilities on top.</div>
+              <div class="ac-headline-sub" id="ac-monthly-sub">Mortgage only. See breakdown for all-in monthly cost.</div>
             </div>
             <div class="ac-headline-item">
               <div class="ac-headline-label">Cash you need on closing day</div>
@@ -108,6 +127,8 @@ export const prerender = true;
             <div class="ac-row"><span>Ontario land transfer tax</span><strong id="ac-ltt-on">$0</strong></div>
             <div class="ac-row" id="ac-ltt-mltt-row"><span>Toronto land transfer tax</span><strong id="ac-ltt-mltt">$0</strong></div>
             <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>First-time buyer rebate</span><strong id="ac-ltt-rebate">−$0</strong></div>
+            <div class="ac-row" id="ac-mo-taxrow"><span>Est. monthly property tax</span><strong id="ac-mo-tax">$0</strong></div>
+            <div class="ac-row" id="ac-mo-feerow" style="display:none;"><span id="ac-mo-feelbl">Monthly HOA / maintenance</span><strong id="ac-mo-fee">$0</strong></div>
             <div class="ac-row"><span>Legal + title + adjustments <em class="ac-note">roughly</em></span><strong id="ac-legal">$0</strong></div>
             <div class="ac-row ac-row-total"><span>Approx. Total cash to close</span><strong id="ac-total-cash">~$0</strong></div>
           </div>
@@ -234,7 +255,7 @@ export const prerender = true;
 
       // ---- WIRE UP ----
       const $ = (id) => document.getElementById(id);
-      const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb'];
+      const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb', 'ac-proptype', 'ac-proptax', 'ac-fee'];
       inputs.forEach((id) => {
         const el = $(id);
         if (!el) return;
@@ -250,6 +271,22 @@ export const prerender = true;
         const amort    = parseInt($('ac-amort').value, 10) || 25;
         const loc      = $('ac-location').value; // 'toronto' | 'ontario'
         const isFTHB   = $('ac-fthb').checked;
+        const propType = $('ac-proptype').value; // 'freehold' | 'freehold-hoa' | 'condo'
+        const proptaxRaw = parseFloat($('ac-proptax').value);
+        const feeRaw     = parseFloat($('ac-fee').value);
+
+        // Show / hide the conditional fee row + relabel
+        const feeRow = $('ac-fee-row');
+        const feeLabel = $('ac-fee-label');
+        if (propType === 'freehold') {
+          feeRow.style.display = 'none';
+        } else if (propType === 'freehold-hoa') {
+          feeRow.style.display = '';
+          feeLabel.innerHTML = '6. HOA Fee <span class="hint">Per month.</span>';
+        } else if (propType === 'condo') {
+          feeRow.style.display = '';
+          feeLabel.innerHTML = '6. Maintenance Fee <span class="hint">Per month. Ask before you sign — some cover heat, water, or hydro.</span>';
+        }
 
         // ---- DOWN PAYMENT / MORTGAGE / CMHC ----
         const minDown = minDownPayment(price);
@@ -289,9 +326,12 @@ export const prerender = true;
         // ---- GDS ratio (housing as % of income) ----
         // GDS = (mortgage stress + property tax est + heat) / income
         const monthlyIncome = income / 12;
-        const propTaxMo = price * 0.007 / 12; // ~0.7%/yr Toronto average
-        const heatMo = 150;
-        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + heatMo) / monthlyIncome * 100 : 0;
+        // Property tax: user's actual if provided, else 0.7%/yr Toronto average
+        const propTaxMo = (isFinite(proptaxRaw) && proptaxRaw >= 0) ? proptaxRaw : (price * 0.007 / 12);
+        // Second monthly cost: HOA or maintenance if user provided; else 0 (or $150 heat estimate for pure freehold)
+        const ownershipFeeMo = (isFinite(feeRaw) && feeRaw >= 0 && propType !== 'freehold') ? feeRaw : 0;
+        const heatMo = propType === 'condo' ? 0 : 150; // condo maintenance often includes heat
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo + heatMo) / monthlyIncome * 100 : 0;
 
         // ---- TOTAL INTEREST OVER LIFE OF LOAN ----
         const totalInterest = monthly * amort * 12 - totalMortgage;
@@ -317,6 +357,17 @@ export const prerender = true;
         } else {
           $('ac-ltt-rebate-row').style.display = 'none';
         }
+        // Monthly ownership costs in breakdown
+        $('ac-mo-tax').textContent = fmtCAD(propTaxMo, 0) + '/mo';
+        const feeRowB = $('ac-mo-feerow');
+        if (propType === 'freehold') {
+          feeRowB.style.display = 'none';
+        } else {
+          feeRowB.style.display = '';
+          $('ac-mo-feelbl').textContent = propType === 'condo' ? 'Monthly maintenance fee' : 'Monthly HOA fee';
+          $('ac-mo-fee').textContent = fmtCAD(ownershipFeeMo, 0) + '/mo';
+        }
+
         $('ac-legal').textContent = fmtCAD(legalEtc, 0);
         $('ac-total-cash').textContent = '~' + fmtCAD(cashToClose, 0);
 

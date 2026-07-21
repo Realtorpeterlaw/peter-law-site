@@ -52,6 +52,25 @@ export const prerender = true;
             </label>
           </div>
 
+          <div class="ac-input-group">
+            <label>4. 物业类型 <span class="hint">决定适用哪些每月支出。</span></label>
+            <select id="ac-proptype">
+              <option value="freehold" selected>独立产权(House)</option>
+              <option value="freehold-hoa">独立产权(含 HOA)</option>
+              <option value="condo">Condo</option>
+            </select>
+          </div>
+
+          <div class="ac-input-group" id="ac-tax-row">
+            <label>5. 地税 <span class="hint">每月。留空则按房价 0.7%/年 自动估算。</span></label>
+            <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="如 400" /></div>
+          </div>
+
+          <div class="ac-input-group" id="ac-fee-row" style="display:none;">
+            <label id="ac-fee-label">6. HOA 管理费 <span class="hint">每月。</span></label>
+            <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="如 150" /></div>
+          </div>
+
           <details class="ac-more">
             <summary>更多设置(可选)</summary>
             <div class="ac-more-body">
@@ -84,7 +103,7 @@ export const prerender = true;
             <div class="ac-headline-item">
               <div class="ac-headline-label">您的月供</div>
               <div class="ac-headline-value" id="ac-monthly">$0</div>
-              <div class="ac-headline-sub" id="ac-monthly-sub">仅按揭本息。地税与水电另计。</div>
+              <div class="ac-headline-sub" id="ac-monthly-sub">仅按揭本息。总月供请查看下方细目。</div>
             </div>
             <div class="ac-headline-item">
               <div class="ac-headline-label">成交当天需准备的现金</div>
@@ -109,6 +128,8 @@ export const prerender = true;
             <div class="ac-row"><span>安省土地转让税</span><strong id="ac-ltt-on">$0</strong></div>
             <div class="ac-row" id="ac-ltt-mltt-row"><span>多伦多土地转让税</span><strong id="ac-ltt-mltt">$0</strong></div>
             <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>首次购房退税</span><strong id="ac-ltt-rebate">−$0</strong></div>
+            <div class="ac-row" id="ac-mo-taxrow"><span>每月地税(估算)</span><strong id="ac-mo-tax">$0</strong></div>
+            <div class="ac-row" id="ac-mo-feerow" style="display:none;"><span id="ac-mo-feelbl">每月 HOA / 管理费</span><strong id="ac-mo-fee">$0</strong></div>
             <div class="ac-row"><span>律师 + 产权 + 调整项 <em class="ac-note">估算</em></span><strong id="ac-legal">$0</strong></div>
             <div class="ac-row ac-row-total"><span>预计成交总现金</span><strong id="ac-total-cash">~$0</strong></div>
           </div>
@@ -213,7 +234,7 @@ export const prerender = true;
       const FTHB_TOR_REBATE = 4475;
 
       const $ = (id) => document.getElementById(id);
-      const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb'];
+      const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb', 'ac-proptype', 'ac-proptax', 'ac-fee'];
       inputs.forEach((id) => { const el = $(id); if (!el) return; el.addEventListener('input', recompute); el.addEventListener('change', recompute); });
 
       function recompute() {
@@ -224,6 +245,21 @@ export const prerender = true;
         const amort    = parseInt($('ac-amort').value, 10) || 25;
         const loc      = $('ac-location').value;
         const isFTHB   = $('ac-fthb').checked;
+        const propType = $('ac-proptype').value;
+        const proptaxRaw = parseFloat($('ac-proptax').value);
+        const feeRaw     = parseFloat($('ac-fee').value);
+
+        const feeRow = $('ac-fee-row');
+        const feeLabel = $('ac-fee-label');
+        if (propType === 'freehold') {
+          feeRow.style.display = 'none';
+        } else if (propType === 'freehold-hoa') {
+          feeRow.style.display = '';
+          feeLabel.innerHTML = '6. HOA 管理费 <span class="hint">每月。</span>';
+        } else if (propType === 'condo') {
+          feeRow.style.display = '';
+          feeLabel.innerHTML = '6. 管理费 <span class="hint">每月。签约前请问清楚 —— 有的包含暖气、水或电。</span>';
+        }
 
         const minDown = minDownPayment(price);
         const downFromSavings = Math.min(savings, price);
@@ -252,9 +288,10 @@ export const prerender = true;
         const stressPayment = monthlyPayment(totalMortgage, stressRate, amort);
 
         const monthlyIncome = income / 12;
-        const propTaxMo = price * 0.007 / 12;
-        const heatMo = 150;
-        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + heatMo) / monthlyIncome * 100 : 0;
+        const propTaxMo = (isFinite(proptaxRaw) && proptaxRaw >= 0) ? proptaxRaw : (price * 0.007 / 12);
+        const ownershipFeeMo = (isFinite(feeRaw) && feeRaw >= 0 && propType !== 'freehold') ? feeRaw : 0;
+        const heatMo = propType === 'condo' ? 0 : 150;
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo + heatMo) / monthlyIncome * 100 : 0;
 
         const totalInterest = monthly * amort * 12 - totalMortgage;
 
@@ -277,6 +314,16 @@ export const prerender = true;
         } else {
           $('ac-ltt-rebate-row').style.display = 'none';
         }
+        $('ac-mo-tax').textContent = fmtCAD(propTaxMo, 0) + '/月';
+        const feeRowB = $('ac-mo-feerow');
+        if (propType === 'freehold') {
+          feeRowB.style.display = 'none';
+        } else {
+          feeRowB.style.display = '';
+          $('ac-mo-feelbl').textContent = propType === 'condo' ? '每月管理费' : '每月 HOA 管理费';
+          $('ac-mo-fee').textContent = fmtCAD(ownershipFeeMo, 0) + '/月';
+        }
+
         $('ac-legal').textContent = fmtCAD(legalEtc, 0);
         $('ac-total-cash').textContent = '~' + fmtCAD(cashToClose, 0);
 
