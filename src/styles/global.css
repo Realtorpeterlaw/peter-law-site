@@ -30,9 +30,9 @@ img { max-width: 100%; height: auto; display: block; }
 .topbar a:hover { color: #fff; }
 .topbar-left span + span::before { content: "·"; margin: 0 10px; color: #6b6b6b; }
 
-header { background: var(--bg); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 9999; isolation: isolate; overflow: visible; }
+body > header { background: var(--bg); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 9999; isolation: isolate; overflow: visible; }
 /* Ensure the desktop nav never clips its dropdowns */
-header, header nav.primary, header .has-dropdown { overflow: visible; }
+body > header, body > header nav.primary, body > header .has-dropdown { overflow: visible; }
 .dropdown-menu { z-index: 9999 !important; }
 
 .head-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 16px; }
