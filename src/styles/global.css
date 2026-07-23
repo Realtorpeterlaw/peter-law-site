@@ -76,7 +76,7 @@ h1.hero-h em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
 .proof-item:first-child { border-left: none; }
 .proof-num { font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 500; }
 .proof-lbl { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
-@media (max-width: 720px) { .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } .proof-item:nth-child(3) { border-left: none; } }
+@media (max-width: 720px) { .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } .proof-item:nth-child(3) { border-left: none; } .proof-num { font-size: 19px; } .proof-lbl { font-size: 10.5px; letter-spacing: 0.06em; } .proof-bar { padding: 20px 0; } }
 
 section.major { padding: 110px 0; }
 @media (max-width: 720px) { section.major { padding: 72px 0; } }
@@ -1541,3 +1541,42 @@ body.mobile-menu-open { overflow: hidden; }
 .sale-history-disc a { text-decoration: underline; text-underline-offset: 3px; }
 .sale-history-disc a:hover { color: var(--ink); }
 
+/* Header WhatsApp "CALL ME" button — mobile only, rich luxury emerald */
+.head-cta-call { display: none; }
+@media (max-width: 900px) {
+  .head-cta-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 13px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e5a2e 0%, #0f3d1e 100%);
+    border: 1px solid #0d3319;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px -4px rgba(30, 90, 46, 0.5), inset 0 1px 0 rgba(255,255,255,0.16);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+  .head-cta-call:hover, .head-cta-call:active {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #256a37 0%, #124727 100%);
+    box-shadow: 0 6px 18px -4px rgba(30, 90, 46, 0.62), inset 0 1px 0 rgba(255,255,255,0.24);
+  }
+  .head-cta-call:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+}
+@media (max-width: 380px) {
+  .head-cta-call { padding: 7px 10px; font-size: 11px; letter-spacing: 0.08em; }
+  .head-cta-call svg { display: none; }
+}
+
+/* Centre hero eyebrow on mobile */
+@media (max-width: 720px) {
+  .hero-headline-block .eyebrow { text-align: center; }
+}
