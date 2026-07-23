@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LangTopBar from '../../components/SpanishTopBar.astro';
+import LangHeader from '../../components/SpanishHeader.astro';
+import LangFooter from '../../components/SpanishFooter.astro';
+import LangCTA from '../../components/SpanishCTASection.astro';
+---
+<BaseLayout title="Gu\u00eda del comprador \u2014 Peter Law \u00b7 Inmobiliaria Toronto" description="Gu\u00eda completa del comprador inmobiliario en Toronto." lang="es" bodyClass="es">
+  <LangTopBar />
+  <LangHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Compradores · Guía</div>
+      <h1>Comprar en Toronto — sin sorpresas.</h1>
+      <p>De la pre-aprobación a la entrega de llaves.</p>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side"><h4>—</h4><ul>
+          <li><a href="#preapproval">1. Pre-aprobación</a></li>
+          <li><a href="#search">2. Búsqueda</a></li>
+          <li><a href="#offer">3. Oferta</a></li>
+          <li><a href="#inspection">4. Inspección</a></li>
+          <li><a href="#closing">5. Cierre</a></li>
+        </ul></aside>
+        <div class="prose-body">
+          <h2 id="preapproval">1. Pre-aprobación</h2>
+          <p>Antes de visitar, sabe cuánto pedir prestado. Carta fija tu tasa 90-120 días.</p>
+          <h2 id="search">2. Búsqueda</h2>
+          <p>Lista diaria: criterios, barrio, precio.</p>
+          <h2 id="offer">3. Oferta</h2>
+          <p>En Toronto 2026, ofertas múltiples exigen ofertas firmes. Depósito típicamente 5%.</p>
+          <h2 id="inspection">4. Inspección</h2>
+          <p>Inspector (300-500 $) evalúa estructura, techo, HVAC.</p>
+          <h2 id="closing">5. Cierre</h2>
+          <p>Abogado transfiere saldo, paga impuestos, entrega llaves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LangCTA heading="\u00bfListo para empezar?" lead="15 min bastan para entender situaci\u00f3n y plan." />
+  <LangFooter />
+</BaseLayout>

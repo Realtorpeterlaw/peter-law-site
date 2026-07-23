@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LangTopBar from '../../components/KoreanTopBar.astro';
+import LangHeader from '../../components/KoreanHeader.astro';
+import LangFooter from '../../components/KoreanFooter.astro';
+import LangCTA from '../../components/KoreanCTASection.astro';
+---
+<BaseLayout title="\uc138\uc785\uc790 \uc548\ub0b4 \u2014 Peter Law \u00b7 \ud1a0\ub860\ud1a0 \uc784\ub300" description="\ud1a0\ub860\ud1a0\uc5d0\uc11c \uc784\ub300\ub97c \ucc3e\uace0 \uacc4\uc2e0\uac00\uc694? \ube60\ub974\uac8c \uc2b9\uc778\ubc1b\uace0 \uc6d0\ud65c\ud558\uac8c \uc785\uc8fc\ud558\ub294 \ubc29\ubc95." lang="ko" bodyClass="ko">
+  <LangTopBar />
+  <LangHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">임대 · 세입자</div>
+      <h1>토론토 임대 — 빠른 승인, 원활한 입주.</h1>
+      <p>토론토 임대 시장은 빠릅니다. 하루만 망설여도 매물이 사라집니다. 좋은 매물을 놓치지 않고, 강력한 지원서를 준비하고, 포함 사항을 협상하는 방법을 알려드립니다.</p>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side"><h4>—</h4><ul>
+          <li><a href="#search">검색</a></li>
+          <li><a href="#application">지원서</a></li>
+          <li><a href="#negotiation">협상</a></li>
+          <li><a href="#moveIn">입주</a></li>
+        </ul></aside>
+        <div class="prose-body">
+          <h2 id="search">검색</h2>
+          <p>매일 실제 기준(예산, 침실, 지역, 교통, 반려동물)으로 필터링된 짧은 목록을 보내드립니다.</p>
+          <h2 id="application">지원서</h2>
+          <p>약한 세입자 지원서는 실패합니다. 강한 지원서는 통과합니다. 토론토 임대인이 기대하는 형식으로 사전 준비합니다.</p>
+          <h2 id="negotiation">협상</h2>
+          <p>가격뿐만 아니라 포함 사항(난방, 물, 인터넷, 주차) 및 입주일도 협상합니다.</p>
+          <h2 id="moveIn">입주</h2>
+          <p>서명, 인수인계, 공공요금 이체를 조율하며 처음 30일 동안 문의에 응대합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LangCTA heading="\uac80\uc0c9\uc744 \uc2dc\uc791\ud560 \uc900\ube44\uac00 \ub418\uc168\ub098\uc694?" lead="\uae30\uc900\uc744 \ubcf4\ub0b4\uc8fc\uc2dc\uba74 24\uc2dc\uac04 \uc774\ub0b4\uc5d0 \uc608\uc0b0\uc5d0 \ub9de\ub294 5-8\uac1c\uc758 \ub9e4\ubb3c\ub85c \ub2f5\ubcc0\ub4dc\ub9bd\ub2c8\ub2e4." />
+  <LangFooter />
+</BaseLayout>
