@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import KoreanTopBar from '../../components/KoreanTopBar.astro';
+import KoreanHeader from '../../components/KoreanHeader.astro';
+import KoreanFooter from '../../components/KoreanFooter.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+---
+<BaseLayout title="연락처 — Peter Law · 토론토 부동산" description="Peter Law에게 연락하세요. 이메일, 문자, 또는 15분 초기 통화 예약." lang="ko" bodyClass="ko">
+
+  <KoreanTopBar />
+  <KoreanHeader active="contact" ctaLabel="또는 통화 예약" />
+
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">연락하기</div><h1>실제 답변을 가장 빠르게 얻는 방법.</h1><p>메시지, 문자, 또는 통화를 직접 예약하세요.</p></div></section>
+
+  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="contact-grid">
+    <form class="contact-form" method="POST" action={FORMSPREE_ENDPOINT}>
+      <div class="form-row"><label for="name">이름 <span class="required">*</span></label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+      <div class="form-row"><label for="email">이메일 <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="form-row"><label for="phone">전화 <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required /></div>
+      <div class="form-row"><label for="message">무엇이 필요하신가요? <span class="required">*</span></label><textarea id="message" name="message" rows="6" required placeholder="원하는 지역, 이사 시기, 알아야 할 사항."></textarea></div>
+      <div class="hp-field" aria-hidden="true"><label for="gotcha">비워두세요</label><input id="gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="_subject" value="새 메시지 (한국어)">
+      <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+      <button type="submit" class="btn-primary">보내기<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </form>
+    <aside class="contact-side">
+      <div class="contact-block"><div class="contact-lbl">통화 예약</div><a href={BOOKING_URL} class="btn-secondary">15분 · Google Meet 또는 전화 · 무료</a></div>
+      <div class="contact-block"><span class="contact-lbl">전화 / 문자</span><a href="tel:+16478888472">647-888-8472</a></div>
+      <div class="contact-block"><span class="contact-lbl">이메일</span><a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a></div>
+      <div class="contact-block"><span class="contact-lbl">중개회사</span><p>HomeLife Golconda Realty Inc.<br>215 – 3601 HWY 7 East<br>Markham, ON L3R 0M3</p></div>
+    </aside>
+  </div></div></section>
+
+  <KoreanFooter />
+</BaseLayout>

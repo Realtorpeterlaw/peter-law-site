@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SpanishTopBar from '../../components/SpanishTopBar.astro';
+import SpanishHeader from '../../components/SpanishHeader.astro';
+import SpanishFooter from '../../components/SpanishFooter.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+---
+<BaseLayout title="Contacto — Peter Law · Inmobiliaria Toronto" description="Contacta a Peter Law. Correo, texto, o reserva directamente una llamada inicial de 15 minutos." lang="es" bodyClass="es">
+
+  <SpanishTopBar />
+  <SpanishHeader active="contact" ctaLabel="O reservar una llamada" />
+
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Contáctame</div><h1>La forma más rápida de obtener respuestas reales.</h1><p>Envía un mensaje, texto, o reserva una llamada directamente.</p></div></section>
+
+  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="contact-grid">
+    <form class="contact-form" method="POST" action={FORMSPREE_ENDPOINT}>
+      <div class="form-row"><label for="name">Nombre <span class="required">*</span></label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+      <div class="form-row"><label for="email">Correo electrónico <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="form-row"><label for="phone">Teléfono <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required /></div>
+      <div class="form-row"><label for="message">¿Qué necesitas? <span class="required">*</span></label><textarea id="message" name="message" rows="6" required placeholder="Dónde buscas, cuándo quieres mudarte, todo lo que debería saber."></textarea></div>
+      <div class="hp-field" aria-hidden="true"><label for="gotcha">No llenar</label><input id="gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="_subject" value="Nuevo mensaje (español)">
+      <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+      <button type="submit" class="btn-primary">Enviar<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </form>
+    <aside class="contact-side">
+      <div class="contact-block"><div class="contact-lbl">Reservar llamada</div><a href={BOOKING_URL} class="btn-secondary">15 min · Google Meet o teléfono · Gratis</a></div>
+      <div class="contact-block"><span class="contact-lbl">Teléfono / texto</span><a href="tel:+16478888472">647-888-8472</a></div>
+      <div class="contact-block"><span class="contact-lbl">Correo</span><a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a></div>
+      <div class="contact-block"><span class="contact-lbl">Corretaje</span><p>HomeLife Golconda Realty Inc.<br>215 – 3601 HWY 7 East<br>Markham, ON L3R 0M3</p></div>
+    </aside>
+  </div></div></section>
+
+  <SpanishFooter />
+</BaseLayout>

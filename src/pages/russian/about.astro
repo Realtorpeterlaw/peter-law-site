@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RussianTopBar from '../../components/RussianTopBar.astro';
+import RussianHeader from '../../components/RussianHeader.astro';
+import RussianFooter from '../../components/RussianFooter.astro';
+import RussianCTASection from '../../components/RussianCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="О Peter Law — Недвижимость Торонто" description="Peter Law: рожденный и выросший в центре Торонто. Бывший хост Airbnb. Sales Representative в HomeLife Golconda Realty Inc." lang="ru" bodyClass="ru">
+
+  <RussianTopBar />
+  <RussianHeader active="about" ctaLabel="Записаться на звонок" />
+
+  <section class="hero"><div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">О Peter</div>
+      <h1 class="hero-h">Рожденный и выросший, <em>торонтовец.</em></h1>
+      <p class="hero-sub">Житель центра Торонто, бывший хост Airbnb, полноценный агент по недвижимости — я проведу вас из точки А в точку Б, до финишной черты.</p>
+      <div class="hero-ctas"><a href={BOOKING_URL} class="btn-primary">Поговорим<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div><div class="hero-photo"><img src="/photos/peter-interior.webp" alt="Peter Law, черно-белый портрет в центре Торонто." width="1500" height="1887" loading="eager" /></div></div>
+  </div></section>
+
+  <section class="major" style="padding-top:32px;"><div class="wrap"><div class="prose-grid">
+    <aside class="prose-side"><h4>О нас</h4><ul><li><a href="#story">Моя история</a></li><li><a href="#credentials">Квалификация</a></li><li><a href="#brokerage">Моя брокерская компания</a></li></ul></aside>
+    <div class="prose-body">
+      <h2 id="story">Моя история</h2>
+      <p>Рожден и вырос в центре Торонто. Канадец китайского происхождения. Шесть (6) лет, ПОЛНЫЙ РАБОЧИЙ ДЕНЬ на рынке аренды Торонто. Начал как хост Airbnb, получил лицензию на недвижимость, построил практику, охватывающую аренду и продажу. Работа в гостеприимстве научила меня простой вещи: <strong>люди не помнят фотографию объявления. Они помнят, чувствовали ли они, что о них заботятся.</strong></p>
+      <h2 id="credentials">Квалификация</h2>
+      <p>Sales Representative, зарегистрированный в <strong>Real Estate Council of Ontario (RECO)</strong>. Член TRREB, OREA, CREA. Двуязычный (английский / китайский).</p>
+      <h2 id="brokerage">Моя брокерская компания</h2>
+      <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong> — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
+    </div>
+  </div></div></section>
+
+  <RussianCTASection />
+  <RussianFooter />
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import KoreanTopBar from '../../components/KoreanTopBar.astro';
+import KoreanHeader from '../../components/KoreanHeader.astro';
+import KoreanFooter from '../../components/KoreanFooter.astro';
+import KoreanCTASection from '../../components/KoreanCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="Peter Law 소개 — 토론토 부동산" description="Peter Law: 토론토 다운타운에서 태어나고 자란 이중언어 부동산 대표. HomeLife Golconda Realty Inc. 소속." lang="ko" bodyClass="ko">
+
+  <KoreanTopBar />
+  <KoreanHeader active="about" ctaLabel="상담 예약" />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Peter 소개</div>
+        <h1 class="hero-h">태어나고 자란, <em>진짜 토론토인.</em></h1>
+        <p class="hero-sub">다운타운 토론토인, 전 Airbnb 호스트, 풀타임 부동산 대표 — 여러분을 A 지점에서 B 지점까지, 결승선까지 안내합니다.</p>
+        <div class="hero-ctas"><a href={BOOKING_URL} class="btn-primary">이야기해봐요<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <div><div class="hero-photo"><img src="/photos/peter-interior.webp" alt="Peter Law, 토론토 다운타운 흑백 사진." width="1500" height="1887" loading="eager" /></div></div>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side"><h4>소개</h4><ul><li><a href="#story">제 이야기</a></li><li><a href="#credentials">자격</a></li><li><a href="#brokerage">중개회사</a></li></ul></aside>
+        <div class="prose-body">
+          <h2 id="story">제 이야기</h2>
+          <p>토론토 다운타운에서 태어나 자란 캐나다계 중국인. 토론토 임대 시장에서 6년간 <strong>풀타임</strong>으로 근무. Airbnb 호스트로 시작해서 부동산 라이선스를 취득하고, 임대와 매매를 아우르는 실무를 구축했습니다. 접객업 경험에서 배운 간단한 교훈: <strong>사람들은 매물 사진을 기억하지 않습니다. 자신이 잘 관리받았는지를 기억합니다.</strong></p>
+          <h2 id="credentials">자격</h2>
+          <p><strong>Real Estate Council of Ontario (RECO)</strong> 등록 판매 대표. Toronto Regional Real Estate Board (TRREB), Ontario Real Estate Association (OREA), Canadian Real Estate Association (CREA) 회원. 영어/중국어 이중언어.</p>
+          <h2 id="brokerage">중개회사</h2>
+          <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong> — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3. 잘 확립된 가족 운영 중개회사로 강력한 관리 및 법률 지원을 제공하여 저는 고객에게 완전히 집중할 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <KoreanCTASection />
+  <KoreanFooter />
+</BaseLayout>
