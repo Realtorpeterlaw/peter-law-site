@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+export const prerender = true;
+---
+<BaseLayout title="\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e\u0441\u0442\u0438 \u0430\u0440\u0435\u043d\u0434\u044b | Peter Law" description="\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u0430\u0448 \u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0439 \u0434\u043e\u0445\u043e\u0434 \u0438 \u0440\u0430\u0441\u0445\u043e\u0434\u044b. \u0421\u0440\u0430\u0437\u0443 \u0443\u0432\u0438\u0434\u0438\u0442\u0435, \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u043b\u0438 \u0430\u0440\u0435\u043d\u0434\u0430 \u0432 \u043a\u043e\u043c\u0444\u043e\u0440\u0442\u043d\u043e\u0439 \u0437\u043e\u043d\u0435, \u043d\u0430\u043f\u0440\u044f\u0436\u0451\u043d\u043d\u043e\u0439, \u0438\u043b\u0438 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0432\u044b\u0441\u043e\u043a\u043e\u0439." lang="ru" bodyClass="ru">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Калькулятор аренды</div>
+      <h1>Доступность аренды</h1>
+      <p>Введите переменные ниже.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+        <div class="ac-inputs">
+          <div class="ac-input-group"><label>1. Сколько вы зарабатываете в месяц? <span class="hint">До налогов.</span></label><div class="input-prefix"><input type="number" id="rc-income" value="6500" min="0" step="100" /></div></div>
+          <div class="ac-input-group"><label>2. Ежемесячная стоимость аренды</label><div class="input-prefix"><input type="number" id="rc-rent" value="2200" min="0" step="50" /></div></div>
+          <div class="ac-section-h ac-inline-h">Ежемесячные расходы</div>
+          <div class="ac-input-group"><label>3. Интернет <span class="hint">Приблизительная стоимость Интернета, $55-$100 в месяц.</span></label><div class="input-prefix"><input type="number" id="rc-internet" value="80" min="0" step="5" /></div></div>
+          <div class="ac-input-group"><label>4. Страхование ответственности арендатора <span class="hint">$15-$30 в месяц.</span></label><div class="input-prefix"><input type="number" id="rc-insurance" value="22" min="0" step="1" /></div></div>
+          <div class="ac-input-group"><label>5. Коммунальные услуги <span class="hint">Приблизительная стоимость, $60-$100 в месяц.*</span></label><div class="input-prefix"><input type="number" id="rc-utilities" value="100" min="0" step="5" /></div></div>
+          <p class="rc-hint-note">*Каждый кондо или квартира разные, НО все юниты в здании используют одного поставщика коммунальных услуг.<br /><br />Некоторые здания включают отопление, воду, а в редких случаях и интернет или все коммунальные услуги. Уточните у вашего агента.</p>
+        </div>
+        <div class="ac-results">
+          <div class="rc-meter-card">
+            <div class="rc-meter-head"><div class="rc-meter-title">Жильё как % от вашего дохода</div><div class="rc-meter-pct"><span id="rc-meter-pct">0%</span></div></div>
+            <div class="rc-meter-bar" aria-hidden="true"><div class="rc-meter-fill" id="rc-meter-fill" style="width:0%"></div><div class="rc-meter-tick" style="left:30%"><span class="rc-meter-tick-label" style="left:50%;">30%</span></div><div class="rc-meter-tick" style="left:40%"><span class="rc-meter-tick-label" style="left:50%;">40%</span></div></div>
+            <div class="rc-meter-tiers"><span class="tier-safe">Безопасная зона</span><span class="tier-tight">Напряжённо</span><span class="tier-over">Слишком высоко</span></div>
+          </div>
+          <div class="ac-headline">
+            <div class="ac-headline-item"><div class="ac-headline-label">Всего ежемесячное жильё</div><div class="ac-headline-value" id="rc-out-total">$0</div><div class="ac-headline-sub">Аренда + интернет + страховка + коммунальные услуги.</div></div>
+            <div class="ac-headline-item"><div class="ac-headline-label">Остаток после жилья</div><div class="ac-headline-value" id="rc-leftover">$0</div><div class="ac-headline-sub">В месяц, на всё остальное.</div></div>
+          </div>
+          <div class="rc-verdict" id="rc-verdict"><div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div><div class="rc-verdict-body"><div class="rc-verdict-title" id="rc-verdict-title">Введите ваши числа выше.</div><div class="rc-verdict-sub" id="rc-verdict-sub">Менее 30% дохода на жильё — безопасная зона. 30-40% — напряжённо. Свыше 40% — большинство арендодателей откажет.</div></div></div>
+          <h3 class="ac-section-h">Куда уходят деньги</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>Аренда</span><strong id="rc-out-rent">$0</strong></div>
+            <div class="ac-row"><span>Интернет</span><strong id="rc-out-internet">$0</strong></div>
+            <div class="ac-row"><span>Страхование ответственности</span><strong id="rc-out-insurance">$0</strong></div>
+            <div class="ac-row"><span>Коммунальные услуги</span><strong id="rc-out-utilities">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>Всего жильё в месяц</span><strong id="rc-out-total-2">$0</strong></div>
+          </div>
+          <p class="calc-disclaimer">Числа ориентировочные. Большинство арендодателей Торонто используют 30-33% валового месячного дохода как порог доступности. См. <a href="/disclaimer#calculators">Отказ от ответственности</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="\u041d\u0435 \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442 \u043b\u0438 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0435?" lead="\u041e\u0442\u043f\u0440\u0430\u0432\u044c\u0442\u0435 \u043c\u043d\u0435 \u0430\u0434\u0440\u0435\u0441 \u0438 \u0432\u0430\u0448 \u0434\u043e\u0445\u043e\u0434 \u2014 \u0447\u0435\u0441\u0442\u043d\u043e \u0441\u043a\u0430\u0436\u0443, \u043e\u0434\u043e\u0431\u0440\u0438\u0442 \u043b\u0438 \u0430\u0440\u0435\u043d\u0434\u043e\u0434\u0430\u0442\u0435\u043b\u044c \u0438 \u0441\u043f\u0440\u0430\u0432\u0435\u0434\u043b\u0438\u0432\u0430 \u043b\u0438 \u0446\u0435\u043d\u0430." />
+  <LFooter />
+
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'$0';return n.toLocaleString('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      const IC='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 33 L28 43 L46 23" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      const IW='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="32" y1="18" x2="32" y2="36" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="3.6" fill="currentColor"/></svg>';
+      const IX='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="20" y1="20" x2="44" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><line x1="44" y1="20" x2="20" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>';
+      const $=id=>document.getElementById(id);
+      ['rc-income','rc-rent','rc-internet','rc-insurance','rc-utilities'].forEach(id=>{const el=$(id); if(!el)return; el.addEventListener('input',calc); el.addEventListener('change',calc);});
+      function calc(){
+        const inc=Math.max(0,parseFloat($('rc-income').value)||0);
+        const r=Math.max(0,parseFloat($('rc-rent').value)||0);
+        const i=Math.max(0,parseFloat($('rc-internet').value)||0);
+        const ins=Math.max(0,parseFloat($('rc-insurance').value)||0);
+        const u=Math.max(0,parseFloat($('rc-utilities').value)||0);
+        const tot=r+i+ins+u; const pct=inc>0?tot/inc*100:0; const lo=inc-tot;
+        const cl=Math.max(0,Math.min(100,pct));
+        const f=$('rc-meter-fill'); f.style.width=cl.toFixed(1)+'%'; f.classList.remove('tier-yellow','tier-red');
+        if(pct>40)f.classList.add('tier-red'); else if(pct>30)f.classList.add('tier-yellow');
+        $('rc-meter-pct').textContent=pct.toFixed(1)+'%';
+        $('rc-out-total').textContent=fmt(tot); $('rc-out-total-2').textContent=fmt(tot); $('rc-leftover').textContent=fmt(lo);
+        $('rc-out-rent').textContent=fmt(r); $('rc-out-internet').textContent=fmt(i); $('rc-out-insurance').textContent=fmt(ins); $('rc-out-utilities').textContent=fmt(u);
+        const v=$('rc-verdict'), ie=$('rc-verdict-icon'); let t,su,cls,ic;
+        if(inc<=0||r<=0){t="\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u0430\u0448\u0438 \u0447\u0438\u0441\u043b\u0430 \u0432\u044b\u0448\u0435."; su="\u041c\u0435\u043d\u0435\u0435 30% \u0434\u043e\u0445\u043e\u0434\u0430 \u043d\u0430 \u0436\u0438\u043b\u044c\u0451 \u2014 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u0430\u044f \u0437\u043e\u043d\u0430. 30-40% \u2014 \u043d\u0430\u043f\u0440\u044f\u0436\u0451\u043d\u043d\u043e. \u0421\u0432\u044b\u0448\u0435 40% \u2014 \u0431\u043e\u043b\u044c\u0448\u0438\u043d\u0441\u0442\u0432\u043e \u0430\u0440\u0435\u043d\u0434\u043e\u0434\u0430\u0442\u0435\u043b\u0435\u0439 \u043e\u0442\u043a\u0430\u0436\u0435\u0442."; cls='rc-verdict-neutral'; ic='';}
+        else if(pct<=30){t="\u0414\u0430 \u2014 \u0432\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u0442\u044c \u044d\u0442\u0443 \u0430\u0440\u0435\u043d\u0434\u0443."; su=("\u0416\u0438\u043b\u044c\u0451 \u2014 {pct}% \u0434\u043e\u0445\u043e\u0434\u0430 \u2014 \u0432 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0439 \u0437\u043e\u043d\u0435. \u0410\u0440\u0435\u043d\u0434\u043e\u0434\u0430\u0442\u0435\u043b\u0438 \u043e\u0434\u043e\u0431\u0440\u044f\u044e\u0442 \u0442\u0430\u043a\u0438\u0435 \u0437\u0430\u044f\u0432\u043a\u0438 \u0440\u0435\u0433\u0443\u043b\u044f\u0440\u043d\u043e.").replace('{pct}',pct.toFixed(1)); cls='rc-verdict-green'; ic=IC;}
+        else if(pct<=40){t="\u041d\u0430\u043f\u0440\u044f\u0436\u0451\u043d\u043d\u043e. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u043d\u043e \u043f\u043e\u0447\u0443\u0432\u0441\u0442\u0432\u0443\u0435\u0442\u0435."; su=("\u0416\u0438\u043b\u044c\u0451 \u2014 {pct}% \u0434\u043e\u0445\u043e\u0434\u0430 \u2014 \u0432\u044b\u0448\u0435 30% \u043a\u043e\u043c\u0444\u043e\u0440\u0442\u043d\u043e\u0439 \u043b\u0438\u043d\u0438\u0438, \u043d\u043e \u0432\u0441\u0451 \u0435\u0449\u0451 \u0434\u043e\u0441\u0442\u0438\u0436\u0438\u043c\u043e. \u0410\u0440\u0435\u043d\u0434\u043e\u0434\u0430\u0442\u0435\u043b\u044c \u043c\u043e\u0436\u0435\u0442 \u0437\u0430\u043f\u0440\u043e\u0441\u0438\u0442\u044c \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f \u0438\u043b\u0438 \u043f\u0440\u0435\u0434\u043e\u043f\u043b\u0430\u0442\u0443.").replace('{pct}',pct.toFixed(1)); cls='rc-verdict-yellow'; ic=IW;}
+        else{t="\u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u043d\u043e \u043e\u0431\u0441\u0443\u0434\u0438\u0442\u0435 \u0441 \u0430\u0433\u0435\u043d\u0442\u043e\u043c."; su=("\u0416\u0438\u043b\u044c\u0451 \u2014 {pct}% \u0434\u043e\u0445\u043e\u0434\u0430 \u2014 \u0431\u043e\u043b\u044c\u0448\u0438\u043d\u0441\u0442\u0432\u043e \u0430\u0440\u0435\u043d\u0434\u043e\u0434\u0430\u0442\u0435\u043b\u0435\u0439 \u043e\u0442\u043a\u0430\u0436\u0435\u0442 \u043f\u0440\u0438 \u0442\u0430\u043a\u043e\u043c \u0441\u043e\u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u0438. \u0418\u0441\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f: \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c, \u043f\u0440\u0435\u0434\u043e\u043f\u043b\u0430\u0442\u0430, \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440, \u043e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043a\u0440\u0435\u0434\u0438\u0442. \u041f\u0435\u0440\u0435\u0434 \u0437\u0430\u044f\u0432\u043a\u043e\u0439 \u043e\u0431\u0441\u0443\u0434\u0438\u0442\u0435 \u0441 \u0430\u0433\u0435\u043d\u0442\u043e\u043c.").replace('{pct}',pct.toFixed(1)); cls='rc-verdict-red'; ic=IX;}
+        v.classList.remove('rc-verdict-neutral','rc-verdict-green','rc-verdict-yellow','rc-verdict-red'); v.classList.add(cls);
+        ie.innerHTML=ic; $('rc-verdict-title').textContent=t; $('rc-verdict-sub').textContent=su;
+      }
+      calc();
+    })();
+  </script>
+</BaseLayout>

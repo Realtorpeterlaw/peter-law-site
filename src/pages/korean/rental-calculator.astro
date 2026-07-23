@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/KoreanTopBar.astro';
+import LHeader from '../../components/KoreanHeader.astro';
+import LFooter from '../../components/KoreanFooter.astro';
+import LCTA from '../../components/KoreanCTASection.astro';
+export const prerender = true;
+---
+<BaseLayout title="\uc784\ub300 \ubd80\ub2f4 \ub2a5\ub825 \uacc4\uc0b0\uae30 | Peter Law" description="\uc6d4 \uc218\uc785\uacfc \uc9c0\ucd9c\uc744 \uc785\ub825\ud558\uc138\uc694. \uc784\ub300\ub8cc\uac00 \uc548\uc804 \uad6c\uac04, \ube60\ub4ef\ud55c \uad6c\uac04, \ub610\ub294 \ub108\ubb34 \ub192\uc740 \uad6c\uac04\uc778\uc9c0 \uc989\uc2dc \ud655\uc778." lang="ko" bodyClass="ko">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">임대 계산기</div>
+      <h1>임대 부담 능력</h1>
+      <p>아래에 변수를 입력하세요.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+        <div class="ac-inputs">
+          <div class="ac-input-group"><label>1. 월 수입은? <span class="hint">세전.</span></label><div class="input-prefix"><input type="number" id="rc-income" value="6500" min="0" step="100" /></div></div>
+          <div class="ac-input-group"><label>2. 월 임대료 비용</label><div class="input-prefix"><input type="number" id="rc-rent" value="2200" min="0" step="50" /></div></div>
+          <div class="ac-section-h ac-inline-h">월 지출</div>
+          <div class="ac-input-group"><label>3. 인터넷 <span class="hint">대략적인 인터넷 요금, 월 $55-$100.</span></label><div class="input-prefix"><input type="number" id="rc-internet" value="80" min="0" step="5" /></div></div>
+          <div class="ac-input-group"><label>4. 세입자 책임 보험 <span class="hint">월 $15-$30.</span></label><div class="input-prefix"><input type="number" id="rc-insurance" value="22" min="0" step="1" /></div></div>
+          <div class="ac-input-group"><label>5. 공공요금 <span class="hint">대략적인 공공요금, 월 $60-$100.*</span></label><div class="input-prefix"><input type="number" id="rc-utilities" value="100" min="0" step="5" /></div></div>
+          <p class="rc-hint-note">*각 콘도 또는 아파트는 다르지만, 같은 건물의 모든 유닛은 같은 공공요금 공급자를 사용합니다.<br /><br />일부 건물은 난방, 물, 드물게 인터넷 또는 모든 공공요금을 포함합니다. 부동산 대표와 재확인하세요.</p>
+        </div>
+        <div class="ac-results">
+          <div class="rc-meter-card">
+            <div class="rc-meter-head"><div class="rc-meter-title">수입 대비 주거비 비율</div><div class="rc-meter-pct"><span id="rc-meter-pct">0%</span></div></div>
+            <div class="rc-meter-bar" aria-hidden="true"><div class="rc-meter-fill" id="rc-meter-fill" style="width:0%"></div><div class="rc-meter-tick" style="left:30%"><span class="rc-meter-tick-label" style="left:50%;">30%</span></div><div class="rc-meter-tick" style="left:40%"><span class="rc-meter-tick-label" style="left:50%;">40%</span></div></div>
+            <div class="rc-meter-tiers"><span class="tier-safe">안전 구간</span><span class="tier-tight">빠듯</span><span class="tier-over">과도</span></div>
+          </div>
+          <div class="ac-headline">
+            <div class="ac-headline-item"><div class="ac-headline-label">월 총 주거비</div><div class="ac-headline-value" id="rc-out-total">$0</div><div class="ac-headline-sub">임대료 + 인터넷 + 보험 + 공공요금.</div></div>
+            <div class="ac-headline-item"><div class="ac-headline-label">주거비 후 남는 금액</div><div class="ac-headline-value" id="rc-leftover">$0</div><div class="ac-headline-sub">매월, 나머지 모든 지출을 위해.</div></div>
+          </div>
+          <div class="rc-verdict" id="rc-verdict"><div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div><div class="rc-verdict-body"><div class="rc-verdict-title" id="rc-verdict-title">위에 숫자를 입력하세요.</div><div class="rc-verdict-sub" id="rc-verdict-sub">수입의 30% 미만 주거비가 안전 구간입니다. 30-40%는 빠듯. 40% 이상이면 대부분 임대인이 거절합니다.</div></div></div>
+          <h3 class="ac-section-h">돈이 어디로 가는가</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>임대료</span><strong id="rc-out-rent">$0</strong></div>
+            <div class="ac-row"><span>인터넷</span><strong id="rc-out-internet">$0</strong></div>
+            <div class="ac-row"><span>세입자 책임 보험</span><strong id="rc-out-insurance">$0</strong></div>
+            <div class="ac-row"><span>공공요금</span><strong id="rc-out-utilities">$0</strong></div>
+            <div class="ac-row ac-row-total"><span>월 총 주거비</span><strong id="rc-out-total-2">$0</strong></div>
+          </div>
+          <p class="calc-disclaimer">대략적 수치입니다. 대부분의 토론토 임대인은 월 총소득의 30-33%를 부담 능력 기준으로 사용합니다. 자세한 내용은 <a href="/disclaimer#calculators">면책 조항</a>을 참조하세요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="\ub9e4\ubb3c\uc774 \ub9de\ub294\uc9c0 \ud655\uc2e4\ud558\uc9c0 \uc54a\uc73c\uc2e0\uac00\uc694?" lead="\uc8fc\uc18c\uc640 \uc218\uc785\uc744 \ubcf4\ub0b4\uc8fc\uc2dc\uba74 \uc784\ub300\uc778\uc774 \uc2b9\uc778\ud560\uc9c0, \uac00\uaca9\uc774 \uc801\uc808\ud55c\uc9c0 \uc194\uc9c1\ud558\uac8c \ub9d0\uc500\ub4dc\ub9bd\ub2c8\ub2e4." />
+  <LFooter />
+
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'$0';return n.toLocaleString('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      const IC='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 33 L28 43 L46 23" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      const IW='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="32" y1="18" x2="32" y2="36" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="3.6" fill="currentColor"/></svg>';
+      const IX='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="20" y1="20" x2="44" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><line x1="44" y1="20" x2="20" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>';
+      const $=id=>document.getElementById(id);
+      ['rc-income','rc-rent','rc-internet','rc-insurance','rc-utilities'].forEach(id=>{const el=$(id); if(!el)return; el.addEventListener('input',calc); el.addEventListener('change',calc);});
+      function calc(){
+        const inc=Math.max(0,parseFloat($('rc-income').value)||0);
+        const r=Math.max(0,parseFloat($('rc-rent').value)||0);
+        const i=Math.max(0,parseFloat($('rc-internet').value)||0);
+        const ins=Math.max(0,parseFloat($('rc-insurance').value)||0);
+        const u=Math.max(0,parseFloat($('rc-utilities').value)||0);
+        const tot=r+i+ins+u; const pct=inc>0?tot/inc*100:0; const lo=inc-tot;
+        const cl=Math.max(0,Math.min(100,pct));
+        const f=$('rc-meter-fill'); f.style.width=cl.toFixed(1)+'%'; f.classList.remove('tier-yellow','tier-red');
+        if(pct>40)f.classList.add('tier-red'); else if(pct>30)f.classList.add('tier-yellow');
+        $('rc-meter-pct').textContent=pct.toFixed(1)+'%';
+        $('rc-out-total').textContent=fmt(tot); $('rc-out-total-2').textContent=fmt(tot); $('rc-leftover').textContent=fmt(lo);
+        $('rc-out-rent').textContent=fmt(r); $('rc-out-internet').textContent=fmt(i); $('rc-out-insurance').textContent=fmt(ins); $('rc-out-utilities').textContent=fmt(u);
+        const v=$('rc-verdict'), ie=$('rc-verdict-icon'); let t,su,cls,ic;
+        if(inc<=0||r<=0){t="\uc704\uc5d0 \uc22b\uc790\ub97c \uc785\ub825\ud558\uc138\uc694."; su="\uc218\uc785\uc758 30% \ubbf8\ub9cc \uc8fc\uac70\ube44\uac00 \uc548\uc804 \uad6c\uac04\uc785\ub2c8\ub2e4. 30-40%\ub294 \ube60\ub4ef. 40% \uc774\uc0c1\uc774\uba74 \ub300\ubd80\ubd84 \uc784\ub300\uc778\uc774 \uac70\uc808\ud569\ub2c8\ub2e4."; cls='rc-verdict-neutral'; ic='';}
+        else if(pct<=30){t="\ub124 \u2014 \uc774 \uc784\ub300\ub8cc\ub97c \uac10\ub2f9\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."; su=("\uc8fc\uac70\ube44\uac00 \uc218\uc785\uc758 {pct}% \u2014 \uc548\uc804 \uad6c\uac04 \ub0b4. \uc784\ub300\uc778\ub4e4\uc774 \ud754\ud788 \uc2b9\uc778\ud569\ub2c8\ub2e4.").replace('{pct}',pct.toFixed(1)); cls='rc-verdict-green'; ic=IC;}
+        else if(pct<=40){t="\ube60\ub4ef. \uac00\ub2a5\ud558\uc9c0\ub9cc \ub290\ub084 \uac83\uc785\ub2c8\ub2e4."; su=("\uc8fc\uac70\ube44\uac00 \uc218\uc785\uc758 {pct}% \u2014 30% \ud3b8\uc548\ud55c \uc120 \uc704\uc9c0\ub9cc \uc5ec\uc804\ud788 \uac00\ub2a5. \uc784\ub300\uc778\uc774 \ubcf4\uc99d\uc778 \ub610\ub294 \uc120\uc9c0\ubd88\uc744 \uc694\uad6c\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.").replace('{pct}',pct.toFixed(1)); cls='rc-verdict-yellow'; ic=IW;}
+        else{t="\uac00\ub2a5\ud558\uc9c0\ub9cc \ub300\ud45c\uc640 \uc0c1\uc758\ud558\uc138\uc694."; su=("\uc8fc\uac70\ube44\uac00 \uc218\uc785\uc758 {pct}% \u2014 \uc774 \ube44\uc728\uc5d0\uc11c \ub300\ubd80\ubd84 \uc784\ub300\uc778\uc774 \uac70\uc808\ud569\ub2c8\ub2e4. \uc608\uc678: \ubcf4\uc99d\uc778, \uc120\uc9c0\ubd88, \ubc95\uc778 \uc784\ub300, \uac15\ud55c \uc2e0\uc6a9. \uc2e0\uccad \uc804 \ub300\ud45c\uc640 \uc0c1\uc758\ud558\uc138\uc694.").replace('{pct}',pct.toFixed(1)); cls='rc-verdict-red'; ic=IX;}
+        v.classList.remove('rc-verdict-neutral','rc-verdict-green','rc-verdict-yellow','rc-verdict-red'); v.classList.add(cls);
+        ie.innerHTML=ic; $('rc-verdict-title').textContent=t; $('rc-verdict-sub').textContent=su;
+      }
+      calc();
+    })();
+  </script>
+</BaseLayout>
