@@ -29,11 +29,11 @@ img { max-width: 100%; height: auto; display: block; }
 .topbar a { color: #d4cfc4; }
 .topbar a:hover { color: #fff; }
 .topbar-left span + span::before { content: "·"; margin: 0 10px; color: #6b6b6b; }
-.topbar-right { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; }
-.topbar-right a { display: inline-block; padding: 2px 4px; }
-.lang-sep { color: #6b6b6b; user-select: none; padding: 0 2px; }
+.topbar-right { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 3px 5px; }
+.topbar-right a { display: inline-block; padding: 1px 3px; }
+.lang-sep { color: #6b6b6b; user-select: none; padding: 0 1px; }
 /* Mirror same spacing in the localized language pages' inline TopBar */
-.topbar .dot { color: #6b6b6b; padding: 0 4px; user-select: none; }
+.topbar .dot { color: #6b6b6b; padding: 0 3px; user-select: none; }
 
 body > header { background: var(--bg); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 9999; isolation: isolate; overflow: visible; }
 /* Ensure the desktop nav never clips its dropdowns */
