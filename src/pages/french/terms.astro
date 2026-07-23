@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+export const prerender = true;
+---
+<BaseLayout title="Conditions d'utilisation | Peter Law \u2014 Immobilier Toronto" description="Conditions r\u00e9gissant l'utilisation de realtorpeterlaw.com \u2014 site personnel de Peter Law, Repr\u00e9sentant commercial chez HomeLife Golconda Realty Inc." lang="fr" bodyClass="fr guide-page article-page">
+  <LTopBar />
+  <LHeader active="" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Juridique · Conditions du site</div>
+        <h1>Conditions d'utilisation</h1>
+        <p class="article-lead">Ces conditions couvrent l'utilisation de realtorpeterlaw.com. Rien ici n'est un avis juridique — cela fixe simplement les règles du site, son contenu, et les marques utilisées.</p>
+        <div class="article-byline"><span>Dernière mise à jour :</span> <time datetime="2026-07-19">19 juillet 2026</time></div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>Dans ce document</h4>
+            <ul>              <li><a href="#acceptance">Acceptation des conditions</a></li>
+              <li><a href="#site-use">Utilisation du site</a></li>
+              <li><a href="#ip">Propriété intellectuelle et photos</a></li>
+              <li><a href="#trademarks">Marques REALTOR® et MLS®</a></li>
+              <li><a href="#no-advice">Aucun avis professionnel</a></li>
+              <li><a href="#services">Engagements de service et délais</a></li>
+              <li><a href="#brokerage">Maison de courtage et licence</a></li>
+              <li><a href="#third-party">Liens et intégrations tiers</a></li>
+              <li><a href="#liability">Limitation de responsabilité</a></li>
+              <li><a href="#changes">Modifications aux conditions</a></li>
+              <li><a href="#law">Loi applicable</a></li>
+              <li><a href="#contact">Contact</a></li></ul>
+          </aside>
+          <div class="prose-body">
+            <h2 id="acceptance">Acceptation des conditions</h2>
+            <p>En visitant ou en utilisant <strong>realtorpeterlaw.com</strong> (le « Site »), vous acceptez ces Conditions d'utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le Site. Le Site est détenu et exploité par Peter Law, Représentant commercial chez HomeLife Golconda Realty Inc., Brokerage, inscrit au Real Estate Council of Ontario (RECO).</p>
+            <h2 id="site-use">Utilisation du site</h2>
+            <p>Vous acceptez d'utiliser le Site uniquement à des fins légales. Comportements interdits : accès non autorisé, extraction de données, transmission de virus, republication non autorisée du contenu, distribution de spam.</p>
+            <h2 id="ip">Propriété intellectuelle et photos</h2>
+            <p>Tout contenu original du Site — articles, guides, calculateurs, mises en page, code — est la propriété de Peter Law et protégé par les lois canadiennes et internationales sur le droit d'auteur. Utilisation personnelle non commerciale permise. Les photos sont utilisées avec l'autorisation des propriétaires. Signaler tout usage non autorisé via <a href='/french/contact'>Contact</a>.</p>
+            <h2 id="trademarks">Marques REALTOR® et MLS®</h2>
+            <p>Les marques <strong>REALTOR®</strong> et <strong>MLS®</strong> sont contrôlées par l'Association canadienne de l'immeuble (ACI/CREA) et utilisées sous licence. Peter Law est un Représentant commercial inscrit au RECO chez HomeLife Golconda Realty Inc., Brokerage.</p>
+            <h2 id="no-advice">Aucun avis professionnel</h2>
+            <p>Le Site fournit des informations générales, non des avis juridiques, fiscaux, financiers, hypothécaires ou d'évaluation. Toujours vérifier auprès du professionnel approprié. La lecture du Site ne crée pas de relation client.</p>
+            <h2 id="services">Engagements de service et délais</h2>
+            <p>Les délais indiqués (ex. « évaluation gratuite en 48 heures ») sont des cibles, non des garanties. Une AMC (analyse comparative de marché) est une opinion de valeur, non une évaluation formelle au sens des normes CUSPAP.</p>
+            <h2 id="brokerage">Maison de courtage et licence</h2>
+            <p>Peter Law est inscrit au RECO chez HomeLife Golconda Realty Inc. Toute référence à un statut de licence futur est à titre indicatif. La recherche publique du RECO fait autorité sur le statut actuel.</p>
+            <h2 id="third-party">Liens et intégrations tiers</h2>
+            <p>Le Site lie et intègre des services tiers (gouvernementaux, associations, prestataires, plateformes vidéo, planification, infolettre). Nous n'endossons pas ces services. Voir <a href='/french/disclaimer#referrals'>l'Avis</a> pour les relations de référence rémunérées.</p>
+            <h2 id="liability">Limitation de responsabilité</h2>
+            <p>Le Site et son contenu sont fournis « tel quel » sans garantie. Dans la mesure permise par la loi, Peter Law et HomeLife Golconda ne sont pas responsables de dommages découlant de l'utilisation du Site.</p>
+            <h2 id="changes">Modifications aux conditions</h2>
+            <p>Nous pouvons mettre à jour ces conditions périodiquement. La date « Dernière mise à jour » indique quand. Votre utilisation continue signifie acceptation.</p>
+            <h2 id="law">Loi applicable</h2>
+            <p>Ces conditions sont régies par les lois de l'Ontario et les lois fédérales canadiennes applicables. Les litiges seront traités par les tribunaux de l'Ontario.</p>
+            <h2 id="contact">Contact</h2>
+            <p>Questions? <a href='/french/contact'>Contactez Peter</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <LFooter />
+</BaseLayout>

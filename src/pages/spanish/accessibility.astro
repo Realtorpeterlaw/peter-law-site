@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/SpanishTopBar.astro';
+import LHeader from '../../components/SpanishHeader.astro';
+import LFooter from '../../components/SpanishFooter.astro';
+export const prerender = true;
+---
+<BaseLayout title="Declaraci\u00f3n de accesibilidad | Peter Law \u2014 Inmobiliaria Toronto" description="C\u00f3mo realtorpeterlaw.com cumple con la Ley de accesibilidad para personas con discapacidad de Ontario (AODA) y WCAG 2.1 AA." lang="es" bodyClass="es guide-page article-page">
+  <LTopBar />
+  <LHeader active="" />
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Legal · AODA</div>
+        <h1>Declaración de accesibilidad</h1>
+        <p class="article-lead">Peter Law se compromete a hacer realtorpeterlaw.com accesible para todos — incluidos usuarios de tecnologías de asistencia y personas con discapacidades visuales, auditivas, cognitivas o motoras.</p>
+        <div class="article-byline"><span>Última actualización:</span> <time datetime="2026-07-19">19 de julio de 2026</time></div>
+      </div>
+    </section>
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side"><h4>En este documento</h4><ul>              <li><a href="#commitment">Nuestro compromiso</a></li>
+              <li><a href="#standard">Estándar que seguimos</a></li>
+              <li><a href="#measures">Medidas implementadas</a></li>
+              <li><a href="#alternatives">Formatos alternativos</a></li>
+              <li><a href="#limitations">Limitaciones conocidas</a></li>
+              <li><a href="#feedback">Retroalimentación</a></li>
+              <li><a href="#contact">Contacto</a></li></ul></aside>
+          <div class="prose-body">
+            <h2 id="commitment">Nuestro compromiso</h2>
+            <p>Reconocemos nuestras obligaciones bajo AODA 2005 y su Reglamento de Estándares Integrados de Accesibilidad, y nos comprometemos con la mejora continua.</p>
+            <h2 id="standard">Estándar que seguimos</h2>
+            <p>El Sitio busca cumplir con las <strong>WCAG 2.1 Nivel AA</strong>, publicadas por el W3C. WCAG es el referente internacional citado por regulaciones federales y provinciales canadienses de accesibilidad.</p>
+            <h2 id="measures">Medidas implementadas</h2>
+            <p>HTML semántico, texto de enlace descriptivo, texto alternativo en imágenes, contraste suficiente, navegación con teclado, diseño responsive, tamaños de fuente legibles, atributos ARIA en componentes complejos, sitio bilingüe (inglés y chino).</p>
+            <h2 id="alternatives">Formatos alternativos</h2>
+            <p>Si necesitas información en un formato alternativo (letra grande, texto plano, audio, PDF accesible) o soporte de comunicación, contáctanos. Proporcionaremos el formato o soporte solicitado oportunamente, sin costo adicional.</p>
+            <h2 id="limitations">Limitaciones conocidas</h2>
+            <p>Algunos elementos incrustados de terceros (widgets de agendamiento, calculadoras externas, feeds sociales) pueden no cumplir completamente con AA. Publicaciones de blog o PDFs más antiguos pueden estar por detrás de los estándares actuales.</p>
+            <h2 id="feedback">Retroalimentación</h2>
+            <p>Si encuentras una barrera, avísanos: qué intentabas hacer, la página/función involucrada, la tecnología de asistencia o navegador que usabas. Confirmaremos y responderemos.</p>
+            <h2 id="contact">Contacto</h2>
+            <p>Envía retroalimentación por nuestra <a href="/spanish/contact">página de contacto</a>. Dirección postal: Peter Law, HomeLife Golconda Realty Inc. — 215, 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+  <LFooter />
+</BaseLayout>

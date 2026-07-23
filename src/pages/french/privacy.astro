@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+export const prerender = true;
+---
+<BaseLayout title="Politique de confidentialit\u00e9 | Peter Law \u2014 Immobilier Toronto" description="Comment realtorpeterlaw.com collecte, utilise et prot\u00e8ge vos renseignements personnels en vertu de la loi canadienne (LPRPDE)." lang="fr" bodyClass="fr guide-page article-page">
+  <LTopBar />
+  <LHeader active="" />
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Juridique · LPRPDE</div>
+        <h1>Politique de confidentialité</h1>
+        <p class="article-lead">Peter Law respecte votre vie privée. Cette politique explique quelles informations personnelles le Site collecte, pourquoi, comment elles sont stockées, et vos droits en vertu de la loi canadienne.</p>
+        <div class="article-byline"><span>Dernière mise à jour :</span> <time datetime="2026-07-19">19 juillet 2026</time></div>
+      </div>
+    </section>
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side"><h4>Dans ce document</h4><ul>              <li><a href="#who">Qui nous sommes</a></li>
+              <li><a href="#what">Ce que nous collectons</a></li>
+              <li><a href="#why">Pourquoi nous collectons</a></li>
+              <li><a href="#consent">Votre consentement</a></li>
+              <li><a href="#third-parties">Services tiers</a></li>
+              <li><a href="#storage">Stockage et conservation</a></li>
+              <li><a href="#security">Sécurité et courriel direct</a></li>
+              <li><a href="#past-deals">Informations sur les transactions passées</a></li>
+              <li><a href="#rights">Vos droits</a></li>
+              <li><a href="#children">Enfants</a></li>
+              <li><a href="#changes">Modifications</a></li>
+              <li><a href="#contact">Contact</a></li></ul></aside>
+          <div class="prose-body">
+            <h2 id="who">Qui nous sommes</h2>
+            <p>Cette politique s'applique à <strong>realtorpeterlaw.com</strong>, exploité par Peter Law, Représentant commercial chez HomeLife Golconda Realty Inc., inscrit au RECO. Aux fins de la LPRPDE, Peter Law agit comme l'organisation responsable du traitement des renseignements personnels.</p>
+            <h2 id="what">Ce que nous collectons</h2>
+            <p>Informations que vous fournissez volontairement (nom, courriel, téléphone, message). Informations de client si vous nous engagez (vérification d'identité en vertu de la LRPCFAT, contrats signés). Données techniques automatiques (type de navigateur, région, pages visitées).</p>
+            <h2 id="why">Pourquoi nous collectons</h2>
+            <p>Répondre à vos questions. Fournir des services immobiliers. Remplir les obligations RECO. Envoyer les mises à jour d'infolettre que vous avez acceptées. Analytique agrégée. Nous ne vendons ni ne louons vos données.</p>
+            <h2 id="consent">Votre consentement</h2>
+            <p>En soumettant le formulaire de contact ou en communiquant avec nous, vous consentez à la collecte selon les fins ci-dessus. Vous pouvez retirer le consentement en nous contactant, sous réserve des exigences légales de conservation.</p>
+            <h2 id="third-parties">Services tiers</h2>
+            <p>Vercel (hébergement), Formspree (formulaires), Cal.com (planification), beehiiv (infolettre), SingleKey (vérification locataire), Google (polices/analytique), YouTube/TikTok (vidéos intégrées). Chaque prestataire a sa propre politique.</p>
+            <h2 id="storage">Stockage et conservation</h2>
+            <p>Données stockées au Canada ou aux États-Unis. Correspondance conservée aussi longtemps que nécessaire ou 6 ans après la fin de la relation client (exigence RECO).</p>
+            <h2 id="security">Sécurité et courriel direct</h2>
+            <p>HTTPS, mots de passe forts, contrôles d'accès. Le courriel direct à Admin@RealtorPeterLaw.com n'est pas chiffré de bout en bout — n'envoyez pas de documents hautement sensibles par courriel non sollicité.</p>
+            <h2 id="past-deals">Informations sur les transactions passées</h2>
+            <p>Les sections « Historique des ventes » proviennent de dossiers publics (MLS® / TRREB) et/ou sont partagées avec le consentement du client. Demande de retrait : <a href="/french/contact">contactez-nous</a>.</p>
+            <h2 id="rights">Vos droits</h2>
+            <p>En vertu de la LPRPDE : savoir quelles informations nous détenons, y accéder, demander correction, retirer le consentement, vous désabonner des infolettres, déposer une plainte auprès du <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener">Commissariat à la protection de la vie privée du Canada</a>.</p>
+            <h2 id="children">Enfants</h2>
+            <p>Le Site n'est pas destiné aux enfants de moins de 13 ans.</p>
+            <h2 id="changes">Modifications</h2>
+            <p>Nous pouvons mettre à jour cette politique. Les changements importants seront mis en évidence.</p>
+            <h2 id="contact">Contact</h2>
+            <p>Pour toute question de confidentialité, <a href='/french/contact'>contactez Peter</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+  <LFooter />
+</BaseLayout>
