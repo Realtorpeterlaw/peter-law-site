@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout
+  title="Peter Law — 토론토 임대"
+  description="Peter Law | 토론토 이중언어 부동산 전문가. 세입자가 승인된 집을 찾도록 돕습니다. 검색부터 열쇠까지. 647-888-8472."
+  bodyClass="lang-korean"
+  zh={false}
+  lang="ko"
+>
+  <!-- Minimal TopBar -->
+  <section class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="topbar-left">
+        <span>Admin@RealtorPeterLaw.com</span>
+        <span class="dot">·</span>
+        <span>647-888-8472</span>
+      </div>
+      <div class="topbar-right">
+        <a href="/">EN</a>
+        <span class="dot">·</span>
+        <a href="/chinese">中文</a>
+        <span class="dot">·</span>
+        <a href="/russian">Ru</a>
+        <span class="dot">·</span>
+        <a href="/farsi">فارسی</a>
+        <span class="dot">·</span>
+        <a href="/hindi">हिं</a>
+        <span class="dot">·</span>
+        <a href="/korean">한</a>
+        <span class="dot">·</span>
+        <a href="/japanese">日</a>
+        <span class="dot">·</span>
+        <a href="/spanish">Es</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Header -->
+  <header>
+    <div class="wrap head-inner">
+      <a href="/korean" class="logo" aria-label="Peter Law">
+        <svg viewBox="0 0 210 70" width="170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="14" width="42" height="42" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+          <text x="27" y="46" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="400" font-size="22" fill="#1a1a1a">PL</text>
+          <text x="62" y="38" font-family="Fraunces, Georgia, serif" font-weight="400" font-size="22" fill="#1a1a1a">Peter Law</text>
+          <text x="62" y="54" font-family="Inter, sans-serif" font-weight="500" font-size="8" fill="#4a4a4a" letter-spacing="3">TORONTO REAL ESTATE</text>
+        </svg>
+      </a>
+      <a href={BOOKING_URL} class="head-cta head-cta-desktop">통화 예약</a>
+      <a href="https://wa.me/16478888472" class="head-cta-call" aria-label="Call Peter on WhatsApp: 647-888-8472">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 15.5c-1.2 0-2.4-.2-3.5-.6-.3-.1-.7 0-1 .3l-2 2c-2.7-1.4-4.9-3.6-6.3-6.3l2-2c.3-.3.4-.7.3-1-.4-1.1-.6-2.3-.6-3.5 0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1 0 9.4 7.6 17 17 17 .5 0 1-.5 1-1v-3.9c0-.5-.5-1-1-1z" fill="currentColor"/></svg>
+        전화
+      </a>
+    </div>
+  </header>
+
+  <!-- Proof strip -->
+  <section class="proof-bar">
+    <div class="wrap proof-grid">
+      <div class="proof-item"><div class="proof-num">$10M+</div><div class="proof-lbl">판매 · 부동산 6년 이상</div></div>
+      <div class="proof-item"><div class="proof-num">EN · 中文</div><div class="proof-lbl">English · Chinese</div></div>
+      <div class="proof-item"><div class="proof-num">RECO</div><div class="proof-lbl">온타리오 등록</div></div>
+      <a class="proof-item proof-link" href="https://www.homelifegolconda.com/" target="_blank" rel="noopener"><div class="proof-num">HomeLife</div><div class="proof-lbl">Golconda Realty Inc.</div></a>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-headline-block">
+        <div class="eyebrow">토론토 · 다운타운 · 워터프론트 · GTA</div>
+        <h1 class="hero-h">토론토 임대, <em>제대로 처리하기.</em></h1>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
+            <div class="quiz-eyebrow">임대 설문지</div>
+            <h3 class="quiz-heading">무엇을 찾고 계신가요?</h3>
+            <p class="quiz-sub">(최소 1년 계약)</p>
+            <div class="quiz-fields">
+              <div class="quiz-field">
+                <label for="quiz-beds">침실*</label>
+                <select id="quiz-beds" name="bedrooms" required>
+                  <option value="">선택하세요…</option>
+                  <option>스튜디오</option>
+                  <option>1 베드</option>
+                  <option>1 베드 + 덴</option>
+                  <option>2 베드</option>
+                  <option>3 베드</option>
+                  <option>4+ 베드</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-baths">욕실*</label>
+                <select id="quiz-baths" name="bathrooms" required>
+                  <option value="">선택하세요…</option>
+                  <option>1</option><option>1.5</option><option>2</option><option>2.5</option><option>3+</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-parking">주차*</label>
+                <select id="quiz-parking" name="parking" required>
+                  <option value="">선택하세요…</option>
+                  <option>필요 없음</option>
+                  <option>1 대</option>
+                  <option>2 대</option>
+                  <option>3+ 대</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-budget">예산 / 월*</label>
+                <select id="quiz-budget" name="budget" required>
+                  <option value="">선택하세요…</option>
+                  <option>$2,000 미만</option>
+                  <option>$2,000 – $2,500</option>
+                  <option>$2,500 – $3,000</option>
+                  <option>$3,000 – $3,500</option>
+                  <option>$3,500 – $4,500</option>
+                  <option>$4,500+</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-movein">입주일*</label>
+                <input id="quiz-movein" name="move_in_date" type="date" required>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-notice">임대인에게 60일 전 통지했나요?*</label>
+                <select id="quiz-notice" name="landlord_notice_60_days" required>
+                  <option value="">선택하세요…</option>
+                  <option>예</option>
+                  <option>아니오</option>
+                  <option>해당 없음</option>
+                </select>
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="quiz-email">이메일*</label>
+                <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+              </div>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="quiz-gotcha">—</label>
+              <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="_subject" value="New Rental Questionnaire (Korean)">
+            <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+            <button type="submit" class="btn-primary quiz-cta">
+              시작하기
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="quiz-cta-alt">
+              <a href="/rental-calculator" class="btn-warm quiz-cta-warm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="8" x2="16" y2="8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8.5" cy="12.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="12.5" r="1.2" fill="currentColor"/><circle cx="8.5" cy="16" r="1.2" fill="currentColor"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/><circle cx="15.5" cy="16" r="1.2" fill="currentColor"/></svg>
+                임대 계산기
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </form>
+        </div>
+        <div>
+          <a href="/about" class="hero-photo-link" aria-label="Peter Law 소개">
+            <div class="hero-photo">
+              <img src="/photos/peter-portrait.webp" alt="Peter Law, 토론토 부동산 대표, CN Tower를 배경으로." width="1500" height="1887" loading="eager" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language note -->
+  <section class="major" style="padding: 40px 0 0;">
+    <div class="wrap">
+      <div class="lang-note">
+        <h3>전체 사이트는 영어와 중국어로 제공됩니다.</h3>
+        <p>한국어 페이지는 요약 버전입니다. 전체 블로그, 계산기, 법률 문서는 영어 버전을 참조하세요. 한국어로 상담을 원하시면 직접 연락 주세요.</p>
+        <p><a href="/contact" class="btn-secondary">연락하기 →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Footer -->
+  <footer style="background: var(--ink); color: #d4cfc4; padding: 40px 0; margin-top: 60px;">
+    <div class="wrap" style="text-align: center; font-size: 13px; line-height: 1.7;">
+      <p>Peter Law · Sales Representative<br>HomeLife Golconda Realty Inc., Brokerage<br>215 – 3601 HWY 7 East, Markham, ON L3R 0M3<br>온타리오 RECO 등록</p>
+      <p style="margin-top: 12px; font-size: 11px; color: rgba(212,207,196,0.5);">REALTOR® &amp; MLS® — trademarks controlled by CREA, used under license.</p>
+    </div>
+  </footer>
+
+  <style is:global>
+    body.lang-korean { font-family: 'Noto Sans KR', 'Inter', system-ui, sans-serif; }
+    body.lang-korean h1, body.lang-korean h2, body.lang-korean h3 { font-family: 'Noto Serif KR', 'Fraunces', Georgia, serif; }
+    body.lang-korean .lang-note { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 28px 32px; max-width: 720px; }
+    body.lang-korean .lang-note h3 { font-size: 20px; margin-bottom: 10px; }
+    body.lang-korean .lang-note p { margin-bottom: 12px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
+    body.lang-korean .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    body.lang-korean .topbar a { color: #d4cfc4; text-decoration: none; }
+    body.lang-korean .topbar a:hover { color: #fff; }
+    body.lang-korean .topbar .dot { opacity: 0.5; margin: 0 4px; }
+    body.lang-korean .head-cta-call { display: none; }
+    @media (max-width: 900px) {
+      body.lang-korean .head-cta-desktop { display: none; }
+      body.lang-korean .head-cta-call { display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; text-decoration: none; color: #fff; background: linear-gradient(135deg, #1e5a2e 0%, #0f3d1e 100%); border: 1px solid #0d3319; border-radius: 4px; margin-left: auto; }
+    }
+    body.lang-korean .head-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
+  </style>
+</BaseLayout>

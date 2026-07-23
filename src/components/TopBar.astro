@@ -11,7 +11,7 @@ const { zh = false } = Astro.props;
       <span>647-888-8472</span>
     </div>
     <div class="topbar-right">
-      {zh ? <a href="/">English</a> : <a href="/chinese">中文</a>}
+      {zh ? <a href="/">English</a> : (<><a href="/chinese">中文</a><span class="lang-sep">·</span><a href="/russian">Ru</a><span class="lang-sep">·</span><a href="/farsi">فا</a><span class="lang-sep">·</span><a href="/hindi">हिं</a><span class="lang-sep">·</span><a href="/korean">한</a><span class="lang-sep">·</span><a href="/japanese">日</a><span class="lang-sep">·</span><a href="/spanish">Es</a></>)}
     </div>
   </div>
 </div>

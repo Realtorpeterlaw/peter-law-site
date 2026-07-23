@@ -6,17 +6,23 @@ interface Props {
   description?: string;
   zh?: boolean;
   bodyClass?: string;
+  lang?: string;
+  dir?: 'ltr' | 'rtl';
 }
 const {
   title,
   description = "Bilingual Toronto real estate. Pre-approved fast, moved in calmly. Hospitality-grade service from a former Airbnb host with 400+ guest reviews.",
   zh = false,
   bodyClass = "",
+  lang: langProp,
+  dir: dirProp,
 } = Astro.props;
+const htmlLang = langProp || (zh ? 'zh-CN' : 'en');
+const htmlDir = dirProp || 'ltr';
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <!DOCTYPE html>
-<html lang={zh ? "zh-CN" : "en"}>
+<html lang={htmlLang} dir={htmlDir}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,6 +38,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
   <script is:inline defer data-domain="realtorpeterlaw.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class={bodyClass + (zh ? ' zh' : '')}>
