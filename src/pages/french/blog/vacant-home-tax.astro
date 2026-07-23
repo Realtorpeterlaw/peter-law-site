@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/FrenchTopBar.astro';
+import Header from '../../../components/FrenchHeader.astro';
+import Footer from '../../../components/FrenchFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-15';
+const articleTitle = 'Taxe sur les logements vacants (Toronto)';
+const articleDescription = "Guide en clair de la Taxe sur les logements vacants (VHT) de Toronto : ce que c'est, qui doit declarer chaque annee, les exonerations, et les penalites en cas d'oubli.";
+const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/vacant-home-tax';
+const enUrl = 'https://www.realtorpeterlaw.com/blog/vacant-home-tax';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Immobilier a Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'fr',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'taxe logements vacants Toronto, VHT Toronto declaration, taxe vacance immobiliere, residence principale exoneration, proprietaire Toronto declaration annuelle',
+  translationOfWork: { '@type': 'Article', '@id': enUrl },
+};
+
+const hreflangAlternates = [
+    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/vacant-home-tax/" },
+    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/vacant-home-tax/" },
+    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/vacant-home-tax/" },
+    { hreflang: "ko",    href: "https://www.realtorpeterlaw.com/korean/blog/vacant-home-tax/" },
+    { hreflang: "ru",    href: "https://www.realtorpeterlaw.com/russian/blog/vacant-home-tax/" },
+    { hreflang: "es",    href: "https://www.realtorpeterlaw.com/spanish/blog/vacant-home-tax/" },
+    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/vacant-home-tax/" },
+  ];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Immobilier a Toronto`}
+  description={articleDescription}
+  lang="fr"
+  bodyClass="fr guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Proprietaires a Toronto</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Chaque proprietaire a Toronto doit dire chaque annee a la Ville si son logement est habite ou vide. Si vous oubliez la declaration, la Ville presume que le logement est vacant — et vous impose la taxe plus une amende.</p>
+        <div class="article-byline">
+          <span>Par <a href="/french/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026-07-15</time>
+          <span class="dot">·</span>
+          <span>5 min de lecture</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>Sur cette page</h4>
+            <ul>
+              <li><a href="#what">Qu'est-ce que la VHT ?</a></li>
+              <li><a href="#declare">Qui doit declarer ?</a></li>
+              <li><a href="#exemptions">Exonerations principales</a></li>
+              <li><a href="#penalties">Penalites</a></li>
+              <li><a href="#selling">Vous vendez ou achetez ?</a></li>
+              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <div class="qf-card">
+              <div class="qf-row"><span class="qf-label">Qui doit declarer</span><span class="qf-val">Tout proprietaire residentiel a Toronto</span></div>
+              <div class="qf-row"><span class="qf-label">Frequence</span><span class="qf-val">Chaque annee, sans exception</span></div>
+              <div class="qf-row"><span class="qf-label">Seuil de vacance</span><span class="qf-val">6 mois ou plus dans l'annee</span></div>
+              <div class="qf-row"><span class="qf-label">Base d'imposition</span><span class="qf-val">Un pourcentage de la valeur MPAC</span></div>
+              <div class="qf-row"><span class="qf-label">Penalite pour non-declaration</span><span class="qf-val">Amende + taxe presumee</span></div>
+            </div>
+
+
+            <h2 id="what">Qu'est-ce que la VHT ?</h2>
+            <p>La Taxe sur les logements vacants est une taxe municipale de Toronto sur les proprietes residentielles qui restent vides. Elle vise a remettre des logements sur le marche dans une ville en penurie. La taxe s'applique quand un logement est reste vacant <strong>six mois ou plus</strong> dans l'annee precedente, sauf exoneration.</p><p>La taxe est calculee en <strong>pourcentage de la valeur evaluee</strong> par MPAC. Le taux a ete augmente apres la premiere annee : verifiez le taux en vigueur sur le site de la Ville avant de faire vos calculs.</p>
+
+            <h2 id="declare">Qui doit declarer ?</h2>
+            <p><strong>Tout proprietaire de residence a Toronto</strong> — maison, condo, ou freehold — doit remplir une declaration chaque annee, meme s'il vit dans le logement a plein temps. La declaration se fait en ligne sur le site de la Ville, avec votre numero de compte de taxe fonciere.</p><p>Si vous ne declarez pas, la Ville <strong>presume que votre logement est vacant</strong> et vous facture la taxe automatiquement. C'est a vous ensuite de contester — un processus long et evitable.</p>
+
+            <h2 id="exemptions">Exonerations principales</h2>
+            <p>Un logement n'est pas taxe s'il est votre <strong>residence principale</strong>, s'il est loue a un locataire pour au moins six mois, ou s'il est occupe par un membre de la famille. D'autres exonerations existent : deces du proprietaire, soins medicaux prolonges, renovations majeures avec permis, ou vente de la propriete dans l'annee.</p><p>Chaque exoneration demande une preuve. Gardez vos baux, factures medicales ou permis a portee de main.</p>
+
+            <h2 id="penalties">Penalites</h2>
+            <p>Ne pas declarer entraine une <strong>amende</strong> plus la taxe presumee. Une fausse declaration peut aussi entrainer des poursuites. La taxe impayee devient un <strong>privilege sur la propriete</strong> : si vous vendez, elle sort du produit de vente.</p>
+
+            <h2 id="selling">Vous vendez ou achetez ?</h2>
+            <p>La taxe suit la propriete. A l'achat, exigez toujours une preuve que la declaration VHT de l'annee en cours et de l'annee precedente a bien ete faite. A la vente, faites votre declaration <strong>avant</strong> la cloture pour eviter des complications.</p>
+
+            <div id="read-full" class="read-full-cta">
+              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
+              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .qf-card {
+    background: #fff;
+    border: 1px solid var(--line, #e6e2dc);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 0 0 28px;
+    display: grid;
+    gap: 10px;
+  }
+  .qf-row {
+    display: grid;
+    grid-template-columns: 42% 1fr;
+    gap: 14px;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #eee;
+  }
+  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .qf-label { color: #666; font-size: 0.9rem; }
+  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta {
+    margin-top: 36px;
+    padding: 22px;
+    background: #f8f5ef;
+    border: 1px solid var(--line, #e6e2dc);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .read-full-cta p { margin: 0 0 12px; color: #333; }
+  .read-full-cta .btn-primary {
+    display: inline-block;
+    background: #b8845b;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .read-full-cta .btn-primary:hover { background: #a06d47; }
+</style>
