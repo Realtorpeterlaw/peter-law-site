@@ -6,7 +6,46 @@ import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
-<BaseLayout title="About Peter Law — Toronto Real Estate" description="Peter Law: born and raised in downtown Toronto. Former Airbnb host with 400+ guest reviews. Sales Representative at HomeLife Golconda Realty Inc.">
+<BaseLayout title="About Peter Law — Toronto Real Estate" description="Peter Law: born and raised in downtown Toronto. Former Airbnb host with 400+ guest reviews. Sales Representative at HomeLife Golconda Realty Inc."
+  hreflangAlternates={[
+    { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/about' },
+    { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/about' },
+    { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/about' },
+  ]}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://www.realtorpeterlaw.com/about#page",
+      "url": "https://www.realtorpeterlaw.com/about",
+      "name": "About Peter Law — Toronto Real Estate",
+      "mainEntity": {
+        "@type": "RealEstateAgent",
+        "@id": "https://www.realtorpeterlaw.com/#agent",
+        "name": "Peter Law",
+        "jobTitle": "Sales Representative",
+        "url": "https://www.realtorpeterlaw.com/",
+        "image": "https://www.realtorpeterlaw.com/photos/peter-interior.webp",
+        "telephone": "+1-647-888-8472",
+        "email": "Admin@RealtorPeterLaw.com",
+        "knowsLanguage": ["English", "Chinese"],
+        "description": "Toronto-born and raised bilingual real estate Sales Representative. Six years FULL-TIME in Toronto's rental market. HomeLife Golconda Realty Inc., Brokerage. RECO-registered.",
+        "worksFor": {
+          "@type": "RealEstateAgent",
+          "name": "HomeLife Golconda Realty Inc., Brokerage",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "215 - 3601 HWY 7 East",
+            "addressLocality": "Markham",
+            "addressRegion": "ON",
+            "postalCode": "L3R 0M3",
+            "addressCountry": "CA"
+          }
+        }
+      }
+    })} />
+  </Fragment
 
   <TopBar />
   <Header active="about" ctaLabel="Book a call" />

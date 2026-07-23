@@ -8,9 +8,20 @@ import ChineseCTASection from '../../components/ChineseCTASection.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
 <BaseLayout
-  title="Peter Law - 多伦多房地产"
-  description="Peter Law | 多伦多双语房地产专家。协助租客在多伦多找到获批、可入住的家。从搜寻到拿钥匙的全程服务。致电 647-888-8472。"
+  title="Peter Law — 多伦多租房与地产 | 双语房地产代表"
+  description="Peter Law | 多伦多双语租房与地产代表。协助租客获批并顺利入住 — 从搜寻到拿钥匙的全程服务。英语与中文双语。RECO 注册 · HomeLife Golconda · 致电 647-888-8472。"
   zh={true}
+  hreflangAlternates={[
+    { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/' },
+    { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/' },
+    { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese' },
+    { hreflang: 'ru', href: 'https://www.realtorpeterlaw.com/russian' },
+    { hreflang: 'fa', href: 'https://www.realtorpeterlaw.com/farsi' },
+    { hreflang: 'hi', href: 'https://www.realtorpeterlaw.com/hindi' },
+    { hreflang: 'ko', href: 'https://www.realtorpeterlaw.com/korean' },
+    { hreflang: 'ja', href: 'https://www.realtorpeterlaw.com/japanese' },
+    { hreflang: 'es', href: 'https://www.realtorpeterlaw.com/spanish' },
+  ]}
 >
 
   <ChineseTopBar />

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+interface HreflangAlt { hreflang: string; href: string; }
 interface Props {
   title: string;
   description?: string;
@@ -8,6 +9,7 @@ interface Props {
   bodyClass?: string;
   lang?: string;
   dir?: 'ltr' | 'rtl';
+  hreflangAlternates?: HreflangAlt[];
 }
 const {
   title,
@@ -16,10 +18,46 @@ const {
   bodyClass = "",
   lang: langProp,
   dir: dirProp,
+  hreflangAlternates = [],
 } = Astro.props;
 const htmlLang = langProp || (zh ? 'zh-CN' : 'en');
 const htmlDir = dirProp || 'ltr';
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Auto-generate BreadcrumbList JSON-LD from URL path
+const _path = Astro.url.pathname.replace(/\/$/, '');
+const _segments = _path.split('/').filter(Boolean);
+const _labelMap: Record<string, string> = {
+  chinese: '中文', russian: 'Русский', farsi: 'فارسی', hindi: 'हिंदी',
+  korean: '한국어', japanese: '日本語', spanish: 'Español',
+  blog: 'Blog', 'past-deals': 'Sale History', about: 'About', contact: 'Contact',
+  'buyer-guide': 'Buyer Guide', 'for-renters': 'For Renters', 'for-landlords': 'For Landlords',
+  'rental-tour': 'Rental Tour', 'rent-control': 'Rent Control', 'lease-renewal': 'Lease Renewal',
+  'n-forms': 'N Forms', 'land-transfer-tax': 'Land Transfer Tax',
+  'payment-calculator': 'Mortgage Calculator', 'affordability-calculator': 'Affordability Calculator',
+  'cmhc-insurance-calculator': 'CMHC Insurance Calculator', 'closing-costs': 'Closing Costs',
+  'all-calculator': 'BUY Calculator', 'rental-calculator': 'Rental Calculator',
+  'free-home-evaluation': 'Free Home Evaluation', apply: 'Apply',
+  terms: 'Terms of Service', privacy: 'Privacy Policy',
+  disclaimer: 'Disclaimer', accessibility: 'Accessibility',
+};
+function _title(seg: string): string {
+  if (_labelMap[seg]) return _labelMap[seg];
+  return seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+const _crumbs: {name: string, url: string}[] = [{ name: 'Home', url: 'https://www.realtorpeterlaw.com/' }];
+let _acc = '';
+for (const seg of _segments) {
+  _acc += '/' + seg;
+  _crumbs.push({ name: _title(seg), url: 'https://www.realtorpeterlaw.com' + _acc });
+}
+const _breadcrumbLd = _crumbs.length > 1 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: _crumbs.map((c, i) => ({
+    '@type': 'ListItem', position: i + 1, name: c.name, item: c.url,
+  })),
+} : null;
 ---
 <!DOCTYPE html>
 <html lang={htmlLang} dir={htmlDir}>
@@ -40,6 +78,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
   <script is:inline defer data-domain="realtorpeterlaw.com" src="https://plausible.io/js/script.js"></script>
+  {hreflangAlternates.map((alt) => (
+    <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+  ))}
+  {_breadcrumbLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(_breadcrumbLd)} />
+  )}
+  <slot name="head" />
 </head>
 <body class={bodyClass + (zh ? ' zh' : '')}>
   <slot />

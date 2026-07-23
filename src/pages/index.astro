@@ -7,7 +7,92 @@ import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 ---
-<BaseLayout title="Peter Law - Toronto Real Estate" description="Peter Law | Toronto Rental & Real Estate Expert. Helping renters find approved, move-in ready homes across Toronto. Full-service representation from search to keys. Call 647-888-8472.">
+<BaseLayout
+  title="Toronto Rental Realtor — Peter Law | Bilingual Real Estate"
+  description="Toronto rental realtor helping tenants get approved and moved in — full-service representation from search to keys. Bilingual (English & Chinese). RECO-registered · HomeLife Golconda Realty · Call 647-888-8472."
+  hreflangAlternates={[
+    { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/' },
+    { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/' },
+    { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese' },
+    { hreflang: 'ru', href: 'https://www.realtorpeterlaw.com/russian' },
+    { hreflang: 'fa', href: 'https://www.realtorpeterlaw.com/farsi' },
+    { hreflang: 'hi', href: 'https://www.realtorpeterlaw.com/hindi' },
+    { hreflang: 'ko', href: 'https://www.realtorpeterlaw.com/korean' },
+    { hreflang: 'ja', href: 'https://www.realtorpeterlaw.com/japanese' },
+    { hreflang: 'es', href: 'https://www.realtorpeterlaw.com/spanish' },
+  ]}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://www.realtorpeterlaw.com/#agent",
+          "name": "Peter Law",
+          "jobTitle": "Sales Representative",
+          "url": "https://www.realtorpeterlaw.com/",
+          "image": "https://www.realtorpeterlaw.com/photos/peter-portrait.webp",
+          "telephone": "+1-647-888-8472",
+          "email": "Admin@RealtorPeterLaw.com",
+          "priceRange": "$$-$$$",
+          "knowsLanguage": ["English", "Chinese"],
+          "areaServed": [
+            { "@type": "City", "name": "Toronto" },
+            { "@type": "AdministrativeArea", "name": "Greater Toronto Area" },
+            { "@type": "City", "name": "Markham" }
+          ],
+          "sameAs": [
+            "https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-215-markham-ontario-l3r0m3",
+            "https://www.instagram.com/realtorpeterlaw",
+            "https://www.facebook.com/RealtorPeterLaw",
+            "https://www.linkedin.com/in/peter-law-5053a6192"
+          ],
+          "worksFor": {
+            "@type": "RealEstateAgent",
+            "name": "HomeLife Golconda Realty Inc., Brokerage",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "215 - 3601 HWY 7 East",
+              "addressLocality": "Markham",
+              "addressRegion": "ON",
+              "postalCode": "L3R 0M3",
+              "addressCountry": "CA"
+            }
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.realtorpeterlaw.com/#website",
+          "url": "https://www.realtorpeterlaw.com/",
+          "name": "Peter Law — Toronto Rental Realtor",
+          "publisher": { "@id": "https://www.realtorpeterlaw.com/#agent" },
+          "inLanguage": ["en-CA", "zh-CN"]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.realtorpeterlaw.com/#brokerage",
+          "name": "Peter Law — HomeLife Golconda Realty Inc., Brokerage",
+          "url": "https://www.realtorpeterlaw.com/",
+          "telephone": "+1-647-888-8472",
+          "email": "Admin@RealtorPeterLaw.com",
+          "image": "https://www.realtorpeterlaw.com/photos/peter-portrait.webp",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "215 - 3601 HWY 7 East",
+            "addressLocality": "Markham",
+            "addressRegion": "ON",
+            "postalCode": "L3R 0M3",
+            "addressCountry": "CA"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Toronto" },
+            { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
+          ]
+        }
+      ]
+    })} />
+  </Fragment>
 
   <TopBar />
   <Header />

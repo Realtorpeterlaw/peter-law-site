@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+export const prerender = true;
+---
+<BaseLayout
+  title={"Liberty Village Rental Realtor \u2014 King West Condos | Peter Law"}
+  description={"Renting in Liberty Village or King West? Peter Law helps tenants secure approved leases in Toronto's most walkable young-professional neighbourhood. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Toronto Rental Real Estate Representation",
+      "name": "Liberty Village Rental Realtor",
+      "areaServed": { "@type": "Place", "name": "Liberty Village \u00b7 King West \u00b7 Fort York" },
+      "provider": { "@id": "https://www.realtorpeterlaw.com/#agent" },
+      "url": "https://www.realtorpeterlaw.com/liberty-village-rental-realtor"
+    })} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Liberty Village · King West · Fort York</div>
+      <h1>Liberty Village Rental Realtor</h1>
+      <p style="font-size:18px; color:var(--ink-soft); max-width:680px; margin-top:12px; line-height:1.55;">Liberty Village is where Toronto&apos;s mid-20s to mid-30s professionals want to live — walkable, dog-friendly, packed with cafés and gyms, and 10 minutes to the Financial District on the King streetcar. 1-bedrooms typically run $2,300 to $2,900. Newer buildings command a premium; some 2000s-era conversions can be a bargain if you know which ones.</p>
+      <p style="font-size:15px; color:var(--ink-soft); max-width:680px; margin-top:14px; line-height:1.6;">I know the difference between the buildings that hold their value and the ones with special-assessment risk. I also know which landlords are guarantor-friendly and which won&apos;t move on price. If you&apos;re moving to Toronto for work or grad school and this is your target, message me your income + move date — I&apos;ll come back with 5-8 options in your range within 24 hours.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap" style="max-width: 780px;">
+      <form class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda">
+        <div class="quiz-eyebrow">Rental Questionnaire</div>
+        <h3 class="quiz-heading">What are you looking for in Liberty Village?</h3>
+        <p class="quiz-sub">(Minimum 1 Year duration)</p>
+        <div class="quiz-fields">
+          <div class="quiz-field">
+            <label for="q-beds">Bedrooms*</label>
+            <select id="q-beds" name="bedrooms" required>
+              <option value="">Select...</option>
+              <option>Studio</option><option>1 BR</option><option>1 BR + Den</option>
+              <option>2 BR</option><option>3 BR</option><option>4+ BR</option>
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for="q-budget">Budget / month*</label>
+            <select id="q-budget" name="budget" required>
+              <option value="">Select...</option>
+              <option>Under $2,000</option><option>$2,000 – $2,500</option>
+              <option>$2,500 – $3,000</option><option>$3,000 – $3,500</option>
+              <option>$3,500 – $4,500</option><option>$4,500+</option>
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for="q-movein">Move-in date*</label>
+            <input id="q-movein" name="move_in_date" type="date" required>
+          </div>
+          <div class="quiz-field">
+            <label for="q-notice">Given 60 days notice*</label>
+            <select id="q-notice" name="landlord_notice_60_days" required>
+              <option value="">Select...</option>
+              <option>Yes</option><option>No</option><option>N/A</option>
+            </select>
+          </div>
+          <div class="quiz-field quiz-field-full">
+            <label for="q-email">Email*</label>
+            <input id="q-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="q-gotcha">-</label>
+          <input id="q-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="_subject" value="Rental inquiry - liberty-village">
+        <input type="hidden" name="area_source" value="liberty-village">
+        <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+        <button type="submit" class="btn-primary quiz-cta">
+          Send me options
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <CTASection heading="Prefer to talk it through?" lead="15-minute call to run through your target neighbourhood, budget, and timeline. No commitment." />
+
+  <Footer />
+</BaseLayout>

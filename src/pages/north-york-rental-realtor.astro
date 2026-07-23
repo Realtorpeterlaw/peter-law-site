@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+export const prerender = true;
+---
+<BaseLayout
+  title={"North York Rental Realtor \u2014 Yonge & Sheppard, Bayview | Peter Law"}
+  description={"Renting in North York \u2014 Yonge & Sheppard, Bayview Village, or Willowdale? Peter Law helps tenants secure approved leases. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Toronto Rental Real Estate Representation",
+      "name": "North York Rental Realtor",
+      "areaServed": { "@type": "Place", "name": "Yonge & Sheppard \u00b7 Willowdale \u00b7 Bayview Village" },
+      "provider": { "@id": "https://www.realtorpeterlaw.com/#agent" },
+      "url": "https://www.realtorpeterlaw.com/north-york-rental-realtor"
+    })} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Yonge & Sheppard · Willowdale · Bayview Village</div>
+      <h1>North York Rental Realtor</h1>
+      <p style="font-size:18px; color:var(--ink-soft); max-width:680px; margin-top:12px; line-height:1.55;">North York offers a middle path between downtown density and suburban space — well-served by Line 1 (Sheppard-Yonge, North York Centre, Finch) and Line 4 (Sheppard subway east). 1-bedroom condos typically $2,100 to $2,700 in the Yonge & Sheppard corridor; larger units and townhouses further east and west. Popular with new grads at head-office tech jobs, families, and anyone who needs to commute north-south on the Yonge line.</p>
+      <p style="font-size:15px; color:var(--ink-soft); max-width:680px; margin-top:14px; line-height:1.6;">I know the developer-quality patterns in this corridor — which buildings from Menkes, Concord, and Tridel have held up well versus which have had special assessments. I know which subway-linked buildings actually save you 20 minutes on the commute and which just get you a marketing photo of the entrance.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap" style="max-width: 780px;">
+      <form class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda">
+        <div class="quiz-eyebrow">Rental Questionnaire</div>
+        <h3 class="quiz-heading">What are you looking for in North York?</h3>
+        <p class="quiz-sub">(Minimum 1 Year duration)</p>
+        <div class="quiz-fields">
+          <div class="quiz-field">
+            <label for="q-beds">Bedrooms*</label>
+            <select id="q-beds" name="bedrooms" required>
+              <option value="">Select...</option>
+              <option>Studio</option><option>1 BR</option><option>1 BR + Den</option>
+              <option>2 BR</option><option>3 BR</option><option>4+ BR</option>
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for="q-budget">Budget / month*</label>
+            <select id="q-budget" name="budget" required>
+              <option value="">Select...</option>
+              <option>Under $2,000</option><option>$2,000 – $2,500</option>
+              <option>$2,500 – $3,000</option><option>$3,000 – $3,500</option>
+              <option>$3,500 – $4,500</option><option>$4,500+</option>
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for="q-movein">Move-in date*</label>
+            <input id="q-movein" name="move_in_date" type="date" required>
+          </div>
+          <div class="quiz-field">
+            <label for="q-notice">Given 60 days notice*</label>
+            <select id="q-notice" name="landlord_notice_60_days" required>
+              <option value="">Select...</option>
+              <option>Yes</option><option>No</option><option>N/A</option>
+            </select>
+          </div>
+          <div class="quiz-field quiz-field-full">
+            <label for="q-email">Email*</label>
+            <input id="q-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="q-gotcha">-</label>
+          <input id="q-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="_subject" value="Rental inquiry - north-york">
+        <input type="hidden" name="area_source" value="north-york">
+        <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+        <button type="submit" class="btn-primary quiz-cta">
+          Send me options
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <CTASection heading="Prefer to talk it through?" lead="15-minute call to run through your target neighbourhood, budget, and timeline. No commitment." />
+
+  <Footer />
+</BaseLayout>
