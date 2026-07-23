@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/SpanishTopBar.astro';
+import LHeader from '../../components/SpanishHeader.astro';
+import LFooter from '../../components/SpanishFooter.astro';
+import LCTA from '../../components/SpanishCTASection.astro';
+---
+<BaseLayout title="Formularios N \u2014 avisos LTB de Ontario | Peter Law" description="Gu\u00eda simple de los formularios N de la Junta de Arrendador e Inquilino de Ontario." lang="es" bodyClass="es">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Recurso de alquiler</div>
+      <h1>Formularios N — avisos LTB de Ontario.</h1>
+      <p>Formularios oficiales usados en Ontario para dar aviso legal — aumentos, terminaciones, acuerdos mutuos.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#intro">Qué son los formularios N</a></li>
+          <li><a href="#landlord">Avisos del propietario</a></li>
+          <li><a href="#tenant">Avisos del inquilino</a></li>
+          <li><a href="#mutual">Acuerdos mutuos</a></li>
+          <li><a href="#download">Dónde descargar</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="intro">Qué son los formularios N</h2>
+          <p>Los formularios N son los avisos oficiales de la <strong>Junta de Arrendador e Inquilino (LTB)</strong> de Ontario. Los usan inquilinos y propietarios para dar aviso legal bajo la <em>Ley de arrendamientos residenciales</em>.</p>
+          <h2 id="landlord">Avisos del propietario</h2>
+          <p><strong>N1</strong> — Aviso de aumento de alquiler (90 días). <strong>N4</strong> — Aviso por falta de pago (14 días). <strong>N5</strong> — Aviso por daños/quejas. <strong>N12</strong> — Propietario necesita para uso personal (60 días). <strong>N13</strong> — Renovación mayor o demolición.</p>
+          <h2 id="tenant">Avisos del inquilino</h2>
+          <p><strong>N9</strong> — Aviso del inquilino de fin de arrendamiento (60 días). <strong>N15</strong> — Fin anticipado por violencia doméstica (28 días).</p>
+          <h2 id="mutual">Acuerdos mutuos</h2>
+          <p><strong>N11</strong> — Acuerdo mutuo de fin de arrendamiento. Firmado por ambas partes.</p>
+          <h2 id="download">Dónde descargar</h2>
+          <p>Siempre usa la versión oficial de <a href="https://tribunalsontario.ca/ltb/" target="_blank" rel="noopener">Tribunals Ontario</a>. Versiones no oficiales pueden ser rechazadas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="\u00bfRecibiste un aviso?" lead="Env\u00edame el formulario \u2014 en 10 minutos verifico si es v\u00e1lido y qu\u00e9 debes hacer." />
+  <LFooter />
+</BaseLayout>

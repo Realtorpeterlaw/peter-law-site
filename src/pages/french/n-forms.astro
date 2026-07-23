@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+import LCTA from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="Formulaires N \u2014 Avis de la CLI de l'Ontario | Peter Law" description="Guide simple des formulaires d'avis N de la Commission de la location immobili\u00e8re de l'Ontario." lang="fr" bodyClass="fr">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Ressource locative</div>
+      <h1>Formulaires N — avis de la CLI.</h1>
+      <p>Formulaires officiels utilisés en Ontario pour donner un avis légal — augmentations, terminaisons, accords mutuels.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#intro">Que sont les formulaires N</a></li>
+          <li><a href="#landlord">Avis du propriétaire</a></li>
+          <li><a href="#tenant">Avis du locataire</a></li>
+          <li><a href="#mutual">Accords mutuels</a></li>
+          <li><a href="#download">Où télécharger</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="intro">Que sont les formulaires N</h2>
+          <p>Les formulaires N sont les avis officiels de la <strong>Commission de la location immobilière (CLI)</strong> de l'Ontario. Ils sont utilisés par les locataires et les propriétaires pour donner un avis légal en vertu de la <em>Loi sur la location à usage d'habitation</em>.</p>
+          <h2 id="landlord">Avis du propriétaire</h2>
+          <p><strong>N1</strong> — Avis d'augmentation de loyer (90 jours). <strong>N4</strong> — Avis pour non-paiement (14 jours). <strong>N5</strong> — Avis pour dommages ou plaintes. <strong>N12</strong> — Le propriétaire veut le logement pour usage personnel (60 jours). <strong>N13</strong> — Rénovation majeure ou démolition.</p>
+          <h2 id="tenant">Avis du locataire</h2>
+          <p><strong>N9</strong> — Avis de fin de tenure par le locataire (60 jours). <strong>N15</strong> — Locataire fin pour violence familiale (28 jours).</p>
+          <h2 id="mutual">Accords mutuels</h2>
+          <p><strong>N11</strong> — Accord mutuel de fin de tenure. Signé par les deux parties.</p>
+          <h2 id="download">Où télécharger</h2>
+          <p>Toujours utiliser la version officielle de <a href='https://tribunalsontario.ca/cli/' target='_blank' rel='noopener'>Tribunaux Ontario</a>. Les versions non officielles peuvent être rejetées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="Vous avez re\u00e7u un avis?" lead="Envoyez-moi le formulaire \u2014 je v\u00e9rifierai en 10 minutes s'il est valide et ce que vous devez faire ensuite." />
+  <LFooter />
+</BaseLayout>

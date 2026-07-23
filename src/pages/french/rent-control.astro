@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+import LCTA from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="Contr\u00f4le des loyers en Ontario \u2014 Guide locataire | Peter Law" description="Guide simple du contr\u00f4le des loyers en Ontario : ce qui est couvert, la ligne directrice annuelle et les augmentations sup\u00e9rieures." lang="fr" bodyClass="fr">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Ressource locataire</div>
+      <h1>Contrôle des loyers en Ontario.</h1>
+      <p>Ce qui est couvert, ce qui ne l'est pas, et comment le plafond annuel fonctionne réellement.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#what">Qu'est-ce que le contrôle des loyers</a></li>
+          <li><a href="#covered">Unités couvertes</a></li>
+          <li><a href="#guideline">La ligne directrice annuelle</a></li>
+          <li><a href="#agi">Augmentations supérieures (AGI)</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">Qu'est-ce que le contrôle des loyers</h2>
+          <p>La <em>Loi sur la location à usage d'habitation</em> de l'Ontario plafonne l'augmentation qu'un propriétaire peut appliquer à un locataire existant d'une année à l'autre. Ce plafond s'appelle la <strong>ligne directrice annuelle</strong>, publiée par la province chaque année.</p>
+          <h2 id="covered">Unités couvertes</h2>
+          <p>Le contrôle des loyers s'applique à la plupart des logements résidentiels en Ontario occupés pour la première fois avant le <strong>15 novembre 2018</strong>. Les logements occupés pour la première fois <strong>à partir du 15 novembre 2018</strong> sont <strong>exemptés</strong>.</p>
+          <h2 id="guideline">La ligne directrice annuelle</h2>
+          <p>L'augmentation est publiée chaque année par le ministère provincial. Un loyer ne peut être augmenté qu'<strong>une fois tous les 12 mois</strong>, avec un préavis écrit de <strong>90 jours</strong> sur le formulaire N1 de la CLI.</p>
+          <h2 id="agi">Augmentations supérieures (AGI)</h2>
+          <p>Un propriétaire peut demander à la Commission de la location immobilière (CLI) une augmentation au-delà de la ligne directrice pour des dépenses en capital, des taxes municipales extraordinaires ou de nouveaux services. Les locataires ont le droit de contester.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="Besoin d'un second regard?" lead="Si votre propri\u00e9taire vient d'augmenter votre loyer, envoyez-moi l'avis. En 10 minutes, je vous dirai si c'est valide ou vaut la peine de contester." />
+  <LFooter />
+</BaseLayout>

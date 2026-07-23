@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/KoreanTopBar.astro';
+import LHeader from '../../components/KoreanHeader.astro';
+import LFooter from '../../components/KoreanFooter.astro';
+import LCTA from '../../components/KoreanCTASection.astro';
+---
+<BaseLayout title="\uc628\ud0c0\ub9ac\uc624 \uc784\ub300\ub8cc \ud1b5\uc81c \u2014 \uc138\uc785\uc790 \uac00\uc774\ub4dc | Peter Law" description="\uc628\ud0c0\ub9ac\uc624 \uc784\ub300\ub8cc \ud1b5\uc81c\uc758 \uc774\ud574\ud558\uae30 \uc26c\uc6b4 \uac00\uc774\ub4dc: \uc801\uc6a9 \ubc94\uc704, \uc5f0\uac04 \uc9c0\uce68, \uc9c0\uce68 \ucd08\uacfc \uc778\uc0c1." lang="ko" bodyClass="ko">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">세입자 자료</div>
+      <h1>온타리오의 임대료 통제.</h1>
+      <p>무엇이 포함되고, 무엇이 아니며, 연간 상한이 실제로 어떻게 작동하는지.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#what">임대료 통제란</a></li>
+          <li><a href="#covered">적용되는 유닛</a></li>
+          <li><a href="#guideline">연간 지침</a></li>
+          <li><a href="#agi">지침 초과 인상 (AGI)</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">임대료 통제란</h2>
+          <p>온타리오 <em>주거 임대차 법(RTA)</em>은 기존 세입자에게 임대인이 한 해에서 다음 해로 인상할 수 있는 금액을 제한합니다. 이 상한은 <strong>연간 임대료 인상 지침</strong>으로 매년 주 정부가 설정합니다.</p>
+          <h2 id="covered">적용되는 유닛</h2>
+          <p>임대료 통제는 <strong>2018년 11월 15일 이전</strong>에 처음 거주지로 사용된 대부분의 주거용 유닛에 적용됩니다. <strong>2018년 11월 15일 이후</strong>에 처음 사용된 유닛은 <strong>면제</strong>됩니다.</p>
+          <h2 id="guideline">연간 지침</h2>
+          <p>매년 온타리오 주정부에 의해 발표. 임대료는 <strong>12개월마다 한 번만</strong> 인상 가능. 인상 시 <strong>90일 서면 통지</strong>가 필요하며 LTB 양식 N1 사용.</p>
+          <h2 id="agi">지침 초과 인상 (AGI)</h2>
+          <p>임대인은 지침 이상의 인상을 위해 임대인 및 세입자 위원회(LTB)에 신청할 수 있습니다. 자본 지출, 특별한 세금 인상, 새 서비스 등에 대해. 세입자는 이의 제기 권리가 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="\ub450 \ubc88\uc9f8 \uc758\uacac\uc774 \ud544\uc694\ud558\uc2e0\uac00\uc694?" lead="\uc784\ub300\uc778\uc774 \ubc29\uae08 \uc784\ub300\ub8cc\ub97c \uc778\uc0c1\ud588\uace0 \ud569\ubc95 \uc5ec\ubd80\uac00 \ud655\uc2e4\ud558\uc9c0 \uc54a\ub2e4\uba74 \ud1b5\uc9c0\uc11c\ub97c \ubcf4\ub0b4\uc8fc\uc138\uc694. 10\ubd84 \uc548\uc5d0 \uc720\ud6a8\ud55c\uc9c0 \ub610\ub294 \uc774\uc758 \uc81c\uae30\ud560 \uac00\uce58\uac00 \uc788\ub294\uc9c0 \uc54c\ub824\ub4dc\ub9bd\ub2c8\ub2e4." />
+  <LFooter />
+</BaseLayout>

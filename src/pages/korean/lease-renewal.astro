@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/KoreanTopBar.astro';
+import LHeader from '../../components/KoreanHeader.astro';
+import LFooter from '../../components/KoreanFooter.astro';
+import LCTA from '../../components/KoreanCTASection.astro';
+---
+<BaseLayout title="\uc628\ud0c0\ub9ac\uc624 \uc784\ub300 \uacc4\uc57d \uac31\uc2e0 | Peter Law" description="\uace0\uc815 \uae30\uac04 \uacc4\uc57d\uc774 \ub05d\ub0a0 \ub54c, \uba38\ubb34\ub97c \uad8c\ub9ac, \uac31\uc2e0 \uc2dc \uc784\ub300\ub8cc \uaddc\uce59." lang="ko" bodyClass="ko">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">세입자 자료</div>
+      <h1>온타리오 임대 계약 갱신.</h1>
+      <p>고정 기간이 끝날 때 무슨 일이 일어나는지, 머무를 권리, 임대료 규칙, 임대인이 나가라고 할 때 어떻게 할지.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#default">기본: 월간</a></li>
+          <li><a href="#stay">머무를 권리</a></li>
+          <li><a href="#rent">갱신 시 임대료</a></li>
+          <li><a href="#endout">임대인이 나가라고 할 때</a></li>
+          <li><a href="#leave">당신이 떠나고 싶을 때</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="default">기본: 월간</h2>
+          <p>온타리오에서 고정 기간 계약(일반적으로 12개월)이 끝날 때 <strong>실제로 끝나지 않습니다</strong>. 동일한 조건으로 자동으로 월간 임대차로 전환됩니다. 새 서명이나 임대인 허가가 필요 없습니다.</p>
+          <h2 id="stay">머무를 권리</h2>
+          <p>임대인은 <strong>새 고정 기간 계약에 서명하도록 강요할 수 없습니다</strong>. 무기한 월간으로 계속 지불 가능.</p>
+          <h2 id="rent">갱신 시 임대료</h2>
+          <p>임대료는 12개월마다 한 번만 인상 가능. 통제 대상 유닛은 연간 지침에 제한. N1 양식으로 90일 서면 통지 필요.</p>
+          <h2 id="endout">임대인이 나가라고 할 때</h2>
+          <p>법적 근거 필요 (개인 사용을 위한 N12, 주요 개조를 위한 N13). 구두 통지는 무효.</p>
+          <h2 id="leave">당신이 떠나고 싶을 때</h2>
+          <p>월간 임대차에서 임대료 지불월 마지막 날에 종료되는 <strong>60일 서면 통지</strong>(N9 양식) 제공.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="\uace7 \uacc4\uc57d\uc774 \ub05d\ub098\uc2dc\ub098\uc694?" lead="\uc635\uc158\uc744 \ubcf4\ub0b4\uc8fc\uc138\uc694 \u2014 10\ubd84 \uc548\uc5d0 \uba38\ubb3c\uc9c0, \uc7ac\ud611\uc0c1\ud560\uc9c0, \uc774\uc0ac\ud560\uc9c0 \uc54c\ub824\ub4dc\ub9bd\ub2c8\ub2e4." />
+  <LFooter />
+</BaseLayout>

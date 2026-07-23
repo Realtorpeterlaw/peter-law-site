@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+import PropertySales from '../../components/PropertySales.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="\u0418\u0441\u0442\u043e\u0440\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0436 \u2014 Peter Law \u041d\u0435\u0434\u0432\u0438\u0436\u0438\u043c\u043e\u0441\u0442\u044c \u0422\u043e\u0440\u043e\u043d\u0442\u043e" description="\u0420\u0435\u0433\u0438\u0441\u0442\u0440 \u043d\u0435\u0434\u0430\u0432\u043d\u0438\u0445 \u0430\u0440\u0435\u043d\u0434 \u0438 \u043f\u0440\u043e\u0434\u0430\u0436, \u0437\u0430\u043a\u0440\u044b\u0442\u044b\u0445 Peter Law \u0432 \u0411\u043e\u043b\u044c\u0448\u043e\u043c \u0422\u043e\u0440\u043e\u043d\u0442\u043e." lang="ru" bodyClass="ru">
+  <LTopBar />
+  <LHeader active="about" ctaLabel="\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f" />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><a href="/russian/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Обо мне</a> · История продаж</div>
+        <h1 class="hero-h">История продаж</h1>
+        <p class="sale-history-lead">История продаж включает представление собственников, покупателей, арендаторов, а иногда и комбинации.</p>
+        <p class="sale-history-disc"><em>Цены, адреса и роли представления отражают информацию на момент каждой транзакции, полученную из публичных записей MLS® / TRREB и/или с согласия клиента. Личности клиентов остаются конфиденциальными. Прошлые результаты не гарантируют будущих. См. <a href='/disclaimer#past-deals'>Отказ от ответственности</a>.</em></p>
+      </div>
+      <div>
+        <div class="hero-photo">
+          <img src="/photos/peter-cn-tower.jpg" alt="Peter Law, \u0442\u043e\u0440\u0433\u043e\u0432\u044b\u0439 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u0435\u043b\u044c \u043f\u043e \u043d\u0435\u0434\u0432\u0438\u0436\u0438\u043c\u043e\u0441\u0442\u0438 \u0432 \u0422\u043e\u0440\u043e\u043d\u0442\u043e, \u0441 CN Tower \u043d\u0430 \u0444\u043e\u043d\u0435." width="1500" height="1887" loading="eager" />
+        </div>
+        <div class="agent-byline">
+          <div class="agent-name">Peter Law</div>
+          <div class="agent-title">Sales Representative</div>
+          <div class="agent-brokerage">Home Life Golconda Realty., Inc Brokerage.</div>
+          <div class="agent-phones">
+            <div><span class="lbl">ПРЯМОЙ:</span> <a href="tel:+16478888472">(647) 888 - 8472</a></div>
+            <div><span class="lbl">ОФИС:</span> <a href="tel:+19058888819">(905) 888 - 8819</a></div>
+            <div><a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <PropertySales />
+
+  <LCTA />
+  <LFooter />
+</BaseLayout>

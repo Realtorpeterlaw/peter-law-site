@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+import LCTA from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="Renouvellement de bail en Ontario | Peter Law" description="Ce qui se passe \u00e0 la fin de votre bail \u00e0 dur\u00e9e fixe, votre droit de rester, les r\u00e8gles de loyer au renouvellement." lang="fr" bodyClass="fr">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Ressource locataire</div>
+      <h1>Renouvellement de bail en Ontario.</h1>
+      <p>Ce qui se passe à la fin de votre bail, votre droit de rester, les règles de loyer, et quoi faire si le propriétaire veut vous faire partir.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#default">Par défaut : mensuel</a></li>
+          <li><a href="#stay">Votre droit de rester</a></li>
+          <li><a href="#rent">Loyer au renouvellement</a></li>
+          <li><a href="#endout">Si le propriétaire veut vous faire partir</a></li>
+          <li><a href="#leave">Si vous voulez partir</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="default">Par défaut : mensuel</h2>
+          <p>En Ontario, à la fin d'un bail à durée fixe (généralement 12 mois), <strong>le bail ne se termine pas</strong>. Il devient automatiquement mensuel aux mêmes conditions. Aucune signature, aucune permission requise du propriétaire.</p>
+          <h2 id="stay">Votre droit de rester</h2>
+          <p>Le propriétaire <strong>ne peut pas vous forcer à signer un nouveau bail à durée fixe</strong>. Vous pouvez continuer à payer mensuellement indéfiniment.</p>
+          <h2 id="rent">Loyer au renouvellement</h2>
+          <p>Le loyer ne peut augmenter qu'une fois tous les 12 mois. Pour les logements sous contrôle, plafonné à la ligne directrice. Préavis de 90 jours sur le formulaire N1.</p>
+          <h2 id="endout">Si le propriétaire veut vous faire partir</h2>
+          <p>Il doit avoir des <strong>motifs légaux</strong> (N12 pour usage personnel, N13 pour rénovation majeure). Un préavis verbal n'est pas valide.</p>
+          <h2 id="leave">Si vous voulez partir</h2>
+          <p>Sur un bail mensuel, donnez un <strong>préavis écrit de 60 jours</strong> se terminant le dernier jour d'un mois de loyer (formulaire N9).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="Bail qui se termine bient\u00f4t?" lead="Envoyez-moi vos options \u2014 je vous dirai en 10 minutes si rester, ren\u00e9gocier ou d\u00e9m\u00e9nager est le bon choix." />
+  <LFooter />
+</BaseLayout>

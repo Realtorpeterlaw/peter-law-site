@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+---
+<BaseLayout title="\u0424\u043e\u0440\u043c\u044b N \u2014 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f LTB \u041e\u043d\u0442\u0430\u0440\u0438\u043e | Peter Law" description="\u041f\u0440\u043e\u0441\u0442\u043e\u0439 \u0433\u0438\u0434 \u043f\u043e \u0444\u043e\u0440\u043c\u0430\u043c N \u0421\u043e\u0432\u0435\u0442\u0430 \u043f\u043e \u0430\u0440\u0435\u043d\u0434\u0435 \u041e\u043d\u0442\u0430\u0440\u0438\u043e." lang="ru" bodyClass="ru">
+  <LTopBar />
+  <LHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Ресурс аренды</div>
+      <h1>Формы N — уведомления LTB.</h1>
+      <p>Официальные формы Онтарио для юридических уведомлений — повышения, прекращения, взаимные соглашения.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#intro">Что такое формы N</a></li>
+          <li><a href="#landlord">Уведомления арендодателя</a></li>
+          <li><a href="#tenant">Уведомления арендатора</a></li>
+          <li><a href="#mutual">Взаимные соглашения</a></li>
+          <li><a href="#download">Где скачать</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="intro">Что такое формы N</h2>
+          <p>Формы N — официальные уведомления <strong>Совета по аренде (LTB)</strong> Онтарио. Используются арендаторами и арендодателями для юридических уведомлений по <em>Закону об аренде жилья</em>.</p>
+          <h2 id="landlord">Уведомления арендодателя</h2>
+          <p><strong>N1</strong> — Уведомление о повышении арендной платы (90 дней). <strong>N4</strong> — Уведомление за неуплату (14 дней). <strong>N5</strong> — Уведомление о повреждениях/жалобах. <strong>N12</strong> — Арендодателю нужно для личного использования (60 дней). <strong>N13</strong> — Крупный ремонт или снос.</p>
+          <h2 id="tenant">Уведомления арендатора</h2>
+          <p><strong>N9</strong> — Уведомление арендатора о прекращении (60 дней). <strong>N15</strong> — Прекращение из-за домашнего насилия (28 дней).</p>
+          <h2 id="mutual">Взаимные соглашения</h2>
+          <p><strong>N11</strong> — Взаимное соглашение о прекращении аренды. Подписывается обеими сторонами.</p>
+          <h2 id="download">Где скачать</h2>
+          <p>Всегда используйте официальную версию с <a href="https://tribunalsontario.ca/ltb/" target="_blank" rel="noopener">Tribunals Ontario</a>. Неофициальные версии могут быть отклонены.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="\u041f\u043e\u043b\u0443\u0447\u0438\u043b\u0438 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435?" lead="\u041e\u0442\u043f\u0440\u0430\u0432\u044c\u0442\u0435 \u0444\u043e\u0440\u043c\u0443 \u2014 \u0437\u0430 10 \u043c\u0438\u043d\u0443\u0442 \u043f\u0440\u043e\u0432\u0435\u0440\u044e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u0438 \u0441\u043a\u0430\u0436\u0443, \u0447\u0442\u043e \u0434\u0435\u043b\u0430\u0442\u044c \u0434\u0430\u043b\u044c\u0448\u0435." />
+  <LFooter />
+</BaseLayout>

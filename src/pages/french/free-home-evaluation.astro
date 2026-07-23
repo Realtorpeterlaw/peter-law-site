@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+import LCTA from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="\u00c9valuation gratuite \u2014 Combien vaut votre propri\u00e9t\u00e9? | Peter Law" description="Obtenez une \u00e9valuation gratuite et sans engagement de la valeur actuelle de votre propri\u00e9t\u00e9 \u00e0 Toronto. CMA d\u00e9taill\u00e9e livr\u00e9e en 48 heures." lang="fr" bodyClass="fr">
+  <LTopBar />
+  <LHeader active="sellers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Évaluation gratuite</div>
+      <h1>Combien vaut réellement votre maison aujourd'hui?</h1>
+      <p>Une analyse comparative de marché détaillée par un courtier immobilier qui connaît votre quartier. Gratuite, sans engagement, livrée en 48 heures.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>—</h4>
+          <ul>          <li><a href="#what">Ce que vous obtenez</a></li>
+          <li><a href="#how">Comment ça marche</a></li>
+          <li><a href="#why">Pourquoi passer par moi</a></li>
+          <li><a href="#form">Demander votre évaluation</a></li></ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">Ce que vous obtenez</h2>
+          <p><strong>Une CMA détaillée</strong> — ventes récentes de propriétés comparables dans un rayon de 1 km, ajustées pour la taille, l'état, les commodités. <strong>Une fourchette de prix réaliste</strong> — bas, attendu, ambitieux. <strong>Recommandations pour maximiser la valeur</strong>. <strong>Un délai honnête</strong> — combien de temps prennent les ventes similaires.</p>
+          <h2 id="how">Comment ça marche</h2>
+          <p>1. Vous remplissez le formulaire ci-dessous (~3 min). 2. Je récupère les données de ventes TRREB et les inscriptions actives. 3. Rapide passage sur place ou virtuel dans les 24 heures. 4. Rapport CMA livré par courriel dans les 48 heures.</p>
+          <h2 id="why">Pourquoi passer par moi</h2>
+          <p>Je suis un représentant commercial inscrit RECO chez HomeLife Golconda. Je ne facture rien pour une CMA parce que 30% des vendeurs qui reçoivent une évaluation honnête finissent par m'engager pour la vente. Pas de mise à niveau, pas de piège.</p>
+          <h2 id="form">Demander votre évaluation</h2>
+          <p>Utilisez le formulaire de contact ci-dessous ou <a href="/french/contact">envoyez-moi un message direct</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="Pr\u00eat \u00e0 conna\u00eetre la vraie valeur?" lead="Envoyez l'adresse, je reviens dans les 48 heures avec la CMA compl\u00e8te \u2014 m\u00eame si vous vendez dans deux ans." />
+  <LFooter />
+</BaseLayout>
