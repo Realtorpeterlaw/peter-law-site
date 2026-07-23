@@ -548,7 +548,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 }
 .logo:hover .logo-home-hint { color: var(--ink-soft); }
 @media (max-width: 720px) {
-  .logo { padding: 6px 10px 8px; }
+  .logo { padding: 5px 8px 6px; border-radius: 4px; }
 }
 
 /* COMPREHENSIVE MORTGAGE CALCULATOR */
