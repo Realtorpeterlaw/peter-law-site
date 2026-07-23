@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+export const prerender = true;
+---
+<BaseLayout title="Calculateur d'abordabilité locative | Peter Law" description="Entrez votre revenu et vos coûts mensuels. Voyez instantanément si le loyer est dans la zone confortable, tendue, ou trop élevée." lang="fr" bodyClass="fr calc-page">
+
+  <FrenchTopBar />
+  <FrenchHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Calculateur de location</div>
+      <h1>Abordabilité locative</h1>
+      <p>Entrez les variables ci-dessous.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+        <div class="ac-inputs">
+          <div class="ac-input-group"><label>1. Combien gagnez-vous par mois? <span class="hint">Avant impôts.</span></label><div class="input-prefix"><input type="number" id="rc-income" value="6500" min="0" step="100" /></div></div>
+          <div class="ac-input-group"><label>2. Coût mensuel du loyer</label><div class="input-prefix"><input type="number" id="rc-rent" value="2200" min="0" step="50" /></div></div>
+          <div class="ac-section-h ac-inline-h">Dépenses mensuelles</div>
+          <div class="ac-input-group"><label>3. Internet <span class="hint">Frais Internet approximatifs, 55 $ à 100 $ par mois.</span></label><div class="input-prefix"><input type="number" id="rc-internet" value="80" min="0" step="5" /></div></div>
+          <div class="ac-input-group"><label>4. Assurance responsabilité locataire <span class="hint">15 $ à 30 $ par mois.</span></label><div class="input-prefix"><input type="number" id="rc-insurance" value="22" min="0" step="1" /></div></div>
+          <div class="ac-input-group"><label>5. Services publics <span class="hint">Frais approximatifs, 60 $ à 100 $ par mois.*</span></label><div class="input-prefix"><input type="number" id="rc-utilities" value="100" min="0" step="5" /></div></div>
+          <p class="rc-hint-note">*Chaque condo ou appartement est différent MAIS toutes les unités d'un immeuble partagent le même fournisseur de services publics.<br /><br />Certains immeubles incluent le chauffage, l'eau, et dans de rares cas, l'Internet ou tous les services publics. Vérifiez auprès de votre agent immobilier.</p>
+        </div>
+        <div class="ac-results">
+          <div class="rc-meter-card">
+            <div class="rc-meter-head"><div class="rc-meter-title">Logement en % de votre revenu</div><div class="rc-meter-pct"><span id="rc-meter-pct">0%</span></div></div>
+            <div class="rc-meter-bar" aria-hidden="true"><div class="rc-meter-fill" id="rc-meter-fill" style="width:0%"></div><div class="rc-meter-tick" style="left:30%"><span class="rc-meter-tick-label" style="left:50%;">30%</span></div><div class="rc-meter-tick" style="left:40%"><span class="rc-meter-tick-label" style="left:50%;">40%</span></div></div>
+            <div class="rc-meter-tiers"><span class="tier-safe">Zone sûre</span><span class="tier-tight">Tendu</span><span class="tier-over">Trop élevé</span></div>
+          </div>
+          <div class="ac-headline">
+            <div class="ac-headline-item"><div class="ac-headline-label">Coût mensuel total du logement</div><div class="ac-headline-value" id="rc-out-total">0 $</div><div class="ac-headline-sub">Loyer + Internet + assurance + services publics.</div></div>
+            <div class="ac-headline-item"><div class="ac-headline-label">Reste après logement</div><div class="ac-headline-value" id="rc-leftover">0 $</div><div class="ac-headline-sub">Par mois, pour tout le reste.</div></div>
+          </div>
+          <div class="rc-verdict" id="rc-verdict"><div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div><div class="rc-verdict-body"><div class="rc-verdict-title" id="rc-verdict-title">Entrez vos chiffres ci-dessus.</div><div class="rc-verdict-sub" id="rc-verdict-sub">Sous 30% du revenu en logement est la zone sûre. Entre 30% et 40% est tendu. Plus de 40% et la plupart des propriétaires refusent.</div></div></div>
+          <h3 class="ac-section-h">Où va l'argent</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>Loyer</span><strong id="rc-out-rent">0 $</strong></div>
+            <div class="ac-row"><span>Internet</span><strong id="rc-out-internet">0 $</strong></div>
+            <div class="ac-row"><span>Assurance responsabilité locataire</span><strong id="rc-out-insurance">0 $</strong></div>
+            <div class="ac-row"><span>Services publics</span><strong id="rc-out-utilities">0 $</strong></div>
+            <div class="ac-row ac-row-total"><span>Coût mensuel total du logement</span><strong id="rc-out-total-2">0 $</strong></div>
+          </div>
+          <p class="calc-disclaimer">Chiffres indicatifs. La plupart des propriétaires torontois utilisent 30-33% du revenu mensuel brut comme seuil d'abordabilité. Voir l'<a href="/disclaimer#calculators">Avis de non-responsabilité</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection heading="Pas sûr qu'une inscription vous convienne?" lead="Envoyez-moi l'adresse et votre revenu — je vous dirai honnêtement si le propriétaire va accepter et si le prix est juste." />
+  <FrenchFooter />
+
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'0 $';return n.toLocaleString('fr-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      const IC='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 33 L28 43 L46 23" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      const IW='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="32" y1="18" x2="32" y2="36" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="3.6" fill="currentColor"/></svg>';
+      const IX='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"/><line x1="20" y1="20" x2="44" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><line x1="44" y1="20" x2="20" y2="44" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>';
+      const $=id=>document.getElementById(id);
+      ['rc-income','rc-rent','rc-internet','rc-insurance','rc-utilities'].forEach(id=>{const el=$(id); if(!el)return; el.addEventListener('input',calc); el.addEventListener('change',calc);});
+      function calc(){
+        const inc=Math.max(0,parseFloat($('rc-income').value)||0);
+        const r=Math.max(0,parseFloat($('rc-rent').value)||0);
+        const i=Math.max(0,parseFloat($('rc-internet').value)||0);
+        const ins=Math.max(0,parseFloat($('rc-insurance').value)||0);
+        const u=Math.max(0,parseFloat($('rc-utilities').value)||0);
+        const tot=r+i+ins+u; const pct=inc>0?tot/inc*100:0; const lo=inc-tot;
+        const cl=Math.max(0,Math.min(100,pct));
+        const f=$('rc-meter-fill'); f.style.width=cl.toFixed(1)+'%'; f.classList.remove('tier-yellow','tier-red');
+        if(pct>40)f.classList.add('tier-red'); else if(pct>30)f.classList.add('tier-yellow');
+        $('rc-meter-pct').textContent=pct.toFixed(1)+'%';
+        $('rc-out-total').textContent=fmt(tot); $('rc-out-total-2').textContent=fmt(tot); $('rc-leftover').textContent=fmt(lo);
+        $('rc-out-rent').textContent=fmt(r); $('rc-out-internet').textContent=fmt(i); $('rc-out-insurance').textContent=fmt(ins); $('rc-out-utilities').textContent=fmt(u);
+        const v=$('rc-verdict'), ie=$('rc-verdict-icon'); let t,su,cls,ic;
+        if(inc<=0||r<=0){t='Entrez vos chiffres ci-dessus.'; su='Sous 30% du revenu en logement est la zone sûre. Entre 30% et 40% est tendu. Plus de 40% et la plupart des propriétaires refusent.'; cls='rc-verdict-neutral'; ic='';}
+        else if(pct<=30){t='Oui — vous pouvez vous permettre ce loyer.'; su='Logement à '+pct.toFixed(1)+'% de votre revenu — dans la zone sûre. Les propriétaires acceptent ces demandes couramment.'; cls='rc-verdict-green'; ic=IC;}
+        else if(pct<=40){t='Tendu. Faisable mais vous le sentirez.'; su='Logement à '+pct.toFixed(1)+'% de votre revenu — au-dessus de la ligne de confort de 30% mais encore accessible. Le propriétaire peut demander un garant ou plusieurs mois payés d\'avance.'; cls='rc-verdict-yellow'; ic=IW;}
+        else{t='Possible, mais parlez-en avec votre agent.'; su='Logement à '+pct.toFixed(1)+'% de votre revenu — la plupart des propriétaires refusent à ce ratio. Exceptions : garant, mois d\'avance, bail corporatif, excellent crédit. Discutez avec un agent avant de postuler.'; cls='rc-verdict-red'; ic=IX;}
+        v.classList.remove('rc-verdict-neutral','rc-verdict-green','rc-verdict-yellow','rc-verdict-red'); v.classList.add(cls);
+        ie.innerHTML=ic; $('rc-verdict-title').textContent=t; $('rc-verdict-sub').textContent=su;
+      }
+      calc();
+    })();
+  </script>
+</BaseLayout>

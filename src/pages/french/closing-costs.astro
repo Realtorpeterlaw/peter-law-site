@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="Frais de clôture à Toronto — la liste complète | Peter Law" description="La vraie liste des frais de clôture pour un achat immobilier à Toronto : droits de mutation, avocat, titre, ajustements. Estimez votre argent comptant nécessaire." lang="fr" bodyClass="fr">
+
+  <FrenchTopBar />
+  <FrenchHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Acheteurs · Frais de clôture</div>
+      <h1>Frais de clôture — le tableau complet.</h1>
+      <p>Le prix d'achat n'est qu'une partie de l'histoire. Les frais de clôture représentent typiquement 3-5% du prix pour un premier acheteur à Toronto. Voici la liste complète.</p>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Types de frais</h4>
+          <ul>
+            <li><a href="#ltt">Droits de mutation</a></li>
+            <li><a href="#legal">Frais juridiques</a></li>
+            <li><a href="#title">Titre et enregistrement</a></li>
+            <li><a href="#adjustments">Ajustements</a></li>
+            <li><a href="#other">Autres frais</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="ltt">Droits de mutation immobilière</h2>
+          <p>Le plus gros poste. LTT provincial de l'Ontario + LTT municipal si la propriété est dans la Ville de Toronto. Pour un achat de 900 000 $ à Toronto par un premier acheteur : environ 21 000 $ après remboursement.</p>
+          <h2 id="legal">Frais juridiques</h2>
+          <p>Comptez 1 500 à 2 500 $ pour un avocat immobilier expérimenté. Cela inclut la révision du contrat, la recherche de titre, l'enregistrement, et le décaissement à la clôture. Ne magasinez pas au rabais ici — un mauvais avocat coûte plus cher plus tard.</p>
+          <h2 id="title">Assurance titre et enregistrement</h2>
+          <p>L'assurance titre (300-500 $) vous protège contre les défauts non détectés dans le titre. Les frais d'enregistrement (environ 80 $) et de recherche de titre (150-300 $) s'ajoutent.</p>
+          <h2 id="adjustments">Ajustements</h2>
+          <p>Vous remboursez au vendeur les taxes foncières et les frais de copropriété qu'il a payés d'avance pour la période après votre prise de possession. Généralement 500 à 2 000 $ selon la date de clôture dans le cycle de facturation.</p>
+          <h2 id="other">Autres frais possibles</h2>
+          <p>Inspection (300-500 $), estimation par le prêteur si demandée (300-500 $), déménagement (1 000-3 000 $), assurance habitation (250-500 $ pour la première année), branchement des services publics. Prévoyez également un coussin de 3 000-5 000 $ pour l'imprévu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection />
+  <FrenchFooter />
+</BaseLayout>

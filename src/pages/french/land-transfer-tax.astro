@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+export const prerender = true;
+---
+<BaseLayout title="Droits de mutation immobilière — Ontario + Toronto | Peter Law" description="Calculez vos droits de mutation immobilière (LTT) provinciaux et municipaux à Toronto. Remboursement pour premier acheteur inclus. Basé sur les barèmes 2026." lang="fr" bodyClass="fr calc-page">
+
+  <FrenchTopBar />
+  <FrenchHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Acheteurs · Droits de mutation</div>
+      <h1>Droits de mutation immobilière</h1>
+      <p>Chaque achat immobilier en Ontario est assujetti aux droits de mutation provinciaux. Les acheteurs à Toronto paient également le droit municipal (MLTT). Les premiers acheteurs reçoivent un remboursement partiel.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="calc">
+        <div class="calc-fields">
+          <div class="calc-field calc-field-full">
+            <label for="ltt-price">Prix d'achat</label>
+            <div class="input-prefix"><input type="number" id="ltt-price" value="900000" min="0" step="5000" /></div>
+          </div>
+          <div class="calc-field">
+            <label for="ltt-toronto">Emplacement</label>
+            <select id="ltt-toronto">
+              <option value="yes" selected>Ville de Toronto</option>
+              <option value="no">Reste de l'Ontario</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ltt-fthb">Premier acheteur?</label>
+            <select id="ltt-fthb">
+              <option value="yes" selected>Oui</option>
+              <option value="no">Non</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-main"><span class="label">Total à payer</span><span id="ltt-total">0 $</span></div>
+          <div class="calc-result-breakdown">
+            <div class="row"><span>LTT provincial (Ontario)</span><strong id="ltt-ont">0 $</strong></div>
+            <div class="row" id="ltt-mltt-row"><span>LTT municipal (Toronto)</span><strong id="ltt-mltt">0 $</strong></div>
+            <div class="row" id="ltt-rebate-row" style="display:none;"><span>Remboursement premier acheteur</span><strong id="ltt-rebate">−0 $</strong></div>
+          </div>
+        </div>
+        <p class="calc-disclaimer">À titre indicatif seulement. Les barèmes 2026 sont utilisés. Consultez votre avocat pour les chiffres finaux à la clôture.</p>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection />
+  <FrenchFooter />
+
+  <script is:inline>
+    (function(){
+      function fmt(n){ return (n||0).toLocaleString('fr-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}); }
+      function ontLTT(p){ if(p<=0)return 0; let t=0; const b=[[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]]; let lo=0; for(const[u,r]of b){if(p>lo){const x=Math.min(p,u)-lo; if(x>0)t+=x*r;} lo=u;} if(p>2000000)t+=(p-2000000)*0.025; return t;}
+      function torMLTT(p){ if(p<=0)return 0; let t=0; const b=[[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]]; let lo=0; for(const[u,r]of b){if(p>lo){const x=Math.min(p,u)-lo; if(x>0)t+=x*r;} lo=u;} if(p>2000000){const lux=[[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]]; let l=2000000; for(const[u,r]of lux){if(p>l){const x=Math.min(p,u)-l; if(x>0)t+=x*r;} l=u;} if(p>20000000)t+=(p-20000000)*0.075;} return t;}
+      function calc(){ const p=parseFloat(document.getElementById('ltt-price').value)||0; const isTo=document.getElementById('ltt-toronto').value==='yes'; const fthb=document.getElementById('ltt-fthb').value==='yes'; const ont=ontLTT(p); const mltt=isTo?torMLTT(p):0; let reb=0; if(fthb){reb=Math.min(ont,4000); if(isTo)reb+=Math.min(mltt,4475);} const total=Math.max(0,ont+mltt-reb); document.getElementById('ltt-total').textContent=fmt(total); document.getElementById('ltt-ont').textContent=fmt(ont); document.getElementById('ltt-mltt').textContent=fmt(mltt); document.getElementById('ltt-mltt-row').style.display=isTo?'':'none'; if(reb>0){document.getElementById('ltt-rebate-row').style.display=''; document.getElementById('ltt-rebate').textContent='−'+fmt(reb);}else{document.getElementById('ltt-rebate-row').style.display='none';} }
+      ['ltt-price','ltt-toronto','ltt-fthb'].forEach(id=>{const el=document.getElementById(id); el.addEventListener('input',calc); el.addEventListener('change',calc);}); calc();
+    })();
+  </script>
+</BaseLayout>

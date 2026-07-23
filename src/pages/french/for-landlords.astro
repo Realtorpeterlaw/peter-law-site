@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="Pour propriétaires — Peter Law · Location à Toronto" description="Vous louez votre propriété à Toronto? Voici comment je trouve un locataire AAA, prépare un bail solide, et minimise vos vacances." lang="fr" bodyClass="fr">
+
+  <FrenchTopBar />
+  <FrenchHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Location · Propriétaires</div>
+      <h1>Louez plus vite. Avec le bon locataire.</h1>
+      <p>La vitesse et l'exhaustivité gagnent les inscriptions. Un dossier de locataire préqualifié — vérification de crédit, revenu confirmé, référence — arrive dans les 48 heures d'une visite bien orchestrée.</p>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Sommaire</h4>
+          <ul>
+            <li><a href="#pricing">Prix</a></li>
+            <li><a href="#staging">Mise en marché</a></li>
+            <li><a href="#screening">Sélection du locataire</a></li>
+            <li><a href="#lease">Le bail</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="pricing">Prix</h2>
+          <p>Trop bas, vous laissez de l'argent sur la table. Trop haut, votre unité stagne pendant 6 semaines et vous perdez un mois de loyer complet. Je vous donne une fourchette basée sur les comparables MLS® du dernier trimestre dans votre immeuble.</p>
+          <h2 id="staging">Mise en marché</h2>
+          <p>Photographie professionnelle, description SEO en anglais et en français, distribution sur TRREB / MLS® / Realtor.ca + réseaux privés. Les meilleures inscriptions génèrent 15 à 25 demandes de visite dans les 72 heures.</p>
+          <h2 id="screening">Sélection du locataire</h2>
+          <p>Je passe en revue chaque demande : lettre d'emploi, relevés de paie récents, rapport de crédit (via SingleKey ou équivalent), référence du propriétaire précédent. Je vous transmets uniquement les candidats sérieux — trois options triées, pas quinze piles à démêler.</p>
+          <h2 id="lease">Le bail</h2>
+          <p>Bail standard de l'Ontario (Formulaire 2229E) rempli correctement, avec les annexes appropriées. Je révise chaque clause avec vous, y compris le dépôt de garantie (limité au premier + dernier mois selon la RTA), les règles concernant les animaux, l'entretien, et la sous-location.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection heading="Prêt à louer votre propriété?" lead="Envoyez-moi l'adresse et les caractéristiques principales. Je reviens dans les 24 heures avec un prix cible et un plan de mise en marché." />
+  <FrenchFooter />
+</BaseLayout>

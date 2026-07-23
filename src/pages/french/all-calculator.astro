@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+export const prerender = true;
+---
+<BaseLayout title="Calculateur ACHAT — hypothèque, LTT, CMHC, frais de clôture | Peter Law" description="Une page. Entrez votre revenu, le prix de la maison et votre mise de fonds. Voyez votre paiement mensuel, les droits de mutation, l'assurance hypothécaire, les frais de clôture." lang="fr" bodyClass="fr calc-page">
+
+  <FrenchTopBar />
+  <FrenchHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Calculateur ACHAT</div>
+      <h1>Générateur de calcul simple et facile</h1>
+      <p>Contactez PETER pour plus d'information sur l'ACHAT et le FINANCEMENT. Un courtier hypothécaire peut être conseillé.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="ac-shell">
+        <div class="ac-inputs">
+          <div class="ac-input-group"><label>1. Combien gagnez-vous par année? <span class="hint">Avant impôts.</span></label><div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" /></div></div>
+          <div class="ac-input-group"><label>2. Prix d'achat ACCEPTÉ <span class="hint">Condo, maison de ville ou maison.</span></label><div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" /></div></div>
+          <div class="ac-input-group"><label>3. Mise de fonds <span class="hint">Idéalement 20-25% du prix d'achat.</span></label><div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" /></div></div>
+          <div class="ac-input-group ac-checkbox-group"><label class="ac-checkbox"><input type="checkbox" id="ac-fthb" checked /><span class="ac-checkbox-text">Je suis un premier acheteur <span class="hint">Vous obtenez un remboursement sur les droits de mutation.</span></span></label></div>
+          <div class="ac-input-group"><label>4. Type de propriété <span class="hint">Détermine les coûts mensuels applicables.</span></label><select id="ac-proptype"><option value="freehold" selected>Franche tenure (Maison)</option><option value="freehold-hoa">Franche tenure avec HOA</option><option value="condo">Condo</option></select></div>
+          <div class="ac-input-group" id="ac-tax-row"><label>5. Taxes foncières <span class="hint">Par mois. Laissez vide pour une estimation à 0.7% du prix / an.</span></label><div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="ex. 400" /></div></div>
+          <div class="ac-input-group" id="ac-fee-row" style="display:none;"><label id="ac-fee-label">6. Frais HOA <span class="hint">Par mois.</span></label><div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="ex. 150" /></div></div>
+          <details class="ac-more"><summary>Plus d'options</summary><div class="ac-more-body">
+            <div class="ac-input-group"><label>Taux hypothécaire <span class="hint">5% est normal en 2026.</span></label><div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" /></div></div>
+            <div class="ac-input-group"><label>Amortissement</label><select id="ac-amort"><option value="20">20 ans</option><option value="25" selected>25 ans</option><option value="30">30 ans (si &lt;20% mise de fonds &amp; premier acheteur)</option></select></div>
+            <div class="ac-input-group"><label>Où se trouve la propriété?</label><select id="ac-location"><option value="toronto" selected>Ville de Toronto</option><option value="ontario">Reste de l'Ontario</option></select></div>
+          </div></details>
+        </div>
+        <div class="ac-results">
+          <div class="ac-headline">
+            <div class="ac-headline-item"><div class="ac-headline-label">Votre paiement mensuel</div><div class="ac-headline-value" id="ac-monthly">0 $</div><div class="ac-headline-sub">Hypothèque seulement. Voir la répartition pour le coût mensuel total.</div></div>
+            <div class="ac-headline-item"><div class="ac-headline-label">Argent nécessaire à la clôture</div><div class="ac-headline-value" id="ac-cash">0 $</div><div class="ac-headline-sub">Mise de fonds + droits de mutation + avocat + ajustements.</div></div>
+          </div>
+          <div class="ac-verdict" id="ac-verdict"><span class="ac-verdict-dot"></span><div><div class="ac-verdict-title" id="ac-verdict-title">Entrez vos chiffres ci-dessus.</div><div class="ac-verdict-sub" id="ac-verdict-sub">La banque examine quelle part de votre revenu va au logement. Sous 32% est sécuritaire. Plus de 39% et la banque refuse probablement.</div></div></div>
+          <h3 class="ac-section-h">Où va l'argent</h3>
+          <div class="ac-breakdown">
+            <div class="ac-row"><span>Mise de fonds</span><strong id="ac-down">0 $</strong></div>
+            <div class="ac-row"><span>Hypothèque totale</span><strong id="ac-mortgage">0 $</strong></div>
+            <div class="ac-row"><span>Assurance SCHL <em class="ac-note" id="ac-cmhc-note"></em></span><strong id="ac-cmhc">0 $</strong></div>
+            <div class="ac-row"><span>LTT Ontario</span><strong id="ac-ltt-on">0 $</strong></div>
+            <div class="ac-row" id="ac-ltt-mltt-row"><span>LTT Toronto</span><strong id="ac-ltt-mltt">0 $</strong></div>
+            <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>Remboursement premier acheteur</span><strong id="ac-ltt-rebate">−0 $</strong></div>
+            <div class="ac-row" id="ac-mo-taxrow"><span>Taxes foncières mensuelles estimées</span><strong id="ac-mo-tax">0 $</strong></div>
+            <div class="ac-row" id="ac-mo-feerow" style="display:none;"><span id="ac-mo-feelbl">HOA / frais de copropriété mensuels</span><strong id="ac-mo-fee">0 $</strong></div>
+            <div class="ac-row"><span>Frais juridiques + titre + ajustements <em class="ac-note">approximatif</em></span><strong id="ac-legal">0 $</strong></div>
+            <div class="ac-row ac-row-total"><span>Total approximatif à la clôture</span><strong id="ac-total-cash">~0 $</strong></div>
+          </div>
+          <p class="calc-disclaimer">Chiffres indicatifs. Voir <a href="/disclaimer#calculators">Avis de non-responsabilité</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection />
+  <FrenchFooter />
+
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'0 $';return n.toLocaleString('fr-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      function pRate(r,n){const s=r/200;return Math.pow(1+s,2/n)-1;}
+      function mPay(p,r,y){if(p<=0||y<=0)return 0;const rr=pRate(r,12),n=y*12;if(rr===0)return p/n;return p*rr/(1-Math.pow(1+rr,-n));}
+      function cmhc(l){if(l>95)return null;if(l>90)return .04;if(l>85)return .031;if(l>80)return .028;return 0;}
+      function minDp(p){if(p>1500000)return p*.2;if(p<=500000)return p*.05;return 500000*.05+(p-500000)*.1;}
+      function ontLTT(p){if(p<=0)return 0;let t=0;const b=[[55000,.005],[250000,.01],[400000,.015],[2000000,.02]];let lo=0;for(const[u,r]of b){if(p>lo){const x=Math.min(p,u)-lo;if(x>0)t+=x*r;}lo=u;}if(p>2000000)t+=(p-2000000)*.025;return t;}
+      function torMLTT(p){if(p<=0)return 0;let t=0;const b=[[55000,.005],[250000,.01],[400000,.015],[2000000,.02]];let lo=0;for(const[u,r]of b){if(p>lo){const x=Math.min(p,u)-lo;if(x>0)t+=x*r;}lo=u;}if(p>2000000){const lx=[[3000000,.025],[4000000,.035],[5000000,.045],[10000000,.055],[20000000,.065]];let l=2000000;for(const[u,r]of lx){if(p>l){const x=Math.min(p,u)-l;if(x>0)t+=x*r;}l=u;}if(p>20000000)t+=(p-20000000)*.075;}return t;}
+      const FT_ONT=4000,FT_TOR=4475;
+      const $=id=>document.getElementById(id);
+      ['ac-income','ac-price','ac-savings','ac-rate','ac-amort','ac-location','ac-fthb','ac-proptype','ac-proptax','ac-fee'].forEach(id=>{const el=$(id);if(!el)return;el.addEventListener('input',calc);el.addEventListener('change',calc);});
+      function calc(){
+        const inc=Math.max(0,parseFloat($('ac-income').value)||0);
+        const p=Math.max(0,parseFloat($('ac-price').value)||0);
+        const s=Math.max(0,parseFloat($('ac-savings').value)||0);
+        const r=Math.max(0,parseFloat($('ac-rate').value)||0);
+        const am=parseInt($('ac-amort').value,10)||25;
+        const loc=$('ac-location').value;
+        const fthb=$('ac-fthb').checked;
+        const pt=$('ac-proptype').value;
+        const ptx=parseFloat($('ac-proptax').value);
+        const fee=parseFloat($('ac-fee').value);
+        const fr=$('ac-fee-row'),fl=$('ac-fee-label');
+        if(pt==='freehold')fr.style.display='none';
+        else if(pt==='freehold-hoa'){fr.style.display='';fl.innerHTML='6. Frais HOA <span class="hint">Par mois.</span>';}
+        else{fr.style.display='';fl.innerHTML='6. Frais de copropriété <span class="hint">Par mois. Demandez avant de signer — certains incluent chauffage, eau, ou électricité.</span>';}
+        const mDp=minDp(p),ds=Math.min(s,p),sh=Math.max(0,mDp-ds),ad=ds;
+        const ltv=p>0?(p-ad)/p*100:0,pr=cmhc(ltv);
+        const bl=Math.max(0,p-ad);
+        const cp=(pr!==null&&pr>0)?bl*pr:0;
+        const tm=bl+cp,m=mPay(tm,r,am);
+        const ot=ontLTT(p),mt=loc==='toronto'?torMLTT(p):0;
+        let re=0;if(fthb){re=Math.min(ot,FT_ONT);if(loc==='toronto')re+=Math.min(mt,FT_TOR);}
+        const tl=Math.max(0,ot+mt-re),le=2500,ctc=ad+tl+le;
+        const sr=Math.max(r+2,5.25),sp=mPay(tm,sr,am);
+        const mi=inc/12,ptm=(isFinite(ptx)&&ptx>=0)?ptx:(p*.007/12);
+        const of=(isFinite(fee)&&fee>=0&&pt!=='freehold')?fee:0;
+        const hm=pt==='condo'?0:150;
+        const gds=mi>0?(sp+ptm+of+hm)/mi*100:0;
+        $('ac-monthly').textContent=fmt(m);$('ac-cash').textContent=fmt(ctc);
+        $('ac-down').textContent=fmt(ad);$('ac-mortgage').textContent=fmt(tm);$('ac-cmhc').textContent=fmt(cp);
+        $('ac-cmhc-note').textContent=pr===null?'(non autorisée — 5% de plus nécessaire)':pr===0?'(mise de fonds 20%+ — assurance non requise)':'('+(pr*100).toFixed(2)+'% du prêt)';
+        $('ac-ltt-on').textContent=fmt(ot);$('ac-ltt-mltt').textContent=fmt(mt);$('ac-ltt-mltt-row').style.display=loc==='toronto'?'':'none';
+        if(re>0){$('ac-ltt-rebate-row').style.display='';$('ac-ltt-rebate').textContent='−'+fmt(re);}else{$('ac-ltt-rebate-row').style.display='none';}
+        $('ac-mo-tax').textContent=fmt(ptm)+'/mois';
+        const frb=$('ac-mo-feerow');if(pt==='freehold')frb.style.display='none';else{frb.style.display='';$('ac-mo-feelbl').textContent=pt==='condo'?'Frais de copropriété mensuels':'Frais HOA mensuels';$('ac-mo-fee').textContent=fmt(of)+'/mois';}
+        $('ac-legal').textContent=fmt(le);$('ac-total-cash').textContent='~'+fmt(ctc);
+        let vt,vs,vc;
+        if(inc<=0||p<=0){vt='Entrez vos chiffres ci-dessus.';vs='La banque examine quelle part de votre revenu va au logement. Sous 32% est sécuritaire.';vc='ac-verdict-neutral';}
+        else if(pr===null){vt='Vous avez besoin de plus d\'épargne pour ce prix.';vs='Mise de fonds minimale pour une maison de 1,5 M+ $ est 20%. Vous êtes en dessous. Épargnez plus ou visez un prix plus bas.';vc='ac-verdict-red';}
+        else if(sh>0){vt='Mise de fonds insuffisante.';vs='Il faut '+fmt(mDp)+' minimum. Vous êtes court de '+fmt(sh)+'. La banque ne peut pas approuver.';vc='ac-verdict-red';}
+        else if(gds>39){vt='La banque n\'approuvera probablement pas.';vs='À '+gds.toFixed(1)+'%, le logement mange trop. Essayez un prix plus bas ou plus de mise de fonds.';vc='ac-verdict-red';}
+        else if(gds>32){vt='Tendu. Faisable, mais vous le sentirez.';vs='À '+gds.toFixed(1)+'%, vous êtes dans la limite dure de la banque (39%) mais au-dessus de la zone confortable (32%).';vc='ac-verdict-yellow';}
+        else{vt='Vous pouvez vous permettre cela.';vs='À '+gds.toFixed(1)+'%, le logement est confortablement dans la zone sûre.';vc='ac-verdict-green';}
+        const v=$('ac-verdict');v.classList.remove('ac-verdict-neutral','ac-verdict-green','ac-verdict-yellow','ac-verdict-red');v.classList.add(vc);
+        $('ac-verdict-title').textContent=vt;$('ac-verdict-sub').textContent=vs;
+      }
+      calc();
+    })();
+  </script>
+</BaseLayout>

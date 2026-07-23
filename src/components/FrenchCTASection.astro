@@ -1,0 +1,43 @@
+---
+interface Props {
+  heading?: string;
+  lead?: string;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaLabel?: string;
+}
+const {
+  heading = "Prêt quand vous l'êtes.",
+  lead = "Un appel de 15 minutes. Sans engagement. Je vous dirai exactement à quoi ressemblera votre recherche dans ce marché, ce qu'il faut préparer, et si je suis la bonne personne pour vous aider.",
+  ctaTitle = "Réserver un appel",
+  ctaSubtitle = "15 minutes · Google Meet ou téléphone · Gratuit",
+  ctaLabel = "Choisir un créneau",
+} = Astro.props;
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<section class="cta-section" id="book">
+  <div class="wrap cta-grid">
+    <div>
+      <h2>{heading}</h2>
+      <p>{lead}</p>
+    </div>
+    <div class="cta-box">
+      <h3>{ctaTitle}</h3>
+      <p>{ctaSubtitle}</p>
+      <a href={BOOKING_URL} class="btn-primary">
+        {ctaLabel}
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="alt">Ou texto au 647-888-8472</span>
+    </div>
+  </div>
+  <div class="wrap affiliations">
+    <div class="affiliations-label">Affiliations professionnelles</div>
+    <ul class="affiliations-list">
+      <li><a href="https://trreb.ca/" target="_blank" rel="noopener noreferrer"><span class="aff-name">Toronto Regional Real Estate Board</span><span class="aff-acronym">TRREB</span></a></li>
+      <li><a href="https://www.orea.com/" target="_blank" rel="noopener noreferrer"><span class="aff-name">Ontario Real Estate Association</span><span class="aff-acronym">OREA</span></a></li>
+      <li><a href="https://www.crea.ca/" target="_blank" rel="noopener noreferrer"><span class="aff-name">Association canadienne de l'immeuble</span><span class="aff-acronym">CREA</span></a></li>
+      <li><a href="https://www.reco.on.ca/" target="_blank" rel="noopener noreferrer"><span class="aff-name">Real Estate Council of Ontario</span><span class="aff-acronym">RECO</span></a></li>
+    </ul>
+  </div>
+</section>

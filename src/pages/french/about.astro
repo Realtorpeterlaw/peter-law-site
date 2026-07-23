@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout
+  title="À propos de Peter Law — Immobilier à Toronto"
+  description="Peter Law : né et élevé au centre-ville de Toronto. Ancien hôte Airbnb. Représentant commercial inscrit chez HomeLife Golconda Realty Inc."
+  lang="fr"
+  bodyClass="fr"
+>
+  <FrenchTopBar />
+  <FrenchHeader active="about" ctaLabel="Réserver un appel" />
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">À propos de Peter</div>
+        <h1 class="hero-h">Né et élevé, <em>Torontois.</em></h1>
+        <p class="hero-sub">Torontois du centre-ville, ancien hôte Airbnb, représentant immobilier à temps plein — je vous accompagne du point A au point B, jusqu'à la ligne d'arrivée.</p>
+        <div class="hero-ctas">
+          <a href={BOOKING_URL} class="btn-primary">
+            Parlons-en
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div><div class="hero-photo"><img src="/photos/peter-interior.webp" alt="Peter Law, portrait noir et blanc au centre-ville de Toronto." width="1500" height="1887" loading="eager" /></div></div>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>À propos</h4>
+          <ul>
+            <li><a href="#story">Mon histoire</a></li>
+            <li><a href="#credentials">Qualifications</a></li>
+            <li><a href="#brokerage">Ma maison de courtage</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="story">Mon histoire</h2>
+          <p>Né et élevé au centre-ville de Toronto. Sino-Canadien de naissance. Six (6) ans, à TEMPS PLEIN sur le marché locatif de Toronto. J'ai commencé comme hôte Airbnb, j'ai obtenu ma licence immobilière, puis j'ai bâti une pratique couvrant à la fois la location et la vente. Le travail dans l'hospitalité m'a appris une chose simple : <strong>les gens ne se souviennent pas de la photo de l'annonce. Ils se souviennent s'ils se sont sentis pris en charge.</strong></p>
+          <h2 id="credentials">Qualifications</h2>
+          <p>Représentant commercial inscrit au <strong>Real Estate Council of Ontario (RECO)</strong>. Membre du <strong>Toronto Regional Real Estate Board (TRREB)</strong>, de l'<strong>Ontario Real Estate Association (OREA)</strong> et de l'<strong>Association canadienne de l'immeuble (ACI/CREA)</strong>. Bilingue anglais / chinois.</p>
+          <h2 id="brokerage">Ma maison de courtage</h2>
+          <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong> — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3. Une maison de courtage familiale bien établie avec un solide soutien administratif et juridique, ce qui me permet de me concentrer entièrement sur mes clients.</p>
+          <div class="callout"><strong>Profil public :</strong> <a href="https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-215-markham-ontario-l3r0m3" style="text-decoration: underline; text-underline-offset: 3px;">Consultez ma page REALTOR.ca</a> pour les inscriptions actuelles et les qualifications vérifiées.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection />
+  <FrenchFooter />
+</BaseLayout>

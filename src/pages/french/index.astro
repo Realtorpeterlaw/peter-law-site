@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+---
+<BaseLayout
+  title="Peter Law — Agent immobilier de location à Toronto | Bilingue"
+  description="Peter Law | Agent immobilier bilingue à Toronto. J'aide les locataires à se faire approuver et à emménager sereinement — service complet, de la recherche aux clés. RECO enregistré · 647-888-8472."
+  lang="fr"
+  bodyClass="fr"
+  hreflangAlternates={[
+    { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/' },
+    { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/' },
+    { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french' },
+    { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese' },
+    { hreflang: 'ru', href: 'https://www.realtorpeterlaw.com/russian' },
+    { hreflang: 'ko', href: 'https://www.realtorpeterlaw.com/korean' },
+    { hreflang: 'es', href: 'https://www.realtorpeterlaw.com/spanish' },
+  ]}
+>
+
+  <FrenchTopBar />
+  <FrenchHeader />
+
+  <section class="proof-bar">
+    <div class="wrap proof-grid">
+      <div class="proof-item"><div class="proof-num">$10M+ Ventes</div><div class="proof-lbl">5+ ans d'expérience</div></div>
+      <div class="proof-item"><div class="proof-num"><a class="proof-num-link" href="/">EN · 中文</a></div><div class="proof-lbl">English · Chinese</div></div>
+      <div class="proof-item"><div class="proof-num">RECO</div><div class="proof-lbl">Inscrit en Ontario</div></div>
+      <a class="proof-item proof-link" href="https://www.homelifegolconda.com/" target="_blank" rel="noopener"><div class="proof-num">HomeLife</div><div class="proof-lbl">Golconda Realty Inc.</div></a>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-headline-block">
+        <div class="eyebrow">Toronto · Centre-ville · Waterfront</div>
+        <h1 class="hero-h">La location à Toronto, <em>faite comme il faut.</em></h1>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
+            <div class="quiz-eyebrow">Questionnaire de location</div>
+            <h3 class="quiz-heading">Que recherchez-vous?</h3>
+            <p class="quiz-sub">(Durée minimale de 1 an)</p>
+            <div class="quiz-fields">
+              <div class="quiz-field">
+                <label for="quiz-beds">Chambres*</label>
+                <select id="quiz-beds" name="bedrooms" required>
+                  <option value="">Sélectionner…</option>
+                  <option>Studio</option>
+                  <option>1 CAC</option>
+                  <option>1 CAC + Bureau</option>
+                  <option>2 CAC</option>
+                  <option>3 CAC</option>
+                  <option>4+ CAC</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-baths">Salles de bain*</label>
+                <select id="quiz-baths" name="bathrooms" required>
+                  <option value="">Sélectionner…</option>
+                  <option>1</option><option>1.5</option><option>2</option><option>2.5</option><option>3+</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-parking">Stationnement*</label>
+                <select id="quiz-parking" name="parking" required>
+                  <option value="">Sélectionner…</option>
+                  <option>Pas nécessaire</option>
+                  <option>1 place</option>
+                  <option>2 places</option>
+                  <option>3+ places</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-budget">Budget / mois*</label>
+                <select id="quiz-budget" name="budget" required>
+                  <option value="">Sélectionner…</option>
+                  <option>Moins de 2 000 $</option>
+                  <option>2 000 $ – 2 500 $</option>
+                  <option>2 500 $ – 3 000 $</option>
+                  <option>3 000 $ – 3 500 $</option>
+                  <option>3 500 $ – 4 500 $</option>
+                  <option>4 500 $ et plus</option>
+                </select>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-movein">Date d'emménagement*</label>
+                <input id="quiz-movein" name="move_in_date" type="date" required>
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-notice">Préavis de 60 jours donné au propriétaire?*</label>
+                <select id="quiz-notice" name="landlord_notice_60_days" required>
+                  <option value="">Sélectionner…</option>
+                  <option>Oui</option>
+                  <option>Non</option>
+                  <option>Non applicable</option>
+                </select>
+              </div>
+              <div class="quiz-field quiz-field-full">
+                <label for="quiz-email">Courriel*</label>
+                <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="votre@email.com">
+              </div>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="quiz-gotcha">Ne pas remplir</label>
+              <input id="quiz-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="_subject" value="New Rental Questionnaire (French)">
+            <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+            <button type="submit" class="btn-primary quiz-cta">
+              COMMENCER
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="quiz-cta-alt">
+              <a href="/french/rental-calculator" class="btn-warm quiz-cta-warm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="8" x2="16" y2="8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8.5" cy="12.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="12.5" r="1.2" fill="currentColor"/><circle cx="8.5" cy="16" r="1.2" fill="currentColor"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/><circle cx="15.5" cy="16" r="1.2" fill="currentColor"/></svg>
+                Calculateur de location
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </form>
+        </div>
+        <div>
+          <a href="/french/about" class="hero-photo-link" aria-label="À propos de Peter Law — en savoir plus">
+            <div class="hero-photo">
+              <img src="/photos/peter-portrait.webp" alt="Peter Law, agent immobilier à Toronto, avec la tour CN en arrière-plan." width="1500" height="1887" loading="eager" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchFooter />
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+---
+<BaseLayout title="Guide de l'acheteur — Peter Law · Immobilier à Toronto" description="Guide complet de l'acheteur immobilier à Toronto : préapprobation, offre, inspection, clôture. Chaque étape expliquée en langage simple." lang="fr" bodyClass="fr">
+
+  <FrenchTopBar />
+  <FrenchHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Acheteurs · Guide</div>
+      <h1>Acheter à Toronto — sans surprises.</h1>
+      <p>De la préapprobation à la remise des clés. Chaque étape, ce à quoi s'attendre, ce que vous devez payer, et où on négocie.</p>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Étapes</h4>
+          <ul>
+            <li><a href="#preapproval">Préapprobation</a></li>
+            <li><a href="#search">Recherche</a></li>
+            <li><a href="#offer">Offre</a></li>
+            <li><a href="#inspection">Inspection</a></li>
+            <li><a href="#closing">Clôture</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="preapproval">1. Préapprobation hypothécaire</h2>
+          <p>Avant de visiter, vous devez savoir combien vous pouvez emprunter. Un courtier hypothécaire vous donne une lettre de préapprobation qui verrouille votre taux pendant 90 à 120 jours. Sans elle, votre offre n'a aucun poids face à un vendeur.</p>
+          <h2 id="search">2. Recherche</h2>
+          <p>Je vous crée une liste personnalisée quotidienne : critères, quartier, prix, jours sur le marché. Nous visitons 3 à 5 propriétés par tournée, samedi ou en semaine soir. La plupart des acheteurs visitent 15 à 30 propriétés avant l'offre.</p>
+          <h2 id="offer">3. Offre</h2>
+          <p>À Toronto en 2026, les offres avec conditions (financement, inspection) sont acceptées dans les marchés lents ; les enchères multiples exigent des offres fermes. Je vous conseille sur le prix, les conditions, et le dépôt (généralement 5% du prix d'achat, en chèque certifié).</p>
+          <h2 id="inspection">4. Inspection</h2>
+          <p>Un inspecteur professionnel (300-500 $) évalue la structure, la toiture, la plomberie, l'électricité, le CVC. Pour un condo, il examine aussi le statut de la corporation (fonds de réserve, cotisations spéciales, poursuites).</p>
+          <h2 id="closing">5. Clôture</h2>
+          <p>À la clôture, votre avocat transfère le solde du prix d'achat, paie les droits de mutation immobilière (LTT ontarien + MLTT torontois), et vous remet les clés. Comptez 2 500 à 4 000 $ en frais juridiques et de rajustement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection heading="Prêt à commencer votre recherche?" lead="15 minutes suffisent pour comprendre votre situation, votre budget, et le plan de match." />
+  <FrenchFooter />
+</BaseLayout>

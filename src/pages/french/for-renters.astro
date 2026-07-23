@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+---
+<BaseLayout title="Pour locataires — Peter Law · Location à Toronto" description="Vous cherchez à louer à Toronto? Voici comment je vous aide à vous faire approuver rapidement et à emménager sereinement." lang="fr" bodyClass="fr">
+
+  <FrenchTopBar />
+  <FrenchHeader active="rental" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Location · Locataires</div>
+      <h1>Location à Toronto — approuvé rapidement, emménagement en douceur.</h1>
+      <p>Le marché locatif de Toronto va vite. Une seule journée d'hésitation, et l'unité est partie. Voici comment je vous aide à ne pas rater la bonne, à préparer un dossier gagnant, et à négocier les inclusions.</p>
+    </div>
+  </section>
+
+  <section class="major">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Sommaire</h4>
+          <ul>
+            <li><a href="#search">La recherche</a></li>
+            <li><a href="#application">L'application</a></li>
+            <li><a href="#negotiation">La négociation</a></li>
+            <li><a href="#move-in">L'emménagement</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="search">La recherche</h2>
+          <p>Je vous envoie chaque jour une liste courte, filtrée selon vos critères réels (budget, chambres, quartier, transport, animaux). Pas d'inscriptions expirées, pas de propriétaires louches. Je réserve les visites plus vite que vous ne le pouvez seul, souvent le jour même.</p>
+          <h2 id="application">L'application</h2>
+          <p>Un dossier de locataire faible échoue. Un dossier fort — lettre d'emploi récente, relevés bancaires, cote de crédit, référence du dernier propriétaire — passe. Je prépare votre dossier au format que les propriétaires torontois attendent, avant même la visite. Résultat : votre application arrive complète et propre.</p>
+          <h2 id="negotiation">La négociation</h2>
+          <p>Sur le prix, oui, mais aussi sur les inclusions (chauffage, eau, internet, stationnement) et sur la date d'entrée. Un mois de gratuit sur un bail de 13 mois se négocie dans un immeuble sur trois si vous savez lequel demander.</p>
+          <h2 id="move-in">L'emménagement</h2>
+          <p>Je coordonne la signature, l'état des lieux, le transfert des services publics, et je reste disponible pendant les 30 premiers jours pour toute question. Le locataire moyen loue un logement par tranche de 2-4 ans. Je le fais chaque semaine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection heading="Prêt à commencer votre recherche?" lead="Envoyez-moi vos critères. Je reviens dans les 24 heures avec 5 à 8 unités qui correspondent à votre budget et à votre échéancier." />
+  <FrenchFooter />
+</BaseLayout>
