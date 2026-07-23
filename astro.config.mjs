@@ -15,14 +15,13 @@ export default defineConfig({
         locales: {
           en: 'en-CA',
           chinese: 'zh-CN',
+          french: 'fr-CA',
           russian: 'ru',
-          farsi: 'fa',
-          hindi: 'hi',
           korean: 'ko',
-          japanese: 'ja',
           spanish: 'es',
         },
       },
+      filter: (page) => !page.includes('/contact/thanks'),
     }),
   ],
 });
