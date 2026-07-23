@@ -6,10 +6,23 @@ import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
 import PropertySales from '../../components/PropertySales.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/past-deals/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/past-deals/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/past-deals/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/past-deals/' },
+];
 ---
-<BaseLayout title="Historique des ventes \u2014 Peter Law Immobilier Toronto" description="Un registre des locations et ventes r\u00e9centes conclues par Peter Law dans la r\u00e9gion du Grand Toronto." lang="fr" bodyClass="fr">
+<BaseLayout
+  title="Historique des ventes — Peter Law Immobilier Toronto"
+  description="Un registre des locations et ventes récentes conclues par Peter Law dans la région du Grand Toronto."
+  lang="fr"
+  bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
-  <LHeader active="about" ctaLabel="R\u00e9server un appel" />
+  <LHeader active="about" ctaLabel="Réserver un appel" />
 
   <section class="hero">
     <div class="wrap hero-grid">
@@ -17,19 +30,19 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <div class="eyebrow"><a href="/french/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>À propos</a> · Historique des ventes</div>
         <h1 class="hero-h">Historique des ventes</h1>
         <p class="sale-history-lead">L'historique inclut la représentation de propriétaires, d'acheteurs, de locataires, ou dans certains cas, une combinaison.</p>
-        <p class="sale-history-disc"><em>Les prix, adresses et rôles de représentation reflètent l'information à jour au moment de chaque transaction, provenant des dossiers publics MLS® / TRREB et/ou partagés avec le consentement du client. Les identités des clients restent confidentielles. Les résultats passés ne garantissent pas les résultats futurs. Voir l'<a href='/disclaimer#past-deals'>Avis de non-responsabilité</a>.</em></p>
+        <p class="sale-history-disc"><em>Les prix, adresses et rôles de représentation reflètent l'information à jour au moment de chaque transaction, provenant des dossiers publics MLS® / TRREB et/ou partagés avec le consentement du client. Les identités des clients restent confidentielles. Les résultats passés ne garantissent pas les résultats futurs. Voir l'<a href="/french/disclaimer#past-deals">Avis de non-responsabilité</a>.</em></p>
       </div>
       <div>
         <div class="hero-photo">
-          <img src="/photos/peter-cn-tower.jpg" alt="Peter Law, repr\u00e9sentant commercial immobilier de Toronto, avec la tour CN en arri\u00e8re-plan." width="1500" height="1887" loading="eager" />
+          <img src="/photos/peter-cn-tower.jpg" alt="Peter Law, représentant commercial immobilier de Toronto, avec la tour CN en arrière-plan." width="1500" height="1887" loading="eager" />
         </div>
         <div class="agent-byline">
           <div class="agent-name">Peter Law</div>
           <div class="agent-title">Représentant commercial</div>
           <div class="agent-brokerage">Home Life Golconda Realty., Inc Brokerage.</div>
           <div class="agent-phones">
-            <div><span class="lbl">DIRECT:</span> <a href="tel:+16478888472">(647) 888 - 8472</a></div>
-            <div><span class="lbl">BUREAU:</span> <a href="tel:+19058888819">(905) 888 - 8819</a></div>
+            <div><span class="lbl">DIRECT :</span> <a href="tel:+16478888472">(647) 888 - 8472</a></div>
+            <div><span class="lbl">BUREAU :</span> <a href="tel:+19058888819">(905) 888 - 8819</a></div>
             <div><a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a></div>
           </div>
         </div>
@@ -42,3 +55,71 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   <LCTA />
   <LFooter />
 </BaseLayout>
+
+<style>
+  .hero { padding-bottom: 16px; }
+  .hero-grid { align-items: start; }
+  .hero-photo {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .agent-byline {
+    margin-top: 22px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+  }
+  @media (max-width: 1200px) {
+    .hero-photo, .agent-byline { margin-right: 0; }
+  }
+  .agent-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .agent-title {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  .agent-brokerage {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 12px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+  }
+  .agent-phones {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    font-variant-numeric: tabular-nums;
+  }
+  .agent-phones .lbl {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .agent-phones a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .agent-phones a:hover { border-bottom-color: var(--ink-mute); }
+  @media (max-width: 640px) {
+    .agent-name { font-size: 26px; }
+    .agent-brokerage { font-size: 19px; }
+  }
+</style>

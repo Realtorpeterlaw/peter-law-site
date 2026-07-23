@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 interface Props {
-  active?: 'rental' | 'sellers' | 'buyers' | 'about' | 'contact' | null;
+  active?: 'rental' | 'sellers' | 'buyers' | 'blog' | 'about' | 'contact' | null;
   ctaLabel?: string;
 }
 const { active = null, ctaLabel = "Réserver un appel" } = Astro.props;
@@ -20,7 +20,11 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           <ul class="dropdown-menu">
             <li><a href="/french/for-renters">Pour LOCATAIRES</a></li>
             <li><a href="/french/for-landlords">Pour PROPRIÉTAIRES</a></li>
+            <li><a href="/french/rental-tour">Visite locative</a></li>
             <li><a href="/french/rental-calculator">Calculateur de location</a></li>
+            <li><a href="/french/rent-control">Contrôle des loyers</a></li>
+            <li><a href="/french/lease-renewal">Renouvellement de bail</a></li>
+            <li><a href="/french/n-forms">Formulaires N</a></li>
           </ul>
         </li>
         <li class="has-dropdown">
@@ -29,7 +33,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
           <ul class="dropdown-menu">
-            <li><a href="/free-home-evaluation">Évaluation gratuite</a></li>
+            <li><a href="/french/free-home-evaluation">Évaluation gratuite</a></li>
           </ul>
         </li>
         <li class="has-dropdown">
@@ -42,8 +46,12 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/french/land-transfer-tax">Droits de mutation</a></li>
             <li><a href="/french/closing-costs">Frais de clôture</a></li>
             <li><a href="/french/all-calculator">Calculateur ACHAT</a></li>
+            <li><a href="/french/payment-calculator">Calculateur hypothécaire</a></li>
+            <li><a href="/french/affordability-calculator">Calculateur d'accessibilité</a></li>
+            <li><a href="/french/cmhc-insurance-calculator">Assurance SCHL</a></li>
           </ul>
         </li>
+        <li><a href="/french/blog" class={active === 'blog' ? 'active' : ''}>Blog</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li class="has-dropdown">
           <a href="/french/about" class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} aria-haspopup="true">
@@ -52,16 +60,119 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </a>
           <ul class="dropdown-menu">
             <li><a href="/french/about">À propos de moi</a></li>
-            <li><a href="/past-deals">Historique des ventes</a></li>
+            <li><a href="/french/past-deals">Historique des ventes</a></li>
           </ul>
         </li>
         <li><a href="/french/contact" class={active === 'contact' ? 'active' : ''}>Contact</a></li>
       </ul>
     </nav>
     <a href={BOOKING_URL} class="head-cta head-cta-desktop">{ctaLabel}</a>
-    <a href="https://wa.me/16478888472" class="head-cta-call" aria-label="Appelez Peter sur WhatsApp: 647-888-8472">
+    <a href="https://wa.me/16478888472" class="head-cta-call" aria-label="Appelez Peter sur WhatsApp : 647-888-8472">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 15.5c-1.2 0-2.4-.2-3.5-.6-.3-.1-.7 0-1 .3l-2 2c-2.7-1.4-4.9-3.6-6.3-6.3l2-2c.3-.3.4-.7.3-1-.4-1.1-.6-2.3-.6-3.5 0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1 0 9.4 7.6 17 17 17 .5 0 1-.5 1-1v-3.9c0-.5-.5-1-1-1z" fill="currentColor"/></svg>
-      Appelez
+      Appelez-moi
     </a>
+    <button class="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav">
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Location
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/french/for-renters">Pour LOCATAIRES</a></li>
+            <li><a href="/french/for-landlords">Pour PROPRIÉTAIRES</a></li>
+            <li><a href="/french/rental-tour">Visite locative</a></li>
+            <li><a href="/french/rental-calculator">Calculateur de location</a></li>
+            <li><a href="/french/rent-control">Contrôle des loyers</a></li>
+            <li><a href="/french/lease-renewal">Renouvellement de bail</a></li>
+            <li><a href="/french/n-forms">Formulaires N</a></li>
+          </ul>
+        </li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Vendeurs
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/french/free-home-evaluation">Évaluation gratuite</a></li>
+          </ul>
+        </li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            Acheteurs
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
+            <li><a href="/french/land-transfer-tax">Droits de mutation</a></li>
+            <li><a href="/french/closing-costs">Frais de clôture</a></li>
+            <li><a href="/french/all-calculator">Calculateur ACHAT</a></li>
+            <li><a href="/french/payment-calculator">Calculateur hypothécaire</a></li>
+            <li><a href="/french/affordability-calculator">Calculateur d'accessibilité</a></li>
+            <li><a href="/french/cmhc-insurance-calculator">Assurance SCHL</a></li>
+          </ul>
+        </li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/french/blog" class="mobile-link">Blog</a></li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li class="mobile-section">
+          <button class="mobile-section-btn" type="button" aria-expanded="false">
+            À propos
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="mobile-section-list">
+            <li><a href="/french/about">À propos de moi</a></li>
+            <li><a href="/french/past-deals">Historique des ventes</a></li>
+          </ul>
+        </li>
+        <li><a href="/french/contact" class="mobile-link">Contact</a></li>
+        <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/" class="mobile-link mobile-lang">EN · English</a></li>
+        <li><a href="/chinese" class="mobile-link mobile-lang">中文 · Chinese</a></li>
+      </ul>
+      <a href={BOOKING_URL} class="btn-primary mobile-cta">
+        Réserver un appel
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </header>
+
+<script>
+  (function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    function close() {
+      document.body.classList.remove('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    function open() {
+      document.body.classList.add('mobile-menu-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    }
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('mobile-menu-open')) close(); else open();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) close();
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    menu.querySelectorAll('.mobile-section-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const li = btn.parentElement;
+        const expanded = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+  })();
+</script>

@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/FrenchTopBar.astro';
+import Header from '../../../components/FrenchHeader.astro';
+import Footer from '../../../components/FrenchFooter.astro';
+import CTASection from '../../../components/FrenchCTASection.astro';
+
+const icons = {
+  warning: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 12 L68 62 L12 62 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><line x1="40" y1="30" x2="40" y2="46" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="54" r="2.2" fill="currentColor"/></svg>`,
+  building: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="18" width="26" height="52" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.2"/><rect x="46" y="30" width="18" height="40" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.2"/><rect x="22" y="24" width="4" height="4" fill="currentColor"/><rect x="30" y="24" width="4" height="4" fill="currentColor"/><rect x="38" y="24" width="4" height="4" fill="currentColor"/><rect x="22" y="34" width="4" height="4" fill="currentColor"/><rect x="30" y="34" width="4" height="4" fill="currentColor"/><rect x="38" y="34" width="4" height="4" fill="currentColor"/><rect x="22" y="44" width="4" height="4" fill="currentColor"/><rect x="30" y="44" width="4" height="4" fill="currentColor"/><rect x="38" y="44" width="4" height="4" fill="currentColor"/><rect x="22" y="54" width="4" height="4" fill="currentColor"/><rect x="30" y="54" width="4" height="4" fill="currentColor"/><rect x="38" y="54" width="4" height="4" fill="currentColor"/><rect x="50" y="36" width="4" height="4" fill="currentColor"/><rect x="56" y="36" width="4" height="4" fill="currentColor"/><rect x="50" y="44" width="4" height="4" fill="currentColor"/><rect x="56" y="44" width="4" height="4" fill="currentColor"/><rect x="50" y="52" width="4" height="4" fill="currentColor"/><rect x="56" y="52" width="4" height="4" fill="currentColor"/><rect x="50" y="60" width="4" height="4" fill="currentColor"/><rect x="56" y="60" width="4" height="4" fill="currentColor"/></svg>`,
+  bolt: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M44 8 L20 44 L36 44 L30 72 L60 32 L44 32 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>`,
+  shield: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M40 12 L62 20 L62 42 C62 54 52 64 40 68 C28 64 18 54 18 42 L18 20 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><line x1="22" y1="42" x2="58" y2="42" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>`,
+  coins: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="40" cy="62" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><ellipse cx="40" cy="52" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><ellipse cx="40" cy="42" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><ellipse cx="40" cy="32" rx="22" ry="5" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><text x="40" y="22" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="500" fill="currentColor">$</text></svg>`,
+  key: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="14" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2.4"/><circle cx="32" cy="32" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="42" y1="42" x2="64" y2="64" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="55" y1="55" x2="62" y2="48" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="60" y1="60" x2="66" y2="54" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+  card: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="24" width="52" height="32" rx="3" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><rect x="14" y="32" width="52" height="6" fill="currentColor"/><text x="40" y="52" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="500" fill="currentColor">$</text></svg>`,
+  scroll: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="14" width="44" height="52" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" rx="2"/><path d="M26 28 Q31 25 36 28 T46 28 T54 28" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 38 Q31 35 36 38 T46 38 T54 38" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 48 Q30 45 34 48 T42 48 T48 48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M26 58 Q31 55 36 58 T46 58 T52 58" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`,
+  tou: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="2.4" fill="none"/><line x1="40" y1="14" x2="40" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="62" y1="40" x2="66" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="40" x2="30" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="40" y1="40" x2="54" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="40" r="2" fill="currentColor"/></svg>`,
+  house: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="20" y="36" width="40" height="30" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><path d="M14 38 L40 18 L66 38 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="30" y="50" width="9" height="16" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="48" y="60" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="500" fill="currentColor">$</text></svg>`,
+  percent: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="20" y="36" width="40" height="30" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><path d="M14 38 L40 18 L66 38 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="32" cy="48" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="48" cy="60" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><line x1="52" y1="44" x2="28" y2="64" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+};
+
+const posts = [
+  { slug: 'vacant-home-tax', title: 'Taxe sur les logements vacants', eyebrow: 'Propriétaires Toronto · Fiscalité', readMin: 5, iconKey: 'percent' },
+  { slug: 'hcra-illegal-building', title: 'HCRA : construction illégale', eyebrow: 'Protection acheteur · Ontario', readMin: 4, iconKey: 'warning' },
+  { slug: 'rhsp', title: 'Rental Housing Supply Program (RHSP)', eyebrow: 'Logement Toronto · Politique', readMin: 5, iconKey: 'building' },
+  { slug: 'oesp', title: 'OESP — réduire la facture d\'électricité', eyebrow: 'Économies d\'énergie · Ontario', readMin: 4, iconKey: 'bolt' },
+  { slug: 'foreign-buyer-ban', title: 'Interdiction d\'achat aux non-Canadiens (2026)', eyebrow: 'Politique · Loi fédérale', readMin: 5, iconKey: 'shield' },
+  { slug: 'fhsa', title: 'CELIAPP (FHSA) — épargne premier acheteur', eyebrow: 'Épargne acheteur · Fiscalité', readMin: 5, iconKey: 'coins' },
+  { slug: 'fthb-rebate', title: 'Remboursement TPS/TVH premier acheteur', eyebrow: 'Remise acheteur · 2026', readMin: 5, iconKey: 'key' },
+  { slug: 'heloc', title: 'Marge de crédit hypothécaire (HELOC)', eyebrow: 'Financement · Valeur nette', readMin: 5, iconKey: 'card' },
+  { slug: 'time-of-use-tou', title: 'Time-of-Use (TOU) — réduire l\'hydro', eyebrow: 'Astuces maison · Hydro', readMin: 4, iconKey: 'tou' },
+  { slug: 'bill-60-ontario', title: 'Loi 60 Ontario — locataires et propriétaires', eyebrow: 'Législation · 2026', readMin: 5, iconKey: 'scroll' },
+  { slug: 'reverse-mortgage', title: 'Hypothèque inversée — 55 ans et plus', eyebrow: 'Acheteurs aînés · Financement', readMin: 5, iconKey: 'house' },
+];
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/' },
+];
+---
+<BaseLayout
+  title="Blog Immobilier Toronto | Peter Law"
+  description="Explications simples sur la location, l'achat, le financement et la législation immobilière ontarienne — par un courtier bilingue de Toronto. Mis à jour régulièrement."
+  lang="fr"
+  bodyClass="fr blog-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Blog</div>
+      <h1>L'immobilier torontois, en clair.</h1>
+      <p>Rumeurs, tendances, marchés, finance, politique, immigration — pour garder une longueur d'avance.</p>
+      <div class="blog-search" role="search">
+        <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="blog-search-input" type="search" placeholder="Chercher un article…" aria-label="Chercher un article" autocomplete="off" />
+      </div>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="blog-list">
+        {posts.map((post) => (
+          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()}>
+            <a href={`/french/blog/${post.slug}`} class="blog-card-link" aria-label={`Lire : ${post.title}`}>
+              {post.iconKey && icons[post.iconKey] && (
+                <div class="blog-card-icon" set:html={icons[post.iconKey]} />
+              )}
+              <div class="blog-card-text">
+                <div class="blog-card-eyebrow">{post.eyebrow}</div>
+                <h2 class="blog-card-title">{post.title}</h2>
+                <div class="blog-card-meta">
+                  <span>{post.readMin} min de lecture</span>
+                  <span class="blog-card-read">Lire
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="blog-newsletter">
+        <div class="eyebrow">Bulletin mensuel du marché</div>
+        <h3>Chaque nouvel article, directement dans votre boîte.</h3>
+        <p>Abonnez-vous au bulletin mensuel — vous recevrez chaque nouvel article le jour de sa publication. Gratuit, sans pression.</p>
+        <form class="newsletter-form" method="GET" action="https://peters-newsletter-469474.beehiiv.com/subscribe" style="margin-top:14px;max-width:520px;">
+          <label for="blog-newsletter-email" class="sr-only">Adresse courriel</label>
+          <input id="blog-newsletter-email" type="email" name="email" placeholder="votre@courriel.com" required autocomplete="email" />
+          <button type="submit" class="btn-primary">S'abonner
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+        <p style="font-size:12px;color:var(--ink-mute);margin-top:10px;">Désabonnement en tout temps. Votre courriel n'est jamais partagé.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="blog-no-results" id="blog-no-results" hidden>Aucun article ne correspond à cette recherche. Essayez un autre mot.</p>
+
+  <CTASection />
+  <Footer />
+
+  <script>
+    (function() {
+      const input = document.getElementById('blog-search-input');
+      const cards = document.querySelectorAll('.blog-card');
+      const noResults = document.getElementById('blog-no-results');
+      if (!input || !cards.length) return;
+      function filter() {
+        const q = input.value.trim().toLowerCase();
+        let visibleCount = 0;
+        cards.forEach(function(card) {
+          const text = card.getAttribute('data-search') || '';
+          const match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+        if (noResults) noResults.hidden = (q.length === 0 || visibleCount > 0);
+      }
+      input.addEventListener('input', filter);
+    })();
+  </script>
+</BaseLayout>
