@@ -7,9 +7,8 @@ export interface Props {
 }
 const { zh = false, lang: langProp } = Astro.props;
 const lang = langProp || (zh ? 'zh' : 'en');
-const useZhData = lang === 'zh';
 
-const allDeals = getDeals(useZhData);
+const allDeals = getDeals(lang === 'fr' ? 'fr' : lang === 'zh' ? 'zh' : 'en');
 const deals = allDeals.slice(0, 6);
 
 const L: Record<string, Record<string, string>> = {

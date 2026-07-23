@@ -1,17 +1,23 @@
 // Centralized recent deals data — sorted newest-first via YYYY-MM `date` field.
 // Carousel on homepage takes top 3; /about page shows the full archive.
 
+export type DealLang = 'en' | 'zh' | 'fr';
+
 export interface DealRaw {
   date: string;                // 'YYYY-MM' — sort key (source of truth)
   intersection_en: string;
   intersection_zh: string;
+  intersection_fr: string;
   city_en: string;
   city_zh: string;
+  city_fr: string;
   rent: string;                // shared (currency-agnostic display)
   note_en: string;
   note_zh: string;
+  note_fr: string;
   status_en?: string;          // 'Rental' / 'Sales' / 'Commercial'
   status_zh?: string;          // '租赁' / '销售' / '商业'
+  status_fr?: string;
 }
 
 export interface DealView {
@@ -29,138 +35,187 @@ const MONTHS_EN = [
   'July', 'August', 'September', 'October', 'November', 'December',
 ];
 
+const MONTHS_FR = [
+  'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+  'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
+];
+
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
     date: '2026-06',
     intersection_en: 'Jarvis St & Carlton St',
     intersection_zh: 'Jarvis St 与 Carlton St',
+    intersection_fr: 'Jarvis St et Carlton St',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$2,050',
     note_en: 'International Worker, secured First and Last months Rent ONLY!',
     note_zh: '国际背景租客 · 仅以首月加末月租金完成签约。',
+    note_fr: 'Travailleur international · signé uniquement avec premier et dernier mois de loyer.',
   },
   {
     date: '2026-06',
     intersection_en: 'Jarvis St & Queen St E',
     intersection_zh: 'Jarvis St 与 Queen St E',
+    intersection_fr: 'Jarvis St et Queen St E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$2,200',
     note_en: 'Easy and Smooth Transaction. Brand-new, Never lived in Unit',
     note_zh: '流程顺畅,签约轻松 · 全新户型,从未入住。',
+    note_fr: 'Transaction fluide et rapide. Unité neuve, jamais habitée.',
   },
   {
     date: '2026-07-31',
     intersection_en: 'Warden Ave & Hwy 7',
     intersection_zh: 'Warden Ave 与 Hwy 7',
+    intersection_fr: 'Warden Ave et Hwy 7',
     city_en: 'Markham, Ontario',
     city_zh: '万锦市, 安省',
+    city_fr: 'Markham, Ontario',
     rent: '$2,300',
     note_en: 'Secured AAA tenant for my 1 Bedroom + Den listing at Markham. Reliable · Immediate move-in!',
     note_zh: '为万锦市的一房加书房房源签下 AAA 级租客 · 可靠 · 立即入住!',
+    note_fr: 'Locataire AAA obtenu pour mon 1 chambre + bureau à Markham. Fiable · emménagement immédiat!',
     status_en: 'Represented Landlord',
     status_zh: '代表房东方',
+    status_fr: 'Représente le propriétaire',
   },
   {
     date: '2026-07-30',
     intersection_en: 'Leslie St & Sheppard Ave E',
     intersection_zh: 'Leslie St 与 Sheppard Ave E',
+    intersection_fr: 'Leslie St et Sheppard Ave E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$2,400',
     note_en: 'Secured this home for a lovely returning client! Gorgeous upgrades, Porcelain bath-tub, and Never lived-in! Negotiated less than listed price.',
     note_zh: '为回头客户成功签约这套住宅 · 精装升级 · 陶瓷浴缸 · 全新未入住 · 低于挂牌价签下。',
+    note_fr: 'Signé pour un(e) client(e) fidèle! Améliorations superbes, baignoire en porcelaine, jamais habitée. Négocié sous le prix affiché.',
   },
   {
     date: '2026-07-25',
     intersection_en: 'Kingston Rd & Lawrence Ave E',
     intersection_zh: 'Kingston Rd 与 Lawrence Ave E',
+    intersection_fr: 'Kingston Rd et Lawrence Ave E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$4,100',
     note_en: 'Secured a lovely home for an Ambitious family, at a great value!',
     note_zh: '为一户有抱负的家庭签下心仪的住宅 · 性价比出色。',
+    note_fr: 'Belle résidence signée pour une famille ambitieuse, à un excellent rapport qualité-prix!',
   },
   {
     date: '2026-07-20',
     intersection_en: 'Parliament St & Queens Quay E',
     intersection_zh: 'Parliament St 与 Queens Quay E',
+    intersection_fr: 'Parliament St et Queens Quay E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$2,500',
     note_en: 'Desired Building, International Worker, New Credit, First and Last ONLY!',
     note_zh: '理想的物业 · 国际背景租客 · 新建立信用记录 · 仅以首月加末月租金完成签约。',
+    note_fr: 'Immeuble recherché · travailleur international · crédit récent · premier et dernier mois seulement.',
   },
   {
     date: '2026-07-15',
     intersection_en: 'Yonge St & Bloor St E',
     intersection_zh: 'Yonge St 与 Bloor St E',
+    intersection_fr: 'Yonge St et Bloor St E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$3,350',
     note_en: 'Secured this gem for my mature clients. Great layout, new build, with great taste in design.',
     note_zh: '为成熟客户成功签约这套精品单元 · 户型出色 · 新建项目 · 设计品味卓越。',
+    note_fr: 'Ce bijou signé pour des client(e)s exigeant(e)s. Superbe aménagement, construction neuve, design soigné.',
   },
   {
     date: '2026-07-08',
     intersection_en: 'Jarvis St & Dundas St E',
     intersection_zh: 'Jarvis St 与 Dundas St E',
+    intersection_fr: 'Jarvis St et Dundas St E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$2,400',
     note_en: 'International Worker, secured First and Last months Rent ONLY! +$450 Discount!!',
     note_zh: '国际背景租客 · 仅以首月加末月租金完成签约 · 协议每月减租 $450。',
+    note_fr: 'Travailleur international · signé avec premier et dernier mois seulement · réduction négociée de 450 $/mois!',
   },
   {
     date: '2026-06',
     intersection_en: 'Birchmount Rd & Lawrence Ave E',
     intersection_zh: 'Birchmount Rd 与 Lawrence Ave E',
+    intersection_fr: 'Birchmount Rd et Lawrence Ave E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$2,000',
     note_en: 'Great catch. Limited supplies. Negotiated $100 from listed price!!',
     note_zh: '难得好房,房源紧俏。在挂牌价基础上谈下每月 $100。',
+    note_fr: 'Belle prise. Offre limitée. Négocié 100 $ de moins que le prix affiché!',
   },
   {
     date: '2026-04',
     intersection_en: 'James St S & Hwy 8',
     intersection_zh: 'James St S 与 Hwy 8',
+    intersection_fr: 'James St S et Hwy 8',
     city_en: 'Hamilton, Ontario',
     city_zh: '汉密尔顿,安省',
+    city_fr: 'Hamilton, Ontario',
     rent: '$1,850',
     note_en: 'Secured this unit for a Newcomer Client. Couple days new to Canada. Never-lived in, Brand-new Unit!',
     note_zh: '为刚抵加几天的新移民客户成功签约 · 全新户型,从未入住。',
+    note_fr: "Signé pour un(e) client(e) nouvel(le) arrivant(e) au Canada depuis quelques jours. Unité neuve, jamais habitée!",
   },
   {
     date: '2026-05',
     intersection_en: 'Yonge St & Bloor St E',
     intersection_zh: 'Yonge St 与 Bloor St E',
+    intersection_fr: 'Yonge St et Bloor St E',
     city_en: 'Toronto, Ontario',
     city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
     rent: '$3,600',
     note_en: 'Secured this unit for a Married Couple. Smooth and easy transition for my clients! Convenience and AAA Location',
     note_zh: '为一对已婚夫妇成功签约 · 流程顺畅 · 黄金地段 · AAA 级位置。',
+    note_fr: 'Signé pour un couple marié. Transition facile et fluide pour mes clients! Emplacement AAA très pratique.',
   },
 ];
 
-export function getDeals(zh: boolean): DealView[] {
+export function getDeals(langOrZh: DealLang | boolean = 'en'): DealView[] {
+  // Backwards-compatible: allow existing callers passing a boolean (true === zh)
+  const lang: DealLang = typeof langOrZh === 'boolean' ? (langOrZh ? 'zh' : 'en') : langOrZh;
   return [...dealsRaw]
     .sort((a, b) => b.date.localeCompare(a.date))
     .map((d) => {
       const [yyyy, mm] = d.date.split('-');
       const monthIdx = parseInt(mm, 10) - 1;
+      let monthYear: string;
+      if (lang === 'zh') monthYear = `${yyyy} 年 ${parseInt(mm, 10)} 月`;
+      else if (lang === 'fr') monthYear = `${MONTHS_FR[monthIdx]} ${yyyy}`;
+      else monthYear = `${MONTHS_EN[monthIdx]} ${yyyy}`;
+      const pick = (en: string, zh: string, fr: string) =>
+        lang === 'zh' ? zh : lang === 'fr' ? fr : en;
+      const pickOptional = (en: string | undefined, zh: string | undefined, fr: string | undefined, def: {en:string;zh:string;fr:string}) =>
+        lang === 'zh' ? (zh ?? def.zh) : lang === 'fr' ? (fr ?? def.fr) : (en ?? def.en);
       return {
-        monthYear: zh
-          ? `${yyyy} 年 ${parseInt(mm, 10)} 月`
-          : `${MONTHS_EN[monthIdx]} ${yyyy}`,
-        intersection: zh ? d.intersection_zh : d.intersection_en,
-        city: zh ? d.city_zh : d.city_en,
+        monthYear,
+        intersection: pick(d.intersection_en, d.intersection_zh, d.intersection_fr),
+        city: pick(d.city_en, d.city_zh, d.city_fr),
         rent: d.rent,
-        period: zh ? '/ 月' : '/ month',
-        note: zh ? d.note_zh : d.note_en,
-        status: zh ? (d.status_zh ?? '代表租客方') : (d.status_en ?? 'Represented Tenant'),
+        period: lang === 'zh' ? '/ 月' : lang === 'fr' ? '/ mois' : '/ month',
+        note: pick(d.note_en, d.note_zh, d.note_fr),
+        status: pickOptional(d.status_en, d.status_zh, d.status_fr, {
+          en: 'Represented Tenant', zh: '代表租客方', fr: 'Représente le locataire',
+        }),
       };
     });
 }
