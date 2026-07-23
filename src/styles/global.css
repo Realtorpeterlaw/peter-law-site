@@ -1585,3 +1585,8 @@ body.mobile-menu-open { overflow: hidden; }
 @media (max-width: 720px) {
   .hero-headline-block .eyebrow { text-align: center; }
 }
+
+/* Under RTL (Farsi), keep logo + head-inner ordering natural (logo left, CTAs right) */
+[dir="rtl"] .logo, [dir="rtl"] .logo svg { direction: ltr; }
+[dir="rtl"] .head-inner { flex-direction: row-reverse; }
+
