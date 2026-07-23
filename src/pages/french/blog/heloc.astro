@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/FrenchTopBar.astro';
+import Header from '../../../components/FrenchHeader.astro';
+import Footer from '../../../components/FrenchFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-06-07';
+const articleTitle = 'Marge de credit hypothecaire (HELOC) — Canada';
+const articleDescription = "Guide en clair de la marge de credit hypothecaire (HELOC) au Canada : fonctionnement, admissibilite, plafonds (regles 65 %/80 %), taux d'interet reels, et comparaison avec hypotheque inversee ou refinancement.";
+const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/heloc';
+const enUrl = 'https://www.realtorpeterlaw.com/blog/heloc';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
+  publisher: { '@type': 'Organization', name: 'Peter Law — Immobilier a Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
+  inLanguage: 'fr',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'HELOC Canada, marge credit hypothecaire, 65 pourcent 80 pourcent regle, valeur nette maison, refinancement vs HELOC Canada',
+  translationOfWork: { '@type': 'Article', '@id': enUrl },
+};
+
+const hreflangAlternates = [
+    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/heloc/" },
+    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/heloc/" },
+    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/heloc/" },
+    { hreflang: "ko",    href: "https://www.realtorpeterlaw.com/korean/blog/heloc/" },
+    { hreflang: "ru",    href: "https://www.realtorpeterlaw.com/russian/blog/heloc/" },
+    { hreflang: "es",    href: "https://www.realtorpeterlaw.com/spanish/blog/heloc/" },
+    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/heloc/" },
+  ];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Immobilier a Toronto`}
+  description={articleDescription}
+  lang="fr"
+  bodyClass="fr guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Financement pour proprietaires</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Guide en clair sur la marge de credit hypothecaire au Canada : comment ca marche, qui se qualifie, combien ca coute vraiment, et comment savoir si c'est la bonne facon d'utiliser la valeur de votre maison.</p>
+        <div class="article-byline">
+          <span>Par <a href="/french/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026-06-07</time>
+          <span class="dot">·</span>
+          <span>5 min de lecture</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>Sur cette page</h4>
+            <ul>
+              <li><a href="#what">Ce que c'est</a></li>
+              <li><a href="#limits">Combien vous pouvez emprunter</a></li>
+              <li><a href="#who">Qui se qualifie</a></li>
+              <li><a href="#cost">Cout reel</a></li>
+              <li><a href="#vs">HELOC vs autres options</a></li>
+              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <div class="qf-card">
+              <div class="qf-row"><span class="qf-label">Type</span><span class="qf-val">Marge de credit garantie sur la maison</span></div>
+              <div class="qf-row"><span class="qf-label">Plafond HELOC seul</span><span class="qf-val">Jusqu'a 65 % de la valeur estimee</span></div>
+              <div class="qf-row"><span class="qf-label">Plafond combine (HELOC + hyp.)</span><span class="qf-val">Jusqu'a 80 %</span></div>
+              <div class="qf-row"><span class="qf-label">Interet</span><span class="qf-val">Variable, base sur le taux prefe. + prime</span></div>
+              <div class="qf-row"><span class="qf-label">Remboursement</span><span class="qf-val">Interets seulement possible, capital flexible</span></div>
+            </div>
+
+
+            <h2 id="what">Ce que c'est</h2>
+            <p>Une HELOC est une <strong>marge de credit renouvelable garantie</strong> par la valeur nette de votre maison. Vous empruntez ce dont vous avez besoin, quand vous en avez besoin, jusqu'au plafond approuve. Le taux est generalement <strong>variable</strong> et suit le taux preferentiel de la banque.</p>
+
+            <h2 id="limits">Combien vous pouvez emprunter</h2>
+            <p>Regle standard : HELOC seule jusqu'a <strong>65 % de la valeur estimee</strong> de la maison. En combinant HELOC + hypotheque, le total est plafonne a <strong>80 %</strong> de la valeur.</p>
+
+            <h2 id="who">Qui se qualifie</h2>
+            <p>Vous devez avoir un revenu stable, un bon dossier de credit, et suffisamment de valeur nette. La banque exige generalement une <strong>evaluation officielle</strong> et applique un <strong>test de tension</strong> comme pour une hypotheque.</p>
+
+            <h2 id="cost">Cout reel</h2>
+            <p>Interet variable — attention aux hausses de taux. Beaucoup d'emprunteurs ne payent que les interets et laissent le capital en place, ce qui peut couter cher a long terme. Verifiez frais d'ouverture, frais annuels, et penalites de fermeture.</p>
+
+            <h2 id="vs">HELOC vs autres options</h2>
+            <p><strong>HELOC</strong> : flexibilite maximale, taux variable, ideal pour renovations echelonnees. <strong>Refinancement</strong> : taux fixe possible, meilleur si vous voulez tout empruntez d'un coup. <strong>Hypotheque inversee</strong> : reservee aux 55+ mais pas de paiements mensuels obligatoires.</p>
+
+            <div id="read-full" class="read-full-cta">
+              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
+              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
+  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
+  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .qf-label { color: #666; font-size: 0.9rem; }
+  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
+  .read-full-cta p { margin: 0 0 12px; color: #333; }
+  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta .btn-primary:hover { background: #a06d47; }
+</style>

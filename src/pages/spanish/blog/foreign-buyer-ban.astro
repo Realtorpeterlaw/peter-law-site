@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/SpanishTopBar.astro';
+import Header from '../../../components/SpanishHeader.astro';
+import Footer from '../../../components/SpanishFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-06-09';
+const articleTitle = 'Prohibicion de compra a no canadienses (2026)';
+const articleDescription = 'Guia clara de la ley canadiense que prohibe a no canadienses comprar vivienda residencial: quien es no canadiense, que propiedades incluye, excepciones (permiso de trabajo, conyuge), multas, y vigencia hasta el 31 de diciembre de 2026.';
+const articleUrl = 'https://www.realtorpeterlaw.com/spanish/blog/foreign-buyer-ban';
+const enUrl = 'https://www.realtorpeterlaw.com/blog/foreign-buyer-ban';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/spanish/about' },
+  publisher: { '@type': 'Organization', name: 'Peter Law — Bienes Raices en Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
+  inLanguage: 'es',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'prohibicion comprador extranjero Canada, ley no canadiense inmueble, compra vivienda permiso trabajo Canada, conyuge canadiense excepcion, 2026 prohibicion extranjeros',
+  translationOfWork: { '@type': 'Article', '@id': enUrl },
+};
+
+const hreflangAlternates = [
+    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/foreign-buyer-ban/" },
+    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/foreign-buyer-ban/" },
+    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/foreign-buyer-ban/" },
+    { hreflang: "ko",    href: "https://www.realtorpeterlaw.com/korean/blog/foreign-buyer-ban/" },
+    { hreflang: "ru",    href: "https://www.realtorpeterlaw.com/russian/blog/foreign-buyer-ban/" },
+    { hreflang: "es",    href: "https://www.realtorpeterlaw.com/spanish/blog/foreign-buyer-ban/" },
+    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/foreign-buyer-ban/" },
+  ];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Bienes Raices en Toronto`}
+  description={articleDescription}
+  lang="es"
+  bodyClass="es guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/spanish/blog" class="back-link">Blog</a> · Regulacion federal</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">La prohibicion canadiense a compradores extranjeros esta vigente desde el 1 de enero de 2023 y sigue hasta el <strong>31 de diciembre de 2026</strong>. Las reglas son mas estrechas de lo que suena — y las excepciones importan. Aqui a quienes aplica realmente.</p>
+        <div class="article-byline">
+          <span>Por <a href="/spanish/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026-06-09</time>
+          <span class="dot">·</span>
+          <span>5 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>En esta pagina</h4>
+            <ul>
+              <li><a href="#what">Que prohibe</a></li>
+              <li><a href="#who">Quien es no canadiense</a></li>
+              <li><a href="#exceptions">Excepciones principales</a></li>
+              <li><a href="#properties">Propiedades incluidas</a></li>
+              <li><a href="#penalties">Multas</a></li>
+              <li><a href="#read-full">Leer la guia completa en ingles →</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <div class="qf-card">
+              <div class="qf-row"><span class="qf-label">Ley</span><span class="qf-val">Prohibition on the Purchase of Residential Property by Non-Canadians Act</span></div>
+              <div class="qf-row"><span class="qf-label">Vigencia</span><span class="qf-val">1 enero 2023 — 31 diciembre 2026</span></div>
+              <div class="qf-row"><span class="qf-label">A quien aplica</span><span class="qf-val">No canadienses (salvo excepciones)</span></div>
+              <div class="qf-row"><span class="qf-label">Propiedades incluidas</span><span class="qf-val">Residenciales en CMA/CA</span></div>
+              <div class="qf-row"><span class="qf-label">Sancion</span><span class="qf-val">Multa hasta $10,000 + venta forzada</span></div>
+            </div>
+
+
+            <h2 id="what">Que prohibe</h2>
+            <p>La ley federal prohibe a los <strong>no canadienses</strong> comprar vivienda residencial en las grandes areas metropolitanas (CMA) y aglomeraciones censales (CA). Vigencia: 1 enero 2023 al <strong>31 diciembre 2026</strong>.</p>
+
+            <h2 id="who">Quien es no canadiense</h2>
+            <p>Toda persona que no sea ciudadano canadiense, residente permanente ni registrada bajo la Indian Act. Tambien empresas donde un no canadiense controla mas del 10 %.</p>
+
+            <h2 id="exceptions">Excepciones principales</h2>
+            <p>Estudiantes internacionales con ciertas condiciones; <strong>titulares de permiso de trabajo</strong> con anos minimos trabajados en Canada; <strong>conyuges de canadienses o residentes permanentes</strong>; refugiados y personas con estatus protegido; compra fuera de zonas CMA/CA.</p>
+
+            <h2 id="properties">Propiedades incluidas</h2>
+            <p>Casas unifamiliares, semi-adosadas, adosadas, condos y duplex de hasta 3 unidades en CMA/CA. Edificios <strong>de 4 unidades o mas quedan excluidos</strong>. Algunas propiedades recreativas fuera de CMA/CA tambien estan fuera del alcance.</p>
+
+            <h2 id="penalties">Multas</h2>
+            <p>Multa hasta <strong>$10,000</strong> para el comprador y quien ayude a la transaccion (agente, abogado). El tribunal puede ordenar la <strong>venta forzada</strong> de la propiedad comprada en infraccion.</p>
+
+            <div id="read-full" class="read-full-cta">
+              <p>La version larga de esta guia (cifras, casos especiales, procedimiento) esta en ingles:</p>
+              <a class="btn-primary" href={enUrl}>Leer la guia completa en ingles →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
+  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
+  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .qf-label { color: #666; font-size: 0.9rem; }
+  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
+  .read-full-cta p { margin: 0 0 12px; color: #333; }
+  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta .btn-primary:hover { background: #a06d47; }
+</style>

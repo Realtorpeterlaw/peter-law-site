@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/KoreanTopBar.astro';
+import Header from '../../../components/KoreanHeader.astro';
+import Footer from '../../../components/KoreanFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-06-03';
+const articleTitle = 'Time-of-Use (TOU) — 전기 요금 크게 줄이는 법';
+const articleDescription = '온타리오 TOU(시간대별 전기 요금)의 3가지 요금 구간, 각 요금이 적용되는 시간대, 그리고 생활 습관을 바꾸지 않고도 전기료를 낮추는 7가지 방법.';
+const articleUrl = 'https://www.realtorpeterlaw.com/korean/blog/time-of-use-tou';
+const enUrl = 'https://www.realtorpeterlaw.com/blog/time-of-use-tou';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/korean/about' },
+  publisher: { '@type': 'Organization', name: 'Peter Law — 토론토 부동산', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
+  inLanguage: 'ko',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'Time of Use 온타리오, TOU 전기 요금, 온타리오 전기료, Off-peak 시간대, ULO 요금, 토론토 전기 요금 절약',
+  translationOfWork: { '@type': 'Article', '@id': enUrl },
+};
+
+const hreflangAlternates = [
+    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/time-of-use-tou/" },
+    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/time-of-use-tou/" },
+    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/time-of-use-tou/" },
+    { hreflang: "ko",    href: "https://www.realtorpeterlaw.com/korean/blog/time-of-use-tou/" },
+    { hreflang: "ru",    href: "https://www.realtorpeterlaw.com/russian/blog/time-of-use-tou/" },
+    { hreflang: "es",    href: "https://www.realtorpeterlaw.com/spanish/blog/time-of-use-tou/" },
+    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/time-of-use-tou/" },
+  ];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 토론토 부동산`}
+  description={articleDescription}
+  lang="ko"
+  bodyClass="ko guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/korean/blog" class="back-link">블로그</a> · 전기 요금</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">온타리오 전기 요금에는 시간대별로 3가지 가격이 있습니다. 사용 시간만 잘 맞추면 훨씬 적게 낼 수 있습니다. 원리를 쉽게 정리합니다.</p>
+        <div class="article-byline">
+          <span>글쓴이 <a href="/korean/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026-06-03</time>
+          <span class="dot">·</span>
+          <span>4 분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>이 페이지 목차</h4>
+            <ul>
+              <li><a href="#prices">3가지 요금 구간</a></li>
+              <li><a href="#when">시간대 이해</a></li>
+              <li><a href="#tips">7가지 실천 팁</a></li>
+              <li><a href="#ulo">ULO 요금</a></li>
+              <li><a href="#savings">현실적 절약 폭</a></li>
+              <li><a href="#read-full">영문 전체 가이드 읽기 →</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <div class="qf-card">
+              <div class="qf-row"><span class="qf-label">요금 체계</span><span class="qf-val">온타리오 Time-of-Use (TOU)</span></div>
+              <div class="qf-row"><span class="qf-label">요금 구간</span><span class="qf-val">3개 (Off-peak, Mid-peak, On-peak)</span></div>
+              <div class="qf-row"><span class="qf-label">가장 저렴</span><span class="qf-val">Off-peak — 야간과 주말</span></div>
+              <div class="qf-row"><span class="qf-label">가장 비쌈</span><span class="qf-val">On-peak — 평일 아침과 저녁</span></div>
+              <div class="qf-row"><span class="qf-label">대안</span><span class="qf-val">ULO 요금 — 심야 훨씬 저렴</span></div>
+            </div>
+
+
+            <h2 id="prices">3가지 요금 구간</h2>
+            <p><strong>Off-peak</strong>(가장 저렴): 평일 오후 7시~오전 7시, 주말 전체. <strong>Mid-peak</strong>: 평일 낮 시간대. <strong>On-peak</strong>(가장 비쌈): 평일 오전(약 7~11시)과 오후(약 17~19시).</p>
+
+            <h2 id="when">시간대 이해</h2>
+            <p>계절에 따라 시간이 약간 다르지만 원칙은 같습니다. <strong>고전력 가전(식기세척기·건조기·세탁기)</strong>을 Off-peak에 돌리는 것만으로도 요금이 크게 줄어듭니다.</p>
+
+            <h2 id="tips">7가지 실천 팁</h2>
+            <p>1) 식기세척기 저녁 7시 이후. 2) 세탁·건조는 주말. 3) 전기차 심야 충전. 4) 일요일 대량 조리. 5) 프로그래머블 온도조절기 사용. 6) 안 쓰는 가전 플러그 뽑기. 7) 창문 틈새 바람 점검.</p>
+
+            <h2 id="ulo">ULO 요금</h2>
+            <p><strong>Ultra-Low Overnight (ULO)</strong>는 심야 시간(23시~7시)에 훨씬 저렴한 요금을 제공합니다. 전기차 소유자나 히트펌프 사용 가정에 유리합니다.</p>
+
+            <h2 id="savings">현실적 절약 폭</h2>
+            <p>평균 가정은 큰 가전 사용 시간만 옮겨도 <strong>10~20% 절약</strong>이 가능합니다. 생활 방식을 바꾸지 않고도 요금이 줄어듭니다.</p>
+
+            <div id="read-full" class="read-full-cta">
+              <p>이 가이드의 자세한 수치, 예외 사례, 절차는 영문 원문에서 확인하세요:</p>
+              <a class="btn-primary" href={enUrl}>영문 전체 가이드 읽기 →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
+  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
+  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .qf-label { color: #666; font-size: 0.9rem; }
+  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
+  .read-full-cta p { margin: 0 0 12px; color: #333; }
+  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta .btn-primary:hover { background: #a06d47; }
+</style>

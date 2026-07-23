@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/KoreanTopBar.astro';
+import Header from '../../../components/KoreanHeader.astro';
+import Footer from '../../../components/KoreanFooter.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-06-09';
+const articleTitle = 'OESP — 전기 요금 최대 절반까지 감면';
+const articleDescription = '온타리오 전기 요금 지원 프로그램(OESP) 안내: 자격, 월별 크레딧($35~$113), LEAP 및 OER과의 결합으로 저소득 가구가 요금을 절반 가까이 줄이는 방법.';
+const articleUrl = 'https://www.realtorpeterlaw.com/korean/blog/oesp';
+const enUrl = 'https://www.realtorpeterlaw.com/blog/oesp';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/korean/about' },
+  publisher: { '@type': 'Organization', name: 'Peter Law — 토론토 부동산', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
+  inLanguage: 'ko',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'OESP 온타리오, 온타리오 전기 요금 지원, 저소득 전기 요금 크레딧, LEAP 온타리오, OER 전기 리베이트',
+  translationOfWork: { '@type': 'Article', '@id': enUrl },
+};
+
+const hreflangAlternates = [
+    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/oesp/" },
+    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/oesp/" },
+    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/oesp/" },
+    { hreflang: "ko",    href: "https://www.realtorpeterlaw.com/korean/blog/oesp/" },
+    { hreflang: "ru",    href: "https://www.realtorpeterlaw.com/russian/blog/oesp/" },
+    { hreflang: "es",    href: "https://www.realtorpeterlaw.com/spanish/blog/oesp/" },
+    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/oesp/" },
+  ];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 토론토 부동산`}
+  description={articleDescription}
+  lang="ko"
+  bodyClass="ko guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/korean/blog" class="back-link">블로그</a> · 전기 요금 지원</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">OESP는 온타리오에서 가장 저평가된 요금 지원 제도입니다. 자격이 되는 가구는 매달 <strong>$35~$113</strong>의 크레딧이 전기 요금에서 직접 차감됩니다. 소규모·에너지 다소비 가정에는 요금의 거의 절반에 해당할 수 있습니다.</p>
+        <div class="article-byline">
+          <span>글쓴이 <a href="/korean/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026-06-09</time>
+          <span class="dot">·</span>
+          <span>4 분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>이 페이지 목차</h4>
+            <ul>
+              <li><a href="#what">OESP란?</a></li>
+              <li><a href="#who">자격 요건</a></li>
+              <li><a href="#amount">크레딧 금액</a></li>
+              <li><a href="#stack">다른 지원과의 결합</a></li>
+              <li><a href="#apply">신청 방법</a></li>
+              <li><a href="#read-full">영문 전체 가이드 읽기 →</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <div class="qf-card">
+              <div class="qf-row"><span class="qf-label">프로그램</span><span class="qf-val">OESP — Ontario Electricity Support Program</span></div>
+              <div class="qf-row"><span class="qf-label">지원 방식</span><span class="qf-val">전기 요금서 월별 직접 크레딧</span></div>
+              <div class="qf-row"><span class="qf-label">금액</span><span class="qf-val">월 $35 ~ $113</span></div>
+              <div class="qf-row"><span class="qf-label">자격 기준</span><span class="qf-val">가구 소득 + 가구원 수</span></div>
+              <div class="qf-row"><span class="qf-label">결합 가능</span><span class="qf-val">LEAP + OER과 병용 가능</span></div>
+            </div>
+
+
+            <h2 id="what">OESP란?</h2>
+            <p>OESP는 전기 요금서에 <strong>자동 적용되는 월별 크레딧</strong>입니다. 상환할 필요가 없으며, 자격 조건을 유지하는 한 지속 적용됩니다. 주 정부가 재원을 제공합니다.</p>
+
+            <h2 id="who">자격 요건</h2>
+            <p>자격은 <strong>가구 소득</strong>과 <strong>가구원 수</strong>에 따라 결정됩니다. 가구원이 많거나 저소득일수록 더 큰 크레딧을 받습니다. 신청은 ontarioelectricitysupport.ca에서 온라인으로 진행합니다.</p>
+
+            <h2 id="amount">크레딧 금액</h2>
+            <p>월 <strong>$35</strong>(기본)부터 대가족·전기 난방 가구는 <strong>$113</strong>까지 가능합니다.</p>
+
+            <h2 id="stack">다른 지원과의 결합</h2>
+            <p>OESP는 <strong>LEAP</strong>(연체 시 긴급 지원)과 <strong>OER</strong>(온타리오 전기 요금 리베이트)과 결합됩니다. 세 가지를 함께 활용하면 소규모 가정은 전기 요금이 <strong>거의 절반</strong>까지 감소할 수 있습니다.</p>
+
+            <h2 id="apply">신청 방법</h2>
+            <p>온라인 신청서 + 소득 증빙(T4, Notice of Assessment). 승인 후 크레딧이 자동으로 다음 청구서부터 반영됩니다. 자격은 주기적으로 갱신해야 합니다.</p>
+
+            <div id="read-full" class="read-full-cta">
+              <p>이 가이드의 자세한 수치, 예외 사례, 절차는 영문 원문에서 확인하세요:</p>
+              <a class="btn-primary" href={enUrl}>영문 전체 가이드 읽기 →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
+  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
+  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .qf-label { color: #666; font-size: 0.9rem; }
+  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
+  .read-full-cta p { margin: 0 0 12px; color: #333; }
+  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+  .read-full-cta .btn-primary:hover { background: #a06d47; }
+</style>
