@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const SCREENING_URL = "/contact";
+---
+<BaseLayout title="\u041f\u043e\u0434\u0430\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443 \u2014 Peter Law \u00b7 \u041d\u0435\u0434\u0432\u0438\u0436\u0438\u043c\u043e\u0441\u0442\u044c \u0422\u043e\u0440\u043e\u043d\u0442\u043e" description="\u041f\u043e\u0434\u0430\u0439\u0442\u0435 \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u0443\u044e \u0437\u0430\u044f\u0432\u043a\u0443 \u043d\u0430 \u0430\u0440\u0435\u043d\u0434\u0443 \u0437\u0430 10 \u043c\u0438\u043d\u0443\u0442. ID, \u043a\u0440\u0435\u0434\u0438\u0442, \u0434\u043e\u0445\u043e\u0434 \u2014 \u0432\u0441\u0451 \u0437\u0430 \u043e\u0434\u0438\u043d \u043f\u0440\u043e\u0445\u043e\u0434." lang="ru" bodyClass="ru">
+  <LTopBar />
+  <LHeader active="rental" ctaLabel="\u0418\u043b\u0438 \u0441\u043d\u0430\u0447\u0430\u043b\u0430 \u043f\u043e\u0433\u043e\u0432\u043e\u0440\u0438\u043c" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Заявка на аренду</div><h1>Одна заявка. Один проход. Побеждает сильнейший пакет.</h1><p>Арендодатели Торонто получают пять предложений в день. Арендатор, который приходит со всем правильно упакованным, выигрывает юнит. Вот как мы упакуем ваш.</p></div></section>
+  <section class="major" style="padding-top:32px;"><div class="wrap"><div class="prose-grid">
+    <aside class="prose-side"><h4>—</h4><ul>          <li><a href="#what">Что понадобится</a></li>
+          <li><a href="#how">Как это работает</a></li>
+          <li><a href="#privacy">Конфиденциальность</a></li>
+          <li><a href="#start">Начать заявку</a></li></ul></aside>
+    <div class="prose-body">      <h2 id="what">Что понадобится</h2>
+      <p>Заявка занимает около 10 минут, если всё под рукой: <strong>Государственный ID</strong> (права, паспорт, карта PR) — загрузите фото. <strong>Свежее письмо от работодателя</strong> или последние 3 расчётных листа. <strong>Разрешение на проверку кредита</strong>. <strong>Рекомендации</strong> — предыдущий арендодатель + работодатель.</p>
+      <h2 id="how">Как это работает</h2>
+      <p>Нажмите "Начать" ниже. Вы будете перенаправлены на SingleKey, канадский сервис скрининга, который я использую для каждого арендатора. Короткая, безопасная форма, сохраняет ваш прогресс.</p>
+      <h2 id="privacy">Конфиденциальность</h2>
+      <p>SingleKey соответствует PIPEDA и обрабатывает все чувствительные данные — изображения ID, банковское подключение, кредитную инфо. Я никогда не вижу ваш банковский логин или полное изображение ID. Вижу проверенное резюме, необходимое для рекомендации арендодателю.</p>
+      <h2 id="start">Начать заявку</h2>
+      <p>Нажмите ниже. Следующие 10 минут вы на SingleKey. По завершении отчёт автоматически приходит мне.</p>
+      <a href={SCREENING_URL} class="btn-primary" style="margin-top:20px;">Начать заявку<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div></div></section>
+  <LCTA heading="\u0413\u043e\u0442\u043e\u0432\u044b \u043f\u043e\u0434\u0430\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443?" lead="\u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435 \u043c\u043d\u0435, \u0435\u0441\u043b\u0438 \u0445\u043e\u0442\u0438\u0442\u0435 \u043f\u0440\u043e\u0439\u0442\u0438 \u0432 \u043f\u0440\u044f\u043c\u043e\u043c \u044d\u0444\u0438\u0440\u0435." />
+  <LFooter />
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/KoreanTopBar.astro';
+import LHeader from '../../components/KoreanHeader.astro';
+import LFooter from '../../components/KoreanFooter.astro';
+import LCTA from '../../components/KoreanCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const SCREENING_URL = "/contact";
+---
+<BaseLayout title="\uc2e0\uccad \u2014 Peter Law \u00b7 \ud1a0\ub860\ud1a0 \ubd80\ub3d9\uc0b0" description="10\ubd84 \uc548\uc5d0 \uc778\uc99d\ub41c \uc784\ub300 \uc2e0\uccad \uc81c\ucd9c. ID, \uc2e0\uc6a9, \uc18c\ub4dd \u2014 \ud55c \ubc88\uc5d0." lang="ko" bodyClass="ko">
+  <LTopBar />
+  <LHeader active="rental" ctaLabel="\uba3c\uc800 \ub300\ud654" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">임대 신청</div><h1>한 번의 신청. 한 번의 통과. 가장 강한 패키지가 이깁니다.</h1><p>토론토 임대인은 하루에 다섯 개의 오퍼를 받습니다. 모든 것을 올바르게 정리해서 나타나는 세입자가 유닛을 얻습니다. 여기서 어떻게 정리하는지 안내합니다.</p></div></section>
+  <section class="major" style="padding-top:32px;"><div class="wrap"><div class="prose-grid">
+    <aside class="prose-side"><h4>—</h4><ul>          <li><a href="#what">필요한 것</a></li>
+          <li><a href="#how">작동 방식</a></li>
+          <li><a href="#privacy">개인정보 및 데이터</a></li>
+          <li><a href="#start">신청 시작</a></li></ul></aside>
+    <div class="prose-body">      <h2 id="what">필요한 것</h2>
+      <p>신청은 모든 것을 손에 있으면 약 10분 걸립니다: <strong>정부 발급 ID</strong>(면허, 여권, PR 카드) - 사진 업로드. <strong>최근 고용 편지</strong> 또는 최근 3개 급여 명세서. <strong>신용 확인 승인</strong>. <strong>참조인</strong> - 이전 임대인 + 고용주.</p>
+      <h2 id="how">작동 방식</h2>
+      <p>아래 "시작"을 클릭하세요. SingleKey로 연결됩니다 — 모든 세입자에게 사용하는 캐나다 심사 서비스. 짧고 안전한 양식으로 진행 상황을 저장합니다.</p>
+      <h2 id="privacy">개인정보 및 데이터</h2>
+      <p>SingleKey는 PIPEDA 준수이며 모든 민감 데이터를 처리합니다 — ID 이미지, 은행 연결, 신용 정보. 저는 원본 은행 로그인이나 전체 ID 이미지를 보지 않습니다. 임대인에게 추천하기 위해 필요한 검증된 요약만 봅니다.</p>
+      <h2 id="start">신청 시작</h2>
+      <p>아래 클릭. 다음 10분간 SingleKey에 있게 됩니다. 완료되면 보고서가 저에게 자동으로 옵니다.</p>
+      <a href={SCREENING_URL} class="btn-primary" style="margin-top:20px;">신청 시작<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div></div></section>
+  <LCTA heading="\uc2e0\uccad \uc900\ube44\ub418\uc168\ub098\uc694?" lead="\ub77c\uc774\ube0c\ub85c \uc548\ub0b4\ubc1b\uace0 \uc2f6\uc73c\uc2dc\uba74 \uba54\uc2dc\uc9c0 \ubcf4\ub0b4\uc8fc\uc138\uc694." />
+  <LFooter />
+</BaseLayout>

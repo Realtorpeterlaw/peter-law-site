@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/KoreanTopBar.astro';
+import LHeader from '../../components/KoreanHeader.astro';
+import LFooter from '../../components/KoreanFooter.astro';
+import LCTA from '../../components/KoreanCTASection.astro';
+const TIKTOK_PROFILE = "https://www.tiktok.com/@rentwithpeter";
+const tours = [
+  { id: "7642839542482930964", title: "9 Clegg Rd", tag: "Markham Downtown · 1 bed + den" },
+  { id: "7643443700663848212", title: "Liberty Village", tag: "Downtown · utilities included" },
+  { id: "7642835431985335573", title: "Danforth · East York", tag: "$2,100/mo · 1 bedroom" },
+  { id: "7638804681673690389", title: "Move-in ready condo", tag: "Tranquil setting" },
+  { id: "7638803774139829524", title: "2-storey unit", tag: "East & west views" },
+  { id: "7638803030602779924", title: "Sizable 1 bed + den", tag: "Unobstructed view" },
+  { id: "7641439020634967317", title: "Markham condos", tag: "Boutique-style" },
+  { id: "7638802160574106900", title: "Brand-new 1 bed + den", tag: "Never lived in" },
+  { id: "7638801525833239828", title: "Waterfront condo", tag: "Lake views" },
+  { id: "7638800822398160148", title: "Junior 1BR", tag: "Waterfront · Lakeshore" },
+  { id: "7638799683430763797", title: "Yonge & Bloor", tag: "Furnished 2 bed/2 bath · Aug 1" },
+  { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 bedroom" },
+];
+---
+<BaseLayout title="\uc784\ub300 \ud22c\uc5b4 \u2014 \ud1a0\ub860\ud1a0 \uc784\ub300 \uc6cc\ud06c\uc2a4\ub8e8 | Peter Law" description="\ud1a0\ub860\ud1a0 \ub2e4\uc6b4\ud0c0\uc6b4 \uc784\ub300\ub97c \uc608\uc57d \uc804\uc5d0 \ub458\ub7ec\ubcf4\uc138\uc694. Peter\uc758 TikTok\uc5d0\uc11c \ub9e4\uc8fc \uc5c5\ub370\uc774\ud2b8." lang="ko" bodyClass="ko tour-page">
+  <LTopBar />
+  <LHeader active="rental" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">임대 투어</div><h1>문을 열기 전에 모든 방을 확인하세요.</h1><p>이번 달 방문한 토론토 임대의 빠른 비디오 투어. 원하는 유닛을 탭하여 문의하세요. 매일 새 비디오가 추가됩니다 <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a>.</p></div></section>
+  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="tour-grid">
+    {tours.map((t) => (
+      <div class="tour-card">
+        <div class="tour-embed">
+          <button class="tour-play-btn" type="button" data-video-id={t.id} aria-label={`투어 재생: ${t.title}`}>
+            <span class="tour-play-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg></span>
+            <span class="tour-play-hint">투어 재생</span>
+          </button>
+        </div>
+        <div class="tour-meta">
+          <div class="tour-title">{t.title}</div>
+          <div class="tour-tag">{t.tag}</div>
+          <a href={`/contact?subject=Inquiry%20about%20${encodeURIComponent(t.title)}`} class="tour-cta">이 매물 문의<svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div class="tour-bottom">
+    <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" class="btn-primary">TikTok에서 모든 투어 보기<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <p class="tour-disclosure">마케팅 및 교육 목적 전용. 가용성, 가격 및 요구 사항은 변경될 수 있습니다.</p>
+  </div>
+  </div></section>
+  <LCTA heading="\ub9c8\uc74c\uc5d0 \ub4dc\ub294 \uac83\uc774 \uc788\ub098\uc694?" lead="\uc774 \uc720\ub2db\ub4e4\uc740 \ub300\ubd80\ubd84 \uba70\uce60 \uc548\uc5d0 \uc784\ub300\ub429\ub2c8\ub2e4. \uc5b4\ub5a4 \uac83\uc774 \ub208\uc5d0 \ub744\uc5c8\ub294\uc9c0 \uc54c\ub824\uc8fc\uc2dc\uba74 \uac00\uc6a9\uc131\uc744 \ud655\uc778\ud574\ub4dc\ub9bd\ub2c8\ub2e4." />
+  <LFooter />
+  <script is:inline>
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.tour-play-btn'); if (!btn) return;
+      const wrap = btn.parentElement; const videoId = btn.dataset.videoId;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.tiktok.com/player/v1/${videoId}?autoplay=1`;
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'width:100%;height:100%;border:0;';
+      wrap.innerHTML = ''; wrap.appendChild(iframe);
+    });
+  </script>
+</BaseLayout>

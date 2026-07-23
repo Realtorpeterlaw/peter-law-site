@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+---
+<BaseLayout title="\u0418\u043f\u043e\u0442\u0435\u0447\u043d\u044b\u0439 \u043a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 | Peter Law" description="\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0439 \u0438\u043f\u043e\u0442\u0435\u0447\u043d\u044b\u0439 \u043f\u043b\u0430\u0442\u0451\u0436. \u041a\u0430\u043d\u0430\u0434\u0441\u043a\u0438\u0435 \u043f\u0440\u0430\u0432\u0438\u043b\u0430: \u043f\u043e\u043b\u0443\u0433\u043e\u0434\u043e\u0432\u043e\u0435 \u043d\u0430\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0435, \u0442\u0430\u0440\u0438\u0444\u044b CMHC, \u0441\u0442\u0440\u0435\u0441\u0441-\u0442\u0435\u0441\u0442." lang="ru" bodyClass="ru calc-page">
+  <LTopBar />
+  <LHeader active="buyers" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Ипотечный калькулятор</div><h1>Ваш ежемесячный ипотечный платёж.</h1><p>Канадское полугодовое начисление + федеральный стресс-тест включены.</p></div></section>
+  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="calc">
+    <div class="calc-fields">
+      <div class="calc-field"><label for="p-price">Цена покупки</label><div class="input-prefix"><input type="number" id="p-price" value="800000" min="0" step="5000" /></div></div>
+      <div class="calc-field"><label for="p-down">Первоначальный взнос</label><div class="input-prefix"><input type="number" id="p-down" value="80000" min="0" step="1000" /></div></div>
+      <div class="calc-field"><label for="p-rate">Ставка (%)</label><div class="input-suffix"><input type="number" id="p-rate" value="5.0" min="0" step="0.05" /></div></div>
+      <div class="calc-field"><label for="p-amort">Амортизация (лет)</label><input type="number" id="p-amort" value="25" min="5" max="35" step="1" /></div>
+      <div class="calc-field"><label for="p-freq">Частота</label><select id="p-freq"><option value="12" selected>Ежемесячно</option><option value="26">Раз в две недели</option><option value="52">Еженедельно</option></select></div>
+    </div>
+    <div class="calc-result">
+      <div class="calc-result-main"><span class="label">Платёж</span><span id="p-monthly">$0</span></div>
+      <div class="calc-result-breakdown">
+        <div class="row"><span>Общая ипотека</span><strong id="p-mortgage">$0</strong></div>
+        <div class="row"><span>CMHC</span><strong id="p-cmhc">$0</strong></div>
+        <div class="row"><span>Платёж при стресс-тесте</span><strong id="p-stress">$0</strong></div>
+      </div>
+    </div>
+    <p class="calc-disclaimer">Для ориентира. Уточните финальные цифры у ипотечного брокера.</p>
+  </div></div></section>
+  <LCTA />
+  <LFooter />
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'$0';return n.toLocaleString('ru-RU',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      function pRate(r,n){const s=r/200;return Math.pow(1+s,2/n)-1;}
+      function pay(p,r,y,f){if(p<=0||y<=0)return 0;const rr=pRate(r,f);const n=y*f;if(rr===0)return p/n;return p*rr/(1-Math.pow(1+rr,-n));}
+      function cmhcR(l){if(l>95)return null;if(l>90)return .04;if(l>85)return .031;if(l>80)return .028;return 0;}
+      function c(){
+        const p=parseFloat(document.getElementById('p-price').value)||0;
+        const d=parseFloat(document.getElementById('p-down').value)||0;
+        const r=parseFloat(document.getElementById('p-rate').value)||0;
+        const y=parseInt(document.getElementById('p-amort').value,10)||25;
+        const f=parseInt(document.getElementById('p-freq').value,10)||12;
+        const bl=Math.max(0,p-d);
+        const ltv=p>0?(p-d)/p*100:0;
+        const cr=cmhcR(ltv);
+        const cp=(cr!==null&&cr>0)?bl*cr:0;
+        const tm=bl+cp;
+        const m=pay(tm,r,y,f);
+        const sr=Math.max(r+2,5.25);
+        const sp=pay(tm,sr,y,f);
+        document.getElementById('p-monthly').textContent=fmt(m);
+        document.getElementById('p-mortgage').textContent=fmt(tm);
+        document.getElementById('p-cmhc').textContent=fmt(cp);
+        document.getElementById('p-stress').textContent=fmt(sp);
+      }
+      ['p-price','p-down','p-rate','p-amort','p-freq'].forEach(id=>{const el=document.getElementById(id);el.addEventListener('input',c);el.addEventListener('change',c);});c();
+    })();
+  </script>
+</BaseLayout>

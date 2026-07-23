@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+---
+<BaseLayout title="\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e\u0441\u0442\u0438 | Peter Law" description="\u0421\u043a\u043e\u043b\u044c\u043a\u043e \u0434\u043e\u043c\u0430 \u0432\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u0442\u044c? \u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0443\u044e \u0446\u0435\u043d\u0443 \u043f\u043e\u043a\u0443\u043f\u043a\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043a\u0430\u043d\u0430\u0434\u0441\u043a\u0438\u0445 \u043f\u0440\u0430\u0432\u0438\u043b (GDS/TDS + \u0441\u0442\u0440\u0435\u0441\u0441-\u0442\u0435\u0441\u0442)." lang="ru" bodyClass="ru calc-page">
+  <LTopBar />
+  <LHeader active="buyers" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Калькулятор доступности</div><h1>Сколько на самом деле можете позволить?</h1><p>Оценивает максимальную цену покупки на основе канадских правил кредитования — коэффициенты GDS/TDS и федеральный стресс-тест.</p></div></section>
+  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="calc">
+    <div class="calc-fields">
+      <div class="calc-field"><label for="af-income">Годовой доход домохозяйства</label><div class="input-prefix"><input type="number" id="af-income" value="120000" min="0" step="1000" /></div></div>
+      <div class="calc-field"><label for="af-debt">Ежемесячные платежи по долгам</label><div class="input-prefix"><input type="number" id="af-debt" value="500" min="0" step="50" /></div></div>
+      <div class="calc-field"><label for="af-down">Первоначальный взнос</label><div class="input-prefix"><input type="number" id="af-down" value="100000" min="0" step="5000" /></div></div>
+      <div class="calc-field"><label for="af-rate">Ипотечная ставка</label><div class="input-suffix"><input type="number" id="af-rate" value="5.0" min="0" step="0.05" /></div></div>
+      <div class="calc-field"><label for="af-amort">Амортизация (лет)</label><input type="number" id="af-amort" value="25" min="5" max="35" /></div>
+    </div>
+    <div class="calc-result">
+      <div class="calc-result-main"><span class="label">Максимальная цена</span><span id="af-max">$0</span></div>
+      <div class="calc-result-breakdown">
+        <div class="row"><span>На основе GDS 32%</span><strong id="af-gds">$0</strong></div>
+        <div class="row"><span>На основе TDS 40%</span><strong id="af-tds">$0</strong></div>
+        <div class="row"><em>Меньший из двух — ваш лимит</em></div>
+      </div>
+    </div>
+    <p class="calc-disclaimer">Только оценка. На основе стандартных GDS/TDS и стресс-теста. Уточните реальное одобрение у ипотечного брокера.</p>
+  </div></div></section>
+  <LCTA />
+  <LFooter />
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'$0';return n.toLocaleString('ru-RU',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      function pRate(r,n){const s=r/200;return Math.pow(1+s,2/n)-1;}
+      function maxPrincipal(pmt,r,y){const rr=pRate(r,12),n=y*12;if(rr===0)return pmt*n;return pmt*(1-Math.pow(1+rr,-n))/rr;}
+      function c(){
+        const inc=parseFloat(document.getElementById('af-income').value)||0;
+        const debt=parseFloat(document.getElementById('af-debt').value)||0;
+        const dn=parseFloat(document.getElementById('af-down').value)||0;
+        const r=parseFloat(document.getElementById('af-rate').value)||0;
+        const y=parseInt(document.getElementById('af-amort').value,10)||25;
+        const sr=Math.max(r+2,5.25);
+        // Stress test at higher rate for qualifying
+        const mi=inc/12;
+        const gdsAvail=mi*.32; const tdsAvail=mi*.40-debt;
+        // Assume $250/mo tax + $150/mo heat + $75/mo condo
+        const otherHousing=475;
+        const gdsPmt=Math.max(0,gdsAvail-otherHousing);
+        const tdsPmt=Math.max(0,tdsAvail-otherHousing);
+        const gdsMax=maxPrincipal(gdsPmt,sr,y)+dn;
+        const tdsMax=maxPrincipal(tdsPmt,sr,y)+dn;
+        const maxP=Math.min(gdsMax,tdsMax);
+        document.getElementById('af-max').textContent=fmt(maxP);
+        document.getElementById('af-gds').textContent=fmt(gdsMax);
+        document.getElementById('af-tds').textContent=fmt(tdsMax);
+      }
+      ['af-income','af-debt','af-down','af-rate','af-amort'].forEach(id=>{const el=document.getElementById(id);el.addEventListener('input',c);el.addEventListener('change',c);});c();
+    })();
+  </script>
+</BaseLayout>

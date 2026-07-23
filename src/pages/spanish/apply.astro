@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/SpanishTopBar.astro';
+import LHeader from '../../components/SpanishHeader.astro';
+import LFooter from '../../components/SpanishFooter.astro';
+import LCTA from '../../components/SpanishCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const SCREENING_URL = "/contact";
+---
+<BaseLayout title="Aplicar \u2014 Peter Law \u00b7 Inmobiliaria Toronto" description="Env\u00eda una solicitud de alquiler verificada en 10 minutos. ID, cr\u00e9dito, ingresos \u2014 todo en una pasada." lang="es" bodyClass="es">
+  <LTopBar />
+  <LHeader active="rental" ctaLabel="O hablemos primero" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Solicitud de alquiler</div><h1>Una solicitud. Una pasada. Gana el mejor paquete.</h1><p>Los propietarios de Toronto reciben cinco ofertas al día. El inquilino que se presenta con todo empaquetado correctamente gana la unidad. Así empacamos la tuya.</p></div></section>
+  <section class="major" style="padding-top:32px;"><div class="wrap"><div class="prose-grid">
+    <aside class="prose-side"><h4>—</h4><ul>          <li><a href="#what">Lo que necesitarás</a></li>
+          <li><a href="#how">Cómo funciona</a></li>
+          <li><a href="#privacy">Privacidad y datos</a></li>
+          <li><a href="#start">Iniciar solicitud</a></li></ul></aside>
+    <div class="prose-body">      <h2 id="what">Lo que necesitarás</h2>
+      <p>La solicitud toma unos 10 minutos si tienes todo a mano: <strong>ID gubernamental</strong> (licencia, pasaporte, tarjeta PR) — subes foto. <strong>Carta de empleo reciente</strong> o últimos 3 recibos de pago. <strong>Autorización de verificación de crédito</strong>. <strong>Referencias</strong> — propietario anterior + empleador.</p>
+      <h2 id="how">Cómo funciona</h2>
+      <p>Haz clic en "Iniciar" abajo. Serás redirigido a SingleKey, un servicio canadiense de screening que uso para cada inquilino. Formulario corto, seguro, guarda tu progreso.</p>
+      <h2 id="privacy">Privacidad y datos</h2>
+      <p>SingleKey cumple con PIPEDA y maneja todos los datos sensibles — imágenes de ID, conexión bancaria, información crediticia. Nunca veo tu login bancario o imagen completa de ID. Veo el resumen verificado necesario para recomendarte a un propietario.</p>
+      <h2 id="start">Iniciar solicitud</h2>
+      <p>Haz clic abajo. Estarás en SingleKey los próximos 10 minutos. Al terminar, el reporte me llega automáticamente.</p>
+      <a href={SCREENING_URL} class="btn-primary" style="margin-top:20px;">Iniciar tu solicitud<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div></div></section>
+  <LCTA heading="\u00bfListo para aplicar?" lead="Env\u00edame un mensaje si quieres que te gu\u00ede en vivo." />
+  <LFooter />
+</BaseLayout>

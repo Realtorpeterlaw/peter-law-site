@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/RussianTopBar.astro';
+import LHeader from '../../components/RussianHeader.astro';
+import LFooter from '../../components/RussianFooter.astro';
+import LCTA from '../../components/RussianCTASection.astro';
+---
+<BaseLayout title="\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u044f CMHC | Peter Law" description="\u041e\u0446\u0435\u043d\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u043e\u0439 \u0432\u0437\u043d\u043e\u0441 CMHC \u0437\u0430 \u0441\u0435\u043a\u0443\u043d\u0434\u044b. \u041a\u0430\u043d\u0430\u0434\u0441\u043a\u0438\u0435 \u043f\u0440\u0430\u0432\u0438\u043b\u0430: \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0439 \u0432\u0437\u043d\u043e\u0441, \u0441\u0442\u0430\u0432\u043a\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 LTV, \u043b\u0438\u043c\u0438\u0442 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u044f 1,5 \u043c\u043b\u043d $." lang="ru" bodyClass="ru calc-page">
+  <LTopBar />
+  <LHeader active="buyers" />
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Калькулятор CMHC</div><h1>Сколько будет стоить страхование ипотеки?</h1><p>Если ваш взнос менее 20%, вы будете платить страхование CMHC. Взнос включается в ипотеку.</p></div></section>
+  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="calc">
+    <div class="calc-fields">
+      <div class="calc-field calc-field-full"><label for="cm-price">Цена покупки</label><div class="input-prefix"><input type="number" id="cm-price" value="800000" min="0" step="5000" /></div></div>
+      <div class="calc-field"><label for="cm-down">Первоначальный взнос</label><div class="input-prefix"><input type="number" id="cm-down" value="80000" min="0" step="1000" /></div></div>
+      <div class="calc-field"><label for="cm-down-pct">Взнос (%)</label><div class="input-suffix"><input type="number" id="cm-down-pct" value="10" min="0" max="100" step="0.5" /></div></div>
+    </div>
+    <div class="calc-result">
+      <div class="calc-result-main"><span class="label">Страховой взнос CMHC</span><span id="cm-premium">$0</span></div>
+      <div class="calc-result-breakdown">
+        <div class="row"><span>Соотношение LTV</span><strong id="cm-ltv">0%</strong></div>
+        <div class="row"><span>Основной остаток по ипотеке</span><strong id="cm-loan">$0</strong></div>
+        <div class="row"><span>Общая ипотека (со взносом)</span><strong id="cm-total">$0</strong></div>
+      </div>
+    </div>
+    <p class="calc-disclaimer">Только оценка. На основе стандартных ставок CMHC 2026 для владельцев менее 1,5 млн $. Уточните у ипотечного брокера.</p>
+  </div></div></section>
+  <LCTA />
+  <LFooter />
+  <script is:inline>
+    (function(){
+      function fmt(n){if(!isFinite(n)||isNaN(n))return'$0';return n.toLocaleString('ru-RU',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
+      function cmhcR(l){if(l>95)return null;if(l>90)return .04;if(l>85)return .031;if(l>80)return .028;return 0;}
+      let editing=null;
+      function c(){
+        const p=parseFloat(document.getElementById('cm-price').value)||0;
+        let d=parseFloat(document.getElementById('cm-down').value)||0;
+        let pct=parseFloat(document.getElementById('cm-down-pct').value)||0;
+        if(editing==='pct'){d=p*pct/100;document.getElementById('cm-down').value=d.toFixed(0);}
+        else if(editing==='dollar'){pct=p>0?d/p*100:0;document.getElementById('cm-down-pct').value=pct.toFixed(2);}
+        else{pct=p>0?d/p*100:0;document.getElementById('cm-down-pct').value=pct.toFixed(2);}
+        const ltv=p>0?(p-d)/p*100:0;
+        const bl=Math.max(0,p-d);
+        const rate=cmhcR(ltv);
+        const premium=(rate!==null&&rate>0)?bl*rate:0;
+        document.getElementById('cm-premium').textContent=fmt(premium);
+        document.getElementById('cm-ltv').textContent=ltv.toFixed(1)+'%';
+        document.getElementById('cm-loan').textContent=fmt(bl);
+        document.getElementById('cm-total').textContent=fmt(bl+premium);
+      }
+      document.getElementById('cm-price').addEventListener('input',()=>{editing='price';c();editing=null;});
+      document.getElementById('cm-down').addEventListener('input',()=>{editing='dollar';c();editing=null;});
+      document.getElementById('cm-down-pct').addEventListener('input',()=>{editing='pct';c();editing=null;});
+      c();
+    })();
+  </script>
+</BaseLayout>
