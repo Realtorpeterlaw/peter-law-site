@@ -94,10 +94,10 @@ import CTASection from '../components/CTASection.astro';
           <div class="mc-scenarios" id="mc-cash-scenarios"></div>
 
 
-          <!-- Grade-8 mortgage explainer -->
-          <section class="mc-explainer">
-            <h2 class="mc-explainer-h">Understand your mortgage — in plain English</h2>
-            <p class="mc-explainer-lead">A short guide to the terms your lender will throw at you. No jargon. Save it for later.</p>
+          <!-- Grade-8 mortgage explainer (collapsible) -->
+          <details class="mc-collapsible mc-explainer">
+            <summary>Mortgage Type explained</summary>
+            <div class="mc-collapsible-body mc-explainer-body">
 
             <h3>Conventional vs. High-Ratio Mortgages</h3>
             <p>A regular mortgage is called <strong>conventional</strong>. You get one when your down payment is at least 20% of the home's price. Because your loan is 80% or less of the home's value, you do not need mortgage insurance.</p>
@@ -122,7 +122,8 @@ import CTASection from '../components/CTASection.astro';
             <p>An <strong>expandable</strong> mortgage lets you add more money to your loan later without starting from scratch. Your new rate will be a <em>blend</em> of your current rate and the market rate at that time. This is useful if you know large expenses are coming — a renovation, a wedding, tuition, or a second property.</p>
 
             <p class="mc-explainer-cta"><em>Not sure which features fit your situation? I work with mortgage brokers who can walk you through this. <a href="/contact">Get in touch</a>.</em></p>
-          </section>
+            </div>
+          </details>
 
           <!-- Monthly expenses collapsible -->
           <details class="mc-collapsible">
@@ -507,49 +508,42 @@ import CTASection from '../components/CTASection.astro';
 </BaseLayout>
 
 <style>
-  .mc-explainer {
-    margin: 40px 0 32px;
-    padding: 26px 28px;
+  /* Collapsible explainer — extends .mc-collapsible with warmer background + typography */
+  .mc-explainer.mc-collapsible {
     background: #fafaf7;
-    border: 1px solid var(--line, #e6e2dc);
-    border-radius: 14px;
+    margin-top: 24px;
+    margin-bottom: 20px;
   }
-  .mc-explainer-h {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 500;
-    font-size: 24px;
-    margin: 0 0 8px;
-    color: var(--ink, #1a1a1a);
+  .mc-explainer.mc-collapsible > summary {
+    font-size: 18px;
   }
-  .mc-explainer-lead {
-    font-size: 14.5px;
-    color: var(--ink-soft, #555);
-    margin: 0 0 20px;
-    font-style: italic;
+  .mc-explainer-body {
+    padding: 4px 24px 22px;
   }
-  .mc-explainer h3 {
+  .mc-explainer-body h3 {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 500;
     font-size: 20px;
-    margin: 22px 0 8px;
+    margin: 18px 0 8px;
     color: var(--ink, #1a1a1a);
   }
-  .mc-explainer h4 {
+  .mc-explainer-body h3:first-child { margin-top: 6px; }
+  .mc-explainer-body h4 {
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.01em;
-    margin: 16px 0 6px;
+    margin: 14px 0 6px;
     color: var(--ink, #1a1a1a);
   }
-  .mc-explainer p {
+  .mc-explainer-body p {
     font-size: 14.5px;
     line-height: 1.65;
     color: var(--ink-soft, #333);
     margin: 0 0 10px;
   }
   .mc-explainer-cta {
-    margin-top: 18px !important;
-    padding-top: 14px;
+    margin-top: 16px !important;
+    padding-top: 12px;
     border-top: 1px dashed #e6e2dc;
     color: var(--ink, #1a1a1a) !important;
   }
