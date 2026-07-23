@@ -93,9 +93,40 @@ import CTASection from '../components/CTASection.astro';
           <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">Down payment + LTT + estimated legal/title + CMHC PST (if applicable). Doesn't include moving costs or inspection.</p>
           <div class="mc-scenarios" id="mc-cash-scenarios"></div>
 
+
+          <!-- Grade-8 mortgage explainer -->
+          <section class="mc-explainer">
+            <h2 class="mc-explainer-h">Understand your mortgage — in plain English</h2>
+            <p class="mc-explainer-lead">A short guide to the terms your lender will throw at you. No jargon. Save it for later.</p>
+
+            <h3>Conventional vs. High-Ratio Mortgages</h3>
+            <p>A regular mortgage is called <strong>conventional</strong>. You get one when your down payment is at least 20% of the home's price. Because your loan is 80% or less of the home's value, you do not need mortgage insurance.</p>
+            <p>If you put down <em>less than</em> 20%, it is a <strong>high-ratio</strong> mortgage. You are borrowing more than 80% of the home's price, so the lender is taking on more risk. You have to pay for mortgage insurance — usually between <strong>0.6% and 4.5%</strong> of the loan amount. There is also a maximum home price you can buy under this option.</p>
+
+            <h3>Second Mortgage</h3>
+            <p>If you already have a mortgage but need more money, you can take a <strong>second mortgage</strong> against your home. It uses your home as security, just like the first one. If you stop paying, the lender can force a sale of the property. The first mortgage always gets paid back first, so the second lender is at higher risk — that is why second mortgages usually charge <strong>higher interest</strong>.</p>
+
+            <h3>Mortgage Features</h3>
+            <p>Every lender is different. Each one lets you customize the terms of your loan. Here are the features worth asking about before you sign.</p>
+
+            <h4>Prepayment</h4>
+            <p>A <strong>prepayment</strong> right lets you pay extra toward the loan on top of your regular monthly payments. This is great if you get bonuses or your income changes month to month. An <em>open</em> mortgage lets you pay the whole thing off any time — no penalty. A <em>closed</em> mortgage limits how much extra you can pay each year (usually 10–20%). Extra payments go straight to the principal, so you finish the loan faster.</p>
+
+            <h4>Portability</h4>
+            <p>If you like your current interest rate and do not want to lose it, ask for <strong>portability</strong>. It lets you move your existing mortgage — same rate, same terms — over to a new home when you move. Very useful when today's market rates are higher than the rate you originally locked in.</p>
+
+            <h4>Assumability</h4>
+            <p>When you sell your home, an <strong>assumable</strong> mortgage means the buyer can take over your existing loan. This is a big selling point when your rate is better than today's market. <strong>Warning:</strong> if the buyer stops paying, you can still be held responsible. Make sure the lender formally approves the new buyer so you are fully released.</p>
+
+            <h4>Expandability</h4>
+            <p>An <strong>expandable</strong> mortgage lets you add more money to your loan later without starting from scratch. Your new rate will be a <em>blend</em> of your current rate and the market rate at that time. This is useful if you know large expenses are coming — a renovation, a wedding, tuition, or a second property.</p>
+
+            <p class="mc-explainer-cta"><em>Not sure which features fit your situation? I work with mortgage brokers who can walk you through this. <a href="/contact">Get in touch</a>.</em></p>
+          </section>
+
           <!-- Monthly expenses collapsible -->
           <details class="mc-collapsible">
-            <summary>Monthly expenses breakdown</summary>
+            <summary>Monthly Expenses</summary>
             <div class="mc-collapsible-body">
               <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Mortgage payment + property tax + heating + condo fee. The full monthly carrying cost per scenario.</p>
               <div class="mc-scenarios" id="mc-expenses-scenarios"></div>
@@ -474,3 +505,54 @@ import CTASection from '../components/CTASection.astro';
     update();
   </script>
 </BaseLayout>
+
+<style>
+  .mc-explainer {
+    margin: 40px 0 32px;
+    padding: 26px 28px;
+    background: #fafaf7;
+    border: 1px solid var(--line, #e6e2dc);
+    border-radius: 14px;
+  }
+  .mc-explainer-h {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 8px;
+    color: var(--ink, #1a1a1a);
+  }
+  .mc-explainer-lead {
+    font-size: 14.5px;
+    color: var(--ink-soft, #555);
+    margin: 0 0 20px;
+    font-style: italic;
+  }
+  .mc-explainer h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 22px 0 8px;
+    color: var(--ink, #1a1a1a);
+  }
+  .mc-explainer h4 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 16px 0 6px;
+    color: var(--ink, #1a1a1a);
+  }
+  .mc-explainer p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-soft, #333);
+    margin: 0 0 10px;
+  }
+  .mc-explainer-cta {
+    margin-top: 18px !important;
+    padding-top: 14px;
+    border-top: 1px dashed #e6e2dc;
+    color: var(--ink, #1a1a1a) !important;
+  }
+  .mc-explainer-cta a { color: #b8845b; font-weight: 600; text-decoration: none; }
+  .mc-explainer-cta a:hover { text-decoration: underline; }
+</style>
