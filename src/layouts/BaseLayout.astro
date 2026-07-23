@@ -28,8 +28,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const _path = Astro.url.pathname.replace(/\/$/, '');
 const _segments = _path.split('/').filter(Boolean);
 const _labelMap: Record<string, string> = {
-  chinese: '中文', russian: 'Русский', farsi: 'فارسی', hindi: 'हिंदी',
-  korean: '한국어', japanese: '日本語', spanish: 'Español',
+  chinese: '中文', french: 'Français',
   blog: 'Blog', 'past-deals': 'Sale History', about: 'About', contact: 'Contact',
   'buyer-guide': 'Buyer Guide', 'for-renters': 'For Renters', 'for-landlords': 'For Landlords',
   'rental-tour': 'Rental Tour', 'rent-control': 'Rent Control', 'lease-renewal': 'Lease Renewal',
