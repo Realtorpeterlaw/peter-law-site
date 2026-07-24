@@ -40,6 +40,8 @@ const jsonLd = {
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/ontario-property-taxes-rising/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/ontario-property-taxes-rising/' },
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising/' },
 ];
 
@@ -246,19 +248,23 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             </ul>
             <p>The report ends by saying: this may not be a revenue problem. It may be a spending problem.</p>
 
-            <h2 id="means">What it means for you</h2>
-            <div class="callout">
-              <strong>If you already own:</strong> Property tax is a real, ongoing cost that goes up almost every year. Budget for it. If you're buying, ask what the current year's bill is — not just what it was two years ago.
-            </div>
-            <div class="callout">
-              <strong>If you're buying:</strong> Don't just look at the price. A cheaper home in a city with high per-person tax (like Pickering, Whitby, Sudbury) can end up costing more each month than a slightly pricier home in a city with a lower rate (Milton, Brampton, Kitchener). I include property tax in the numbers when I run scenarios for my clients.
-            </div>
-            <div class="callout">
-              <strong>If you're renting:</strong> Landlords pass rising property tax through to rent, but only slowly and under rent control rules (Ontario cap is set each year). It is one of the quiet reasons rent creeps up even without a lease change.
-            </div>
-            <div class="callout">
-              <strong>If you're voting:</strong> Municipal elections happen this fall. Property tax is <em>the</em> lever your city council can pull. Ask the candidates what they want to do with your bill.
-            </div>
+            <details class="means-collapse" id="means">
+              <summary>What it means for you</summary>
+              <div class="means-body">
+                <div class="callout">
+                  <strong>If you already own:</strong> Property tax is a real, ongoing cost that goes up almost every year. Budget for it. If you're buying, ask what the current year's bill is — not just what it was two years ago.
+                </div>
+                <div class="callout">
+                  <strong>If you're buying:</strong> Don't just look at the price. A cheaper home in a city with high per-person tax (like Pickering, Whitby, Sudbury) can end up costing more each month than a slightly pricier home in a city with a lower rate (Milton, Brampton, Kitchener). I include property tax in the numbers when I run scenarios for my clients.
+                </div>
+                <div class="callout">
+                  <strong>If you're renting:</strong> Landlords pass rising property tax through to rent, but only slowly and under rent control rules (Ontario cap is set each year). It is one of the quiet reasons rent creeps up even without a lease change.
+                </div>
+                <div class="callout">
+                  <strong>If you're voting:</strong> Municipal elections happen this fall. Property tax is <em>the</em> lever your city council can pull. Ask the candidates what they want to do with your bill.
+                </div>
+              </div>
+            </details>
 
             <h2 id="disclaimer">Disclaimer</h2>
             <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">This article summarizes and paraphrases in plain English a commentary titled <em>"Property taxes growing quickly in Ontario municipalities"</em> by Livio Di Matteo, Professor of Economics at Lakehead University, published by the Fraser Institute on June 2, 2026. All numbers, percentages, and city-level figures shown are from that report and the BMA Municipal Report 2025 it cites. The wording and analysis in this post are Peter Law's own summary written for a general reader — they are not a direct quote and should not be treated as one. Nothing in this article is legal, tax, or financial advice, and Peter Law is a registered Real Estate Sales Representative (RECO), not a tax professional. Property tax rates, assessment rules, and municipal budgets change every year; always check the current-year information on your municipality's website or with a licensed tax advisor before making a decision based on this content. Sources: Fraser Institute (fraserinstitute.org), BMA Municipal Report 2025.</p>
@@ -365,6 +371,41 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
       .bar-row { grid-template-columns: 100px 1fr 70px; gap: 6px; }
       .bar-city { font-size: 12px; }
       .bar-val { font-size: 12px; }
+    }
+  
+    /* "What it means for you" collapsible */
+    .means-collapse {
+      margin: 24px 0 28px;
+      background: #fafaf7;
+      border: 1px solid var(--line, #e6e2dc);
+      border-radius: 14px;
+    }
+    .means-collapse > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 22px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--ink, #1a1a1a);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .means-collapse > summary::-webkit-details-marker { display: none; }
+    .means-collapse > summary::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--ink-mute);
+      font-weight: 300;
+      transition: transform 0.15s;
+    }
+    .means-collapse[open] > summary::after { content: '−'; }
+    .means-collapse > summary:hover { background: rgba(0,0,0,0.02); border-radius: 14px 14px 0 0; }
+    .means-body {
+      padding: 4px 22px 22px;
+      display: grid;
+      gap: 14px;
     }
   </style>
 </BaseLayout>
