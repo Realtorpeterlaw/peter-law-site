@@ -12,9 +12,9 @@ const allDeals = getDeals(lang === 'fr' ? 'fr' : lang === 'zh' ? 'zh' : 'en');
 const deals = allDeals.slice(0, 6);
 
 const L: Record<string, Record<string, string>> = {
-  en: { heading: 'Recent', carousel: 'Recent deals carousel', goPrefix: 'Go to slide ', goSuffix: '', prev: 'Previous deal', next: 'Next deal' },
-  zh: { heading: '近期', carousel: '近期成交轮播', goPrefix: '前往第 ', goSuffix: ' 条', prev: '上一条', next: '下一条' },
-  fr: { heading: 'Récent', carousel: 'Carrousel des transactions récentes', goPrefix: 'Aller à la diapositive ', goSuffix: '', prev: 'Précédent', next: 'Suivant' },
+  en: { heading: "Here's what I got for my Clients:", carousel: 'Recent deals carousel', goPrefix: 'Go to slide ', goSuffix: '', prev: 'Previous deal', next: 'Next deal' },
+  zh: { heading: '这些是我为客户争取到的成果:', carousel: '近期成交轮播', goPrefix: '前往第 ', goSuffix: ' 条', prev: '上一条', next: '下一条' },
+  fr: { heading: 'Voici ce que j\'ai obtenu pour mes clients :', carousel: 'Carrousel des transactions récentes', goPrefix: 'Aller à la diapositive ', goSuffix: '', prev: 'Précédent', next: 'Suivant' },
   ko: { heading: '최근', carousel: '최근 거래 캐러셀', goPrefix: '슬라이드로 이동 ', goSuffix: '', prev: '이전', next: '다음' },
   ru: { heading: 'Недавние', carousel: 'Карусель недавних сделок', goPrefix: 'Перейти к слайду ', goSuffix: '', prev: 'Предыдущая', next: 'Следующая' },
   es: { heading: 'Recientes', carousel: 'Carrusel de operaciones recientes', goPrefix: 'Ir a la diapositiva ', goSuffix: '', prev: 'Anterior', next: 'Siguiente' },
