@@ -224,9 +224,14 @@ const hreflangAlternates = [
           vSub = '住房占收入 ' + pct.toFixed(1) + '%,已越过 30% 舒适线,但仍在能力范围内。购物、通勤、储蓄空间会变紧;房东可能要求担保人或多月预付。';
           vClass = 'rc-verdict-yellow';
           vIcon = ICON_WARN;
-        } else {
+        } else if (pct < 80) {
           vTitle = '可能,但请与代表沟通。';
           vSub = '住房占收入 ' + pct.toFixed(1) + '%,大多数房东在此比例会拒批。特殊情况可争取:担保人、多月预付、公司租赁、良好信用。申请前请与持牌代表沟通。';
+          vClass = 'rc-verdict-red';
+          vIcon = ICON_CROSS;
+        } else {
+          vTitle = '很遗憾,您的收入与租金比过高,在目前市场条件下难以获批。';
+          vSub = '住房支出占收入的 ' + pct.toFixed(1) + '% — 在这一比例下,几乎没有房东会批准。业内通行的上限约为 33-40%。建议考虑租金更低的单元、增加担保人,或在申请前提升可证明的收入。';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         }

@@ -228,9 +228,14 @@ const hreflangAlternates = [
           vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — above the 30% comfort line but still within reach. Groceries, transit, and savings will be tighter. Landlord may ask for guarantor or extra months upfront.';
           vClass = 'rc-verdict-yellow';
           vIcon = ICON_WARN;
-        } else {
+        } else if (pct < 80) {
           vTitle = 'Possible, but discuss with your Realtor.';
           vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — most landlords will say no at this ratio. Exceptions apply: guarantor, upfront rent, corporate lease, strong credit. Talk to a licensed Realtor before you apply.';
+          vClass = 'rc-verdict-red';
+          vIcon = ICON_CROSS;
+        } else {
+          vTitle = "Unfortunately, your Income to Rent ratio is too high and won't suffice in today's market.";
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income. At this ratio, virtually no landlord will approve — the standard cutoff most brokerages enforce is around 33-40%. Consider a lower-priced unit, a co-signer, or increasing your provable income before applying.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         }
