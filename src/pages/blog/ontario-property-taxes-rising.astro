@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-07-24';
+const articleTitle = 'ONTARIO: Property Taxes on the rise';
+const articleDescription = "A plain-English breakdown of why property taxes in Ontario cities are climbing faster than home values. What the Fraser Institute found, which cities pay the most, and what it means if you're buying, renting, or already own.";
+const articleUrl = 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'en-CA',
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'Ontario property tax, Toronto property tax, Pickering property tax, Milton property tax, Fraser Institute property tax report, municipal tax Ontario 2026, per capita property tax Ontario, MPAC assessment 2016, property tax growth Ontario',
+  citation: {
+    '@type': 'CreativeWork',
+    name: 'Property taxes growing quickly in Ontario municipalities',
+    author: 'Livio Di Matteo',
+    publisher: 'Fraser Institute',
+    datePublished: '2026-06-02',
+    url: 'https://www.fraserinstitute.org/',
+  },
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising/' },
+];
+
+// ── Chart data ──────────────────────────────────────────────────────
+// Figure 1: Per-capita municipal tax levy, 2025 (top + bottom slice)
+const chart1_top = [
+  { city: 'Pickering', val: 2300 },
+  { city: 'Niagara Falls', val: 2180 },
+  { city: 'Whitby', val: 2160 },
+  { city: 'Greater Sudbury', val: 2104 },
+  { city: 'Burlington', val: 2098 },
+  { city: 'Thunder Bay', val: 2066 },
+];
+const chart1_bottom = [
+  { city: 'Toronto', val: 1807 },
+  { city: 'Kitchener', val: 1560 },
+  { city: 'Brampton', val: 1516 },
+  { city: 'Milton', val: 1230 },
+];
+const chart1_max = 2500;
+
+// Figure 2: Per-capita taxable unweighted assessment 2025 ($)
+const chart2_top = [
+  { city: 'Richmond Hill', val: 291142 },
+  { city: 'Vaughan', val: 288109 },
+  { city: 'Markham', val: 279236 },
+  { city: 'Oakville', val: 274298 },
+  { city: 'Caledon', val: 242676 },
+  { city: 'Toronto', val: 237835 },
+];
+const chart2_bottom = [
+  { city: 'Sault Ste. Marie', val: 96028 },
+  { city: 'Timmins', val: 85122 },
+  { city: 'Windsor', val: 68193 },
+];
+const chart2_max = 300000;
+
+// Figure 3: 10-year growth comparison (2015 → 2025)
+const chart3 = [
+  { label: 'Per-person tax levy growth (avg)', val: 35, color: '#c05a4a' },
+  { label: 'Per-person assessment growth (avg)', val: 21, color: '#9ea88d' },
+  { label: 'Population growth (Ontario)', val: 20, color: '#c3b28d' },
+  { label: 'Median family income growth', val: 14, color: '#8ba0a8' },
+];
+const chart3_max = 40;
+
+function fmt(n: number): string { return n.toLocaleString('en-CA'); }
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Ontario Property Owners · Policy</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Property taxes in Ontario cities have been going up faster than home values, faster than family incomes, and faster than the overall economy. Here's what the numbers actually show — in plain English.</p>
+        <div class="article-byline">
+          <span>By <a href="/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>July 24, 2026</time>
+          <span class="dot">·</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>On this page</h4>
+            <ul>
+              <li><a href="#quick">Quick facts</a></li>
+              <li><a href="#what">What is a property tax?</a></li>
+              <li><a href="#big">The big picture</a></li>
+              <li><a href="#chart1">Chart 1 — Who pays the most?</a></li>
+              <li><a href="#chart2">Chart 2 — Where is the wealth?</a></li>
+              <li><a href="#chart3">Chart 3 — Taxes vs everything else</a></li>
+              <li><a href="#why">Why is this happening?</a></li>
+              <li><a href="#means">What it means for you</a></li>
+              <li><a href="#disclaimer">Disclaimer</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+
+            <div id="quick" class="qf-card">
+              <div class="qf-row"><span class="qf-label">Cities in Ontario</span><span class="qf-val">444 municipalities</span></div>
+              <div class="qf-row"><span class="qf-label">Property tax revenue (2015 → 2025)</span><span class="qf-val">$19B → $27B (+42%)</span></div>
+              <div class="qf-row"><span class="qf-label">Assessment base (per person, 10 yr avg)</span><span class="qf-val">+21%</span></div>
+              <div class="qf-row"><span class="qf-label">Property tax bill (per person, 10 yr avg)</span><span class="qf-val">+35%</span></div>
+              <div class="qf-row"><span class="qf-label">Family income growth over same period</span><span class="qf-val">+14%</span></div>
+              <div class="qf-row"><span class="qf-label">Home values used for tax math</span><span class="qf-val">Frozen at 2016 prices</span></div>
+            </div>
+
+            <h2 id="what">What is a property tax?</h2>
+            <p>A <strong>property tax</strong> is money your city charges you every year for owning a home, condo, or piece of land. The city uses that money to pay for things like garbage pickup, snow removal, roads, libraries, parks, and part of the police and fire budget.</p>
+            <p>The bill is calculated with two numbers: <strong>the tax rate</strong> (a percentage the city sets each year) and <strong>the value of your property</strong> (called the assessment). In Ontario, the assessment part is a bit weird — the value the province uses is <strong>frozen at what your home was worth back in 2016</strong>. It has not been updated in ten years. That means the recent housing boom is not in the numbers.</p>
+
+            <h2 id="big">The big picture</h2>
+            <p>Ontario has 444 cities and towns. Property taxes are their biggest single source of money — <strong>44.1% of what they collect every year</strong>. Over the last ten years, that money grew a lot:</p>
+            <ul>
+              <li>In <strong>2015</strong>, Ontario cities collected about <strong>$19 billion</strong> in property taxes.</li>
+              <li>In <strong>2025</strong>, they collected about <strong>$27 billion</strong>.</li>
+              <li>That is a <strong>42% jump</strong> in ten years.</li>
+            </ul>
+            <p>Over the same time, family incomes in Ontario only went up about 14%. So the tax bill grew about <strong>2.5 times faster</strong> than what people were earning.</p>
+
+            <!-- ─── CHART 1 ─── -->
+            <h2 id="chart1">Chart 1 — Who pays the most? (2025)</h2>
+            <p>This is <strong>how much tax each person pays</strong> in a city, on average, in 2025. The top of the list is where the tax bill is biggest per person. The bottom of the list is where it is smallest.</p>
+            <figure class="bar-chart" aria-labelledby="c1-cap">
+              <figcaption id="c1-cap">Per-capita net municipal tax levy, 2025 — top 6 vs. bottom 4 of 35 major Ontario cities.</figcaption>
+              <div class="bar-group">
+                <div class="bar-group-label">Highest per-person tax</div>
+                {chart1_top.map((r) => (
+                  <div class="bar-row">
+                    <span class="bar-city">{r.city}</span>
+                    <div class="bar-track"><span class="bar-fill bar-fill-red" style={`width:${(r.val / chart1_max) * 100}%`}></span></div>
+                    <span class="bar-val">${fmt(r.val)}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="bar-group">
+                <div class="bar-group-label">Lowest per-person tax</div>
+                {chart1_bottom.map((r) => (
+                  <div class="bar-row">
+                    <span class="bar-city">{r.city}</span>
+                    <div class="bar-track"><span class="bar-fill bar-fill-green" style={`width:${(r.val / chart1_max) * 100}%`}></span></div>
+                    <span class="bar-val">${fmt(r.val)}</span>
+                  </div>
+                ))}
+              </div>
+              <p class="chart-note">Source: BMA Municipal Report 2025 via Fraser Institute. Bars scaled to $2,500 max.</p>
+            </figure>
+            <p><strong>What it says:</strong> if you live in Pickering, your city takes about <strong>$2,300 per person</strong>, on average, in municipal tax. If you live in Milton, it takes about <strong>$1,230</strong>. Same province, roughly double the bill.</p>
+
+            <!-- ─── CHART 2 ─── -->
+            <h2 id="chart2">Chart 2 — Where is the wealth? (2025)</h2>
+            <p>This is <strong>how valuable the real estate is</strong> in each city, on a per-person basis. Cities at the top have very expensive property. Cities at the bottom have cheaper property. A city with a bigger tax base should, in theory, need a lower tax rate to raise the same money — because there's more value to tax.</p>
+            <figure class="bar-chart" aria-labelledby="c2-cap">
+              <figcaption id="c2-cap">Per-capita taxable unweighted assessment, 2025 — top 6 vs. bottom 3 cities.</figcaption>
+              <div class="bar-group">
+                <div class="bar-group-label">Richest tax base per person</div>
+                {chart2_top.map((r) => (
+                  <div class="bar-row">
+                    <span class="bar-city">{r.city}</span>
+                    <div class="bar-track"><span class="bar-fill bar-fill-blue" style={`width:${(r.val / chart2_max) * 100}%`}></span></div>
+                    <span class="bar-val">${fmt(r.val)}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="bar-group">
+                <div class="bar-group-label">Smallest tax base per person</div>
+                {chart2_bottom.map((r) => (
+                  <div class="bar-row">
+                    <span class="bar-city">{r.city}</span>
+                    <div class="bar-track"><span class="bar-fill bar-fill-tan" style={`width:${(r.val / chart2_max) * 100}%`}></span></div>
+                    <span class="bar-val">${fmt(r.val)}</span>
+                  </div>
+                ))}
+              </div>
+              <p class="chart-note">Source: BMA Municipal Report 2025 via Fraser Institute. Bars scaled to $300,000 max.</p>
+            </figure>
+            <p><strong>What it says:</strong> Richmond Hill has more than <strong>four times</strong> the taxable property value per person compared to Windsor. And yet, as Chart 1 shows, Windsor's tax bill per person is not four times lower. Something else is going on.</p>
+
+            <!-- ─── CHART 3 ─── -->
+            <h2 id="chart3">Chart 3 — Taxes vs everything else (2015–2025)</h2>
+            <p>This is the most important chart. It compares how fast four things grew over ten years, on average, across 35 major Ontario cities.</p>
+            <figure class="bar-chart" aria-labelledby="c3-cap">
+              <figcaption id="c3-cap">Average 10-year growth (2015 → 2025), 35 major Ontario cities.</figcaption>
+              <div class="bar-group">
+                {chart3.map((r) => (
+                  <div class="bar-row">
+                    <span class="bar-city">{r.label}</span>
+                    <div class="bar-track"><span class="bar-fill" style={`width:${(r.val / chart3_max) * 100}%;background:${r.color}`}></span></div>
+                    <span class="bar-val">+{r.val}%</span>
+                  </div>
+                ))}
+              </div>
+              <p class="chart-note">Source: BMA Municipal Report 2025, Statistics Canada, via Fraser Institute analysis. Bars scaled to +40% max.</p>
+            </figure>
+            <p><strong>What it says:</strong> the tax bill per person is growing <strong>faster than everything else</strong>. Faster than the population. Faster than the value of the properties being taxed. And much faster than what families are earning.</p>
+            <p>In simple words: <strong>the pie is getting bigger, but the slice each person pays is getting bigger even faster</strong>.</p>
+
+            <h2 id="why">Why is this happening?</h2>
+            <p>The Fraser Institute report offers a few possible reasons. In grade-8 terms:</p>
+            <ul>
+              <li><strong>The province gives cities less money than before</strong>, so cities charge you more to make up the difference.</li>
+              <li><strong>Things cost more after the pandemic.</strong> Fixing a road, running a rec centre, or paying a firefighter all got more expensive.</li>
+              <li><strong>The province downloaded programs</strong> (health, social services) that cities now pay for.</li>
+              <li><strong>Or</strong> — and this is the one the report leans toward — <strong>cities are simply spending more, on more things, without asking whether the taxpayer can keep up</strong>.</li>
+            </ul>
+            <p>The report ends by saying: this may not be a revenue problem. It may be a spending problem.</p>
+
+            <h2 id="means">What it means for you</h2>
+            <div class="callout">
+              <strong>If you already own:</strong> Property tax is a real, ongoing cost that goes up almost every year. Budget for it. If you're buying, ask what the current year's bill is — not just what it was two years ago.
+            </div>
+            <div class="callout">
+              <strong>If you're buying:</strong> Don't just look at the price. A cheaper home in a city with high per-person tax (like Pickering, Whitby, Sudbury) can end up costing more each month than a slightly pricier home in a city with a lower rate (Milton, Brampton, Kitchener). I include property tax in the numbers when I run scenarios for my clients.
+            </div>
+            <div class="callout">
+              <strong>If you're renting:</strong> Landlords pass rising property tax through to rent, but only slowly and under rent control rules (Ontario cap is set each year). It is one of the quiet reasons rent creeps up even without a lease change.
+            </div>
+            <div class="callout">
+              <strong>If you're voting:</strong> Municipal elections happen this fall. Property tax is <em>the</em> lever your city council can pull. Ask the candidates what they want to do with your bill.
+            </div>
+
+            <h2 id="disclaimer">Disclaimer</h2>
+            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">This article summarizes and paraphrases in plain English a commentary titled <em>"Property taxes growing quickly in Ontario municipalities"</em> by Livio Di Matteo, Professor of Economics at Lakehead University, published by the Fraser Institute on June 2, 2026. All numbers, percentages, and city-level figures shown are from that report and the BMA Municipal Report 2025 it cites. The wording and analysis in this post are Peter Law's own summary written for a general reader — they are not a direct quote and should not be treated as one. Nothing in this article is legal, tax, or financial advice, and Peter Law is a registered Real Estate Sales Representative (RECO), not a tax professional. Property tax rates, assessment rules, and municipal budgets change every year; always check the current-year information on your municipality's website or with a licensed tax advisor before making a decision based on this content. Sources: Fraser Institute (fraserinstitute.org), BMA Municipal Report 2025.</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTASection heading="Buying or renting in a specific city?" lead="Talk to me about the neighbourhoods you're considering. I include property tax and monthly carrying costs in every scenario I run for a client — so the shortlist you get already accounts for what each city really costs to live in." />
+  <Footer />
+
+  <style>
+    /* Quick-facts card */
+    .qf-card {
+      background: #fff;
+      border: 1px solid var(--line, #e6e2dc);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 0 0 32px;
+      display: grid;
+      gap: 10px;
+    }
+    .qf-row {
+      display: grid;
+      grid-template-columns: 55% 1fr;
+      gap: 14px;
+      align-items: baseline;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #eee;
+    }
+    .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .qf-label { color: #666; font-size: 0.92rem; }
+    .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
+
+    /* Bar chart */
+    .bar-chart {
+      margin: 22px 0 28px;
+      padding: 20px 22px 16px;
+      background: #fafaf7;
+      border: 1px solid var(--line, #e6e2dc);
+      border-radius: 12px;
+    }
+    .bar-chart figcaption {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+    .bar-group + .bar-group { margin-top: 18px; }
+    .bar-group-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 90px;
+      gap: 10px;
+      align-items: center;
+      padding: 6px 0;
+    }
+    .bar-city {
+      font-size: 13.5px;
+      color: var(--ink);
+      font-weight: 500;
+      text-align: right;
+    }
+    .bar-track {
+      background: #ece7dd;
+      height: 22px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+    .bar-fill-red { background: linear-gradient(90deg, #c86a5c, #a04a3c); }
+    .bar-fill-green { background: linear-gradient(90deg, #9ea88d, #7c8b6a); }
+    .bar-fill-blue { background: linear-gradient(90deg, #6b8ea6, #4d6f88); }
+    .bar-fill-tan { background: linear-gradient(90deg, #c3b28d, #a49470); }
+    .bar-val {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .chart-note {
+      font-size: 11.5px;
+      color: var(--ink-mute);
+      margin-top: 14px !important;
+      font-style: italic;
+      text-align: right;
+    }
+    @media (max-width: 640px) {
+      .bar-row { grid-template-columns: 100px 1fr 70px; gap: 6px; }
+      .bar-city { font-size: 12px; }
+      .bar-val { font-size: 12px; }
+    }
+  </style>
+</BaseLayout>
