@@ -6,11 +6,19 @@ import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rental-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rental-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rental-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rental-calculator/' },
+];
 ---
 <BaseLayout
   title="Rental Calculator — can you afford this rent? | Peter Law"
   description="One page. Type what you make, what the rent is, and your basic living costs. See instantly whether the rent fits your income, whether you'll feel it, or whether it's too tight."
   bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="rental" />

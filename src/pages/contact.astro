@@ -6,8 +6,17 @@ import Footer from '../components/Footer.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 // Formspree form ID — replace xnjrzgda after creating the form at https://formspree.io/forms
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/contact/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/contact/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/contact/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/contact/' },
+];
 ---
-<BaseLayout title="Contact — Peter Law · Toronto Real Estate" description="Get in touch with Peter Law. Email, phone, or book a 15-minute discovery call.">
+<BaseLayout title="Contact — Peter Law · Toronto Real Estate" description="Get in touch with Peter Law. Email, phone, or book a 15-minute discovery call."
+  hreflangAlternates={hreflangAlternates}
+>
 
   <TopBar />
   <Header active="contact" ctaLabel="Or book a call" />

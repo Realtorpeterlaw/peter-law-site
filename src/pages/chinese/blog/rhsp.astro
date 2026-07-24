@@ -29,12 +29,20 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: '租赁住房供应计划, RHSP 多伦多, 多伦多可负担租金 2026, HousingTO 2020-2030, 可负担租金住房, 租金管制住房, 专用租赁住房, CHPF, ARRCHI, 多伦多租赁供应',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/rhsp/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/rhsp/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/rhsp/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/rhsp/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

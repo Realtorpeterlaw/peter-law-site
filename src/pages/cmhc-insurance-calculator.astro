@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/cmhc-insurance-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/cmhc-insurance-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
+];
 ---
 <BaseLayout
   title="CMHC Insurance Calculator | Peter Law"
   description="Estimate your CMHC mortgage default insurance premium in seconds. Canadian rules: minimum down payment, LTV-based premium rates, $1.5M insurable cap."
   bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="buyers" />

@@ -26,11 +26,21 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'Ontario Time of Use, TOU rates Ontario, save on hydro bill Toronto, off-peak electricity Ontario, Toronto Hydro TOU, ultra-low overnight Ontario, OEB electricity rates 2026, how to lower hydro bill',
 };
+
+export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/time-of-use-tou/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/time-of-use-tou/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/time-of-use-tou/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/time-of-use-tou/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

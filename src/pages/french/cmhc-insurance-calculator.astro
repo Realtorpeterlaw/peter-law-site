@@ -4,8 +4,17 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/cmhc-insurance-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/cmhc-insurance-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
+];
 ---
-<BaseLayout title="Calculateur d'assurance CMHC | Peter Law" description="Estimez votre prime d'assurance hypoth\u00e9caire CMHC. R\u00e8gles canadiennes : mise de fonds minimum, taux par LTV, plafond assurable de 1,5 M$." lang="fr" bodyClass="fr calc-page">
+<BaseLayout title="Calculateur d'assurance CMHC | Peter Law" description="Estimez votre prime d'assurance hypoth\u00e9caire CMHC. R\u00e8gles canadiennes : mise de fonds minimum, taux par LTV, plafond assurable de 1,5 M$." lang="fr" bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="buyers" />
   <section class="page-hero"><div class="wrap"><div class="eyebrow">Calculateur CMHC</div><h1>Combien coûtera votre assurance hypothécaire?</h1><p>Si votre mise de fonds est inférieure à 20%, vous paierez l'assurance CMHC. La prime est ajoutée à votre hypothèque.</p></div></section>

@@ -5,8 +5,17 @@ import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/land-transfer-tax/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/land-transfer-tax/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
+];
 ---
-<BaseLayout title="Droits de mutation immobilière — Ontario + Toronto | Peter Law" description="Calculez vos droits de mutation immobilière (LTT) provinciaux et municipaux à Toronto. Remboursement pour premier acheteur inclus. Basé sur les barèmes 2026." lang="fr" bodyClass="fr calc-page">
+<BaseLayout title="Droits de mutation immobilière — Ontario + Toronto | Peter Law" description="Calculez vos droits de mutation immobilière (LTT) provinciaux et municipaux à Toronto. Remboursement pour premier acheteur inclus. Basé sur les barèmes 2026." lang="fr" bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
 
   <FrenchTopBar />
   <FrenchHeader active="buyers" />

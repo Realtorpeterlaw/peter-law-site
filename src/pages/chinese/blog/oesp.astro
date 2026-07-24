@@ -29,12 +29,20 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: '安省电力补助计划, OESP, OESP补贴, OESP资格 2026, 安省电费补贴, OESP收入门槛, OESP家庭人数, OESP电热家庭, OESP申请, OESP续期, LEAP紧急援助, 安省电力退税, 多伦多Hydro电费补贴',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/oesp/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/oesp/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/oesp/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/oesp/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

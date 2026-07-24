@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/closing-costs/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/closing-costs/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
+];
 ---
 <BaseLayout
   title="Closing Costs in Ontario — What Buyers Pay | Peter Law"
   description="Complete breakdown of closing costs when buying a home in Toronto and Ontario: LTT, legal fees, title insurance, adjustments, CMHC PST, and total estimates."
   bodyClass="guide-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="buyers" />

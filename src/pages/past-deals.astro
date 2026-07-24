@@ -6,8 +6,17 @@ import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 import PropertySales from '../components/PropertySales.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/past-deals/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/past-deals/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/past-deals/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/past-deals/' },
+];
 ---
-<BaseLayout title="Sale History — Peter Law Toronto Real Estate" description="A running record of recent rentals and sales closed by Peter Law across the Greater Toronto Area.">
+<BaseLayout title="Sale History — Peter Law Toronto Real Estate" description="A running record of recent rentals and sales closed by Peter Law across the Greater Toronto Area."
+  hreflangAlternates={hreflangAlternates}
+>
   <TopBar />
   <Header active="about" ctaLabel="Book a call" />
 

@@ -5,8 +5,17 @@ import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/about/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/about/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/about/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/about/' },
+];
 ---
-<BaseLayout title="关于 Peter Law — 多伦多房地产" description="Peter Law:在多伦多市中心土生土长。前 Airbnb 房东,400+ 客户好评。HomeLife Golconda Realty Inc. 注册销售代表。" zh={true}>
+<BaseLayout title="关于 Peter Law — 多伦多房地产" description="Peter Law:在多伦多市中心土生土长。前 Airbnb 房东,400+ 客户好评。HomeLife Golconda Realty Inc. 注册销售代表。" zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
 
   <ChineseTopBar />
   <ChineseHeader active="about" ctaLabel="预约通话" />
@@ -47,7 +56,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           <div class="airbnb-credentials">
             <a class="airbnb-card" href="https://www.airbnb.ca/users/show/130982023" target="_blank" rel="noopener" aria-label="查看 Peter Law 的 Airbnb 房东资料(在新标签页打开)">
               <div class="airbnb-photo-wrap">
-                <img src="/photos/peter-portrait.webp" alt="Peter,Airbnb 认证房东" />
+                <img src="/photos/peter-portrait.webp" alt="Peter,Airbnb 认证房东" width="600" height="755" loading="lazy" />
                 <span class="airbnb-verified" aria-hidden="true">✓</span>
               </div>
               <div class="airbnb-meta">

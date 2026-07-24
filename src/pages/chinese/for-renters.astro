@@ -4,8 +4,17 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-renters/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/for-renters/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/for-renters/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/for-renters/' },
+];
 ---
-<BaseLayout title="租客须知 — Peter Law · 多伦多房地产" description="与 Peter Law 一起租房的全流程:需要准备什么、可以预期什么、租金管制的基础,以及如何放心签下多伦多的合适租约。" zh={true}>
+<BaseLayout title="租客须知 — Peter Law · 多伦多房地产" description="与 Peter Law 一起租房的全流程:需要准备什么、可以预期什么、租金管制的基础,以及如何放心签下多伦多的合适租约。" zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
 
   <ChineseTopBar />
   <ChineseHeader active="rental" />

@@ -9,12 +9,20 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = '免责声明';
 const pageDescription = '关于 realtorpeterlaw.com 所发布信息(含市场数据、税务话题、政府项目、计算器、过往成交信息与第三方链接)的重要说明。';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/disclaimer/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/disclaimer/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — 多伦多房地产`}
   description={pageDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="" />

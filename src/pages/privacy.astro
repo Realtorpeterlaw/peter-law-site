@@ -9,11 +9,19 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = 'Privacy Policy';
 const pageDescription = 'How realtorpeterlaw.com collects, uses, and protects your personal information under Canadian privacy law (PIPEDA).';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/privacy/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/privacy/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/privacy/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/privacy/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — Toronto Real Estate`}
   description={pageDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="" />

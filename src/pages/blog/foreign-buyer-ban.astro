@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'Canada foreign buyer ban, Prohibition on the Purchase of Residential Property by Non-Canadians Act, foreign buyer ban Toronto, foreign buyer ban extension 2026, work permit home purchase Canada, non-Canadian condo purchase, foreign buyer ban exceptions, foreign buyer ban penalty, foreign buyer ban regulations, Toronto real estate non-resident',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/foreign-buyer-ban/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/foreign-buyer-ban/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/foreign-buyer-ban/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/foreign-buyer-ban/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

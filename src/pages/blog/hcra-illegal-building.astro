@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'HCRA Ontario, illegal building Ontario, Home Construction Regulatory Authority, unlicensed home builder Ontario, Tarion warranty, new home builder licence, Ontario Builder Directory, report illegal builder, new home consumer protection Ontario',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/hcra-illegal-building/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/hcra-illegal-building/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/hcra-illegal-building/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/hcra-illegal-building/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

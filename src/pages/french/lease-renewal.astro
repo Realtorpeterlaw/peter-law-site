@@ -4,8 +4,17 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/lease-renewal/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/lease-renewal/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
+];
 ---
-<BaseLayout title="Renouvellement de bail en Ontario | Peter Law" description="Ce qui se passe \u00e0 la fin de votre bail \u00e0 dur\u00e9e fixe, votre droit de rester, les r\u00e8gles de loyer au renouvellement." lang="fr" bodyClass="fr">
+<BaseLayout title="Renouvellement de bail en Ontario | Peter Law" description="Ce qui se passe \u00e0 la fin de votre bail \u00e0 dur\u00e9e fixe, votre droit de rester, les r\u00e8gles de loyer au renouvellement." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="rental" />
 

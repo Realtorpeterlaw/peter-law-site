@@ -9,11 +9,19 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = 'Disclaimer';
 const pageDescription = 'Important notice about the information published on realtorpeterlaw.com — including market data, tax topics, government programs, calculators, past-deal information, and third-party links.';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/disclaimer/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/disclaimer/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — Toronto Real Estate`}
   description={pageDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="" />

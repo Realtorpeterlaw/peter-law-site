@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'FHSA Canada, First Home Savings Account, FHSA contribution limit, FHSA vs TFSA, FHSA vs RRSP, FHSA Home Buyers Plan HBP, $40000 FHSA lifetime limit, Toronto first home buyer savings, FHSA investments, FHSA qualifying withdrawal',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/fhsa/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/fhsa/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/fhsa/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/fhsa/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

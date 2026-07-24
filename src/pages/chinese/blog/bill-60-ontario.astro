@@ -30,12 +30,20 @@ const jsonLd = {
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/bill-60-ontario/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/bill-60-ontario/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/bill-60-ontario/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/bill-60-ontario/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="blog" />

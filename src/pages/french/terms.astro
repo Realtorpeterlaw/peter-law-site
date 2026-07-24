@@ -4,8 +4,17 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/terms/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/terms/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/terms/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/terms/' },
+];
 ---
-<BaseLayout title="Conditions d'utilisation | Peter Law \u2014 Immobilier Toronto" description="Conditions r\u00e9gissant l'utilisation de realtorpeterlaw.com \u2014 site personnel de Peter Law, Repr\u00e9sentant commercial chez HomeLife Golconda Realty Inc." lang="fr" bodyClass="fr guide-page article-page">
+<BaseLayout title="Conditions d'utilisation | Peter Law \u2014 Immobilier Toronto" description="Conditions r\u00e9gissant l'utilisation de realtorpeterlaw.com \u2014 site personnel de Peter Law, Repr\u00e9sentant commercial chez HomeLife Golconda Realty Inc." lang="fr" bodyClass="fr guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="" />
 

@@ -6,12 +6,20 @@ import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
 
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rental-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rental-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rental-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rental-calculator/' },
+];
 ---
 <BaseLayout
   title="租房计算器 —— 这个租金您真的负担得起吗? | Peter Law"
   description="一页搞定。输入月收入、租金以及基础生活开支,立即看出这个租金是否在安全区、有点吃紧、还是超出承受。"
   bodyClass="calc-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="rental" />

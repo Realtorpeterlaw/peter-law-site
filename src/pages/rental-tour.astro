@@ -21,11 +21,19 @@ const tours = [
   { id: "7638799683430763797", title: "Yonge & Bloor", tag: "Furnished 2 bed/2 bath · Aug 1" },
   { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 bedroom" },
 ];
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rental-tour/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rental-tour/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rental-tour/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rental-tour/' },
+];
 ---
 <BaseLayout
   title="Rental Tours — Toronto Rental Walk-Throughs | Peter Law"
   description="Walk through downtown Toronto, waterfront, and GTA rental units before you book a viewing. Updated weekly from Peter's TikTok."
   bodyClass="tour-page"
+  hreflangAlternates={hreflangAlternates}
 >
 
   <TopBar />

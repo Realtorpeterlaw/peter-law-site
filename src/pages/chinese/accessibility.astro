@@ -9,12 +9,20 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = '无障碍声明';
 const pageDescription = 'realtorpeterlaw.com 致力于遵循《安省残疾人无障碍法》(AODA)与 WCAG 2.1 Level AA 指南。';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/accessibility/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/accessibility/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/accessibility/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/accessibility/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — 多伦多房地产`}
   description={pageDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="" />

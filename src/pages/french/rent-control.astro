@@ -4,8 +4,17 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rent-control/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rent-control/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rent-control/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rent-control/' },
+];
 ---
-<BaseLayout title="Contr\u00f4le des loyers en Ontario \u2014 Guide locataire | Peter Law" description="Guide simple du contr\u00f4le des loyers en Ontario : ce qui est couvert, la ligne directrice annuelle et les augmentations sup\u00e9rieures." lang="fr" bodyClass="fr">
+<BaseLayout title="Contr\u00f4le des loyers en Ontario \u2014 Guide locataire | Peter Law" description="Guide simple du contr\u00f4le des loyers en Ontario : ce qui est couvert, la ligne directrice annuelle et les augmentations sup\u00e9rieures." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="rental" />
 

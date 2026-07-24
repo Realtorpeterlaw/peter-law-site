@@ -6,11 +6,19 @@ import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 
 const LTB_FORMS_URL = "https://tribunalsontario.ca/ltb/forms-filing-and-fees/";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/n-forms/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/n-forms/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/n-forms/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/n-forms/' },
+];
 ---
 <BaseLayout
   title="N Forms — Ontario LTB Notice Forms Explained | Peter Law"
   description="Plain-English guide to Ontario Landlord and Tenant Board (LTB) N notice forms — what each is used for, who files it, and where to download the official version."
   bodyClass="guide-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="rental" />

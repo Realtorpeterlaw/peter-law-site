@@ -4,8 +4,17 @@ import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buyer-guide/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buyer-guide/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buyer-guide/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buyer-guide/' },
+];
 ---
-<BaseLayout title="Guide de l'acheteur — Peter Law · Immobilier à Toronto" description="Guide complet de l'acheteur immobilier à Toronto : préapprobation, offre, inspection, clôture. Chaque étape expliquée en langage simple." lang="fr" bodyClass="fr">
+<BaseLayout title="Guide de l'acheteur — Peter Law · Immobilier à Toronto" description="Guide complet de l'acheteur immobilier à Toronto : préapprobation, offre, inspection, clôture. Chaque étape expliquée en langage simple." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
 
   <FrenchTopBar />
   <FrenchHeader active="buyers" />

@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'Rental Housing Supply Program, RHSP Toronto, City of Toronto affordable rent 2026, HousingTO 2020-2030, Affordable Rental Homes Toronto, Rent-Controlled Homes, Purpose-Built Rental incentives, CHPF, ARRCHI, Toronto rent supply program',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/rhsp/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/rhsp/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/rhsp/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/rhsp/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

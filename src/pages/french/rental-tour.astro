@@ -19,8 +19,17 @@ const tours = [
   { id: "7638799683430763797", title: "Yonge & Bloor", tag: "Furnished 2 bed/2 bath · Aug 1" },
   { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 bedroom" },
 ];
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rental-tour/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rental-tour/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rental-tour/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rental-tour/' },
+];
 ---
-<BaseLayout title="Visites de location \u2014 Visites vid\u00e9o \u00e0 Toronto | Peter Law" description="Parcourez les locations du centre-ville de Toronto avant de r\u00e9server. Mis \u00e0 jour chaque semaine depuis le TikTok de Peter." lang="fr" bodyClass="fr tour-page">
+<BaseLayout title="Visites de location \u2014 Visites vid\u00e9o \u00e0 Toronto | Peter Law" description="Parcourez les locations du centre-ville de Toronto avant de r\u00e9server. Mis \u00e0 jour chaque semaine depuis le TikTok de Peter." lang="fr" bodyClass="fr tour-page"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="rental" />
   <section class="page-hero"><div class="wrap"><div class="eyebrow">Visites de location</div><h1>Connaissez chaque pièce avant d'ouvrir la porte.</h1><p>Visites vidéo rapides des locations que j'ai visitées ce mois-ci. Touchez une unité pour poser une question. Nouvelles vidéos ajoutées quotidiennement sur <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a>.</p></div></section>

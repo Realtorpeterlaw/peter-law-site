@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'FTHB GST/HST rebate Canada, First-time Home Buyer rebate 2026, $50000 federal rebate new build, GST/HST New Housing Rebate Ontario, Ontario 2026 budget first-time buyer rebate, FTHB eligibility Canada, new construction rebate Toronto',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/fthb-rebate/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/fthb-rebate/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/fthb-rebate/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/fthb-rebate/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

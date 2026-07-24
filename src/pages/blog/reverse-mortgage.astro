@@ -26,11 +26,21 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'reverse mortgage Canada, CHIP reverse mortgage, HomeEquity Bank, Equitable Bank Flex reverse mortgage, reverse mortgage Toronto, reverse mortgage 55+, reverse mortgage pros and cons, reverse mortgage interest rates Canada',
 };
+
+export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/reverse-mortgage/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/reverse-mortgage/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/reverse-mortgage/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/reverse-mortgage/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

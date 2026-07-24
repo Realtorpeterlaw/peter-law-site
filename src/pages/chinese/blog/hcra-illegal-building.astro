@@ -29,12 +29,20 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'HCRA 安省, 非法建造 安省, Home Construction Regulatory Authority, 无照开发商, Tarion 保修, 新房开发商执照, Ontario Builder Directory, 举报无照建造, 新房买家保护',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/hcra-illegal-building/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/hcra-illegal-building/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/hcra-illegal-building/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/hcra-illegal-building/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

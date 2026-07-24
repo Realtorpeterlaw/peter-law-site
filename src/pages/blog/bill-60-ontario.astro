@@ -64,11 +64,21 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'Bill 60 Ontario, Fighting Delays Building Faster Act, Ontario eviction rules 2026, N12 compensation Bill 60, fixed-term lease Ontario, Toronto landlord tenant Bill 60, Residential Tenancies Act 2026, Ontario rent arrears hearing changes',
 };
+
+export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/bill-60-ontario/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/bill-60-ontario/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/bill-60-ontario/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/bill-60-ontario/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

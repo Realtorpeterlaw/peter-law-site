@@ -9,12 +9,20 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = '隐私政策';
 const pageDescription = 'realtorpeterlaw.com 依据加拿大 PIPEDA 隐私法收集、使用与保护您个人信息的方式。';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/privacy/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/privacy/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/privacy/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/privacy/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — 多伦多房地产`}
   description={pageDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="" />

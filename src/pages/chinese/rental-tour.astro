@@ -21,12 +21,20 @@ const tours = [
   { id: "7638799683430763797", title: "Yonge & Bloor", tag: "带家具 2 房 / 2 卫 · 8 月 1 日入住" },
   { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 房" },
 ];
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rental-tour/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rental-tour/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rental-tour/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rental-tour/' },
+];
 ---
 <BaseLayout
   title="看房视频 — 多伦多租房实地走访 | Peter Law"
   description="预约看房之前,先走一遍多伦多市中心、湖滨、大多伦多的租赁房源。Peter 的 TikTok 每天更新。"
   bodyClass="tour-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
 
   <ChineseTopBar />

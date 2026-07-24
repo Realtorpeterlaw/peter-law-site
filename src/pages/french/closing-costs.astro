@@ -4,8 +4,17 @@ import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/closing-costs/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/closing-costs/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
+];
 ---
-<BaseLayout title="Frais de clôture à Toronto — la liste complète | Peter Law" description="La vraie liste des frais de clôture pour un achat immobilier à Toronto : droits de mutation, avocat, titre, ajustements. Estimez votre argent comptant nécessaire." lang="fr" bodyClass="fr">
+<BaseLayout title="Frais de clôture à Toronto — la liste complète | Peter Law" description="La vraie liste des frais de clôture pour un achat immobilier à Toronto : droits de mutation, avocat, titre, ajustements. Estimez votre argent comptant nécessaire." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
 
   <FrenchTopBar />
   <FrenchHeader active="buyers" />

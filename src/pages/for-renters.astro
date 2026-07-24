@@ -4,8 +4,17 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-renters/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/for-renters/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/for-renters/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/for-renters/' },
+];
 ---
-<BaseLayout title="For Renters — Peter Law · Toronto Real Estate" description="How renting with Peter Law works. What you need, what to expect, rent control basics, and how to sign the right Toronto lease with confidence.">
+<BaseLayout title="For Renters — Peter Law · Toronto Real Estate" description="How renting with Peter Law works. What you need, what to expect, rent control basics, and how to sign the right Toronto lease with confidence."
+  hreflangAlternates={hreflangAlternates}
+>
 
   <TopBar />
   <Header active="rental" />
@@ -116,7 +125,7 @@ import CTASection from '../components/CTASection.astro';
             <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
               <strong>Why over-documenting works:</strong>
               <br><br>
-              Landlords are making a long-term decision in a short time window. Every gap in your file is a reason to say no. Every extra piece of confirmation is a reason to say yes. A landlord who sees: ID + employment letter + 3 months of pay stubs + clean credit report + references + cover letter introducing yourself + a complete OREA Form 410 — that landlord is comparing you against applicants who sent half of that. You will win.
+              Landlords are making a long-term decision in a short time window. Every gap in your file is a reason to say no. Every extra piece of confirmation is a reason to say yes. A landlord who sees: ID + employment letter + 3 months of pay stubs + clean credit report + references + cover letter introducing yourself + a complete OREA Form 410 — that landlord is comparing you against applicants who sent half of that. You give yourself the strongest possible chance.
             </div>
             </div>
           </details>

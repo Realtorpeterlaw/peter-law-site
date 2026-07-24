@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'Ontario Electricity Support Program, OESP, OESP credit, OESP eligibility 2026, lower electricity bill Ontario, OESP income brackets, OESP household size, OESP energy intensive credit, OESP application, OESP renewal, LEAP grant Ontario, Ontario Electricity Rebate, Toronto Hydro financial assistance',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/oesp/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/oesp/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/oesp/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/oesp/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

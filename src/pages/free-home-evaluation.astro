@@ -5,11 +5,19 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/free-home-evaluation/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/free-home-evaluation/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/free-home-evaluation/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/free-home-evaluation/' },
+];
 ---
 <BaseLayout
   title="Free Home Evaluation — What's Your Toronto Property Worth? | Peter Law"
   description="Get a free, no-obligation evaluation of your Toronto property's current market value. Detailed CMA delivered within 48 hours."
   bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="sellers" ctaLabel="Or book a call" />

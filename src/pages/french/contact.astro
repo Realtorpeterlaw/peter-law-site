@@ -5,8 +5,17 @@ import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/contact/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/contact/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/contact/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/contact/' },
+];
 ---
-<BaseLayout title="Contact — Peter Law · Immobilier à Toronto" description="Contactez Peter Law. Envoyez un courriel, un texto, ou réservez directement un appel initial de 15 minutes." lang="fr" bodyClass="fr">
+<BaseLayout title="Contact — Peter Law · Immobilier à Toronto" description="Contactez Peter Law. Envoyez un courriel, un texto, ou réservez directement un appel initial de 15 minutes." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
 
   <FrenchTopBar />
   <FrenchHeader active="contact" ctaLabel="Ou réserver un appel" />

@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rent-control/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rent-control/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rent-control/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rent-control/' },
+];
 ---
 <BaseLayout
   title="Rent Control in Ontario — Tenant Guide | Peter Law"
   description="Plain-English guide to Ontario rent control: what's covered, the annual guideline, and Above-Guideline Increases."
   bodyClass="guide-page"
+  hreflangAlternates={hreflangAlternates}
 >
 
   <TopBar />

@@ -4,8 +4,17 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-landlords/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/for-landlords/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/for-landlords/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/for-landlords/' },
+];
 ---
-<BaseLayout title="For Landlords — Peter Law · Toronto Real Estate" description="Tenant placement and rental management in Toronto. Screening, showings, lease drafting — done right by a hospitality-trained agent who knows what a good tenant looks like.">
+<BaseLayout title="For Landlords — Peter Law · Toronto Real Estate" description="Tenant placement and rental management in Toronto. Screening, showings, lease drafting — done right by a hospitality-trained agent who knows what a good tenant looks like."
+  hreflangAlternates={hreflangAlternates}
+>
 
   <TopBar />
   <Header active="rental" ctaLabel="Book a consultation" />
@@ -53,7 +62,7 @@ import CTASection from '../components/CTASection.astro';
               <div class="attr">— Peter</div>
             </div>
             <div class="why-points">
-              <div class="why-point"><div class="why-point-num">01</div><h3>I screen like a hospitality host</h3><p>Five years and 400+ Airbnb reviews taught me what a low-conflict guest looks like. I bring that same instinct to tenant selection.</p></div>
+              <div class="why-point"><div class="why-point-num">01</div><h3>I screen like a hospitality host</h3><p>Six years in real estate plus 400+ Airbnb reviews as a former host taught me what a low-conflict guest looks like. I bring that same instinct to tenant selection.</p></div>
               <div class="why-point"><div class="why-point-num">02</div><h3>Bilingual market reach</h3><p>Active outreach into the Chinese-speaking renter community — a segment many agents miss. Often results in faster, higher-quality placements.</p></div>
               <div class="why-point"><div class="why-point-num">03</div><h3>Lease that protects you</h3><p>Standard form Ontario lease isn't enough on its own. I add the custom clauses — pets, smoking, subletting, utility cost-sharing — that prevent disputes.</p></div>
             </div>

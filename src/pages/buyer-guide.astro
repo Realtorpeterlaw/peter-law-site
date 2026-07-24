@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buyer-guide/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buyer-guide/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buyer-guide/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buyer-guide/' },
+];
 ---
 <BaseLayout
   title="Buyer Guide — Buying a Home in Toronto | Peter Law"
   description="Plain-English guide to buying a home in Toronto: getting financing ready, making offers, conditions, closing, and the mistakes that cost first-time buyers the most."
   bodyClass="guide-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="buyers" />

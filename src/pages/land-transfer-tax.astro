@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/land-transfer-tax/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/land-transfer-tax/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
+];
 ---
 <BaseLayout
   title="Land Transfer Tax in Ontario — Buyer Guide | Peter Law"
   description="What Land Transfer Tax is, how it's calculated in Ontario, the additional Toronto MLTT, and the first-time homebuyer rebate."
   bodyClass="guide-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="buyers" />

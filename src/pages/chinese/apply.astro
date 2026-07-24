@@ -5,8 +5,17 @@ import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 const SCREENING_URL = "/contact";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/apply/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/apply/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/apply/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/apply/' },
+];
 ---
-<BaseLayout title="提交租房申请 — Peter Law · 多伦多房地产" description="10 分钟内提交一份经过核实的租房申请。身份、信用、收入 — 一次搞定。在多伦多市场上,最强的申请赢得房子。" zh={true}>
+<BaseLayout title="提交租房申请 — Peter Law · 多伦多房地产" description="10 分钟内提交一份经过核实的租房申请。身份、信用、收入 — 一次搞定。在多伦多市场上,最强的申请赢得房子。" zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
 
   <ChineseTopBar />
   <ChineseHeader active="renters" ctaLabel="或先聊一聊" />

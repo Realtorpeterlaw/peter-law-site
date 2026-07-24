@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/affordability-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/affordability-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/affordability-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/affordability-calculator/' },
+];
 ---
 <BaseLayout
   title="Home Affordability Calculator | Peter Law"
   description="How much house can you afford? Calculate the maximum purchase price you qualify for based on income, debts, and Canadian lending rules (GDS/TDS + stress test)."
   bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="buyers" />

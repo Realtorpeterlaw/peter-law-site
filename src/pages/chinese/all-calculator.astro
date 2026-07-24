@@ -6,12 +6,20 @@ import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
 
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/all-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/all-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/all-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/all-calculator/' },
+];
 ---
 <BaseLayout
   title="购房计算器 — 一页搞定按揭、土地转让税、CMHC、交房费用 | Peter Law"
   description="一页搞定。输入您的年收入、房价、以及已存下的钱 —— 立刻看到月供、土地转让税、按揭保险、交房费用,以及成交当天要准备的现金。不用在 5 个计算器之间来回跳。"
   bodyClass="calc-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="buyers" />

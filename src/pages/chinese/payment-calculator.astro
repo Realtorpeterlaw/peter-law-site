@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/payment-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/payment-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/payment-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/payment-calculator/' },
+];
 ---
 <BaseLayout
   title="房贷计算器(加拿大版) | Peter Law"
   description="加拿大房贷综合计算器。同时对比三种方案。内置 CMHC 保险、土地转让税、交接现金、每月开支、摊销表与压力测试。"
   bodyClass="calc-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="buyers" />

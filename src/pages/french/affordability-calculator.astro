@@ -4,8 +4,17 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/affordability-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/affordability-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/affordability-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/affordability-calculator/' },
+];
 ---
-<BaseLayout title="Calculateur d'accessibilit\u00e9 | Peter Law" description="Combien pouvez-vous vous permettre? Estime votre prix maximum d'achat selon les r\u00e8gles canadiennes (RAB/RDT + test de stress)." lang="fr" bodyClass="fr calc-page">
+<BaseLayout title="Calculateur d'accessibilit\u00e9 | Peter Law" description="Combien pouvez-vous vous permettre? Estime votre prix maximum d'achat selon les r\u00e8gles canadiennes (RAB/RDT + test de stress)." lang="fr" bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="buyers" />
   <section class="page-hero"><div class="wrap"><div class="eyebrow">Calculateur d'accessibilité</div><h1>Combien pouvez-vous vraiment vous permettre?</h1><p>Estime votre prix maximum d'achat selon les règles canadiennes — ratios GDS/TDS et test de stress fédéral.</p></div></section>

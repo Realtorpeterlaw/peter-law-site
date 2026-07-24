@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/lease-renewal/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/lease-renewal/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
+];
 ---
 <BaseLayout
   title="安省租约续签 — 租客权利指南 | Peter Law"
   description="安省固定租期结束后会发生什么、您有权继续按月留住、续约时的涨租规则,以及房东想让您搬走时该怎么办。"
   bodyClass="guide-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
 
   <ChineseTopBar />

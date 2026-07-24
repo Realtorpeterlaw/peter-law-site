@@ -28,11 +28,19 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: 'Vacant Home Tax Toronto, VHT declaration deadline, Toronto vacant property tax, occupancy status declaration, principal residence exemption Toronto, vacant home tax exemptions, Toronto property tax lien, snowbirds vacant home tax, change of ownership vacant home tax',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/vacant-home-tax/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/vacant-home-tax/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/vacant-home-tax/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/vacant-home-tax/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
   description={articleDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

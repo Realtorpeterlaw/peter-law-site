@@ -13,7 +13,7 @@ interface Props {
 }
 const {
   title,
-  description = "Bilingual Toronto real estate. Pre-approved fast, moved in calmly. Hospitality-grade service from a former Airbnb host with 400+ guest reviews.",
+  description = "Trilingual Toronto real estate (English, 中文, Français). Pre-approved fast, moved in calmly. Hospitality-grade service from a former Airbnb host with 400+ guest reviews.",
   zh = false,
   bodyClass = "",
   lang: langProp,
@@ -70,12 +70,13 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg" />
+  <meta property="og:image:alt" content="Peter Law, Toronto real estate sales representative, with the CN Tower behind him." />
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400;500&display=swap" rel="stylesheet" />
   {hreflangAlternates.map((alt) => (
     <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
   ))}

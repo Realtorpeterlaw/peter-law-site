@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buyer-guide/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buyer-guide/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buyer-guide/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buyer-guide/' },
+];
 ---
 <BaseLayout
   title="买家指南 — 在多伦多买房 | Peter Law"
   description="多伦多买房全流程指南:贷款准备、Offer 报价、条件期、交接日,以及首次买家最常踩的坑。"
   bodyClass="guide-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="buyers" />

@@ -6,8 +6,17 @@ import Footer from '../components/Footer.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 // SingleKey screening link — replace YOUR_SINGLEKEY_LINK after signing up at app.singlekey.com
 const SCREENING_URL = "/contact";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/apply/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/apply/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/apply/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/apply/' },
+];
 ---
-<BaseLayout title="Apply to Rent — Peter Law · Toronto Real Estate" description="Submit a verified rental application in 10 minutes. ID, credit, income — all in one pass. The strongest application wins in Toronto's market.">
+<BaseLayout title="Apply to Rent — Peter Law · Toronto Real Estate" description="Submit a verified rental application in 10 minutes. ID, credit, income — all in one pass. The strongest application wins in Toronto's market."
+  hreflangAlternates={hreflangAlternates}
+>
 
   <TopBar />
   <Header active="renters" ctaLabel="Or talk first" />

@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rent-control/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rent-control/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rent-control/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rent-control/' },
+];
 ---
 <BaseLayout
   title="安省租金管制 — 租客指南 | Peter Law"
   description="用通俗易懂的语言介绍安省租金管制:哪些房屋受管制、年度涨幅指导线、超指导线涨幅(AGI)是什么。"
   bodyClass="guide-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
 
   <ChineseTopBar />

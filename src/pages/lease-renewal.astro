@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/lease-renewal/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/lease-renewal/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
+];
 ---
 <BaseLayout
   title="Lease Renewal in Ontario — Your Rights as a Tenant | Peter Law"
   description="What happens when your Ontario lease ends, your right to stay month-to-month, rent increase rules at renewal, and what to do if your landlord wants you out."
   bodyClass="guide-page"
+  hreflangAlternates={hreflangAlternates}
 >
 
   <TopBar />

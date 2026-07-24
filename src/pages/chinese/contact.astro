@@ -5,8 +5,17 @@ import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/contact/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/contact/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/contact/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/contact/' },
+];
 ---
-<BaseLayout title="联系 — Peter Law · 多伦多房地产" description="联系 Peter Law。发邮件、发短信,或直接预约一次 15 分钟初步通话。" zh={true}>
+<BaseLayout title="联系 — Peter Law · 多伦多房地产" description="联系 Peter Law。发邮件、发短信,或直接预约一次 15 分钟初步通话。" zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
 
   <ChineseTopBar />
   <ChineseHeader active="contact" ctaLabel="或预约通话" />

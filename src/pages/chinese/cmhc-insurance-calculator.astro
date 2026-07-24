@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/cmhc-insurance-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/cmhc-insurance-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
+];
 ---
 <BaseLayout
   title="CMHC 保险计算器 | Peter Law"
   description="几秒钟估算您的 CMHC 房贷违约保险费。加拿大规则:最低首付要求、按贷款价值比的保费率、150 万可保上限。"
   bodyClass="calc-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="buyers" />

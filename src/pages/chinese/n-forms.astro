@@ -6,12 +6,20 @@ import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
 
 const LTB_FORMS_URL = "https://tribunalsontario.ca/ltb/forms-filing-and-fees/";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/n-forms/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/n-forms/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/n-forms/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/n-forms/' },
+];
 ---
 <BaseLayout
   title="N 表格详解 — 安省 LTB 通知表格 | Peter Law"
   description="用通俗语言解读安省房东与租客委员会(LTB)的 N 系列通知表格 — 每份用于什么场景、谁来填、官方版本去哪里下载。"
   bodyClass="guide-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="rental" />

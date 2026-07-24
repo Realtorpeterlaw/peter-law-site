@@ -6,8 +6,17 @@ import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 const SCREENING_URL = "/contact";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/apply/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/apply/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/apply/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/apply/' },
+];
 ---
-<BaseLayout title="Postuler \u2014 Peter Law \u00b7 Immobilier Toronto" description="Soumettez une demande de location v\u00e9rifi\u00e9e en 10 minutes. ID, cr\u00e9dit, revenu \u2014 le tout en une passe." lang="fr" bodyClass="fr">
+<BaseLayout title="Postuler \u2014 Peter Law \u00b7 Immobilier Toronto" description="Soumettez une demande de location v\u00e9rifi\u00e9e en 10 minutes. ID, cr\u00e9dit, revenu \u2014 le tout en une passe." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="rental" ctaLabel="Ou parlons d'abord" />
   <section class="page-hero"><div class="wrap"><div class="eyebrow">Demande de location</div><h1>Une demande. Une passe. Le meilleur dossier gagne.</h1><p>Les propriétaires torontois reçoivent cinq offres par jour. Le locataire qui arrive avec tout emballé correctement gagne l'unité. Voici comment nous emballons la vôtre.</p></div></section>

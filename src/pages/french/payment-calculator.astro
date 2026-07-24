@@ -4,8 +4,17 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/payment-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/payment-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/payment-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/payment-calculator/' },
+];
 ---
-<BaseLayout title="Calculateur hypoth\u00e9caire | Peter Law" description="Calculez votre paiement hypoth\u00e9caire mensuel. R\u00e8gles canadiennes : composition semestrielle, ratios CMHC, test de stress f\u00e9d\u00e9ral." lang="fr" bodyClass="fr calc-page">
+<BaseLayout title="Calculateur hypoth\u00e9caire | Peter Law" description="Calculez votre paiement hypoth\u00e9caire mensuel. R\u00e8gles canadiennes : composition semestrielle, ratios CMHC, test de stress f\u00e9d\u00e9ral." lang="fr" bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
   <LTopBar />
   <LHeader active="buyers" />
   <section class="page-hero"><div class="wrap"><div class="eyebrow">Calculateur hypothécaire</div><h1>Votre paiement hypothécaire mensuel.</h1><p>Composition semestrielle canadienne + test de stress fédéral inclus.</p></div></section>

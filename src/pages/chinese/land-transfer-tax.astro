@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/land-transfer-tax/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/land-transfer-tax/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
+];
 ---
 <BaseLayout
   title="安省土地转让税 — 买家指南 | Peter Law"
   description="什么是土地转让税、安省如何计算、多伦多 MLTT 附加税,以及首次买家退税。"
   bodyClass="guide-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="buyers" />

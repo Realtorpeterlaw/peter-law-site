@@ -29,12 +29,20 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: '加拿大外国买家禁令, 非加拿大人购房, 多伦多外国买家禁令, 外国买家禁令延期 2026, 工签买房 加拿大, 非加拿大人买公寓, 外国买家禁令豁免, 外国买家禁令处罚, 外国买家法规 2023修订, 加拿大非居民购房',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/foreign-buyer-ban/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/foreign-buyer-ban/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/foreign-buyer-ban/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/foreign-buyer-ban/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

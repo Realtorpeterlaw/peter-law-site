@@ -4,8 +4,17 @@ import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-landlords/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/for-landlords/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/for-landlords/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/for-landlords/' },
+];
 ---
-<BaseLayout title="Pour propriétaires — Peter Law · Location à Toronto" description="Vous louez votre propriété à Toronto? Voici comment je trouve un locataire AAA, prépare un bail solide, et minimise vos vacances." lang="fr" bodyClass="fr">
+<BaseLayout title="Pour propriétaires — Peter Law · Location à Toronto" description="Vous louez votre propriété à Toronto? Voici comment je trouve un locataire AAA, prépare un bail solide, et minimise vos vacances." lang="fr" bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
+>
 
   <FrenchTopBar />
   <FrenchHeader active="rental" />

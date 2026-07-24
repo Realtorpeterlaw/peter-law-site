@@ -4,12 +4,20 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/closing-costs/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/closing-costs/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
+];
 ---
 <BaseLayout
   title="安省交接成本 — 买家会支付什么 | Peter Law"
   description="在多伦多和安省买房时所有交接成本的完整明细:LTT、律师费、产权保险、调整款、CMHC PST,以及合计估算。"
   bodyClass="guide-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="buyers" />

@@ -5,8 +5,17 @@ import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rental-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rental-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rental-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rental-calculator/' },
+];
 ---
-<BaseLayout title="Calculateur d'abordabilité locative | Peter Law" description="Entrez votre revenu et vos coûts mensuels. Voyez instantanément si le loyer est dans la zone confortable, tendue, ou trop élevée." lang="fr" bodyClass="fr calc-page">
+<BaseLayout title="Calculateur d'abordabilité locative | Peter Law" description="Entrez votre revenu et vos coûts mensuels. Voyez instantanément si le loyer est dans la zone confortable, tendue, ou trop élevée." lang="fr" bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
 
   <FrenchTopBar />
   <FrenchHeader active="rental" />

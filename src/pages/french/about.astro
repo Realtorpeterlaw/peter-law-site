@@ -5,12 +5,20 @@ import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/about/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/about/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/about/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/about/' },
+];
 ---
 <BaseLayout
   title="À propos de Peter Law — Immobilier à Toronto"
   description="Peter Law : né et élevé au centre-ville de Toronto. Ancien hôte Airbnb. Représentant commercial inscrit chez HomeLife Golconda Realty Inc."
   lang="fr"
   bodyClass="fr"
+  hreflangAlternates={hreflangAlternates}
 >
   <FrenchTopBar />
   <FrenchHeader active="about" ctaLabel="Réserver un appel" />

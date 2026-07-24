@@ -4,11 +4,19 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/payment-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/payment-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/payment-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/payment-calculator/' },
+];
 ---
 <BaseLayout
   title="Mortgage Calculator (Canadian) | Peter Law"
   description="Comprehensive Canadian mortgage calculator. Compare 3 scenarios side by side. CMHC, Land Transfer Tax, cash to close, monthly expenses, amortization schedule, and stress test — all built-in."
   bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="buyers" />
@@ -17,7 +25,7 @@ import CTASection from '../components/CTASection.astro';
     <div class="wrap">
       <div class="eyebrow">Mortgage calculator</div>
       <h1>Compare 3 mortgage scenarios at once.</h1>
-      <p>Find out how much your monthly payments, and interests will be. Built for Canadian rules: semi-annual compounding, CMHC tiers, Ontario LTT, and federal stress test.</p>
+      <p>Find out what your monthly payments and interest will be. Built for Canadian rules: semi-annual compounding, CMHC tiers, Ontario LTT, and federal stress test.</p>
     </div>
   </section>
 

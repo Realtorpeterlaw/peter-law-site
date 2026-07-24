@@ -9,11 +9,19 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = 'Terms of Service';
 const pageDescription = 'Terms governing use of realtorpeterlaw.com — a personal real estate website operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage.';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/terms/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/terms/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/terms/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/terms/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — Toronto Real Estate`}
   description={pageDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="" />

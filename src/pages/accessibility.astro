@@ -9,11 +9,19 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = 'Accessibility Statement';
 const pageDescription = 'How realtorpeterlaw.com works to meet the Accessibility for Ontarians with Disabilities Act (AODA) and WCAG 2.1 Level AA guidelines.';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/accessibility/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/accessibility/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/accessibility/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/accessibility/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — Toronto Real Estate`}
   description={pageDescription}
   bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="" />

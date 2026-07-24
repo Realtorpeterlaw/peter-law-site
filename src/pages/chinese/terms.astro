@@ -9,12 +9,20 @@ export const prerender = true;
 const publishedDate = '2026-07-19';
 const pageTitle = '服务条款';
 const pageDescription = '规范 realtorpeterlaw.com 使用行为的条款 —— 由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law 运营。';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/terms/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/terms/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/terms/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/terms/' },
+];
 ---
 <BaseLayout
   title={`${pageTitle} | Peter Law — 多伦多房地产`}
   description={pageDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="" />

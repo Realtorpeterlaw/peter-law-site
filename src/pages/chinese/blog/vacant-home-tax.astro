@@ -29,12 +29,20 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: '空置房屋税, 多伦多 VHT, 空置税 申报截止日期, 多伦多房产税, 入住状态申报, 主要住所豁免, 空置房屋豁免, 房产税留置权, 候鸟族 空置房屋税, 房屋买卖 空置税',
 };
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/vacant-home-tax/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/vacant-home-tax/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/vacant-home-tax/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/vacant-home-tax/' },
+];
 ---
 <BaseLayout
   title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />
