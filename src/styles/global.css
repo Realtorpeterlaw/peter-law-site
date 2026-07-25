@@ -1586,3 +1586,100 @@ body.mobile-menu-open { overflow: hidden; }
   .hero-headline-block .eyebrow { text-align: center; }
 }
 
+
+
+/* ============================================================
+   AURA GLOW — Recent Closing card
+   ------------------------------------------------------------
+   Subtle warm halo behind the .deals-carousel container.
+   Wrapped in a scoped block so it can be reverted cleanly:
+   to revert, delete everything between the AURA-START and
+   AURA-END markers below.
+
+   Tune with the CSS custom properties at the top. To dial
+   further down, lower --aura-opacity-hi (e.g. from 0.32 to 0.18).
+   ============================================================ */
+/* AURA-START */
+.deals-carousel {
+  /* -- tunable knobs --------------------------------------- */
+  --aura-color-1: #B8894A;      /* muted gold */
+  --aura-color-2: #A9793C;      /* soft bronze */
+  --aura-color-3: #D9C4A0;      /* warm champagne */
+  --aura-opacity-lo: 0.16;      /* dimmest point of the breathing pulse */
+  --aura-opacity-hi: 0.32;      /* brightest point */
+  --aura-blur: 34px;            /* halo softness */
+  --aura-blur-hi: 42px;         /* softness at the peak of the pulse */
+  --aura-spread: 22px;          /* how far the halo bleeds past card edges */
+  --aura-cycle: 6.5s;           /* breathing period */
+  --aura-rotation: 22s;         /* gradient drift period */
+  /* -------------------------------------------------------- */
+
+  /* isolate stacking context so the glow sits behind the card */
+  isolation: isolate;
+}
+
+.deals-carousel::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--aura-spread) * -1);
+  z-index: -1;                          /* sits behind the card body */
+  border-radius: calc(6px + var(--aura-spread));  /* matches card radius + spread */
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg,
+    var(--aura-color-1),
+    var(--aura-color-3),
+    var(--aura-color-2),
+    var(--aura-color-3),
+    var(--aura-color-1)
+  );
+  filter: blur(var(--aura-blur));
+  opacity: var(--aura-opacity-lo);
+  animation:
+    aura-breathe var(--aura-cycle) ease-in-out infinite,
+    aura-drift var(--aura-rotation) linear infinite;
+  will-change: opacity, filter, transform;
+}
+
+@keyframes aura-breathe {
+  0%, 100% {
+    opacity: var(--aura-opacity-lo);
+    filter: blur(var(--aura-blur));
+  }
+  50% {
+    opacity: var(--aura-opacity-hi);
+    filter: blur(var(--aura-blur-hi));
+  }
+}
+
+@keyframes aura-drift {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Scale down on tablets / phones so it doesn't overwhelm narrow viewports */
+@media (max-width: 900px) {
+  .deals-carousel {
+    --aura-blur: 24px;
+    --aura-blur-hi: 30px;
+    --aura-spread: 14px;
+    --aura-opacity-hi: 0.24;
+  }
+}
+@media (max-width: 560px) {
+  .deals-carousel {
+    --aura-blur: 18px;
+    --aura-blur-hi: 22px;
+    --aura-spread: 10px;
+    --aura-opacity-hi: 0.20;
+  }
+}
+
+/* Accessibility: honor reduced-motion — no breathing, no drift, static halo */
+@media (prefers-reduced-motion: reduce) {
+  .deals-carousel::before {
+    animation: none;
+    opacity: var(--aura-opacity-lo);
+  }
+}
+/* AURA-END */
