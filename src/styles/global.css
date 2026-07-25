@@ -1585,3 +1585,92 @@ body.mobile-menu-open { overflow: hidden; }
 @media (max-width: 720px) {
   .hero-headline-block .eyebrow { text-align: center; }
 }
+
+
+/* ============================================================
+   QUIET LUXURY design system
+   ------------------------------------------------------------
+   Additive tokens + subtle scroll-reveal motion.
+
+   Everything inside QL-START/QL-END is safe to remove in one
+   edit — no existing selectors are altered. Peter's token names
+   are added as ALIASES for the site's original tokens, so both
+   naming conventions work side-by-side.
+
+   To revert: delete the QL-START ↔ QL-END block.
+   ============================================================ */
+/* QL-START */
+:root {
+  /* --- Peter's naming (aliased to existing tokens) --------- */
+  --text-primary:   var(--ink);         /* charcoal #1a1a1a */
+  --text-secondary: var(--ink-soft);    /* muted warm gray  */
+  --text-mute:      var(--ink-mute);    /* softer warm gray */
+  --border:         var(--rule);        /* low-contrast warm gray */
+
+  /* Warm accent palette (already used inline as #b8845b/#a06d47) */
+  --accent:         #b8845b;   /* muted gold  — CTA colour   */
+  --accent-deep:    #a06d47;   /* bronze      — CTA hover    */
+  --accent-soft:    #d9c4a0;   /* champagne   — supporting   */
+
+  /* --- 8-pt spacing scale --------------------------------- */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  /* --- Motion tokens (functional, not decorative) --------- */
+  --dur-fast:   150ms;
+  --dur-base:   250ms;
+  --dur-slow:   400ms;
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);   /* eased sub-hero */
+  --ease-in-out: cubic-bezier(0.5, 0, 0.2, 1);
+
+  /* --- Shadows (subtle, warm, realistic) ------------------ */
+  --shadow-1: 0 1px 2px rgba(26, 26, 26, 0.04), 0 2px 8px rgba(26, 26, 26, 0.03);
+  --shadow-2: 0 2px 6px rgba(26, 26, 26, 0.06), 0 8px 24px rgba(26, 26, 26, 0.06);
+  --shadow-lift: 0 4px 12px rgba(26, 26, 26, 0.08), 0 12px 32px rgba(26, 26, 26, 0.08);
+}
+
+/* -----------------------------------------------------------
+   Scroll-reveal utility (fade + gentle rise)
+   Add class="reveal" to any section you want to animate in.
+   The IntersectionObserver in BaseLayout adds .is-visible
+   when the element enters the viewport.
+   ----------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* No-JS fallback: if the observer never fires, reveal after a moment
+   so content is never hidden from users with JS off. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal:not(.is-visible) {
+    animation: qlSafetyReveal 0s linear 1.5s forwards;
+  }
+}
+@keyframes qlSafetyReveal { to { opacity: 1; transform: none; } }
+
+/* Accessibility — honor reduced-motion: no fade, no rise, no delay. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* QL-END */
