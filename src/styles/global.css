@@ -1673,4 +1673,13 @@ body.mobile-menu-open { overflow: hidden; }
     animation: none !important;
   }
 }
+
+/* --- Focus visibility for <summary> collapsibles (a11y) --- */
+.mc-collapsible > summary:focus-visible,
+.means-collapse > summary:focus-visible,
+details summary:focus-visible {
+  outline: 2px solid var(--accent, #b8845b);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 /* QL-END */
