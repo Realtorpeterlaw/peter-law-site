@@ -1,0 +1,6 @@
+Contact: mailto:Admin@RealtorPeterLaw.com
+Contact: https://www.realtorpeterlaw.com/contact
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, zh, fr
+Canonical: https://www.realtorpeterlaw.com/.well-known/security.txt
+Policy: https://www.realtorpeterlaw.com/disclaimer
