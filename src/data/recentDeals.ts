@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-08-20',
+    intersection_en: 'Bayview Ave & Finch Ave E',
+    intersection_zh: 'Bayview Ave 与 Finch Ave E',
+    intersection_fr: 'Bayview Ave et Finch Ave E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$6,600',
+    note_en: 'Desirable neighbourhood — 3,000+ sq ft of living space.',
+    note_zh: '热门社区 · 逾 3,000 平方英尺居住面积。',
+    note_fr: 'Quartier prisé — plus de 3 000 pi² d\'espace habitable.',
+  },
+  {
     date: '2026-08-15',
     intersection_en: 'Yonge St & Dundas St',
     intersection_zh: 'Yonge St 与 Dundas St',
