@@ -8,7 +8,11 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:smoke": "playwright test",
+    "test:lh": "npx @lhci/cli@0.14.x autorun",
+    "link-check": "node scripts/link-check.mjs",
+    "bundle-report": "node scripts/bundle-report.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -27,5 +31,9 @@
     "sharp": ">=0.35.0",
     "svgo": ">=4.0.2",
     "tar": ">=7.5.18"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "http-server": "^14.1.1"
   }
 }
