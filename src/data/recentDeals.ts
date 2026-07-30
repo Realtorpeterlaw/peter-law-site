@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-08',
+    intersection_en: 'Bayview Ave & Hwy 7',
+    intersection_zh: 'Bayview Ave 与 Hwy 7',
+    intersection_fr: 'Bayview Ave et Hwy 7',
+    city_en: 'Markham, Ontario',
+    city_zh: '万锦市, 安省',
+    city_fr: 'Markham, Ontario',
+    rent: '$2,500',
+    note_en: 'Rare find. Soaring 10+ ft ceilings. Spacious 1 bedroom + den with parking.',
+    note_zh: '难得房源 · 10 英尺以上超高天花板 · 宽敞一房加书房,带车位。',
+    note_fr: 'Trouvaille rare. Plafonds de plus de 10 pieds. Spacieux 1 chambre + bureau avec stationnement.',
+  },
+  {
     date: '2026-06',
     intersection_en: 'Jarvis St & Carlton St',
     intersection_zh: 'Jarvis St 与 Carlton St',
