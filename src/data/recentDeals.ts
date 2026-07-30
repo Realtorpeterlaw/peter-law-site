@@ -43,6 +43,22 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-08-15',
+    intersection_en: 'Yonge St & Dundas St',
+    intersection_zh: 'Yonge St 与 Dundas St',
+    intersection_fr: 'Yonge St et Dundas St',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$3,300',
+    note_en: 'Secured a AAA tenant for my landlord client.',
+    note_zh: '为业主客户成功签下 AAA 级租客。',
+    note_fr: 'Locataire AAA obtenu pour mon client propriétaire.',
+    status_en: 'Represented Landlord',
+    status_zh: '代表房东方',
+    status_fr: 'Représente le propriétaire',
+  },
+  {
     date: '2026-08',
     intersection_en: 'Bayview Ave & Hwy 7',
     intersection_zh: 'Bayview Ave 与 Hwy 7',
