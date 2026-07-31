@@ -95,9 +95,8 @@ const hreflangAlternates = [
               <div class="ac-headline-sub">Rent + internet + insurance + utilities.</div>
             </div>
             <div class="ac-headline-item">
-              <div class="ac-headline-label">Total monthly expenses</div>
-              <div class="ac-headline-value" id="rc-leftover">$0</div>
-              <div class="ac-headline-sub">Per month.</div>
+              <div class="ac-headline-label">Monthly Expenses (without Rent)</div>
+              <div class="ac-headline-value"><span id="rc-leftover">$0</span><span class="ac-headline-per"> / month</span></div>
             </div>
           </div>
 
@@ -180,13 +179,14 @@ const hreflangAlternates = [
         const totalHousing = rent + internet + insurance + utilities;
         const pct = income > 0 ? (totalHousing / income) * 100 : 0;
         const leftover = income - totalHousing;
+        const expensesNoRent = internet + insurance + utilities;
         const safeCeiling = income * 0.30;
         const approvableRent = Math.max(0, income * 0.30 - internet - insurance - utilities);
 
         // Headline + breakdown outputs
         $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
         $('rc-out-total-2').textContent   = fmtCAD(totalHousing, 0);
-        $('rc-leftover').textContent      = fmtCAD(leftover, 0);
+        $('rc-leftover').textContent      = fmtCAD(expensesNoRent, 0);
         $('rc-out-rent').textContent      = fmtCAD(rent, 0);
         $('rc-out-internet').textContent  = fmtCAD(internet, 0);
         $('rc-out-insurance').textContent = fmtCAD(insurance, 0);
@@ -257,6 +257,16 @@ const hreflangAlternates = [
     .rc-hint-note { margin-top: 6px; padding: 12px 14px; background: var(--bg-warm); border-left: 3px solid rgba(198, 150, 65, 0.55); border-radius: 3px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; }
 
     /* Verdict card */
+    
+    .ac-headline-per {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 0.55em;
+      font-weight: 400;
+      color: var(--ink-soft);
+      letter-spacing: 0.01em;
+      margin-left: 4px;
+      vertical-align: baseline;
+    }
     .rc-verdict {
       display: flex;
       align-items: center;
