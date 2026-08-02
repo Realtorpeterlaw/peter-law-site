@@ -7,7 +7,8 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   trailingSlash: 'ignore',
-  build: { format: 'directory' },
+  build: { format: 'directory', inlineStylesheets: 'always' },
+  vite: { build: { cssCodeSplit: true, assetsInlineLimit: 0 } },
   integrations: [
     sitemap({
       i18n: {
