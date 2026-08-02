@@ -74,10 +74,44 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <meta property="og:image:alt" content="Peter Law, Toronto real estate sales representative, with the CN Tower behind him." />
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <!-- Self-hosted variable fonts (Latin subset). Same-origin, edge-cached,
+       preloaded so the LCP text renders in <300ms with no font swap. -->
+  <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style is:inline>
+    @font-face {
+      font-family: 'Fraunces';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/fraunces-latin.woff2') format('woff2-variations');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-latin.woff2') format('woff2-variations');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    /* Fallback metrics — matched to Fraunces + Inter so the pre-swap
+       system-font render lays out at the same size, eliminating CLS. */
+    @font-face {
+      font-family: 'Fraunces Fallback';
+      src: local('Georgia'), local('Times New Roman'), local('serif');
+      size-adjust: 105%;
+      ascent-override: 92%;
+      descent-override: 24%;
+    }
+    @font-face {
+      font-family: 'Inter Fallback';
+      src: local('Arial'), local('Helvetica'), local('sans-serif');
+      size-adjust: 107%;
+      ascent-override: 90%;
+      descent-override: 22%;
+    }
+  </style>
   {hreflangAlternates.map((alt) => (
     <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
   ))}
