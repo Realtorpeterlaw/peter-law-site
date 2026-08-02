@@ -39,7 +39,10 @@ const labels = zh
       {propertySales.map((p) => (
         <article class="sale-card" data-category={p.category}>
           <div class="sale-card-photo">
-            <img src={p.photo} alt={`${zh ? p.propertyName_zh : p.propertyName_en}, ${zh ? p.address_zh : p.address_en}`} loading="lazy" />
+            <picture>
+              <source srcset={p.photo.replace(/\.jpg$/, '.webp')} type="image/webp" />
+              <img src={p.photo} alt={`${zh ? p.propertyName_zh : p.propertyName_en}, ${zh ? p.address_zh : p.address_en}`} loading="lazy" />
+            </picture>
           </div>
           <div class="sale-card-info">
             <div class="sale-status-group">

@@ -5,7 +5,7 @@
   --surface: #ffffff;
   --ink: #1a1a1a;
   --ink-soft: #4a4a4a;
-  --ink-mute: #8a8a8a;
+  --ink-mute: #6d6d6d;   /* darkened for WCAG AA on cream */
   --rule: #d8d4cc;
   --max: 1180px;
 }
@@ -1314,21 +1314,35 @@ body.mobile-menu-open { overflow: hidden; }
 }
 .deals-dots {
   display: flex;
-  gap: 8px;
+  gap: 0;
   align-items: center;
+  margin: -14px 0;
 }
 .deals-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--rule);
+  /* WCAG 44x44 tap target; visual dot rendered via ::before */
+  width: 44px;
+  height: 44px;
+  background: transparent;
   border: none;
   border-radius: 999px;
   cursor: pointer;
   padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s;
+  position: relative;
+}
+.deals-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--rule);
+  border-radius: 999px;
   transition: background 0.18s, transform 0.18s;
 }
-.deals-dot:hover { transform: scale(1.25); background: var(--ink-mute); }
-.deals-dot.is-active { background: var(--ink); transform: scale(1.15); }
+.deals-dot:hover::before { transform: scale(1.5); background: var(--ink-mute); }
+.deals-dot.is-active::before { background: var(--ink); transform: scale(1.4); }
 .deals-dot:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .deals-counter {
   font-size: 13px;
@@ -1590,7 +1604,7 @@ body.mobile-menu-open { overflow: hidden; }
 /* ============================================================
    QUIET LUXURY design system
    ------------------------------------------------------------
-   Additive tokens + subtle scroll-reveal motion.
+   Additive design tokens (spacing, colors, motion, shadows).
 
    Everything inside QL-START/QL-END is safe to remove in one
    edit — no existing selectors are altered. Peter's token names
@@ -1633,45 +1647,6 @@ body.mobile-menu-open { overflow: hidden; }
   --shadow-1: 0 1px 2px rgba(26, 26, 26, 0.04), 0 2px 8px rgba(26, 26, 26, 0.03);
   --shadow-2: 0 2px 6px rgba(26, 26, 26, 0.06), 0 8px 24px rgba(26, 26, 26, 0.06);
   --shadow-lift: 0 4px 12px rgba(26, 26, 26, 0.08), 0 12px 32px rgba(26, 26, 26, 0.08);
-}
-
-/* -----------------------------------------------------------
-   Scroll-reveal utility (fade + gentle rise)
-   Add class="reveal" to any section you want to animate in.
-   The IntersectionObserver in BaseLayout adds .is-visible
-   when the element enters the viewport.
-   ----------------------------------------------------------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity var(--dur-slow) var(--ease-out),
-    transform var(--dur-slow) var(--ease-out);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* No-JS fallback: if the observer never fires, reveal after a moment
-   so content is never hidden from users with JS off. */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal:not(.is-visible) {
-    animation: qlSafetyReveal 0s linear 1.5s forwards;
-  }
-}
-@keyframes qlSafetyReveal { to { opacity: 1; transform: none; } }
-
-/* Accessibility — honor reduced-motion: no fade, no rise, no delay. */
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.is-visible {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
 }
 
 /* --- Focus visibility for <summary> collapsibles (a11y) --- */

@@ -28,7 +28,7 @@ const prevLabel = t.prev;
 const nextLabel = t.next;
 ---
 
-<section class="recent-deals reveal" aria-label={carouselLabel}>
+<section class="recent-deals" aria-label={carouselLabel}>
   <div class="wrap">
     <header class="recent-deals-heading">
       <h2 class="section-h">{sectionHeading}</h2>
@@ -44,7 +44,6 @@ const nextLabel = t.next;
         {deals.map((d, i) => (
           <article
             class={`deal-card ${i === 0 ? 'is-active' : ''}`}
-            role="group"
             aria-roledescription="slide"
             aria-label={`${i + 1} / ${deals.length}`}
             data-slide={i}
@@ -64,7 +63,7 @@ const nextLabel = t.next;
         ))}
       </div>
       <div class="deals-footer">
-        <div class="deals-dots" role="tablist">
+        <div class="deals-dots" role="group" aria-label={carouselLabel + ' navigation'}>
           {deals.map((_, i) => (
             <button
               type="button"
