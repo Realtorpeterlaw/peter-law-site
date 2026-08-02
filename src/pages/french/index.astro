@@ -21,6 +21,8 @@ import RecentDeals from '../../components/RecentDeals.astro';
   <FrenchTopBar />
   <FrenchHeader />
 
+  <main id="main">
+
   <section class="proof-bar">
     <div class="wrap proof-grid">
       <div class="proof-item"><div class="proof-num">$10M+ Ventes</div><div class="proof-lbl">6 ans à temps plein</div></div>
@@ -40,7 +42,7 @@ import RecentDeals from '../../components/RecentDeals.astro';
         <div>
           <form id="rental-questionnaire" class="quiz-form" method="POST" action="https://formspree.io/f/xnjrzgda" style="scroll-margin-top:100px">
             <div class="quiz-eyebrow">Questionnaire de location</div>
-            <h3 class="quiz-heading">Que recherchez-vous?</h3>
+            <h2 class="quiz-heading">Que recherchez-vous?</h2>
             <p class="quiz-sub">(Durée minimale de 1 an)</p>
             <div class="quiz-fields">
               <div class="quiz-field">
@@ -133,6 +135,8 @@ import RecentDeals from '../../components/RecentDeals.astro';
   </section>
 
   <RecentDeals lang="fr" />
+
+  </main>
 
   <FrenchFooter />
 </BaseLayout>
