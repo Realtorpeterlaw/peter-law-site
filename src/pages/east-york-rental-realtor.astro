@@ -5,10 +5,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/east-york-rental-realtor/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/east-york-rental-realtor/' },
+];
 ---
 <BaseLayout
   title={"East York Rental Realtor \u2014 Danforth, Pape, Broadview | Peter Law"}
   description={"Renting in East York \u2014 Danforth, Pape, Broadview? Peter Law helps tenants find value-forward East Toronto rentals with subway access. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
+  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -1,16 +1,15 @@
-/* PETER LAW REAL ESTATE — Site Styles */
-:root {
-  --bg: #f6f4f0;
-  --bg-warm: #efeae0;
-  --surface: #ffffff;
-  --ink: #1a1a1a;
-  --ink-soft: #4a4a4a;
-  --ink-mute: #6d6d6d;   /* darkened for WCAG AA on cream */
-  --rule: #d8d4cc;
-  --max: 1180px;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: clip; }
+/* Skip-link (a11y) — hidden until focused via keyboard */
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 0 0 4px 0; font-size: 14px; font-weight: 500; z-index: 10000; text-decoration: none; }
+.skip-link:focus { left: 0; outline: 2px solid var(--accent, #b8845b); outline-offset: 2px; }
+main:focus { outline: none; }
+
+/* Mobile: remove default gray tap flash on iOS/Android */
+* { -webkit-tap-highlight-color: transparent; }
+a, button, [role="button"], .deals-dot, .mobile-menu-toggle {
+  -webkit-tap-highlight-color: rgba(184, 132, 91, 0.15);
+}
+
 body {
   font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);

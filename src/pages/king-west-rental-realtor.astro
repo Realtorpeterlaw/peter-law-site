@@ -5,10 +5,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/king-west-rental-realtor/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/king-west-rental-realtor/' },
+];
 ---
 <BaseLayout
   title={"King West Rental Realtor \u2014 Toronto Condos on King | Peter Law"}
   description={"Renting on King Street West, from Bathurst to Strachan? Peter Law helps tenants secure approved leases in Toronto's flagship dining strip. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
+  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -5,10 +5,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/waterfront-rental-realtor/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/waterfront-rental-realtor/' },
+];
 ---
 <BaseLayout
   title={"Toronto Waterfront Rental Realtor \u2014 Harbourfront Condos | Peter Law"}
   description={"Renting on the Toronto waterfront or Harbourfront? Peter Law represents tenants in lakeshore condos with views, walkability, and Union Station access. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
+  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({

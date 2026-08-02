@@ -5,10 +5,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/markham-rental-realtor/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/markham-rental-realtor/' },
+];
 ---
 <BaseLayout
   title={"Markham Rental Realtor \u2014 GTA North Rentals | Peter Law"}
   description={"Renting in Markham, Unionville, or the GTA North corridor? Peter Law represents tenants across York Region. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
+  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
