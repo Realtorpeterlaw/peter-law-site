@@ -49,19 +49,19 @@ const hreflangAlternates = [
             <div class="calc-fields">
               <div class="calc-field">
                 <label for="af-income">家庭年收入 <span class="hint">(税前)</span></label>
-                <div class="input-prefix" data-prefix="$"><input id="af-income" type="number" value="120000" min="0" step="1000"></div>
+                <div class="input-prefix" data-prefix="$"><input id="af-income" type="number" value="120000" min="0" step="1000" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="af-debt">每月债务还款 <span class="hint">(车贷、学生贷款、信用卡)</span></label>
-                <div class="input-prefix" data-prefix="$"><input id="af-debt" type="number" value="500" min="0" step="50"></div>
+                <div class="input-prefix" data-prefix="$"><input id="af-debt" type="number" value="500" min="0" step="50" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="af-down">可用首付</label>
-                <div class="input-prefix" data-prefix="$"><input id="af-down" type="number" value="100000" min="0" step="1000"></div>
+                <div class="input-prefix" data-prefix="$"><input id="af-down" type="number" value="100000" min="0" step="1000" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="af-rate">房贷利率 <span class="hint">(% 年息)</span></label>
-                <input id="af-rate" type="number" value="5.0" min="0" max="20" step="0.01">
+                <input id="af-rate" type="number" value="5.0" min="0" max="20" step="0.01" inputmode="decimal">
               </div>
               <div class="calc-field">
                 <label for="af-amort">摊销期 <span class="hint">(年)</span></label>
@@ -73,15 +73,15 @@ const hreflangAlternates = [
               </div>
               <div class="calc-field">
                 <label for="af-tax">年物业税 <span class="hint">(大致估算)</span></label>
-                <div class="input-prefix" data-prefix="$"><input id="af-tax" type="number" value="4500" min="0" step="100"></div>
+                <div class="input-prefix" data-prefix="$"><input id="af-tax" type="number" value="4500" min="0" step="100" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="af-heat">每月取暖费 <span class="hint">(大致估算)</span></label>
-                <div class="input-prefix" data-prefix="$"><input id="af-heat" type="number" value="150" min="0" step="10"></div>
+                <div class="input-prefix" data-prefix="$"><input id="af-heat" type="number" value="150" min="0" step="10" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="af-condo">每月 Condo 物业费 <span class="hint">(如适用)</span></label>
-                <div class="input-prefix" data-prefix="$"><input id="af-condo" type="number" value="0" min="0" step="50"></div>
+                <div class="input-prefix" data-prefix="$"><input id="af-condo" type="number" value="0" min="0" step="50" inputmode="decimal"></div>
               </div>
             </div>
 

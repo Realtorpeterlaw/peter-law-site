@@ -39,17 +39,17 @@ const hreflangAlternates = [
         <div class="ac-inputs">
           <div class="ac-input-group">
             <label>1. How much do you make a year? <span class="hint">Before taxes.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>2. ACCEPTED Home Price <span class="hint">Condo, townhouse, or house.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>3. Down Payment <span class="hint">Ideally 20-25% Down payment of Purchase Price.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group ac-checkbox-group">
@@ -70,12 +70,12 @@ const hreflangAlternates = [
 
           <div class="ac-input-group" id="ac-tax-row">
             <label>5. Property Taxes <span class="hint">Per month. Leave blank to auto-estimate at 0.7% of price / yr.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="e.g. 400" /></div>
+            <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="e.g. 400" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group" id="ac-fee-row" style="display:none;">
             <label id="ac-fee-label">6. HOA Fee <span class="hint">Per month.</span></label>
-            <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="e.g. 150" /></div>
+            <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="e.g. 150" / inputmode="decimal" /></div>
           </div>
 
           <details class="ac-more">
@@ -83,7 +83,7 @@ const hreflangAlternates = [
             <div class="ac-more-body">
               <div class="ac-input-group">
                 <label>Mortgage rate <span class="hint">5% is normal in 2026.</span></label>
-                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" /></div>
+                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" / inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label>Amortization <span class="hint">How many years to pay it off. Most people pick 25.</span></label>

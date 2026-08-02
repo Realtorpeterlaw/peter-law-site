@@ -51,7 +51,7 @@ const hreflangAlternates = [
             <div class="mc-shared-fields">
               <div class="calc-field">
                 <label for="mc-price">购买价格</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="number" value="800000" min="0" step="1000"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="number" value="800000" min="0" step="1000" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-toronto">地点</label>
@@ -69,15 +69,15 @@ const hreflangAlternates = [
               </div>
               <div class="calc-field">
                 <label for="mc-tax">年物业税</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="number" value="5500" min="0" step="100"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="number" value="5500" min="0" step="100" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-heat">每月取暖/水电</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="number" value="180" min="0" step="10"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="number" value="180" min="0" step="10" inputmode="decimal"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-condo">每月 Condo 物业费(如有)</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="number" value="0" min="0" step="50"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="number" value="0" min="0" step="50" inputmode="decimal"></div>
               </div>
             </div>
           </div>
@@ -227,10 +227,10 @@ const hreflangAlternates = [
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(' — ')[1] || ''}</span></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>首付金额</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000"></div></div>
-            <div class="mc-row"><label>首付 %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5"></div>
+            <div class="mc-row"><label>首付金额</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000" inputmode="decimal"></div></div>
+            <div class="mc-row"><label>首付 %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label>利率(%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05"></div>
+          <div class="mc-row"><label>利率(%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>摊销期</label>
               <select data-input="${id}-amort">

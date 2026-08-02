@@ -40,17 +40,17 @@ const hreflangAlternates = [
         <div class="ac-inputs">
           <div class="ac-input-group">
             <label>1. 您一年赚多少? <span class="hint">税前。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>2. 已接受的房价 <span class="hint">Condo、镇屋、独立屋均可。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
             <label>3. 首付 <span class="hint">理想首付为房价的 20-25%。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" /></div>
+            <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group ac-checkbox-group">
@@ -71,12 +71,12 @@ const hreflangAlternates = [
 
           <div class="ac-input-group" id="ac-tax-row">
             <label>5. 地税 <span class="hint">每月。留空则按房价 0.7%/年 自动估算。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="如 400" /></div>
+            <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="如 400" / inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group" id="ac-fee-row" style="display:none;">
             <label id="ac-fee-label">6. HOA 管理费 <span class="hint">每月。</span></label>
-            <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="如 150" /></div>
+            <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="如 150" / inputmode="decimal" /></div>
           </div>
 
           <details class="ac-more">
@@ -84,7 +84,7 @@ const hreflangAlternates = [
             <div class="ac-more-body">
               <div class="ac-input-group">
                 <label>按揭利率 <span class="hint">2026 年常见约 5%。</span></label>
-                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" /></div>
+                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" / inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label>摊还期 <span class="hint">多少年还清。大多数人选 25 年。</span></label>

@@ -48,15 +48,15 @@ const hreflangAlternates = [
             <div class="calc-fields">
               <div class="calc-field calc-field-full">
                 <label for="cmhc-price">Purchase price</label>
-                <div class="input-prefix" data-prefix="$"><input id="cmhc-price" type="number" value="800000" min="0" step="5000"></div>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-price" type="number" value="800000" min="0" step="5000" inputmode="decimal"></div>
               </div>
               <div class="calc-field calc-field-full">
                 <label for="cmhc-down">Down payment <span class="hint">(or use the percentage below)</span></label>
-                <div class="input-prefix" data-prefix="$"><input id="cmhc-down" type="number" value="80000" min="0" step="1000"></div>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-down" type="number" value="80000" min="0" step="1000" inputmode="decimal"></div>
               </div>
               <div class="calc-field calc-field-full">
                 <label for="cmhc-down-pct">Down payment as % <span class="hint">(updates the dollar amount above)</span></label>
-                <input id="cmhc-down-pct" type="number" value="10" min="0" max="100" step="0.5">
+                <input id="cmhc-down-pct" type="number" value="10" min="0" max="100" step="0.5" inputmode="decimal">
               </div>
             </div>
 
@@ -78,6 +78,7 @@ const hreflangAlternates = [
           </div>
 
           <h2 style="margin-top:48px;">Quick reference: premium rates by LTV</h2>
+          <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
           <table class="cmhc-table">
             <thead>
               <tr><th>Loan-to-value</th><th>Premium rate</th></tr>
@@ -91,6 +92,7 @@ const hreflangAlternates = [
               <tr><td>90.01% to 95%</td><td>4.00%</td></tr>
             </tbody>
           </table>
+          </div>
 
           <h2 style="margin-top:40px;">Minimum down payment rules</h2>
           <ul class="bullets">
