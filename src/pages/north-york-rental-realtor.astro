@@ -5,16 +5,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
-
-const hreflangAlternates = [
-  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/north-york-rental-realtor/' },
-  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/north-york-rental-realtor/' },
-];
 ---
 <BaseLayout
   title={"North York Rental Realtor \u2014 Yonge & Sheppard, Bayview | Peter Law"}
   description={"Renting in North York \u2014 Yonge & Sheppard, Bayview Village, or Willowdale? Peter Law helps tenants secure approved leases. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
-  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({

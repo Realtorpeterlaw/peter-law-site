@@ -20,7 +20,7 @@ const {
   dir: dirProp,
   hreflangAlternates = [],
 } = Astro.props;
-const htmlLang = langProp || (zh ? 'zh-CN' : 'en-CA');
+const htmlLang = langProp || (zh ? 'zh-CN' : 'en');
 const htmlDir = dirProp || 'ltr';
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 
@@ -74,9 +74,6 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <meta property="og:image:alt" content="Peter Law, Toronto real estate sales representative, with the CN Tower behind him." />
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg" />
   <!-- Self-hosted variable fonts (Latin subset). Same-origin, edge-cached,
        preloaded so the LCP text renders in <300ms with no font swap. -->
   <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -124,10 +121,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <slot name="head" />
 </head>
 <body class={bodyClass + (zh ? ' zh' : '')}>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <main id="main" tabindex="-1">
   <slot />
-  </main>
   <Analytics />
 </body>
 </html>

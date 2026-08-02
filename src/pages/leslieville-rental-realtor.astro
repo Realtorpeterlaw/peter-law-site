@@ -5,16 +5,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
-
-const hreflangAlternates = [
-  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/leslieville-rental-realtor/' },
-  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/leslieville-rental-realtor/' },
-];
 ---
 <BaseLayout
   title={"Leslieville Rental Realtor \u2014 East Toronto Rentals | Peter Law"}
   description={"Renting in Leslieville, Riverside, or East York? Peter Law helps tenants find great value in East Toronto's most character-rich rental streets. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
-  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({

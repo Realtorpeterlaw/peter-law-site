@@ -5,16 +5,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
-
-const hreflangAlternates = [
-  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/downtown-toronto-rental-realtor/' },
-  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/downtown-toronto-rental-realtor/' },
-];
 ---
 <BaseLayout
   title={"Downtown Toronto Rental Realtor \u2014 Yonge & Dundas | Peter Law"}
   description={"Renting downtown Toronto? Peter Law helps tenants get approved for condos near Yonge & Dundas, the Financial District, and the Entertainment District. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
-  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({

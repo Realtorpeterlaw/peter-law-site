@@ -5,16 +5,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
 export const prerender = true;
-
-const hreflangAlternates = [
-  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/yorkville-rental-realtor/' },
-  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/yorkville-rental-realtor/' },
-];
 ---
 <BaseLayout
   title={"Yorkville Rental Realtor \u2014 Yonge & Bloor Luxury Condos | Peter Law"}
   description={"Renting a Yorkville or Yonge & Bloor luxury condo? Peter Law represents tenants in Toronto's most established neighbourhood. Bilingual \u00b7 RECO-registered \u00b7 647-888-8472."}
-  hreflangAlternates={hreflangAlternates}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
