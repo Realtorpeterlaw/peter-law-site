@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/purge-css.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "test:smoke": "playwright test",
     "test:lh": "npx @lhci/cli@0.14.x autorun",
     "link-check": "node scripts/link-check.mjs",
-    "bundle-report": "node scripts/bundle-report.mjs"
+    "bundle-report": "node scripts/bundle-report.mjs",
+    "build:astro": "astro build",
+    "purge-css": "node scripts/purge-css.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "purgecss": "^8.0.0"
   }
 }
