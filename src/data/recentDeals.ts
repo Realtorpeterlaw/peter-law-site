@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-08-25',
+    intersection_en: 'Church St & Shuter St',
+    intersection_zh: 'Church St 与 Shuter St',
+    intersection_fr: 'Church St et Shuter St',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$2,850',
+    note_en: 'Perfect layout for two. Corner unit, with a grocery store on the ground floor!',
+    note_zh: '两人居住的理想户型 · 转角单元 · 楼下即有超市!',
+    note_fr: 'Aménagement parfait pour deux. Unité de coin, avec épicerie au rez-de-chaussée!',
+  },
+  {
     date: '2026-08-20',
     intersection_en: 'Bayview Ave & Finch Ave E',
     intersection_zh: 'Bayview Ave 与 Finch Ave E',
