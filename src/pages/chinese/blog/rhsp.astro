@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import TopBar from '../../../components/TopBar.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import CTASection from '../../../components/CTASection.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 export const prerender = true;
 
@@ -44,8 +44,8 @@ const hreflangAlternates = [
   zh={true}
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="blog" />
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
 
   <article>
     <section class="page-hero">
@@ -245,7 +245,7 @@ const hreflangAlternates = [
       </div>
     </section>
 
-    <CTASection
+    <ChineseCTASection
       title="不确定这项政策对您的租房搜索有什么影响?"
       body="我协助新移民、上班族与家庭在多伦多租赁市场中做出更明智的选择 — 包括追踪 RHSP 新楼何时开租。告诉我您的情况,我会告诉您在您的预算和目标区域内哪些是现实的选择。"
       ctaPrimary={{ href: '/chinese/contact', label: '联系 Peter' }}
@@ -253,6 +253,6 @@ const hreflangAlternates = [
     />
   </article>
 
-  <Footer />
+  <ChineseFooter />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </BaseLayout>

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import TopBar from '../../../components/TopBar.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import CTASection from '../../../components/CTASection.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 export const prerender = true;
 
@@ -44,8 +44,8 @@ const hreflangAlternates = [
   zh={true}
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="blog" />
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
 
   <article>
     <section class="page-hero">
@@ -266,7 +266,7 @@ const hreflangAlternates = [
       </div>
     </section>
 
-    <CTASection
+    <ChineseCTASection
       title="是非居民、工签持有者或混合身份夫妻在买房?"
       body="不要等到出Offer才弄清楚禁令是否对你适用。用通俗的话告诉我你的情况,我会告诉你需要准备哪些材料,以及什么时候该让律师介入。"
       ctaPrimary={{ href: '/chinese/contact', label: '联系 Peter' }}
@@ -274,6 +274,6 @@ const hreflangAlternates = [
     />
   </article>
 
-  <Footer />
+  <ChineseFooter />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </BaseLayout>

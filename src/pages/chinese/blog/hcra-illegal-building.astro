@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import TopBar from '../../../components/TopBar.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import CTASection from '../../../components/CTASection.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 export const prerender = true;
 
@@ -44,8 +44,8 @@ const hreflangAlternates = [
   zh={true}
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="blog" />
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
 
   <article>
     <section class="page-hero">
@@ -210,7 +210,7 @@ const hreflangAlternates = [
       </div>
     </section>
 
-    <CTASection
+    <ChineseCTASection
       title="正在买楼花或全新房?"
       body="每一笔我代理的新房交易,我都会帮客户核实开发商执照、Tarion 注册状态、以及披露文件。如果距离签约还有几周甚至几个月 — 把开发商名字发给我,我陪您一起查。"
       ctaPrimary={{ href: '/chinese/contact', label: '联系 Peter' }}
@@ -218,6 +218,6 @@ const hreflangAlternates = [
     />
   </article>
 
-  <Footer />
+  <ChineseFooter />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </BaseLayout>

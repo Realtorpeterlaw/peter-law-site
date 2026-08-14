@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import TopBar from '../../../components/TopBar.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import CTASection from '../../../components/CTASection.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 export const prerender = true;
 
@@ -44,8 +44,8 @@ const hreflangAlternates = [
   zh={true}
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="blog" />
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
 
   <article>
     <section class="page-hero">
@@ -232,7 +232,7 @@ const hreflangAlternates = [
       </div>
     </section>
 
-    <CTASection
+    <ChineseCTASection
       title="正在多伦多买房或卖房?"
       body="我在每一笔多伦多交易中都会核查空置房屋税申报状态 — 无论是卖家一侧还是买家一侧。若过户临近而 VHT 材料不清晰,那正是签字前应该抓出来的关键问题。"
       ctaPrimary={{ href: '/chinese/contact', label: '联系 Peter' }}
@@ -240,7 +240,7 @@ const hreflangAlternates = [
     />
   </article>
 
-  <Footer />
+  <ChineseFooter />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <style is:global>

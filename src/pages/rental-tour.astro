@@ -98,6 +98,7 @@ const hreflangAlternates = [
         iframe.setAttribute('allowfullscreen', '');
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('title', btn.getAttribute('aria-label') || 'Rental tour video');
+        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
         iframe.className = 'tour-iframe';
         parent.innerHTML = '';
         parent.appendChild(iframe);

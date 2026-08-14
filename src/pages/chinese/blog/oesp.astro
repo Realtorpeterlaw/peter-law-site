@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import TopBar from '../../../components/TopBar.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import CTASection from '../../../components/CTASection.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 export const prerender = true;
 
@@ -44,8 +44,8 @@ const hreflangAlternates = [
   zh={true}
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="blog" />
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
 
   <article>
     <section class="page-hero">
@@ -280,7 +280,7 @@ const hreflangAlternates = [
       </div>
     </section>
 
-    <CTASection
+    <ChineseCTASection
       title="多伦多家庭预算紧张?"
       body="OESP是你今年最容易花的15分钟。如果你认识的老人、租户、新移民家庭或电费超$100/月的年轻家庭——把这篇文章发给他们,或者联系我,我帮他们走一遍流程。"
       ctaPrimary={{ href: '/chinese/contact', label: '联系我' }}
@@ -288,6 +288,6 @@ const hreflangAlternates = [
     />
   </article>
 
-  <Footer />
+  <ChineseFooter />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </BaseLayout>
