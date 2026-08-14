@@ -283,7 +283,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .dropdown-menu a:hover { color: var(--ink); background: var(--bg-warm); }
 
 /* Resource guide pages share styling with prose-body */
-.guide-page .prose-body h2 { scroll-margin-top: 90px; }
+.prose-body h2, .prose-body h3 { scroll-margin-top: 100px; }
 .guide-page .resource-links { background: var(--bg-warm); padding: 24px 28px; border-radius: 4px; margin-top: 32px; max-width: 660px; }
 .guide-page .resource-links h3 { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-top: 0; margin-bottom: 12px; }
 .guide-page .resource-links ul { margin-bottom: 0; }
