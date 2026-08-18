@@ -13,7 +13,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     <nav class="primary" aria-label="Primary">
       <ul>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} tabindex="0" aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} aria-current={active === 'rental' ? 'page' : undefined} tabindex="0" aria-haspopup="true">
             <span class="trigger-text">Rental</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -28,7 +28,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </ul>
         </li>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'sellers' ? ' active' : '')} tabindex="0" aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'sellers' ? ' active' : '')} aria-current={active === 'sellers' ? 'page' : undefined} tabindex="0" aria-haspopup="true">
             <span class="trigger-text">Sellers</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -37,7 +37,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </ul>
         </li>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'buyers' ? ' active' : '')} tabindex="0" aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'buyers' ? ' active' : '')} aria-current={active === 'buyers' ? 'page' : undefined} tabindex="0" aria-haspopup="true">
             <span class="trigger-text">Buyers</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -50,10 +50,10 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/cmhc-insurance-calculator">CMHC Insurance Calculator</a></li>
           </ul>
         </li>
-        <li><a href="/blog" class={active === 'blog' ? 'active' : ''}>Blog</a></li>
+        <li><a href="/blog" class={active === 'blog' ? 'active' : ''} aria-current={active === 'blog' ? 'page' : undefined}>Blog</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li class="has-dropdown">
-          <a href="/about" class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} aria-haspopup="true">
+          <a href="/about" class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} aria-current={active === 'about' ? 'page' : undefined} aria-haspopup="true">
             <span class="trigger-text">About</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -62,7 +62,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/past-deals">Sale History</a></li>
           </ul>
         </li>
-        <li><a href="/contact" class={active === 'contact' ? 'active' : ''}>Contact</a></li>
+        <li><a href="/contact" class={active === 'contact' ? 'active' : ''} aria-current={active === 'contact' ? 'page' : undefined}>Contact</a></li>
       </ul>
     </nav>
     <a href={BOOKING_URL} class="head-cta head-cta-desktop">{ctaLabel}</a>
@@ -173,3 +173,5 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     });
   })();
 </script>
+
+<Fragment set:html={`<main id="main-content" tabindex="-1">`} />
