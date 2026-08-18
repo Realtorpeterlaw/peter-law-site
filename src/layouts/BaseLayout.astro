@@ -63,6 +63,12 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Mobile safety: prevent iOS from auto-linking arbitrary numbers/addresses/dates
+       (Peter has actual tel: links for the real phone; iOS would otherwise wrap any
+       10-digit sequence in tel:, creating spoofable "tap to call" targets). -->
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
