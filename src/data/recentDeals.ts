@@ -51,9 +51,9 @@ export const dealsRaw: DealRaw[] = [
     city_zh: '多伦多,安省',
     city_fr: 'Toronto, Ontario',
     rent: '$2,450',
-    note_en: "HOT season…sniped a 1 Bed + Den before September 1st. Steps from St Lawrence Market, No Frills right downstairs.",
-    note_zh: '旺季逆势拿下 · 九月一日前锁定这套 1 房加书房 · 步行即到 St Lawrence Market · 楼下就是 No Frills 超市。',
-    note_fr: "Pleine saison… 1 chambre + den obtenu avant le 1er septembre. À deux pas du St Lawrence Market, No Frills juste en bas.",
+    note_en: "HOT Season…Sniped a 1Bed + Den before September 1st! Situated by St Lawrence Market. Nofrills below!",
+    note_zh: '旺季厮杀……九月一号前抢到这套 1 房 + 书房!位于 St Lawrence Market 旁,楼下就是 Nofrills!',
+    note_fr: "Pleine saison…1 chambre + den arraché avant le 1er septembre! Situé près du St Lawrence Market. Nofrills en bas!",
   },
   {
     date: '2026-08-25',
