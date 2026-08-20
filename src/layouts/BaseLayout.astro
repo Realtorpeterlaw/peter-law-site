@@ -130,5 +130,36 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <slot />
   <Analytics />
+  <script is:inline>
+    /* Open a <details> when its anchor is clicked or the page loads with #id.
+       Fixes: clicking a TOC link that targets a closed <details> would scroll
+       to it but not expand it — user then had to click the summary again. */
+    (function () {
+      function openDetailsById(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        // If the target IS a <details>, open it.
+        if (el.tagName === 'DETAILS' && !el.open) el.open = true;
+        // If the target is INSIDE a <details>, open the nearest ancestor.
+        var parent = el.closest('details');
+        if (parent && !parent.open) parent.open = true;
+        // Re-scroll after opening (layout has changed).
+        setTimeout(function () {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 20);
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var id = a.getAttribute('href').slice(1);
+        if (!id) return;
+        openDetailsById(id);
+      });
+      if (location.hash && location.hash.length > 1) {
+        openDetailsById(location.hash.slice(1));
+      }
+    })();
+  </script>
 </body>
 </html>
