@@ -1675,3 +1675,7 @@ details summary:focus-visible {
 .past-deals-awards picture,
 .past-deals-awards img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
 .past-deals-awards figcaption { margin-top: 10px; font-size: 12px; color: var(--ink-mute); letter-spacing: 0.04em; font-style: italic; }
+
+/* Brokerage-tier award list on About pages (EN / ZH / FR). */
+.award-tier-heading { margin-top: 28px; margin-bottom: 8px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 16px; letter-spacing: 0.02em; color: var(--ink); text-transform: none; }
+.award-tier-list li { font-variant-numeric: tabular-nums; }
