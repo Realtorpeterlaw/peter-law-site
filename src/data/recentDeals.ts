@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-08-28',
+    intersection_en: 'Lower Sherbourne St & Front St E',
+    intersection_zh: 'Lower Sherbourne St 与 Front St E',
+    intersection_fr: 'Lower Sherbourne St et Front St E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$2,450',
+    note_en: "HOT season…sniped a 1 Bed + Den before September 1st. Steps from St Lawrence Market, No Frills right downstairs.",
+    note_zh: '旺季逆势拿下 · 九月一日前锁定这套 1 房加书房 · 步行即到 St Lawrence Market · 楼下就是 No Frills 超市。',
+    note_fr: "Pleine saison… 1 chambre + den obtenu avant le 1er septembre. À deux pas du St Lawrence Market, No Frills juste en bas.",
+  },
+  {
     date: '2026-08-25',
     intersection_en: 'Church St & Shuter St',
     intersection_zh: 'Church St 与 Shuter St',
