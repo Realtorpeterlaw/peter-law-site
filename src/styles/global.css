@@ -1668,3 +1668,9 @@ details summary:focus-visible {
   border-bottom-right-radius: 4px;
 }
 .skip-link:focus { top: 0; outline: 2px solid var(--warm, #b8860b); outline-offset: 2px; }
+
+/* Brokerage awards photo on /about (EN, ZH, FR) — subtle framed presentation. */
+.brokerage-awards { margin: 32px 0 40px; max-width: 660px; }
+.brokerage-awards picture,
+.brokerage-awards img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.brokerage-awards figcaption { margin-top: 10px; font-size: 12.5px; color: var(--ink-mute); letter-spacing: 0.04em; font-style: italic; }
