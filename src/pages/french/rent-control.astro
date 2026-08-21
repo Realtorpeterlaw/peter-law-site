@@ -12,9 +12,14 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rent-control/' },
 ];
 ---
-<BaseLayout title="Contr\u00f4le des loyers en Ontario \u2014 Guide locataire | Peter Law" description="Guide simple du contr\u00f4le des loyers en Ontario : ce qui est couvert, la ligne directrice annuelle et les augmentations sup\u00e9rieures." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Contrôle des loyers en Ontario — Guide locataire | Peter Law"
+  description="Guide simple du contrôle des loyers en Ontario : ce qui est couvert, la directive annuelle et les augmentations supérieures à la directive."
+  bodyClass="guide-page"
+  lang="fr"
   hreflangAlternates={hreflangAlternates}
 >
+
   <LTopBar />
   <LHeader active="rental" />
 
@@ -30,26 +35,154 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>—</h4>
-          <ul>          <li><a href="#what">Qu'est-ce que le contrôle des loyers</a></li>
-          <li><a href="#covered">Unités couvertes</a></li>
-          <li><a href="#guideline">La ligne directrice annuelle</a></li>
-          <li><a href="#agi">Augmentations supérieures (AGI)</a></li></ul>
+          <h4>Sur cette page</h4>
+          <ul>
+            <li><a href="#what">Qu'est-ce que le contrôle des loyers</a></li>
+            <li><a href="#covered">Unités couvertes</a></li>
+            <li><a href="#guideline">La directive annuelle</a></li>
+            <li><a href="#agi">Augmentations supérieures à la directive</a></li>
+            <li><a href="#rent-calculator">Calculateur de contrôle des loyers</a></li>
+          </ul>
         </aside>
+
         <div class="prose-body">
           <h2 id="what">Qu'est-ce que le contrôle des loyers</h2>
-          <p>La <em>Loi sur la location à usage d'habitation</em> de l'Ontario plafonne l'augmentation qu'un propriétaire peut appliquer à un locataire existant d'une année à l'autre. Ce plafond s'appelle la <strong>ligne directrice annuelle</strong>, publiée par la province chaque année.</p>
+          <p>La <em>Loi sur la location à usage d'habitation</em> de l'Ontario plafonne le montant qu'un propriétaire peut ajouter au loyer d'un locataire existant d'une année à l'autre. Ce plafond s'appelle la <strong>directive annuelle d'augmentation de loyer</strong> et il est fixé chaque année par le gouvernement provincial.</p>
+
           <h2 id="covered">Unités couvertes</h2>
-          <p>Le contrôle des loyers s'applique à la plupart des logements résidentiels en Ontario occupés pour la première fois avant le <strong>15 novembre 2018</strong>. Les logements occupés pour la première fois <strong>à partir du 15 novembre 2018</strong> sont <strong>exemptés</strong>.</p>
-          <h2 id="guideline">La ligne directrice annuelle</h2>
-          <p>L'augmentation est publiée chaque année par le ministère provincial. Un loyer ne peut être augmenté qu'<strong>une fois tous les 12 mois</strong>, avec un préavis écrit de <strong>90 jours</strong> sur le formulaire N1 de la CLI.</p>
-          <h2 id="agi">Augmentations supérieures (AGI)</h2>
-          <p>Un propriétaire peut demander à la Commission de la location immobilière (CLI) une augmentation au-delà de la ligne directrice pour des dépenses en capital, des taxes municipales extraordinaires ou de nouveaux services. Les locataires ont le droit de contester.</p>
+          <p>Le contrôle des loyers s'applique à la plupart des logements résidentiels en Ontario <strong>occupés pour la première fois comme résidence avant le 15 novembre 2018</strong>.</p>
+          <p>Les logements occupés pour la première fois à des fins résidentielles <strong>le 15 novembre 2018 ou après cette date</strong> sont <strong>exemptés</strong>. Le propriétaire d'un logement exempté peut augmenter le loyer du montant de son choix à la fin d'un bail à durée déterminée.</p>
+          <div class="callout"><strong>Pourquoi c'est important avant de signer :</strong> un condo neuf construit en 2020 n'est pas soumis au contrôle des loyers. Un immeuble locatif des années 1970 l'est en général. Sur plusieurs années, la différence peut atteindre des milliers de dollars. Je vous dirai dans quelle catégorie se trouve une unité avant que vous ne vous engagiez.</div>
+
+                    <details class="b60-section-toggle" id="guideline">
+            <summary class="b60-section-toggle-summary">La directive annuelle</summary>
+            <div class="b60-section-body">
+  <ul class="bullets">
+              <li>La directive d'augmentation est publiée chaque année par le ministère des Affaires municipales et du Logement de l'Ontario.</li>
+              <li>Le loyer ne peut être augmenté qu'<strong>une seule fois tous les 12 mois</strong>.</li>
+              <li>Vous devez recevoir un <strong>préavis écrit de 90 jours</strong> pour toute augmentation, au moyen du formulaire officiel de la CLI (<em>N1 — Avis d'augmentation de loyer</em>).</li>
+              <li>Une augmentation qui ne respecte pas ces règles n'est pas juridiquement exécutoire.</li>
+            </ul>
+            </div>
+          </details>
+
+<details class="b60-section-toggle" id="agi">
+            <summary class="b60-section-toggle-summary">Augmentations supérieures à la directive (AGI)</summary>
+            <div class="b60-section-body">
+  <p>Un propriétaire peut demander à la Commission de la location immobilière (CLI) une augmentation de loyer supérieure à la directive annuelle. Les AGI sont généralement accordées pour :</p>
+            <ul class="bullets">
+              <li>Des augmentations extraordinaires des taxes municipales ou des services publics</li>
+              <li>Des dépenses en capital (réparations ou remplacements majeurs dans l'immeuble)</li>
+              <li>Des services nouveaux ou élargis dans l'immeuble</li>
+            </ul>
+            <p>Les AGI nécessitent l'approbation de la CLI et les locataires ont le droit de contester la demande.</p>
+            </div>
+          </details>
+
+          <!-- ── Calculateur de contrôle des loyers ────────────────────── -->
+          <section class="rcc" id="rent-calculator" aria-labelledby="rcc-h">
+            <h2 id="rcc-h">Calculateur de contrôle des loyers</h2>
+            <p class="rcc-lead">Saisissez votre loyer actuel et la directive provinciale de l'année en cours. Le calculateur affiche le loyer maximum que votre propriétaire peut demander pour l'année à venir, ainsi que l'augmentation maximale en dollars. La <strong>directive 2027 de l'Ontario est de 1,9 %</strong> — elle est préremplie pour partir d'un chiffre réel.</p>
+
+            <div class="rcc-grid">
+              <div class="rcc-inputs">
+                <div class="rcc-field">
+                  <label for="rcc-rent">Loyer actuel</label>
+                  <div class="rcc-input-prefix">
+                    <span>$</span>
+                    <input id="rcc-rent" type="number" min="0" step="50" value="2200" inputmode="decimal" />
+                    <span class="rcc-suffix">/ mois</span>
+                  </div>
+                </div>
+                <div class="rcc-field">
+                  <label for="rcc-pct">Directive provinciale %</label>
+                  <div class="rcc-input-prefix">
+                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="1.9" inputmode="decimal" />
+                    <span class="rcc-suffix">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rcc-outputs" aria-live="polite">
+                <div class="rcc-out-card rcc-out-primary">
+                  <div class="rcc-out-label">Loyer maximum</div>
+                  <div class="rcc-out-value"><span id="rcc-new-rent">2 241,80 $</span><span class="rcc-per"> / mois</span></div>
+                  <div class="rcc-out-sub">Votre loyer actuel + le pourcentage de la directive.</div>
+                </div>
+                <div class="rcc-out-card">
+                  <div class="rcc-out-label">Augmentation mensuelle maximale</div>
+                  <div class="rcc-out-value"><span id="rcc-delta">41,80 $</span><span class="rcc-per"> / mois</span></div>
+                  <div class="rcc-out-sub">Tout ce qui dépasse ce montant requiert une AGI approuvée par la CLI.</div>
+                </div>
+                <div class="rcc-out-card">
+                  <div class="rcc-out-label">Augmentation annuelle</div>
+                  <div class="rcc-out-value"><span id="rcc-annual">501,60 $</span><span class="rcc-per"> / an</span></div>
+                  <div class="rcc-out-sub">Ce que l'augmentation vous coûte sur 12 mois.</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="rcc-fine">Rappel : la directive ne s'applique qu'aux logements occupés pour la première fois avant le <strong>15 novembre 2018</strong>. Si votre unité est plus récente, il n'y a pas de plafond. Les propriétaires doivent aussi remettre un <strong>préavis écrit de 90 jours</strong> sur le bon formulaire (N1) et ne peuvent augmenter qu'une fois tous les 12 mois.</p>
+          </section>
+
+<p class="legal-note">Ce guide est fourni à titre informatif et ne constitue pas un avis juridique. Pour votre situation particulière, consultez un parajuriste, une clinique juridique communautaire ou la CLI directement. Je suis un représentant commercial immobilier inscrit, pas un avocat.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <LCTA heading="Besoin d'un second regard?" lead="Si votre propri\u00e9taire vient d'augmenter votre loyer, envoyez-moi l'avis. En 10 minutes, je vous dirai si c'est valide ou vaut la peine de contester." />
+  <LCTA heading="Besoin d'un second regard ?" lead="Si votre propriétaire vient d'augmenter votre loyer et que vous n'êtes pas sûr que ce soit légal, envoyez-moi l'avis. En 10 minutes, je vous dirai s'il est valide ou s'il vaut la peine de contester." />
   <LFooter />
+
+<style>
+  .rcc { margin: 32px 0 20px; padding: 24px 26px; background: #fafaf7; border: 1px solid var(--rule, #d8d4cc); border-radius: 14px; }
+  .rcc h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; margin: 0 0 8px; color: var(--ink, #1a1a1a); }
+  .rcc-lead { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft, #4a4a4a); margin: 0 0 22px; }
+  .rcc-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 22px; align-items: start; }
+  @media (max-width: 780px) { .rcc-grid { grid-template-columns: 1fr; } }
+  .rcc-inputs { display: grid; gap: 14px; }
+  .rcc-field label { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--ink, #1a1a1a); margin-bottom: 6px; }
+  .rcc-input-prefix { display: flex; align-items: center; background: #fff; border: 1px solid var(--rule, #d8d4cc); border-radius: 6px; padding: 0 12px; transition: border-color 0.15s; }
+  .rcc-input-prefix:focus-within { border-color: var(--accent, #b8845b); }
+  .rcc-input-prefix > span { color: var(--ink-mute, #6d6d6d); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .rcc-input-prefix input { border: 0; padding: 12px 8px; background: transparent; flex: 1; min-width: 0; font-size: 16px; font-family: inherit; color: var(--ink, #1a1a1a); font-variant-numeric: tabular-nums; outline: none; -moz-appearance: textfield; }
+  .rcc-input-prefix input::-webkit-outer-spin-button, .rcc-input-prefix input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .rcc-suffix { font-size: 12.5px; letter-spacing: 0.01em; }
+  .rcc-outputs { display: grid; gap: 12px; }
+  .rcc-out-card { padding: 14px 18px; background: #fff; border: 1px solid var(--rule, #d8d4cc); border-radius: 8px; }
+  .rcc-out-primary { border-color: var(--accent, #b8845b); background: linear-gradient(180deg, #fdfaf3 0%, #fff 60%); }
+  .rcc-out-label { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute, #6d6d6d); font-weight: 700; margin-bottom: 4px; }
+  .rcc-out-value { font-family: 'Fraunces', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--ink, #1a1a1a); line-height: 1.1; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .rcc-out-primary .rcc-out-value { font-size: 34px; }
+  .rcc-per { font-family: 'Fraunces', Georgia, serif; font-size: 0.5em; font-weight: 400; color: var(--ink-soft, #4a4a4a); margin-left: 4px; }
+  .rcc-out-sub { font-size: 12.5px; color: var(--ink-soft, #4a4a4a); margin-top: 6px; line-height: 1.5; }
+  .rcc-fine { font-size: 12.5px; color: var(--ink-mute, #6d6d6d); font-style: italic; line-height: 1.6; margin: 20px 0 0; padding-top: 16px; border-top: 1px dashed #d6d1c8; }
+</style>
+
+<script is:inline>
+  (function () {
+    var rent = document.getElementById('rcc-rent');
+    var pct  = document.getElementById('rcc-pct');
+    if (!rent || !pct) return;
+    var out = {
+      newRent: document.getElementById('rcc-new-rent'),
+      delta:   document.getElementById('rcc-delta'),
+      annual:  document.getElementById('rcc-annual'),
+    };
+    function fmt(n) {
+      return (Math.round(n * 100) / 100).toLocaleString('fr-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' $';
+    }
+    function compute() {
+      var r = Math.max(0, parseFloat(rent.value) || 0);
+      var p = Math.max(0, parseFloat(pct.value) || 0);
+      var delta = r * (p / 100);
+      out.newRent.textContent = fmt(r + delta);
+      out.delta.textContent   = fmt(delta);
+      out.annual.textContent  = fmt(delta * 12);
+    }
+    rent.addEventListener('input', compute);
+    pct.addEventListener('input', compute);
+    compute();
+  })();
+</script>
 </BaseLayout>

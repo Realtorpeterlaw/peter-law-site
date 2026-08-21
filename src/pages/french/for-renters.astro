@@ -4,7 +4,6 @@ import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
-const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-renters/' },
@@ -13,7 +12,7 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/for-renters/' },
 ];
 ---
-<BaseLayout title="Pour locataires — Peter Law · Location à Toronto" description="Vous cherchez à louer à Toronto? Voici comment je vous aide à vous faire approuver rapidement et à emménager sereinement." lang="fr" bodyClass="fr"
+<BaseLayout title="Pour locataires — Peter Law · Immobilier à Toronto" description="Comment se déroule une location avec Peter Law. Ce qu'il vous faut, à quoi vous attendre, les bases du contrôle des loyers, et comment signer le bon bail torontois en toute confiance." lang="fr" bodyClass="fr"
   hreflangAlternates={hreflangAlternates}
 >
 
@@ -22,38 +21,146 @@ const hreflangAlternates = [
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Location · Locataires</div>
-      <h1>Location à Toronto — approuvé rapidement, emménagement en douceur.</h1>
-      <p>Le marché locatif de Toronto va vite. Une seule journée d'hésitation, et l'unité est partie. Voici comment je vous aide à ne pas rater la bonne, à préparer un dossier gagnant, et à négocier les inclusions.</p>
+      <div class="eyebrow">Pour locataires</div>
+      <h1>Louer avec moi, concrètement.</h1>
+      <p>Le marché locatif torontois va vite. Ceux qui obtiennent le logement qu'ils veulent sont ceux qui étaient prêts. Voici comment nous nous assurons que ce soit vous.</p>
     </div>
   </section>
 
-  <section class="major">
+  <section class="major" style="padding-top:32px;">
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Sommaire</h4>
+          <h4>Sur cette page</h4>
           <ul>
-            <li><a href="#search">La recherche</a></li>
-            <li><a href="#application">L'application</a></li>
-            <li><a href="#negotiation">La négociation</a></li>
-            <li><a href="#move-in">L'emménagement</a></li>
+            <li><a href="#process">Le processus en 4 étapes</a></li>
+            <li><a href="#documents">Critères de dossier</a></li>
+            <li><a href="#terminate">Mettre fin à un bail</a></li>
+            <li><a href="#application">Demande de location</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </aside>
+
         <div class="prose-body">
-          <h2 id="search">La recherche</h2>
-          <p>Je vous envoie chaque jour une liste courte, filtrée selon vos critères réels (budget, chambres, quartier, transport, animaux). Pas d'inscriptions expirées, pas de propriétaires louches. Je réserve les visites plus vite que vous ne le pouvez seul, souvent le jour même.</p>
-          <h2 id="application">L'application</h2>
-          <p>Un dossier de locataire faible échoue. Un dossier fort — lettre d'emploi récente, relevés bancaires, cote de crédit, référence du dernier propriétaire — passe. Je prépare votre dossier au format que les propriétaires torontois attendent, avant même la visite. Résultat : votre application arrive complète et propre.</p>
-          <h2 id="negotiation">La négociation</h2>
-          <p>Sur le prix, oui, mais aussi sur les inclusions (chauffage, eau, internet, stationnement) et sur la date d'entrée. Un mois de gratuit sur un bail de 13 mois se négocie dans un immeuble sur trois si vous savez lequel demander.</p>
-          <h2 id="move-in">L'emménagement</h2>
-          <p>Je coordonne la signature, l'état des lieux, le transfert des services publics, et je reste disponible pendant les 30 premiers jours pour toute question. Le locataire moyen loue un logement par tranche de 2-4 ans. Je le fais chaque semaine.</p>
+          <h2 id="process">Le processus en 4 étapes</h2>
+          <p>La plupart des recherches locatives échouent non pas parce qu'il n'y a pas de bon logement, mais parce que le locataire n'était pas prêt lorsqu'il est apparu. Nous renversons cette logique.</p>
+
+          <h3>Étape 1 — Appel de présentation de 15 minutes</h3>
+          <p>Gratuit, sans engagement. Nous discutons de ce que vous cherchez : quartiers, prix, échéancier, incontournables, points bloquants. Je vous dis ce qui est réaliste sur le marché actuel et ce que vous devez préparer.</p>
+
+          <h3 id="apply">Étape 2 — Rendre votre dossier prêt à être approuvé</h3>
+          <p>Pour commencer, remplissez le formulaire ci-dessous — ces informations de base me permettent de préparer votre dossier complet plus rapidement et de savoir quels propriétaires approcher.</p>
+          <div class="calc" style="max-width: 660px;">
+            <form method="POST" action="https://formspree.io/f/xnjrzgda">
+              <div class="calc-fields">
+                <div class="calc-field calc-field-full">
+                  <label for="gs-applicants">Nom(s) du/des demandeur(s) <span class="hint">*</span></label>
+                  <input id="gs-applicants" name="applicants" type="text" required placeholder="ex. Sarah Chen, Jean Tremblay">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-email">Votre courriel <span class="hint">*</span></label>
+                  <input id="gs-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-phone">Téléphone <span class="hint">(facultatif)</span></label>
+                  <input id="gs-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="calc-field">
+                  <label for="gs-movein">Date d'emménagement <span class="hint">*</span></label>
+                  <input id="gs-movein" name="move_in_date" type="date" required>
+                </div>
+                <div class="calc-field">
+                  <label for="gs-occupation">Profession <span class="hint">*</span></label>
+                  <input id="gs-occupation" name="occupation" type="text" required>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="gs-citizenship">Statut de citoyenneté <span class="hint">*</span></label>
+                  <select id="gs-citizenship" name="citizenship_status" required>
+                    <option value="">Sélectionner…</option>
+                    <option>Citoyen canadien</option>
+                    <option>Résident permanent</option>
+                    <option>Étudiant international</option>
+                    <option>Permis de travail</option>
+                    <option>Visiteur / Autre</option>
+                  </select>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="gs-gotcha">Ne remplissez pas ceci</label>
+                  <input id="gs-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="New Rental Get-Started Form">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 20px;">
+                Commencer
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <div class="callout"><strong>Nouvel arrivant au Canada?</strong> L'absence d'historique de crédit canadien est la raison la plus fréquente pour laquelle les nouveaux arrivants sont refusés. Je vous montrerai les substituts qui fonctionnent — lettres de garant, dépôts initiaux plus importants, attestations d'employeur, rapports de crédit internationaux — et quels propriétaires les acceptent.</div>
+
+          <h3>Étape 3 — Visiter les bons logements</h3>
+          <p>Je filtre le marché en fonction de la compatibilité avant de visiter. Vous voyez 3 à 5 logements qui méritent votre temps, pas 30. Nous visitons ensemble; je prends des notes sur chacun pour que nous puissions comparer honnêtement par la suite.</p>
+
+          <h3>Étape 4 — Signer, déménager, s'installer</h3>
+          <p>Je révise chaque bail ligne par ligne — je porte une attention particulière aux clauses d'augmentation de loyer, aux frais supplémentaires et aux conditions de résiliation. Une fois que vous signez : je vous aide avec les services publics, le déménagement, la remise des clés et la présentation à l'immeuble.</p>
+
+                    <details class="b60-section-toggle" id="documents">
+            <summary class="b60-section-toggle-summary">Critères de dossier</summary>
+            <div class="b60-section-body">
+  <p>Le marché locatif de Toronto est brutalement compétitif. Un propriétaire qui affiche un 1 chambre au centre-ville reçoit généralement <strong>PLUSIEURS demandes en 48 heures</strong>. Presque tous les candidats ont l'essentiel : pièce d'identité, lettre d'emploi, bulletin(s) de paie et rapport de crédit.</p>
+            <p>Le candidat qui gagne n'est pas celui qui répond tout juste aux exigences. C'est celui dont le dossier ne laisse aucune question sans réponse — le propriétaire le lit une fois et se dit « oui ». C'est le standard que nous visons.</p>
+            <div class="callout"><strong>Le principe :</strong> soumettre plus que ce qui est demandé. Soumettre tôt. Rendre impossible pour le propriétaire de dire « il nous manque des documents ». Rapidité et exhaustivité, voilà ce qui remporte les inscriptions à Toronto.</div>
+
+            <h3>Ce dont j'aurai besoin de vous</h3>
+            <ul class="bullets">
+              <li><strong>Pièce d'identité émise par le gouvernement</strong> — passeport, permis de conduire, carte de citoyenneté canadienne ou carte d'identité de l'Ontario. Deux pièces sont idéales. Photo des deux côtés s'il s'agit d'une carte.</li>
+              <li><strong>Lettre d'emploi</strong> — sur papier à en-tête de l'entreprise, signée, datée de moins de 30 jours. Doit indiquer votre poste, la date de début d'emploi, le type d'emploi (permanent/contractuel) et le salaire annuel. Si vous êtes travailleur autonome, l'équivalent est vos deux derniers avis de cotisation de l'ARC.</li>
+              <li><strong>Bulletins de paie</strong> — vos 2 ou 3 derniers bulletins de paie. Des relevés bancaires montrant les dépôts directs servent d'appoint. Si vous êtes travailleur autonome, les relevés bancaires professionnels des 3 derniers mois.</li>
+              <li><strong>Rapport de crédit</strong> — d'Equifax ou de TransUnion, obtenu dans les 30 derniers jours. Nouvel arrivant au Canada? Apportez votre rapport de crédit international de votre pays d'origine si vous en avez un.<br><br>Exemples de sources pour obtenir un rapport de crédit : <a href="https://www.equifax.ca" target="_blank" rel="noopener">Equifax.ca</a>, <a href="https://www.transunion.ca" target="_blank" rel="noopener">Transunion.ca</a>, <a href="https://borrowell.com" target="_blank" rel="noopener">Borrowell.com</a></li>
+              <li><strong>Demande de location</strong> — le Formulaire OREA 410. Téléchargez-le ci-dessous, remplissez-le, renvoyez-le.</li>
+            </ul>
+
+            <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+              <strong>Pourquoi la sur-documentation fonctionne :</strong>
+              <br><br>
+              Les propriétaires prennent une décision à long terme en très peu de temps. Chaque lacune dans votre dossier est une raison de dire non. Chaque élément de confirmation supplémentaire est une raison de dire oui. Un propriétaire qui voit : pièce d'identité + lettre d'emploi + 3 mois de bulletins de paie + rapport de crédit propre + références + lettre d'accompagnement de présentation + Formulaire OREA 410 complet — ce propriétaire vous compare à des candidats qui n'ont envoyé que la moitié de cela. Vous vous donnez les meilleures chances possibles.
+            </div>
+            </div>
+          </details>
+
+<details class="b60-section-toggle" id="terminate">
+            <summary class="b60-section-toggle-summary">Mettre fin à un bail correctement</summary>
+            <div class="b60-section-body">
+  <p>En Ontario, mettre fin à un bail à durée déterminée avant terme et sans motif exige soit : (a) l'accord écrit du propriétaire, (b) trouver un cessionnaire ou un sous-locataire approuvé (votre propriétaire ne peut pas refuser sans motif raisonnable), soit (c) l'une des exceptions statutaires limitées. Après votre durée déterminée, le bail devient automatiquement de mois en mois et vous donnez un <strong>préavis écrit de 60 jours</strong> se terminant le dernier jour d'un mois de location.</p>
+            <p>Si l'on vous demande de partir, connaissez vos droits : une demande verbale n'est pas un préavis; un avis N12 (usage personnel) ou N13 (rénovation) comporte des exigences précises; et vous pourriez avoir droit à une indemnisation.</p>
+            </div>
+          </details>
+
+<h2 id="application">Formulaire de demande de location</h2>
+          <p>Téléchargez le Formulaire OREA 410 (Demande de location de l'Ontario — résidentielle), remplissez-le et renvoyez-le par courriel. Si quelque chose n'est pas clair, laissez-le simplement en blanc et nous le remplirons ensemble lors de notre appel.</p>
+          <p style="margin-top: 24px;">
+            <a href="/forms/ontario-rental-application.pdf" class="btn-primary" download>
+              Télécharger la demande de location (PDF)
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+
+          <h2 id="faq">FAQ</h2>
+          <div class="faq">
+            <details><summary>Facturez-vous des frais aux locataires?</summary><p>Non. À Toronto, c'est le propriétaire qui paie la commission de l'agent pour les transactions locatives. Mon service est gratuit pour vous.</p></details>
+            <details><summary>À quelle vitesse pouvons-nous déménager?</summary><p>Du premier appel aux clés : généralement 2 à 3 semaines si vos documents sont prêts. Plus rapide est possible si vous êtes déjà prêt à être approuvé et que le timing joue en notre faveur.</p></details>
+            <details><summary>Je n'ai pas de crédit canadien. Puis-je quand même louer à Toronto?</summary><p>Oui, mais il vous faudra des substituts — crédit international, un garant, un dépôt initial plus important, ou un propriétaire habitué à travailler avec des nouveaux arrivants. Je connais les propriétaires qui sont flexibles.</p></details>
+            <details><summary>Quels quartiers couvrez-vous?</summary><p>Le cœur du centre-ville de Toronto, le secteur riverain et le harbourfront, ainsi que la RGT plus largement. Si c'est à Toronto et que ça se loue, je peux vous aider.</p></details>
+            <details><summary>À quoi ressemblent les dépenses typiques?</summary><div><p>Fourchettes mensuelles approximatives pour une location au centre-ville de Toronto :</p><ul class="bullets"><li><strong>Services publics</strong> — 70 $ à 130 $/mois, selon l'immeuble et le fournisseur.</li><li><strong>Internet</strong> — 55 $ à 90 $/mois, selon le fournisseur. Je recommande <a href="https://refer.beanfield.com/l/PETERLAW00/" target="_blank" rel="noopener nofollow">Beanfield</a> <em>(lien de parrainage — petit crédit pour moi, vous payez le même prix)</em>.</li><li><strong>Assurance responsabilité locataire</strong> — 10 $ à 30 $/mois. Compagnies suggérées : Intact, Square One.</li><li><strong>Casier (facultatif)</strong> — 20 $ à 100 $/mois.</li><li><strong>Inscription au déménagement / ascenseur</strong> — la plupart des immeubles exigent un <strong>dépôt d'ascenseur remboursable de 500 $</strong>. Certains facturent aussi des frais d'inscription ou de réservation d'ascenseur de 100 $.</li></ul></div></details>
+            <details><summary>Y a-t-il un piège?</summary><p>Aucun. Je suis payé par le propriétaire; mon incitatif est de vous trouver un logement où vous voudrez rester. Un locataire heureux deux ans plus tard est un locataire qui me réfère à ses amis.</p></details>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <FrenchCTASection heading="Prêt à commencer votre recherche?" lead="Envoyez-moi vos critères. Je reviens dans les 24 heures avec 5 à 8 unités qui correspondent à votre budget et à votre échéancier." />
+  <FrenchCTASection heading="Voyons ce qui est possible." lead="Un appel de 15 minutes. Dites-moi ce que vous cherchez, je vous dirai ce qui est réaliste, ce dont vous aurez besoin, et si je suis la bonne personne pour vous." />
   <FrenchFooter />
 </BaseLayout>
