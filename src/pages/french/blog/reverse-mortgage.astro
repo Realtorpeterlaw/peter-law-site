@@ -3,12 +3,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TopBar from '../../../components/FrenchTopBar.astro';
 import Header from '../../../components/FrenchHeader.astro';
 import Footer from '../../../components/FrenchFooter.astro';
-
-export const prerender = true;
+import LCTA from '../../../components/FrenchCTASection.astro';
 
 const publishedDate = '2026-06-03';
-const articleTitle = "Hypotheque inversee au Canada — ce qu'il faut savoir avant de signer";
-const articleDescription = "Hypothèque inversée au Canada : admissibilité 55+, montants, taux, frais et vrais compromis avant de signer.";
+const articleTitle = 'Hypothèque inversée : qu\'est-ce que c\'est ?';
+const articleDescription = 'Guide en langage simple sur l\'hypothèque inversée au Canada — comment ça marche, qui se qualifie (55 ans et plus), combien vous pouvez emprunter, taux d\'intérêt, frais, et les vrais compromis avant de signer. Édition pour propriétaires torontois.';
 const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/reverse-mortgage';
 const enUrl = 'https://www.realtorpeterlaw.com/blog/reverse-mortgage';
 
@@ -18,48 +17,50 @@ const jsonLd = {
   headline: articleTitle,
   description: articleDescription,
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
-  publisher: { '@type': 'Organization', name: 'Peter Law — Immobilier a Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
-  inLanguage: 'fr',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Immobilier à Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'fr-CA',
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: 'hypotheque inversee Canada, 55 ans plus proprietaire, valeur nette maison retraite, retraite hypotheque Canada, cout hypotheque inversee',
+  keywords: 'hypothèque inversée Canada, CHIP hypothèque inversée, HomeEquity Bank, Equitable Bank Flex, hypothèque inversée Toronto, hypothèque inversée 55 ans, avantages inconvénients hypothèque inversée, taux hypothèque inversée Canada',
   translationOfWork: { '@type': 'Article', '@id': enUrl },
 };
 
+export const prerender = true;
+
 const hreflangAlternates = [
-    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/reverse-mortgage/" },
-    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/reverse-mortgage/" },
-    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/reverse-mortgage/" },
-    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/reverse-mortgage/" },
-  ];
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/reverse-mortgage/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/reverse-mortgage/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/reverse-mortgage/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/reverse-mortgage/' },
+];
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law`}
+  title={`${articleTitle} | Peter Law — Blogue immobilier Toronto`}
   description={articleDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
   hreflangAlternates={hreflangAlternates}
 >
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  </Fragment>
-
   <TopBar />
   <Header active="blog" />
 
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Proprietaires 55+</div>
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Financement</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Analyse en clair pour proprietaires canadiens de 55 ans et plus : comment fonctionne l'hypotheque inversee, ce qu'elle coute vraiment, et les compromis que la banque ne detaille pas toujours avant la signature.</p>
+        <p class="article-lead">Analyse en langage simple pour les propriétaires canadiens de 55 ans et plus : comment fonctionne vraiment l'hypothèque inversée, combien ça coûte, et les compromis que personne à la banque ne veut détailler avant que vous signiez.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
-          <time datetime={publishedDate}>2026-06-03</time>
+          <time datetime={publishedDate}>3 juin 2026</time>
           <span class="dot">·</span>
-          <span>5 min de lecture</span>
+          <span>7 min de lecture</span>
         </div>
       </div>
     </section>
@@ -70,43 +71,144 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Sur cette page</h4>
             <ul>
-              <li><a href="#what">Ce que c'est</a></li>
-              <li><a href="#who">Qui se qualifie</a></li>
+              <li><a href="#how-it-works">Comment ça fonctionne</a></li>
+              <li><a href="#qualifies">Qui se qualifie</a></li>
               <li><a href="#how-much">Combien vous pouvez emprunter</a></li>
-              <li><a href="#cost">Cout reel</a></li>
-              <li><a href="#tradeoff">Les vrais compromis</a></li>
-              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+              <li><a href="#interest">Taux d'intérêt</a></li>
+              <li><a href="#costs">Frais initiaux</a></li>
+              <li><a href="#pros-cons">Avantages et inconvénients</a></li>
+              <li><a href="#alternatives">Alternatives</a></li>
+              <li><a href="#when">Quand ça a du sens</a></li>
+              <li><a href="#ask">Deux questions à poser</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <div class="qf-card">
-              <div class="qf-row"><span class="qf-label">Age minimum</span><span class="qf-val">55 ans (tous les proprietaires inscrits)</span></div>
-              <div class="qf-row"><span class="qf-label">Type de logement</span><span class="qf-val">Residence principale</span></div>
-              <div class="qf-row"><span class="qf-label">Emprunt max</span><span class="qf-val">Generalement 55 % de la valeur</span></div>
-              <div class="qf-row"><span class="qf-label">Paiement mensuel</span><span class="qf-val">Aucun tant que vous y vivez</span></div>
-              <div class="qf-row"><span class="qf-label">Interet</span><span class="qf-val">Fixe ou variable, plus eleve qu'une hypotheque standard</span></div>
-            </div>
+            <p><strong>Réponse rapide :</strong> une hypothèque inversée permet à un propriétaire canadien de 55 ans ou plus d'emprunter sur la valeur nette de sa maison sans faire de paiement mensuel. Le prêt plus les intérêts accumulés est remboursé quand la maison est vendue, quand le propriétaire déménage définitivement, ou au décès du dernier emprunteur. Au Canada, il y a essentiellement deux produits — la <strong>CHIP Reverse Mortgage de HomeEquity Bank</strong> et la <strong>Flex Reverse Mortgage d'Equitable Bank</strong>. Vous pouvez généralement accéder à jusqu'à 55 % de la valeur estimée de votre maison.</p>
 
+            <div class="callout"><strong>À qui s'adresse cet article :</strong> propriétaires de la région de Toronto, 55 ans et plus, qui explorent comment libérer la valeur nette sans vendre, ou enfants adultes qui aident leurs parents à comprendre les options. Si vous avez moins de 55 ans, ce n'est pas disponible pour vous — voyez plutôt une HELOC ou un refinancement.</div>
 
-            <h2 id="what">Ce que c'est</h2>
-            <p>L'hypotheque inversee vous permet, si vous avez 55 ans et plus, d'emprunter contre la valeur de votre maison <strong>sans paiement mensuel obligatoire</strong>. L'interet s'accumule sur le solde, et le pret devient exigible lorsque vous vendez, quittez le domicile, ou decedez.</p>
+            <h2 id="how-it-works">Comment fonctionne vraiment une hypothèque inversée</h2>
+            <p>Vous êtes propriétaire de votre maison libre de dettes (ou presque). Le prêteur l'évalue, et décide combien vous pouvez emprunter selon votre âge, l'âge de votre conjoint, la valeur de la maison, et son emplacement. Vous recevez l'argent en montant forfaitaire, en avances planifiées, ou les deux. <strong>Vous ne faites aucun paiement mensuel.</strong> Les intérêts s'accumulent sur le solde et se composent avec le temps. Quand vous vendez, entrez en soins de longue durée, ou décédez, le prêt est remboursé à même le produit de la vente de la maison. Ce qui reste va à vous ou à votre succession.</p>
+            <p>Vous restez propriétaire de la maison tout au long. Votre nom reste sur le titre. Les impôts fonciers et l'assurance restent votre responsabilité. L'entretien aussi.</p>
 
-            <h2 id="who">Qui se qualifie</h2>
-            <p>Vous et tous les proprietaires inscrits devez avoir <strong>55 ans ou plus</strong>. La maison doit etre votre <strong>residence principale</strong>. Il n'y a pas de test de revenu ni de credit, ce qui la rend accessible a beaucoup de retraites.</p>
+            <details class="b60-section-toggle" id="qualifies">
+              <summary class="b60-section-toggle-summary">Qui se qualifie au Canada</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>Âge :</strong> le plus jeune emprunteur sur le titre doit avoir 55 ans ou plus. Les deux conjoints inscrits doivent tous deux avoir 55 ans et plus.</li>
+                  <li><strong>Maison :</strong> doit être votre résidence principale (la maison où vous vivez plus de 6 mois par année). Les immeubles de placement et les maisons de vacances ne se qualifient pas.</li>
+                  <li><strong>Type de maison :</strong> la plupart des maisons unifamiliales, maisons en rangée et condos se qualifient. Certaines propriétés (maisons mobiles, coopératives, certaines propriétés rurales) non. CHIP et Flex ont une admissibilité légèrement différente — votre agent immobilier ou courtier hypothécaire peut vérifier.</li>
+                  <li><strong>Valeur de la propriété :</strong> généralement une valeur estimée minimale (environ 250 000 $+ pour CHIP; plus élevé pour certains produits).</li>
+                  <li><strong>Aucune exigence de revenu ni de crédit.</strong> C'est le grand attrait pour les retraités à revenu fixe — votre pension n'a pas à vous « qualifier ». La maison le fait.</li>
+                </ul>
+              </div>
+            </details>
 
-            <h2 id="how-much">Combien vous pouvez emprunter</h2>
-            <p>En general, jusqu'a <strong>55 % de la valeur estimee</strong>, selon votre age et le type de propriete. Plus vous etes age, plus vous pouvez emprunter (parce que la duree prevue du pret est plus courte).</p>
+            <details class="b60-section-toggle" id="how-much">
+              <summary class="b60-section-toggle-summary">Combien pouvez-vous vraiment emprunter ?</summary>
+              <div class="b60-section-body">
+                <p>Généralement jusqu'à <strong>55 % de la valeur estimée de votre maison</strong> — mais le pourcentage exact dépend de votre âge, l'âge de votre conjoint, l'emplacement et l'état de la maison, et le prêteur. Une personne de 75 ans au centre-ville de Toronto dans une maison de 1,5 M$ pourra accéder à plus qu'une personne de 56 ans dans la même maison, parce que le prêteur s'attend à récupérer le prêt plus tôt.</p>
+                <p>À titre d'exemple approximatif : un couple de 65 ans avec une maison de 1,2 M$ à Toronto pourrait accéder à entre 400 000 $ et 500 000 $.</p>
+              </div>
+            </details>
 
-            <h2 id="cost">Cout reel</h2>
-            <p>Le taux est <strong>plus eleve</strong> qu'une hypotheque standard, et l'interet s'accumule. Sur 15-20 ans, il peut consommer une grande partie de la valeur nette. Ajoutez frais d'evaluation, frais juridiques, et frais d'ouverture.</p>
+            <details class="b60-section-toggle" id="interest">
+              <summary class="b60-section-toggle-summary">La question du taux d'intérêt</summary>
+              <div class="b60-section-body">
+                <p>C'est là que la plupart des articles restent vagues. Soyons précis.</p>
+                <p>Les taux d'hypothèque inversée au Canada sont <strong>nettement plus élevés que les taux hypothécaires conventionnels</strong> — généralement 1,5 % à 3 % de plus qu'une hypothèque fixe standard de 5 ans. La raison : le prêteur prend plus de risque (aucun paiement mensuel, horizon long, valeur de la maison à la fin inconnue) et il y a beaucoup moins de concurrence dans ce marché.</p>
+                <p>L'autre chose qui compte : <strong>les intérêts se composent.</strong> Si vous empruntez 300 000 $ à 8 % et ne faites aucun paiement, le solde grossit rapidement. Après 10 ans, ces 300 000 $ deviennent environ 648 000 $. Après 15 ans, environ 951 000 $.</p>
+                <div class="callout"><strong>Calcul propre à Toronto :</strong> la valeur de votre maison croît aussi. Si votre maison de 1,2 M$ s'apprécie de 3 à 4 % par année pendant 15 ans, elle pourrait valoir 1,87 M$ à 2,16 M$. La valeur nette restante après le remboursement du prêt est ce que votre succession garde. Plus la valeur de votre maison s'apprécie vite par rapport à la composition de votre solde de prêt, mieux le calcul fonctionne pour vous.</div>
+              </div>
+            </details>
 
-            <h2 id="tradeoff">Les vrais compromis</h2>
-            <p>+ Aucun paiement mensuel, argent libre d'impot, restez chez vous. − Reduit fortement l'heritage, plus cher qu'une HELOC, penalites lourdes en cas de fermeture anticipee. Consultez toujours un conseiller independant avant de signer.</p>
+            <h2 id="costs">Combien ça coûte vraiment au départ</h2>
+            <ul class="bullets">
+              <li><strong>Évaluation :</strong> 300 $ à 600 $ (payé d'avance)</li>
+              <li><strong>Conseil juridique indépendant :</strong> 300 $ à 700 $ — obligatoire, vous choisissez votre avocat</li>
+              <li><strong>Frais de clôture / d'ouverture du prêteur :</strong> généralement 1 500 $ à 2 500 $ (souvent déduits du prêt, pas déboursés)</li>
+              <li><strong>Assurance titres :</strong> 300 $ à 500 $</li>
+            </ul>
+            <p>Total : habituellement 2 500 $ à 4 000 $ au départ, dont une bonne partie roulée dans le prêt.</p>
 
-            <div id="read-full" class="read-full-cta">
-              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
-              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            <h2 id="pros-cons">Les vrais compromis — avantages et inconvénients</h2>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">Avantages</summary>
+              <div class="b60-change-body">
+                <ul class="bullets">
+                  <li><strong>Aucun paiement mensuel.</strong> Les flux de trésorerie restent inchangés. Gros avantage pour les retraités à revenu fixe.</li>
+                  <li><strong>Vous restez chez vous.</strong> Aucune vente forcée. Important si vous êtes attaché au quartier, à votre réseau, ou à la maison elle-même.</li>
+                  <li><strong>L'argent est libre d'impôt.</strong> C'est un prêt, pas un revenu. N'affecte pas la récupération de la SV ni l'admissibilité au SRG.</li>
+                  <li><strong>Aucune qualification sur le revenu ou le crédit.</strong> Si vous avez la valeur nette, vous avez accès.</li>
+                  <li><strong>Aucun risque de valeur nette négative au Canada.</strong> CHIP et Flex incluent une garantie de « valeur nette non négative » — si le prêt dépasse la valeur de la maison à la vente, le prêteur absorbe la différence. Votre succession est protégée.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">Inconvénients</summary>
+              <div class="b60-change-body">
+                <ul class="bullets">
+                  <li><strong>Taux d'intérêt plus élevés que les alternatives.</strong> Une HELOC ou un refinancement conventionnel — si vous vous qualifiez — est presque toujours moins cher.</li>
+                  <li><strong>La composition des intérêts érode votre succession.</strong> Le montant que vous laisserez aux enfants ou héritiers est significativement plus petit. Les conversations familiales comptent.</li>
+                  <li><strong>Frais d'ouverture.</strong> Pas énormes en absolu, mais de l'argent réel qui s'ajoute à un prêt déjà coûteux.</li>
+                  <li><strong>Vous perdez de la flexibilité.</strong> Vendre plus tard est plus compliqué — le prêt doit être réglé à la clôture, et les pénalités de remboursement anticipé peuvent être substantielles les premières années.</li>
+                  <li><strong>Risque pour le conjoint survivant si le titre n'est pas bien fait.</strong> Si un seul conjoint est sur le titre et qu'il décède, le conjoint survivant peut être forcé de rembourser le prêt. Ayez toujours les deux conjoints sur le titre pour une hypothèque inversée.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="alternatives">
+              <summary class="b60-section-toggle-summary">Hypothèque inversée vs HELOC vs refinancement conventionnel</summary>
+              <div class="b60-section-body">
+                <p>La plupart des propriétaires qui envisagent une hypothèque inversée devraient d'abord explorer ces alternatives — elles sont souvent meilleures si vous vous qualifiez :</p>
+                <ul class="bullets">
+                  <li><strong>HELOC (marge de crédit hypothécaire) :</strong> intérêt beaucoup plus bas. Exige qualification par le revenu et paiements mensuels d'intérêt. Meilleure si vous avez un revenu stable.</li>
+                  <li><strong>Refinancement conventionnel :</strong> remplacer votre hypothèque actuelle par une plus grosse. Taux plus bas, mais paiements mensuels complets. Exige qualification par le revenu.</li>
+                  <li><strong>Vendre et réduire la taille :</strong> parfois l'option la plus négligée. Libère toute la valeur nette, aucun intérêt ne s'accumule. Coûte un déménagement — émotionnel et logistique — mais pour bien des propriétaires torontois avec une valeur nette « nid vide », c'est la voie financièrement supérieure.</li>
+                  <li><strong>Hypothèque inversée :</strong> dernier recours si vous ne pouvez pas vous qualifier pour les options moins chères ou si vous ne voulez absolument pas déménager et n'avez pas besoin de vous qualifier sur le revenu.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="when">
+              <summary class="b60-section-toggle-summary">Quand une hypothèque inversée a vraiment du sens</summary>
+              <div class="b60-section-body">
+                <p>Je la vois bien fonctionner dans ces situations précises :</p>
+                <ul class="bullets">
+                  <li>Vous avez 70 ans et plus, à revenu fixe, profondément attaché à votre maison, et vous avez besoin d'argent pour la santé, des modifications à la maison, ou pour compléter votre pension.</li>
+                  <li>Vous ne vous qualifiez pas pour une HELOC (pas de revenu) et vendre serait dévastateur émotionnellement ou logistiquement.</li>
+                  <li>Vous voulez donner de l'argent aux enfants ou petits-enfants maintenant, de votre vivant, et l'appréciation de votre maison dépasse confortablement la croissance composée du prêt.</li>
+                  <li>Vous avez une conversation lucide avec vos héritiers sur ce qu'ils vont hériter, et ils comprennent le calcul.</li>
+                </ul>
+                <p>Ça a rarement du sens si : vous êtes plus jeune et pourriez encore vous qualifier pour une HELOC, votre maison ne s'apprécie pas, vous seriez ouvert à la réduction de taille, ou vous n'en avez pas parlé avec votre famille.</p>
+              </div>
+            </details>
+
+            <h2 id="ask">Deux questions à poser avant de signer</h2>
+            <ol class="bullets" style="list-style: decimal;">
+              <li>« Vais-je encore avoir besoin d'accéder à plus d'argent dans 5 ans ? » Si oui, structurez l'hypothèque inversée en avances planifiées plutôt qu'en montant forfaitaire — vous paierez moins d'intérêt en tirant l'argent avec le temps qu'en le prenant tout au départ.</li>
+              <li>« Mes enfants adultes / héritiers ont-ils été informés ? » Des héritages surprise qui deviennent des héritages plus petits que prévu détruisent les relations familiales. Ayez la conversation maintenant, pas dans le bureau de l'avocat dans 15 ans.</li>
+            </ol>
+
+            <p class="legal-note">Cet article est informatif, pas des conseils financiers. Les hypothèques inversées sont un produit financier spécifique avec des implications sérieuses pour votre succession. Parlez à un professionnel hypothécaire agréé, à un avocat indépendant (obligatoire par la loi pour les hypothèques inversées au Canada), et idéalement à un planificateur financier avant de signer. Je suis représentant immobilier inscrit, pas conseiller hypothécaire.</p>
+
+            <div class="seo-tags" aria-label="Mots-clés">
+              <h4>Mots-clés</h4>
+              <ul>
+                <li>Hypothèque inversée Canada</li>
+                <li>CHIP hypothèque inversée</li>
+                <li>HomeEquity Bank</li>
+                <li>Equitable Bank Flex</li>
+                <li>Hypothèque inversée Toronto</li>
+                <li>Hypothèque inversée 55 ans et plus</li>
+                <li>Avantages et inconvénients hypothèque inversée</li>
+                <li>Taux hypothèque inversée Canada</li>
+                <li>HELOC vs hypothèque inversée</li>
+                <li>Valeur nette maison aînés Canada</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -114,17 +216,8 @@ const hreflangAlternates = [
     </section>
   </article>
 
+  <LCTA heading="Vous envisagez une hypothèque inversée ?" lead="Si vous ou un parent explorez cette option, discutez-en avec quelqu'un qui n'a aucun intérêt à vous en vendre une. Je ne suis pas courtier hypothécaire — je vous dirige simplement vers la bonne personne selon votre situation." />
   <Footer />
-</BaseLayout>
 
-<style>
-  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
-  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
-  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
-  .qf-label { color: #666; font-size: 0.9rem; }
-  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
-  .read-full-cta p { margin: 0 0 12px; color: #333; }
-  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta .btn-primary:hover { background: #a06d47; }
-</style>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>

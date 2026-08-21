@@ -3,39 +3,45 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TopBar from '../../../components/FrenchTopBar.astro';
 import Header from '../../../components/FrenchHeader.astro';
 import Footer from '../../../components/FrenchFooter.astro';
+import LCTA from '../../../components/FrenchCTASection.astro';
 
 export const prerender = true;
 
 const publishedDate = '2026-06-09';
-const articleTitle = "Compte d'epargne libre d'impot pour l'achat d'une premiere propriete (CELIAPP / FHSA)";
-const articleDescription = "CELIAPP (FHSA) — le compte pour épargner sa première maison, sans impôt sur les cotisations ni sur les gains.";
+const articleTitle = "CELIAPP (Compte d'épargne libre d'impôt pour l'achat d'une première propriété) : c'est quoi ?";
+const articleDescription = "Un guide simple du CELIAPP canadien — un compte enregistré qui combine des cotisations déductibles d'impôt (comme un REER) avec des retraits libres d'impôt (comme un CELI) pour les premiers acheteurs. 8 000 $/an, 40 000 $ à vie, et comment le cumuler avec le Régime d'accession à la propriété.";
 const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/fhsa';
 const enUrl = 'https://www.realtorpeterlaw.com/blog/fhsa';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: articleTitle,
   description: articleDescription,
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
-  publisher: { '@type': 'Organization', name: 'Peter Law — Immobilier a Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
-  inLanguage: 'fr',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Immobilier à Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'fr-CA',
   datePublished: publishedDate,
   dateModified: publishedDate,
+  url: articleUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: 'CELIAPP FHSA Canada, compte premier acheteur, epargne premier acheteur Canada, deductible non imposable achat maison, RAP CELIAPP combinaison',
+  keywords: "CELIAPP Canada, Compte d'épargne libre d'impôt pour l'achat d'une première propriété, plafond de cotisation CELIAPP, CELIAPP vs CELI, CELIAPP vs REER, CELIAPP RAP cumul, plafond à vie 40 000 $, épargne premier acheteur Toronto, placements CELIAPP, retrait admissible CELIAPP",
   translationOfWork: { '@type': 'Article', '@id': enUrl },
 };
 
 const hreflangAlternates = [
-    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/fhsa/" },
-    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/fhsa/" },
-    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/fhsa/" },
-    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/fhsa/" },
-  ];
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/fhsa/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/fhsa/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/fhsa/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/fhsa/' },
+];
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law`}
+  title={`${articleTitle} | Peter Law — Blogue immobilier de Toronto`}
   description={articleDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -51,15 +57,15 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Premiers acheteurs</div>
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Épargne pour l'acheteur</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Le CELIAPP est le meilleur outil d'epargne jamais offert aux premiers acheteurs au Canada. Deductible d'impot a l'entree, libre d'impot a la sortie. Voici comment il fonctionne, qui se qualifie, et comment le combiner au RAP pour maximiser la mise de fonds.</p>
+        <p class="article-lead">Le CELIAPP est le meilleur outil d'épargne jamais offert aux premiers acheteurs au Canada. Déductible d'impôt à l'entrée, libre d'impôt à la sortie. Voici comment il fonctionne, qui se qualifie, et comment le cumuler avec le Régime d'accession à la propriété pour bâtir la plus grosse mise de fonds possible.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
-          <time datetime={publishedDate}>2026-06-09</time>
+          <time datetime={publishedDate}>9 juin 2026</time>
           <span class="dot">·</span>
-          <span>5 min de lecture</span>
+          <span>8 min de lecture</span>
         </div>
       </div>
     </section>
@@ -70,43 +76,195 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Sur cette page</h4>
             <ul>
-              <li><a href="#what">Ce que c'est</a></li>
-              <li><a href="#who">Qui se qualifie</a></li>
-              <li><a href="#limits">Plafonds</a></li>
+              <li><a href="#what">Ce qu'est le CELIAPP</a></li>
+              <li><a href="#how-much">Plafonds de cotisation</a></li>
+              <li><a href="#qualifies">Qui se qualifie</a></li>
+              <li><a href="#tax">Le double avantage fiscal</a></li>
+              <li><a href="#vs">CELIAPP vs CELI vs REER vs RAP</a></li>
               <li><a href="#stack">Cumul avec le RAP</a></li>
-              <li><a href="#watch">Points a surveiller</a></li>
-              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+              <li><a href="#invest">Ce que vous pouvez y détenir</a></li>
+              <li><a href="#unused">Si vous n'achetez jamais</a></li>
+              <li><a href="#mistakes">Erreurs fréquentes</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <div class="qf-card">
-              <div class="qf-row"><span class="qf-label">Cotisation annuelle</span><span class="qf-val">8 000 $</span></div>
-              <div class="qf-row"><span class="qf-label">Plafond a vie</span><span class="qf-val">40 000 $</span></div>
-              <div class="qf-row"><span class="qf-label">Fiscalite entree</span><span class="qf-val">Deductible du revenu (comme un REER)</span></div>
-              <div class="qf-row"><span class="qf-label">Fiscalite sortie</span><span class="qf-val">Non imposable (comme un CELI)</span></div>
-              <div class="qf-row"><span class="qf-label">Cumulable</span><span class="qf-val">Avec le RAP (jusqu'a 60 000 $ combines)</span></div>
-            </div>
+            <p><strong>Réponse rapide :</strong> Le Compte d'épargne libre d'impôt pour l'achat d'une première propriété (CELIAPP) est un compte enregistré pour les premiers acheteurs canadiens, lancé en 2023. Cotisez jusqu'à <strong>8 000 $ par année</strong>, maximum <strong>40 000 $ à vie</strong>. Les cotisations réduisent votre revenu imposable (comme un REER). Les retraits pour l'achat d'une propriété admissible sont libres d'impôt (comme un CELI). Vous pouvez détenir des liquidités, des CPG, des FNB, des actions — comme dans un CELI. Vous pouvez aussi le cumuler avec le Régime d'accession à la propriété (RAP) du REER pour un total pouvant atteindre <strong>100 000 $</strong> pour une personne, ou <strong>200 000 $</strong> pour un couple.</p>
 
+            <div class="callout"><strong>À qui s'adresse cet article :</strong> Aux Canadiens qui épargnent pour leur première maison et qui veulent savoir s'ils devraient ouvrir un CELIAPP, comment il se compare au CELI et au REER, et comment maximiser la mise de fonds qu'ils peuvent réunir.</div>
 
-            <h2 id="what">Ce que c'est</h2>
-            <p>Le CELIAPP (FHSA) est un compte enregistre federal reserve aux premiers acheteurs. Il combine le <strong>meilleur du REER et du CELI</strong> : cotisations deductibles a l'entree, retraits totalement non imposes a la sortie — a condition d'acheter une residence principale admissible.</p>
+            <h2 id="what">Ce qu'est réellement le CELIAPP</h2>
+            <p>Le CELIAPP combine les deux meilleures caractéristiques des comptes enregistrés existants au Canada :</p>
+            <ul class="bullets">
+              <li><strong>Comme un REER :</strong> chaque dollar cotisé réduit votre revenu imposable de l'année. Si vous êtes dans une tranche marginale de 40 %, une cotisation de 8 000 $ vous fait économiser environ 3 200 $ en impôt sur le revenu.</li>
+              <li><strong>Comme un CELI :</strong> lorsque vous retirez pour acheter une propriété, l'argent sort libre d'impôt. La croissance, les cotisations — tout.</li>
+            </ul>
+            <p>C'est ça, l'astuce : un REER vous fait payer de l'impôt au retrait, un CELI ne vous a jamais donné de déduction à l'entrée. Le CELIAPP vous donne les deux avantages — mais seulement si vous utilisez l'argent pour acheter une première propriété admissible.</p>
+            <p>Il est disponible depuis le <strong>1er avril 2023</strong>. La plupart des grandes banques et courtiers canadiens offrent maintenant le CELIAPP.</p>
 
-            <h2 id="who">Qui se qualifie</h2>
-            <p>Vous devez etre <strong>resident canadien</strong>, avoir entre 18 et 71 ans, et n'avoir <strong>ni vous ni votre conjoint</strong> possede une residence principale au cours des quatre annees precedentes.</p>
+            <details class="b60-section-toggle" id="how-much">
+              <summary class="b60-section-toggle-summary">Combien vous pouvez cotiser</summary>
+              <div class="b60-section-body">
+                <div class="heloc-formula" aria-label="Calcul de cotisation CELIAPP">
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">Par année</div>
+                    <div class="heloc-formula-number">8 000 $</div>
+                    <div class="heloc-formula-sub">cotisation max</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">×</div>
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">Jusqu'à</div>
+                    <div class="heloc-formula-number">5 ans</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">=</div>
+                  <div class="heloc-formula-cell heloc-formula-result">
+                    <div class="heloc-formula-label">Plafond à vie</div>
+                    <div class="heloc-formula-number">40 000 $</div>
+                  </div>
+                </div>
+                <p><strong>Les règles :</strong></p>
+                <ul class="bullets">
+                  <li><strong>8 000 $ par année</strong> est le plafond annuel de cotisation.</li>
+                  <li><strong>40 000 $</strong> est le plafond à vie. Une fois que vous avez cotisé 40 000 $ au total, c'est terminé — même si vous êtes dans le programme depuis moins de 5 ans.</li>
+                  <li><strong>Les droits inutilisés se reportent, jusqu'à 8 000 $.</strong> Si vous cotisez 3 000 $ cette année, 5 000 $ de droits se reportent à l'année suivante — vous pourrez alors cotiser jusqu'à 13 000 $ (les 8 000 $ standards + 5 000 $ reportés). Mais le report ne peut pas s'accumuler indéfiniment ; il est plafonné à 8 000 $ dans une même année.</li>
+                  <li><strong>Les droits ne commencent à s'accumuler qu'une fois le compte ouvert.</strong> Si vous attendez à 2028 pour l'ouvrir, vous ne récupérez pas les droits de 2024-2027. C'est pourquoi ouvrir le compte tôt — même avec une cotisation de 0 $ — est une bonne idée.</li>
+                </ul>
+              </div>
+            </details>
 
-            <h2 id="limits">Plafonds</h2>
-            <p><strong>8 000 $ par an</strong> de cotisations, jusqu'a un maximum a vie de <strong>40 000 $</strong>. Les droits non utilises se reportent (jusqu'a un an de report). Le compte peut rester ouvert jusqu'a 15 ans.</p>
+            <details class="b60-section-toggle" id="qualifies">
+              <summary class="b60-section-toggle-summary">Qui a le droit d'en ouvrir un</summary>
+              <div class="b60-section-body">
+                <p>Vous pouvez ouvrir un CELIAPP si vous êtes :</p>
+                <ul class="bullets">
+                  <li><strong>Résident canadien</strong> au moment de l'ouverture du compte.</li>
+                  <li><strong>Âgé d'au moins 18 ans.</strong> L'âge de majorité provincial s'applique — 19 ans en Colombie-Britannique, en Nouvelle-Écosse, au Nouveau-Brunswick, à Terre-Neuve, dans les T.N.-O., au Nunavut et au Yukon ; 18 ans ailleurs.</li>
+                  <li><strong>Premier acheteur.</strong> Précisément : vous et votre époux/conjoint de fait n'avez pas habité un logement que vous possédiez (comme résidence principale) durant l'année civile courante ni durant les quatre années civiles précédentes. C'est la même définition que celle utilisée par le Régime d'accession à la propriété fédéral.</li>
+                </ul>
+                <p>Note : vous pouvez avoir un CELIAPP ouvert même si vous n'êtes pas sûr d'acheter au Canada. Le critère d'admissibilité porte sur votre <em>passé</em>, pas sur vos intentions futures.</p>
+                <p>Note 2 : chaque personne a droit à son propre CELIAPP. Un couple où les deux se qualifient peut ouvrir deux comptes — ce qui double la capacité à 80 000 $ combinés.</p>
+              </div>
+            </details>
 
-            <h2 id="stack">Cumul avec le RAP</h2>
-            <p>Vous pouvez cumuler CELIAPP <strong>et</strong> RAP. Total maximal combine : environ 60 000 $ pour un acheteur seul, ou 120 000 $ pour un couple. C'est le socle de la plus grosse mise de fonds possible.</p>
+            <details class="b60-section-toggle" id="tax">
+              <summary class="b60-section-toggle-summary">Le double avantage fiscal — exemple chiffré</summary>
+              <div class="b60-section-body">
+                <p>La plupart des comptes d'épargne donnent UN seul avantage fiscal. Le CELIAPP en donne deux.</p>
+                <p><strong>À l'entrée :</strong> Sarah gagne 90 000 $ par année. Elle cotise 8 000 $ à son CELIAPP. Ces 8 000 $ sortent de son revenu imposable — elle est donc imposée sur 82 000 $. À son taux marginal d'environ 33 %, elle économise approximativement <strong>2 640 $ en impôt</strong> cette année-là.</p>
+                <p><strong>Croissance à l'intérieur :</strong> Elle investit son CELIAPP dans un FNB à faibles frais et obtient 6 % par année. Sur cinq ans, ses 40 000 $ cotisés atteignent environ 50 000 $. Toute cette croissance se fait sans impôt.</p>
+                <p><strong>À la sortie :</strong> Elle trouve sa première maison et retire la totalité des 50 000 $ pour la mise de fonds. Elle paie <strong>zéro impôt</strong> sur le retrait.</p>
+                <p><strong>Économie fiscale totale :</strong> environ 13 200 $ en déductions initiales (sur cinq ans) + la croissance libre d'impôt. Comparé à la même épargne dans un compte non enregistré ordinaire où elle paierait de l'impôt sur les gains chaque année.</p>
+              </div>
+            </details>
 
-            <h2 id="watch">Points a surveiller</h2>
-            <p>Si vous n'utilisez jamais l'argent pour un achat, il peut etre transfere en franchise d'impot vers un REER ou un FERR — mais retire directement, il devient imposable. Ouvrez le compte tot pour commencer a accumuler des droits de cotisation.</p>
+            <details class="b60-section-toggle" id="vs">
+              <summary class="b60-section-toggle-summary">CELIAPP vs CELI vs REER vs RAP</summary>
+              <div class="b60-section-body">
+                <p>Quatre comptes/programmes enregistrés à la disposition des premiers acheteurs. Comparaison rapide :</p>
+                <ul class="bullets">
+                  <li><strong>CELIAPP :</strong> 8 000 $/an, 40 000 $ à vie. Déductible à l'entrée. Libre d'impôt à la sortie (pour une première maison). Le grand gagnant si vous vous qualifiez.</li>
+                  <li><strong>CELI :</strong> 7 000 $/an (en 2026), droits à vie selon l'âge. Aucune déduction à l'entrée. Libre d'impôt à la sortie. Utile si vous avez épuisé votre CELIAPP ou pour l'épargne générale au-delà de la maison.</li>
+                  <li><strong>REER (Régime d'accession à la propriété) :</strong> Vous pouvez retirer jusqu'à 60 000 $ de votre REER pour une première maison, sans impôt. Vous devez le rembourser à votre REER sur 15 ans à compter de la deuxième année après le retrait. Cumulez avec le CELIAPP pour de grosses mises de fonds.</li>
+                  <li><strong>Compte d'épargne ordinaire :</strong> Aucun avantage fiscal. Chaque dollar d'intérêt est imposable. La pire option si vous avez des droits CELIAPP/CELI disponibles.</li>
+                </ul>
+                <p>Pour la plupart des premiers acheteurs, l'ordre de priorité est : <strong>maximiser le CELIAPP d'abord</strong> → puis le RAP à partir du REER au besoin → puis le CELI → jamais le compte ordinaire.</p>
+              </div>
+            </details>
 
-            <div id="read-full" class="read-full-cta">
-              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
-              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            <details class="b60-section-toggle" id="stack">
+              <summary class="b60-section-toggle-summary">Cumul avec le RAP pour la mise de fonds maximale</summary>
+              <div class="b60-section-body">
+                <p>Le CELIAPP et le Régime d'accession à la propriété (RAP) fonctionnent ensemble. Voici les chiffres pour une seule personne :</p>
+                <div class="heloc-formula" aria-label="CELIAPP + RAP cumulés">
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">CELIAPP max</div>
+                    <div class="heloc-formula-number">40 000 $</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">+</div>
+                  <div class="heloc-formula-cell">
+                    <div class="heloc-formula-label">RAP max</div>
+                    <div class="heloc-formula-number">60 000 $</div>
+                  </div>
+                  <div class="heloc-formula-op" aria-hidden="true">=</div>
+                  <div class="heloc-formula-cell heloc-formula-result">
+                    <div class="heloc-formula-label">Total à avantages fiscaux</div>
+                    <div class="heloc-formula-number">100 000 $</div>
+                  </div>
+                </div>
+                <p>Pour un couple où les deux se qualifient comme premiers acheteurs : <strong>200 000 $</strong>.</p>
+                <p>Différences clés entre les deux :</p>
+                <ul class="bullets">
+                  <li>Le retrait CELIAPP ne DOIT PAS être remboursé. Le retrait RAP, oui — vous avez 15 ans pour rembourser votre REER, à compter de l'année 2 après le retrait.</li>
+                  <li>Le RAP exige que les fonds soient dans le REER depuis au moins 90 jours. Planifiez le moment du dépôt.</li>
+                  <li>Vous pouvez faire les deux la même année — à la clôture, votre notaire ou constructeur peut recevoir les deux montants pour la mise de fonds.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="invest">
+              <summary class="b60-section-toggle-summary">Ce que vous pouvez y investir</summary>
+              <div class="b60-section-body">
+                <p>Les placements du CELIAPP sont flexibles. Vous pouvez détenir :</p>
+                <ul class="bullets">
+                  <li><strong>Des liquidités</strong> (épargne à intérêt élevé — typique chez les robo-conseillers et banques en ligne)</li>
+                  <li><strong>Des CPG</strong> (revenu garanti — bon si l'achat est dans 1 à 3 ans)</li>
+                  <li><strong>Des fonds communs</strong></li>
+                  <li><strong>Des FNB</strong> (exposition large à faible coût — choix typique pour un horizon de 3 ans et plus)</li>
+                  <li><strong>Des actions et obligations individuelles</strong></li>
+                </ul>
+                <p>Ce que vous devriez détenir dépend de votre horizon :</p>
+                <ul class="bullets">
+                  <li><strong>Achat dans 1-2 ans :</strong> restez en liquidités ou CPG courts. Vous ne pouvez pas vous permettre de perdre 30 % à cause d'une baisse de marché le mois avant la clôture.</li>
+                  <li><strong>Achat dans 3-5 ans :</strong> un mélange — peut-être 60-70 % en FNB d'actions, le reste en revenu fixe. Tolérez une certaine volatilité pour la croissance.</li>
+                  <li><strong>Achat dans 5 ans et plus :</strong> surtout des FNB d'actions. Le temps joue pour vous, davantage de potentiel de croissance.</li>
+                </ul>
+                <p>Peu importe ce que vous choisissez, les frais comptent. Un FNB à 0,05 % compose de façon nettement plus avantageuse qu'un fonds commun à 2 % sur 5 ans.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="unused">
+              <summary class="b60-section-toggle-summary">Si vous n'achetez jamais de maison</summary>
+              <div class="b60-section-body">
+                <p>Vous avez jusqu'à <strong>15 ans</strong> à partir de l'ouverture du CELIAPP pour l'utiliser dans un achat admissible, ou jusqu'à 71 ans — selon la première éventualité.</p>
+                <p>Si vous atteignez cette date sans acheter, vous avez deux options :</p>
+                <ul class="bullets">
+                  <li><strong>Transférer dans votre REER ou FERR</strong> sans impôt. Ce transfert n'utilise AUCUN de vos droits de cotisation REER — c'est un bonus. Vous conservez le report d'impôt jusqu'à la retraite.</li>
+                  <li><strong>Retirer comme revenu imposable.</strong> Le plein montant s'ajoute à votre revenu de l'année, et vous paierez l'impôt sur la totalité. C'est rarement le bon choix.</li>
+                </ul>
+                <p>Donc même si vous n'achetez jamais — disons que vous décidez de continuer à louer ou de partir à l'étranger — l'argent du CELIAPP a toujours une voie à impôt différé vers la retraite via le REER. Il n'y a presque aucun inconvénient à en ouvrir un.</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="mistakes">
+              <summary class="b60-section-toggle-summary">Erreurs fréquentes</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>Attendre pour l'ouvrir.</strong> Les droits ne s'accumulent qu'à partir de l'ouverture. Ouvrez-le dès que vous êtes admissible, même avec un solde de 0 $. Votre « vous » futur vous remerciera pour les droits reportés.</li>
+                  <li><strong>Choisir les mauvais placements.</strong> Un solde de 20 000 $ dans un compte d'épargne à 0,5 % perd de la valeur réelle à cause de l'inflation. Choisissez les placements selon votre horizon.</li>
+                  <li><strong>Ne pas se coordonner avec le conjoint.</strong> Si vous vous qualifiez tous les deux, ouvrez chacun un compte. 80 000 $ de capacité combinée, c'est bien plus que 40 000 $.</li>
+                  <li><strong>Cotiser en trop.</strong> Dépasser le plafond annuel de 8 000 $ déclenche une pénalité de 1 % par mois sur l'excédent jusqu'à ce que vous le retiriez. Gardez un décompte à jour.</li>
+                  <li><strong>Ne pas connaître le cumul avec le RAP.</strong> Beaucoup de premiers acheteurs utilisent le CELIAPP et oublient que le RAP du REER existe. Vous pouvez utiliser les deux à la même clôture.</li>
+                  <li><strong>Retirer pour un motif non admissible.</strong> Si vous retirez pour autre chose qu'une maison admissible (ou un transfert au REER), le montant devient revenu imposable cette année-là.</li>
+                </ul>
+              </div>
+            </details>
+
+            <p class="legal-note">Cet article est une information générale, non un conseil fiscal ou financier. Les règles du CELIAPP peuvent changer ; les taux, plafonds et procédures doivent être confirmés auprès de l'ARC ou d'un conseiller financier autorisé avant que vous vous fiez aux chiffres. Je suis un représentant immobilier inscrit, pas un conseiller fiscal ni un planificateur financier. Source : <a href="https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/compte-epargne-libre-impot-achat-premiere-propriete.html" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px;">Agence du revenu du Canada — Compte d'épargne libre d'impôt pour l'achat d'une première propriété ↗</a>.</p>
+
+            <div class="seo-tags" aria-label="Mots-clés">
+              <h4>Mots-clés</h4>
+              <ul>
+                <li>CELIAPP Canada</li>
+                <li>Compte d'épargne libre d'impôt pour l'achat d'une première propriété</li>
+                <li>Plafond de cotisation CELIAPP</li>
+                <li>CELIAPP vs CELI</li>
+                <li>CELIAPP vs REER</li>
+                <li>Cumul CELIAPP et RAP</li>
+                <li>Plafond à vie 40 000 $</li>
+                <li>Épargne premier acheteur Toronto</li>
+                <li>Placements CELIAPP</li>
+                <li>Retrait admissible CELIAPP</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -114,17 +272,6 @@ const hreflangAlternates = [
     </section>
   </article>
 
+  <LCTA heading="Vous épargnez pour votre première maison ?" lead="Le CELIAPP est l'un des trois grands outils — avec le RAP et le rabais pour premier acheteur — que vous pouvez cumuler. Si vous voulez voir combien vous pouvez réellement réunir pour une mise de fonds à Toronto, envoyez-moi vos chiffres et je vais les regarder avec vous." />
   <Footer />
 </BaseLayout>
-
-<style>
-  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
-  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
-  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
-  .qf-label { color: #666; font-size: 0.9rem; }
-  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
-  .read-full-cta p { margin: 0 0 12px; color: #333; }
-  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta .btn-primary:hover { background: #a06d47; }
-</style>

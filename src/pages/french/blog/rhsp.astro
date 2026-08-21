@@ -3,12 +3,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TopBar from '../../../components/FrenchTopBar.astro';
 import Header from '../../../components/FrenchHeader.astro';
 import Footer from '../../../components/FrenchFooter.astro';
+import CTASection from '../../../components/FrenchCTASection.astro';
 
 export const prerender = true;
 
 const publishedDate = '2026-07-14';
-const articleTitle = 'Rental Housing Supply Program (RHSP) — Toronto';
-const articleDescription = "Rental Housing Supply Program (Toronto) : subventions et incitatifs aux propriétaires pour créer des logements locatifs.";
+const articleTitle = "Programme d'approvisionnement en logements locatifs (RHSP)";
+const articleDescription = "Un guide en français simple sur le Programme d'approvisionnement en logements locatifs (RHSP) de la Ville de Toronto. Qu'est-ce que c'est, qui peut faire une demande, les cinq volets de financement, les niveaux de loyer abordable 2026, et ce que tout cela veut dire pour les locataires de Toronto au cours des dix prochaines années.";
 const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/rhsp';
 const enUrl = 'https://www.realtorpeterlaw.com/blog/rhsp';
 
@@ -18,24 +19,28 @@ const jsonLd = {
   headline: articleTitle,
   description: articleDescription,
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
-  publisher: { '@type': 'Organization', name: 'Peter Law — Immobilier a Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
-  inLanguage: 'fr',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Immobilier à Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'fr-CA',
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: 'RHSP Toronto, Rental Housing Supply Program, logement abordable Toronto, programme locatif municipal, subvention constructeur locatif Toronto',
+  keywords: "Programme d'approvisionnement en logements locatifs, RHSP Toronto, loyer abordable Ville de Toronto 2026, HousingTO 2020-2030, logements locatifs abordables Toronto, logements à loyer contrôlé, incitatifs locatifs construits à cette fin, CHPF, ARRCHI, programme d'offre locative Toronto",
   translationOfWork: { '@type': 'Article', '@id': enUrl },
 };
 
 const hreflangAlternates = [
-    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/rhsp/" },
-    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/rhsp/" },
-    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/rhsp/" },
-    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/rhsp/" },
-  ];
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/rhsp/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/rhsp/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/rhsp/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/rhsp/' },
+];
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law`}
+  title={`${articleTitle} | Peter Law — Blogue Immobilier Toronto`}
   description={articleDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -51,15 +56,15 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Locataires a Toronto</div>
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Logement à Toronto</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Toronto aide les constructeurs a batir plus de logements locatifs. Certains resteront abordables pendant 40 ans, d'autres seront des appartements reguliers. Voici en quoi consiste le programme, qui peut y participer, et ce qu'il change pour les locataires.</p>
+        <p class="article-lead">La Ville de Toronto aide les constructeurs à bâtir plus de logements locatifs. Certains seront à loyer bas pendant 40 ans. D'autres seront simplement des appartements réguliers. Voici ce qu'est le programme, à qui il s'adresse, et ce qu'il signifie si vous louez à Toronto.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
-          <time datetime={publishedDate}>2026-07-14</time>
+          <time datetime={publishedDate}>14 juillet 2026</time>
           <span class="dot">·</span>
-          <span>5 min de lecture</span>
+          <span>8 min de lecture</span>
         </div>
       </div>
     </section>
@@ -70,61 +75,187 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Sur cette page</h4>
             <ul>
-              <li><a href="#what">Ce que c'est</a></li>
-              <li><a href="#streams">Les cinq volets</a></li>
-              <li><a href="#who">Qui peut demander</a></li>
-              <li><a href="#affordable">Loyers abordables</a></li>
-              <li><a href="#impact">Ce que ca change pour vous</a></li>
-              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+              <li><a href="#what">Ce qu'est le RHSP</a></li>
+              <li><a href="#who">Qui fait la demande — et qui en profite</a></li>
+              <li><a href="#rents">Niveaux de loyer abordable 2026</a></li>
+              <li><a href="#controlled">Niveaux de loyer contrôlé</a></li>
+              <li><a href="#streams">Les cinq volets de financement</a></li>
+              <li><a href="#matters">Pourquoi ça compte pour les locataires</a></li>
+              <li><a href="#stay">Comment rester informé</a></li>
+              <li><a href="#mistakes">Confusions fréquentes</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <div class="qf-card">
-              <div class="qf-row"><span class="qf-label">Organisme</span><span class="qf-val">Ville de Toronto</span></div>
-              <div class="qf-row"><span class="qf-label">Cible</span><span class="qf-val">Nouveaux logements locatifs sur 10 ans</span></div>
-              <div class="qf-row"><span class="qf-label">Volets</span><span class="qf-val">5 flux de financement</span></div>
-              <div class="qf-row"><span class="qf-label">Abordabilite</span><span class="qf-val">Certains geles a des loyers abordables jusqu'a 40 ans</span></div>
-              <div class="qf-row"><span class="qf-label">Qui postule</span><span class="qf-val">Constructeurs et proprietaires-bailleurs, pas les locataires</span></div>
-            </div>
+            <p><strong>Réponse rapide :</strong> le Programme d'approvisionnement en logements locatifs (RHSP) est un programme de la Ville de Toronto. Il donne de l'argent et des rabais de frais aux constructeurs qui ajoutent de nouveaux logements locatifs. Pour obtenir de l'aide, <strong>au moins 20 % des nouveaux logements doivent être « Logements locatifs abordables »</strong> — ce qui veut dire que le loyer reste plafonné pendant <strong>40 ans</strong>. Les locataires ne font pas la demande à ce programme. Les constructeurs et les organismes sans but lucratif oui. Mais si ça fonctionne, plus de locataires torontois auront une chance d'avoir un logement à long terme moins cher. Voici les plafonds de loyer abordable 2026 : <strong>1 chambre 1 426 $ · 2 chambres 2 055 $ · 3 chambres 2 290 $</strong>.</p>
 
+            <div class="callout"><strong>À qui s'adresse cet article :</strong> aux locataires de Toronto qui veulent savoir ce que « abordable » signifie vraiment dans les programmes de la Ville, aux nouveaux arrivants qui cherchent quels loyers viser, et à toute personne curieuse de savoir d'où vient la nouvelle offre locative de Toronto.</div>
 
-            <h2 id="what">Ce que c'est</h2>
-            <p>Le RHSP est un programme municipal qui verse du financement — subventions, prets, allegements fiscaux, terrains — aux constructeurs de logements locatifs a Toronto. Objectif : ajouter des milliers de logements locatifs sur les 10 prochaines annees, dont une partie <strong>abordables et geles</strong>.</p>
+            <h2 id="what">Ce qu'est le RHSP</h2>
+            <p>Le <em>Rental Housing Supply Program</em> — ou RHSP — est géré par la Ville de Toronto. Il fait partie d'un plan plus large appelé <em>HousingTO 2020-2030 Action Plan</em>. Ce plan fixe un objectif sur dix ans : ajouter beaucoup de nouveaux logements locatifs à la ville.</p>
+            <p>Le RHSP est un des outils que la Ville utilise pour atteindre cet objectif. Il ne construit pas de logements lui-même. Il offre plutôt aux constructeurs des choses qu'ils veulent, en échange de la construction du type de logement dont la Ville a besoin. Ces choses incluent :</p>
+            <ul class="bullets">
+              <li><strong>Subventions</strong> — de l'argent que le constructeur ne rembourse pas.</li>
+              <li><strong>Prêts</strong> — de l'argent que le constructeur rembourse plus tard, parfois sans intérêt.</li>
+              <li><strong>Exemption de frais</strong> — la Ville renonce à des frais que le constructeur devrait normalement payer pour faire approuver son projet (comme les redevances d'aménagement, les frais de permis et les frais de parc).</li>
+              <li><strong>Exonérations de taxes foncières</strong> — pour la durée pendant laquelle les loyers abordables restent en place.</li>
+            </ul>
+            <p>En échange, le constructeur doit promettre qu'<strong>au moins 20 % des logements du projet seront des Logements locatifs abordables</strong>, et le loyer sur ces logements doit rester plafonné par la Ville pendant au moins <strong>40 ans</strong>.</p>
 
-            <h2 id="streams">Les cinq volets</h2>
-            <p>Le programme regroupe cinq flux distincts : locatif abordable neuf, locatif au prix du marche, preservation de locatif existant, logement supervise, et remise en service de terrains publics. Chaque volet vise un type de projet different.</p>
+            <details class="b60-section-toggle" id="who">
+              <summary class="b60-section-toggle-summary">Qui fait la demande — et qui en profite</summary>
+              <div class="b60-section-body">
+                <p>C'est la partie qui mêle les gens. Deux groupes très différents sont impliqués.</p>
+                <p><strong>Qui fait la demande au RHSP :</strong></p>
+                <ul class="bullets">
+                  <li><strong>Constructeurs privés</strong> qui construisent de gros nouveaux immeubles locatifs.</li>
+                  <li><strong>Fournisseurs de logement communautaire</strong> — organismes sans but lucratif et coopératives qui gèrent déjà du logement abordable.</li>
+                  <li><strong>Organismes de logement autochtones</strong> — via un volet dédié qui soutient 5 200 nouveaux logements abordables et supervisés pour les Autochtones sur les dix ans du plan.</li>
+                </ul>
+                <p><strong>Qui finit par habiter les logements :</strong></p>
+                <ul class="bullets">
+                  <li>Locataires torontois ordinaires — pour les unités à prix du marché des immeubles.</li>
+                  <li>Locataires admissibles à un <strong>Logement locatif abordable</strong> — les 20 %+ où les loyers sont plafonnés par la Ville pendant 40 ans.</li>
+                  <li>Locataires qui ont besoin d'un logement à <strong>loyer proportionnel au revenu (RGI)</strong> — où vous payez un pourcentage de votre revenu plutôt qu'un loyer fixe. Ces places sont limitées et ont de longues listes d'attente gérées séparément par la Ville.</li>
+                  <li>Locataires qui ont besoin de <strong>logement supervisé</strong> — logements combinés à des services de santé mentale, dépendance ou autres.</li>
+                </ul>
+                <div class="callout"><strong>La version courte :</strong> si vous louez à Toronto, vous ne faites pas de demande au RHSP. Mais vous pourriez finir comme locataire d'un des immeubles qu'il aide à construire. Quand ces immeubles ouvrent et commencent à louer, c'est là que vous ferez une demande — via le processus de location de l'immeuble ou, pour les unités RGI, via la liste d'attente centrale de la Ville.</div>
+              </div>
+            </details>
 
-            <h2 id="who">Qui peut demander</h2>
-            <p>Ce sont les <strong>constructeurs, developpeurs et proprietaires-bailleurs</strong> qui postulent — pas les locataires directement. Vous, comme locataire, en beneficiez indirectement quand un projet approuve arrive sur le marche pres de chez vous.</p>
+            <details class="b60-section-toggle" id="rents">
+              <summary class="b60-section-toggle-summary">Niveaux de loyer abordable 2026</summary>
+              <div class="b60-section-body">
+                <p>La Ville fixe un plafond sur ce qu'un Logement locatif abordable peut demander. Ces chiffres sont mis à jour une fois par année, plus récemment le 1<sup>er</sup> juillet 2026. Si vous signez un bail dans un de ces logements, voici le loyer maximal permis :</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>Type de logement</th>
+                      <th>Loyer mensuel max. (2026)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Chambre d'habitation (chambre seule, cuisine/salle de bain partagée)</td><td>899 $</td></tr>
+                    <tr><td>Studio</td><td>1 127 $</td></tr>
+                    <tr><td>1 chambre</td><td>1 426 $</td></tr>
+                    <tr><td>2 chambres</td><td>2 055 $</td></tr>
+                    <tr><td>3 chambres</td><td>2 290 $</td></tr>
+                    <tr><td>4 chambres</td><td>3 245 $</td></tr>
+                  </tbody>
+                </table>
+                <p style="font-size:13px;color:var(--ink-mute);margin-top:10px;"><em>Source : Ville de Toronto, page RHSP. Les loyers pour 2 chambres et 3 chambres sont en vigueur depuis le 1<sup>er</sup> juillet 2026.</em></p>
+                <p style="margin-top:14px;">Pour mettre ces chiffres en contexte : le loyer moyen du marché pour un condo 1 chambre au centre-ville de Toronto à la mi-2026 tourne autour de 2 300 $ à 2 500 $. Le plafond RHSP pour 1 chambre de 1 426 $ est donc environ <strong>1 000 $ par mois de moins</strong> que le marché ouvert — soit environ <strong>12 000 $ par année</strong> dans vos poches si vous en obtenez un.</p>
+              </div>
+            </details>
 
-            <h2 id="affordable">Loyers abordables</h2>
-            <p>Les unites abordables sont plafonnees selon des seuils municipaux (souvent 80 % du loyer median du marche) et le restent <strong>jusqu'a 40 ans</strong>. C'est ce qui distingue le programme d'un simple incitatif a la construction.</p>
+            <details class="b60-section-toggle" id="controlled">
+              <summary class="b60-section-toggle-summary">Niveaux de loyer contrôlé</summary>
+              <div class="b60-section-body">
+                <p>Le RHSP a un deuxième palier plus élevé appelé <strong>Logements à loyer contrôlé</strong>. Ce n'est pas aussi bas marché que Locatif abordable, mais le loyer est quand même limité — plafonné à <strong>150 % du loyer moyen du marché</strong> suivi par la Ville. Les unités à loyer contrôlé ne sont offertes que par des fournisseurs de logement communautaire, pas par des propriétaires privés.</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>Type de logement</th>
+                      <th>Loyer mensuel max. (150 % LMM)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Studio</td><td>2 184 $</td></tr>
+                    <tr><td>1 chambre</td><td>2 572 $</td></tr>
+                    <tr><td>2 chambres</td><td>2 977 $</td></tr>
+                    <tr><td>3 chambres</td><td>3 385 $</td></tr>
+                    <tr><td>4 chambres</td><td>4 867 $</td></tr>
+                  </tbody>
+                </table>
+                <p>Voyez-les comme des loyers « milieu de gamme ». Pas fortement subventionnés, mais quand même plafonnés, quand même stables, quand même protégés des gros sauts d'année en année.</p>
+              </div>
+            </details>
 
-            <h2 id="impact">Ce que ca change pour vous</h2>
-            <p>Plus d'offre locative, surtout dans les nouveaux quartiers, et un stock d'unites abordables qui grandit lentement mais reste protege. Ce n'est pas une baisse immediate des loyers, mais une stabilisation sur la duree.</p>
+            <details class="b60-section-toggle" id="streams">
+              <summary class="b60-section-toggle-summary">Les cinq volets de financement</summary>
+              <div class="b60-section-body">
+                <p>Le RHSP divise son aide en cinq enveloppes différentes, appelées <em>volets</em>. Chacun cible un type différent de constructeur ou de projet.</p>
+                <ol class="bullets">
+                  <li><strong>Fonds de pré-développement pour logements communautaires (CHPF).</strong> Un prêt sans intérêt jusqu'à 50 000 $ par logement abordable, offert aux fournisseurs de logement sans but lucratif. Il couvre les travaux préparatoires comme la conception et les études avant le début de la construction. Ouvert en continu.</li>
+                  <li><strong>Incitatifs pour logements locatifs abordables et à loyer contrôlé (ARRCHI).</strong> Renonce aux frais d'urbanisme, aux frais de permis et aux redevances d'aménagement. Donne aussi des rabais de taxes foncières tant que le loyer reste plafonné. Ouvert aux OSBL et aux constructeurs privés. Ouvert en continu.</li>
+                  <li><strong>Incitatifs pour logements locatifs construits à cette fin (PBR).</strong> Diffère les redevances d'aménagement — parfois indéfiniment — sur les locatifs réguliers au prix du marché, à condition qu'au moins 20 % du projet soit Locatif abordable pendant 40 ans. En juin 2026, le Conseil municipal a approuvé la <strong>phase 2</strong> du PBR, visant à débloquer <strong>10 000 nouveaux logements locatifs</strong> (au moins 2 000 abordables, jusqu'à 8 000 au marché). Les détails de la phase 2 sont encore en cours de finalisation.</li>
+                  <li><strong>Volet de financement en capital.</strong> Subventions directes aux fournisseurs de logement communautaire et aux constructeurs privés pour combler les écarts et faire démarrer les projets. Aucun appel ouvert en ce moment ; les prochains appels dépendent du budget de la Ville.</li>
+                  <li><strong>Volet de financement autochtone.</strong> Une enveloppe dédiée de subventions et de prêts pour les organismes de logement autochtone. Lié à l'objectif de la Ville de 5 200 nouveaux logements abordables pour les Autochtones. Premier appel de candidatures attendu à l'été 2026.</li>
+                </ol>
+              </div>
+            </details>
 
-            <div id="read-full" class="read-full-cta">
-              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
-              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            <details class="b60-section-toggle" id="matters">
+              <summary class="b60-section-toggle-summary">Pourquoi ça compte pour les locataires</summary>
+              <div class="b60-section-body">
+                <p>Même si vous ne faites jamais vous-même de demande à ces programmes, le RHSP touche votre marché locatif. Voici pourquoi.</p>
+                <ul class="bullets">
+                  <li><strong>Plus d'offre = croissance des loyers plus lente.</strong> Le problème de loyer à Toronto est un problème de maths : plus de gens qui arrivent chaque année que de nouveaux logements construits. Quand des programmes comme le RHSP débloquent 10 000+ unités, ça pèse vraiment sur le côté « offre » de l'équation.</li>
+                  <li><strong>Les unités à loyer contrôlé restent contrôlées pendant 40 ans.</strong> Contrairement aux locatifs du secteur privé (où le contrôle des loyers ne limite en gros que les hausses annuelles, pas le loyer qu'un propriétaire peut demander à un nouveau locataire), les unités abordables RHSP ont leur loyer <em>absolu</em> plafonné par la Ville. Quand un locataire part, le suivant paie à peu près le même loyer.</li>
+                  <li><strong>La nouvelle offre commence habituellement au prix du marché.</strong> Même dans les projets avec 20 % de logements abordables, les 80 % restants se loueront aux loyers du marché. Attendez-vous donc à ce que les nouveaux immeubles soutenus par le RHSP apparaissent d'abord comme des locatifs réguliers — les places abordables à l'intérieur se remplissent par un processus de loterie ou de demande distinct.</li>
+                  <li><strong>Vous aurez quand même besoin d'une demande de location complète.</strong> Les unités locatives abordables ont des limites de revenu, mais le reste du processus (vérification de crédit, références, lettre d'emploi, dépôts) est identique à tout bail torontois.</li>
+                </ul>
+                <div class="callout"><strong>Échéancier réaliste :</strong> le RHSP est un plan sur dix ans. Les immeubles approuvés aujourd'hui finissent habituellement 3 à 5 ans plus tard. Les unités abordables créées par les approbations de 2026 commenceront donc à être disponibles pour les locataires torontois vers 2029-2031. C'est une histoire d'offre à long terme, pas une solution rapide.</div>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="stay">
+              <summary class="b60-section-toggle-summary">Comment rester informé</summary>
+              <div class="b60-section-body">
+                <p>Si vous voulez savoir quand les nouveaux immeubles soutenus par le RHSP commencent à louer, ou si vous êtes un OSBL ou un constructeur admissible qui veut faire une demande, voici comment rester à jour :</p>
+                <ul class="bullets">
+                  <li><strong>Inscrivez-vous à la liste d'envoi de logement abordable de la Ville</strong> sur la <a href="https://www.toronto.ca/community-people/community-partners/housing-partners/open-requests-for-proposals/" target="_blank" rel="noopener noreferrer">page des partenaires en logement</a>. Vous serez avisé quand les appels de candidatures ouvrent.</li>
+                  <li><strong>Consultez la liste d'attente Access to Housing (Toronto Community Housing)</strong> si vous cherchez un logement à loyer proportionnel au revenu. Le RGI est distinct du Locatif abordable et a sa propre longue liste d'attente.</li>
+                  <li><strong>Suivez les décisions du Conseil municipal</strong> sur le plan HousingTO. La phase 2 du volet PBR est finalisée à l'été 2026 et définira la prochaine grande vague.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle" id="mistakes">
+              <summary class="b60-section-toggle-summary">Confusions fréquentes</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>« Le RHSP, c'est la même chose que le contrôle des loyers. »</strong> Non. Le contrôle des loyers en Ontario (sous la <em>Loi de 2006 sur la location à usage d'habitation</em>) limite de combien un propriétaire peut augmenter le loyer d'un locataire <em>existant</em> d'une année à l'autre. Le RHSP plafonne le montant même du loyer pendant 40 ans — une protection beaucoup plus forte.</li>
+                  <li><strong>« Je peux faire une demande au RHSP comme locataire. »</strong> Non. Le programme n'est que pour les constructeurs, OSBL et groupes de logement autochtone. Vous faites une demande <em>aux immeubles</em> une fois qu'ils louent, pas au programme lui-même.</li>
+                  <li><strong>« Locatif abordable veut dire faible revenu seulement. »</strong> Pas tout à fait. Il y a des limites de revenu, mais elles sont plus larges que la plupart des seuils de logement social. Beaucoup de locataires qui travaillent — infirmières, enseignants, employés d'hôtellerie, techniciens débutants — sont admissibles.</li>
+                  <li><strong>« Les unités abordables et les unités au prix du marché sont dans des immeubles séparés. »</strong> Sous le RHSP, elles sont habituellement mélangées dans le même immeuble. De l'extérieur, on ne peut pas dire lesquelles sont lesquelles.</li>
+                  <li><strong>« Ça règle la crise du loyer à Toronto. »</strong> Ça aide. Mais 10 000 unités sous la phase 2 du PBR se posent contre une ville qui ajoute environ 100 000 nouveaux résidents par année. Nécessaire, mais pas suffisant.</li>
+                </ul>
+              </div>
+            </details>
+
+            <h2>En bref</h2>
+            <p>Le Programme d'approvisionnement en logements locatifs est l'une des pièces les plus importantes de la politique du logement à Toronto aujourd'hui. Il ne vous aidera pas à trouver un logement locatif ce mois-ci. Mais sur les 5 à 10 prochaines années, il devrait ajouter discrètement des dizaines de milliers de nouveaux logements locatifs à la ville — dont des milliers où le loyer est plafonné par la Ville pendant quatre décennies. Si vous louez à Toronto maintenant, ou prévoyez le faire, rester inscrit à la liste d'envoi de la Ville est une petite habitude qui pourrait rapporter gros quand le bon immeuble ouvrira.</p>
+            <p>Des questions sur comment le RHSP touche votre situation — comme locataire, petit propriétaire, ou personne envisageant un projet locatif construit à cette fin ? <a href="/french/contact">Envoyez-moi une note rapide</a>.</p>
+
+            <p class="article-source"><strong>Source principale :</strong> Ville de Toronto — <a href="https://www.toronto.ca/community-people/housing-shelter/building-affordable-homes/housing-initiatives/rental-housing-supply-program/" target="_blank" rel="noopener noreferrer">Rental Housing Supply Program</a>, et le <em>HousingTO 2020-2030 Action Plan</em>. Niveaux de loyer en vigueur au 1<sup>er</sup> juillet 2026.</p>
+            <p class="article-disclaimer"><em>Cet article est à titre d'information générale et ne constitue pas un avis juridique ou financier. Les règles du programme et les plafonds de loyer sont mis à jour périodiquement par la Ville ; confirmez les chiffres actuels sur la <a href="https://www.toronto.ca/community-people/housing-shelter/building-affordable-homes/housing-initiatives/rental-housing-supply-program/" target="_blank" rel="noopener noreferrer">page officielle du RHSP</a> avant d'agir.</em></p>
+
+            <div class="seo-tags" aria-label="Mots-clés">
+              <h4>Mots-clés</h4>
+              <ul>
+                <li>Programme d'approvisionnement en logements locatifs</li>
+                <li>RHSP Toronto</li>
+                <li>Loyer abordable Toronto 2026</li>
+                <li>HousingTO 2020-2030</li>
+                <li>Logements locatifs abordables</li>
+                <li>Logements à loyer contrôlé Toronto</li>
+                <li>Incitatifs locatifs construits à cette fin</li>
+                <li>Fonds de pré-développement CHPF</li>
+                <li>Volet ARRCHI</li>
+                <li>Offre locative Toronto</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <CTASection
+      heading="Vous ne savez pas comment ça touche votre recherche de logement ?"
+      lead="J'aide les nouveaux arrivants, professionnels et familles à naviguer le marché locatif torontois — y compris en suivant les nouveaux immeubles soutenus par le RHSP à mesure qu'ils ouvrent. Envoyez-moi votre situation et je vous dirai ce qui est réaliste dans votre gamme de prix et votre quartier."
+    />
   </article>
 
   <Footer />
 </BaseLayout>
-
-<style>
-  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
-  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
-  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
-  .qf-label { color: #666; font-size: 0.9rem; }
-  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
-  .read-full-cta p { margin: 0 0 12px; color: #333; }
-  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta .btn-primary:hover { background: #a06d47; }
-</style>

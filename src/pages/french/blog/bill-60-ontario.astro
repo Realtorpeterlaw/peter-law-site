@@ -3,39 +3,83 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TopBar from '../../../components/FrenchTopBar.astro';
 import Header from '../../../components/FrenchHeader.astro';
 import Footer from '../../../components/FrenchFooter.astro';
-
-export const prerender = true;
+import LCTA from '../../../components/FrenchCTASection.astro';
 
 const publishedDate = '2026-06-03';
-const articleTitle = 'Loi 60 (Ontario) : ce que locataires et proprietaires doivent savoir';
-const articleDescription = "Loi 60 (Ontario) : ce que locataires et propriétaires doivent savoir sur les nouvelles règles locatives.";
+const articleTitle = "Loi 60 (Ontario) : ce que locataires et propriétaires DOIVENT savoir";
+const articleDescription = "Un guide en langage clair de la Loi 60 de l'Ontario. Cinq changements de règles pour la location, un comparatif avant/après, et ce qu'il faut faire selon que vous êtes locataire ou propriétaire.";
 const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/bill-60-ontario';
 const enUrl = 'https://www.realtorpeterlaw.com/blog/bill-60-ontario';
 
+const changes = [
+  {
+    n: 1,
+    label: 'En retard sur le loyer ? Moins de temps pour payer.',
+    old: "Vous aviez 14 jours pour payer avant que le propriétaire ne puisse déposer une demande à la CLI.",
+    new: "Vous n'avez maintenant que 7 jours.",
+    helps: 'Propriétaire',
+  },
+  {
+    n: 2,
+    label: "Le propriétaire emménage ? Fini le mois de loyer remboursé.",
+    old: "Si le propriétaire vous faisait partir pour usage personnel (N12), il vous payait un mois de loyer.",
+    new: "Si le propriétaire donne un préavis de 120 jours, aucun paiement n'est dû. Un préavis de 60 jours exige encore le paiement.",
+    helps: 'Propriétaire',
+  },
+  {
+    n: 3,
+    label: "Votre bail d'un an ne se renouvelle plus automatiquement.",
+    old: "Quand votre bail à terme fixe se terminait, il passait automatiquement à un bail mois par mois. Vous pouviez rester aussi longtemps que vous vouliez.",
+    new: "Il ne se renouvelle pas automatiquement. Le propriétaire peut y mettre fin, augmenter le loyer ou signer un nouveau bail à terme fixe.",
+    helps: 'Propriétaire',
+  },
+  {
+    n: 4,
+    label: "Les plaintes d'entretien à une audience de loyer coûtent maintenant de l'argent d'avance.",
+    old: "Vous pouviez soulever gratuitement les problèmes de réparation en défense à une audience pour non-paiement.",
+    new: "Vous devez d'abord verser 50 % du loyer dû dans un compte en fiducie avant que la CLI n'écoute.",
+    helps: 'Propriétaire',
+  },
+  {
+    n: 5,
+    label: "Moins de temps pour faire appel d'une éviction.",
+    old: "Vous aviez 30 jours pour faire appel.",
+    new: "Vous avez 15 jours.",
+    helps: 'Propriétaire',
+  },
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: articleTitle,
   description: articleDescription,
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
-  publisher: { '@type': 'Organization', name: 'Peter Law — Immobilier a Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
-  inLanguage: 'fr',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Immobilier à Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'fr-CA',
   datePublished: publishedDate,
   dateModified: publishedDate,
+  url: articleUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: 'Loi 60 Ontario, changement location Ontario 2025, RTA Ontario, expulsion Ontario, reprise usage personnel Ontario, droits locataire proprietaire Ontario',
+  keywords: "Loi 60 Ontario, Fighting Delays Building Faster Act, règles éviction Ontario 2026, indemnité N12 Loi 60, bail à terme fixe Ontario, propriétaire locataire Toronto Loi 60, Loi sur la location résidentielle 2026, changements audiences arriérés Ontario",
   translationOfWork: { '@type': 'Article', '@id': enUrl },
 };
 
+export const prerender = true;
+
 const hreflangAlternates = [
-    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/bill-60-ontario/" },
-    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/bill-60-ontario/" },
-    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/bill-60-ontario/" },
-    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/bill-60-ontario/" },
-  ];
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/bill-60-ontario/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/bill-60-ontario/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/bill-60-ontario/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/bill-60-ontario/' },
+];
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law`}
+  title={`${articleTitle} | Peter Law — Blogue immobilier de Toronto`}
   description={articleDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -51,15 +95,15 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Locataires et proprietaires</div>
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Législation</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">L'Ontario a adopte fin 2025 la Loi 60. Elle change les regles de location. La plupart des changements profitent aux proprietaires ; les locataires ont moins de temps et moins de recours. Voici ce qui a change, en clair.</p>
+        <p class="article-lead">L'Ontario a adopté une nouvelle loi à la fin de 2025 appelée Loi 60. Elle change les règles de la location. La plupart des changements favorisent les propriétaires. Les locataires ont moins de temps et moins de pouvoir. Voici ce qui a changé, en mots simples.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
-          <time datetime={publishedDate}>2026-06-03</time>
+          <time datetime={publishedDate}>3 juin 2026</time>
           <span class="dot">·</span>
-          <span>5 min de lecture</span>
+          <span>6 min de lecture</span>
         </div>
       </div>
     </section>
@@ -70,61 +114,212 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Sur cette page</h4>
             <ul>
-              <li><a href="#what">Ce que change la loi</a></li>
-              <li><a href="#changes">Cinq changements principaux</a></li>
-              <li><a href="#tenants">Si vous etes locataire</a></li>
-              <li><a href="#landlords">Si vous etes proprietaire</a></li>
-              <li><a href="#action">Quoi faire maintenant</a></li>
-              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+              <li><a href="#what">Qu'est-ce que la Loi 60 ?</a></li>
+              <li><a href="#diagram">Anciennes règles vs nouvelles</a></li>
+              <li><a href="#five">Les 5 changements expliqués</a></li>
+              <li><a href="#status">Est-elle en vigueur maintenant ?</a></li>
+              <li><a href="#tenants">Si vous êtes locataire</a></li>
+              <li><a href="#landlords">Si vous êtes propriétaire</a></li>
+              <li><a href="#why">Pourquoi ça compte</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <div class="qf-card">
-              <div class="qf-row"><span class="qf-label">Loi</span><span class="qf-val">Loi 60 de l'Ontario</span></div>
-              <div class="qf-row"><span class="qf-label">Entree en vigueur</span><span class="qf-val">Fin 2025</span></div>
-              <div class="qf-row"><span class="qf-label">Cible</span><span class="qf-val">Regime locatif residentiel</span></div>
-              <div class="qf-row"><span class="qf-label">Effet net</span><span class="qf-val">Renforce la position des proprietaires</span></div>
-              <div class="qf-row"><span class="qf-label">Cinq changements</span><span class="qf-val">Delais raccourcis + procedure allegee</span></div>
+            <h2 id="what">Qu'est-ce que la Loi 60 ?</h2>
+            <p>Le nom complet de la Loi 60 est <em>Fighting Delays, Building Faster Act, 2025</em> (Loi de 2025 pour combattre les retards et bâtir plus vite). Le mot du gouvernement pour ça, c'est « omnibus » — ça veut simplement dire une seule loi qui en change plusieurs autres. La Loi 60 modifie 16 lois à la fois.</p>
+            <p>Le gouvernement dit avoir deux objectifs :</p>
+            <ul class="bullets">
+              <li>Accélérer la construction de nouveaux logements.</li>
+              <li>Accélérer la Commission de la location immobilière (CLI). La CLI est le tribunal qui traite les litiges locatifs.</li>
+            </ul>
+            <p>Pour y arriver, la Loi 60 raccourcit les délais et retire certaines étapes qu'avaient les locataires. La plupart des changements favorisent les propriétaires.</p>
+
+            <p><strong>Réponse rapide :</strong> La Loi 60 est une nouvelle loi ontarienne. Elle change les règles de la location. Elle rend les choses plus rapides et faciles pour les propriétaires. Elle donne aux locataires moins de temps et moins de protection. La loi a été adoptée le 24 novembre 2025. La plupart des dispositions sont encore en phase de déploiement par Tribunaux décisionnels Ontario, alors vérifiez toujours avant d'agir.</p>
+
+            <div class="b60-stats" aria-label="Loi 60 en un coup d'œil : les quatre chiffres qui ont changé">
+              <div class="b60-stat">
+                <div class="b60-stat-num">7</div>
+                <div class="b60-stat-cap">Jours pour payer avant qu'un N4 n'arrive à la CLI <span>(auparavant 14)</span></div>
+              </div>
+              <div class="b60-stat">
+                <div class="b60-stat-num">15</div>
+                <div class="b60-stat-cap">Jours pour faire appel d'une ordonnance de la CLI <span>(auparavant 30)</span></div>
+              </div>
+              <div class="b60-stat">
+                <div class="b60-stat-num">50<span class="b60-stat-pct">%</span></div>
+                <div class="b60-stat-cap">Des arriérés maintenant exigés d'avance pour invoquer une défense d'entretien</div>
+              </div>
+              <div class="b60-stat">
+                <div class="b60-stat-num">120</div>
+                <div class="b60-stat-cap">Jours de préavis requis pour un N12 sans paiement d'un mois</div>
+              </div>
             </div>
 
+            <div class="callout"><strong>Attention :</strong> La Loi 60 est le plus grand changement au droit locatif ontarien depuis 10 ans. Les règles d'il y a un an ne sont peut-être plus celles d'aujourd'hui. Confirmez toujours auprès de la CLI ou d'un parajuriste avant de signifier un avis ou d'y répondre.</div>
 
-            <h2 id="what">Ce que change la loi</h2>
-            <p>La Loi 60 modifie plusieurs delais et procedures cles de la Loi sur la location a usage d'habitation (RTA). Elle <strong>raccourcit</strong> plusieurs delais accordes aux locataires et <strong>allege</strong> certaines exigences pour les proprietaires — notamment en matiere de reprise pour usage personnel et d'expulsion pour non-paiement.</p>
+            <h2 id="diagram">Anciennes règles vs nouvelles — côte à côte</h2>
+            <p>Cinq choses ont changé. Les voici d'un coup d'œil.</p>
 
-            <h2 id="changes">Cinq changements principaux</h2>
-            <p>Delais de contestation raccourcis pour les locataires ; procedure allegee pour reprendre un logement pour usage personnel ; sanctions accrues en cas de reprise abusive ; regles clarifiees sur les hausses au-dela du plafond legal ; et rythme des audiences LTB revu.</p>
+            <div class="b60-intro">Cinq règles ont changé. Quatre réduisent le temps ou les protections des locataires. Une supprime un paiement que les propriétaires devaient. Vue rapide ci-dessous ; les explications complètes suivent.</div>
 
-            <h2 id="tenants">Si vous etes locataire</h2>
-            <p>Notez chaque date. Ne laissez jamais passer un avis N-form sans reponse. Un avis de reprise pour usage personnel doit etre <strong>de bonne foi</strong> — sinon vous pouvez reclamer des dommages. Consultez un centre juridique communautaire si vous recevez un avis N12 ou N13.</p>
-
-            <h2 id="landlords">Si vous etes proprietaire</h2>
-            <p>La procedure est plus rapide mais les <strong>sanctions pour reprise de mauvaise foi ont ete augmentees</strong>. Documentez rigoureusement toute reprise pour usage personnel. Verifiez que le prochain occupant soit reellement un membre de votre famille et qu'il y habite au moins un an.</p>
-
-            <h2 id="action">Quoi faire maintenant</h2>
-            <p>Locataires : gardez tous vos documents (bail, quittances, avis) et informez-vous a chaque etape. Proprietaires : mettez a jour vos modeles d'avis, informez votre gestionnaire de bail, et respectez a la lettre les nouvelles regles.</p>
-
-            <div id="read-full" class="read-full-cta">
-              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
-              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            <div class="b60-table-wrap">
+              <table class="b60-table">
+                <thead>
+                  <tr><th>Règle</th><th>Avant la Loi 60</th><th>Après la Loi 60</th></tr>
+                </thead>
+                <tbody>
+                  {changes.map((c) => (
+                    <tr>
+                      <td class="b60-rule">{c.label}</td>
+                      <td class="b60-before">{c.old}</td>
+                      <td class="b60-after">{c.new}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          </div>
+
+            <h2 id="five">Les 5 changements expliqués</h2>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">1. En retard sur le loyer ? Vous avez moins de temps pour rattraper.</summary>
+              <div class="b60-change-body">
+                <p>Si vous ne payez pas le loyer, votre propriétaire vous envoie un formulaire appelé N4. Il vous demande de payer ou de partir.</p>
+              <p>Avant : vous aviez 14 jours. Maintenant : vous n'avez que 7 jours.</p>
+              <p>Quoi faire : mettez en place les paiements automatiques de loyer. Le délai de grâce est maintenant la moitié de ce qu'il était. Un rappel oublié peut lancer le compteur d'éviction.</p>
+              </div>
+            </details>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">2. L'éviction « j'emménage » coûte maintenant moins cher aux propriétaires.</summary>
+              <div class="b60-change-body">
+                <p>Un avis N12 est quand le propriétaire (ou un acheteur, ou un proche parent) veut habiter le logement lui-même. Le propriétaire doit vous donner un avis écrit et vous laisser partir.</p>
+              <p>Avant : le propriétaire devait vous payer un mois de loyer en remerciement pour partir. Ou vous offrir un autre logement similaire.</p>
+              <p>Maintenant : si le propriétaire donne un préavis de 120 jours (4 mois), il n'a pas à vous payer. Un N12 de 60 jours inclut encore le paiement d'un mois.</p>
+              <p>Quoi faire : si vous recevez un N12, ne présumez pas qu'il est valide. Les faux N12 sont l'arnaque de propriétaire la plus courante. Une révision par un parajuriste coûte moins cher que de perdre votre logement. Si le N12 est prouvé faux à la CLI, le propriétaire peut être condamné à une amende pouvant atteindre 50 000 $.</p>
+              </div>
+            </details>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">3. Votre bail ne se prolonge plus tout seul.</summary>
+              <div class="b60-change-body">
+                <p>C'est le plus grand changement pour les locataires.</p>
+              <p>La plupart des locataires signent un bail d'un an. Avant la Loi 60 : quand cette année se terminait, le bail devenait automatiquement mois par mois. Vous pouviez rester pour toujours. Le propriétaire ne pouvait augmenter le loyer que du plafond annuel ontarien.</p>
+              <p>Maintenant : ce renouvellement automatique disparaît. Quand votre terme fixe se termine, le propriétaire peut choisir la suite. Il peut vous demander de partir. Il peut offrir un nouveau bail à un loyer plus élevé. Il peut négocier de nouvelles conditions.</p>
+              <p>Quoi faire : n'attendez pas. Parlez à votre propriétaire 2-3 mois avant la fin du bail. Demandez ce qu'il veut faire. Obtenez toute nouvelle entente par écrit avant de signer.</p>
+              </div>
+            </details>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">4. Invoquer des plaintes d'entretien à une audience de loyer coûte maintenant de l'argent d'avance.</summary>
+              <div class="b60-change-body">
+                <p>Manœuvre courante : un locataire est en retard sur le loyer. Le propriétaire l'amène à la CLI. À l'audience, le locataire dit « Je ne devrais pas avoir à payer le plein loyer parce que l'appartement a des problèmes. » Ça ralentissait souvent les choses.</p>
+              <p>Avant : les locataires pouvaient soulever les problèmes d'entretien comme défense gratuite.</p>
+              <p>Maintenant : le locataire doit d'abord verser 50 % du loyer dû dans le compte en fiducie de la CLI avant que sa plainte ne soit même entendue.</p>
+              <p>Quoi faire : si vous avez de vrais problèmes d'entretien, documentez-les en temps réel. Envoyez des demandes écrites à votre propriétaire. Prenez des photos datées. N'attendez pas une audience pour commencer à recueillir des preuves.</p>
+              </div>
+            </details>
+
+            <details class="b60-change">
+              <summary class="b60-change-summary">5. Moins de temps pour faire appel d'une ordonnance d'éviction.</summary>
+              <div class="b60-change-body">
+                <p>Si la CLI tranche contre vous, vous avez une fenêtre pour faire appel.</p>
+              <p>Avant : 30 jours. Maintenant : 15 jours.</p>
+              <p>Quoi faire : si vous recevez une décision avec laquelle vous n'êtes pas d'accord, trouvez un parajuriste dans la même semaine. N'attendez pas.</p>
+              </div>
+            </details>
+
+            <h2 id="status">La Loi 60 est-elle en vigueur maintenant ?</h2>
+            <p>La Loi 60 a été adoptée le 24 novembre 2025. Mais « adoptée » ne veut pas dire « en vigueur ». Tribunaux décisionnels Ontario doit mettre à jour ses formulaires, sa formation et ses systèmes en ligne avant que chaque changement ne s'active réellement.</p>
+            <p>À la mi-2026, plusieurs changements locatifs sont encore en phase de déploiement. C'est pourquoi il faut confirmer avant d'agir.</p>
+            <div class="callout"><strong>Avant d'agir :</strong> si vous êtes propriétaire et signifiez un N4 de 7 jours ou un N12 de 120 jours sans paiement, demandez à la CLI si cette règle précise est en vigueur. Si vous signifiez le mauvais avis, votre dossier peut être rejeté. Locataires — pareil. Si un avis semble bizarre ou pressé, obtenez un conseil avant de présumer qu'il est valide.</div>
+
+            <details class="b60-section-toggle" id="tenants">
+              <summary class="b60-section-toggle-summary">Si vous êtes locataire à Toronto</summary>
+              <ul class="bullets">
+                <li><strong>Activez les paiements automatiques du loyer.</strong> La fenêtre de 7 jours pour un N4 est courte. Ne laissez pas un paiement oublié déclencher une éviction.</li>
+                <li><strong>Parlez à votre propriétaire avant la fin du bail.</strong> Commencez 2-3 mois avant. Ne présumez pas que vos anciens droits s'appliquent encore.</li>
+                <li><strong>Gardez les preuves d'entretien.</strong> Écrivez vos demandes par courriel ou texto. Sauvegardez les photos datées. Vous pourriez en avoir besoin.</li>
+                <li><strong>Un N12 n'est pas toujours vrai.</strong> Si vous en recevez un, parlez à un parajuriste. Les cas courants coûtent 200-500 $ à réviser.</li>
+                <li><strong>Si vous recevez une mauvaise décision de la CLI, agissez vite.</strong> 15 jours, c'est court.</li>
+              </ul>
+            </details>
+
+            <details class="b60-section-toggle" id="landlords">
+              <summary class="b60-section-toggle-summary">Si vous êtes propriétaire à Toronto</summary>
+              <ul class="bullets">
+                <li><strong>Ne sautez pas sur les nouvelles règles tout de suite.</strong> Toutes les dispositions de la Loi 60 ne sont pas en vigueur. Utiliser une règle qui n'est pas active peut faire exploser votre dossier.</li>
+                <li><strong>Documentez comme si vous pouviez vous retrouver à la CLI demain.</strong> Gardez les registres d'entretien, les courriels du locataire, les rapports d'état.</li>
+                <li><strong>Attention à la nouvelle flexibilité du terme fixe.</strong> Des conditions de renouvellement agressives peuvent nuire à la relation locative et pousser la loi à repartir dans l'autre sens à la prochaine élection.</li>
+                <li><strong>Le N12 de 120 jours sans paiement ne vaut la peine que si votre dossier est honnête.</strong> Les faux N12 entraînent maintenant 50 000 $ et plus en pénalités à la CLI.</li>
+              </ul>
+            </details>
+
+            <h2 id="why">Pourquoi ça compte</h2>
+            <p>La Loi 60 est la loi locative ontarienne la plus favorable aux propriétaires depuis plus d'une décennie. Le pari du gouvernement est que des règles d'éviction plus faciles inciteront davantage de propriétaires à louer leurs unités vides. Ça devrait signifier plus d'offre locative.</p>
+            <p>Les critiques disent que la loi retire des protections aux locataires sans régler le problème de fond — le loyer est trop cher.</p>
+            <p>Les deux peuvent être en partie vrais. Ce qui compte aujourd'hui, c'est de connaître les règles du jeu auquel vous jouez maintenant.</p>
+
+            <p class="legal-note">Cet article est de l'information seulement, pas un conseil juridique. La Loi 60 est complexe et encore en déploiement. Pour votre situation, parlez à un parajuriste inscrit auprès du Barreau de l'Ontario, contactez la CLI ou visitez une clinique juridique communautaire. Sources utilisées pour bâtir cet article : notes de mise en œuvre de Tribunaux décisionnels Ontario, Centre canadien du droit au logement, couverture du Globe and Mail, suivi de mise en œuvre OntarioLandlord.ca. Je suis un représentant immobilier inscrit, pas un avocat.</p>
+
+            <div class="seo-tags" aria-label="Mots-clés">
+              <h4>Mots-clés</h4>
+              <ul>
+                <li>Loi 60 Ontario</li>
+                <li>Fighting Delays Building Faster Act</li>
+                <li>Règles éviction Ontario 2026</li>
+                <li>Indemnité N12 Loi 60</li>
+                <li>Avis N4 7 jours Ontario</li>
+                <li>Bail à terme fixe Ontario</li>
+                <li>Appel CLI 15 jours</li>
+                <li>Loi sur la location résidentielle 2026</li>
+                <li>Droit locatif Toronto</li>
+                <li>Loi 60 droits locataires</li>
+              </ul>
+            </div>
+</div>
         </div>
       </div>
     </section>
   </article>
 
+  <LCTA heading="Une question sur la Loi 60 ?" lead="Locataire qui vient de recevoir un avis, ou propriétaire qui essaie de comprendre ce qui est en vigueur ? Envoyez-moi ce que vous avez. Je vous dirai ce que je peux, et je vous référerai à un parajuriste de confiance si vous avez besoin de plus." />
   <Footer />
 </BaseLayout>
 
 <style>
-  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
-  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
-  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
-  .qf-label { color: #666; font-size: 0.9rem; }
-  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
-  .read-full-cta p { margin: 0 0 12px; color: #333; }
-  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta .btn-primary:hover { background: #a06d47; }
+  .b60-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 24px 0 28px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--bg-warm); }
+  .b60-stat { padding: 22px 16px; text-align: center; border-right: 1px solid var(--rule); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; }
+  .b60-stat:last-child { border-right: none; }
+  .b60-stat-num { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; }
+  .b60-stat-pct { font-size: 28px; color: var(--ink-soft); margin-left: 1px; }
+  .b60-stat-cap { font-size: 12px; line-height: 1.45; color: var(--ink-soft); max-width: 200px; }
+  .b60-stat-cap span { color: var(--ink-mute); }
+  @media (max-width: 720px) {
+    .b60-stats { grid-template-columns: 1fr 1fr; }
+    .b60-stat { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .b60-stat:nth-child(2) { border-right: none; }
+    .b60-stat:nth-child(3), .b60-stat:nth-child(4) { border-bottom: none; }
+    .b60-stat-num { font-size: 36px; }
+  }
+  @media (max-width: 420px) {
+    .b60-stats { grid-template-columns: 1fr; }
+    .b60-stat { border-right: none; border-bottom: 1px solid var(--rule); }
+    .b60-stat:last-child { border-bottom: none; }
+  }
+  .b60-intro { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 18px 22px; margin: 24px 0 28px; border-radius: 4px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+  .b60-intro strong { color: var(--ink); }
+  .b60-table-wrap { overflow-x: auto; margin: 0 0 32px; border: 1px solid var(--rule); border-radius: 6px; }
+  .b60-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; }
+  .b60-table thead th { background: var(--ink); color: var(--surface); padding: 14px 16px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .b60-table tbody td { padding: 16px; vertical-align: top; border-top: 1px solid var(--rule); line-height: 1.55; }
+  .b60-table tbody tr:nth-child(even) td { background: var(--bg-warm); }
+  .b60-table .b60-rule { font-weight: 600; color: var(--ink); width: 26%; font-size: 14px; }
+  .b60-table .b60-before { color: var(--ink-soft); width: 37%; }
+  .b60-table .b60-after { color: var(--ink); font-weight: 600; width: 37%; }
+  @media (max-width: 600px) {
+    .b60-table-wrap { border-radius: 4px; }
+    .b60-table thead th { font-size: 11px; padding: 12px 14px; }
+    .b60-table tbody td { padding: 14px; font-size: 13.5px; }
+  }
 </style>

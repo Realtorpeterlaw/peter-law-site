@@ -3,12 +3,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TopBar from '../../../components/FrenchTopBar.astro';
 import Header from '../../../components/FrenchHeader.astro';
 import Footer from '../../../components/FrenchFooter.astro';
+import CTASection from '../../../components/FrenchCTASection.astro';
 
 export const prerender = true;
 
 const publishedDate = '2026-06-09';
-const articleTitle = "OESP — reduire de moitie votre facture d'electricite";
-const articleDescription = "OESP (Ontario) : jusqu'à 45% de rabais sur votre facture d'électricité si votre foyer est admissible. Guide clair.";
+const articleTitle = "Environ 50 % de rabais sur votre facture : le Programme d'aide à l'électricité de l'Ontario (OESP)";
+const articleDescription = "Un guide en français simple sur le Programme d'aide à l'électricité de l'Ontario (OESP) — qui est admissible, les montants réels du crédit mensuel (35 $ à 113 $), comment le combiner avec le PAB (LEAP) et le Rabais de l'Ontario pour l'électricité, et comment un petit ménage à forte consommation peut réduire sa facture d'électricité de près de la moitié.";
 const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/oesp';
 const enUrl = 'https://www.realtorpeterlaw.com/blog/oesp';
 
@@ -18,24 +19,28 @@ const jsonLd = {
   headline: articleTitle,
   description: articleDescription,
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
-  publisher: { '@type': 'Organization', name: 'Peter Law — Immobilier a Toronto', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
-  inLanguage: 'fr',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — Immobilier à Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  inLanguage: 'fr-CA',
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: 'OESP Ontario, programme aide electricite Ontario, credit facture hydro Ontario, LEAP Ontario, Rabais Ontario electricite OER',
+  keywords: "Programme d'aide à l'électricité de l'Ontario, OESP, crédit OESP, admissibilité OESP 2026, réduire facture électricité Ontario, seuils de revenu OESP, taille du ménage OESP, crédit forte consommation OESP, demande OESP, renouvellement OESP, subvention LEAP Ontario, Rabais de l'Ontario pour l'électricité, aide financière Toronto Hydro",
   translationOfWork: { '@type': 'Article', '@id': enUrl },
 };
 
 const hreflangAlternates = [
-    { hreflang: "en-CA", href: "https://www.realtorpeterlaw.com/blog/oesp/" },
-    { hreflang: "zh-CN", href: "https://www.realtorpeterlaw.com/chinese/blog/oesp/" },
-    { hreflang: "fr-CA", href: "https://www.realtorpeterlaw.com/french/blog/oesp/" },
-    { hreflang: "x-default", href: "https://www.realtorpeterlaw.com/blog/oesp/" },
-  ];
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/oesp/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/oesp/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/oesp/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/oesp/' },
+];
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law`}
+  title={`${articleTitle} | Peter Law — Blogue Immobilier Toronto`}
   description={articleDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -51,15 +56,15 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow"><a href="/french/blog" class="back-link">Blog</a> · Aide facture electricite</div>
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Économies d'énergie</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">L'OESP est probablement le programme d'allegement le plus sous-utilise en Ontario. Les menages admissibles recoivent un credit mensuel direct de 35 $ a 113 $ sur leur facture d'electricite — pour beaucoup, c'est presque la moitie du cout.</p>
+        <p class="article-lead">Le Programme d'aide à l'électricité de l'Ontario (OESP) est le programme de réduction de facture le moins réclamé de la province. Les ménages admissibles reçoivent un crédit mensuel direct entre 35 $ et 113 $ sur leur facture d'électricité — pour beaucoup de petits ménages torontois à forte consommation et à budget serré, c'est près de la moitié de la charge d'électricité. Voici comment ça fonctionne, qui est admissible, et comment faire la demande en moins de 15 minutes.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
-          <time datetime={publishedDate}>2026-06-09</time>
+          <time datetime={publishedDate}>9 juin 2026</time>
           <span class="dot">·</span>
-          <span>4 min de lecture</span>
+          <span>8 min de lecture</span>
         </div>
       </div>
     </section>
@@ -70,61 +75,222 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Sur cette page</h4>
             <ul>
-              <li><a href="#what">Ce que c'est</a></li>
-              <li><a href="#who">Qui se qualifie</a></li>
-              <li><a href="#amount">Montant du credit</a></li>
-              <li><a href="#stack">Cumul avec d'autres aides</a></li>
-              <li><a href="#apply">Comment demander</a></li>
-              <li><a href="#read-full">Lire l'article complet en anglais →</a></li>
+              <li><a href="#what">Ce qu'est vraiment l'OESP</a></li>
+              <li><a href="#math">Les chiffres : exemple concret</a></li>
+              <li><a href="#brackets">Seuils de revenu et crédits 2026</a></li>
+              <li><a href="#qualifies">Qui est admissible</a></li>
+              <li><a href="#energy-intensive">Le crédit supérieur (forte consommation)</a></li>
+              <li><a href="#apply">Comment faire la demande</a></li>
+              <li><a href="#stack">Combiner avec d'autres programmes</a></li>
+              <li><a href="#renewal">Le renouvellement</a></li>
+              <li><a href="#mistakes">Erreurs fréquentes et arnaques</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <div class="qf-card">
-              <div class="qf-row"><span class="qf-label">Programme</span><span class="qf-val">OESP — Ontario Electricity Support Program</span></div>
-              <div class="qf-row"><span class="qf-label">Type d'aide</span><span class="qf-val">Credit mensuel direct sur la facture</span></div>
-              <div class="qf-row"><span class="qf-label">Montant</span><span class="qf-val">De 35 $ a 113 $ par mois</span></div>
-              <div class="qf-row"><span class="qf-label">Base d'admissibilite</span><span class="qf-val">Revenu du menage + taille du foyer</span></div>
-              <div class="qf-row"><span class="qf-label">Cumulable</span><span class="qf-val">Avec LEAP + Rabais Ontario pour l'electricite (OER)</span></div>
+            <p><strong>Réponse rapide :</strong> l'OESP est un crédit mensuel appliqué directement sur votre facture d'électricité si le revenu de votre ménage (après impôt) est sous le seuil du programme. Pour un ménage torontois typique à faible revenu, avec chauffage électrique ou un appareil médical, le crédit peut être de <strong>68 $ à 113 $ par mois</strong> — sur une facture d'électricité mensuelle de 150 $, c'est environ la moitié. Pour les ménages plus grands sans chauffage électrique, le crédit est plus petit (35 $ à 75 $/mois), mais reste significatif sur une année. Locataires et propriétaires sont admissibles, à condition que le compte d'électricité soit à votre nom.</p>
+
+            <div class="callout"><strong>Cadre honnête :</strong> le « ~50 % de rabais » du titre est réel, mais s'applique surtout aux <em>petits ménages, à faible revenu, à forte consommation</em>. Un ménage de 2 personnes avec une facture d'électricité de 200 $ et un crédit standard de 40 $ est plus près de 20 % de rabais. De toute façon, c'est de l'argent déjà sur la table — et la demande prend environ 15 minutes.</div>
+
+            <h2 id="what">Ce qu'est vraiment l'OESP</h2>
+            <p>Le Programme d'aide à l'électricité de l'Ontario est administré par la Commission de l'énergie de l'Ontario (le régulateur provincial). Ce n'est <em>pas</em> un crédit d'impôt que vous réclamez en fin d'année, pas un chèque de remboursement envoyé par la poste, pas un rabais que vous devez demander à votre distributeur. C'est un crédit mensuel qui apparaît directement sur votre facture d'électricité une fois approuvé — la ligne sur votre facture Toronto Hydro, Hydro One ou Alectra est littéralement intitulée « Crédit OESP ».</p>
+            <p>Trois choses à comprendre dès le départ :</p>
+            <ul class="bullets">
+              <li><strong>C'est basé sur le revenu du ménage après impôt.</strong> Pas le revenu de la ligne 15000 du T1, mais le montant après impôt (ligne 26000 moins ligne 43500 — ce qui reste dans votre poche).</li>
+              <li><strong>Ça varie selon la taille du ménage.</strong> Une personne seule et une famille de six ont des seuils différents. Ménage plus grand = plus de revenu permis.</li>
+              <li><strong>Les seuils ont augmenté le 1<sup>er</sup> mars 2024.</strong> Si vous avez fait une demande avant et été refusé, les nouveaux seuils peuvent maintenant vous couvrir. Refaites une demande.</li>
+            </ul>
+
+            <h2 id="math">Les chiffres : exemple concret</h2>
+            <p>Voici un scénario Toronto Hydro concret pour ancrer le chiffre. Ménage d'une personne, revenu après impôt de 35 000 $, appartement tout électrique (chauffage électrique → catégorie « forte consommation ») :</p>
+            <div class="heloc-formula" aria-label="Exemple d'économies OESP">
+              <div class="heloc-formula-cell">
+                <div class="heloc-formula-label">Facture mensuelle</div>
+                <div class="heloc-formula-number">150 $</div>
+                <div class="heloc-formula-sub">appart. type chauffage élec.</div>
+              </div>
+              <div class="heloc-formula-op" aria-hidden="true">−</div>
+              <div class="heloc-formula-cell">
+                <div class="heloc-formula-label">Crédit OESP</div>
+                <div class="heloc-formula-number">68 $</div>
+                <div class="heloc-formula-sub">palier forte consommation</div>
+              </div>
+              <div class="heloc-formula-op" aria-hidden="true">=</div>
+              <div class="heloc-formula-cell heloc-formula-result">
+                <div class="heloc-formula-label">Vous payez</div>
+                <div class="heloc-formula-number">82 $</div>
+                <div class="heloc-formula-sub">~45 % de rabais, 816 $/an économisés</div>
+              </div>
             </div>
+            <p>Pour un ménage à faible revenu de 6 personnes avec chauffage électrique, le crédit passe à 113 $/mois — soit <strong>1 356 $ économisés par an</strong>. Pour un ménage de 4 personnes à 60 K$ de revenu sans chauffage électrique, le crédit standard est de 51 $/mois — encore <strong>612 $ par an</strong>. Dans l'ensemble du tableau, le programme remet entre 420 $ et 1 356 $ par année dans les poches des ménages admissibles.</p>
 
+            <details class="b60-section-toggle" id="brackets">
+              <summary class="b60-section-toggle-summary">Seuils de revenu et crédits 2026</summary>
+              <div class="b60-section-body">
+                <p>Les deux tableaux ci-dessous proviennent directement du barème OESP publié par la Commission de l'énergie de l'Ontario (en vigueur depuis la hausse des seuils du 1<sup>er</sup> mars 2024). Tous les chiffres de revenu sont <strong>après impôt</strong>.</p>
+                <p><strong>Crédit mensuel standard ($/mois) :</strong></p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>Revenu après impôt</th>
+                      <th>1 pers.</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                      <th>6</th>
+                      <th>7+</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>≤ 38 000 $</td><td>45 $</td><td>45 $</td><td>51 $</td><td>57 $</td><td>63 $</td><td>75 $</td><td>75 $</td></tr>
+                    <tr><td>38 001 $ – 54 000 $</td><td>—</td><td>40 $</td><td>45 $</td><td>51 $</td><td>57 $</td><td>63 $</td><td>75 $</td></tr>
+                    <tr><td>54 001 $ – 65 000 $</td><td>—</td><td>—</td><td>35 $</td><td>40 $</td><td>45 $</td><td>51 $</td><td>57 $</td></tr>
+                    <tr><td>65 001 $ – 71 000 $</td><td>—</td><td>—</td><td>—</td><td>—</td><td>35 $</td><td>40 $</td><td>45 $</td></tr>
+                  </tbody>
+                </table>
+                <p style="margin-top:18px;"><strong>Crédit mensuel supérieur — forte consommation ($/mois) :</strong></p>
+                <p style="font-size:14px;">Disponible si vous chauffez à l'électricité, utilisez un appareil médical à forte consommation admissible (p. ex. CPAP/BiPAP, concentrateur d'oxygène, dialyse), <em>ou</em> êtes Autochtone ou vivez avec des membres de famille autochtones.</p>
+                <table class="oesp-table">
+                  <thead>
+                    <tr>
+                      <th>Revenu après impôt</th>
+                      <th>1 pers.</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                      <th>6</th>
+                      <th>7+</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>≤ 38 000 $</td><td>68 $</td><td>68 $</td><td>75 $</td><td>83 $</td><td>90 $</td><td>113 $</td><td>113 $</td></tr>
+                    <tr><td>38 001 $ – 54 000 $</td><td>—</td><td>60 $</td><td>68 $</td><td>75 $</td><td>83 $</td><td>90 $</td><td>113 $</td></tr>
+                    <tr><td>54 001 $ – 65 000 $</td><td>—</td><td>—</td><td>52 $</td><td>60 $</td><td>68 $</td><td>75 $</td><td>83 $</td></tr>
+                    <tr><td>65 001 $ – 71 000 $</td><td>—</td><td>—</td><td>—</td><td>—</td><td>52 $</td><td>60 $</td><td>68 $</td></tr>
+                  </tbody>
+                </table>
+                <p style="font-size:13px;color:var(--ink-mute);margin-top:10px;"><em>Source : Commission de l'énergie de l'Ontario, barème OESP (en vigueur depuis le 1<sup>er</sup> mars 2024).</em></p>
+              </div>
+            </details>
 
-            <h2 id="what">Ce que c'est</h2>
-            <p>L'OESP est un <strong>credit direct mensuel</strong> applique automatiquement sur votre facture d'electricite. Il n'a pas a etre rembourse. Il est finance par la province et s'applique tant que vous remplissez les conditions.</p>
+            <details class="b60-section-toggle" id="qualifies">
+              <summary class="b60-section-toggle-summary">Qui est admissible</summary>
+              <div class="b60-section-body">
+                <p>Vous êtes admissible à l'OESP si <strong>les trois conditions</strong> sont remplies :</p>
+                <ul class="bullets">
+                  <li><strong>Le compte d'électricité est à votre nom.</strong> Si vous louez et l'électricité est comprise dans le loyer (pas de facture à votre nom), l'OESP ne s'applique pas — d'autres programmes provinciaux qui passent par le propriétaire peuvent le faire.</li>
+                  <li><strong>Le revenu du ménage après impôt est sous le seuil</strong> pour la taille du ménage — voir le tableau ci-dessus. Un « ménage » signifie toutes les personnes qui vivent à l'adresse.</li>
+                  <li><strong>Chaque membre du ménage de plus de 16 ans avec revenu</strong> a un NAS, un numéro d'identification-impôt (NII) ou un numéro d'identification temporaire (NIT). L'équipe OESP vérifie le revenu auprès de l'Agence du revenu du Canada.</li>
+                </ul>
+                <p>Vous n'avez <strong>pas</strong> à être citoyen ou résident permanent. Vous n'avez <strong>pas</strong> à recevoir d'aide sociale — beaucoup de travailleurs à faible revenu et de ménages à revenu moyen-bas sont admissibles, surtout depuis l'élargissement de mars 2024. Les aînés à revenu fixe (RPC/SV) tombent souvent bien à l'intérieur du seuil.</p>
+              </div>
+            </details>
 
-            <h2 id="who">Qui se qualifie</h2>
-            <p>L'admissibilite est basee sur le <strong>revenu du menage</strong> et la <strong>taille du foyer</strong>. Un menage plus grand ou a revenu tres modeste beneficie d'un credit plus eleve. La demande se fait en ligne sur ontarioelectricitysupport.ca.</p>
+            <details class="b60-section-toggle" id="energy-intensive">
+              <summary class="b60-section-toggle-summary">Le crédit supérieur (forte consommation)</summary>
+              <div class="b60-section-body">
+                <p>Le crédit forte consommation est là où l'OESP fait vraiment une différence. Vous êtes admissible au palier supérieur si <strong>une seule</strong> des conditions suivantes s'applique :</p>
+                <ul class="bullets">
+                  <li><strong>Chauffage électrique.</strong> Plinthes, fournaise électrique, thermopompe électrique comme source de chauffage principale. Fréquent dans les vieux appartements torontois, les condos et les propriétés rurales.</li>
+                  <li><strong>Appareil médical à forte consommation</strong> utilisé régulièrement. Exemples : CPAP ou BiPAP, concentrateur d'oxygène, équipement de dialyse à domicile, certains ventilateurs. On vous demandera de confirmer l'appareil dans la demande.</li>
+                  <li><strong>Statut autochtone</strong> (ou vivant avec des membres de famille autochtones). L'Ontario Native Welfare Administrators Association (ONWAA) aide avec les demandes au <strong>1-844-885-3157</strong> ou <a href="mailto:oesp@onwaa.ca">oesp@onwaa.ca</a>.</li>
+                </ul>
+                <p>La différence est importante. Un ménage d'une personne avec chauffage électrique gagnant ≤ 38 K$ reçoit <strong>68 $/mois</strong> au lieu de 45 $/mois — soit 276 $ de plus par année. Un ménage de 6 personnes avec chauffage électrique gagnant ≤ 38 K$ reçoit <strong>113 $/mois</strong> au lieu de 75 $ — une différence de 456 $/an.</p>
+                <div class="callout"><strong>Si vous êtes locataire ou propriétaire de condo avec chauffage électrique</strong>, c'est le palier à cocher dans votre demande. Beaucoup de ménages admissibles se contentent du crédit standard parce qu'ils ne réalisent pas que leur source de chauffage les fait passer au palier supérieur.</div>
+              </div>
+            </details>
 
-            <h2 id="amount">Montant du credit</h2>
-            <p>Le credit va de <strong>35 $ par mois</strong> (niveau de base) jusqu'a <strong>113 $ par mois</strong> pour les grands foyers ou foyers a chauffage electrique.</p>
+            <details class="b60-section-toggle" id="apply">
+              <summary class="b60-section-toggle-summary">Comment faire la demande (15 minutes)</summary>
+              <div class="b60-section-body">
+                <p><strong>Avant de commencer, ayez sous la main :</strong></p>
+                <ul class="bullets">
+                  <li><strong>Votre dernière facture d'électricité</strong> — il vous faudra le numéro de compte et le nom du distributeur local (LDC), p. ex. Toronto Hydro, Alectra, Hydro One.</li>
+                  <li><strong>Noms et dates de naissance</strong> de toutes les personnes vivant à l'adresse.</li>
+                  <li><strong>NAS / NII / NIT</strong> de chaque membre du ménage de 16 ans et plus avec revenu.</li>
+                  <li>Si vous faites une demande pour le palier <strong>forte consommation</strong> — soyez prêt à confirmer la source de chauffage ou l'appareil médical.</li>
+                </ul>
+                <p><strong>Puis choisissez une des trois voies :</strong></p>
+                <ol class="bullets">
+                  <li><strong>En ligne</strong> à <a href="https://ontarioelectricitysupport.ca/" target="_blank" rel="noopener noreferrer">ontarioelectricitysupport.ca</a> — le plus rapide. Environ 15 minutes.</li>
+                  <li><strong>Par téléphone</strong> au <strong>1-855-831-8151</strong> — le Centre d'appels OESP vous guide.</li>
+                  <li><strong>En personne</strong> à un organisme d'accueil communautaire accrédité — utile si vous n'avez pas de compte ARC en ligne ou avez besoin d'aide avec les documents. Le Centre d'appels vous dira quel organisme est le plus proche.</li>
+                </ol>
+                <p>L'approbation prend généralement quelques semaines. Une fois approuvé, le crédit apparaît sur votre facture d'électricité dans un ou deux cycles de facturation. <strong>Les crédits OESP ne sont pas transférables, non remboursables et n'ont pas de valeur en argent</strong> — mais l'alternative non plus (payer le plein prix).</p>
+              </div>
+            </details>
 
-            <h2 id="stack">Cumul avec d'autres aides</h2>
-            <p>OESP se cumule avec le <strong>LEAP</strong> (aide d'urgence ponctuelle pour arrieres) et avec le <strong>Rabais de l'Ontario pour l'electricite (OER)</strong>, qui reduit deja votre facture de plusieurs pourcents. En combinant les trois, un petit menage peut voir sa facture reduite de pres de moitie.</p>
+            <details class="b60-section-toggle" id="stack">
+              <summary class="b60-section-toggle-summary">Combiner avec d'autres programmes</summary>
+              <div class="b60-section-body">
+                <p>L'OESP est la base, mais il est conçu pour se combiner avec d'autres programmes provinciaux. Ne laissez pas le reste sur la table.</p>
+                <ul class="bullets">
+                  <li><strong>Rabais de l'Ontario pour l'électricité (OER)</strong> — s'applique automatiquement à presque toutes les factures d'électricité de l'Ontario. C'est un rabais en pourcentage sur le sous-total avant taxes. Aucune demande nécessaire. Vérifiez votre facture — vous devriez déjà voir « Rabais de l'Ontario pour l'électricité » comme ligne négative.</li>
+                  <li><strong>PAB (Programme d'aide aux impayés d'énergie / LEAP)</strong> — une subvention d'urgence unique jusqu'à <strong>650 $</strong> par année (780 $ si chauffage électrique) si vous êtes en retard sur vos factures et risquez d'être débranché. Faites la demande via les organismes communautaires — Toronto Hydro les liste sur sa page d'aide financière. Vous pouvez utiliser le PAB la même année que l'OESP.</li>
+                  <li><strong>Programme d'accessibilité énergétique (EAP)</strong> — mises à niveau énergétiques gratuites pour les ménages admissibles : ampoules DEL, barres d'alimentation intelligentes, coupe-froid, isolation, et même des frigos gratuits dans certains cas. Demandez via le site Save on Energy. Combinable avec l'OESP — pas de conflit.</li>
+                  <li><strong>Fonds d'urgence énergétique (EEF)</strong> — fonds de crise de la Ville de Toronto pour les résidents ayant reçu un avis de débranchement ou déjà débranchés. Distinct du PAB.</li>
+                </ul>
+                <p>Si vous êtes admissible à l'OESP et que l'OER ne figure pas sur votre facture — appelez votre distributeur. Quelque chose est mal configuré sur le compte.</p>
+              </div>
+            </details>
 
-            <h2 id="apply">Comment demander</h2>
-            <p>Formulaire en ligne + preuve de revenu (T4, avis de cotisation). Une fois approuve, le credit apparait automatiquement sur les factures suivantes. La demande doit etre renouvelee periodiquement.</p>
+            <details class="b60-section-toggle" id="renewal">
+              <summary class="b60-section-toggle-summary">Le renouvellement</summary>
+              <div class="b60-section-body">
+                <p>L'OESP n'est pas une seule fois. La plupart des ménages renouvellent tous les <strong>2 ans</strong>. Si vous avez <strong>65 ans ou plus</strong> ou recevez une <strong>pension d'invalidité du RPC</strong>, vous renouvelez tous les <strong>5 ans</strong>.</p>
+                <p>L'équipe OESP vous envoie (par la poste ou par courriel) un avis de renouvellement avant la fin de votre période. Ne l'ignorez pas — si vous le laissez expirer, le crédit s'arrête et vous devez refaire une demande à zéro. Le renouvellement est plus simple que la demande initiale, car votre dossier est déjà au fichier.</p>
+                <p>Si votre situation change en cours de période — un membre du ménage arrive ou part, le revenu baisse beaucoup — vous pouvez mettre à jour votre demande OESP de façon proactive et obtenir un crédit plus élevé immédiatement, sans attendre le renouvellement.</p>
+              </div>
+            </details>
 
-            <div id="read-full" class="read-full-cta">
-              <p>La version longue de ce guide (chiffres, cas particuliers, procedure detaillee) est en anglais :</p>
-              <a class="btn-primary" href={enUrl}>Lire l'article complet en anglais →</a>
+            <details class="b60-section-toggle" id="mistakes">
+              <summary class="b60-section-toggle-summary">Erreurs fréquentes et arnaques</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>« Je ne serai pas admissible, je gagne trop. »</strong> La hausse des seuils de 2024 a poussé l'admissibilité jusqu'à 71 000 $ après impôt pour les grands ménages. Faites le tableau ci-dessus contre votre vrai revenu après impôt avant de présumer.</li>
+                  <li><strong>« Je suis locataire, je ne peux pas faire de demande. »</strong> Oui, vous pouvez — tant que la facture est à votre nom, vous êtes pleinement admissible.</li>
+                  <li><strong>« Je ferai la demande quand j'aurai des problèmes. »</strong> L'OESP est préventif, pas de l'aide d'urgence. L'approbation prend des semaines. Si vous êtes déjà en arriérés, le PAB et l'EEF sont les outils d'urgence.</li>
+                  <li><strong>« C'est juste quelques dollars. »</strong> Au palier forte consommation, c'est 816 $ à 1 356 $ par année. C'est un mois d'épicerie.</li>
+                  <li><strong>Laisser le renouvellement expirer.</strong> Notez la date. Ne laissez pas deux mois de crédit gratuit s'évaporer parce que vous n'avez pas ouvert une enveloppe.</li>
+                  <li class="callout-warning"><strong>Arnaques OESP à la porte.</strong> La Commission de l'énergie de l'Ontario n'envoie <em>personne</em> à votre porte pour l'OESP. Si quelqu'un se présente pour « remplir votre demande » ou veut des frais pour le faire — fermez la porte. La vraie demande est gratuite, en ligne, à <a href="https://ontarioelectricitysupport.ca/" target="_blank" rel="noopener noreferrer">ontarioelectricitysupport.ca</a>.</li>
+                </ul>
+              </div>
+            </details>
+
+            <h2>En bref</h2>
+            <p>L'OESP est l'un des allègements de facture les moins réclamés en Ontario. La hausse des seuils de 2024 a élargi l'admissibilité aux ménages gagnant jusqu'à 71 000 $ après impôt — ça touche beaucoup d'aînés seuls sur RPC/SV, beaucoup de nouveaux arrivants à salaires d'entrée, et beaucoup de jeunes familles à un seul salaire. Si votre facture d'électricité mensuelle dépasse 100 $, le calcul vaut presque toujours les 15 minutes de la demande.</p>
+            <p>Si vous êtes aîné, locataire, nouvel arrivant, ou n'importe qui dont le budget est serré par le coût de la vie à Toronto — faites la demande, ou aidez quelqu'un de votre entourage à la faire. La demande officielle est à <strong><a href="https://ontarioelectricitysupport.ca/" target="_blank" rel="noopener noreferrer">ontarioelectricitysupport.ca</a></strong>. La ligne téléphonique est le <strong>1-855-831-8151</strong>.</p>
+
+            <p class="article-source"><strong>Sources principales :</strong> Commission de l'énergie de l'Ontario — <a href="https://ontarioelectricitysupport.ca/" target="_blank" rel="noopener noreferrer">portail officiel OESP</a> et l'<a href="https://www.oeb.ca/consumer-information-and-protection/bill-assistance-programs/ontario-electricity-support-program" target="_blank" rel="noopener noreferrer">aperçu du programme</a> de la CEO. Les montants de crédit et les exigences ont été recoupés avec la <a href="https://www.torontohydro.com/for-home/financial-assistance" target="_blank" rel="noopener noreferrer">page d'aide financière de Toronto Hydro</a>.</p>
+            <p class="article-disclaimer"><em>Cet article est à titre d'information générale et ne constitue pas un conseil financier. Les montants de crédit et seuils de revenu peuvent être mis à jour par la Commission de l'énergie de l'Ontario ; les chiffres ici reflètent le barème en vigueur depuis le 1<sup>er</sup> mars 2024 et actuels à la mi-2026. Confirmez les derniers chiffres sur le portail OESP avant de faire la demande.</em></p>
+
+            <div class="seo-tags" aria-label="Mots-clés">
+              <h4>Mots-clés</h4>
+              <ul>
+                <li>Programme d'aide à l'électricité de l'Ontario</li>
+                <li>Montant du crédit OESP</li>
+                <li>Seuils de revenu OESP 2026</li>
+                <li>Admissibilité OESP</li>
+                <li>Crédit supérieur chauffage électrique</li>
+                <li>Crédit appareil médical (CPAP)</li>
+                <li>OESP Autochtones et ONWAA</li>
+                <li>Combiner avec PAB et OER</li>
+                <li>Cycle de renouvellement OESP</li>
+                <li>Aide financière Toronto Hydro</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <CTASection
+      heading="Budget de ménage torontois serré ?"
+      lead="L'OESP est les 15 minutes les plus faciles que vous passerez cette année. Si vous connaissez un aîné, un locataire, une famille de nouveaux arrivants, ou un jeune ménage dont la facture d'hydro dépasse 100 $/mois, envoyez-lui cet article — ou envoyez-moi une note rapide et je le guide."
+    />
   </article>
 
   <Footer />
 </BaseLayout>
-
-<style>
-  .qf-card { background: #fff; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; padding: 18px 20px; margin: 0 0 28px; display: grid; gap: 10px; }
-  .qf-row { display: grid; grid-template-columns: 42% 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed #eee; }
-  .qf-row:last-child { border-bottom: 0; padding-bottom: 0; }
-  .qf-label { color: #666; font-size: 0.9rem; }
-  .qf-val { color: #1a1a1a; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta { margin-top: 36px; padding: 22px; background: #f8f5ef; border: 1px solid var(--line, #e6e2dc); border-radius: 14px; text-align: center; }
-  .read-full-cta p { margin: 0 0 12px; color: #333; }
-  .read-full-cta .btn-primary { display: inline-block; background: #b8845b; color: #fff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-  .read-full-cta .btn-primary:hover { background: #a06d47; }
-</style>
