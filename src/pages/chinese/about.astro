@@ -16,6 +16,40 @@ const hreflangAlternates = [
 <BaseLayout title="关于 Peter Law — 多伦多房地产" description="Peter Law:在多伦多市中心土生土长。前 Airbnb 房东,400+ 客户好评。HomeLife Golconda Realty Inc. 注册销售代表。" zh={true}
   hreflangAlternates={hreflangAlternates}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://www.realtorpeterlaw.com/chinese/about#page",
+      "url": "https://www.realtorpeterlaw.com/chinese/about",
+      "name": "关于 Peter Law — 多伦多房地产",
+      "inLanguage": "zh-CN",
+      "mainEntity": {
+        "@type": "RealEstateAgent",
+        "@id": "https://www.realtorpeterlaw.com/#agent",
+        "name": "Peter Law",
+        "jobTitle": "Sales Representative / 销售代表",
+        "url": "https://www.realtorpeterlaw.com/chinese/",
+        "image": "https://www.realtorpeterlaw.com/photos/peter-interior.webp",
+        "telephone": "+1-647-888-8472",
+        "email": "Admin@RealtorPeterLaw.com",
+        "knowsLanguage": ["English", "Chinese", "French"],
+        "description": "多伦多土生土长的双语房地产销售代表。多伦多租赁市场六年全职经验。HomeLife Golconda Realty Inc., 经纪公司。RECO 注册。",
+        "worksFor": {
+          "@type": "RealEstateAgent",
+          "name": "HomeLife Golconda Realty Inc., Brokerage",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "215 - 3601 HWY 7 East",
+            "addressLocality": "Markham",
+            "addressRegion": "ON",
+            "postalCode": "L3R 0M3",
+            "addressCountry": "CA"
+          }
+        }
+      }
+    })} />
+  </Fragment>
 
   <ChineseTopBar />
   <ChineseHeader active="about" ctaLabel="预约通话" />

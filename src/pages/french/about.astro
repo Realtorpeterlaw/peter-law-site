@@ -20,6 +20,41 @@ const hreflangAlternates = [
   bodyClass="fr"
   hreflangAlternates={hreflangAlternates}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://www.realtorpeterlaw.com/french/about#page",
+      "url": "https://www.realtorpeterlaw.com/french/about",
+      "name": "À propos de Peter Law — Immobilier à Toronto",
+      "inLanguage": "fr-CA",
+      "mainEntity": {
+        "@type": "RealEstateAgent",
+        "@id": "https://www.realtorpeterlaw.com/#agent",
+        "name": "Peter Law",
+        "jobTitle": "Représentant commercial",
+        "url": "https://www.realtorpeterlaw.com/french/",
+        "image": "https://www.realtorpeterlaw.com/photos/peter-interior.webp",
+        "telephone": "+1-647-888-8472",
+        "email": "Admin@RealtorPeterLaw.com",
+        "knowsLanguage": ["English", "Chinese", "French"],
+        "description": "Représentant commercial trilingue né et élevé à Toronto. Six ans à temps plein sur le marché locatif de Toronto. HomeLife Golconda Realty Inc., Brokerage. Inscrit au RECO.",
+        "worksFor": {
+          "@type": "RealEstateAgent",
+          "name": "HomeLife Golconda Realty Inc., Brokerage",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "215 - 3601 HWY 7 East",
+            "addressLocality": "Markham",
+            "addressRegion": "ON",
+            "postalCode": "L3R 0M3",
+            "addressCountry": "CA"
+          }
+        }
+      }
+    })} />
+  </Fragment>
+
   <FrenchTopBar />
   <FrenchHeader active="about" ctaLabel="Réserver un appel" />
 
