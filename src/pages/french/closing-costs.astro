@@ -12,50 +12,147 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/closing-costs/' },
 ];
 ---
-<BaseLayout title="Frais de clôture à Toronto — la liste complète | Peter Law" description="La vraie liste des frais de clôture pour un achat immobilier à Toronto : droits de mutation, avocat, titre, ajustements. Estimez votre argent comptant nécessaire." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Frais de clôture en Ontario — ce que paient les acheteurs | Peter Law"
+  description="Détail complet des frais de clôture à l'achat d'une propriété à Toronto et en Ontario : droits de mutation, honoraires juridiques, assurance titres, ajustements, TVP sur la prime SCHL et estimations totales."
+  lang="fr"
+  bodyClass="fr guide-page"
   hreflangAlternates={hreflangAlternates}
 >
-
   <FrenchTopBar />
   <FrenchHeader active="buyers" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Acheteurs · Frais de clôture</div>
-      <h1>Frais de clôture — le tableau complet.</h1>
-      <p>Le prix d'achat n'est qu'une partie de l'histoire. Les frais de clôture représentent typiquement 3-5% du prix pour un premier acheteur à Toronto. Voici la liste complète.</p>
+      <div class="eyebrow">Ressource acheteur</div>
+      <h1>Ce que vous paierez réellement à la clôture.</h1>
+      <p>La mise de fonds n'est pas toute l'histoire. À Toronto, les frais de clôture atteignent facilement 2 à 4 % du prix d'achat. Voici la liste complète, avec des chiffres réalistes.</p>
     </div>
   </section>
 
-  <section class="major">
+  <section class="major" style="padding-top: 32px;">
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Types de frais</h4>
+          <h4>Sur cette page</h4>
           <ul>
-            <li><a href="#ltt">Droits de mutation</a></li>
-            <li><a href="#legal">Frais juridiques</a></li>
-            <li><a href="#title">Titre et enregistrement</a></li>
+            <li><a href="#ltt">Droits de mutation immobilière</a></li>
+            <li><a href="#legal">Honoraires juridiques</a></li>
+            <li><a href="#title">Assurance titres</a></li>
             <li><a href="#adjustments">Ajustements</a></li>
-            <li><a href="#other">Autres frais</a></li>
+            <li><a href="#cmhc">Prime SCHL et TVP</a></li>
+            <li><a href="#inspection">Inspection préachat</a></li>
+            <li><a href="#condo">Certificat d'information (condos)</a></li>
+            <li><a href="#tarion">Tarion (constructions neuves)</a></li>
+            <li><a href="#moving">Frais de déménagement</a></li>
+            <li><a href="#total">Estimation totale</a></li>
           </ul>
         </aside>
         <div class="prose-body">
-          <h2 id="ltt">Droits de mutation immobilière</h2>
-          <p>Le plus gros poste. LTT provincial de l'Ontario + LTT municipal si la propriété est dans la Ville de Toronto. Pour un achat de 900 000 $ à Toronto par un premier acheteur : environ 21 000 $ après remboursement.</p>
-          <h2 id="legal">Frais juridiques</h2>
-          <p>Comptez 1 500 à 2 500 $ pour un avocat immobilier expérimenté. Cela inclut la révision du contrat, la recherche de titre, l'enregistrement, et le décaissement à la clôture. Ne magasinez pas au rabais ici — un mauvais avocat coûte plus cher plus tard.</p>
-          <h2 id="title">Assurance titre et enregistrement</h2>
-          <p>L'assurance titre (300-500 $) vous protège contre les défauts non détectés dans le titre. Les frais d'enregistrement (environ 80 $) et de recherche de titre (150-300 $) s'ajoutent.</p>
-          <h2 id="adjustments">Ajustements</h2>
-          <p>Vous remboursez au vendeur les taxes foncières et les frais de copropriété qu'il a payés d'avance pour la période après votre prise de possession. Généralement 500 à 2 000 $ selon la date de clôture dans le cycle de facturation.</p>
-          <h2 id="other">Autres frais possibles</h2>
-          <p>Inspection (300-500 $), estimation par le prêteur si demandée (300-500 $), déménagement (1 000-3 000 $), assurance habitation (250-500 $ pour la première année), branchement des services publics. Prévoyez également un coussin de 3 000-5 000 $ pour l'imprévu.</p>
+          <h2 id="ltt">Droits de mutation immobilière (le plus gros poste)</h2>
+          <p>Droits provinciaux + (à Toronto) taxe municipale de mutation immobilière. C'est habituellement le plus important des frais de clôture.</p>
+          <ul class="bullets">
+            <li>Hors Toronto : environ <strong>1,5 à 2 %</strong> du prix</li>
+            <li>À Toronto : environ <strong>3 à 4 %</strong> du prix (les deux droits s'appliquent)</li>
+            <li>Remboursement pour premiers acheteurs : jusqu'à 4 000 $ (ON) + 4 475 $ (Toronto)</li>
+          </ul>
+          <p><a href="/french/land-transfer-tax">Consultez le guide complet des droits de mutation et le calculateur →</a></p>
+
+          <details class="b60-section-toggle" id="legal">
+            <summary class="b60-section-toggle-summary">Honoraires juridiques</summary>
+            <div class="b60-section-body">
+              <p>Les honoraires de votre avocat en droit immobilier pour la gestion de la transaction.</p>
+              <ul class="bullets">
+                <li><strong>Fourchette typique :</strong> 1 500 à 2 500 $ pour une transaction simple</li>
+                <li><strong>Plus élevés pour les dossiers complexes :</strong> construction neuve, titres multiples, présence d'un acheteur étranger, clôtures accélérées</li>
+                <li>La TVH s'applique aux honoraires (13 % en Ontario)</li>
+              </ul>
+              <div class="callout"><strong>Demandez des devis à l'avance.</strong> Les honoraires varient beaucoup d'un avocat à l'autre. Demandez un forfait tout inclus qui couvre les débours, pas seulement le travail juridique.</div>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="title">
+            <summary class="b60-section-toggle-summary">Assurance titres</summary>
+            <div class="b60-section-body">
+              <p>Prime unique qui vous protège contre les vices de titre, les erreurs d'arpentage et certaines formes de fraude. Souvent exigée par les prêteurs.</p>
+              <ul class="bullets">
+                <li><strong>Coût typique :</strong> 300 à 500 $ pour une propriété résidentielle</li>
+                <li>Payée par l'entremise de votre avocat à la clôture</li>
+                <li>Demeure valide tant que vous êtes propriétaire</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="adjustments">
+            <summary class="b60-section-toggle-summary">Ajustements de taxes foncières et de services publics</summary>
+            <div class="b60-section-body">
+              <p>Si le vendeur a payé d'avance des taxes foncières ou des services publics pour une période postérieure à votre date de clôture, vous le remboursez au prorata (ou inversement s'il est en retard de paiement).</p>
+              <ul class="bullets">
+                <li><strong>Fourchette typique :</strong> 500 à 3 000 $ selon la date de clôture et les montants</li>
+                <li>Votre avocat les calcule — vous n'avez pas à le faire</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="cmhc">
+            <summary class="b60-section-toggle-summary">Prime SCHL et TVP (si mise de fonds inférieure à 20 %)</summary>
+            <div class="b60-section-body">
+              <p>Si vous versez moins de 20 % de mise de fonds, vous devez souscrire une assurance prêt hypothécaire (SCHL, Sagen ou Canada Guaranty).</p>
+              <ul class="bullets">
+                <li><strong>Prime :</strong> de 2,80 % à 4,00 % du montant de l'hypothèque, selon le ratio prêt-valeur (ajoutée à votre hypothèque)</li>
+                <li><strong>TVP sur la prime :</strong> en Ontario, vous payez 8 % de TVP sur la prime <strong>en argent comptant à la clôture</strong> (c'est cette partie qui touche votre budget de clôture, pas la prime elle-même)</li>
+                <li>Exemple : hypothèque de 500 000 $ × prime de 4,00 % = 20 000 $ de prime → 1 600 $ de TVP dus à la clôture</li>
+              </ul>
+
+              <h2 id="inspection">Inspection préachat</h2>
+              <p>Facultative mais recommandée pour les maisons de revente. Moins souvent omise pour les condos, puisque l'examen du certificat d'information couvre les enjeux à l'échelle de l'immeuble.</p>
+              <ul class="bullets">
+                <li><strong>Coût typique :</strong> 400 à 600 $ pour un condo ; 500 à 800 $ pour une maison</li>
+                <li>Payée directement à l'inspecteur, habituellement dans les 24 à 48 heures suivant la réservation</li>
+              </ul>
+
+              <h2 id="condo">Examen du certificat d'information (condos seulement)</h2>
+              <ul class="bullets">
+                <li><strong>Frais du certificat :</strong> 100 $ (maximum réglementé, payés au syndicat de copropriété)</li>
+                <li><strong>Frais d'examen par l'avocat :</strong> 200 à 500 $ pour l'interpréter à votre intention</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="tarion">
+            <summary class="b60-section-toggle-summary">Garantie Tarion (construction neuve seulement)</summary>
+            <div class="b60-section-body">
+              <p>Si vous achetez une construction neuve d'un constructeur enregistré en Ontario, les frais d'inscription à Tarion s'appliquent (le constructeur les paie habituellement, mais vérifiez votre contrat). Environ 300 à 1 500 $ selon le prix de la maison.</p>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="moving">
+            <summary class="b60-section-toggle-summary">Frais de déménagement</summary>
+            <div class="b60-section-body">
+              <p>Ce n'est pas techniquement un « frais de clôture », mais cela survient la même semaine. Budgétez de façon réaliste :</p>
+              <ul class="bullets">
+                <li>À faire soi-même (location de camion + boîtes) : 300 à 600 $</li>
+                <li>Déménageurs professionnels locaux (Toronto) : 800 à 2 000 $</li>
+                <li>Longue distance : 3 000 $ et plus</li>
+              </ul>
+            </div>
+          </details>
+
+          <h2 id="total">Estimation totale (budgétisation réaliste)</h2>
+          <p>Pour la plupart des acheteurs torontois :</p>
+          <div class="callout">
+            <strong>Prévoyez de 2 à 4 % du prix d'achat en frais de clôture, en plus de votre mise de fonds.</strong>
+            <br><br>
+            Sur un condo à 700 000 $, cela représente de 14 000 à 28 000 $ en plus de votre mise de fonds. Le principal écart vient des droits de mutation (Toronto ou non) et du fait que vous deviez ou non payer la TVP sur la prime SCHL.
+          </div>
+          <p>Pour les premiers acheteurs, les remboursements atténuent un peu la piqûre des droits de mutation, mais le reste est bien réel. Ne videz pas votre mise de fonds jusqu'au dernier dollar — gardez une réserve pour la clôture.</p>
+
+          <p class="legal-note">Ce guide est fourni à titre informatif seulement et ne constitue ni un conseil financier ni un conseil juridique. Confirmez les montants précis avec votre avocat en droit immobilier et votre professionnel du prêt hypothécaire avant la clôture. Les chiffres indiqués sont des fourchettes typiques en date de la fin de 2024 — les frais et taux changent.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <FrenchCTASection />
+  <FrenchCTASection heading="Vous voulez un vrai chiffre pour votre situation?" lead="Dites-moi votre prix d'achat et vos circonstances et je vous donnerai une estimation réaliste des frais de clôture dans l'heure. Gratuit, sans engagement." />
   <FrenchFooter />
 </BaseLayout>

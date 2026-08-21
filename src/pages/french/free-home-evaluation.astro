@@ -4,6 +4,8 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjrzgda";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/free-home-evaluation/' },
@@ -12,17 +14,21 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/free-home-evaluation/' },
 ];
 ---
-<BaseLayout title="\u00c9valuation gratuite \u2014 Combien vaut votre propri\u00e9t\u00e9? | Peter Law" description="Obtenez une \u00e9valuation gratuite et sans engagement de la valeur actuelle de votre propri\u00e9t\u00e9 \u00e0 Toronto. CMA d\u00e9taill\u00e9e livr\u00e9e en 48 heures." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Évaluation gratuite de propriété — Quelle est la valeur de votre propriété à Toronto? | Peter Law"
+  description="Obtenez une évaluation gratuite et sans engagement de la valeur actuelle de votre propriété à Toronto. Analyse comparative du marché (ACM) détaillée livrée en 48 heures."
+  lang="fr"
+  bodyClass="calc-page fr"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
-  <LHeader active="sellers" />
+  <LHeader active="sellers" ctaLabel="Ou réservez un appel" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Évaluation gratuite</div>
-      <h1>Combien vaut réellement votre maison aujourd'hui?</h1>
-      <p>Une analyse comparative de marché détaillée par un courtier immobilier qui connaît votre quartier. Gratuite, sans engagement, livrée en 48 heures.</p>
+      <div class="eyebrow">Évaluation gratuite de propriété</div>
+      <h1>Quelle est vraiment la valeur de votre maison aujourd'hui?</h1>
+      <p>Une analyse comparative du marché détaillée par un courtier immobilier de Toronto qui connaît votre quartier. Gratuite, sans engagement, livrée en 48 heures.</p>
     </div>
   </section>
 
@@ -30,26 +36,107 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>—</h4>
-          <ul>          <li><a href="#what">Ce que vous obtenez</a></li>
-          <li><a href="#how">Comment ça marche</a></li>
-          <li><a href="#why">Pourquoi passer par moi</a></li>
-          <li><a href="#form">Demander votre évaluation</a></li></ul>
+          <h4>Sur cette page</h4>
+          <ul>
+            <li><a href="#what">Ce que vous obtenez</a></li>
+            <li><a href="#how">Comment ça fonctionne</a></li>
+            <li><a href="#why">Pourquoi passer par moi</a></li>
+            <li><a href="#form">Demander votre évaluation</a></li>
+          </ul>
         </aside>
         <div class="prose-body">
           <h2 id="what">Ce que vous obtenez</h2>
-          <p><strong>Une CMA détaillée</strong> — ventes récentes de propriétés comparables dans un rayon de 1 km, ajustées pour la taille, l'état, les commodités. <strong>Une fourchette de prix réaliste</strong> — bas, attendu, ambitieux. <strong>Recommandations pour maximiser la valeur</strong>. <strong>Un délai honnête</strong> — combien de temps prennent les ventes similaires.</p>
-          <h2 id="how">Comment ça marche</h2>
-          <p>1. Vous remplissez le formulaire ci-dessous (~3 min). 2. Je récupère les données de ventes TRREB et les inscriptions actives. 3. Rapide passage sur place ou virtuel dans les 24 heures. 4. Rapport CMA livré par courriel dans les 48 heures.</p>
+          <ul class="bullets">
+            <li><strong>Une analyse comparative du marché (ACM) détaillée</strong> — ventes récentes de propriétés comparables dans un rayon de 1 km, ajustées selon la superficie, l'état et les commodités</li>
+            <li><strong>Une fourchette de prix réaliste</strong> — bas, attendu et ambitieux — basée sur l'activité actuelle du marché</li>
+            <li><strong>Des recommandations pour maximiser la valeur</strong> — ce qu'il faut réparer, ce qu'il faut mettre en valeur, ce qu'il vaut mieux laisser tel quel</li>
+            <li><strong>Un échéancier honnête</strong> — combien de temps prennent les propriétés similaires à se vendre, ventilé par tranche de prix</li>
+          </ul>
+
+          <h2 id="how">Comment ça fonctionne</h2>
+          <ol class="bullets" style="list-style: decimal;">
+            <li>Vous remplissez le formulaire ci-dessous avec les détails de la propriété — environ 3 minutes</li>
+            <li>Je récupère les données des ventes conclues du TRREB et les inscriptions actives dans votre secteur</li>
+            <li>Je fais un rapide passage sur place ou une visite virtuelle (à votre choix) — habituellement dans les 24 heures</li>
+            <li>Vous recevez l'évaluation écrite (PDF + résumé par courriel) dans les 48 heures suivant l'envoi</li>
+          </ol>
+
           <h2 id="why">Pourquoi passer par moi</h2>
-          <p>Je suis un représentant commercial inscrit RECO chez HomeLife Golconda. Je ne facture rien pour une CMA parce que 30% des vendeurs qui reçoivent une évaluation honnête finissent par m'engager pour la vente. Pas de mise à niveau, pas de piège.</p>
+          <p>Je réalise personnellement chaque évaluation pour les propriétés du centre-ville de Toronto, du secteur riverain et de la RGT. Je vous accompagne de l'étape A à Z avec une attention sans faille.</p>
+
           <h2 id="form">Demander votre évaluation</h2>
-          <p>Utilisez le formulaire de contact ci-dessous ou <a href="/french/contact">envoyez-moi un message direct</a>.</p>
+          <div class="calc">
+            <form method="POST" action={FORMSPREE_ENDPOINT}>
+              <div class="calc-fields">
+                <div class="calc-field">
+                  <label for="fhe-name">Nom complet <span class="hint">*</span></label>
+                  <input id="fhe-name" name="name" type="text" required autocomplete="name">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-email">Courriel <span class="hint">*</span></label>
+                  <input id="fhe-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-phone">Téléphone</label>
+                  <input id="fhe-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-type">Type de propriété</label>
+                  <select id="fhe-type" name="property_type">
+                    <option>Condo</option>
+                    <option>Maison — isolée</option>
+                    <option>Maison — jumelée</option>
+                    <option>Maison en rangée</option>
+                    <option>Autre</option>
+                  </select>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="fhe-address">Adresse de la propriété <span class="hint">*</span></label>
+                  <input id="fhe-address" name="address" type="text" required placeholder="123 rue Main, Toronto, ON">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-beds">Chambres</label>
+                  <input id="fhe-beds" name="bedrooms" type="number" min="0" max="10" step="1" inputmode="decimal">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-baths">Salles de bain</label>
+                  <input id="fhe-baths" name="bathrooms" type="number" min="0" max="10" step="0.5" inputmode="decimal">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-sqft">Superficie approximative (pi²)</label>
+                  <input id="fhe-sqft" name="sqft" type="number" min="100" step="50" placeholder="ex. 750" inputmode="decimal">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-timeline">Échéance de vente</label>
+                  <select id="fhe-timeline" name="timeline">
+                    <option>Simple curiosité</option>
+                    <option>J'y pense d'ici 3 à 6 mois</option>
+                    <option>Prêt dans 1 à 3 mois</option>
+                    <option>J'inscris maintenant / urgent</option>
+                  </select>
+                </div>
+                <div class="calc-field calc-field-full">
+                  <label for="fhe-notes">Quelque chose à savoir? <span class="hint">(rénovation récente, stationnement, vue, etc.)</span></label>
+                  <input id="fhe-notes" name="notes" type="text">
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="fhe-gotcha">Ne remplissez pas ceci</label>
+                  <input id="fhe-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_subject" value="Nouvelle demande d'évaluation gratuite de propriété">
+                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 24px;">
+                Envoyer ma demande d'évaluation
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <LCTA heading="Pr\u00eat \u00e0 conna\u00eetre la vraie valeur?" lead="Envoyez l'adresse, je reviens dans les 48 heures avec la CMA compl\u00e8te \u2014 m\u00eame si vous vendez dans deux ans." />
+  <LCTA heading="Prêt à connaître la vraie valeur?" lead="Envoyez-moi l'adresse, je reviens dans les 48 heures avec l'ACM complète — même si vous vendez seulement dans deux ans." />
   <LFooter />
 </BaseLayout>

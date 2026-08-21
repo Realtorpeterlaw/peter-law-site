@@ -5,6 +5,8 @@ import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
 
+const LTB_FORMS_URL = "https://tribunalsontario.ca/ltb/forms-filing-and-fees/";
+
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/n-forms/' },
   { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/n-forms/' },
@@ -12,7 +14,11 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/n-forms/' },
 ];
 ---
-<BaseLayout title="Formulaires N \u2014 Avis de la CLI de l'Ontario | Peter Law" description="Guide simple des formulaires d'avis N de la Commission de la location immobili\u00e8re de l'Ontario." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Formulaires N — Formulaires d'avis de la CLI de l'Ontario expliqués | Peter Law"
+  description="Guide en langage simple des formulaires d'avis N de la Commission de la location immobilière (CLI) de l'Ontario — à quoi sert chacun, qui le dépose, et où télécharger la version officielle."
+  lang="fr"
+  bodyClass="guide-page fr"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
@@ -20,39 +26,105 @@ const hreflangAlternates = [
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Ressource locative</div>
-      <h1>Formulaires N — avis de la CLI.</h1>
-      <p>Formulaires officiels utilisés en Ontario pour donner un avis légal — augmentations, terminaisons, accords mutuels.</p>
+      <div class="eyebrow">Ressource pour la location</div>
+      <h1>Formulaires N — avis de la CLI de l'Ontario.</h1>
+      <p>Les formulaires qu'utilisent les locataires et les propriétaires en Ontario pour donner un avis légal — augmentations de loyer, résiliations, accords mutuels. Explications en langage simple et liens pour télécharger les versions officielles.</p>
     </div>
   </section>
 
-  <section class="major" style="padding-top:32px;">
+  <section class="major" style="padding-top: 32px;">
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>—</h4>
-          <ul>          <li><a href="#intro">Que sont les formulaires N</a></li>
-          <li><a href="#landlord">Avis du propriétaire</a></li>
-          <li><a href="#tenant">Avis du locataire</a></li>
-          <li><a href="#mutual">Accords mutuels</a></li>
-          <li><a href="#download">Où télécharger</a></li></ul>
+          <h4>Sur cette page</h4>
+          <ul>
+            <li><a href="#intro">Que sont les formulaires N</a></li>
+            <li><a href="#landlord">Avis du propriétaire</a></li>
+            <li><a href="#tenant">Avis du locataire</a></li>
+            <li><a href="#mutual">Accords mutuels</a></li>
+            <li><a href="#download">Où télécharger</a></li>
+          </ul>
         </aside>
         <div class="prose-body">
+
+          <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+            <strong>Important — à lire d'abord.</strong> Les descriptions ci-dessous sont à titre informatif seulement. Remplir le mauvais formulaire, ou remplir le bon formulaire de façon incorrecte, peut invalider l'avis ou créer une exposition juridique. <strong>Consultez toujours un parajuriste, un avocat ou une clinique juridique communautaire pour votre situation particulière.</strong> Je suis un représentant commercial immobilier inscrit, pas un avocat.
+          </div>
+
           <h2 id="intro">Que sont les formulaires N</h2>
-          <p>Les formulaires N sont les avis officiels de la <strong>Commission de la location immobilière (CLI)</strong> de l'Ontario. Ils sont utilisés par les locataires et les propriétaires pour donner un avis légal en vertu de la <em>Loi sur la location à usage d'habitation</em>.</p>
-          <h2 id="landlord">Avis du propriétaire</h2>
-          <p><strong>N1</strong> — Avis d'augmentation de loyer (90 jours). <strong>N4</strong> — Avis pour non-paiement (14 jours). <strong>N5</strong> — Avis pour dommages ou plaintes. <strong>N12</strong> — Le propriétaire veut le logement pour usage personnel (60 jours). <strong>N13</strong> — Rénovation majeure ou démolition.</p>
-          <h2 id="tenant">Avis du locataire</h2>
-          <p><strong>N9</strong> — Avis de fin de tenure par le locataire (60 jours). <strong>N15</strong> — Locataire fin pour violence familiale (28 jours).</p>
-          <h2 id="mutual">Accords mutuels</h2>
-          <p><strong>N11</strong> — Accord mutuel de fin de tenure. Signé par les deux parties.</p>
-          <h2 id="download">Où télécharger</h2>
-          <p>Toujours utiliser la version officielle de <a href='https://tribunalsontario.ca/cli/' target='_blank' rel='noopener'>Tribunaux Ontario</a>. Les versions non officielles peuvent être rejetées.</p>
+          <p>Les « formulaires N » sont la famille de formulaires d'avis émis par la Commission de la location immobilière (CLI) de l'Ontario. C'est ainsi qu'un locataire ou un propriétaire donne un <strong>avis écrit légal</strong> pour des choses comme les augmentations de loyer, les accords mutuels pour mettre fin à une location, ou la résiliation formelle pour des motifs précis. Chaque formulaire N a ses propres exigences légales — délais de préavis appropriés, informations requises et (pour certains) obligations d'indemnisation.</p>
+          <p>Les formulaires N sont des <strong>avis</strong>, pas des ordonnances du tribunal. En recevoir un ne met pas fin en soi à votre location et ne vous expulse pas. Si un litige suit, il est renvoyé à une audience devant la CLI.</p>
+
+                    <details class="b60-section-toggle" id="landlord">
+            <summary class="b60-section-toggle-summary">Avis du propriétaire</summary>
+            <div class="b60-section-body">
+  <h3>N1 — Avis d'augmentation de loyer</h3>
+            <p>Utilisé par les propriétaires pour aviser formellement un locataire que le loyer va augmenter. Exige un préavis écrit de 90 jours et (pour les logements assujettis au contrôle des loyers) ne peut pas dépasser la ligne directrice annuelle.</p>
+
+            <h3>N2 — Avis d'augmentation de loyer (logement partiellement exempté)</h3>
+            <p>Utilisé pour les logements partiellement exemptés de la ligne directrice d'augmentation des loyers (p. ex. les logements occupés pour la première fois à des fins résidentielles le 15 novembre 2018 ou après).</p>
+
+            <h3>N4 — Avis de résiliation anticipée pour non-paiement du loyer</h3>
+            <p>La première étape formelle que prend un propriétaire lorsqu'un locataire manque un paiement de loyer. Donne au locataire 14 jours pour payer ou quitter. Si le loyer est payé en totalité pendant la période de préavis, le N4 est annulé.</p>
+
+            <h3>N5 — Avis de résiliation anticipée pour motif</h3>
+            <p>Utilisé en cas d'atteinte substantielle à la jouissance raisonnable, de dommages au logement ou de trop nombreux occupants. Le locataire a 7 jours pour corriger la situation (premier N5); un deuxième N5 dans les 6 mois n'a pas de période de correction.</p>
+
+            <h3>N6 — Avis de résiliation anticipée pour motif (acte illégal ou fausse déclaration)</h3>
+            <p>Utilisé pour un acte illégal dans le logement ou l'immeuble, ou pour fausse déclaration de revenus dans un logement subventionné. Aucune période de correction.</p>
+
+            <h3>N7 — Avis de résiliation anticipée pour motif (atteinte grave à la sécurité)</h3>
+            <p>Utilisé pour des situations très graves : dommages volontaires, atteinte grave à la sécurité, ou usage du logement à des fins d'entreprise illégale. Préavis de 10 jours. Aucune période de correction.</p>
+
+            <h3>N8 — Avis de résiliation à la fin du terme</h3>
+            <p>Utilisé à la fin d'une location à terme fixe pour certains motifs précis (p. ex. retards de paiement persistants, fin d'une location liée à l'emploi). Exigences strictes; ce n'est pas un simple avis « le bail est fini, partez » — en Ontario, les baux à terme fixe deviennent automatiquement mensuels.</p>
+
+            <h3>N12 — Avis de résiliation (usage par le propriétaire, un acheteur ou la famille)</h3>
+            <p>Utilisé lorsque le propriétaire, un membre de sa famille ou un acheteur de la propriété a l'intention d'emménager dans le logement. Exige un <strong>préavis de 60 jours</strong> et une <strong>indemnité d'un mois de loyer</strong> au locataire, ou l'offre d'un autre logement acceptable. Règles strictes — l'abus du N12 est une infraction sérieuse.</p>
+
+            <h3>N13 — Avis de résiliation (démolition, réparations, conversion)</h3>
+            <p>Utilisé lorsque le propriétaire a l'intention de démolir le logement, d'effectuer des réparations majeures exigeant l'inoccupation, ou de le convertir à un usage non résidentiel. Exige un <strong>préavis de 120 jours</strong> et une <strong>indemnité de 3 mois de loyer</strong> (ou un droit de premier refus dans le cas des réparations).</p>
+            </div>
+          </details>
+
+<details class="b60-section-toggle" id="tenant">
+            <summary class="b60-section-toggle-summary">Avis du locataire</summary>
+            <div class="b60-section-body">
+  <h3>N9 — Avis du locataire pour mettre fin à la location</h3>
+            <p>La façon dont un locataire donne un avis écrit qu'il quitte. Le préavis requis est de <strong>60 jours</strong> pour les locations mensuelles, se terminant le dernier jour d'une période de location. Pour les baux à terme fixe, la date de fin la plus proche est le lendemain de la fin du terme.</p>
+
+            <h3>N15 — Avis du locataire pour mettre fin à la location en raison de violence ou d'autres abus</h3>
+            <p>Protection spéciale pour les locataires qui doivent partir en raison de violence sexuelle ou familiale. Seulement <strong>28 jours de préavis</strong> requis. Le propriétaire ne peut pas divulguer le motif ni le fait que le locataire est parti.</p>
+            </div>
+          </details>
+
+<details class="b60-section-toggle" id="mutual">
+            <summary class="b60-section-toggle-summary">Accords mutuels</summary>
+            <div class="b60-section-body">
+  <h3>N10 — Accord pour augmenter le loyer au-delà de la ligne directrice</h3>
+            <p>Utilisé lorsque le propriétaire et le locataire conviennent par écrit d'une augmentation de loyer supérieure à la ligne directrice annuelle (p. ex. en échange d'une amélioration comme la climatisation ou un nouvel électroménager). Volontaire des deux côtés.</p>
+
+            <h3>N11 — Accord pour mettre fin à la location</h3>
+            <p>Utilisé lorsque le propriétaire et le locataire acceptent tous deux de mettre fin à la location à une date précise. Volontaire. Une fois signé, la location prend fin à la date convenue.</p>
+            <div class="callout"><strong>Prudence avec le N11.</strong> Certains propriétaires font pression sur les locataires pour qu'ils signent un N11 dans des situations où le locataire n'est pas légalement obligé de partir (p. ex. à la fin d'un terme fixe). Les locataires ne sont pas tenus de signer. Une fois signé, vous renoncez à votre droit de rester. Obtenez un avis indépendant avant de signer.</div>
+            </div>
+          </details>
+
+<h2 id="download">Où télécharger les formulaires officiels</h2>
+          <p>La Commission de la location immobilière publie tous les formulaires N (et leurs guides) sur le site officiel de Tribunaux de l'Ontario. Téléchargez toujours à partir de là pour vous assurer d'avoir la version en vigueur — les formulaires sont mis à jour à l'occasion.</p>
+          <p style="margin-top: 24px;">
+            <a href={LTB_FORMS_URL} target="_blank" rel="noopener" class="btn-primary">
+              Formulaires officiels de la CLI — Tribunaux de l'Ontario
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+
+          <p class="legal-note">Ce guide est à titre informatif, pas un avis juridique. Les descriptions des formulaires sont des résumés. Consultez toujours un parajuriste, un avocat ou la CLI directement pour votre situation particulière. Je suis un représentant commercial immobilier inscrit, pas un avocat.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <LCTA heading="Vous avez re\u00e7u un avis?" lead="Envoyez-moi le formulaire \u2014 je v\u00e9rifierai en 10 minutes s'il est valide et ce que vous devez faire ensuite." />
+  <LCTA heading="Besoin d'un deuxième regard?" lead="Si vous avez reçu un formulaire N ou êtes sur le point d'en émettre un, la formulation et le moment comptent. Je peux vous référer à un parajuriste de confiance et aider à interpréter ce que vous avez en main." />
   <LFooter />
 </BaseLayout>

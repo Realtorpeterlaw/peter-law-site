@@ -13,67 +13,218 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/land-transfer-tax/' },
 ];
 ---
-<BaseLayout title="Droits de mutation immobilière — Ontario + Toronto | Peter Law" description="Calculez vos droits de mutation immobilière (LTT) provinciaux et municipaux à Toronto. Remboursement pour premier acheteur inclus. Basé sur les barèmes 2026." lang="fr" bodyClass="fr calc-page"
+<BaseLayout
+  title="Droits de mutation immobilière en Ontario — Guide de l'acheteur | Peter Law"
+  description="Ce que sont les droits de mutation immobilière, leur calcul en Ontario, la taxe municipale supplémentaire de Toronto (MLTT) et le remboursement pour premiers acheteurs."
+  lang="fr"
+  bodyClass="fr guide-page"
   hreflangAlternates={hreflangAlternates}
 >
-
   <FrenchTopBar />
   <FrenchHeader active="buyers" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Acheteurs · Droits de mutation</div>
-      <h1>Droits de mutation immobilière</h1>
-      <p>Chaque achat immobilier en Ontario est assujetti aux droits de mutation provinciaux. Les acheteurs à Toronto paient également le droit municipal (MLTT). Les premiers acheteurs reçoivent un remboursement partiel.</p>
+      <div class="eyebrow">Ressource acheteur</div>
+      <h1>Droits de mutation immobilière en Ontario.</h1>
+      <p>Ce qu'ils sont, comment ils sont calculés, qui les paie et comment fonctionne le remboursement pour premiers acheteurs.</p>
     </div>
   </section>
 
-  <section class="major" style="padding-top:24px;">
+  <section class="major" style="padding-top: 32px;">
     <div class="wrap">
-      <div class="calc">
-        <div class="calc-fields">
-          <div class="calc-field calc-field-full">
-            <label for="ltt-price">Prix d'achat</label>
-            <div class="input-prefix"><input type="number" id="ltt-price" value="900000" min="0" step="5000" inputmode="decimal"></div>
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Sur cette page</h4>
+          <ul>
+            <li><a href="#what">De quoi il s'agit</a></li>
+            <li><a href="#provincial">Barèmes de l'Ontario</a></li>
+            <li><a href="#toronto">Taxe municipale de Toronto (MLTT)</a></li>
+            <li><a href="#rebate">Remboursement premier acheteur</a></li>
+            <li><a href="#nrst">Taxe sur la spéculation des non-résidents</a></li>
+            <li><a href="#when">Quand vous payez</a></li>
+            <li><a href="#calculator">Calculateur</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <h2 id="what">Ce que sont les droits de mutation immobilière</h2>
+          <p>Les droits de mutation immobilière (LTT) sont une taxe ponctuelle payée par l'acheteur lorsqu'une propriété change de mains. Ils se calculent en pourcentage du prix d'achat selon un système de tranches progressives, semblable à l'impôt sur le revenu.</p>
+          <p>Si vous achetez précisément à Toronto, vous payez à la fois les <strong>droits provinciaux (LTT)</strong> (perçus par le gouvernement de l'Ontario) ET la <strong>taxe municipale de mutation immobilière de Toronto (MLTT)</strong> en plus — pratiquement le double des droits.</p>
+
+          <h2 id="provincial">Barèmes des droits provinciaux de l'Ontario</h2>
+          <p>Les taux provinciaux s'appliquent partout en Ontario :</p>
+          <ul class="bullets">
+            <li><strong>0,5 %</strong> sur la première tranche de 55 000 $</li>
+            <li><strong>1,0 %</strong> de 55 001 $ à 250 000 $</li>
+            <li><strong>1,5 %</strong> de 250 001 $ à 400 000 $</li>
+            <li><strong>2,0 %</strong> de 400 001 $ à 2 000 000 $</li>
+            <li><strong>2,5 %</strong> sur les montants supérieurs à 2 000 000 $ <em>(résidences unifamiliales seulement)</em></li>
+          </ul>
+
+          <details class="b60-section-toggle" id="toronto">
+            <summary class="b60-section-toggle-summary">Taxe municipale de mutation immobilière de Toronto (MLTT)</summary>
+            <div class="b60-section-body">
+              <p>Si la propriété se trouve dans les limites de la Ville de Toronto, vous payez également la taxe municipale de mutation immobilière. Les tranches sont calquées sur celles du LTT provincial, avec l'ajout de paliers de luxe introduits en 2024 pour les propriétés de plus de 3 millions de dollars.</p>
+              <div class="callout"><strong>Exemple concret :</strong> pour l'achat d'un condo à 900 000 $ au centre-ville de Toronto, votre LTT total est d'environ 27 950 $ (13 950 $ au provincial + 13 950 $ au municipal), avant tout remboursement.</div>
+            </div>
+          </details>
+
+          <h2 id="rebate">Remboursement pour premiers acheteurs</h2>
+          <p>L'Ontario et Toronto offrent tous deux un remboursement aux premiers acheteurs :</p>
+          <ul class="bullets">
+            <li><strong>Ontario :</strong> jusqu'à <strong>4 000 $</strong> de moins sur votre LTT provincial</li>
+            <li><strong>Toronto :</strong> jusqu'à <strong>4 475 $</strong> de moins sur votre LTT municipal</li>
+            <li>Vous y avez droit si vous avez 18 ans ou plus, êtes citoyen canadien ou résident permanent, n'avez jamais possédé de propriété où que ce soit dans le monde (ni votre conjoint pendant votre mariage) et occuperez la propriété comme résidence principale dans les 9 mois</li>
+          </ul>
+
+          <details class="b60-section-toggle" id="nrst">
+            <summary class="b60-section-toggle-summary">Taxe sur la spéculation des non-résidents (NRST)</summary>
+            <div class="b60-section-body">
+              <p>Si vous n'êtes ni citoyen canadien ni résident permanent, une taxe additionnelle de <strong>25 %</strong> s'applique au prix d'achat en Ontario. Certaines exemptions existent (étudiants internationaux, ressortissants étrangers travaillant en Ontario, réfugiés). Consultez toujours un avocat en droit immobilier avant d'acheter à titre de non-résident.</p>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="when">
+            <summary class="b60-section-toggle-summary">Quand et comment vous payez</summary>
+            <div class="b60-section-body">
+              <p>Les droits de mutation se paient à la <strong>clôture</strong>, par l'entremise de votre avocat en droit immobilier. Ce n'est pas un chèque distinct que vous faites au gouvernement — c'est une partie des frais de clôture que l'avocat perçoit de vous et remet aux autorités fiscales concernées.</p>
+              <p>Prévoyez les droits de mutation dans vos « frais de clôture », au même titre que les honoraires juridiques, l'assurance titres et les ajustements. Pour un achat à Toronto, les frais de clôture totaux représentent habituellement 2 à 4 % du prix d'achat.</p>
+            </div>
+          </details>
+
+          <h2 id="calculator">Calculez vos droits de mutation</h2>
+          <p>Entrez votre prix d'achat et quelques détails. Les résultats se mettent à jour au fur et à mesure que vous tapez.</p>
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="ltt-price">Prix d'achat</label>
+                <div class="input-prefix" data-prefix="$"><input id="ltt-price" type="number" value="900000" min="0" step="1000" inputmode="decimal"></div>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-toronto">La propriété est-elle dans la Ville de Toronto?</label>
+                <select id="ltt-toronto">
+                  <option value="yes" selected>Oui — Toronto (les deux droits s'appliquent)</option>
+                  <option value="no">Non — ailleurs en Ontario</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-firsttime">Premier acheteur?</label>
+                <select id="ltt-firsttime">
+                  <option value="no" selected>Non</option>
+                  <option value="yes">Oui (remboursement applicable)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="ltt-type">Type de propriété</label>
+                <select id="ltt-type">
+                  <option value="single" selected>Résidence unifamiliale (1 ou 2 logements)</option>
+                  <option value="other">Autre (3 logements ou plus, commercial, etc.)</option>
+                </select>
+              </div>
+            </div>
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">Droits de mutation immobilière totaux</span>
+                <span id="ltt-total">0 $</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>LTT provincial de l'Ontario</span><strong id="ltt-ontario">0 $</strong></div>
+                <div class="row" id="ltt-toronto-row"><span>Taxe municipale de Toronto (MLTT)</span><strong id="ltt-mltt">0 $</strong></div>
+                <div class="row" id="ltt-rebate-row" style="display:none;"><span>Remboursement premier acheteur</span><strong id="ltt-rebate">0 $</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer">À titre indicatif seulement. Les paliers de luxe MLTT de Toronto (au-delà de 3 M$) ne s'appliquent qu'aux résidences unifamiliales. La NRST (taxe de 25 % sur les non-résidents) n'est pas incluse. Confirmez toujours les chiffres finaux avec votre avocat en droit immobilier.</p>
+            <dl class="calc-legend">
+              <div><dt>LTT</dt><dd>Droits de mutation immobilière</dd></div>
+              <div><dt>MLTT</dt><dd>Taxe municipale de mutation immobilière (Toronto)</dd></div>
+              <div><dt>NRST</dt><dd>Taxe sur la spéculation des non-résidents</dd></div>
+            </dl>
           </div>
-          <div class="calc-field">
-            <label for="ltt-toronto">Emplacement</label>
-            <select id="ltt-toronto">
-              <option value="yes" selected>Ville de Toronto</option>
-              <option value="no">Reste de l'Ontario</option>
-            </select>
-          </div>
-          <div class="calc-field">
-            <label for="ltt-fthb">Premier acheteur?</label>
-            <select id="ltt-fthb">
-              <option value="yes" selected>Oui</option>
-              <option value="no">Non</option>
-            </select>
-          </div>
+
+          <p class="legal-note">Ce guide est fourni à titre informatif seulement et ne constitue ni un conseil financier ni un conseil juridique. Les taux et montants de remboursement peuvent changer. Confirmez toujours les chiffres à jour auprès de votre avocat en droit immobilier ou du ministère des Finances avant la clôture.</p>
         </div>
-        <div class="calc-result">
-          <div class="calc-result-main"><span class="label">Total à payer</span><span id="ltt-total">0 $</span></div>
-          <div class="calc-result-breakdown">
-            <div class="row"><span>LTT provincial (Ontario)</span><strong id="ltt-ont">0 $</strong></div>
-            <div class="row" id="ltt-mltt-row"><span>LTT municipal (Toronto)</span><strong id="ltt-mltt">0 $</strong></div>
-            <div class="row" id="ltt-rebate-row" style="display:none;"><span>Remboursement premier acheteur</span><strong id="ltt-rebate">−0 $</strong></div>
-          </div>
-        </div>
-        <p class="calc-disclaimer">À titre indicatif seulement. Les barèmes 2026 sont utilisés. Consultez votre avocat pour les chiffres finaux à la clôture.</p>
       </div>
     </div>
   </section>
 
-  <FrenchCTASection />
+  <FrenchCTASection heading="Vous achetez à Toronto?" lead="Les frais de clôture prennent de court beaucoup de premiers acheteurs. Discutons de l'ensemble de votre budget avant de présenter une offre." />
   <FrenchFooter />
 
-  <script is:inline>
-    (function(){
-      function fmt(n){ return (n||0).toLocaleString('fr-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}); }
-      function ontLTT(p){ if(p<=0)return 0; let t=0; const b=[[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]]; let lo=0; for(const[u,r]of b){if(p>lo){const x=Math.min(p,u)-lo; if(x>0)t+=x*r;} lo=u;} if(p>2000000)t+=(p-2000000)*0.025; return t;}
-      function torMLTT(p){ if(p<=0)return 0; let t=0; const b=[[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]]; let lo=0; for(const[u,r]of b){if(p>lo){const x=Math.min(p,u)-lo; if(x>0)t+=x*r;} lo=u;} if(p>2000000){const lux=[[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]]; let l=2000000; for(const[u,r]of lux){if(p>l){const x=Math.min(p,u)-l; if(x>0)t+=x*r;} l=u;} if(p>20000000)t+=(p-20000000)*0.075;} return t;}
-      function calc(){ const p=parseFloat(document.getElementById('ltt-price').value)||0; const isTo=document.getElementById('ltt-toronto').value==='yes'; const fthb=document.getElementById('ltt-fthb').value==='yes'; const ont=ontLTT(p); const mltt=isTo?torMLTT(p):0; let reb=0; if(fthb){reb=Math.min(ont,4000); if(isTo)reb+=Math.min(mltt,4475);} const total=Math.max(0,ont+mltt-reb); document.getElementById('ltt-total').textContent=fmt(total); document.getElementById('ltt-ont').textContent=fmt(ont); document.getElementById('ltt-mltt').textContent=fmt(mltt); document.getElementById('ltt-mltt-row').style.display=isTo?'':'none'; if(reb>0){document.getElementById('ltt-rebate-row').style.display=''; document.getElementById('ltt-rebate').textContent='−'+fmt(reb);}else{document.getElementById('ltt-rebate-row').style.display='none';} }
-      ['ltt-price','ltt-toronto','ltt-fthb'].forEach(id=>{const el=document.getElementById(id); el.addEventListener('input',calc); el.addEventListener('change',calc);}); calc();
-    })();
+  <script>
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n) || n < 0) return '0 $';
+      return n.toLocaleString('fr-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 2 });
+    }
+    function ontarioLTT(price, isSingleFamily) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxableInBracket = Math.min(price, upper) - lower;
+          if (taxableInBracket > 0) t += taxableInBracket * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) t += (price - 2000000) * (isSingleFamily ? 0.025 : 0.020);
+      return t;
+    }
+    function torontoMLTT(price, isSingleFamily) {
+      if (price <= 0) return 0;
+      let t = 0;
+      const brackets = [[55000,0.005],[250000,0.010],[400000,0.015],[2000000,0.020]];
+      let lower = 0;
+      for (const [upper, rate] of brackets) {
+        if (price > lower) {
+          const taxableInBracket = Math.min(price, upper) - lower;
+          if (taxableInBracket > 0) t += taxableInBracket * rate;
+        }
+        lower = upper;
+      }
+      if (price > 2000000) {
+        if (isSingleFamily) {
+          const luxury = [[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]];
+          let lo = 2000000;
+          for (const [up, rate] of luxury) {
+            if (price > lo) {
+              const inB = Math.min(price, up) - lo;
+              if (inB > 0) t += inB * rate;
+            }
+            lo = up;
+          }
+          if (price > 20000000) t += (price - 20000000) * 0.075;
+        } else {
+          t += (price - 2000000) * 0.020;
+        }
+      }
+      return t;
+    }
+    function update() {
+      const price = parseFloat(document.getElementById('ltt-price').value) || 0;
+      const inToronto = document.getElementById('ltt-toronto').value === 'yes';
+      const isFirstTime = document.getElementById('ltt-firsttime').value === 'yes';
+      const isSingle = document.getElementById('ltt-type').value === 'single';
+      const ont = ontarioLTT(price, isSingle);
+      const mltt = inToronto ? torontoMLTT(price, isSingle) : 0;
+      let ontRebate = 0, mlttRebate = 0;
+      if (isFirstTime) {
+        ontRebate = Math.min(4000, ont);
+        if (inToronto) mlttRebate = Math.min(4475, mltt);
+      }
+      const totalRebate = ontRebate + mlttRebate;
+      const total = ont + mltt - totalRebate;
+      document.getElementById('ltt-ontario').textContent = fmtCAD(ont - ontRebate) + (ontRebate > 0 ? ' (après remboursement)' : '');
+      document.getElementById('ltt-mltt').textContent = fmtCAD(mltt - mlttRebate) + (mlttRebate > 0 ? ' (après remboursement)' : '');
+      document.getElementById('ltt-total').textContent = fmtCAD(total);
+      document.getElementById('ltt-toronto-row').style.display = inToronto ? 'flex' : 'none';
+      document.getElementById('ltt-rebate-row').style.display = isFirstTime ? 'flex' : 'none';
+      document.getElementById('ltt-rebate').textContent = '−' + fmtCAD(totalRebate);
+    }
+    document.querySelectorAll('#ltt-price,#ltt-toronto,#ltt-firsttime,#ltt-type').forEach(el => {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    });
+    update();
   </script>
 </BaseLayout>

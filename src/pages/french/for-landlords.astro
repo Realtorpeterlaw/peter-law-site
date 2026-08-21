@@ -12,47 +12,100 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/for-landlords/' },
 ];
 ---
-<BaseLayout title="Pour propriétaires — Peter Law · Location à Toronto" description="Vous louez votre propriété à Toronto? Voici comment je trouve un locataire AAA, prépare un bail solide, et minimise vos vacances." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Pour propriétaires — Peter Law · Immobilier à Toronto"
+  description="Placement de locataires et gestion locative à Toronto. Vérification, visites, rédaction de bail — faits correctement par un courtier formé à l'hospitalité qui sait à quoi ressemble un bon locataire."
+  lang="fr"
+  bodyClass="fr"
   hreflangAlternates={hreflangAlternates}
 >
 
   <FrenchTopBar />
-  <FrenchHeader active="rental" />
+  <FrenchHeader active="rental" ctaLabel="Réserver une consultation" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Location · Propriétaires</div>
-      <h1>Louez plus vite. Avec le bon locataire.</h1>
-      <p>La vitesse et l'exhaustivité gagnent les inscriptions. Un dossier de locataire préqualifié — vérification de crédit, revenu confirmé, référence — arrive dans les 48 heures d'une visite bien orchestrée.</p>
+      <div class="eyebrow">Pour propriétaires</div>
+      <h1>Trouvez un excellent locataire.<br />Évitez les maux de tête.</h1>
+      <p>Pour les propriétaires de Toronto avec un logement ou un petit portefeuille : un placement de locataire de bout en bout qui privilégie le locataire dont vous serez encore content d'avoir signé le bail dans deux ans.</p>
     </div>
   </section>
 
-  <section class="major">
+  <section class="major" style="padding-top:32px;">
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Sommaire</h4>
+          <h4>Sur cette page</h4>
           <ul>
-            <li><a href="#pricing">Prix</a></li>
-            <li><a href="#staging">Mise en marché</a></li>
-            <li><a href="#screening">Sélection du locataire</a></li>
-            <li><a href="#lease">Le bail</a></li>
+            <li><a href="#service">Ce que je fais</a></li>
+            <li><a href="#why">Pourquoi travailler avec moi</a></li>
+            <li><a href="#timeline">Échéancier typique</a></li>
+            <li><a href="#pricing">Tarification</a></li>
+            <li><a href="#rta">Bail résidentiel</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </aside>
+
         <div class="prose-body">
-          <h2 id="pricing">Prix</h2>
-          <p>Trop bas, vous laissez de l'argent sur la table. Trop haut, votre unité stagne pendant 6 semaines et vous perdez un mois de loyer complet. Je vous donne une fourchette basée sur les comparables MLS® du dernier trimestre dans votre immeuble.</p>
-          <h2 id="staging">Mise en marché</h2>
-          <p>Photographie professionnelle, description SEO en anglais et en français, distribution sur TRREB / MLS® / Realtor.ca + réseaux privés. Les meilleures inscriptions génèrent 15 à 25 demandes de visite dans les 72 heures.</p>
-          <h2 id="screening">Sélection du locataire</h2>
-          <p>Je passe en revue chaque demande : lettre d'emploi, relevés de paie récents, rapport de crédit (via SingleKey ou équivalent), référence du propriétaire précédent. Je vous transmets uniquement les candidats sérieux — trois options triées, pas quinze piles à démêler.</p>
-          <h2 id="lease">Le bail</h2>
-          <p>Bail standard de l'Ontario (Formulaire 2229E) rempli correctement, avec les annexes appropriées. Je révise chaque clause avec vous, y compris le dépôt de garantie (limité au premier + dernier mois selon la RTA), les règles concernant les animaux, l'entretien, et la sous-location.</p>
+          <h2 id="service">Ce que je fais</h2>
+          <p>Placement de locataire clés en main. Vous me confiez un logement; je vous remets un bail signé avec un locataire soigneusement vérifié et bien préparé à réussir.</p>
+          <ul class="bullets">
+            <li><strong>Prix du marché</strong> — analyse comparative pour inscrire au prix qui se loue vite, pas lentement</li>
+            <li><strong>Inscription et marketing</strong> — MLS, réseaux sociaux, réseau personnel. Photos et texte de qualité</li>
+            <li><strong>Vérification des locataires</strong> — crédit, vérification d'emploi, références, évaluation en personne</li>
+            <li><strong>Visites</strong> — je suis présent. Vous n'avez pas besoin d'être là</li>
+            <li><strong>Rédaction et signature du bail</strong> — bail standard de l'Ontario, avec clauses personnalisées au besoin</li>
+            <li><strong>Emménagement et remise des clés</strong> — incluant un rapport d'état, la présentation de l'immeuble, et un point de contact continu si des problèmes surviennent</li>
+          </ul>
+
+          <h2 id="why">Pourquoi travailler avec moi</h2>
+          <div class="why-grid" style="margin-top:32px;">
+            <div class="why-quote">
+              <span class="why-quote-mark">"</span>
+              <p>Un excellent locataire n'est pas celui qui a le revenu le plus élevé. C'est celui qui traitera votre logement comme chez lui et qui renouvellera sans drame. Je vérifie les deux.</p>
+              <div class="attr">— Peter</div>
+            </div>
+            <div class="why-points">
+              <div class="why-point"><div class="why-point-num">01</div><h3>Je sélectionne comme un hôte de l'hospitalité</h3><p>Six années en immobilier plus 400+ commentaires Airbnb à titre d'ancien hôte m'ont appris à quoi ressemble un invité peu conflictuel. J'apporte le même instinct à la sélection des locataires.</p></div>
+              <div class="why-point"><div class="why-point-num">02</div><h3>Portée bilingue du marché</h3><p>Démarchage actif auprès de la communauté locative sinophone — un segment que plusieurs courtiers manquent. Cela mène souvent à des placements plus rapides et de meilleure qualité.</p></div>
+              <div class="why-point"><div class="why-point-num">03</div><h3>Un bail qui vous protège</h3><p>Le bail standard de l'Ontario n'est pas suffisant à lui seul. J'ajoute les clauses personnalisées — animaux, fumée, sous-location, partage des coûts de services publics — qui préviennent les litiges.</p></div>
+            </div>
+          </div>
+
+          <h2 id="timeline">Échéancier typique</h2>
+          <ul class="bullets">
+            <li><strong>Semaine 1</strong> — Consultation, analyse des prix, photographie, inscription en ligne</li>
+            <li><strong>Semaines 1–2</strong> — Visites (habituellement 5 à 10 visites qualifiées)</li>
+            <li><strong>Semaine 2–3</strong> — Examen des candidatures, vérification, recommandation</li>
+            <li><strong>Semaine 2–3</strong> — Bail signé, premier et dernier mois perçus, remise des clés planifiée</li>
+          </ul>
+
+          <h2 id="pricing">Tarification</h2>
+          <p>Placement de locataire standard à Toronto : <strong>un mois de loyer</strong>, payé par le propriétaire à la signature du bail. C'est la norme de l'industrie; je ne facture rien en plus pour le marketing, la vérification ou la rédaction du bail.</p>
+          <p>Pour la gestion continue de propriété (perception du loyer, coordination de l'entretien, renouvellements de bail, examens annuels), la tarification est établie par logement selon la portée.</p>
+
+          <h2 id="rta">Bail résidentiel standard de l'Ontario</h2>
+          <p>Le bail standard de l'Ontario — connu comme le <strong>Bail résidentiel (formulaire 2229E)</strong> est le formulaire de bail imposé par le gouvernement pour la plupart des locations résidentielles en Ontario commencées le 30 avril 2018 ou après. En tant que propriétaire, vous êtes légalement tenu d'utiliser ce formulaire pour la grande majorité des locations privées. Il couvre les 17 modalités essentielles qu'un bail doit inclure et prévoit un espace pour des conditions supplémentaires personnalisées (animaux, fumée, services publics, etc.) qui ne contreviennent pas à la Loi sur la location à usage d'habitation.</p>
+          <p style="margin-top: 20px;">
+            <a href="/forms/ontario-residential-tenancy-agreement.pdf" class="btn-primary" download>
+              Télécharger le bail résidentiel (formulaire 2229E)
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+          <p class="legal-note" style="margin-top: 18px;">Source : gouvernement de l'Ontario. Mis à jour périodiquement — vérifiez que vous avez la dernière version à <a href="https://www.ontario.ca/page/guide-ontarios-standard-lease" target="_blank" rel="noopener" style="text-decoration: underline;">ontario.ca/standard-lease</a>.</p>
+
+          <h2 id="faq">FAQ</h2>
+          <div class="faq">
+            <details><summary>Dois-je être présent pour les visites?</summary><p>Non. Je mène toutes les visites. Vous pouvez être impliqué autant ou aussi peu que vous le souhaitez.</p></details>
+            <details><summary>Que se passe-t-il si le locataire devient un problème?</summary><p>Une vérification approfondie rend cela rare, mais cela arrive. Je vous aide à comprendre les procédures de la Commission de la location immobilière (CLI) et je vous réfère à un parajuriste si la situation dégénère.</p></details>
+            <details><summary>Pouvez-vous aider si je veux vendre au lieu de louer?</summary><p>Oui. Je vous fournirai une comparaison honnête entre le rendement locatif et le prix de vente, et je vous recommanderai la voie qui offre les meilleurs rendements pour vos objectifs.</p></details>
+            <details><summary>Gérez-vous les condos avec des règles de conseil restrictives?</summary><p>Oui. Je connais bien l'examen du certificat de statut et les processus d'approbation les plus courants des conseils de condo.</p></details>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <FrenchCTASection heading="Prêt à louer votre propriété?" lead="Envoyez-moi l'adresse et les caractéristiques principales. Je reviens dans les 24 heures avec un prix cible et un plan de mise en marché." />
+  <FrenchCTASection heading="Prêt à louer votre logement?" lead="Parlez-moi du logement. Je reviens avec un prix, un plan de marketing et un échéancier réaliste." ctaTitle="Réserver une consultation propriétaire" ctaSubtitle="20 minutes · Téléphone ou en personne · Gratuit" />
   <FrenchFooter />
 </BaseLayout>

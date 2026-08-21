@@ -12,55 +12,221 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/cmhc-insurance-calculator/' },
 ];
 ---
-<BaseLayout title="Calculateur d'assurance CMHC | Peter Law" description="Estimez votre prime d'assurance hypoth\u00e9caire CMHC. R\u00e8gles canadiennes : mise de fonds minimum, taux par LTV, plafond assurable de 1,5 M$." lang="fr" bodyClass="fr calc-page"
+<BaseLayout
+  title="Calculateur d'assurance prêt hypothécaire SCHL | Peter Law"
+  description="Estimez en quelques secondes votre prime d'assurance prêt hypothécaire SCHL. Règles canadiennes : mise de fonds minimale, primes selon le ratio prêt-valeur, plafond assurable de 1,5 M$."
+  lang="fr"
+  bodyClass="fr calc-page"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
   <LHeader active="buyers" />
-  <section class="page-hero"><div class="wrap"><div class="eyebrow">Calculateur CMHC</div><h1>Combien coûtera votre assurance hypothécaire?</h1><p>Si votre mise de fonds est inférieure à 20%, vous paierez l'assurance CMHC. La prime est ajoutée à votre hypothèque.</p></div></section>
-  <section class="major" style="padding-top:24px;"><div class="wrap"><div class="calc">
-    <div class="calc-fields">
-      <div class="calc-field calc-field-full"><label for="cm-price">Prix d'achat</label><div class="input-prefix"><input type="number" id="cm-price" value="800000" min="0" step="5000" inputmode="decimal" /></div></div>
-      <div class="calc-field"><label for="cm-down">Mise de fonds</label><div class="input-prefix"><input type="number" id="cm-down" value="80000" min="0" step="1000" inputmode="decimal" /></div></div>
-      <div class="calc-field"><label for="cm-down-pct">Mise de fonds (%)</label><div class="input-suffix"><input type="number" id="cm-down-pct" value="10" min="0" max="100" step="0.5" inputmode="decimal" /></div></div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Calculateur d'assurance SCHL</div>
+      <h1>Combien vous coûtera l'assurance prêt hypothécaire?</h1>
+      <p>Si votre mise de fonds est inférieure à 20 %, vous devrez payer l'assurance SCHL (ou Sagen ou Canada Guaranty). La prime est ajoutée à votre hypothèque. Cet outil estime le montant.</p>
     </div>
-    <div class="calc-result">
-      <div class="calc-result-main"><span class="label">Prime CMHC</span><span id="cm-premium">$0</span></div>
-      <div class="calc-result-breakdown">
-        <div class="row"><span>Ratio prêt/valeur (LTV)</span><strong id="cm-ltv">0%</strong></div>
-        <div class="row"><span>Solde hypothécaire de base</span><strong id="cm-loan">$0</strong></div>
-        <div class="row"><span>Hypothèque totale (avec prime)</span><strong id="cm-total">$0</strong></div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Ressources pour acheteurs</h4>
+          <ul>
+            <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
+            <li><a href="/french/land-transfer-tax">Droits de mutation immobilière</a></li>
+            <li><a href="/french/payment-calculator">Calculateur hypothécaire</a></li>
+            <li><a href="/french/cmhc-insurance-calculator">Calculateur d'assurance SCHL</a></li>
+            <li><a href="/french/closing-costs">Frais de clôture</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+          <div class="calc">
+            <div class="calc-fields">
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-price">Prix d'achat</label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-price" type="number" value="800000" min="0" step="5000" inputmode="decimal"></div>
+              </div>
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-down">Mise de fonds <span class="hint">(ou utilisez le pourcentage ci-dessous)</span></label>
+                <div class="input-prefix" data-prefix="$"><input id="cmhc-down" type="number" value="80000" min="0" step="1000" inputmode="decimal"></div>
+              </div>
+              <div class="calc-field calc-field-full">
+                <label for="cmhc-down-pct">Mise de fonds en % <span class="hint">(met à jour le montant en dollars ci-dessus)</span></label>
+                <input id="cmhc-down-pct" type="number" value="10" min="0" max="100" step="0.5" inputmode="decimal">
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <div class="calc-result-main">
+                <span class="label">Prime d'assurance SCHL</span>
+                <span id="cmhc-premium">0 $</span>
+              </div>
+              <div class="calc-result-breakdown">
+                <div class="row"><span>Hypothèque avant assurance</span><strong id="cmhc-mortgage-before">0 $</strong></div>
+                <div class="row"><span>Ratio prêt-valeur (RPV)</span><strong id="cmhc-ltv">0 %</strong></div>
+                <div class="row"><span>Taux de prime appliqué</span><strong id="cmhc-rate">0 %</strong></div>
+                <div class="row"><span>Hypothèque totale <span style="font-weight:400;color:var(--ink-mute);">(assurance incluse)</span></span><strong id="cmhc-total">0 $</strong></div>
+                <div class="row"><span>Mise de fonds minimale requise</span><strong id="cmhc-min-down">0 $</strong></div>
+                <div class="row" id="cmhc-status-row"><span>État</span><strong id="cmhc-status" style="color:var(--ink);">—</strong></div>
+              </div>
+            </div>
+            <p class="calc-disclaimer" id="cmhc-disclaimer">Estimations seulement. Taux de prime tirés du barème publié par la SCHL. La prime réelle facturée par la SCHL, Sagen ou Canada Guaranty peut varier légèrement. En Ontario, une TVP de 8 % s'applique à la prime à la clôture (elle N'EST PAS ajoutée à l'hypothèque). Consultez un professionnel du prêt hypothécaire agréé avant de vous fier à ces chiffres.</p>
+          </div>
+
+          <h2 style="margin-top:48px;">Référence rapide : taux de prime selon le RPV</h2>
+          <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+          <table class="cmhc-table">
+            <thead>
+              <tr><th>Ratio prêt-valeur</th><th>Taux de prime</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Jusqu'à 65 %</td><td>0,60 %</td></tr>
+              <tr><td>65,01 % à 75 %</td><td>1,70 %</td></tr>
+              <tr><td>75,01 % à 80 %</td><td>2,40 %</td></tr>
+              <tr><td>80,01 % à 85 %</td><td>2,80 %</td></tr>
+              <tr><td>85,01 % à 90 %</td><td>3,10 %</td></tr>
+              <tr><td>90,01 % à 95 %</td><td>4,00 %</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h2 style="margin-top:40px;">Règles de mise de fonds minimale</h2>
+          <ul class="bullets">
+            <li><strong>Prix d'achat ≤ 500 000 $ :</strong> mise de fonds minimale de 5 %.</li>
+            <li><strong>De 500 001 $ à 1 500 000 $ :</strong> 5 % minimum sur les premiers 500 000 $ + 10 % sur la portion au-delà de 500 000 $.</li>
+            <li><strong>Au-delà de 1 500 000 $ :</strong> l'assurance SCHL N'EST PAS offerte — il vous faut une mise de fonds minimale de 20 % provenant de vos propres fonds.</li>
+          </ul>
+
+          <p class="legal-note" style="margin-top:24px;">Ce calculateur est informatif. Les barèmes de primes, les règles d'admissibilité et le plafond assurable de 1,5 M$ peuvent changer. Les règles actuelles reflètent la mise à jour de la SCHL du 15 décembre 2024. Pour une estimation ferme, parlez à un courtier hypothécaire ou à votre banque. Je suis un représentant commercial en immobilier inscrit, pas un conseiller hypothécaire.</p>
+        </div>
       </div>
     </div>
-    <p class="calc-disclaimer">Estimation seulement. Basé sur les taux CMHC standard 2026 pour maisons occupées par le propriétaire sous 1,5 M$. Consultez votre courtier hypothécaire.</p>
-  </div></div></section>
-  <LCTA />
+  </section>
+
+  <LCTA heading="Vous voulez ce chiffre dans le contexte d'une vraie propriété?" lead="Les chiffres sans propriété restent abstraits. Regardons des inscriptions réelles dans votre fourchette et faisons le portrait complet — prix d'achat, mise de fonds, SCHL, droits de mutation, frais de clôture. Un seul appel." />
   <LFooter />
-  <script is:inline>
-    (function(){
-      function fmt(n){if(!isFinite(n)||isNaN(n))return'$0';return n.toLocaleString('fr-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});}
-      function cmhcR(l){if(l>95)return null;if(l>90)return .04;if(l>85)return .031;if(l>80)return .028;return 0;}
-      let editing=null;
-      function c(){
-        const p=parseFloat(document.getElementById('cm-price').value)||0;
-        let d=parseFloat(document.getElementById('cm-down').value)||0;
-        let pct=parseFloat(document.getElementById('cm-down-pct').value)||0;
-        if(editing==='pct'){d=p*pct/100;document.getElementById('cm-down').value=d.toFixed(0);}
-        else if(editing==='dollar'){pct=p>0?d/p*100:0;document.getElementById('cm-down-pct').value=pct.toFixed(2);}
-        else{pct=p>0?d/p*100:0;document.getElementById('cm-down-pct').value=pct.toFixed(2);}
-        const ltv=p>0?(p-d)/p*100:0;
-        const bl=Math.max(0,p-d);
-        const rate=cmhcR(ltv);
-        const premium=(rate!==null&&rate>0)?bl*rate:0;
-        document.getElementById('cm-premium').textContent=fmt(premium);
-        document.getElementById('cm-ltv').textContent=ltv.toFixed(1)+'%';
-        document.getElementById('cm-loan').textContent=fmt(bl);
-        document.getElementById('cm-total').textContent=fmt(bl+premium);
-      }
-      document.getElementById('cm-price').addEventListener('input',()=>{editing='price';c();editing=null;});
-      document.getElementById('cm-down').addEventListener('input',()=>{editing='dollar';c();editing=null;});
-      document.getElementById('cm-down-pct').addEventListener('input',()=>{editing='pct';c();editing=null;});
-      c();
-    })();
-  </script>
 </BaseLayout>
+
+<style>
+  .cmhc-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  .cmhc-table th, .cmhc-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--rule); }
+  .cmhc-table th { font-weight: 600; color: var(--ink); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bg-warm); }
+  .cmhc-table td:last-child { font-weight: 600; color: var(--ink); font-family: 'Fraunces', Georgia, serif; }
+</style>
+
+<script>
+  (function() {
+    const priceEl = document.getElementById('cmhc-price');
+    const downEl = document.getElementById('cmhc-down');
+    const pctEl = document.getElementById('cmhc-down-pct');
+    const premiumEl = document.getElementById('cmhc-premium');
+    const mortgageBeforeEl = document.getElementById('cmhc-mortgage-before');
+    const ltvEl = document.getElementById('cmhc-ltv');
+    const rateEl = document.getElementById('cmhc-rate');
+    const totalEl = document.getElementById('cmhc-total');
+    const minDownEl = document.getElementById('cmhc-min-down');
+    const statusEl = document.getElementById('cmhc-status');
+
+    function fmt$(n) {
+      return Math.round(n).toLocaleString('fr-CA') + ' $';
+    }
+
+    function minDown(price) {
+      if (price <= 500000) return price * 0.05;
+      if (price <= 1500000) return 500000 * 0.05 + (price - 500000) * 0.10;
+      return price * 0.20;
+    }
+
+    function premiumRate(ltv) {
+      if (ltv <= 0.65) return 0.0060;
+      if (ltv <= 0.75) return 0.0170;
+      if (ltv <= 0.80) return 0.0240;
+      if (ltv <= 0.85) return 0.0280;
+      if (ltv <= 0.90) return 0.0310;
+      return 0.0400;
+    }
+
+    let syncing = false;
+
+    function syncFromDollar() {
+      if (syncing) return;
+      const price = parseFloat(priceEl.value) || 0;
+      const down = parseFloat(downEl.value) || 0;
+      if (price > 0) {
+        syncing = true;
+        pctEl.value = ((down / price) * 100).toFixed(2);
+        syncing = false;
+      }
+      calc();
+    }
+
+    function syncFromPct() {
+      if (syncing) return;
+      const price = parseFloat(priceEl.value) || 0;
+      const pct = parseFloat(pctEl.value) || 0;
+      syncing = true;
+      downEl.value = Math.round(price * pct / 100);
+      syncing = false;
+      calc();
+    }
+
+    function calc() {
+      const price = parseFloat(priceEl.value) || 0;
+      const down = parseFloat(downEl.value) || 0;
+      const mortgage = Math.max(0, price - down);
+      const ltv = price > 0 ? mortgage / price : 0;
+      const minDp = minDown(price);
+
+      mortgageBeforeEl.textContent = fmt$(mortgage);
+      ltvEl.textContent = (ltv * 100).toFixed(2) + ' %';
+      minDownEl.textContent = fmt$(minDp);
+
+      // Status checks
+      if (price > 1500000 && down < price * 0.20) {
+        statusEl.textContent = "L'assurance SCHL n'est pas offerte au-delà de 1,5 M$ — mise de fonds de 20 % requise";
+        statusEl.style.color = '#b8002e';
+        premiumEl.textContent = '0 $';
+        rateEl.textContent = 'S. O.';
+        totalEl.textContent = fmt$(mortgage);
+        return;
+      }
+      if (down < minDp) {
+        statusEl.textContent = 'Mise de fonds sous le minimum';
+        statusEl.style.color = '#b8002e';
+        premiumEl.textContent = '0 $';
+        rateEl.textContent = 'S. O.';
+        totalEl.textContent = fmt$(mortgage);
+        return;
+      }
+      if (ltv <= 0.80) {
+        statusEl.textContent = 'Aucune assurance SCHL requise (20 % ou plus de mise de fonds)';
+        statusEl.style.color = '#1a6b32';
+        premiumEl.textContent = '0 $';
+        rateEl.textContent = '0 %';
+        totalEl.textContent = fmt$(mortgage);
+        return;
+      }
+      // Insurable, premium applies
+      const rate = premiumRate(ltv);
+      const premium = mortgage * rate;
+      premiumEl.textContent = fmt$(premium);
+      rateEl.textContent = (rate * 100).toFixed(2) + ' %';
+      totalEl.textContent = fmt$(mortgage + premium);
+      statusEl.textContent = 'Assurable — prime ajoutée à l’hypothèque';
+      statusEl.style.color = '#1a6b32';
+    }
+
+    priceEl.addEventListener('input', function() {
+      // When price changes, recompute % from dollar
+      syncFromDollar();
+    });
+    downEl.addEventListener('input', syncFromDollar);
+    pctEl.addEventListener('input', syncFromPct);
+
+    calc();
+  })();
+</script>
