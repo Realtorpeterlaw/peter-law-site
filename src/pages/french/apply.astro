@@ -4,8 +4,10 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
+
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
-const SCREENING_URL = "/contact";
+// Lien de sélection SingleKey — à remplacer après inscription sur app.singlekey.com
+const SCREENING_URL = "/french/contact";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/apply/' },
@@ -14,28 +16,78 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/apply/' },
 ];
 ---
-<BaseLayout title="Postuler \u2014 Peter Law \u00b7 Immobilier Toronto" description="Soumettez une demande de location v\u00e9rifi\u00e9e en 10 minutes. ID, cr\u00e9dit, revenu \u2014 le tout en une passe." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Postuler à un loyer — Peter Law · Immobilier Toronto"
+  description="Soumettez une demande de location vérifiée en 10 minutes. Pièce d'identité, crédit, revenu — tout en une seule passe. Le dossier le plus solide gagne dans le marché torontois."
+  lang="fr"
+  bodyClass="fr"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
   <LHeader active="rental" ctaLabel="Ou parlons d'abord" />
-  <section class="page-hero"><div class="wrap"><div class="eyebrow">Demande de location</div><h1>Une demande. Une passe. Le meilleur dossier gagne.</h1><p>Les propriétaires torontois reçoivent cinq offres par jour. Le locataire qui arrive avec tout emballé correctement gagne l'unité. Voici comment nous emballons la vôtre.</p></div></section>
-  <section class="major" style="padding-top:32px;"><div class="wrap"><div class="prose-grid">
-    <aside class="prose-side"><h4>—</h4><ul>          <li><a href="#what">Ce dont vous aurez besoin</a></li>
-          <li><a href="#how">Comment ça marche</a></li>
-          <li><a href="#privacy">Confidentialité et données</a></li>
-          <li><a href="#start">Commencer la demande</a></li></ul></aside>
-    <div class="prose-body">      <h2 id="what">Ce dont vous aurez besoin</h2>
-      <p>La demande prend environ 10 minutes si vous avez tout à portée de main : <strong>ID émise par le gouvernement</strong> (permis, passeport, carte RP) - téléchargée en photo. <strong>Lettre d'emploi récente</strong> ou 3 derniers relevés de paie. <strong>Autorisation de vérification de crédit</strong>. <strong>Références</strong> - propriétaire précédent + employeur.</p>
-      <h2 id="how">Comment ça marche</h2>
-      <p>Cliquez sur "Commencer" ci-dessous. Vous serez redirigé vers SingleKey, un service de sélection canadien que j'utilise pour chaque locataire. Formulaire court, sécurisé, sauvegarde votre progression.</p>
-      <h2 id="privacy">Confidentialité et données</h2>
-      <p>SingleKey est conforme à la LPRPDE et gère toutes les données sensibles - images d'ID, connexion bancaire, info crédit. Je ne vois jamais votre connexion bancaire brute ou l'image complète de l'ID. Je vois le résumé vérifié dont j'ai besoin pour vous recommander à un propriétaire.</p>
-      <h2 id="start">Commencer la demande</h2>
-      <p>Cliquez ci-dessous. Vous serez sur SingleKey pendant environ 10 minutes. Une fois terminé, le rapport me parvient automatiquement.</p>
-      <a href={SCREENING_URL} class="btn-primary" style="margin-top:20px;">Commencer votre demande<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Demande de location</div>
+      <h1>Une demande. Une passe. Le meilleur dossier gagne.</h1>
+      <p>Les propriétaires torontois reçoivent cinq offres par jour. Le locataire qui arrive avec tout emballé correctement gagne l'unité. Voici comment nous emballons la vôtre.</p>
     </div>
-  </div></div></section>
-  <LCTA heading="Pr\u00eat \u00e0 postuler?" lead="Envoyez-moi un message si vous voulez que je vous guide en direct." />
+  </section>
+
+  <section class="major" style="padding-top:32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Sur cette page</h4>
+          <ul>
+            <li><a href="#what">Ce dont vous aurez besoin</a></li>
+            <li><a href="#how">Comment ça marche</a></li>
+            <li><a href="#privacy">Confidentialité et données</a></li>
+            <li><a href="#start">Commencer la demande</a></li>
+          </ul>
+        </aside>
+
+        <div class="prose-body">
+          <h2 id="what">Ce dont vous aurez besoin (à préparer avant de commencer)</h2>
+          <p>La demande prend environ 10 minutes si vous avez tout à portée de main :</p>
+          <ul class="bullets">
+            <li><strong>Pièce d'identité gouvernementale</strong> — permis de conduire, passeport ou carte RP. Vous téléverserez une photo.</li>
+            <li><strong>Preuve d'emploi</strong> — talon de paie récent ou lettre de l'employeur indiquant votre poste, votre date de début et votre salaire annuel.</li>
+            <li><strong>Vérification bancaire</strong> — connexion sécurisée à votre banque (lecture seule). Vérifie le revenu et le solde du compte. Beaucoup plus rapide que de téléverser 3 mois de relevés.</li>
+            <li><strong>Références</strong> — propriétaire précédent (si applicable) + une référence personnelle ou professionnelle.</li>
+            <li><strong>Autorisation de vérification de crédit</strong> — Equifax ou TransUnion. Requête douce, n'affecte pas votre pointage.</li>
+          </ul>
+
+          <div class="callout"><strong>Nouveau au Canada ?</strong> Aucun souci. Vous pouvez utiliser un rapport de crédit international, une lettre de garant, ou un dépôt initial plus élevé au lieu du crédit canadien. Le formulaire de demande vous guidera vers ce qui fonctionne.</div>
+
+          <h2 id="how">Comment ça marche</h2>
+
+          <h3>Étape 1 — Remplir la demande (10 min)</h3>
+          <p>Vous cliquez sur <em>Commencer votre demande</em> ci-dessous. Vous êtes redirigé vers SingleKey, un service canadien de sélection que j'utilise pour chaque locataire. Le formulaire est court, sécurisé et sauvegarde votre progression si vous devez faire une pause.</p>
+
+          <h3>Étape 2 — Je révise votre dossier (le jour même)</h3>
+          <p>Dès que vous soumettez, je reçois le rapport. Habituellement, je réponds en quelques heures pendant les heures de bureau, au plus tard le lendemain matin.</p>
+
+          <h3>Étape 3 — On commence la recherche</h3>
+          <p>Avec votre dossier prêt, je peux soumettre des offres compétitives le jour même où une unité paraît. Fini les « laissez-moi vérifier avec mon propriétaire » — vous êtes pré-approuvé avant même d'entrer.</p>
+
+          <h2 id="privacy">Confidentialité et données</h2>
+          <p>SingleKey est conforme à la LPRPDE et gère toutes les données sensibles — images d'identité, connexion bancaire, informations de crédit. Je ne vois jamais votre identifiant bancaire brut ni l'image complète de votre pièce d'identité. Je vois le résumé vérifié dont j'ai besoin pour vous recommander à un propriétaire.</p>
+          <p>Vos données vous appartiennent. Vous pouvez demander leur suppression à tout moment après la fin de notre travail.</p>
+
+          <h2 id="start">Commencer la demande</h2>
+          <p>Cliquez ci-dessous. Vous serez sur SingleKey pendant les 10 prochaines minutes. Une fois terminé, le rapport me parvient automatiquement.</p>
+          <p style="margin-top: 32px;">
+            <a href={SCREENING_URL} class="btn-primary">
+              Commencer votre demande
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </p>
+          <p style="margin-top: 32px; color: var(--ink-mute); font-size: 14px;">Vous préférez parler d'abord ? <a href={BOOKING_URL} style="text-decoration: underline; text-underline-offset: 3px;">Réservez un appel de 15 minutes</a> et je vous guiderai.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <LFooter />
 </BaseLayout>

@@ -3,7 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
+
 export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = 'Avis de non-responsabilité';
+const pageDescription = "Avis important concernant les renseignements publiés sur realtorpeterlaw.com — y compris les données de marché, les sujets fiscaux, les programmes gouvernementaux, les calculateurs, les transactions passées et les liens tiers.";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
@@ -12,70 +17,111 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
 ];
 ---
-<BaseLayout title="Avis de non-responsabilité | Peter Law" description="Avis important sur les informations publi\u00e9es sur realtorpeterlaw.com \u2014 y compris donn\u00e9es de march\u00e9, sujets fiscaux, programmes gouvernementaux, calculateurs, transactions pass\u00e9es et liens tiers." lang="fr" bodyClass="fr guide-page article-page"
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Immobilier à Toronto`}
+  description={pageDescription}
+  lang="fr"
+  bodyClass="fr guide-page article-page"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
   <LHeader active="" />
+
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Juridique · Notice sur le contenu</div>
-        <h1>Avis de non-responsabilité</h1>
-        <p class="article-lead">Chaque article, calculateur, note de transaction passée et chiffre sur ce Site est destiné à vous aider à comprendre l'immobilier torontois — non à remplacer les avis de votre avocat, comptable, courtier hypothécaire ou courtier immobilier.</p>
-        <div class="article-byline"><span>Dernière mise à jour :</span> <time datetime="2026-07-19">19 juillet 2026</time></div>
+        <div class="eyebrow">Juridique · Avis sur le contenu</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Chaque article, calculateur, note de transaction passée et chiffre publié sur ce Site vise à vous aider à mieux comprendre le marché immobilier torontois — non à remplacer les conseils de votre avocat, de votre comptable, de votre courtier hypothécaire ou de votre courtier immobilier. Veuillez lire ce qui suit avant de vous fier à quoi que ce soit sur ce Site.</p>
+        <div class="article-byline">
+          <span>Dernière mise à jour :</span>
+          <time datetime={publishedDate}>19 juillet 2026</time>
+        </div>
       </div>
     </section>
+
     <section class="major" style="padding-top:32px;">
       <div class="wrap">
         <div class="prose-grid">
-          <aside class="prose-side"><h4>Dans ce document</h4><ul>              <li><a href="#general">Informations générales seulement</a></li>
+          <aside class="prose-side">
+            <h4>Dans ce document</h4>
+            <ul>
+              <li><a href="#general">Renseignements généraux seulement</a></li>
               <li><a href="#no-advice">Aucun avis professionnel</a></li>
               <li><a href="#accuracy">Exactitude et actualité</a></li>
-              <li><a href="#market-data">Données de marché, MLS®, MPAC et CMHC</a></li>
+              <li><a href="#market-data">Données de marché, MLS®, MPAC et SCHL</a></li>
               <li><a href="#calculators">Calculateurs et estimations</a></li>
               <li><a href="#dollar-figures">Chiffres en dollars dans les articles</a></li>
               <li><a href="#past-deals">Transactions passées, adresses et photos</a></li>
               <li><a href="#testimonials">Témoignages, notes et langage subjectif</a></li>
-              <li><a href="#airbnb">Références Airbnb</a></li>
+              <li><a href="#airbnb">Références à Airbnb et à l'hôtellerie</a></li>
               <li><a href="#no-relationship">Aucune relation client</a></li>
-              <li><a href="#referrals">Relations de référence et affiliation</a></li>
+              <li><a href="#referrals">Relations de référence et d'affiliation</a></li>
               <li><a href="#third-party">Contenu tiers</a></li>
               <li><a href="#external">Liens externes</a></li>
-              <li><a href="#contact">Contact et corrections</a></li></ul></aside>
+              <li><a href="#contact">Contact et corrections</a></li>
+            </ul>
+          </aside>
+
           <div class="prose-body">
-            <h2 id="general">Informations générales seulement</h2>
-            <p>Tout contenu — articles, guides, tableaux, calculateurs, notes de transactions passées, taux cités, infographies — est fourni à des fins d'information générale. Il n'est pas un substitut à un avis professionnel individualisé.</p>
+            <h2 id="general">Renseignements généraux seulement</h2>
+            <p>Tout ce qui est publié sur <strong>realtorpeterlaw.com</strong> (le « Site ») — y compris les billets de blogue, les guides, les tableaux, les calculateurs, les notes de transactions passées, les taux cités et les infographies — est fourni à des fins d'information générale seulement. Ce contenu vise à vous donner un point de départ pour vos propres recherches et à vous aider à savoir quelles questions poser. Il ne remplace pas un avis professionnel personnalisé.</p>
+
             <h2 id="no-advice">Aucun avis professionnel</h2>
-            <p>Peter Law est un Représentant commercial de l'Ontario — non un avocat, comptable, courtier hypothécaire, planificateur financier, évaluateur ou entrepreneur. Vérifier auprès du professionnel qualifié approprié.</p>
+            <p>Peter Law est un Représentant commercial autorisé en Ontario — il n'est ni avocat, ni comptable fiscaliste, ni courtier hypothécaire, ni planificateur financier, ni évaluateur agréé, ni entrepreneur. Le contenu du Site qui aborde :</p>
+            <ul class="bullets">
+              <li>des sujets fiscaux (remises de TVH/TPS, droits de mutation immobilière, gains en capital, taxe sur les logements vacants, Compte d'épargne libre d'impôt pour l'achat d'une première propriété, etc.);</li>
+              <li>des questions juridiques (baux, offres, litiges locateur-locataire, projet de loi 60, licences HCRA, formulaires N, etc.);</li>
+              <li>les hypothèques et le financement (taux, marges de crédit hypothécaires, hypothèques inversées, capacité d'emprunt, test de résistance, etc.);</li>
+              <li>les programmes gouvernementaux (CELIAPP, remise pour acheteur d'une première habitation, RHSP, OESP, interdiction pour acheteurs étrangers, etc.);</li>
+              <li>l'évaluation des propriétés (AMC, évaluations résidentielles, prévisions de marché);</li>
+            </ul>
+            <p>doit être lu comme de la vulgarisation générale, non comme un conseil sur lequel agir. Avant de prendre une décision, vérifiez les détails actuels auprès du professionnel qualifié approprié ou de l'organisme gouvernemental responsable. Toute formulation directive (« vous devriez », « vous devez », « le propriétaire est tenu de ») dans un guide résume la règle générale — ce n'est pas une instruction adaptée à votre situation.</p>
+
             <h2 id="accuracy">Exactitude et actualité</h2>
-            <p>Nous nous efforçons de rédiger du contenu exact et de citer nos sources. Cependant, les règles immobilières, taux fiscaux, données de marché et programmes gouvernementaux changent souvent. Toujours vérifier la date « Dernière mise à jour ».</p>
-            <h2 id="market-data">Données de marché, MLS®, MPAC et CMHC</h2>
-            <p>Toute statistique de marché, données de vente ou informations de propriété sont dérivées de sources jugées fiables (TRREB, MLS®, MPAC, CMHC) mais ne sont pas garanties. Les marques MLS®, REALTOR® sont contrôlées par l'ACI et utilisées sous licence.</p>
+            <p>Nous nous efforçons de produire un contenu exact et de citer nos sources. Toutefois, les règles immobilières, les taux d'imposition, les données de marché et les programmes gouvernementaux changent fréquemment — parfois à très court préavis. Un article à jour au moment de sa rédaction peut être obsolète lorsque vous le lisez. Vérifiez toujours la date « Dernière mise à jour » ou « Publié » sur chaque article et confirmez les faits sous-jacents avant de vous y fier. Nous cherchons à réviser les articles au moins une fois par année, mais nous ne nous engageons pas à mettre à jour un article donné à une fréquence particulière.</p>
+
+            <h2 id="market-data">Données de marché, MLS®, MPAC et références à la SCHL</h2>
+            <p>Toute statistique de marché, donnée de vente ou information sur une propriété publiée sur le Site provient de sources jugées fiables — notamment le Toronto Regional Real Estate Board (TRREB), les données du système MLS®, les évaluations de la Société d'évaluation foncière des municipalités (MPAC) et les publications de la Société canadienne d'hypothèques et de logement (SCHL) — mais elle n'est pas garantie. Les données MLS® et TRREB peuvent être modifiées ou corrigées après publication. Les valeurs MPAC ne sont pas des prix de marché. Les grilles de primes et les règles d'admissibilité de la SCHL changent de temps à autre.</p>
+            <p>Les marques <strong>MLS®</strong>, <strong>Multiple Listing Service®</strong> et les logos associés sont la propriété de l'Association canadienne de l'immeuble (ACI) et désignent la qualité des services fournis par les professionnels de l'immobilier membres de l'ACI. Les marques <strong>REALTOR®</strong>, <strong>REALTORS®</strong> et le logo REALTOR® sont contrôlées par l'ACI et désignent les professionnels de l'immobilier qui en sont membres. Toute simple mention de « MLS », « realtor » ou « realtors » sur le Site fait référence à ces marques déposées, utilisées sous licence.</p>
+
             <h2 id="calculators">Calculateurs et estimations</h2>
-            <p>Les calculateurs (hypothèque, accessibilité, coûts de clôture, LTT, CMHC) fournissent des chiffres approximatifs à des fins de planification seulement. Les vrais chiffres dépendent de votre crédit, prêteur, propriété. Les paramètres sous-jacents peuvent changer.</p>
-            <h2 id="dollar-figures">Chiffres en dollars dans les articles</h2>
-            <p>Lorsqu'un article indique un chiffre spécifique en dollars, il est illustratif et basé sur les taux publiés à la date « Dernière mise à jour ». Les résultats réels dépendent de l'admissibilité individuelle.</p>
+            <p>Tout calculateur ou estimation présenté sur le Site — y compris les calculateurs de versements hypothécaires, de capacité d'emprunt, de frais de clôture, de droits de mutation immobilière et de primes d'assurance SCHL — fournit des chiffres approximatifs à des fins de planification seulement. Les vrais chiffres dépendent de votre crédit, de votre prêteur, des conditions de clôture, des particularités de la propriété et de facteurs que nous ne pouvons pas voir. Les données sous-jacentes (paliers du LTT et du MLTT, tranches de primes SCHL, taux admissible du test de résistance, règles de TVH/TPS) peuvent changer sans que la mise à jour se reflète immédiatement dans le calculateur. Vous ne devriez prendre aucun engagement financier en vous fiant à un résultat de calculateur; les chiffres réels doivent être confirmés par votre prêteur, votre avocat et votre comptable.</p>
+
+            <h2 id="dollar-figures">Chiffres en dollars dans les billets de blogue</h2>
+            <p>Lorsqu'un article indique un montant précis — par exemple « jusqu'à 50 000 $ de remise », « économise environ 3 200 $ », « amende pouvant atteindre 10 000 $ » ou « économise environ 50 $ par année » — ce chiffre est illustratif et repose sur les taux publiés ou les paramètres du programme à la date de « Dernière mise à jour » de l'article. Les économies, remises, pénalités ou avantages réels dépendent de l'admissibilité individuelle, du moment et des règles du programme en vigueur lorsque vous agissez. Rien sur le Site ne constitue une promesse qu'un résultat monétaire particulier s'appliquera à votre cas.</p>
+
             <h2 id="past-deals">Transactions passées, adresses et photos</h2>
-            <p>Les sections « Historique des ventes » proviennent de dossiers publics (TRREB / MLS®) ou sont partagées avec le consentement du client. Photos utilisées avec autorisation. Demandes de retrait via <a href="/french/contact">Contact</a>.</p>
+            <p>Certaines sections du Site — dont « Récentes » et « Transactions passées » — publient des renseignements sur des transactions auxquelles Peter a participé à titre de représentant autorisé. Ces informations comprennent généralement l'intersection ou l'adresse, le mois de clôture, le prix de vente ou de location, le type général de propriété et un bref commentaire. Elles proviennent soit de dossiers accessibles au public (par exemple, des inscriptions vendues diffusées par les systèmes TRREB / MLS® conformément aux règles applicables), soit sont partagées avec l'autorisation expresse du client concerné.</p>
+            <p>Les photos de propriétés affichées sur le Site sont utilisées avec l'autorisation du photographe, du vendeur ou de la maison de courtage qui les a fournies. Nous n'affichons sciemment aucune image sans en avoir le droit.</p>
+            <p><strong>Demandes de retrait.</strong> Si vous avez été partie à une transaction passée et souhaitez que vos renseignements ou vos photos soient retirés, ou si vous croyez qu'une image sur le Site a été publiée sans autorisation, veuillez <a href="/french/contact">nous contacter</a>. Nous ferons enquête et, s'il y a lieu, retirerons l'élément rapidement.</p>
+
             <h2 id="testimonials">Témoignages, notes et langage subjectif</h2>
-            <p>Les témoignages sont fournis avec permission et reflètent des expériences spécifiques. <strong>Les résultats passés ne garantissent pas les résultats futurs.</strong> Le langage subjectif (« locataire AAA », « meilleure ») est un commentaire de Peter, non des cotes vérifiables.</p>
-            <h2 id="airbnb">Références Airbnb</h2>
-            <p>Certaines pages référencent le travail antérieur de Peter en tant qu'hôte Airbnb. Ces chiffres reflètent une entreprise d'hospitalité distincte, non prédictifs des résultats immobiliers.</p>
+            <p>Les témoignages de clients, les notes en étoiles, les résumés de transactions ou les références à des transactions passées présentés sur le Site sont fournis avec l'autorisation des personnes concernées et reflètent l'expérience d'individus précis dans des circonstances précises. Les résultats passés <strong>ne</strong> garantissent pas les résultats futurs. Chaque transaction immobilière est différente, et les résultats dépendent de nombreux facteurs — conjoncture du marché, moment, particularités de la propriété et dynamique de négociation — qui ne peuvent être reproduits.</p>
+            <p>Une partie du contenu emploie un langage abrégé ou subjectif — par exemple « locataire AAA », « emplacement AAA », « vente la plus élevée dans l'immeuble », « excellent locataire », « vous allez gagner », « le meilleur ». Il s'agit de commentaires et d'opinions personnels de Peter, non de cotes de crédit, d'évaluations agréées, de garanties ou de classements de marché vérifiables. On ne devrait pas s'y fier comme à des énoncés objectifs. Toute affirmation comparative ou superlative (« le plus élevé », « le meilleur », « le plus grand ») repose sur les données connues au moment de la publication et n'est pas garantie exacte à perpétuité.</p>
+
+            <h2 id="airbnb">Références à Airbnb et à l'expérience d'hôtellerie antérieure</h2>
+            <p>Certaines pages font référence au travail antérieur de Peter comme hôte Airbnb — par exemple « plus de 400 évaluations d'invités Airbnb » ou une note en étoiles particulière. Ces chiffres reflètent une entreprise d'hôtellerie distincte et sont partagés uniquement à titre de contexte. Ils ne mesurent pas les résultats du service immobilier et ne doivent pas être considérés comme prédictifs des résultats qu'un client obtiendra dans une transaction immobilière.</p>
+
             <h2 id="no-relationship">Aucune relation client</h2>
-            <p>Lire le Site, envoyer un message, s'abonner ou planifier un appel <strong>ne crée pas</strong> de relation client. Une relation client est établie seulement une fois qu'un accord de représentation écrit est signé.</p>
-            <h2 id="referrals">Relations de référence et affiliation</h2>
-            <p>Peter peut référer des clients à des prestataires tiers (fournisseurs Internet, SingleKey, professionnels hypothécaires) et peut recevoir des frais de référence. Où une relation existe, nous essayons de le noter près du lien.</p>
+            <p>Consulter le Site, envoyer un message par le formulaire de contact, s'abonner à une infolettre ou prendre rendez-vous pour un appel de présentation <strong>ne crée pas</strong> de relation client, de relation d'agence ni d'obligation fiduciaire. Une relation client en immobilier n'est établie qu'une fois qu'une entente de représentation écrite (Buyer Representation Agreement, Seller Representation Agreement ou une entente semblable reconnue par le RECO) a été signée par les deux parties. Lire un guide sur les baux, les formulaires N ou le droit locateur-locataire ne crée pas de relation avocat-client, parajuriste-client ou agent-client.</p>
+
+            <h2 id="referrals">Relations de référence et d'affiliation</h2>
+            <p>De temps à autre, le Site renvoie à des prestataires tiers — par exemple des fournisseurs Internet ou de services publics, des services de vérification de locataires (comme SingleKey) ou des professionnels du prêt hypothécaire — avec lesquels Peter a travaillé ou vers qui il oriente des clients. Dans certains cas, Peter peut recevoir des frais de référence, un crédit ou une commission pour une telle référence. Là où une relation de référence existe, nous essayons de le mentionner près du lien. Si vous n'êtes pas certain qu'un lien constitue une référence, veuillez le demander avant de vous inscrire. Comme toujours, le choix d'un fournisseur tiers demeure votre décision.</p>
+
             <h2 id="third-party">Contenu tiers</h2>
-            <p>Le contenu référence, cite ou résume des publications gouvernementales, directives d'associations, reportages. Les marques et droits d'auteur restent la propriété de leurs détenteurs respectifs.</p>
+            <p>Certains éléments du Site font référence à des publications gouvernementales, à des lignes directrices d'associations sectorielles et à des reportages, en les citant ou en les résumant. Lorsque cela s'applique, les sources sont nommées et un lien y renvoie. Les marques de commerce et droits d'auteur de ces tiers demeurent la propriété de leurs détenteurs respectifs.</p>
+
             <h2 id="external">Liens externes</h2>
-            <p>Le Site lie à des sites externes. Nous ne contrôlons, n'endossons ni ne prenons responsabilité de leur contenu ou pratiques de confidentialité.</p>
+            <p>Le Site renvoie à des sites externes (pages gouvernementales, sources d'actualité, ressources sectorielles, services tiers). Nous les incluons pour votre commodité. Nous ne contrôlons pas, n'endossons pas et n'assumons aucune responsabilité quant au contenu, à l'exactitude ou aux pratiques de confidentialité de ces sites. Suivez tout lien externe à votre discrétion.</p>
+
             <h2 id="contact">Contact et corrections</h2>
-            <p>Questions ou besoin de correction? <a href="/french/contact">Contactez Peter</a>. Nous préférons corriger une erreur plutôt que la laisser.</p>
+            <p>Vous avez des questions sur le contenu de ce Site, ou pensez que nous avons publié quelque chose qui doit être corrigé, mis à jour ou retiré? Veuillez <a href="/french/contact">contacter Peter</a>. Nous préférons corriger une erreur que la laisser en ligne.</p>
           </div>
         </div>
       </div>
     </section>
   </article>
+
   <LFooter />
 </BaseLayout>

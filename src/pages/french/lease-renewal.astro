@@ -12,17 +12,22 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/lease-renewal/' },
 ];
 ---
-<BaseLayout title="Renouvellement de bail en Ontario | Peter Law" description="Ce qui se passe \u00e0 la fin de votre bail \u00e0 dur\u00e9e fixe, votre droit de rester, les r\u00e8gles de loyer au renouvellement." lang="fr" bodyClass="fr"
+<BaseLayout
+  title="Renouvellement de bail en Ontario — Vos droits comme locataire | Peter Law"
+  description="Ce qui se passe à la fin de votre bail en Ontario, votre droit de rester de mois en mois, les règles d'augmentation du loyer au renouvellement, et quoi faire si le propriétaire souhaite votre départ."
+  lang="fr"
+  bodyClass="fr guide-page"
   hreflangAlternates={hreflangAlternates}
 >
+
   <LTopBar />
   <LHeader active="rental" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Ressource locataire</div>
+      <div class="eyebrow">Ressource pour locataires</div>
       <h1>Renouvellement de bail en Ontario.</h1>
-      <p>Ce qui se passe à la fin de votre bail, votre droit de rester, les règles de loyer, et quoi faire si le propriétaire veut vous faire partir.</p>
+      <p>Ce qui se passe à la fin de votre bail à durée déterminée, votre droit de rester, les règles applicables au loyer au moment du renouvellement, et quoi faire si le propriétaire souhaite votre départ.</p>
     </div>
   </section>
 
@@ -30,29 +35,69 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>—</h4>
-          <ul>          <li><a href="#default">Par défaut : mensuel</a></li>
-          <li><a href="#stay">Votre droit de rester</a></li>
-          <li><a href="#rent">Loyer au renouvellement</a></li>
-          <li><a href="#endout">Si le propriétaire veut vous faire partir</a></li>
-          <li><a href="#leave">Si vous voulez partir</a></li></ul>
+          <h4>Sur cette page</h4>
+          <ul>
+            <li><a href="#default">Par défaut : de mois en mois</a></li>
+            <li><a href="#stay">Votre droit de rester</a></li>
+            <li><a href="#rent">Le loyer au renouvellement</a></li>
+            <li><a href="#endout">Si le propriétaire souhaite votre départ</a></li>
+            <li><a href="#leave">Si vous souhaitez partir</a></li>
+          </ul>
         </aside>
+
         <div class="prose-body">
-          <h2 id="default">Par défaut : mensuel</h2>
-          <p>En Ontario, à la fin d'un bail à durée fixe (généralement 12 mois), <strong>le bail ne se termine pas</strong>. Il devient automatiquement mensuel aux mêmes conditions. Aucune signature, aucune permission requise du propriétaire.</p>
-          <h2 id="stay">Votre droit de rester</h2>
-          <p>Le propriétaire <strong>ne peut pas vous forcer à signer un nouveau bail à durée fixe</strong>. Vous pouvez continuer à payer mensuellement indéfiniment.</p>
-          <h2 id="rent">Loyer au renouvellement</h2>
-          <p>Le loyer ne peut augmenter qu'une fois tous les 12 mois. Pour les logements sous contrôle, plafonné à la ligne directrice. Préavis de 90 jours sur le formulaire N1.</p>
-          <h2 id="endout">Si le propriétaire veut vous faire partir</h2>
-          <p>Il doit avoir des <strong>motifs légaux</strong> (N12 pour usage personnel, N13 pour rénovation majeure). Un préavis verbal n'est pas valide.</p>
-          <h2 id="leave">Si vous voulez partir</h2>
-          <p>Sur un bail mensuel, donnez un <strong>préavis écrit de 60 jours</strong> se terminant le dernier jour d'un mois de loyer (formulaire N9).</p>
+          <h2 id="default">Par défaut : de mois en mois</h2>
+          <p>En Ontario, lorsque votre bail à durée déterminée arrive à échéance (habituellement après 12 mois), <strong>il ne prend pas véritablement fin</strong>. Par défaut, il se transforme automatiquement en location de mois en mois, aux mêmes conditions. Vous n'avez rien à signer de nouveau. Vous n'avez pas besoin de l'autorisation du propriétaire.</p>
+          <p>C'est l'une des plus solides protections offertes aux locataires au Canada. Beaucoup de locataires l'ignorent et finissent par signer un renouvellement ou par déménager alors qu'ils n'y étaient pas tenus.</p>
+
+          <details class="b60-section-toggle" id="stay">
+            <summary class="b60-section-toggle-summary">Votre droit de rester</summary>
+            <div class="b60-section-body">
+              <p>Le propriétaire <strong>ne peut pas vous obliger à signer un nouveau bail à durée déterminée</strong>. S'il vous met de la pression (« il faut renouveler ou déménager »), il a tort. Vous pouvez simplement continuer à payer votre loyer de mois en mois, indéfiniment.</p>
+              <p>Le propriétaire ne peut pas non plus mettre fin à votre location du seul fait que le terme fixe est expiré. Il lui faut des <strong>motifs légaux</strong> — voir plus bas.</p>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="rent">
+            <summary class="b60-section-toggle-summary">Le loyer au renouvellement</summary>
+            <div class="b60-section-body">
+              <ul class="bullets">
+                <li>Le loyer ne peut être augmenté qu'<strong>une fois tous les 12 mois</strong>.</li>
+                <li>Pour les logements assujettis au contrôle du loyer, l'augmentation est plafonnée par la ligne directrice annuelle. (<a href="/french/rent-control">Consultez le guide sur le contrôle du loyer.</a>)</li>
+                <li>Vous devez recevoir un <strong>préavis écrit de 90 jours</strong> avant toute augmentation, sur le bon formulaire N1 de la CLI.</li>
+                <li>Si le propriétaire vous propose un nouveau bail à durée déterminée à un loyer plus élevé, vous pouvez refuser et rester de mois en mois au loyer actuel (sous réserve des mêmes règles d'augmentation par N1).</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="b60-section-toggle" id="endout">
+            <summary class="b60-section-toggle-summary">Si le propriétaire souhaite votre départ</summary>
+            <div class="b60-section-body">
+              <p>Un propriétaire ne peut mettre fin à votre location que pour des motifs légaux précis, en utilisant le bon formulaire de préavis de la CLI :</p>
+              <ul class="bullets">
+                <li><strong>N4</strong> — Non-paiement du loyer</li>
+                <li><strong>N5</strong> — Dommages, troubles ou trop grand nombre d'occupants</li>
+                <li><strong>N12</strong> — Le propriétaire, l'acheteur ou un proche parent souhaite emménager (nécessite une <strong>compensation équivalente à un mois de loyer</strong>)</li>
+                <li><strong>N13</strong> — Démolition, réparations majeures ou conversion (nécessite une <strong>compensation de trois mois de loyer</strong> ou un droit de premier refus)</li>
+              </ul>
+              <div class="callout"><strong>Si vous recevez l'un de ces formulaires :</strong> ne déménagez pas immédiatement. Ce sont des préavis, pas des ordonnances du tribunal. Vous avez le droit de vous faire entendre à la Commission de la location immobilière (CLI) avant qu'une expulsion puisse avoir lieu.</div>
+            </div>
+          </details>
+
+          <h2 id="leave">Si vous souhaitez partir</h2>
+          <ul class="bullets">
+            <li>Donnez un <strong>préavis écrit de 60 jours</strong> sur le Formulaire N9 (Avis du locataire mettant fin à la location).</li>
+            <li>La date de fin doit correspondre au <strong>dernier jour d'un mois de loyer</strong> (par exemple, le 30 ou le 31).</li>
+            <li>Pour les baux à durée déterminée, la date de fin la plus tôt possible est le lendemain de l'expiration du terme fixe.</li>
+            <li>Vous pouvez aussi mettre fin plus tôt par entente mutuelle avec le propriétaire (Formulaire N11), ou par cession/sous-location (avec le consentement raisonnable du propriétaire).</li>
+          </ul>
+
+          <p class="legal-note">Ce guide est informatif et ne constitue pas un avis juridique. Pour votre situation particulière, parlez à un parajuriste, à une clinique juridique communautaire ou directement à la Commission de la location immobilière (CLI).</p>
         </div>
       </div>
     </div>
   </section>
 
-  <LCTA heading="Bail qui se termine bient\u00f4t?" lead="Envoyez-moi vos options \u2014 je vous dirai en 10 minutes si rester, ren\u00e9gocier ou d\u00e9m\u00e9nager est le bon choix." />
+  <LCTA heading="Un renouvellement de bail délicat?" lead="Si vous avez reçu un N9, un N12 ou un N13 — ou si vous ne savez tout simplement pas comment répondre à votre propriétaire — parlons-en. Je vis ces situations chaque semaine." />
   <LFooter />
 </BaseLayout>

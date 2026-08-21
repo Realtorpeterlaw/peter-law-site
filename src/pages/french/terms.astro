@@ -3,7 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
+
 export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = "Conditions d'utilisation";
+const pageDescription = "Conditions régissant l'utilisation de realtorpeterlaw.com — un site personnel de Peter Law, Représentant commercial chez HomeLife Golconda Realty Inc., Brokerage.";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/terms/' },
@@ -12,7 +17,11 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/terms/' },
 ];
 ---
-<BaseLayout title="Conditions d'utilisation | Peter Law" description="Conditions r\u00e9gissant l'utilisation de realtorpeterlaw.com \u2014 site personnel de Peter Law, Repr\u00e9sentant commercial chez HomeLife Golconda Realty Inc." lang="fr" bodyClass="fr guide-page article-page"
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Immobilier à Toronto`}
+  description={pageDescription}
+  lang="fr"
+  bodyClass="fr guide-page article-page"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
@@ -21,10 +30,13 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Juridique · Conditions du site</div>
-        <h1>Conditions d'utilisation</h1>
-        <p class="article-lead">Ces conditions couvrent l'utilisation de realtorpeterlaw.com. Rien ici n'est un avis juridique — cela fixe simplement les règles du site, son contenu, et les marques utilisées.</p>
-        <div class="article-byline"><span>Dernière mise à jour :</span> <time datetime="2026-07-19">19 juillet 2026</time></div>
+        <div class="eyebrow">Juridique · Conditions du Site</div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Ces conditions régissent l'utilisation de realtorpeterlaw.com. Rien ici ne constitue un avis juridique — cela établit simplement les règles de base du Site, de son contenu et des marques qui y sont utilisées.</p>
+        <div class="article-byline">
+          <span>Dernière mise à jour :</span>
+          <time datetime={publishedDate}>19 juillet 2026</time>
+        </div>
       </div>
     </section>
 
@@ -33,44 +45,69 @@ const hreflangAlternates = [
         <div class="prose-grid">
           <aside class="prose-side">
             <h4>Dans ce document</h4>
-            <ul>              <li><a href="#acceptance">Acceptation des conditions</a></li>
-              <li><a href="#site-use">Utilisation du site</a></li>
+            <ul>
+              <li><a href="#acceptance">Acceptation des conditions</a></li>
+              <li><a href="#site-use">Utilisation du Site</a></li>
               <li><a href="#ip">Propriété intellectuelle et photos</a></li>
               <li><a href="#trademarks">Marques REALTOR® et MLS®</a></li>
               <li><a href="#no-advice">Aucun avis professionnel</a></li>
               <li><a href="#services">Engagements de service et délais</a></li>
-              <li><a href="#brokerage">Maison de courtage et licence</a></li>
+              <li><a href="#brokerage">Maison de courtage et statut d'inscription</a></li>
               <li><a href="#third-party">Liens et intégrations tiers</a></li>
               <li><a href="#liability">Limitation de responsabilité</a></li>
-              <li><a href="#changes">Modifications aux conditions</a></li>
+              <li><a href="#changes">Modifications aux présentes conditions</a></li>
               <li><a href="#law">Loi applicable</a></li>
-              <li><a href="#contact">Contact</a></li></ul>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
           </aside>
+
           <div class="prose-body">
             <h2 id="acceptance">Acceptation des conditions</h2>
-            <p>En visitant ou en utilisant <strong>realtorpeterlaw.com</strong> (le « Site »), vous acceptez ces Conditions d'utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le Site. Le Site est détenu et exploité par Peter Law, Représentant commercial chez HomeLife Golconda Realty Inc., Brokerage, inscrit au Real Estate Council of Ontario (RECO).</p>
-            <h2 id="site-use">Utilisation du site</h2>
-            <p>Vous acceptez d'utiliser le Site uniquement à des fins légales. Comportements interdits : accès non autorisé, extraction de données, transmission de virus, republication non autorisée du contenu, distribution de spam.</p>
+            <p>En visitant ou en utilisant <strong>realtorpeterlaw.com</strong> (le « Site »), vous acceptez les présentes Conditions d'utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le Site. Le Site est détenu et exploité par Peter Law, Représentant commercial chez HomeLife Golconda Realty Inc., Brokerage (« nous », « notre »), inscrit auprès du Real Estate Council of Ontario (RECO).</p>
+
+            <h2 id="site-use">Utilisation du Site</h2>
+            <p>Vous acceptez d'utiliser le Site uniquement à des fins licites et d'une manière qui ne viole pas les droits d'autrui, ni ne limite ou empêche l'utilisation du Site par d'autres personnes. Les comportements interdits comprennent notamment :</p>
+            <ul class="bullets">
+              <li>tenter d'accéder sans autorisation au Site, à son serveur ou à tout système connecté;</li>
+              <li>extraire, collecter ou recueillir d'une autre manière des renseignements sur d'autres utilisateurs;</li>
+              <li>téléverser ou transmettre des virus, des logiciels malveillants ou tout autre code nuisible;</li>
+              <li>copier, revendre ou republier tout contenu du Site sans autorisation écrite;</li>
+              <li>utiliser le Site pour distribuer du pourriel ou du contenu commercial non sollicité.</li>
+            </ul>
+
             <h2 id="ip">Propriété intellectuelle et photos</h2>
-            <p>Tout contenu original du Site — articles, guides, calculateurs, mises en page, code — est la propriété de Peter Law et protégé par les lois canadiennes et internationales sur le droit d'auteur. Utilisation personnelle non commerciale permise. Les photos sont utilisées avec l'autorisation des propriétaires. Signaler tout usage non autorisé via <a href='/french/contact'>Contact</a>.</p>
+            <p>Tout le contenu original du Site — y compris, sans s'y limiter, les articles écrits, billets de blogue, guides, calculateurs, mises en page, illustrations et code — est la propriété de Peter Law et est protégé par les lois canadiennes et internationales sur le droit d'auteur. Vous pouvez consulter, partager et créer des hyperliens vers les pages du Site pour un usage personnel non commercial. Vous ne pouvez pas reproduire, republier, redistribuer ni utiliser le contenu à des fins commerciales sans consentement écrit préalable.</p>
+            <p><strong>Les photos et images de propriétés</strong> affichées sur le Site (y compris les images dans « Récentes », « Transactions passées » et les billets de blogue) sont utilisées avec l'autorisation du photographe, du vendeur, de la maison de courtage ou de la plateforme qui les a fournies, et demeurent la propriété intellectuelle de leurs détenteurs respectifs. Si vous estimez qu'une image du Site a été utilisée sans autorisation appropriée, veuillez <a href="/french/contact">nous contacter</a> en indiquant l'URL et une brève description; nous ferons enquête et, s'il y a lieu, retirerons l'image rapidement.</p>
+
             <h2 id="trademarks">Marques REALTOR® et MLS®</h2>
-            <p>Les marques <strong>REALTOR®</strong> et <strong>MLS®</strong> sont contrôlées par l'Association canadienne de l'immeuble (ACI/CREA) et utilisées sous licence. Peter Law est un Représentant commercial inscrit au RECO chez HomeLife Golconda Realty Inc., Brokerage.</p>
+            <p>Les marques <strong>REALTOR®</strong>, <strong>REALTORS®</strong> et le logo REALTOR® sont contrôlées par l'Association canadienne de l'immeuble (ACI) et désignent les professionnels de l'immobilier qui en sont membres. Les marques <strong>MLS®</strong>, <strong>Multiple Listing Service®</strong> et les logos associés appartiennent à l'ACI et désignent la qualité des services fournis par les professionnels de l'immobilier membres de l'ACI. Ces marques sont utilisées sur le Site sous licence. Toute simple mention de « MLS », « realtor » ou « realtors » sur le Site fait référence à ces marques déposées.</p>
+            <p>Peter Law est un Représentant commercial inscrit auprès du Real Estate Council of Ontario (RECO) et exerce sous la maison de courtage HomeLife Golconda Realty Inc., Brokerage.</p>
+
             <h2 id="no-advice">Aucun avis professionnel</h2>
-            <p>Le Site fournit des informations générales, non des avis juridiques, fiscaux, financiers, hypothécaires ou d'évaluation. Toujours vérifier auprès du professionnel approprié. La lecture du Site ne crée pas de relation client.</p>
+            <p>Le Site fournit de l'information générale sur le marché immobilier de l'Ontario et de Toronto, les programmes gouvernementaux, les remises fiscales et les sujets connexes. Cette information <strong>ne constitue pas un avis juridique, fiscal, financier, hypothécaire, en évaluation ni un autre avis professionnel</strong>. Les règles immobilières, les taux d'imposition et les programmes gouvernementaux changent souvent — parfois entre le moment où un article est rédigé et celui où vous le lisez. Vérifiez toujours les détails actuels auprès du professionnel approprié (avocat en immobilier, comptable fiscaliste, courtier hypothécaire, évaluateur ou organisme gouvernemental concerné) avant de prendre une décision. Consultez l'<a href="/french/disclaimer">Avis de non-responsabilité</a> pour tous les détails sur la façon de lire le contenu du Site.</p>
+            <p>Consulter le Site ou nous contacter par son entremise ne crée pas de relation client, de relation d'agence ni d'obligation fiduciaire. Une relation client n'est établie qu'une fois qu'une entente de représentation écrite a été signée.</p>
+
             <h2 id="services">Engagements de service et délais</h2>
-            <p>Les délais indiqués (ex. « évaluation gratuite en 48 heures ») sont des cibles, non des garanties. Une AMC (analyse comparative de marché) est une opinion de valeur, non une évaluation formelle au sens des normes CUSPAP.</p>
-            <h2 id="brokerage">Maison de courtage et licence</h2>
-            <p>Peter Law est inscrit au RECO chez HomeLife Golconda Realty Inc. Toute référence à un statut de licence futur est à titre indicatif. La recherche publique du RECO fait autorité sur le statut actuel.</p>
+            <p>Lorsque le Site mentionne un délai de service (par exemple « Évaluation gratuite de la maison livrée en 48 heures », « réponse dans un jour ouvrable » ou une heure d'appel planifiée), il s'agit de <em>cibles</em> de service que nous nous efforçons d'atteindre — ce ne sont pas des garanties. Des retards peuvent survenir pour des raisons hors de notre contrôle (pannes de système, fins de semaine et jours fériés, volume élevé de demandes, ou besoin de recueillir plus d'informations auprès de vous).</p>
+            <p>Une Analyse comparative du marché (AMC) ou « évaluation résidentielle » produite par Peter constitue une <strong>opinion de valeur</strong> fondée sur les ventes comparables récentes et les données de marché disponibles au moment. Il ne s'agit pas d'une évaluation agréée au sens des Normes uniformes de pratique professionnelle en matière d'évaluation au Canada (NUPPEC) de l'Institut canadien des évaluateurs, ni d'aucune norme équivalente, et elle ne devrait pas être utilisée à des fins de financement, juridiques ou fiscales qui exigent une évaluation formelle.</p>
+
+            <h2 id="brokerage">Maison de courtage et statut d'inscription</h2>
+            <p>Peter Law est un Représentant commercial inscrit auprès du Real Estate Council of Ontario (RECO) et exerce sous HomeLife Golconda Realty Inc., Brokerage. Toute référence sur le Site à un statut d'inscription futur, à une formation ou à des jalons professionnels (par exemple « poursuit la licence de courtier ») décrit une intention et est exacte à la date de la dernière mise à jour du Site; il ne s'agit pas d'une représentation du statut actuel. La recherche publique des inscrits du RECO demeure la source faisant autorité quant à la licence actuelle et au statut d'inscription d'un professionnel de l'immobilier.</p>
+
             <h2 id="third-party">Liens et intégrations tiers</h2>
-            <p>Le Site lie et intègre des services tiers (gouvernementaux, associations, prestataires, plateformes vidéo, planification, infolettre). Nous n'endossons pas ces services. Voir <a href='/french/disclaimer#referrals'>l'Avis</a> pour les relations de référence rémunérées.</p>
+            <p>Le Site renvoie à des services et sites tiers et en intègre certains (pages gouvernementales, associations sectorielles, prestataires de services, fournisseurs de vérification de locataires, plateformes vidéo, widgets de planification, plateformes d'infolettre, sources d'actualité). Nous les incluons pour votre commodité. Nous ne contrôlons pas, n'endossons pas et n'assumons aucune responsabilité quant au contenu, à l'exactitude ou aux pratiques de confidentialité de ces sites et plateformes. Votre utilisation d'un site tiers est régie par les conditions propres à ce site. Dans certains cas, nous pouvons recevoir des frais de référence pour avoir dirigé un client vers un service tiers — voir l'<a href="/french/disclaimer#referrals">Avis de non-responsabilité</a> pour les détails.</p>
+
             <h2 id="liability">Limitation de responsabilité</h2>
-            <p>Le Site et son contenu sont fournis « tel quel » sans garantie. Dans la mesure permise par la loi, Peter Law et HomeLife Golconda ne sont pas responsables de dommages découlant de l'utilisation du Site.</p>
-            <h2 id="changes">Modifications aux conditions</h2>
-            <p>Nous pouvons mettre à jour ces conditions périodiquement. La date « Dernière mise à jour » indique quand. Votre utilisation continue signifie acceptation.</p>
+            <p>Le Site et son contenu sont fournis « tels quels » et « selon leur disponibilité », sans garantie d'aucune sorte, expresse ou implicite. Nous ne garantissons pas que le Site sera ininterrompu, exempt d'erreurs ou exempt de virus. Dans toute la mesure permise par la loi, Peter Law et HomeLife Golconda Realty Inc. ne seront pas responsables des dommages directs, indirects, accessoires, consécutifs ou punitifs résultant de votre utilisation ou de votre incapacité à utiliser le Site ou son contenu — y compris le fait de vous fier à toute information, sortie de calculateur, donnée de marché, référence à une transaction passée ou lien tiers présent sur le Site.</p>
+
+            <h2 id="changes">Modifications aux présentes conditions</h2>
+            <p>Nous pouvons mettre à jour les présentes Conditions d'utilisation à l'occasion. La date « Dernière mise à jour » en haut de cette page indique quand la plus récente modification a été apportée. Votre utilisation continue du Site après tout changement signifie que vous acceptez les conditions mises à jour.</p>
+
             <h2 id="law">Loi applicable</h2>
-            <p>Ces conditions sont régies par les lois de l'Ontario et les lois fédérales canadiennes applicables. Les litiges seront traités par les tribunaux de l'Ontario.</p>
+            <p>Les présentes Conditions sont régies par les lois de la province de l'Ontario et les lois fédérales du Canada qui s'y appliquent. Tout différend découlant des présentes Conditions ou de votre utilisation du Site sera tranché par les tribunaux de l'Ontario.</p>
+
             <h2 id="contact">Contact</h2>
-            <p>Questions? <a href='/french/contact'>Contactez Peter</a>.</p>
+            <p>Vous avez des questions sur les présentes Conditions d'utilisation? <a href="/french/contact">Contactez Peter</a>.</p>
           </div>
         </div>
       </div>

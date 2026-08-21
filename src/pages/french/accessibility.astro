@@ -3,7 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
+
 export const prerender = true;
+
+const publishedDate = '2026-07-19';
+const pageTitle = "Déclaration d'accessibilité";
+const pageDescription = "Comment realtorpeterlaw.com s'efforce de respecter la Loi de 2005 sur l'accessibilité pour les personnes handicapées de l'Ontario (LAPHO) et les Règles pour l'accessibilité des contenus Web (WCAG) 2.1 niveau AA.";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/accessibility/' },
@@ -12,49 +17,94 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/accessibility/' },
 ];
 ---
-<BaseLayout title="Déclaration d'accessibilité | Peter Law" description="Comment realtorpeterlaw.com respecte la Loi de 2005 sur l'accessibilit\u00e9 pour les personnes handicap\u00e9es de l'Ontario (LAPHO) et WCAG 2.1 AA." lang="fr" bodyClass="fr guide-page article-page"
+<BaseLayout
+  title={`${pageTitle} | Peter Law — Immobilier à Toronto`}
+  description={pageDescription}
+  lang="fr"
+  bodyClass="fr guide-page article-page"
   hreflangAlternates={hreflangAlternates}
 >
   <LTopBar />
   <LHeader active="" />
+
   <article>
     <section class="page-hero">
       <div class="wrap">
         <div class="eyebrow">Juridique · LAPHO</div>
-        <h1>Déclaration d'accessibilité</h1>
-        <p class="article-lead">Peter Law s'engage à rendre realtorpeterlaw.com accessible à tous — y compris les personnes utilisant des technologies d'assistance et les personnes handicapées visuellement, auditivement, cognitivement ou motrices.</p>
-        <div class="article-byline"><span>Dernière mise à jour :</span> <time datetime="2026-07-19">19 juillet 2026</time></div>
+        <h1>{pageTitle}</h1>
+        <p class="article-lead">Peter Law s'engage à rendre realtorpeterlaw.com accessible à toutes et à tous — y compris aux personnes qui utilisent des technologies d'assistance et aux personnes ayant un handicap visuel, auditif, cognitif ou moteur.</p>
+        <div class="article-byline">
+          <span>Dernière mise à jour :</span>
+          <time datetime={publishedDate}>19 juillet 2026</time>
+        </div>
       </div>
     </section>
+
     <section class="major" style="padding-top:32px;">
       <div class="wrap">
         <div class="prose-grid">
-          <aside class="prose-side"><h4>Dans ce document</h4><ul>              <li><a href="#commitment">Notre engagement</a></li>
-              <li><a href="#standard">Norme suivie</a></li>
+          <aside class="prose-side">
+            <h4>Dans ce document</h4>
+            <ul>
+              <li><a href="#commitment">Notre engagement</a></li>
+              <li><a href="#standard">Norme que nous suivons</a></li>
               <li><a href="#measures">Mesures en place</a></li>
-              <li><a href="#alternatives">Formats alternatifs</a></li>
+              <li><a href="#alternatives">Formats accessibles</a></li>
               <li><a href="#limitations">Limitations connues</a></li>
               <li><a href="#feedback">Rétroaction</a></li>
-              <li><a href="#contact">Contact</a></li></ul></aside>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </aside>
+
           <div class="prose-body">
             <h2 id="commitment">Notre engagement</h2>
-            <p>Nous reconnaissons nos obligations en vertu de la LAPHO 2005 et de son Règlement sur les normes d'accessibilité intégrées, et nous nous engageons à une amélioration continue.</p>
-            <h2 id="standard">Norme suivie</h2>
-            <p>Le Site vise la conformité aux <strong>WCAG 2.1 Niveau AA</strong>, la référence internationale citée par les règlements d'accessibilité fédéraux et provinciaux canadiens.</p>
+            <p>Nous croyons que chaque visiteur devrait pouvoir lire notre contenu, utiliser nos calculateurs, réserver un appel et nous contacter aisément. À titre d'entreprise ontarienne, nous reconnaissons nos obligations en vertu de la <em>Loi de 2005 sur l'accessibilité pour les personnes handicapées de l'Ontario</em> (LAPHO) et de son <em>Règlement sur les normes d'accessibilité intégrées</em>, et nous nous engageons dans une démarche d'amélioration continue.</p>
+
+            <h2 id="standard">Norme que nous suivons</h2>
+            <p>Le Site vise la conformité aux <strong>Règles pour l'accessibilité des contenus Web (WCAG) 2.1 niveau AA</strong>, publiées par le World Wide Web Consortium (W3C). Les WCAG constituent la référence internationale citée par les règlements fédéraux et provinciaux canadiens en matière d'accessibilité.</p>
+
             <h2 id="measures">Mesures en place</h2>
-            <p>HTML sémantique, textes de lien descriptifs, textes alternatifs sur images, contraste suffisant, navigation clavier, design responsive, tailles de police lisibles, attributs ARIA sur composants complexes, site bilingue (anglais et 中文).</p>
-            <h2 id="alternatives">Formats alternatifs</h2>
-            <p>Si vous avez besoin d'informations dans un format alternatif (grands caractères, texte brut, audio, PDF accessible), ou d'un soutien à la communication, veuillez nous contacter. Nous fournirons le format demandé rapidement et sans coût supplémentaire.</p>
+            <p>Voici les mesures que nous avons prises pour rendre le Site plus accessible :</p>
+            <ul class="bullets">
+              <li><strong>HTML sémantique</strong> pour les titres, les listes, les formulaires et les repères, afin que les lecteurs d'écran puissent naviguer correctement dans le contenu.</li>
+              <li><strong>Textes de lien descriptifs</strong> au lieu d'étiquettes vagues comme « cliquez ici ».</li>
+              <li><strong>Textes de remplacement</strong> sur les images porteuses de sens.</li>
+              <li><strong>Contraste de couleurs suffisant</strong> entre le texte et l'arrière-plan.</li>
+              <li><strong>Menus et éléments interactifs navigables au clavier</strong>, pour permettre l'utilisation du Site sans souris.</li>
+              <li><strong>Conception adaptative</strong> qui s'ajuste aux téléphones, aux tablettes et aux écrans d'ordinateur.</li>
+              <li><strong>Tailles de police lisibles</strong> avec prise en charge du redimensionnement du texte par le navigateur.</li>
+              <li><strong>Attributs ARIA</strong> sur les composants complexes (menus, boîtes de dialogue, sections dépliables) lorsque cela est pertinent.</li>
+              <li><strong>Un site multilingue</strong> (anglais, français et 中文) pour réduire les barrières linguistiques.</li>
+            </ul>
+
+            <h2 id="alternatives">Formats accessibles et soutiens à la communication</h2>
+            <p>Si vous avez besoin d'obtenir des renseignements de ce Site dans un format alternatif (gros caractères, texte brut, audio, PDF accessible ou autre), ou si vous avez besoin d'un soutien à la communication pour interagir avec nous, veuillez nous joindre. Nous fournirons le format ou le soutien demandé en temps opportun, sans frais supplémentaires, et après avoir discuté avec vous de vos préférences — comme l'exige la LAPHO.</p>
+
             <h2 id="limitations">Limitations connues</h2>
-            <p>Certaines intégrations tierces (widgets de planification, calculateurs externes, flux sociaux) peuvent ne pas répondre entièrement à AA. Les articles de blog ou PDF plus anciens peuvent être en retard sur les normes actuelles.</p>
+            <p>Malgré tous nos efforts, certaines zones du Site peuvent ne pas encore respecter pleinement les WCAG 2.1 niveau AA. Les limitations courantes comprennent :</p>
+            <ul class="bullets">
+              <li>Certaines intégrations tierces (widgets de planification, calculateurs externes, flux sociaux) peuvent ne pas satisfaire entièrement au niveau AA dans tous les cas; nous choisissons nos prestataires en tenant compte, en partie, de leur accessibilité.</li>
+              <li>Des billets de blogue ou des PDF plus anciens peuvent être en retard sur les normes actuelles, le temps que nous parcourions les archives.</li>
+              <li>Les graphiques et diagrammes qui véhiculent des données sont progressivement enrichis de descriptions textuelles.</li>
+            </ul>
+            <p>Si vous rencontrez un obstacle précis qui vous empêche d'utiliser le Site, veuillez nous en informer — voir plus bas.</p>
+
             <h2 id="feedback">Rétroaction</h2>
-            <p>Si vous rencontrez un obstacle, veuillez nous le faire savoir : ce que vous essayiez de faire, la page ou fonctionnalité impliquée, la technologie d'assistance ou le navigateur utilisé. Nous accuserons réception et répondrons.</p>
+            <p>La rétroaction des utilisateurs de technologies d'assistance est l'un des outils les plus précieux dont nous disposons pour améliorer le Site. Si vous rencontrez un obstacle — une page qui ne se lit pas correctement, un formulaire que vous n'arrivez pas à remplir, un élément que vous ne pouvez pas utiliser au clavier ou à la voix — dites-le-nous :</p>
+            <ul class="bullets">
+              <li>Ce que vous essayiez de faire;</li>
+              <li>La page ou la fonctionnalité concernée;</li>
+              <li>La technologie d'assistance ou le navigateur utilisé, si vous êtes à l'aise de nous le communiquer.</li>
+            </ul>
+            <p>Nous accuserons réception de votre rétroaction dans un délai raisonnable et vous indiquerons ce que nous prévoyons faire.</p>
+
             <h2 id="contact">Contact</h2>
-            <p>Envoyez la rétroaction via notre <a href='/french/contact'>page de contact</a>. Adresse postale : Peter Law, HomeLife Golconda Realty Inc. — 215, 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
+            <p>Veuillez envoyer votre rétroaction ou vos demandes en matière d'accessibilité par l'entremise de notre <a href="/french/contact">page de contact</a>. Adresse postale : Peter Law, HomeLife Golconda Realty Inc., Brokerage — 215, 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
           </div>
         </div>
       </div>
     </section>
   </article>
+
   <LFooter />
 </BaseLayout>
