@@ -1679,3 +1679,7 @@ details summary:focus-visible {
 /* Brokerage-tier award list on About pages (EN / ZH / FR). */
 .award-tier-heading { margin-top: 28px; margin-bottom: 8px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 16px; letter-spacing: 0.02em; color: var(--ink); text-transform: none; }
 .award-tier-list li { font-variant-numeric: tabular-nums; }
+
+/* Award tier list under the trophy photo on /past-deals — sits inside the hero column. */
+.past-deals-awards + .award-tier-list { max-width: 520px; margin: 14px 0 0; padding-left: 22px; font-size: 14px; color: var(--ink-soft); }
+.past-deals-awards + .award-tier-list li { margin-bottom: 6px; font-variant-numeric: tabular-nums; }
