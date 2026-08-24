@@ -1683,3 +1683,10 @@ details summary:focus-visible {
 /* Award tier list under the trophy photo on /past-deals — sits inside the hero column. */
 .past-deals-awards + .award-tier-list { max-width: 520px; margin: 14px 0 0; padding-left: 22px; font-size: 14px; color: var(--ink-soft); }
 .past-deals-awards + .award-tier-list li { margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+
+
+/* Sale History: disclaimer moved below the property list. Muted, small, centered. */
+.sale-history-disc-below-wrap { padding: 24px 0 4px; }
+.sale-history-disc-below { color: var(--ink-mute); font-size: 12.5px; line-height: 1.6; max-width: 900px; margin: 0 auto; }
+.sale-history-disc-below a { text-decoration: underline; text-underline-offset: 3px; color: var(--ink-soft); }
+.sale-history-disc-below a:hover { color: var(--ink); }
