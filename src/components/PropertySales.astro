@@ -157,6 +157,34 @@ const labels = zh
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    /* Show ~5 cards at once; internal scroll keeps the rest reachable
+       without pushing content below off-screen. */
+    max-height: calc(5 * 220px + 4 * 20px + 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;            /* stop scroll-chain to page */
+    scroll-behavior: smooth;
+    padding-right: 10px;                     /* room for scrollbar so it doesn't overlap card border */
+    /* Subtle top/bottom fade on the scroll edges — quiet-luxury cue that
+       more content is available above/below. */
+    mask-image: linear-gradient(180deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  }
+  /* Minimal scrollbar styling — thin, matches the site's rule/ink tokens. */
+  .sales-grid::-webkit-scrollbar { width: 8px; }
+  .sales-grid::-webkit-scrollbar-track { background: transparent; }
+  .sales-grid::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  .sales-grid::-webkit-scrollbar-thumb:hover { background: var(--ink-mute); background-clip: padding-box; }
+  .sales-grid { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+
+  @media (max-width: 720px) {
+    /* Mobile: cards stack (image on top → taller) — cap at ~85vh so page
+       still fits everything, but internal scroll kicks in for long lists. */
+    .sales-grid { max-height: 85vh; padding-right: 6px; }
   }
 
   .sale-card {
