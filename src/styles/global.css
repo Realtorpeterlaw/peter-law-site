@@ -1686,7 +1686,7 @@ details summary:focus-visible {
 
 
 /* Sale History: disclaimer moved below the property list. Muted, small, centered. */
-.sale-history-disc-below-wrap { padding: 36px 0 4px; }
+.sale-history-disc-below-wrap { padding: 12px 0 4px; }
 .sale-history-disc-below { color: var(--ink-mute); font-size: 12.5px; line-height: 1.6; max-width: 900px; margin: 0 auto; }
 .sale-history-disc-below a { text-decoration: underline; text-underline-offset: 3px; color: var(--ink-soft); }
 .sale-history-disc-below a:hover { color: var(--ink); }
