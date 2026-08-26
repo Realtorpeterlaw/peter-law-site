@@ -43,6 +43,22 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-08-30',
+    intersection_en: 'Lower Sherbourne St & Front St E',
+    intersection_zh: 'Lower Sherbourne St 与 Front St E',
+    intersection_fr: 'Lower Sherbourne St et Front St E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$2,250',
+    note_en: "HOT Season…RENTED 1 week before the Tenant move-out day. 4 DAYS on the market. $100 over asking. Thanks for your trust!",
+    note_zh: '旺季再战……在原租客搬走前一周就完成签约 · 上市仅 4 天 · 高出叫价 $100 成交 · 感谢您的信任!',
+    note_fr: "Pleine saison…LOUÉ une semaine avant le départ du locataire. 4 JOURS sur le marché. 100 $ au-dessus du prix demandé. Merci de votre confiance!",
+    status_en: 'Represented Landlord',
+    status_zh: '代表房东方',
+    status_fr: 'Représente le propriétaire',
+  },
+  {
     date: '2026-08-28',
     intersection_en: 'Lower Sherbourne St & Front St E',
     intersection_zh: 'Lower Sherbourne St 与 Front St E',
