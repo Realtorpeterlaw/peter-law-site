@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-09-05',
+    intersection_en: 'Church St & Wellesley St E',
+    intersection_zh: 'Church St 与 Wellesley St E',
+    intersection_fr: 'Church St et Wellesley St E',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$1,750',
+    note_en: "Brutal market for international students. 10+ viewings, secured a unit within 7 days before occupancy date. Congratulations, your new chapter begins!",
+    note_zh: '国际学生市场异常艰难 · 10+ 次看房,在入住日期前 7 天成功锁定房源 · 恭喜您开启新篇章!',
+    note_fr: "Marché impitoyable pour les étudiants internationaux. 10+ visites, unité sécurisée dans les 7 jours avant la date d'occupation. Félicitations, un nouveau chapitre commence!",
+  },
+  {
     date: '2026-08-30',
     intersection_en: 'Lower Sherbourne St & Front St E',
     intersection_zh: 'Lower Sherbourne St 与 Front St E',
