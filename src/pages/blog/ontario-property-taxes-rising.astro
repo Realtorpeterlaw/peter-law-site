@@ -8,8 +8,8 @@ import CTASection from '../../components/CTASection.astro';
 export const prerender = true;
 
 const publishedDate = '2026-07-24';
-const articleTitle = 'ONTARIO: Property Taxes on the rise';
-const articleDescription = "A plain-English breakdown of why property taxes in Ontario cities are climbing faster than home values. What the Fraser Institute found, which cities pay the most, and what it means if you're buying, renting, or already own.";
+const articleTitle = "ONTARIO: Property Taxes on the rise";
+const articleDescription = "Why property taxes in Ontario cities are climbing fast — and what homeowners should expect over the next 4 years.";
 const articleUrl = 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising';
 
 const jsonLd = {
@@ -91,7 +91,7 @@ const chart3_max = 40;
 function fmt(n: number): string { return n.toLocaleString('en-CA'); }
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law — Toronto Real Estate Blog`}
+  title={`${articleTitle} | Peter Law`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   hreflangAlternates={hreflangAlternates}
