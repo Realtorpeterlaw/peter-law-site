@@ -38,7 +38,6 @@ img { max-width: 100%; height: auto; display: block; }
 body > header { background: var(--bg); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 9999; isolation: isolate; overflow: visible; }
 /* Ensure the desktop nav never clips its dropdowns */
 body > header, body > header nav.primary, body > header .has-dropdown { overflow: visible; }
-.dropdown-menu { z-index: 9999 !important; }
 
 .head-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 16px; }
 .logo svg { display: block; }
@@ -245,6 +244,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .has-dropdown:hover .dropdown-trigger .caret,
 .has-dropdown:focus-within .dropdown-trigger .caret { transform: rotate(180deg); }
 .dropdown-menu {
+  z-index: 9999;
   position: absolute;
   top: 100%;
   left: -16px;
