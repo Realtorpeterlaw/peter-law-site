@@ -110,3 +110,5 @@ If any of these fail, send Claude the deployment URL and the error.
 - `/privacy` and `/terms` pages — footer links to them; they 404 today
 
 These are intentional — we'll address each in subsequent iterations.
+
+<!-- Last verified: 2026-08-30 -->
