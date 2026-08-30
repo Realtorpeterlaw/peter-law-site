@@ -11,6 +11,11 @@ const labels = zh
       housesTab: '独立屋',
       condosTab: '公寓',
       rentalTab: '租赁',
+      allSub: '全部',
+      sellerSub: '卖家',
+      buyerSub: '买家',
+      landlordSub: '房东',
+      tenantSub: '租客',
       viewDetails: '查看详情 →',
       bedroom: '卧室',
       bathroom: '浴室',
@@ -21,6 +26,11 @@ const labels = zh
       housesTab: 'House',
       condosTab: 'Condo',
       rentalTab: 'Rental',
+      allSub: 'All',
+      sellerSub: 'Seller',
+      buyerSub: 'Buyer',
+      landlordSub: 'Landlord',
+      tenantSub: 'Renter',
       viewDetails: 'View details →',
       bedroom: 'Bedroom',
       bathroom: 'Bathroom',
@@ -35,9 +45,16 @@ const labels = zh
       <button type="button" class="sales-filter-tab" data-filter="Condo" role="tab" aria-selected="false">{labels.condosTab}</button>
       <button type="button" class="sales-filter-tab" data-filter="Rental" role="tab" aria-selected="false">{labels.rentalTab}</button>
     </div>
+    <div class="sales-subfilter" role="tablist" aria-label="Filter by representation">
+      <button type="button" class="sales-subfilter-tab is-active" data-subfilter="all" role="tab" aria-selected="true">{labels.allSub}</button>
+      <button type="button" class="sales-subfilter-tab" data-subfilter="seller" data-for="House,Condo" role="tab" aria-selected="false">{labels.sellerSub}</button>
+      <button type="button" class="sales-subfilter-tab" data-subfilter="buyer" data-for="House,Condo" role="tab" aria-selected="false">{labels.buyerSub}</button>
+      <button type="button" class="sales-subfilter-tab" data-subfilter="landlord" data-for="Rental" role="tab" aria-selected="false" hidden>{labels.landlordSub}</button>
+      <button type="button" class="sales-subfilter-tab" data-subfilter="tenant" data-for="Rental" role="tab" aria-selected="false" hidden>{labels.tenantSub}</button>
+    </div>
     <div class="sales-grid" data-empty-text={labels.emptyState}>
       {propertySales.map((p) => (
-        <article class="sale-card" data-category={p.category}>
+        <article class="sale-card" data-category={p.category} data-role={p.role || ''}>
           <div class="sale-card-photo">
             <picture>
               <source srcset={p.photo.replace(/\.jpg$/, '.webp')} type="image/webp" />
@@ -83,8 +100,90 @@ const labels = zh
     function init() {
       document.querySelectorAll('.property-sales').forEach(function (section) {
         var tabs = section.querySelectorAll('.sales-filter-tab');
+        var subTabs = section.querySelectorAll('.sales-subfilter-tab');
         var cards = section.querySelectorAll('.sale-card');
         var grid = section.querySelector('.sales-grid');
+        var currentCategory = 'House';
+        var currentRole = 'all';
+        function updateSubTabsVisibility(cat) {
+          subTabs.forEach(function (btn) {
+            var forVal = btn.getAttribute('data-for');
+            var isAll = btn.getAttribute('data-subfilter') === 'all';
+            if (isAll) { btn.hidden = false; return; }
+            btn.hidden = !forVal || forVal.split(',').indexOf(cat) === -1;
+          });
+          // If active sub isn't valid for the new category, reset to 'all'
+          var activeSub = section.querySelector('.sales-subfilter-tab.is-active');
+          if (activeSub && activeSub.hidden) {
+            subTabs.forEach(function (b) {
+              b.classList.remove('is-active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            var allBtn = section.querySelector('.sales-subfilter-tab[data-subfilter="all"]');
+            if (allBtn) {
+              allBtn.classList.add('is-active');
+              allBtn.setAttribute('aria-selected', 'true');
+            }
+            currentRole = 'all';
+          }
+        }
+        function applyFilters() {
+          var visible = 0;
+          cards.forEach(function (card) {
+            var catMatch = card.getAttribute('data-category') === currentCategory;
+            var role = card.getAttribute('data-role') || '';
+            var roleMatch = currentRole === 'all' || role === currentRole;
+            var matches = catMatch && roleMatch;
+            card.style.display = matches ? '' : 'none';
+            if (matches) visible++;
+          });
+          var existingEmpty = grid.querySelector('
+  /* Second-tier filter: Seller/Buyer (Sales) or Landlord/Renter (Rental) */
+  .sales-subfilter {
+    display: flex;
+    gap: 8px;
+    margin: -12px 0 24px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .sales-subfilter-tab {
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--ink-mute);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .sales-subfilter-tab:hover { color: var(--ink); border-color: var(--ink-mute); }
+  .sales-subfilter-tab.is-active {
+    color: var(--surface);
+    background: var(--ink);
+    border-color: var(--ink);
+    font-weight: 500;
+  }
+  .sales-subfilter-tab[hidden] { display: none; }
+  .sales-subfilter-tab:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+  @media (max-width: 480px) {
+    .sales-subfilter { margin-top: -8px; margin-bottom: 20px; }
+    .sales-subfilter-tab { padding: 5px 12px; font-size: 12.5px; }
+  }
+  .sale-empty');
+          if (existingEmpty) existingEmpty.remove();
+          if (visible === 0) {
+            var msg = document.createElement('div');
+            msg.className = 'sale-empty';
+            msg.textContent = grid.getAttribute('data-empty-text') || '';
+            grid.appendChild(msg);
+          }
+        }
+        // Legacy applyFilter kept for backwards compat with any external caller
         function applyFilter(filter) {
           var visible = 0;
           cards.forEach(function (card) {
@@ -112,11 +211,30 @@ const labels = zh
             });
             tab.classList.add('is-active');
             tab.setAttribute('aria-selected', 'true');
-            applyFilter(tab.getAttribute('data-filter'));
+            currentCategory = tab.getAttribute('data-filter');
+            updateSubTabsVisibility(currentCategory);
+            applyFilters();
+          });
+        });
+        subTabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (btn.hidden) return;
+            subTabs.forEach(function (b) {
+              b.classList.remove('is-active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-selected', 'true');
+            currentRole = btn.getAttribute('data-subfilter');
+            applyFilters();
           });
         });
         var activeTab = section.querySelector('.sales-filter-tab.is-active');
-        if (activeTab) applyFilter(activeTab.getAttribute('data-filter'));
+        if (activeTab) {
+          currentCategory = activeTab.getAttribute('data-filter');
+          updateSubTabsVisibility(currentCategory);
+        }
+        applyFilters();
       });
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

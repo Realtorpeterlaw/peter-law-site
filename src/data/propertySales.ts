@@ -15,6 +15,8 @@ export interface PropertySale {
   status_zh: string;
   representation_en?: string;
   representation_zh?: string;
+  /* role — normalized representation for sub-filter. Auto-inferred if not set. */
+  role?: 'seller' | 'buyer' | 'landlord' | 'tenant';
   representationNote_en?: string;
   representationNote_zh?: string;
   photo: string;
@@ -40,6 +42,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Sellers',
     representation_zh: '代表卖家方',
+    role: 'seller',
     representationNote_en: '(Off-market Sale)',
     representationNote_zh: '(私下成交)',
     photo: '/photos/77-mcgill-st.jpg',
@@ -63,6 +66,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
+    role: 'buyer',
     photo: '/photos/55-mercer-st.jpg',
     detailsUrl: '#',
   },
@@ -80,6 +84,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
+    role: 'seller',
     representationNote_en: '(Off-market Sale)',
     representationNote_zh: '(私下成交)',
     photo: '/photos/25-adra-grado-way.jpg',
@@ -98,6 +103,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
+    role: 'seller',
     photo: '/photos/49-east-liberty-st.jpg',
     detailsUrl: '#',
   },
@@ -115,6 +121,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
+    role: 'seller',
     photo: '/photos/20-thomas-riley-rd.jpg',
     detailsUrl: '#',
     details_en: 'HIGHEST sold in the building.',
@@ -134,6 +141,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
+    role: 'seller',
     photo: '/photos/greensborough-markham.jpg',
     detailsUrl: '#',
     houseStyle_en: 'Townhouse',
@@ -153,6 +161,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
+    role: 'buyer',
     photo: '/photos/lakeshore-village-waterloo.jpg',
     detailsUrl: '#',
     houseStyle_en: 'Detached House',
@@ -172,6 +181,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Seller',
     representation_zh: '代表卖家方',
+    role: 'seller',
     photo: '/photos/28-linden-st.jpg',
     detailsUrl: '#',
   },
@@ -189,6 +199,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
+    role: 'buyer',
     photo: '/photos/mcgill-granby-buyer.jpg',
     detailsUrl: '#',
     houseStyle_en: 'Townhouse',
@@ -208,6 +219,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
+    role: 'buyer',
     photo: '/photos/palmerston-little-italy.jpg',
     detailsUrl: '#',
     houseStyle_en: 'Townhouse',
@@ -227,6 +239,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
+    role: 'buyer',
     photo: '/photos/dufferin-grove.jpg',
     detailsUrl: '#',
     houseStyle_en: 'Semi-Detached',
@@ -246,6 +259,7 @@ export const propertySales: PropertySale[] = [
     status_zh: '已售',
     representation_en: 'Represented Buyer',
     representation_zh: '代表买家方',
+    role: 'buyer',
     photo: '/photos/pleasant-view-north-york.jpg',
     detailsUrl: '#',
     houseStyle_en: 'Semi-Detached',
