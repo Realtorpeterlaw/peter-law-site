@@ -137,44 +137,7 @@ const labels = zh
             card.style.display = matches ? '' : 'none';
             if (matches) visible++;
           });
-          var existingEmpty = grid.querySelector('
-  /* Second-tier filter: Seller/Buyer (Sales) or Landlord/Renter (Rental) */
-  .sales-subfilter {
-    display: flex;
-    gap: 8px;
-    margin: -12px 0 24px;
-    padding: 0;
-    flex-wrap: wrap;
-  }
-  .sales-subfilter-tab {
-    background: transparent;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 13px;
-    font-family: inherit;
-    color: var(--ink-mute);
-    cursor: pointer;
-    letter-spacing: 0.02em;
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
-  }
-  .sales-subfilter-tab:hover { color: var(--ink); border-color: var(--ink-mute); }
-  .sales-subfilter-tab.is-active {
-    color: var(--surface);
-    background: var(--ink);
-    border-color: var(--ink);
-    font-weight: 500;
-  }
-  .sales-subfilter-tab[hidden] { display: none; }
-  .sales-subfilter-tab:focus-visible {
-    outline: 2px solid var(--ink);
-    outline-offset: 2px;
-  }
-  @media (max-width: 480px) {
-    .sales-subfilter { margin-top: -8px; margin-bottom: 20px; }
-    .sales-subfilter-tab { padding: 5px 12px; font-size: 12.5px; }
-  }
-  .sale-empty');
+          var existingEmpty = grid.querySelector('.sale-empty');
           if (existingEmpty) existingEmpty.remove();
           if (visible === 0) {
             var msg = document.createElement('div');
@@ -450,5 +413,42 @@ const labels = zh
     .sale-card-photo { aspect-ratio: 4 / 3; max-height: 240px; }
     .sale-price { font-size: 24px; }
     .sale-name { font-size: 18px; }
+  }
+
+  /* Second-tier filter: Seller/Buyer (Sales) or Landlord/Renter (Rental) */
+  .sales-subfilter {
+    display: flex;
+    gap: 8px;
+    margin: -12px 0 24px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .sales-subfilter-tab {
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--ink-mute);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .sales-subfilter-tab:hover { color: var(--ink); border-color: var(--ink-mute); }
+  .sales-subfilter-tab.is-active {
+    color: var(--surface);
+    background: var(--ink);
+    border-color: var(--ink);
+    font-weight: 500;
+  }
+  .sales-subfilter-tab[hidden] { display: none; }
+  .sales-subfilter-tab:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+  @media (max-width: 480px) {
+    .sales-subfilter { margin-top: -8px; margin-bottom: 20px; }
+    .sales-subfilter-tab { padding: 5px 12px; font-size: 12.5px; }
   }
 </style>
