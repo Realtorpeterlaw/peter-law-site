@@ -6,9 +6,9 @@ import Footer from '../components/Footer.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-01';
 const pageTitle = 'Privacy Policy';
-const pageDescription = 'How realtorpeterlaw.com collects, uses, and protects your personal information under Canadian privacy law (PIPEDA).';
+const pageDescription = 'How realtorpeterlaw.com and Peter Law collect, use, disclose, and protect your personal information under PIPEDA, CASL, and Ontario law.';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/privacy/' },
@@ -29,12 +29,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Legal · PIPEDA</div>
+        <div class="eyebrow">Legal · PIPEDA · CASL · TRESA</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">Peter Law respects your privacy. This policy explains what personal information the Site collects, why it's collected, how it's stored, and the rights you have under Canadian law.</p>
+        <p class="article-lead">This policy explains what personal information the Site and Peter Law collect, why, who else sees it, how long it is kept, and the rights you have under Canadian privacy law.</p>
         <div class="article-byline">
           <span>Last updated:</span>
-          <time datetime={publishedDate}>July 19, 2026</time>
+          <time datetime={publishedDate}>September 1, 2026</time>
         </div>
       </div>
     </section>
@@ -45,95 +45,204 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>In this document</h4>
             <ul>
-              <li><a href="#who">Who we are</a></li>
+              <li><a href="#who">Who is accountable</a></li>
+              <li><a href="#officer">Privacy Officer</a></li>
               <li><a href="#what">What we collect</a></li>
               <li><a href="#why">Why we collect it</a></li>
               <li><a href="#consent">Your consent</a></li>
+              <li><a href="#disclosure">Disclosure of tenant applications</a></li>
+              <li><a href="#screening">Tenant screening &amp; credit reports</a></li>
               <li><a href="#third-parties">Third-party services</a></li>
+              <li><a href="#cross-border">Cross-border transfers (US)</a></li>
               <li><a href="#cookies">Cookies &amp; analytics</a></li>
               <li><a href="#storage">Storage &amp; retention</a></li>
               <li><a href="#security">Security &amp; direct email</a></li>
+              <li><a href="#breach">Breach notification</a></li>
+              <li><a href="#newsletter">Newsletter (CASL)</a></li>
+              <li><a href="#secondary">Ongoing marketing to past clients</a></li>
               <li><a href="#past-deals">Past-deal information</a></li>
               <li><a href="#rights">Your rights</a></li>
-              <li><a href="#children">Children</a></li>
+              <li><a href="#minors">Minors</a></li>
               <li><a href="#changes">Changes</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <p><strong>Short version:</strong> The only personal information this Site collects is what you voluntarily send through the contact form, newsletter, application form, or by email — your name, contact details, and whatever you write in your message. It's used to reply to you and, if you become a client, to serve you. It is not sold. It is not shared with third parties for marketing. You can ask to see it, correct it, or have it deleted at any time.</p>
+            <p><strong>Short version:</strong> Personal information you send through the Site — contact form, email, application, or newsletter — is used to reply to you and, if you become a client, to serve you. It is <strong>not sold</strong>. It is <strong>not shared with unrelated third parties for their marketing</strong>. <strong>However</strong>, if you ask Peter to represent you as a rental applicant, the full application package you provide — including income, employment, and credit information — will be disclosed to prospective landlords and their listing brokerage so they can decide on your application. That disclosure is the whole point of the service, but it is a real transfer of sensitive information and you are consenting to it by asking Peter to submit on your behalf. See <a href="#disclosure">Disclosure of tenant applications</a> and <a href="#screening">Tenant screening &amp; credit reports</a>.</p>
 
-            <h2 id="who">Who we are</h2>
-            <p>This privacy policy applies to <strong>realtorpeterlaw.com</strong> (the "Site"), operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage, registered with the Real Estate Council of Ontario (RECO). For the purpose of Canada's <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA), Peter Law acts as the organization responsible for the handling of personal information collected through the Site.</p>
+            <h2 id="who">Who is accountable</h2>
+            <p>This privacy policy applies to <strong>realtorpeterlaw.com</strong> (the "Site"), operated by Peter Law, Sales Representative registered with the Real Estate Council of Ontario (RECO) under the <em>Trust in Real Estate Services Act, 2002</em> ("TRESA").</p>
+            <p>Accountability under Canadian privacy law is split:</p>
+            <ul class="bullets">
+              <li><strong>Peter Law</strong> — day-to-day operator of the Site. Peter is the primary point of contact for privacy questions, access requests, and complaints. Peter controls information collected through the Site itself (contact form, newsletter sign-ups, inquiry email, website analytics) and information collected in the ordinary course of providing service to a client, before it enters a brokerage transaction record.</li>
+              <li><strong>HomeLife Golconda Realty Inc., Brokerage</strong> — the brokerage of record. Under TRESA, Peter trades in real estate <em>on behalf of</em> the brokerage. Once a transaction record is created — for example, a signed representation agreement, an accepted offer, or a completed lease submission — that record belongs to the brokerage and is retained under the brokerage's regulatory record-keeping obligations. Certain decisions about those records (release to a third party outside the ordinary course of the transaction, response to a regulatory or legal demand, formal complaint escalation) require the approval of the <strong>Broker of Record</strong> at HomeLife Golconda.</li>
+            </ul>
+            <p>In practice, you contact Peter first for almost any privacy question. Peter escalates to the Broker of Record where TRESA or brokerage policy requires. Contact details for both are in <a href="#contact">Contact</a>.</p>
+
+            <h2 id="officer">Privacy Officer</h2>
+            <p>PIPEDA's accountability principle requires a designated individual responsible for the organization's compliance with the Act. The Privacy Officer for the Site and for Peter Law's real estate practice is:</p>
+            <div class="callout">
+              <strong>Peter Law — Privacy Officer</strong><br>
+              Email: <a href="mailto:privacy@realtorpeterlaw.com">privacy@realtorpeterlaw.com</a> <em>(preferred)</em><br>
+              Or: <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              Mail: c/o HomeLife Golconda Realty Inc., Brokerage — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada<br>
+              Phone: <a href="tel:+16478888472">647-888-8472</a>
+            </div>
+            <p>For matters requiring the Broker of Record (see <a href="#who">above</a>), write to the Privacy Officer address and mark the envelope or subject line "<em>Attn: Broker of Record — Privacy</em>". It will be escalated internally.</p>
 
             <h2 id="what">What we collect</h2>
             <ul class="bullets">
-              <li><strong>Information you provide directly.</strong> When you use the contact form, email us, book a call, subscribe to updates, or complete a rental application, we collect the information you choose to share — typically your name, email address, phone number, message, employment or income details you volunteer for a rental application, and any preferences you note (e.g., neighbourhood, budget, timeline).</li>
-              <li><strong>Client information.</strong> If you become a client, we may collect additional information required by law for real estate transactions — identity verification under the <em>Proceeds of Crime (Money Laundering) and Terrorist Financing Act</em> (PCMLTFA), signed representation agreements, offers, and related documents.</li>
-              <li><strong>Automatic technical information.</strong> Like most websites, we collect basic technical data through server logs and analytics — browser type, general location (city or region), pages viewed, and time on page. This does not personally identify you.</li>
+              <li><strong>Information you provide directly.</strong> Contact form, email, "book a call", newsletter sign-up, general inquiry — typically name, email, phone number, message, and any preferences you note (neighbourhood, budget, timeline).</li>
+              <li><strong>Rental application information.</strong> If you apply to rent through Peter, this includes name(s) of applicant(s), contact details, employment and occupation, income, citizenship or immigration status, move-in date, prior addresses, references, and — with your separate written consent — credit and background information obtained through a tenant-screening provider. This is sensitive personal information and is treated as such.</li>
+              <li><strong>Buyer/seller client information.</strong> If you engage Peter as a buyer or seller representative, additional information required by law for real estate transactions is collected — including identity verification under the <em>Proceeds of Crime (Money Laundering) and Terrorist Financing Act</em> (PCMLTFA/FINTRAC), signed representation agreements, offers, and related documents. These records are held under the brokerage's regulatory obligations.</li>
+              <li><strong>Automatic technical information.</strong> Basic server logs and aggregate analytics — browser type, general region, pages viewed, time on page. Not used to personally identify you.</li>
             </ul>
 
             <h2 id="why">Why we collect it</h2>
-            <p>We collect personal information only for purposes that a reasonable person would consider appropriate in the circumstances. Specifically:</p>
+            <p>Personal information is collected only for purposes that a reasonable person would consider appropriate in the circumstances, specifically:</p>
             <ul class="bullets">
-              <li>To respond to your questions and requests.</li>
-              <li>To provide real estate services if you engage us as your representative.</li>
-              <li>To meet legal, regulatory, and RECO obligations that apply to real estate professionals in Ontario.</li>
-              <li>To send newsletter updates you have opted into (you can unsubscribe at any time).</li>
-              <li>To understand how visitors use the Site so we can improve it (aggregate analytics, not individual tracking).</li>
+              <li>To respond to your inquiries.</li>
+              <li>To provide the real estate service you are asking for (representation as a buyer, seller, landlord, or tenant).</li>
+              <li>To meet legal, regulatory, and RECO/brokerage obligations, including PCMLTFA identity verification and TRESA record-keeping.</li>
+              <li>To send you the newsletter <em>if</em> you have expressly opted in (see <a href="#newsletter">Newsletter</a>).</li>
+              <li>To send you ongoing real estate market updates <em>if</em> you have given separate, express consent at the time of engagement (see <a href="#secondary">Ongoing marketing to past clients</a>).</li>
+              <li>To improve the Site through aggregate analytics.</li>
             </ul>
-            <p>We do <strong>not</strong> sell, rent, or trade your personal information. We do not use it for advertising to you or share it with unrelated third parties for marketing.</p>
+            <p>Personal information is <strong>not</strong> sold, rented, or traded, and is <strong>not</strong> disclosed to unrelated third parties for their own marketing.</p>
 
             <h2 id="consent">Your consent</h2>
-            <p>By submitting the contact form, emailing us, booking a call, subscribing to the newsletter, or otherwise sending information through the Site, you consent to the collection and use of that information for the purposes described above. You can withdraw your consent at any time by contacting us — subject to any legal or regulatory requirement to retain records (see "Storage &amp; retention" below).</p>
+            <p>By submitting the contact form, emailing us, booking a call, applying for a rental, or subscribing to the newsletter, you consent to the collection and use of that information for the purposes described above and disclosed at the point of collection. You can withdraw your consent at any time by writing to the Privacy Officer, subject to any legal or regulatory requirement that requires the brokerage to retain the record for the retention period (see <a href="#storage">Storage &amp; retention</a>).</p>
+            <p>Consent is <strong>purpose-specific</strong>. Consent for one purpose (for example, having Peter represent you in a lease) is <strong>not</strong> consent for another purpose (for example, ongoing marketing years later). See <a href="#secondary">Ongoing marketing to past clients</a>.</p>
+
+            <h2 id="disclosure">Disclosure of tenant applications</h2>
+            <p>This section deserves its own heading because it is the disclosure most tenant applicants underestimate.</p>
+            <p>When Peter submits a rental application on your behalf, the following is typically disclosed to the prospective landlord and their listing brokerage (and, where applicable, the property management company):</p>
+            <ul class="bullets">
+              <li>Government-issued identification.</li>
+              <li>Employment letter, pay stubs, and/or Notice of Assessment.</li>
+              <li>Credit report, or credit score from a tenant-screening provider (see <a href="#screening">next section</a>).</li>
+              <li>Rental references and prior-landlord contact information you provided.</li>
+              <li>Completed OREA Form 410 (Ontario Rental Application — Residential) or equivalent.</li>
+              <li>Any cover letter, roommate details, guarantor information, or supporting documents you asked to include.</li>
+            </ul>
+            <p><strong>Purpose:</strong> so the landlord can decide whether to enter into a tenancy with you.</p>
+            <p><strong>Consent basis:</strong> your <em>express, informed</em> consent, given when you ask Peter to submit the application on your behalf. Applications are submitted only for units you have identified and only to the landlord/brokerage responsible for that unit. Peter does not distribute your application package to other landlords, publish it, or use it for any purpose other than pursuing the specific tenancy you asked for.</p>
+            <p><strong>Onward handling:</strong> once your package is in the hands of the landlord or listing brokerage, their handling of it is governed by <em>their</em> privacy practices and the Ontario <em>Residential Tenancies Act</em>. Peter does not control how a third-party landlord stores or retains what you sent. If you have concerns after submission, contact the landlord's brokerage directly and, if unresolved, the Office of the Privacy Commissioner of Canada.</p>
+
+            <h2 id="screening">Tenant screening &amp; credit reports</h2>
+            <p>Peter uses <strong>SingleKey</strong> (a Canadian tenant-screening provider) to obtain credit and background information as part of a rental application package. In Ontario, a consumer credit report is a <em>consumer report</em> under the <em>Consumer Reporting Act</em> (RSO 1990, c. C.33), and its use is regulated.</p>
+            <ul class="bullets">
+              <li><strong>Written consent before the report is obtained.</strong> Peter will not request a consumer report about you without your <em>prior written consent</em>, given for the specific purpose of the rental application. That consent is captured within the application flow and is separate from your general consent to be contacted by Peter.</li>
+              <li><strong>What you are entitled to know.</strong> Before the report is obtained, you will be told the name and address of the consumer reporting agency (SingleKey), the general nature of the information being requested, and the purpose it will be used for.</li>
+              <li><strong>Adverse action.</strong> If your rental application is declined and the decision was based in whole or in part on a consumer report, the landlord is required under the <em>Consumer Reporting Act</em> to inform you of that fact and to identify the reporting agency, so that you can obtain a copy and dispute inaccuracies. Peter will pass this notice through to you in writing, along with the reporting agency's contact information.</li>
+              <li><strong>Corrections and disputes.</strong> If you believe information in your consumer report is inaccurate, you have the right to request a correction directly from the reporting agency. Peter will support that process to the extent Peter can.</li>
+            </ul>
+            <p class="legal-note">The above summarizes the Site's operational approach; it is not legal advice. If you have received an adverse-action notice or believe a report about you contains errors, a paralegal or lawyer can advise on your specific rights and remedies. <strong>[CONFIRM WITH COUNSEL]</strong></p>
 
             <h2 id="third-parties">Third-party services</h2>
-            <p>The Site uses a small number of third-party services that may process limited personal or technical data on our behalf. Each provider has its own privacy policy. We share only the minimum information required for them to perform their function:</p>
+            <p>The Site uses a small number of third-party services that may process limited personal or technical data on our behalf. Each provider has its own privacy policy. Only the minimum information required is shared:</p>
             <ul class="bullets">
-              <li><strong>Vercel</strong> — hosts the Site and provides basic server logs.</li>
-              <li><strong>Formspree</strong> — routes contact-form submissions to Peter's email.</li>
-              <li><strong>Cal.com</strong> — powers the "Book a call" scheduling widget.</li>
-              <li><strong>beehiiv</strong> — delivers the email newsletter to subscribers.</li>
-              <li><strong>SingleKey</strong> — used with your express consent for tenant screening when you complete a rental application through the Site.</li>
-              <li><strong>Google-owned services</strong> — if used, e.g., embedded fonts or optional analytics.</li>
-              <li><strong>Embedded video providers (YouTube, TikTok)</strong> — when rental tour videos are embedded, the video platform may set its own cookies as soon as the player loads.</li>
+              <li><strong>Vercel Inc.</strong> (United States) — hosts the Site and provides basic server logs.</li>
+              <li><strong>Formspree, Inc.</strong> (United States) — routes contact-form submissions to Peter's email.</li>
+              <li><strong>Cal.com, Inc.</strong> (United States) — powers the "Book a call" scheduling widget.</li>
+              <li><strong>beehiiv Inc.</strong> (United States) — delivers the email newsletter to subscribers.</li>
+              <li><strong>SingleKey</strong> (Canada) — used with your express written consent for tenant screening when you complete a rental application (see <a href="#screening">above</a>).</li>
+              <li><strong>Google-owned services</strong> (United States) — if used for embedded fonts or optional analytics.</li>
+              <li><strong>Embedded video providers</strong> (YouTube, TikTok — United States) — when a tour video is embedded, the video platform may set its own cookies once the player is activated.</li>
             </ul>
-            <p>Peter may also refer clients to third-party providers (for example, internet or utility providers, mortgage professionals, or SingleKey) and in some cases receive a referral fee. See the <a href="/disclaimer#referrals">Disclaimer</a> for more on affiliate and referral relationships. Referral does not change how your personal information is handled on the Site.</p>
+            <p>Peter may also refer clients to third-party providers (for example, internet or utility providers, mortgage professionals, or SingleKey) and in some cases receive a referral fee. See the <a href="/disclaimer#referrals">Disclaimer</a>. A referral does not change how the Site handles your personal information.</p>
+
+            <h2 id="cross-border">Cross-border transfers (United States)</h2>
+            <p>Several of the service providers listed above (Vercel, Formspree, Cal.com, beehiiv, Google, YouTube, TikTok) are based in the United States and store or process personal information on servers located in the United States.</p>
+            <p>Consistent with guidance from the Office of the Privacy Commissioner of Canada on transfers for processing: <strong>personal information stored or processed in the United States may be accessible to US government authorities under US law</strong>, including under lawful access, national-security, and law-enforcement statutes such as the USA PATRIOT Act and the CLOUD Act, regardless of protections available under Canadian law. Contractual and technical safeguards are in place, but no contract overrides a foreign lawful-access order.</p>
+            <p>If you do not want your information transferred outside Canada, please tell the Privacy Officer at the time you inquire — some functions (for example, the contact form) rely on US-based processors, and alternative arrangements (such as direct phone contact) may be more suitable.</p>
 
             <h2 id="cookies">Cookies &amp; analytics</h2>
-            <p>The Site uses a small number of first-party cookies for basic functionality (remembering your language preference, for example). Any analytics used are aggregate — we see how many people visit which pages, not who you are. You can disable cookies in your browser settings; some parts of the Site may not work as expected if you do. Third-party embeds (calendar, videos, newsletter) may set their own cookies once you interact with them.</p>
+            <p>The Site uses a small number of first-party cookies for basic functionality. Analytics are aggregate — we see how many people visit which pages, not who you are. You can disable cookies in your browser; some parts of the Site may not work as expected if you do. Third-party embeds (calendar, videos, newsletter) may set their own cookies once you interact with them.</p>
 
             <h2 id="storage">Storage &amp; retention</h2>
-            <p>Personal information is stored on servers operated by our service providers, which may be located in Canada or the United States. We keep contact-form submissions and email correspondence only as long as needed to serve the inquiry or, if you become a client, as required by RECO and applicable law (currently a minimum of six years after the end of the client relationship). After that, records are destroyed or de-identified.</p>
-
-            <h2 id="security">Security &amp; direct email</h2>
-            <p>We take reasonable technical and organizational measures to protect personal information — including encrypted connections (HTTPS), strong passwords, access controls, and reputable service providers. No system is perfectly secure. If you have reason to believe your interaction with the Site is no longer secure, please contact us immediately.</p>
-            <p><strong>Direct email note.</strong> Emails sent directly to <em>Admin@RealtorPeterLaw.com</em> travel across the public internet and are not end-to-end encrypted. Please do not send highly sensitive documents (government ID, banking, mortgage pre-approvals, offers) as unsolicited email attachments. If you need to send those, ask us first and we will arrange a secure delivery method.</p>
-
-            <h2 id="past-deals">Past-deal information</h2>
-            <p>"Recent" and "Past Deals" on the Site display information about transactions Peter has participated in as a licensed representative — typically intersection or address, month of closing, sale or lease price, and short commentary. This is derived from records that are publicly available (for example, sold data distributed via TRREB / MLS® systems in accordance with the applicable rules) or shared with the express permission of the client involved. Property photos are displayed with the permission of the photographer, seller, or brokerage that supplied them.</p>
-            <p>If you were a party to a past transaction and would like your information or a photo removed, please <a href="/contact">contact us</a> and we will respond promptly.</p>
-
-            <h2 id="rights">Your rights</h2>
-            <p>Under PIPEDA you have the right to:</p>
+            <p>Personal information is stored on servers operated by the service providers listed above, in Canada or the United States. Retention differs by category:</p>
             <ul class="bullets">
-              <li>Know what personal information we hold about you.</li>
-              <li>Access that information (subject to limited exceptions).</li>
-              <li>Ask us to correct any information that is inaccurate.</li>
-              <li>Withdraw your consent to further use of your information, subject to legal and contractual obligations.</li>
-              <li>Unsubscribe from any newsletter or marketing email at any time (use the "unsubscribe" link in the email).</li>
-              <li>File a complaint with us — or, if unresolved, with the <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">Office of the Privacy Commissioner of Canada</a>.</li>
+              <li><strong>Brokerage transaction records (controlled by HomeLife Golconda).</strong> Signed representation agreements, offers, executed leases, PCMLTFA identity records, deposit records, and other regulated documents are retained by the brokerage for the minimum period required by TRESA and its regulations (currently at least <strong>six years</strong> from the end of the transaction or client relationship) and destroyed under the brokerage's records-management policy.</li>
+              <li><strong>Successful client inquiry data (controlled by Peter).</strong> Emails, notes, and correspondence with active or past clients are kept for as long as reasonably needed to serve you, and are then archived or deleted consistent with brokerage requirements.</li>
+              <li><strong>Website inquiries that do not lead to a client relationship.</strong> Contact-form submissions and general email inquiries are kept for up to <strong>24 months</strong> from the last correspondence, then deleted.</li>
+              <li><strong>Unsuccessful tenant applications.</strong> Rental application packages — including income documents, employment letters, pay stubs, and credit reports — are retained only as long as necessary. If your application is not accepted, the package is <strong>destroyed or securely deleted within 90 days</strong> of the outcome, unless you ask that it be retained so it can be re-used for a subsequent application, or unless retention is required by a specific legal or regulatory obligation.</li>
+              <li><strong>Newsletter subscribers.</strong> Retained until you unsubscribe, plus a short administrative period.</li>
+              <li><strong>Breach records.</strong> Records of any breach of security safeguards are retained for at least <strong>24 months</strong> as required by PIPEDA (see <a href="#breach">Breach notification</a>).</li>
             </ul>
 
-            <h2 id="children">Children</h2>
-            <p>The Site is not directed at children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided personal information, please contact us and we will delete it.</p>
+            <h2 id="security">Security &amp; direct email</h2>
+            <p>Reasonable technical and organizational safeguards are in place, including encrypted connections (HTTPS), strong passwords, access controls, reputable service providers, and internal handling procedures for sensitive documents. No system is perfectly secure. If you have reason to believe your interaction with the Site is no longer secure, contact the Privacy Officer immediately.</p>
+            <p><strong>Direct email note.</strong> Email sent directly to <em>Admin@RealtorPeterLaw.com</em> travels across the public internet and is not end-to-end encrypted. Please do not send highly sensitive documents (government ID, banking, mortgage pre-approvals, offers) as unsolicited attachments. Ask first and a secure delivery method will be arranged.</p>
+
+            <h2 id="breach">Breach notification</h2>
+            <p>PIPEDA imposes mandatory obligations on organizations in the event of a "breach of security safeguards" — the loss of, unauthorized access to, or unauthorized disclosure of personal information.</p>
+            <ul class="bullets">
+              <li><strong>Assessment.</strong> Every incident is assessed to determine whether it creates a <em>real risk of significant harm</em> (RROSH) to any individual — considering the sensitivity of the information, the probability of misuse, and any other relevant factor.</li>
+              <li><strong>Report to the Commissioner.</strong> If the assessment indicates RROSH, the breach is reported to the Office of the Privacy Commissioner of Canada as soon as feasible.</li>
+              <li><strong>Notification to affected individuals.</strong> If RROSH is found, affected individuals are notified directly as soon as feasible, with enough information to understand the significance of the breach and to take protective steps.</li>
+              <li><strong>Notification to other organizations.</strong> Any other organization (for example, the brokerage, a payment provider, or a landlord) that may be able to reduce the risk of harm is notified.</li>
+              <li><strong>Record-keeping.</strong> A record of every breach of security safeguards involving personal information is kept for at least <strong>24 months</strong>, whether or not it met the RROSH threshold. The Commissioner may request access to these records.</li>
+            </ul>
+            <p>Serious incidents involving brokerage transaction records will be handled jointly with the Broker of Record at HomeLife Golconda.</p>
+
+            <h2 id="newsletter">Newsletter (CASL — express consent)</h2>
+            <p>The Site's optional newsletter is a commercial electronic message under Canada's Anti-Spam Legislation (CASL). Peter sends it only with your <strong>express consent</strong>, obtained through an unchecked opt-in on the sign-up form. Consent covers periodic updates on the Toronto rental and resale market, new blog posts, and occasional service announcements from Peter Law / HomeLife Golconda. Frequency is typically once a month, sometimes more, sometimes less.</p>
+            <ul class="bullets">
+              <li><strong>Sender identification.</strong> Every message identifies Peter Law, Sales Representative, HomeLife Golconda Realty Inc., Brokerage.</li>
+              <li><strong>Mailing address.</strong> Every message includes the mailing address of the brokerage — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada.</li>
+              <li><strong>Unsubscribe.</strong> Every message contains a functioning unsubscribe mechanism that can be actioned at no cost, is honoured without delay (and in any event within the CASL-required timeframe), and remains valid for <strong>at least 60 days</strong> from the date the message was sent.</li>
+              <li><strong>Withdrawing consent.</strong> You can unsubscribe at any time using the link in any message, or by writing to the Privacy Officer.</li>
+            </ul>
+
+            <h2 id="secondary">Ongoing marketing to past clients (secondary use)</h2>
+            <p>Peter would like to stay in touch with past tenant clients — with market updates and, eventually, with information about resale, pre-construction, and homeownership services that may be useful once you are ready to buy. That is a <strong>secondary use</strong> of the personal information you provided for the original purpose of renting.</p>
+            <p>Consent for Peter to represent you in a lease is <strong>not, on its own, consent</strong> for years of subsequent marketing. So:</p>
+            <ul class="bullets">
+              <li>Ongoing-marketing consent is requested <strong>separately</strong> at the time of engagement — as a standalone question, not bundled with the representation agreement or rental application.</li>
+              <li>The consent request describes clearly: (a) the sender (Peter Law / HomeLife Golconda), (b) what will be sent (occasional Toronto real estate market updates; eventual information about resale and pre-construction services), (c) roughly how often, and (d) how to unsubscribe.</li>
+              <li>The opt-in is unchecked by default. You may say "yes", "no", or say nothing — the default is that you receive no ongoing marketing.</li>
+              <li>You can withdraw consent at any time, without affecting the service you originally engaged Peter for. Withdrawal is honoured promptly and stored so you are not re-subscribed by mistake.</li>
+              <li>If years pass and Peter reasonably believes your circumstances have changed materially, Peter may re-confirm consent before continuing to market to you.</li>
+            </ul>
+            <p class="legal-note">The mechanics above are how ongoing marketing consent is presented and stored operationally. Where a client asks for a specific accommodation or has questions about how their earlier consent is being interpreted, contact the Privacy Officer.</p>
+
+            <h2 id="past-deals">Past-deal information</h2>
+            <p>"Recent Closing" and "Sale History" display information about transactions Peter has participated in as a licensed representative — typically intersection or address, month of closing, sale or lease price, and short commentary. This is derived from records that are publicly available (for example, sold data distributed via TRREB / MLS® systems in accordance with the applicable rules) or shared with the express permission of the client involved. Property photos are displayed with the permission of the photographer, seller, or brokerage that supplied them.</p>
+            <p>If you were a party to a past transaction and would like your information or a photo removed, please write to the Privacy Officer and it will be actioned promptly.</p>
+
+            <h2 id="rights">Your rights</h2>
+            <p>Under PIPEDA and applicable Ontario law you have the right to:</p>
+            <ul class="bullets">
+              <li>Know what personal information is held about you and why.</li>
+              <li>Access that information (subject to limited legal exceptions).</li>
+              <li>Ask that inaccurate information be corrected.</li>
+              <li>Withdraw consent to further use, subject to legal, contractual, and brokerage record-keeping obligations.</li>
+              <li>Unsubscribe from newsletter or marketing email at any time.</li>
+              <li>Obtain — and dispute directly with the reporting agency — a copy of any consumer report obtained about you (see <a href="#screening">Tenant screening</a>).</li>
+              <li>File a complaint with the Privacy Officer — and, if unresolved, with the <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">Office of the Privacy Commissioner of Canada</a>.</li>
+            </ul>
+
+            <h2 id="minors">Minors</h2>
+            <p>The Site is directed at adults engaging in real estate transactions. PIPEDA does not set a fixed age of consent, but the Office of the Privacy Commissioner has stated that consent from a minor is meaningful only where the minor genuinely understands the nature and consequences of the collection and use.</p>
+            <p>Personal information is not knowingly collected from anyone who is not old enough to give that meaningful consent. Where a minor is a co-occupant on a rental application (for example, a family with children), the applying adult(s) provide the information on the household's behalf. If a parent or guardian believes personal information has been collected from a minor without meaningful consent, contact the Privacy Officer and it will be reviewed and deleted where appropriate.</p>
 
             <h2 id="changes">Changes to this policy</h2>
-            <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page shows when the most recent change was made. Material changes will be highlighted on the Site.</p>
+            <p>This Privacy Policy may be updated from time to time. The "Last updated" date at the top shows the most recent revision. Material changes will be highlighted on the Site.</p>
 
             <h2 id="contact">Contact</h2>
-            <p>To ask about your personal information, request access or correction, request removal from past-deal listings, or file a privacy concern, please <a href="/contact">contact Peter</a>. We take privacy inquiries seriously and will respond as quickly as reasonably possible.</p>
+            <p>For any privacy matter — access requests, corrections, complaints, consumer-report questions, past-deal removal, withdrawal of consent, or a suspected breach — contact the Privacy Officer:</p>
+            <div class="callout">
+              <strong>Peter Law — Privacy Officer</strong><br>
+              <a href="mailto:privacy@realtorpeterlaw.com">privacy@realtorpeterlaw.com</a> <em>(preferred)</em> · <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              c/o HomeLife Golconda Realty Inc., Brokerage<br>
+              215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada<br>
+              <a href="tel:+16478888472">647-888-8472</a>
+            </div>
+            <p>For matters that must be escalated to the Broker of Record (see <a href="#who">Who is accountable</a>), mark the correspondence "<em>Attn: Broker of Record — Privacy</em>". Peter will route it internally and confirm receipt.</p>
+
+            <p class="legal-note">This Privacy Policy summarizes operational practice. It is not legal advice. If you have a live dispute or need advice on your rights, consult a paralegal or lawyer.</p>
           </div>
         </div>
       </div>
