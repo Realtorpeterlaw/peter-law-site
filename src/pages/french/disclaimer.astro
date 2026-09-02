@@ -6,9 +6,9 @@ import LFooter from '../../components/FrenchFooter.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-01';
 const pageTitle = 'Avis de non-responsabilité';
-const pageDescription = "Avis important sur realtorpeterlaw.com — données de marché, sujets fiscaux, calculateurs, ventes passées.";
+const pageDescription = "Avis important sur realtorpeterlaw.com — données de marché, sujets fiscaux, programmes gouvernementaux, calculateurs, ventes passées.";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/disclaimer/' },
@@ -18,7 +18,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title={`${pageTitle} | Peter Law`}
+  title={`${pageTitle} | Peter Law — Immobilier à Toronto`}
   description={pageDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -30,12 +30,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Juridique · Avis sur le contenu</div>
+        <div class="eyebrow">Juridique · Avis sur le contenu et la LSCRI</div>
         <h1>{pageTitle}</h1>
         <p class="article-lead">Chaque article, calculateur, note de transaction passée et chiffre publié sur ce Site vise à vous aider à mieux comprendre le marché immobilier torontois — non à remplacer les conseils de votre avocat, de votre comptable, de votre courtier hypothécaire ou de votre courtier immobilier. Veuillez lire ce qui suit avant de vous fier à quoi que ce soit sur ce Site.</p>
         <div class="article-byline">
           <span>Dernière mise à jour :</span>
-          <time datetime={publishedDate}>19 juillet 2026</time>
+          <time datetime={publishedDate}>1er septembre 2026</time>
         </div>
       </div>
     </section>
@@ -53,10 +53,14 @@ const hreflangAlternates = [
               <li><a href="#calculators">Calculateurs et estimations</a></li>
               <li><a href="#dollar-figures">Chiffres en dollars dans les articles</a></li>
               <li><a href="#past-deals">Transactions passées, adresses et photos</a></li>
-              <li><a href="#testimonials">Témoignages, notes et langage subjectif</a></li>
+              <li><a href="#testimonials">Témoignages et limites des résultats passés</a></li>
+              <li><a href="#production-claims">Volumes de ventes</a></li>
+              <li><a href="#market-figures">Taux publiés (BdC, directive de l'Ontario)</a></li>
               <li><a href="#airbnb">Références à Airbnb et à l'hôtellerie</a></li>
               <li><a href="#no-relationship">Aucune relation client</a></li>
+              <li><a href="#self-represented">Parties non représentées (LSCRI)</a></li>
               <li><a href="#referrals">Relations de référence et d'affiliation</a></li>
+              <li><a href="#no-soliciting">Aucune sollicitation des parties sous contrat</a></li>
               <li><a href="#third-party">Contenu tiers</a></li>
               <li><a href="#external">Liens externes</a></li>
               <li><a href="#contact">Contact et corrections</a></li>
@@ -82,32 +86,77 @@ const hreflangAlternates = [
             <p>Nous nous efforçons de produire un contenu exact et de citer nos sources. Toutefois, les règles immobilières, les taux d'imposition, les données de marché et les programmes gouvernementaux changent fréquemment — parfois à très court préavis. Un article à jour au moment de sa rédaction peut être obsolète lorsque vous le lisez. Vérifiez toujours la date « Dernière mise à jour » ou « Publié » sur chaque article et confirmez les faits sous-jacents avant de vous y fier. Nous cherchons à réviser les articles au moins une fois par année, mais nous ne nous engageons pas à mettre à jour un article donné à une fréquence particulière.</p>
 
             <h2 id="market-data">Données de marché, MLS®, MPAC et références à la SCHL</h2>
-            <p>Toute statistique de marché, donnée de vente ou information sur une propriété publiée sur le Site provient de sources jugées fiables — notamment le Toronto Regional Real Estate Board (TRREB), les données du système MLS®, les évaluations de la Société d'évaluation foncière des municipalités (MPAC) et les publications de la Société canadienne d'hypothèques et de logement (SCHL) — mais elle n'est pas garantie. Les données MLS® et TRREB peuvent être modifiées ou corrigées après publication. Les valeurs MPAC ne sont pas des prix de marché. Les grilles de primes et les règles d'admissibilité de la SCHL changent de temps à autre.</p>
+            <p>Toute statistique de marché, donnée de vente ou information sur une propriété publiée sur le Site provient de sources jugées fiables — notamment la Chambre immobilière du Grand Toronto (TRREB), les données du système MLS®, les évaluations de la Société d'évaluation foncière des municipalités (MPAC) et les publications de la Société canadienne d'hypothèques et de logement (SCHL) — mais elle n'est pas garantie. Les données MLS® et TRREB peuvent être modifiées ou corrigées après publication. Les valeurs MPAC ne sont pas des prix de marché. Les grilles de primes et les règles d'admissibilité de la SCHL changent de temps à autre.</p>
             <p>Les marques <strong>MLS®</strong>, <strong>Multiple Listing Service®</strong> et les logos associés sont la propriété de l'Association canadienne de l'immeuble (ACI) et désignent la qualité des services fournis par les professionnels de l'immobilier membres de l'ACI. Les marques <strong>REALTOR®</strong>, <strong>REALTORS®</strong> et le logo REALTOR® sont contrôlées par l'ACI et désignent les professionnels de l'immobilier qui en sont membres. Toute simple mention de « MLS », « realtor » ou « realtors » sur le Site fait référence à ces marques déposées, utilisées sous licence.</p>
 
             <h2 id="calculators">Calculateurs et estimations</h2>
             <p>Tout calculateur ou estimation présenté sur le Site — y compris les calculateurs de versements hypothécaires, de capacité d'emprunt, de frais de clôture, de droits de mutation immobilière et de primes d'assurance SCHL — fournit des chiffres approximatifs à des fins de planification seulement. Les vrais chiffres dépendent de votre crédit, de votre prêteur, des conditions de clôture, des particularités de la propriété et de facteurs que nous ne pouvons pas voir. Les données sous-jacentes (paliers du LTT et du MLTT, tranches de primes SCHL, taux admissible du test de résistance, règles de TVH/TPS) peuvent changer sans que la mise à jour se reflète immédiatement dans le calculateur. Vous ne devriez prendre aucun engagement financier en vous fiant à un résultat de calculateur; les chiffres réels doivent être confirmés par votre prêteur, votre avocat et votre comptable.</p>
 
+
+            <h2 id="market-figures">Taux publiés (taux directeur de la Banque du Canada, directive ontarienne d'augmentation de loyer)</h2>
+            <p>Le Site affiche certains chiffres publiés par les autorités publiques directement dans le texte — notamment le taux directeur de la Banque du Canada et la directive annuelle d'augmentation de loyer de l'Ontario. Ces valeurs sont codées en dur dans la page et mises à jour manuellement lorsque Peter actualise le Site.</p>
+            <ul class="bullets">
+              <li><strong>Risque de valeur périmée.</strong> Un taux peut changer entre la mise à jour effectuée par Peter et le moment où vous consultez la page. Chaque chiffre affiché est accompagné d'une date « en date du » ou « prochaine annonce » et d'un lien vers la source primaire (bankofcanada.ca, ontario.ca). Si la date d'aujourd'hui est postérieure à la « prochaine annonce » indiquée, considérez le chiffre comme potentiellement périmé et vérifiez la source primaire avant de vous y fier.</li>
+              <li><strong>Convention d'affichage.</strong> La pratique de Peter sur ce Site est de présenter tout taux tiers avec (a) la valeur numérique, (b) une date « en date du » ou « en vigueur le », (c) un lien vers la source originale. Si vous voyez un chiffre sans ces trois éléments, veuillez <a href="/french/contact">nous le signaler</a>.</li>
+            </ul>
+            <p>Rien sur le Site ne devrait servir à fonder une décision liée à un taux (renouvellement hypothécaire, avis d'augmentation de loyer, déclaration fiscale) sans avoir d'abord confirmé le chiffre en vigueur directement auprès de l'autorité responsable ou d'un professionnel qualifié.</p>
+
             <h2 id="dollar-figures">Chiffres en dollars dans les billets de blogue</h2>
             <p>Lorsqu'un article indique un montant précis — par exemple « jusqu'à 50 000 $ de remise », « économise environ 3 200 $ », « amende pouvant atteindre 10 000 $ » ou « économise environ 50 $ par année » — ce chiffre est illustratif et repose sur les taux publiés ou les paramètres du programme à la date de « Dernière mise à jour » de l'article. Les économies, remises, pénalités ou avantages réels dépendent de l'admissibilité individuelle, du moment et des règles du programme en vigueur lorsque vous agissez. Rien sur le Site ne constitue une promesse qu'un résultat monétaire particulier s'appliquera à votre cas.</p>
 
             <h2 id="past-deals">Transactions passées, adresses et photos</h2>
-            <p>Certaines sections du Site — dont « Récentes » et « Transactions passées » — publient des renseignements sur des transactions auxquelles Peter a participé à titre de représentant autorisé. Ces informations comprennent généralement l'intersection ou l'adresse, le mois de clôture, le prix de vente ou de location, le type général de propriété et un bref commentaire. Elles proviennent soit de dossiers accessibles au public (par exemple, des inscriptions vendues diffusées par les systèmes TRREB / MLS® conformément aux règles applicables), soit sont partagées avec l'autorisation expresse du client concerné.</p>
-            <p>Les photos de propriétés affichées sur le Site sont utilisées avec l'autorisation du photographe, du vendeur ou de la maison de courtage qui les a fournies. Nous n'affichons sciemment aucune image sans en avoir le droit.</p>
-            <p><strong>Demandes de retrait.</strong> Si vous avez été partie à une transaction passée et souhaitez que vos renseignements ou vos photos soient retirés, ou si vous croyez qu'une image sur le Site a été publiée sans autorisation, veuillez <a href="/french/contact">nous contacter</a>. Nous ferons enquête et, s'il y a lieu, retirerons l'élément rapidement.</p>
+            <p>Certaines sections du Site — dont « Transaction récente » et « Historique des ventes » — publient des renseignements sur des transactions auxquelles Peter a participé à titre de représentant autorisé. Ces informations comprennent généralement l'intersection ou l'adresse, le mois de clôture, le prix de vente ou de location, le type général de propriété et un bref commentaire.</p>
+            <p><strong>Provenance.</strong> Chaque élément provient de l'une des deux sources suivantes :</p>
+            <ul class="bullets">
+              <li><strong>Dossiers MLS® / TRREB publics</strong> — lorsque la transaction a été conclue sur MLS® et que les données de vente correspondantes sont diffusées aux membres REALTOR® conformément aux règles du TRREB. Ces éléments sont vérifiables au moyen de MLS®.</li>
+              <li><strong>Transactions hors MLS® ou privées</strong> — lorsque la transaction n'a pas été conclue sur MLS® (par exemple, inscriptions exclusives ou placements de location directs auprès du propriétaire). Ces éléments ne sont publiés qu'avec le <em>consentement écrit exprès</em> du client concerné, donné au moment de la clôture ou après. Peter conserve ce consentement dans le dossier de transaction à la maison de courtage.</li>
+            </ul>
+            <p>Les photos de propriétés affichées sur le Site sont utilisées avec l'autorisation du photographe, du vendeur ou de la maison de courtage qui les a fournies. Peter n'affiche sciemment aucune image sans en avoir le droit.</p>
+            <p><strong>Demandes de retrait.</strong> Si vous avez été partie à une transaction passée et souhaitez que vos renseignements ou vos photos soient retirés, ou si vous croyez qu'une image a été publiée sans autorisation, veuillez <a href="/french/privacy#contact">communiquer avec le responsable de la protection de la vie privée</a>. Les demandes sont traitées rapidement.</p>
 
-            <h2 id="testimonials">Témoignages, notes et langage subjectif</h2>
+            <h2 id="testimonials">Témoignages et limites des résultats passés</h2>
             <p>Les témoignages de clients, les notes en étoiles, les résumés de transactions ou les références à des transactions passées présentés sur le Site sont fournis avec l'autorisation des personnes concernées et reflètent l'expérience d'individus précis dans des circonstances précises. Les résultats passés <strong>ne</strong> garantissent pas les résultats futurs. Chaque transaction immobilière est différente, et les résultats dépendent de nombreux facteurs — conjoncture du marché, moment, particularités de la propriété et dynamique de négociation — qui ne peuvent être reproduits.</p>
-            <p>Une partie du contenu emploie un langage abrégé ou subjectif — par exemple « locataire AAA », « emplacement AAA », « vente la plus élevée dans l'immeuble », « excellent locataire », « vous allez gagner », « le meilleur ». Il s'agit de commentaires et d'opinions personnels de Peter, non de cotes de crédit, d'évaluations agréées, de garanties ou de classements de marché vérifiables. On ne devrait pas s'y fier comme à des énoncés objectifs. Toute affirmation comparative ou superlative (« le plus élevé », « le meilleur », « le plus grand ») repose sur les données connues au moment de la publication et n'est pas garantie exacte à perpétuité.</p>
+            <p>Lorsqu'une affirmation comparative précise est faite au sujet d'une transaction (par exemple, un classement au sein d'un immeuble ou d'un segment), cette affirmation est décrite plus loin sous <a href="#production-claims">Volumes de ventes</a> et, lorsqu'elle repose sur des données MLS®, était exacte à la date de clôture de la transaction.</p>
+
+            <h2 id="production-claims">Volumes de ventes</h2>
+            <p>Lorsque le Site affiche des chiffres agrégés de production — par exemple un badge « Ventes de 10 M$ et plus » ou un énoncé de volume à vie — le chiffre est calculé comme suit :</p>
+            <ul class="bullets">
+              <li><strong>Assiette :</strong> la somme des prix de clôture des transactions dans lesquelles Peter a agi comme représentant inscripteur, coreprésentant inscripteur ou représentant d'acheteur/de locataire sous HomeLife Golconda Realty Inc., Brokerage, depuis la date d'inscription de Peter jusqu'à la date « en date du » indiquée ci-dessous. Les placements de location sont inclus à leur valeur annualisée (loyer mensuel × 12) lorsque cela est conforme à la pratique de l'industrie et sont indiqués séparément si un lecteur le demande.</li>
+              <li><strong>En date du :</strong> les chiffres affichés sont à jour à la date indiquée sur la page (ou, à défaut d'une date propre à la page, à la date « Dernière mise à jour » du présent Avis). Ils ne sont pas rafraîchis en temps réel.</li>
+              <li><strong>Documentation.</strong> Sur demande écrite, Peter peut produire, par transaction : (i) pour les transactions MLS® — l'historique de l'inscription conclue, le numéro MLS® et la feuille de dossier de transaction du RECO; (ii) pour les transactions hors MLS® — la convention de représentation signée, la Convention d'achat-vente (ou le bail) signée et le dossier de transaction de la maison de courtage. Les renseignements permettant d'identifier le client sont caviardés au besoin pour préserver la confidentialité, sauf si le client a consenti à leur divulgation.</li>
+              <li><strong>Réserve concernant le hors MLS®.</strong> Les transactions hors MLS® ne peuvent pas être vérifiées indépendamment au moyen de MLS®. Lorsqu'elles contribuent à un chiffre agrégé, elles ne sont appuyées que par les registres du côté de la maison de courtage; un tiers contestant le chiffre devrait accepter les registres de la maison de courtage ou en demander la production par les voies appropriées.</li>
+            </ul>
+            <p>Les affirmations superlatives ou de classement liées à une transaction précise (par exemple, un prix de vente le plus élevé dans un immeuble) sont soumises à la même norme : datées « en date du », vérifiables au moyen de MLS® lorsque les données MLS® appuient le classement à la clôture, et retirées si elles sont par la suite infirmées. Si vous relevez un chiffre dont vous aimeriez connaître la source, veuillez <a href="/french/contact">le demander</a> — Peter préfère étayer un chiffre plutôt que de le débattre.</p>
+
 
             <h2 id="airbnb">Références à Airbnb et à l'expérience d'hôtellerie antérieure</h2>
             <p>Certaines pages font référence au travail antérieur de Peter comme hôte Airbnb — par exemple « plus de 400 évaluations d'invités Airbnb » ou une note en étoiles particulière. Ces chiffres reflètent une entreprise d'hôtellerie distincte et sont partagés uniquement à titre de contexte. Ils ne mesurent pas les résultats du service immobilier et ne doivent pas être considérés comme prédictifs des résultats qu'un client obtiendra dans une transaction immobilière.</p>
 
             <h2 id="no-relationship">Aucune relation client</h2>
-            <p>Consulter le Site, envoyer un message par le formulaire de contact, s'abonner à une infolettre ou prendre rendez-vous pour un appel de présentation <strong>ne crée pas</strong> de relation client, de relation d'agence ni d'obligation fiduciaire. Une relation client en immobilier n'est établie qu'une fois qu'une entente de représentation écrite (Buyer Representation Agreement, Seller Representation Agreement ou une entente semblable reconnue par le RECO) a été signée par les deux parties. Lire un guide sur les baux, les formulaires N ou le droit locateur-locataire ne crée pas de relation avocat-client, parajuriste-client ou agent-client.</p>
+            <p>Consulter le Site, envoyer un message par le formulaire de contact, s'abonner à une infolettre ou prendre rendez-vous pour un appel de présentation <strong>ne crée pas</strong> de relation client, de relation d'agence ni d'obligation fiduciaire. Une relation client en immobilier n'est établie qu'une fois qu'une convention de représentation écrite (convention de représentation d'acheteur, convention de représentation de vendeur ou toute convention de représentation équivalente reconnue par la LSCRI) a été signée. Lire un guide sur les baux, les formulaires N ou le droit locateur-locataire ne crée pas de relation avocat-client, parajuriste-client ou agent-client.</p>
+            <p>Si vous n'êtes pas un client, la LSCRI vous reconnaît toujours comme une <em>partie non représentée</em> dans certaines circonstances — voyez la section suivante pour ce que cela signifie et les obligations que Peter vous doit malgré tout.</p>
+
+            <h2 id="self-represented">Parties non représentées (LSCRI)</h2>
+            <p>En vertu de la LSCRI (Loi sur les services de courtage en immobilier de confiance) et de ses règlements, si vous interagissez avec Peter dans un contexte immobilier mais que vous <strong>n'avez pas</strong> signé de convention de représentation avec Peter ou HomeLife Golconda, vous pouvez être une <em>partie non représentée</em> (« SRP »). Il s'agit d'une catégorie définie : elle s'applique lorsque vous avez choisi de ne pas être représenté et que vous agissez pour votre propre compte dans la transaction.</p>
+            <p>Exemples courants dans la pratique de Peter :</p>
+            <ul class="bullets">
+              <li>Un locataire qui postule directement à une inscription que Peter représente pour le compte du propriétaire, sans son propre agent.</li>
+              <li>Un acheteur qui contacte Peter au sujet d'une inscription que Peter détient pour un vendeur, sans son propre agent d'acheteur.</li>
+              <li>Un propriétaire approché par Peter au nom d'un locataire représenté, lorsque le propriétaire n'a pas sa propre maison de courtage.</li>
+            </ul>
+            <p><strong>Ce que Peter peut faire pour une partie non représentée.</strong> Fournir à la SRP les renseignements sur la propriété ou l'inscription dont elle a besoin pour prendre sa propre décision; fournir les formulaires standards; faciliter les étapes mécaniques de la transaction (soumettre une offre, livrer les signatures, organiser la remise des clés). Peter peut être honnête et courtois, mais il représente l'<em>autre</em> partie à la transaction.</p>
+            <p><strong>Ce que Peter ne peut pas faire pour une partie non représentée.</strong> Donner des conseils, des opinions, une stratégie de négociation ou des recommandations qui touchent au fond même de l'intérêt propre de la SRP. Devoir à la SRP les obligations fiduciaires qu'il doit à son propre client (loyauté, confidentialité des confidences de la SRP, priorité accordée aux intérêts de la SRP par rapport à ceux du client de Peter). Ces obligations sont dues au client de Peter, non à la SRP.</p>
+            <p><strong>Guide d'information du RECO.</strong> Avant de fournir des services ou une assistance à caractère immobilier à une SRP, Peter est tenu, en vertu de la LSCRI, de lui remettre la version courante du <em>Guide d'information du RECO</em> et d'en obtenir la confirmation de réception. Si vous avez interagi avec Peter et n'avez pas reçu ce guide, veuillez <a href="/french/contact">en faire la demande</a> — Peter vous le fera parvenir avant de poursuivre.</p>
+            <p>Rien dans la présente section ne limite le droit d'une SRP d'obtenir des conseils indépendants d'un parajuriste, d'un avocat ou de son propre courtier immobilier en tout temps. C'est souvent la bonne décision, particulièrement dans un différend relatif à une offre ou à un bail.</p>
+
 
             <h2 id="referrals">Relations de référence et d'affiliation</h2>
             <p>De temps à autre, le Site renvoie à des prestataires tiers — par exemple des fournisseurs Internet ou de services publics, des services de vérification de locataires (comme SingleKey) ou des professionnels du prêt hypothécaire — avec lesquels Peter a travaillé ou vers qui il oriente des clients. Dans certains cas, Peter peut recevoir des frais de référence, un crédit ou une commission pour une telle référence. Là où une relation de référence existe, nous essayons de le mentionner près du lien. Si vous n'êtes pas certain qu'un lien constitue une référence, veuillez le demander avant de vous inscrire. Comme toujours, le choix d'un fournisseur tiers demeure votre décision.</p>
+
+
+            <h2 id="no-soliciting">Aucune sollicitation des parties sous contrat</h2>
+            <p>Peter et HomeLife Golconda respectent les conventions de représentation existantes entre d'autres consommateurs et d'autres maisons de courtage. Rien sur le Site ne vise à solliciter, à inciter ou à interférer avec une personne qui est déjà partie à une convention de représentation d'acheteur, de vendeur, de propriétaire ou de locataire valide et non expirée avec une autre maison de courtage.</p>
+            <p>Si vous êtes actuellement sous contrat avec un autre agent ou une autre maison de courtage et que vous communiquez avec Peter, la première étape de Peter sera de s'informer au sujet de cette convention, afin que toute discussion demeure dans les limites de la LSCRI, du Code REALTOR® de l'ACI et des règles de conduite professionnelle applicables. Si votre convention est expirée, ou si la relation actuelle a été résiliée par écrit, Peter pourra alors discuter de représentation.</p>
 
             <h2 id="third-party">Contenu tiers</h2>
             <p>Certains éléments du Site font référence à des publications gouvernementales, à des lignes directrices d'associations sectorielles et à des reportages, en les citant ou en les résumant. Lorsque cela s'applique, les sources sont nommées et un lien y renvoie. Les marques de commerce et droits d'auteur de ces tiers demeurent la propriété de leurs détenteurs respectifs.</p>
