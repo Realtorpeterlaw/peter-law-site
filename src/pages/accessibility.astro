@@ -6,9 +6,9 @@ import Footer from '../components/Footer.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-02';
 const pageTitle = 'Accessibility Statement';
-const pageDescription = 'How realtorpeterlaw.com works to meet the Accessibility for Ontarians with Disabilities Act (AODA) and WCAG 2.1 Level AA guidelines.';
+const pageDescription = 'How realtorpeterlaw.com approaches accessibility — the AODA obligations that apply to a small organization, the voluntary WCAG target we aim for, and how to give feedback.';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/accessibility/' },
@@ -29,12 +29,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Legal · AODA</div>
+        <div class="eyebrow">Legal · AODA · WCAG</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">Peter Law is committed to making realtorpeterlaw.com accessible to everyone — including people who use assistive technology and people with vision, hearing, cognitive, or motor disabilities.</p>
+        <p class="article-lead">This page explains which parts of Ontario's accessibility law apply to a solo real estate practice, the voluntary web-accessibility target Peter aims for on top of that, and — most importantly — how to reach a human being if something on this Site does not work for you.</p>
         <div class="article-byline">
           <span>Last updated:</span>
-          <time datetime={publishedDate}>July 19, 2026</time>
+          <time datetime={publishedDate}>September 2, 2026</time>
         </div>
       </div>
     </section>
@@ -45,60 +45,97 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>In this document</h4>
             <ul>
-              <li><a href="#commitment">Our commitment</a></li>
-              <li><a href="#standard">Standard we follow</a></li>
-              <li><a href="#measures">Measures in place</a></li>
-              <li><a href="#alternatives">Accessible formats</a></li>
-              <li><a href="#limitations">Known limitations</a></li>
-              <li><a href="#feedback">Feedback</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#scope">What actually applies (AODA scope)</a></li>
+              <li><a href="#voluntary">Voluntary WCAG target</a></li>
+              <li><a href="#measures">What is in place today</a></li>
+              <li><a href="#in-progress">What is in progress</a></li>
+              <li><a href="#testing">Testing method &amp; last audit</a></li>
+              <li><a href="#formats">Accessible formats &amp; communication supports</a></li>
+              <li><a href="#feedback">Feedback &amp; timeline</a></li>
+              <li><a href="#contact">How to reach Peter directly</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <h2 id="commitment">Our commitment</h2>
-            <p>We believe every visitor should be able to read our content, use our calculators, book a call, and contact us with ease. As an Ontario business, we recognize our obligations under the <em>Accessibility for Ontarians with Disabilities Act, 2005</em> (AODA) and its <em>Integrated Accessibility Standards Regulation</em>, and we are committed to ongoing improvement.</p>
 
-            <h2 id="standard">Standard we follow</h2>
-            <p>The Site aims to conform to <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>, published by the World Wide Web Consortium (W3C). WCAG is the international benchmark referenced by Canadian federal and provincial accessibility regulations.</p>
-
-            <h2 id="measures">Measures in place</h2>
-            <p>Steps we've taken to make the Site more accessible include:</p>
+            <h2 id="scope">What actually applies (AODA scope)</h2>
+            <p>Peter Law is a solo Sales Representative registered with the Real Estate Council of Ontario (RECO). For the purposes of the <em>Accessibility for Ontarians with Disabilities Act, 2005</em> ("AODA") and its <em>Integrated Accessibility Standards Regulation</em> (O. Reg. 191/11), this is a <strong>small organization</strong> — one with fewer than 50 employees in Ontario. That matters, because AODA scales obligations to size.</p>
+            <p><strong>The AODA obligations that apply to Peter's practice:</strong></p>
             <ul class="bullets">
-              <li><strong>Semantic HTML</strong> for headings, lists, forms, and landmarks so screen readers can navigate content correctly.</li>
-              <li><strong>Descriptive link text</strong> instead of vague labels like "click here".</li>
-              <li><strong>Alternative text</strong> on meaningful images.</li>
-              <li><strong>Sufficient colour contrast</strong> between text and background.</li>
-              <li><strong>Keyboard-navigable menus and interactive elements</strong>, so the Site can be used without a mouse.</li>
-              <li><strong>Responsive design</strong> that adapts to phones, tablets, and desktop screens.</li>
-              <li><strong>Readable font sizes</strong> with support for browser text-resizing.</li>
-              <li><strong>ARIA attributes</strong> on complex components (menus, dialogs, expandable sections) where appropriate.</li>
-              <li><strong>A bilingual site</strong> (English and 中文) to reduce language barriers.</li>
+              <li><strong>Customer Service Standard (Part IV.2 of the IASR).</strong> Serve people with disabilities in a manner that respects dignity, independence, integration, and equal opportunity. Communicate in a way that takes the person's disability into account. Give notice of any temporary service disruption.</li>
+              <li><strong>Feedback process.</strong> Maintain a process for receiving and responding to feedback about how services are provided to people with disabilities — including from people who prefer non-website channels.</li>
+              <li><strong>Training.</strong> Peter is trained on the requirements of the Customer Service Standard and on serving people with disabilities.</li>
+              <li><strong>Accessible formats and communication supports on request</strong> during service delivery (see <a href="#formats">Accessible formats</a>).</li>
+            </ul>
+            <p><strong>The AODA obligation that does <em>not</em> apply:</strong> the Website Accessibility requirement in section 14 of the IASR — which requires new public-facing websites to conform to WCAG 2.0 Level AA — applies to <strong>large organizations</strong> (50 or more employees), the Government of Ontario, and the public sector. As a small organization, Peter is not legally required to meet WCAG on this Site.</p>
+            <p class="legal-note">Why call that out? Because the previous version of this page said Peter "recognized his obligations under AODA and its Integrated Accessibility Standards Regulation" in a way that read as claiming the website standard applied. Voluntarily adopting a standard is good practice. Claiming a legal duty you do not owe creates a benchmark a complainant can hold you to, without any corresponding legal upside.</p>
+
+            <h2 id="voluntary">Voluntary WCAG target</h2>
+            <p>Independent of the legal scope above, Peter's <em>voluntary</em> goal for this Site is conformance with the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>, published by the World Wide Web Consortium (W3C). WCAG is the international benchmark referenced by Canadian federal and provincial accessibility regulations, and it is what Peter aims for — as a commitment, not as a legal duty.</p>
+            <p>The Site is not yet fully audited against WCAG 2.1 AA. The two sections below distinguish what has been verified in place from what is still in progress.</p>
+
+            <h2 id="measures">What is in place today <span style="font-weight:400;font-size:16px;color:var(--ink-mute);">— verified</span></h2>
+            <p>The following measures have been implemented and were spot-checked as of the "Last updated" date above:</p>
+            <ul class="bullets">
+              <li><strong>Semantic HTML landmarks.</strong> Every page has a single <code>&lt;main id="main-content"&gt;</code> region, a <code>&lt;header&gt;</code>, a <code>&lt;footer&gt;</code>, and appropriate <code>&lt;nav&gt;</code> elements.</li>
+              <li><strong>Skip-to-main-content link.</strong> Every page includes a keyboard-visible "Skip to main content" link that appears on first Tab press.</li>
+              <li><strong>ARIA on interactive components.</strong> Dropdown menus use <code>aria-haspopup</code> and <code>aria-expanded</code>; the mobile menu toggle uses <code>aria-controls</code> and <code>aria-expanded</code>; the current page in navigation uses <code>aria-current="page"</code>.</li>
+              <li><strong>Alt text on meaningful images.</strong> All content images (portrait, past-deal photos, trophy photo) carry descriptive alternative text; decorative SVGs are marked <code>aria-hidden="true"</code>.</li>
+              <li><strong>Keyboard operability.</strong> Menus, dropdowns, form fields, collapsibles (<code>&lt;details&gt;</code>), and CTAs are reachable and operable with keyboard only. Anchor scroll (TOC links) auto-opens collapsibles and lands the target 200&nbsp;px below the sticky nav so the heading is fully visible.</li>
+              <li><strong>Responsive design.</strong> Layout adapts from ~320&nbsp;px phone width up through desktop. No horizontal overflow on any tested viewport.</li>
+              <li><strong>Form input font size ≥ 16&nbsp;px.</strong> Prevents iOS Safari's auto-zoom on focus, which is a mobile accessibility barrier in itself.</li>
+              <li><strong>Visible focus styles.</strong> Focus outlines are preserved on all interactive elements (<code>:focus-visible</code>).</li>
+              <li><strong>Format-detection meta.</strong> Prevents iOS from auto-linking arbitrary numbers as tap-to-call, which reduces spoofing risk and screen-reader clutter.</li>
+              <li><strong>Prefers-reduced-motion respected.</strong> Any decorative animations (e.g., the warm CTA glow) are disabled when the user's OS setting requests reduced motion.</li>
             </ul>
 
-            <h2 id="alternatives">Accessible formats &amp; communication supports</h2>
-            <p>If you need information from this Site in an alternative format (large print, plain text, audio, an accessible PDF, or another format), or if you need a communication support to interact with us, please reach out. We will provide the requested format or support in a timely manner, at no additional cost, and after consulting with you on your preferences — as required by AODA.</p>
-
-            <h2 id="limitations">Known limitations</h2>
-            <p>Despite our best efforts, some areas of the Site may not yet fully meet WCAG 2.1 Level AA. Common limitations include:</p>
+            <h2 id="in-progress">What is in progress or not yet verified</h2>
+            <p>The following items are honestly on the "not yet done" or "not yet verified" list. They matter — and they are not being claimed as complete:</p>
             <ul class="bullets">
-              <li>Certain third-party embeds (scheduling widgets, external calculators, social feeds) may not fully meet AA in every case; we choose providers based partly on their accessibility.</li>
-              <li>Older blog posts or PDFs may lag behind current standards while we work through the archive.</li>
-              <li>Charts and diagrams that convey data are being progressively supplemented with text-based descriptions.</li>
+              <li><strong>Formal WCAG 2.1 AA audit.</strong> Not yet performed against every success criterion. Planned; date to be posted in the <a href="#testing">Testing</a> section once complete.</li>
+              <li><strong>Colour contrast — comprehensive check.</strong> The core palette (dark ink on cream) passes AA at a glance, but every text/background combination on the Site has not been programmatically verified. Warm-accent variants (bronze on cream) will be re-measured.</li>
+              <li><strong>Spam honeypot fields on screen readers.</strong> Honeypot fields are hidden off-screen and are <code>tabindex="-1"</code> and <code>autocomplete="off"</code>. On some forms, the wrapping <code>&lt;div class="hp-field"&gt;</code> also carries <code>aria-hidden="true"</code>; on other forms it is missing and could cause a screen reader to announce "Don't fill this out". Fix planned; see the audit checklist below.</li>
+              <li><strong>Charts and diagrams — text alternatives.</strong> Some data-driven charts in longer blog posts (e.g., the Ontario Property Taxes article) rely on visual encoding; text summaries are being added progressively.</li>
+              <li><strong>Legacy PDFs.</strong> The OREA Form 410 PDF Peter distributes is a Ministry of the Attorney General / OREA-issued form and is not under Peter's control for accessibility remediation. An alternative-format request will be honoured on demand.</li>
+              <li><strong>Third-party embeds.</strong> Cal.com scheduling and TikTok tour videos are third-party embeds; their accessibility depends on the vendor. Providers are chosen partly on this basis, but Peter cannot warrant their internal conformance.</li>
             </ul>
-            <p>If you encounter a specific barrier that keeps you from using the Site, please tell us — see below.</p>
 
-            <h2 id="feedback">Feedback</h2>
-            <p>Feedback from users of assistive technology is one of the most valuable tools we have for improving the Site. If you experience a barrier — a page that won't read correctly, a form you can't complete, an element you can't operate with keyboard or voice — please let us know:</p>
+            <h2 id="testing">Testing method &amp; last audit</h2>
+            <p>Being specific about testing method and date is what turns an accessibility statement from aspirational into verifiable — and a real audit date is worth more than any assertion of conformance without one.</p>
             <ul class="bullets">
-              <li>What you were trying to do</li>
-              <li>The page or feature involved</li>
-              <li>The assistive technology or browser you were using, if you're comfortable sharing</li>
+              <li><strong>Testing approach:</strong> a combination of automated tooling and manual keyboard-and-screen-reader passes on a representative sample of pages (homepage, About, For Renters, Rental Calculator, Contact, one blog post, one legal page). Not every page on every release.</li>
+              <li><strong>Automated tools used:</strong> Lighthouse (Chrome DevTools) accessibility category, and WAVE (WebAIM) browser extension for a second opinion.</li>
+              <li><strong>Manual checks:</strong> keyboard-only navigation start to finish; VoiceOver (macOS) walkthrough on Safari; 200% browser zoom check for content loss.</li>
+              <li><strong>Last spot-check date:</strong> <time datetime={publishedDate}>September 2, 2026</time>. Next planned pass: within 90 days of any material template or component change.</li>
+              <li><strong>Formal third-party audit:</strong> not yet commissioned. If one is completed, this section will name the auditor and the audit date.</li>
             </ul>
-            <p>We will acknowledge your feedback within a reasonable time and respond with what we plan to do.</p>
 
-            <h2 id="contact">Contact</h2>
-            <p>Please send accessibility feedback or requests through our <a href="/contact">contact page</a>. Mailing address: Peter Law, HomeLife Golconda Realty Inc., Brokerage — 215, 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
+            <h2 id="formats">Accessible formats &amp; communication supports</h2>
+            <p>Under the Customer Service Standard, Peter will accommodate reasonable requests for accessible formats and communication supports <strong>during service delivery</strong> — for example, arranging a phone or in-person conversation instead of an email exchange, delivering a document in large print or plain text, or engaging an interpreter where feasible. Requests are handled promptly and at no additional cost.</p>
+            <p>Providing every page of this website in every alternative format on demand is a <em>voluntary commitment</em> for a small organization, not a legal requirement under section 14 of the IASR. That said, if you tell Peter what you need, Peter will do what is reasonable to get it to you.</p>
+
+            <h2 id="feedback">Feedback &amp; timeline</h2>
+            <p>Feedback from people who use assistive technology is the most useful signal available for improving the Site. If a page will not read correctly, a form will not submit, or a control will not respond to keyboard or voice input, please tell Peter — what you were trying to do, the page or feature involved, and (if you are comfortable sharing) the assistive technology and browser you were using.</p>
+            <p><strong>Response commitment:</strong></p>
+            <ul class="bullets">
+              <li><strong>Acknowledgement</strong> — within <strong>2 business days</strong> of receipt.</li>
+              <li><strong>Substantive response</strong> (what is being done, expected timing, or reason a fix is not feasible) — within <strong>10 business days</strong> of receipt.</li>
+              <li><strong>Feedback may be given in any format</strong> — email, phone call, voicemail, text message, or letter. Peter will not require you to use a specific channel to be heard.</li>
+            </ul>
+
+            <h2 id="contact">How to reach Peter directly</h2>
+            <div class="callout">
+              <strong>Peter Law</strong> — Sales Representative, HomeLife Golconda Realty Inc., Brokerage<br>
+              Email: <a href="mailto:accessibility@realtorpeterlaw.com">accessibility@realtorpeterlaw.com</a> <em>(preferred)</em><br>
+              Or: <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              Phone / text: <a href="tel:+16478888472">647-888-8472</a><br>
+              Office: <a href="tel:+19058888819">905-888-8819</a><br>
+              Mail: 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada
+            </div>
+            <p>A previous version of this page directed accessibility feedback "through our contact page." That is self-defeating for anyone who cannot use the contact form. The channels above bypass the form entirely, and any of them counts as valid feedback.</p>
+
+            <p class="legal-note">This statement summarizes operational practice. It is not legal advice. AODA is a live regulatory environment and requirements — especially thresholds and definitions — can change. <strong>[CONFIRM WITH COUNSEL]</strong> before treating this statement as a compliance certification.</p>
+
           </div>
         </div>
       </div>
