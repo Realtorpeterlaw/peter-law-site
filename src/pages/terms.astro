@@ -6,9 +6,9 @@ import Footer from '../components/Footer.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-02';
 const pageTitle = 'Terms of Service';
-const pageDescription = 'Terms governing use of realtorpeterlaw.com — a personal real estate website operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage.';
+const pageDescription = 'Terms governing use of realtorpeterlaw.com — a personal real estate website operated by Peter Law, Sales Representative registered with RECO.';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/terms/' },
@@ -34,7 +34,7 @@ const hreflangAlternates = [
         <p class="article-lead">These terms cover how you use realtorpeterlaw.com. Nothing here is legal advice — it just sets the ground rules for the site, its content, and the trademarks used on it.</p>
         <div class="article-byline">
           <span>Last updated:</span>
-          <time datetime={publishedDate}>July 19, 2026</time>
+          <time datetime={publishedDate}>September 2, 2026</time>
         </div>
       </div>
     </section>
@@ -45,38 +45,61 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>In this document</h4>
             <ul>
-              <li><a href="#acceptance">Acceptance of terms</a></li>
+              <li><a href="#acceptance">Acceptance &amp; scope — who is bound</a></li>
               <li><a href="#site-use">Use of the site</a></li>
+              <li><a href="#automated">Automated access, TDM &amp; AI training</a></li>
               <li><a href="#ip">Intellectual property &amp; photos</a></li>
               <li><a href="#trademarks">REALTOR® &amp; MLS® trademarks</a></li>
               <li><a href="#no-advice">No professional advice</a></li>
               <li><a href="#services">Service commitments &amp; turnaround</a></li>
               <li><a href="#brokerage">Brokerage &amp; licensing status</a></li>
-              <li><a href="#third-party">Third-party links</a></li>
-              <li><a href="#liability">Limitation of liability</a></li>
+              <li><a href="#members">Members area (reserved)</a></li>
+              <li><a href="#third-party">Third-party links &amp; embeds</a></li>
+              <li><a href="#liability">Limitation of liability &amp; CPA savings</a></li>
               <li><a href="#changes">Changes to these terms</a></li>
               <li><a href="#law">Governing law</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="#bor-schedule">Schedule A — provisions requiring Broker of Record approval</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <h2 id="acceptance">Acceptance of terms</h2>
-            <p>By visiting or using <strong>realtorpeterlaw.com</strong> (the "Site"), you agree to these Terms of Service. If you do not agree, please do not use the Site. The Site is owned and operated by Peter Law, Sales Representative at HomeLife Golconda Realty Inc., Brokerage ("we", "us", "our"), and is registered with the Real Estate Council of Ontario (RECO).</p>
+            <h2 id="acceptance">Acceptance &amp; scope — who is bound</h2>
+            <p><strong>These Terms bind Peter Law personally, as operator of the Site.</strong> The Site (<strong>realtorpeterlaw.com</strong>) is a personal marketing website operated by Peter Law, Sales Representative registered with the Real Estate Council of Ontario (RECO). References to "Peter", "I", "me", or "my" throughout these Terms mean Peter Law in that personal, individual capacity.</p>
+            <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong> is Peter's brokerage of record under the <em>Trust in Real Estate Services Act, 2002</em> (TRESA) — Peter trades in real estate on the brokerage's behalf. However, HomeLife Golconda has not approved these website Terms and is <strong>not</strong> bound by them in this document. Where you become a real estate client of Peter Law / HomeLife Golconda, a separate written representation agreement governs that relationship and the brokerage's own terms of engagement apply there. Nothing in these Terms limits or expands what that separate representation agreement says. See <a href="#bor-schedule">Schedule A</a> for the specific provisions that would require Broker of Record approval before they could extend to the brokerage.</p>
+            <p><strong>How you accept these Terms.</strong> Different interactions on the Site call for different acceptance mechanisms:</p>
+            <ul class="bullets">
+              <li><strong>Browsing the Site.</strong> Simply reading pages accepts these Terms only to the limited extent supported by Canadian law on "modified browsewrap" — that is, where a link to these Terms is prominently and consistently displayed (as it is in the footer of every page). Purely passive reading does not create contractual obligations beyond respecting the Site's intellectual property and prohibited-use rules.</li>
+              <li><strong>Submitting a form</strong> (contact form, rental application, free home evaluation, newsletter signup). Each such form links to these Terms and the Privacy Policy on the submit control, and submission is your affirmative acceptance of both.</li>
+              <li><strong>Booking a call.</strong> The scheduling widget is provided by cal.com and is governed by cal.com's own terms. Booking with Peter through it is your acceptance of those third-party terms and, for the purpose of the booking itself, of these Terms.</li>
+              <li><strong>Any future account-based feature</strong> (see <a href="#members">Members area</a>) will require full click-through acceptance at account creation.</li>
+            </ul>
+            <p>If you do not agree to these Terms, please do not use the Site.</p>
 
             <h2 id="site-use">Use of the site</h2>
             <p>You agree to use the Site only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use of the Site. Prohibited behaviour includes but is not limited to:</p>
             <ul class="bullets">
               <li>Attempting to gain unauthorized access to the Site, its server, or any connected system.</li>
-              <li>Scraping, harvesting, or otherwise collecting information about other users.</li>
               <li>Uploading or transmitting viruses, malware, or other harmful code.</li>
               <li>Copying, reselling, or republishing any Site content without written permission.</li>
               <li>Using the Site to distribute spam or unsolicited commercial content.</li>
+              <li>Impersonating Peter Law, the brokerage, or any other person or entity.</li>
+              <li>Automated collection or use of Site content — governed separately in <a href="#automated">the next section</a>.</li>
             </ul>
+
+            <h2 id="automated">Automated access, text &amp; data mining, and AI training</h2>
+            <p>The following clauses supplement <a href="#site-use">Use of the site</a> and are express reservations of rights:</p>
+            <ul class="bullets">
+              <li><strong>Automated collection.</strong> Any automated agent — bot, script, crawler, headless browser, harvester, or scraper — that is not a general-purpose search-engine indexer (Googlebot, Bingbot, DuckDuckBot, etc.) accessing pages solely to build a public search index is prohibited without prior written permission.</li>
+              <li><strong>Text and data mining (TDM).</strong> Peter reserves rights, to the maximum extent permitted by Canadian copyright law, over use of Site content for text and data mining, including for machine-readable extraction of facts, text, images, or structured data. Where a machine-readable rights reservation is technically supported (for example, the <code>noai</code> / <code>noimageai</code> meta directives, the TDM Reservation Protocol, or robots.txt), it applies.</li>
+              <li><strong>AI training.</strong> Site content — including but not limited to article text, calculators, guide copy, past-deal notes, blog posts, and photographs — <strong>may not be used, in whole or in part, to train, fine-tune, evaluate, or ground any generative AI system, large language model, image model, or other machine-learning system</strong>, whether commercial or otherwise, without Peter's prior written consent. Retrieval-augmented generation ("RAG") over the Site's live content for one-off answers to a user's own question is not "training" for these purposes, but wholesale ingestion of the corpus for model building is.</li>
+              <li><strong>Robots-file compliance.</strong> The Site's <a href="/robots.txt" rel="noopener">robots.txt</a> lists specific AI crawlers that are disallowed. Ignoring those directives, or presenting a general-purpose search-crawler user-agent while actually collecting for AI training, constitutes unauthorized access under these Terms.</li>
+            </ul>
+            <p class="legal-note">Robots.txt is a signalling convention, not an access-control mechanism. The reservations of rights above stand on their own, independent of whether a given crawler chooses to honour robots.txt.</p>
 
             <h2 id="ip">Intellectual property &amp; photos</h2>
             <p>All original content on the Site — including but not limited to written articles, blog posts, guides, calculators, page layouts, illustrations, and code — is the property of Peter Law and is protected by Canadian and international copyright laws. You may view, share, and link to Site pages for personal, non-commercial use. You may not reproduce, republish, redistribute, or use the content for commercial purposes without prior written consent.</p>
-            <p><strong>Photos and property images</strong> displayed on the Site (including images in "Recent", "Past Deals", and blog posts) are used with the permission of the photographer, seller, brokerage, or platform that supplied them, and remain the copyright of their respective owners. If you believe an image on the Site has been used without proper authorization, please <a href="/contact">contact us</a> with the URL and a brief description; we will investigate and, where appropriate, remove the image promptly.</p>
+            <p><strong>Photos and property images</strong> displayed on the Site (including images in "Recent Closing", "Sale History", and blog posts) are used with the permission of the photographer, seller, brokerage, or platform that supplied them, and remain the copyright of their respective owners. If you believe an image on the Site has been used without proper authorization, please <a href="/privacy#contact">write to the Privacy Officer</a> with the URL and a brief description; investigations happen promptly and images will be removed where appropriate.</p>
 
             <h2 id="trademarks">REALTOR® and MLS® trademarks</h2>
             <p>The trademarks <strong>REALTOR®</strong>, <strong>REALTORS®</strong>, and the REALTOR® logo are controlled by The Canadian Real Estate Association (CREA) and identify real estate professionals who are members of CREA. The trademarks <strong>MLS®</strong>, <strong>Multiple Listing Service®</strong>, and the associated logos are owned by CREA and identify the quality of services provided by real estate professionals who are members of CREA. These trademarks are used on the Site under license. Any bare mention of "MLS", "realtor", or "realtors" on the Site refers to these registered marks.</p>
@@ -84,29 +107,63 @@ const hreflangAlternates = [
 
             <h2 id="no-advice">No professional advice</h2>
             <p>The Site provides general information about the Ontario and Toronto real estate market, government programs, tax rebates, and related topics. This information is <strong>not legal, tax, financial, mortgage, appraisal, or professional advice</strong>. Real estate rules, tax rates, and government programs change often — sometimes between the time an article is written and the time you read it. Always verify current details with the appropriate professional (a real estate lawyer, tax accountant, mortgage broker, appraiser, or the relevant government agency) before making a decision. See the <a href="/disclaimer">Disclaimer</a> for full details on how to read Site content.</p>
-            <p>Reading the Site or contacting us through it does not create a client relationship, an agency relationship, or any fiduciary duty. A client relationship is only formed once a written representation agreement is signed.</p>
+            <p>Reading the Site or contacting Peter through it does not create a client relationship, an agency relationship, or any fiduciary duty. A client relationship is only formed once a written representation agreement is signed. If you interact with Peter without such an agreement in a specific transaction, TRESA may treat you as a self-represented party — see the <a href="/disclaimer#self-represented">Disclaimer</a>.</p>
 
             <h2 id="services">Service commitments &amp; turnaround</h2>
-            <p>Where the Site mentions a service turnaround (for example, "Free Home Evaluation delivered within 48 hours", "response within one business day", or a scheduled call time), those are service <em>targets</em> that we work hard to meet — they are not guarantees. Delays can happen for reasons outside our control (system outages, weekends and holidays, high inquiry volume, or the need to gather more information from you).</p>
+            <p>Where the Site mentions a service turnaround (for example, "Free Home Evaluation delivered within 48 hours", "response within one business day", or a scheduled call time), those are service <em>targets</em> that Peter works hard to meet — they are not guarantees. Delays can happen for reasons outside Peter's control (system outages, weekends and holidays, high inquiry volume, or the need to gather more information from you).</p>
             <p>A Comparative Market Analysis (CMA) or "home evaluation" produced by Peter is an <strong>opinion of value</strong> based on recent comparable sales and market data available at the time. It is not an appraisal within the meaning of the Appraisal Institute of Canada's Canadian Uniform Standards of Professional Appraisal Practice (CUSPAP) or any equivalent standard, and should not be used for financing, legal, or tax purposes that require a formal appraisal.</p>
 
             <h2 id="brokerage">Brokerage &amp; licensing status</h2>
             <p>Peter Law is a Sales Representative registered with the Real Estate Council of Ontario (RECO) and operates under HomeLife Golconda Realty Inc., Brokerage. Any reference on the Site to future licensing status, education, or professional milestones (for example, "pursuing broker license") describes intent and is accurate as of the Site's last-updated date; it is not a representation of current status. RECO's public registrant search remains the authoritative source for a real estate professional's current licence and registration standing.</p>
 
-            <h2 id="third-party">Third-party links &amp; embeds</h2>
-            <p>The Site links to and embeds third-party services and websites (government pages, industry associations, service providers, tenant-screening providers, video platforms, scheduling widgets, newsletter platforms, news sources). We include them for your convenience. We do not control, endorse, or take responsibility for the content, accuracy, or privacy practices of those websites and platforms. Your use of any third-party site is governed by that site's own terms. In some cases we may receive a referral fee for directing a client to a third-party service — see the <a href="/disclaimer#referrals">Disclaimer</a> for details.</p>
+            <h2 id="members">Members area (reserved for future use)</h2>
+            <p><em>This section is a placeholder for a members-only investor portal that Peter is considering. It is not yet live. If and when it goes live, use of the members area will be governed by these Terms plus any additional at-signup terms displayed at account creation.</em></p>
+            <ul class="bullets">
+              <li><strong>Account creation &amp; security.</strong> If you register for a members-area account, you agree to provide accurate registration information, to keep your credentials confidential, and to notify Peter immediately of any unauthorized use of your account. You are responsible for activity that occurs under your account.</li>
+              <li><strong>Acceptable use.</strong> The members area is provided for the personal, non-commercial use of the registered account holder. Sharing account credentials, screen-scraping the members area, or republishing content from it is prohibited.</li>
+              <li><strong>Confidentiality of members-area content.</strong> Investor materials, deal pipelines, valuation memos, and any other content shown behind the login are provided in confidence for the registered account holder's decision-making. Disclosing, forwarding, or reproducing that content outside the account holder's own advisory circle requires prior written consent.</li>
+              <li><strong>Termination.</strong> Peter may suspend or terminate a members-area account, with or without notice, for breach of these Terms, misuse of the platform, or where continued access is inconsistent with Peter's professional obligations under TRESA. Termination does not affect any confidentiality obligations that have already accrued.</li>
+              <li><strong>MLS®-derived data — special rules.</strong> If the members area ever displays MLS® listing data, sold prices, or other data licensed from TRREB, CREA, or another real estate board, the display will be governed by <strong>Virtual Office Website (VOW) rules</strong> under CREA's DDF® and TRREB's VOW policy. VOW rules impose additional requirements — including (without limitation) individual VOW terms-of-use acceptance at account creation, opt-out mechanisms for FSBO / exclusive listings, restrictions on how sold data can be displayed and shared, noindex directives against public search crawlers, and periodic audit rights held by the source board. Implementation of a VOW-enabled members area requires Broker of Record approval and separate compliance work; nothing in this placeholder authorizes it.</li>
+            </ul>
 
-            <h2 id="liability">Limitation of liability</h2>
-            <p>The Site and its content are provided "as is" and "as available" without warranty of any kind, either express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses. To the fullest extent permitted by law, Peter Law and HomeLife Golconda Realty Inc. will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of, or inability to use, the Site or its content — including reliance on any information, calculator output, market data, past-deal reference, or third-party link found on the Site.</p>
+            <h2 id="third-party">Third-party links &amp; embeds</h2>
+            <p>The Site links to and embeds third-party services and websites (government pages, industry associations, service providers, tenant-screening providers, video platforms, scheduling widgets, newsletter platforms, news sources). They are included for your convenience. Peter does not control, endorse, or take responsibility for the content, accuracy, or privacy practices of those websites and platforms. Your use of any third-party site is governed by that site's own terms. In some cases Peter may receive a referral fee for directing a client to a third-party service — see the <a href="/disclaimer#referrals">Disclaimer</a> for details.</p>
+
+            <h2 id="liability">Limitation of liability &amp; consumer-protection savings</h2>
+
+            <p><strong>Consumer-protection savings clause.</strong> Nothing in these Terms operates to exclude, restrict, or modify any right or remedy you have under the <em>Consumer Protection Act, 2002</em> (Ontario) or any other applicable Canadian consumer-protection legislation that cannot lawfully be waived by agreement, including — where applicable to the Site as a "consumer transaction" or "internet agreement" — implied warranties, statutory rights of rescission, and the prohibition on waivers under section 7 of that Act. If any provision of these Terms would otherwise breach those statutes, that provision is read down to the extent necessary to comply, and the remainder of the Terms continues to apply.</p>
+
+            <p><strong>The Site is provided "as is".</strong> Subject to the savings clause above, the Site and its content are provided "as is" and "as available" without warranty of any kind, either express or implied. Peter does not warrant that the Site will be uninterrupted, error-free, or free of viruses.</p>
+
+            <p><strong>Limitation on Peter's liability.</strong> To the fullest extent permitted by law and subject to the savings clause above, Peter Law's aggregate liability to you, arising from or connected with your use of the Site or its content — including reliance on any article, calculator output, market data, past-deal reference, or third-party link on the Site — is capped at the <strong>greater of (a) CAD $500 or (b) the fees actually paid by you to Peter Law personally in the twelve (12) months immediately preceding the event giving rise to the claim</strong>. Peter is not liable for indirect, incidental, consequential, exemplary, or punitive damages, or for lost profits, lost data, or lost opportunity, even if advised of the possibility of such damages. The cap and the exclusion in this paragraph apply per claimant and in aggregate across all claims arising from the same underlying facts.</p>
+
+            <p><strong>Brokerage not bound by this clause.</strong> This limitation of liability speaks only for Peter Law personally as operator of the Site. It does not purport to limit any liability of HomeLife Golconda Realty Inc., Brokerage — see <a href="#acceptance">Acceptance &amp; scope</a> and <a href="#bor-schedule">Schedule A</a>. Where Peter is representing you as a client under a signed representation agreement, that agreement (and the brokerage's own terms of engagement) governs, not this website clause.</p>
+
+            <p class="legal-note">A modest, specific cap is generally more enforceable in Canadian consumer contexts than a blanket exclusion of liability. Courts routinely construe overbroad exclusions as unconscionable, contrary to statute, or contrary to reasonable expectations — and often void them entirely, leaving the site operator with no protection at all. A cap that leaves the consumer with a meaningful remedy tends to survive scrutiny. <strong>[CONFIRM WITH COUNSEL]</strong> — the dollar figure and the fee-based tail are drafting choices, not fixed rules.</p>
 
             <h2 id="changes">Changes to these terms</h2>
-            <p>We may update these Terms of Service from time to time. The "Last updated" date at the top of this page shows when the most recent change was made. Your continued use of the Site after any change means you accept the updated terms.</p>
+            <p>Peter may update these Terms of Service from time to time. The "Last updated" date at the top of this page shows when the most recent change was made. Material changes will be highlighted on the Site. Your continued use of the Site after any change means you accept the updated terms.</p>
 
             <h2 id="law">Governing law</h2>
-            <p>These Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable in Ontario. Any dispute arising from these Terms or from your use of the Site will be handled in the courts of Ontario.</p>
+            <p>These Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable in Ontario. Any dispute arising from these Terms or from your use of the Site will be handled in the courts of Ontario. Nothing in this clause displaces a consumer's statutory right, where applicable, to bring a claim in the consumer's home jurisdiction under the <em>Consumer Protection Act, 2002</em>.</p>
 
             <h2 id="contact">Contact</h2>
-            <p>Questions about these Terms of Service? <a href="/contact">Contact Peter</a>.</p>
+            <p>Questions about these Terms of Service? Write to Peter at <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a>. Privacy-specific questions go to the <a href="/privacy#contact">Privacy Officer</a>.</p>
+
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--rule);">
+
+            <h2 id="bor-schedule">Schedule A — Provisions requiring Broker of Record approval</h2>
+            <p><em>This schedule identifies the specific clauses of these Terms that would require the approval of the Broker of Record at HomeLife Golconda Realty Inc., Brokerage before they could purport to bind the brokerage. Until each item is separately approved in writing by the Broker of Record, it binds Peter Law only.</em></p>
+            <ol class="bullets">
+              <li><strong><a href="#acceptance">Acceptance &amp; scope</a> — brokerage-level acceptance.</strong> Any attempt to extend the Site's Terms to the brokerage — for example, defining "we" to include HomeLife Golconda, or having the brokerage adopt these Terms as its website-facing policy — requires Broker of Record approval.</li>
+              <li><strong><a href="#liability">Limitation of liability</a> — brokerage-level cap.</strong> The liability cap in these Terms limits Peter Law personally. Extending it to HomeLife Golconda (and setting the aggregate cap amount for the brokerage) requires Broker of Record approval.</li>
+              <li><strong><a href="#no-advice">No-professional-advice / no-client-relationship</a> — brokerage-level version.</strong> The Site's version of this clause is a personal statement by Peter. The brokerage may have its own equivalent clause it wants site visitors to see; adopting that language on the Site requires Broker of Record sign-off.</li>
+              <li><strong><a href="#services">CMA / opinion-of-value scope</a> — brokerage-level disclosure.</strong> The CMA/CUSPAP clause describes what Peter delivers. If the brokerage wants a broader brokerage-level disclosure (for example, covering CMAs produced by other agents under the same brokerage), that expansion requires Broker of Record approval.</li>
+              <li><strong><a href="#members">Members area / MLS® data display</a>.</strong> Any live implementation of an MLS®-derived members area is Broker of Record–gated regardless of what this website Terms page says. VOW policy under TRREB/CREA requires broker sign-off on the platform, on individual member terms of use, on data-audit procedures, and on FSBO / exclusive-listing opt-outs.</li>
+              <li><strong>Any waiver of statutory rights beyond what Peter can personally waive.</strong> Where a clause in these Terms attempts to limit rights that the brokerage — not Peter personally — would otherwise owe a Site visitor or client, that clause is inoperative against the brokerage until the Broker of Record approves it in writing.</li>
+              <li><strong>Governing-law and dispute-resolution provisions</strong> as they might apply to brokerage-side conduct. The <a href="#law">Governing law</a> clause binds Peter. Applying it to the brokerage's own conduct requires Broker of Record sign-off.</li>
+            </ol>
+            <p class="legal-note">This schedule exists so Peter can take a clean, itemized list to the Broker of Record for review — rather than an implicit assumption that the brokerage has adopted the whole document by silence. Until an item is approved in writing, it does not bind HomeLife Golconda.</p>
           </div>
         </div>
       </div>
