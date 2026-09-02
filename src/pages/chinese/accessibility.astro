@@ -6,9 +6,9 @@ import ChineseFooter from '../../components/ChineseFooter.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-02';
 const pageTitle = '无障碍声明';
-const pageDescription = 'realtorpeterlaw.com 致力于遵循《安省残疾人无障碍法》(AODA)与 WCAG 2.1 Level AA 指南。';
+const pageDescription = 'realtorpeterlaw.com 如何看待无障碍 —— 适用于小型机构的 AODA 义务、我们自愿追求的 WCAG 目标,以及如何提交反馈。';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/accessibility/' },
@@ -30,12 +30,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">法律 · AODA</div>
+        <div class="eyebrow">法律 · AODA · WCAG</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">Peter Law 致力于让每一位访客 —— 包括使用辅助技术者以及在视觉、听觉、认知或运动方面存在障碍的人 —— 都能顺畅使用 realtorpeterlaw.com。</p>
+        <p class="article-lead">本页说明安大略省无障碍法律中哪些部分适用于个人房地产从业者、Peter 在此之上自愿追求的网站无障碍目标,以及 —— 最重要的 —— 当本网站上的某些功能对您不适用时,如何联系到真实的人。</p>
         <div class="article-byline">
           <span>最近更新:</span>
-          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+          <time datetime={publishedDate}>2026年9月2日</time>
         </div>
       </div>
     </section>
@@ -44,62 +44,99 @@ const hreflangAlternates = [
       <div class="wrap">
         <div class="prose-grid">
           <aside class="prose-side">
-            <h4>本页目录</h4>
+            <h4>本文档目录</h4>
             <ul>
-              <li><a href="#commitment">我们的承诺</a></li>
-              <li><a href="#standard">遵循的标准</a></li>
-              <li><a href="#measures">已采取的措施</a></li>
-              <li><a href="#alternatives">替代格式</a></li>
-              <li><a href="#limitations">已知局限</a></li>
-              <li><a href="#feedback">反馈渠道</a></li>
-              <li><a href="#contact">联系方式</a></li>
+              <li><a href="#scope">实际适用的范围(AODA 适用范围)</a></li>
+              <li><a href="#voluntary">自愿追求的 WCAG 目标</a></li>
+              <li><a href="#measures">当前已落实的措施</a></li>
+              <li><a href="#in-progress">正在推进的事项</a></li>
+              <li><a href="#testing">测试方法与最近一次审核</a></li>
+              <li><a href="#formats">无障碍格式及沟通支持</a></li>
+              <li><a href="#feedback">反馈与响应时限</a></li>
+              <li><a href="#contact">如何直接联系 Peter</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <h2 id="commitment">我们的承诺</h2>
-            <p>我们相信每位访客都应能顺畅阅读内容、使用计算器、预约通话并与我们联系。作为安省企业,我们认可《安省残疾人无障碍法(2005)》(AODA)及其《综合无障碍标准条例》所规定的义务,并致力于持续改进。</p>
 
-            <h2 id="standard">遵循的标准</h2>
-            <p>本网站以符合万维网联盟(W3C)发布的 <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> 为目标。WCAG 是加拿大联邦与省级无障碍法规所引用的国际基准。</p>
-
-            <h2 id="measures">已采取的措施</h2>
-            <p>我们为提升本网站无障碍性所采取的措施包括:</p>
+            <h2 id="scope">实际适用的范围(AODA 适用范围)</h2>
+            <p>Peter Law 是在安省房地产管理委员会(RECO)注册的个人销售代表(Sales Representative)。就《安大略省残疾人无障碍法(2005)》(AODA)及其《综合无障碍标准规例》(O. Reg. 191/11)而言,本机构属于<strong>小型机构</strong> —— 即在安省雇员少于 50 人的机构。这一点很重要,因为 AODA 依据机构规模区分其应尽义务。</p>
+            <p><strong>适用于 Peter 执业活动的 AODA 义务:</strong></p>
             <ul class="bullets">
-              <li>使用<strong>语义化 HTML</strong>标签(标题、列表、表单、地标),便于屏幕阅读器正确导航。</li>
-              <li>使用<strong>描述性链接文字</strong>,避免"点击这里"等无意义标签。</li>
-              <li>为有意义的图片提供<strong>替代文字</strong>。</li>
-              <li>确保正文与背景之间具有<strong>足够色彩对比度</strong>。</li>
-              <li>菜单与交互元素<strong>可通过键盘操作</strong>,无需鼠标亦可使用本网站。</li>
-              <li>采用<strong>响应式设计</strong>,自动适配手机、平板与桌面屏幕。</li>
-              <li>字体大小<strong>可读且支持浏览器缩放</strong>。</li>
-              <li>在复杂组件(菜单、对话框、可展开区块)上适当使用 <strong>ARIA 属性</strong>。</li>
-              <li>提供<strong>中英双语</strong>版本,降低语言障碍。</li>
+              <li><strong>客户服务标准(IASR 第 IV.2 部分)。</strong>以尊重残疾人尊严、独立、融合与平等机会的方式为其提供服务。在沟通中考虑对方的残疾情况。任何临时服务中断均予以告知。</li>
+              <li><strong>反馈流程。</strong>建立并维持接收和回应反馈的流程,针对为残疾人提供服务的方式 —— 包括来自不使用网站渠道者的反馈。</li>
+              <li><strong>培训。</strong>Peter 已接受关于客户服务标准要求以及为残疾人提供服务的培训。</li>
+              <li><strong>在服务提供过程中应请求提供无障碍格式及沟通支持</strong>(参见<a href="#formats">无障碍格式</a>)。</li>
+            </ul>
+            <p><strong><em>不</em>适用的 AODA 义务:</strong>IASR 第 14 条所规定的网站无障碍要求 —— 要求新建的面向公众的网站符合 WCAG 2.0 AA 级 —— 适用对象为<strong>大型机构</strong>(50 人及以上)、安大略省政府及公共部门。作为小型机构,Peter 在法律上并不被要求让本网站达到 WCAG。</p>
+            <p class="legal-note">为什么要特别指出这一点?因为本页的上一版本表述为 Peter"认可其在 AODA 及其综合无障碍标准规例下的义务",读起来像是在主张网站标准适用于本机构。自愿采纳一项标准是良好实践;而声称自己承担一项本不承担的法律义务,则会为投诉人树立一个可以据此追究的基准,却没有任何相应的法律好处。</p>
+
+            <h2 id="voluntary">自愿追求的 WCAG 目标</h2>
+            <p>与上述法律适用范围相独立,Peter 对本网站的<em>自愿</em>目标是符合由万维网联盟(W3C)发布的<strong>《Web 内容无障碍指南》(WCAG) 2.1 AA 级</strong>。WCAG 是加拿大联邦及省级无障碍法规所引用的国际基准,也是 Peter 所追求的目标 —— 作为一种承诺,而非法律义务。</p>
+            <p>本网站尚未针对 WCAG 2.1 AA 级进行完整审核。下方两节区分了已核实到位的部分与仍在进行中的部分。</p>
+
+            <h2 id="measures">当前已落实的措施 <span style="font-weight:400;font-size:16px;color:var(--ink-mute);">— 已核实</span></h2>
+            <p>以下措施已经实施,并已在上文"最近更新"日期进行抽查:</p>
+            <ul class="bullets">
+              <li><strong>语义化 HTML 地标(landmark)。</strong>每个页面均有唯一的 <code>&lt;main id="main-content"&gt;</code> 区域、一个 <code>&lt;header&gt;</code>、一个 <code>&lt;footer&gt;</code>,以及适当的 <code>&lt;nav&gt;</code> 元素。</li>
+              <li><strong>跳至主内容链接。</strong>每个页面均包含一个键盘可见的"Skip to main content"(跳至主内容)链接,首次按下 Tab 键时即会显示。</li>
+              <li><strong>交互组件上的 ARIA。</strong>下拉菜单使用 <code>aria-haspopup</code> 与 <code>aria-expanded</code>;移动端菜单切换按钮使用 <code>aria-controls</code> 与 <code>aria-expanded</code>;导航中的当前页面使用 <code>aria-current="page"</code>。</li>
+              <li><strong>有意义图片的替代文本(alt text)。</strong>所有内容性图片(人像、过往成交照片、奖杯照片)均带有描述性替代文本;装饰性 SVG 标记为 <code>aria-hidden="true"</code>。</li>
+              <li><strong>键盘可操作性。</strong>菜单、下拉、表单字段、可折叠区块(<code>&lt;details&gt;</code>)以及行动按钮均可仅通过键盘到达并操作。锚点滚动(目录链接)会自动展开可折叠区块,并将目标定位于粘性导航下方 200&nbsp;px 处,以便标题完整可见。</li>
+              <li><strong>响应式设计。</strong>布局从约 320&nbsp;px 的手机宽度到桌面均可自适应。在任何已测试的视口宽度下均无横向溢出。</li>
+              <li><strong>表单输入字体大小 ≥ 16&nbsp;px。</strong>可防止 iOS Safari 在获取焦点时自动缩放,后者本身即为一项移动端无障碍障碍。</li>
+              <li><strong>可见的焦点样式。</strong>所有交互元素均保留焦点轮廓(<code>:focus-visible</code>)。</li>
+              <li><strong>format-detection 元标签。</strong>防止 iOS 将任意数字自动识别为"点击呼叫"链接,从而降低伪造风险以及屏幕阅读器的干扰性朗读。</li>
+              <li><strong>尊重 prefers-reduced-motion。</strong>当用户在操作系统设置中要求减少动效时,所有装饰性动画(如温暖的行动按钮辉光)均被禁用。</li>
             </ul>
 
-            <h2 id="alternatives">替代格式与沟通支持</h2>
-            <p>如您需要本网站信息的替代格式(大字版、纯文本、音频、无障碍 PDF 或其他格式),或需要沟通支持才能与我们互动,请告诉我们。按 AODA 要求,我们将在合理时间内、无需额外费用为您提供所请求的格式或支持,并在与您沟通偏好后再提供。</p>
-
-            <h2 id="limitations">已知局限</h2>
-            <p>尽管我们尽力而为,本网站部分区域可能尚未完全符合 WCAG 2.1 Level AA。常见局限包括:</p>
+            <h2 id="in-progress">正在进行或尚未核实的事项</h2>
+            <p>以下事项如实列在"尚未完成"或"尚未核实"的清单中。它们同样重要 —— 我们并未声称已完成:</p>
             <ul class="bullets">
-              <li>某些第三方嵌入(日程组件、外部计算器、社交动态)在个别情况下未必完全符合 AA;我们在选择服务商时会考量其无障碍性。</li>
-              <li>较旧的博客文章或 PDF 可能滞后于当前标准 —— 我们正逐步梳理旧档。</li>
-              <li>用于呈现数据的图表与示意图,我们正逐步补充文本说明。</li>
+              <li><strong>正式的 WCAG 2.1 AA 级审核。</strong>尚未针对每一项成功标准执行。已列入计划;完成后其日期将张贴于<a href="#testing">测试</a>一节。</li>
+              <li><strong>颜色对比度 —— 全面检查。</strong>核心配色(奶油色底上的深色墨)乍看之下符合 AA 级,但本网站上每一种文字/背景组合尚未经程序化验证。带暖调强调色的变体(奶油色底上的青铜色)将被重新测量。</li>
+              <li><strong>屏幕阅读器上的垃圾邮件蜜罐字段。</strong>蜜罐字段被隐藏于屏幕外,并设置为 <code>tabindex="-1"</code> 与 <code>autocomplete="off"</code>。在部分表单上,其包装用的 <code>&lt;div class="hp-field"&gt;</code> 还带有 <code>aria-hidden="true"</code>;而在其他表单上则缺失,这可能导致屏幕阅读器朗读出"Don't fill this out"。修复已列入计划;详见下方的审核清单。</li>
+              <li><strong>图表与示意图 —— 文本替代内容。</strong>较长博客文章中的部分数据驱动图表(例如《Ontario Property Taxes》一文)依赖视觉编码;文本摘要正在逐步补充。</li>
+              <li><strong>遗留 PDF。</strong>Peter 分发的 OREA Form 410 PDF 是安省总检察长办公室 / OREA 出具的表单,其无障碍改造并不在 Peter 可控范围内。如提出替代格式请求,将予以受理。</li>
+              <li><strong>第三方嵌入。</strong>Cal.com 日程与 TikTok 看房视频为第三方嵌入;其无障碍性取决于服务商。选用服务商时会将此纳入考量,但 Peter 无法就其内部符合性作出担保。</li>
             </ul>
-            <p>如您遇到具体障碍,阻碍您使用本网站,请告知我们 —— 见下文。</p>
 
-            <h2 id="feedback">反馈渠道</h2>
-            <p>来自辅助技术使用者的反馈,是我们改进本网站最重要的资源之一。若您遇到障碍 —— 某个页面无法正确朗读、某个表单无法填写、某个元素无法通过键盘或语音操作 —— 请告诉我们:</p>
+            <h2 id="testing">测试方法与最近一次审核</h2>
+            <p>对测试方法与日期保持具体,是让无障碍声明由"表态"转为"可验证"的关键 —— 一个真实的审核日期,比任何未附日期的合规主张都更有分量。</p>
             <ul class="bullets">
-              <li>您想要完成的操作</li>
-              <li>涉及的页面或功能</li>
-              <li>您所使用的辅助技术或浏览器(若您愿意分享)</li>
+              <li><strong>测试方式:</strong>结合自动化工具与人工键盘及屏幕阅读器巡检,选取代表性页面样本(首页、关于、For Renters、租金计算器、联系页、一篇博客文章、一份法律页面)进行测试。并非每次发布都覆盖每个页面。</li>
+              <li><strong>所用自动化工具:</strong>Lighthouse(Chrome DevTools)的无障碍类别,以及 WAVE(WebAIM)浏览器扩展作为第二意见。</li>
+              <li><strong>人工检查:</strong>从头到尾仅用键盘导航;在 Safari 上使用 VoiceOver(macOS)完整体验;在 200% 浏览器缩放下检查内容是否丢失。</li>
+              <li><strong>最近一次抽查日期:</strong><time datetime={publishedDate}>2026年9月2日</time>。下次计划巡检:任何模板或组件发生重大变更后 90 天内。</li>
+              <li><strong>正式的第三方审核:</strong>尚未委托。如有完成,本节将载明审核方及审核日期。</li>
             </ul>
-            <p>我们将在合理时间内确认您的反馈,并告知后续改进计划。</p>
 
-            <h2 id="contact">联系方式</h2>
-            <p>请通过本网站的<a href="/chinese/contact">联系页面</a>发送无障碍反馈或请求。邮寄地址:Peter Law, HomeLife Golconda Realty Inc., Brokerage —— 215, 3601 HWY 7 East, Markham, ON L3R 0M3。</p>
+            <h2 id="formats">无障碍格式及沟通支持</h2>
+            <p>依据客户服务标准,Peter 将在<strong>服务提供过程中</strong>满足对无障碍格式及沟通支持的合理请求 —— 例如安排电话或当面沟通以替代邮件往来、以大字版或纯文本形式提供文件,或在可行时聘请翻译。请求将被迅速处理,且不额外收费。</p>
+            <p>按需以每一种替代格式提供本网站的每一个页面,对于小型机构而言属于<em>自愿承诺</em>,并非 IASR 第 14 条项下的法律要求。尽管如此,只要您告知 Peter 您的需求,Peter 将尽其合理所能予以提供。</p>
+
+            <h2 id="feedback">反馈与响应时限</h2>
+            <p>来自辅助技术使用者的反馈,是改进本网站最有价值的信号。若某个页面无法被正确朗读、某个表单无法提交,或某个控件无法响应键盘或语音输入,请告诉 Peter —— 您当时想做什么、涉及的页面或功能,以及(如您愿意分享)您所使用的辅助技术与浏览器。</p>
+            <p><strong>响应承诺:</strong></p>
+            <ul class="bullets">
+              <li><strong>确认收悉</strong> —— 在收到反馈后<strong>2 个工作日</strong>内。</li>
+              <li><strong>实质性回复</strong>(说明将采取的措施、预计时程,或说明无法修复的原因) —— 在收到反馈后<strong>10 个工作日</strong>内。</li>
+              <li><strong>反馈可以任何形式提交</strong> —— 电子邮件、电话、语音留言、短信或书信皆可。Peter 不会要求您必须使用特定渠道才能被听到。</li>
+            </ul>
+
+            <h2 id="contact">如何直接联系 Peter</h2>
+            <div class="callout">
+              <strong>Peter Law</strong> —— Sales Representative, HomeLife Golconda Realty Inc., Brokerage<br>
+              邮箱:<a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a> <em>(首选)</em><br>
+              或:<a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              电话/短信:<a href="tel:+16478888472">647-888-8472</a><br>
+              办公室:<a href="tel:+19058888819">905-888-8819</a><br>
+              邮寄地址:215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada
+            </div>
+            <p>本页的上一版本曾要求通过"我们的联系页面"提交无障碍反馈。对于无法使用联系表单的人而言,这是自相矛盾的。上述渠道完全绕开了该表单,任何一种都算作有效反馈。</p>
+
+            <p class="legal-note">本声明概述的是运营实务,并非法律意见。AODA 处于一个动态的监管环境中,其要求 —— 尤其是门槛与定义 —— 可能发生变化。在将本声明视为合规认证之前,请<strong>[需律师确认]</strong>。</p>
+
           </div>
         </div>
       </div>

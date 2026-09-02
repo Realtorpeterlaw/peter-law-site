@@ -6,9 +6,9 @@ import LFooter from '../../components/FrenchFooter.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-02';
 const pageTitle = "Déclaration d'accessibilité";
-const pageDescription = "Comment realtorpeterlaw.com applique la Loi de 2005 sur l'accessibilité pour les personnes handicapées (LAPHO) et WCAG 2.1 niveau AA.";
+const pageDescription = "Comment realtorpeterlaw.com aborde l'accessibilité — les obligations de la LAPHO qui s'appliquent à une petite organisation, la cible WCAG volontaire visée, et comment transmettre une rétroaction.";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/accessibility/' },
@@ -18,7 +18,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title={`${pageTitle} | Peter Law`}
+  title={`${pageTitle} | Peter Law — Immobilier à Toronto`}
   description={pageDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -30,12 +30,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Juridique · LAPHO</div>
+        <div class="eyebrow">Juridique · LAPHO · WCAG</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">Peter Law s'engage à rendre realtorpeterlaw.com accessible à toutes et à tous — y compris aux personnes qui utilisent des technologies d'assistance et aux personnes ayant un handicap visuel, auditif, cognitif ou moteur.</p>
+        <p class="article-lead">Cette page explique quelles parties de la loi ontarienne sur l'accessibilité s'appliquent à une pratique immobilière individuelle, la cible volontaire d'accessibilité Web que Peter vise en plus de ces obligations et — surtout — comment joindre une personne réelle si quelque chose sur ce Site ne fonctionne pas pour vous.</p>
         <div class="article-byline">
           <span>Dernière mise à jour :</span>
-          <time datetime={publishedDate}>19 juillet 2026</time>
+          <time datetime={publishedDate}>2 septembre 2026</time>
         </div>
       </div>
     </section>
@@ -46,60 +46,96 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Dans ce document</h4>
             <ul>
-              <li><a href="#commitment">Notre engagement</a></li>
-              <li><a href="#standard">Norme que nous suivons</a></li>
-              <li><a href="#measures">Mesures en place</a></li>
-              <li><a href="#alternatives">Formats accessibles</a></li>
-              <li><a href="#limitations">Limitations connues</a></li>
-              <li><a href="#feedback">Rétroaction</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#scope">Ce qui s'applique réellement (portée de la LAPHO)</a></li>
+              <li><a href="#voluntary">Cible WCAG volontaire</a></li>
+              <li><a href="#measures">Ce qui est en place aujourd'hui</a></li>
+              <li><a href="#in-progress">Ce qui est en cours</a></li>
+              <li><a href="#testing">Méthode d'essai et dernier audit</a></li>
+              <li><a href="#formats">Formats accessibles et supports de communication</a></li>
+              <li><a href="#feedback">Rétroaction et échéancier</a></li>
+              <li><a href="#contact">Comment joindre Peter directement</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <h2 id="commitment">Notre engagement</h2>
-            <p>Nous croyons que chaque visiteur devrait pouvoir lire notre contenu, utiliser nos calculateurs, réserver un appel et nous contacter aisément. À titre d'entreprise ontarienne, nous reconnaissons nos obligations en vertu de la <em>Loi de 2005 sur l'accessibilité pour les personnes handicapées de l'Ontario</em> (LAPHO) et de son <em>Règlement sur les normes d'accessibilité intégrées</em>, et nous nous engageons dans une démarche d'amélioration continue.</p>
 
-            <h2 id="standard">Norme que nous suivons</h2>
-            <p>Le Site vise la conformité aux <strong>Règles pour l'accessibilité des contenus Web (WCAG) 2.1 niveau AA</strong>, publiées par le World Wide Web Consortium (W3C). Les WCAG constituent la référence internationale citée par les règlements fédéraux et provinciaux canadiens en matière d'accessibilité.</p>
-
-            <h2 id="measures">Mesures en place</h2>
-            <p>Voici les mesures que nous avons prises pour rendre le Site plus accessible :</p>
+            <h2 id="scope">Ce qui s'applique réellement (portée de la LAPHO)</h2>
+            <p>Peter Law est représentant commercial individuel inscrit auprès du Conseil ontarien de l'immobilier (RECO). Aux fins de la <em>Loi de 2005 sur l'accessibilité pour les personnes handicapées de l'Ontario</em> (« LAPHO ») et de son <em>Règlement sur les normes d'accessibilité intégrées</em> (Règl. de l'Ont. 191/11), il s'agit d'une <strong>petite organisation</strong> — c'est-à-dire comptant moins de 50 employés en Ontario. Cela importe, parce que la LAPHO module ses obligations en fonction de la taille.</p>
+            <p><strong>Les obligations de la LAPHO qui s'appliquent à la pratique de Peter :</strong></p>
             <ul class="bullets">
-              <li><strong>HTML sémantique</strong> pour les titres, les listes, les formulaires et les repères, afin que les lecteurs d'écran puissent naviguer correctement dans le contenu.</li>
-              <li><strong>Textes de lien descriptifs</strong> au lieu d'étiquettes vagues comme « cliquez ici ».</li>
-              <li><strong>Textes de remplacement</strong> sur les images porteuses de sens.</li>
-              <li><strong>Contraste de couleurs suffisant</strong> entre le texte et l'arrière-plan.</li>
-              <li><strong>Menus et éléments interactifs navigables au clavier</strong>, pour permettre l'utilisation du Site sans souris.</li>
-              <li><strong>Conception adaptative</strong> qui s'ajuste aux téléphones, aux tablettes et aux écrans d'ordinateur.</li>
-              <li><strong>Tailles de police lisibles</strong> avec prise en charge du redimensionnement du texte par le navigateur.</li>
-              <li><strong>Attributs ARIA</strong> sur les composants complexes (menus, boîtes de dialogue, sections dépliables) lorsque cela est pertinent.</li>
-              <li><strong>Un site multilingue</strong> (anglais, français et 中文) pour réduire les barrières linguistiques.</li>
+              <li><strong>Norme d'accessibilité pour les services à la clientèle (partie IV.2 du RNAI).</strong> Servir les personnes handicapées d'une manière qui respecte la dignité, l'autonomie, l'intégration et l'égalité des chances. Communiquer d'une façon qui tient compte du handicap de la personne. Donner un avis en cas de perturbation temporaire des services.</li>
+              <li><strong>Processus de rétroaction.</strong> Maintenir un processus pour recevoir la rétroaction sur la façon dont les services sont fournis aux personnes handicapées — y compris de la part des personnes qui préfèrent des voies autres que le site Web — et y répondre.</li>
+              <li><strong>Formation.</strong> Peter a reçu une formation sur les exigences de la Norme d'accessibilité pour les services à la clientèle et sur le service aux personnes handicapées.</li>
+              <li><strong>Formats accessibles et supports de communication sur demande</strong> pendant la prestation des services (voir <a href="#formats">Formats accessibles</a>).</li>
+            </ul>
+            <p><strong>L'obligation de la LAPHO qui <em>ne</em> s'applique <em>pas</em> :</strong> l'exigence relative à l'accessibilité des sites Web prévue à l'article 14 du RNAI — qui exige que les nouveaux sites Web destinés au public soient conformes aux WCAG 2.0 niveau AA — s'applique aux <strong>grandes organisations</strong> (50 employés ou plus), au gouvernement de l'Ontario et au secteur public. À titre de petite organisation, Peter n'est pas légalement tenu de satisfaire aux WCAG sur ce Site.</p>
+            <p class="legal-note">Pourquoi le préciser ? Parce que la version précédente de cette page indiquait que Peter « reconnaissait ses obligations en vertu de la LAPHO et de son Règlement sur les normes d'accessibilité intégrées » d'une manière qui pouvait laisser croire que la norme relative aux sites Web s'appliquait. Adopter volontairement une norme est une bonne pratique. Prétendre à une obligation légale que l'on n'a pas crée une référence sur laquelle un plaignant peut s'appuyer, sans aucun avantage juridique correspondant.</p>
+
+            <h2 id="voluntary">Cible WCAG volontaire</h2>
+            <p>Indépendamment de la portée juridique ci-dessus, l'objectif <em>volontaire</em> de Peter pour ce Site est la conformité aux <strong>Règles pour l'accessibilité des contenus Web (WCAG) 2.1 niveau AA</strong>, publiées par le World Wide Web Consortium (W3C). Les WCAG constituent la référence internationale citée par les règlements fédéraux et provinciaux canadiens en matière d'accessibilité, et c'est ce que Peter vise — à titre d'engagement, non d'obligation légale.</p>
+            <p>Le Site n'a pas encore fait l'objet d'un audit complet au regard des WCAG 2.1 AA. Les deux sections ci-dessous distinguent ce qui a été vérifié comme étant en place de ce qui est encore en cours.</p>
+
+            <h2 id="measures">Ce qui est en place aujourd'hui <span style="font-weight:400;font-size:16px;color:var(--ink-mute);">— vérifié</span></h2>
+            <p>Les mesures suivantes ont été mises en œuvre et vérifiées par sondage à la date de « Dernière mise à jour » indiquée ci-dessus :</p>
+            <ul class="bullets">
+              <li><strong>Points de repère (landmarks) HTML sémantiques.</strong> Chaque page comporte une seule région <code>&lt;main id="main-content"&gt;</code>, un <code>&lt;header&gt;</code>, un <code>&lt;footer&gt;</code>, et des éléments <code>&lt;nav&gt;</code> appropriés.</li>
+              <li><strong>Lien d'évitement « passer au contenu principal ».</strong> Chaque page comprend un lien « Passer au contenu principal » visible au clavier qui apparaît dès la première pression sur la touche Tab.</li>
+              <li><strong>ARIA sur les composants interactifs.</strong> Les menus déroulants utilisent <code>aria-haspopup</code> et <code>aria-expanded</code> ; le bouton du menu mobile utilise <code>aria-controls</code> et <code>aria-expanded</code> ; la page courante dans la navigation utilise <code>aria-current="page"</code>.</li>
+              <li><strong>Texte de remplacement sur les images porteuses de sens.</strong> Toutes les images de contenu (portrait, photos de transactions passées, photo du trophée) sont accompagnées d'un texte de remplacement descriptif ; les SVG décoratifs sont marqués <code>aria-hidden="true"</code>.</li>
+              <li><strong>Utilisation au clavier.</strong> Les menus, les listes déroulantes, les champs de formulaire, les sections dépliables (<code>&lt;details&gt;</code>) et les appels à l'action sont accessibles et utilisables au clavier uniquement. Le défilement par ancre (liens de la table des matières) ouvre automatiquement les sections dépliables et positionne la cible à 200&nbsp;px sous la barre de navigation fixe, afin que le titre soit entièrement visible.</li>
+              <li><strong>Conception adaptative.</strong> La mise en page s'adapte d'une largeur d'écran d'environ 320&nbsp;px (téléphone) jusqu'à l'ordinateur de bureau. Aucun débordement horizontal sur les fenêtres d'affichage testées.</li>
+              <li><strong>Taille de police des champs de formulaire ≥ 16&nbsp;px.</strong> Empêche le zoom automatique d'iOS Safari lors de la mise au point, qui constitue en soi un obstacle d'accessibilité sur mobile.</li>
+              <li><strong>Styles de focus visibles.</strong> Les contours de focus sont préservés sur tous les éléments interactifs (<code>:focus-visible</code>).</li>
+              <li><strong>Balise meta format-detection.</strong> Empêche iOS de convertir automatiquement des numéros arbitraires en liens d'appel, ce qui réduit le risque d'usurpation et l'encombrement pour les lecteurs d'écran.</li>
+              <li><strong>Respect de la préférence « réduire les animations ».</strong> Toute animation décorative (par exemple, la lueur chaleureuse des CTA) est désactivée lorsque le paramètre du système d'exploitation de l'utilisateur demande une réduction des animations.</li>
             </ul>
 
-            <h2 id="alternatives">Formats accessibles et soutiens à la communication</h2>
-            <p>Si vous avez besoin d'obtenir des renseignements de ce Site dans un format alternatif (gros caractères, texte brut, audio, PDF accessible ou autre), ou si vous avez besoin d'un soutien à la communication pour interagir avec nous, veuillez nous joindre. Nous fournirons le format ou le soutien demandé en temps opportun, sans frais supplémentaires, et après avoir discuté avec vous de vos préférences — comme l'exige la LAPHO.</p>
-
-            <h2 id="limitations">Limitations connues</h2>
-            <p>Malgré tous nos efforts, certaines zones du Site peuvent ne pas encore respecter pleinement les WCAG 2.1 niveau AA. Les limitations courantes comprennent :</p>
+            <h2 id="in-progress">Ce qui est en cours ou n'est pas encore vérifié</h2>
+            <p>Les éléments suivants figurent honnêtement dans la liste des « pas encore faits » ou « pas encore vérifiés ». Ils comptent — et ils ne sont pas revendiqués comme achevés :</p>
             <ul class="bullets">
-              <li>Certaines intégrations tierces (widgets de planification, calculateurs externes, flux sociaux) peuvent ne pas satisfaire entièrement au niveau AA dans tous les cas; nous choisissons nos prestataires en tenant compte, en partie, de leur accessibilité.</li>
-              <li>Des billets de blogue ou des PDF plus anciens peuvent être en retard sur les normes actuelles, le temps que nous parcourions les archives.</li>
-              <li>Les graphiques et diagrammes qui véhiculent des données sont progressivement enrichis de descriptions textuelles.</li>
+              <li><strong>Audit formel WCAG 2.1 AA.</strong> Pas encore réalisé au regard de chaque critère de succès. Prévu ; la date sera affichée dans la section <a href="#testing">Méthode d'essai</a> une fois terminé.</li>
+              <li><strong>Contraste des couleurs — vérification exhaustive.</strong> La palette principale (encre foncée sur crème) satisfait au niveau AA à première vue, mais toutes les combinaisons texte/arrière-plan du Site n'ont pas été vérifiées de manière programmatique. Les variantes d'accent chaleureux (bronze sur crème) seront mesurées de nouveau.</li>
+              <li><strong>Champs de piège à pourriel (« honeypot ») pour les lecteurs d'écran.</strong> Les champs pièges sont masqués hors de l'écran et portent <code>tabindex="-1"</code> et <code>autocomplete="off"</code>. Sur certains formulaires, l'enveloppe <code>&lt;div class="hp-field"&gt;</code> porte également <code>aria-hidden="true"</code> ; sur d'autres formulaires, cet attribut est absent et pourrait amener un lecteur d'écran à annoncer « Ne remplissez pas ceci ». Correction prévue ; voir la liste de vérification d'audit ci-dessous.</li>
+              <li><strong>Graphiques et diagrammes — équivalents textuels.</strong> Certains graphiques axés sur des données dans les articles de blogue plus longs (par exemple, l'article sur les taxes foncières en Ontario) reposent sur un encodage visuel ; des résumés textuels sont ajoutés progressivement.</li>
+              <li><strong>PDF hérités.</strong> Le PDF du formulaire OREA 410 que Peter distribue est un formulaire émis par le ministère du Procureur général / OREA et n'est pas sous le contrôle de Peter pour ce qui est des correctifs d'accessibilité. Une demande de format alternatif sera honorée sur demande.</li>
+              <li><strong>Intégrations tierces.</strong> La planification Cal.com et les vidéos de visite TikTok sont des intégrations tierces ; leur accessibilité dépend du fournisseur. Les fournisseurs sont choisis en tenant compte notamment de ce critère, mais Peter ne peut garantir leur conformité interne.</li>
             </ul>
-            <p>Si vous rencontrez un obstacle précis qui vous empêche d'utiliser le Site, veuillez nous en informer — voir plus bas.</p>
 
-            <h2 id="feedback">Rétroaction</h2>
-            <p>La rétroaction des utilisateurs de technologies d'assistance est l'un des outils les plus précieux dont nous disposons pour améliorer le Site. Si vous rencontrez un obstacle — une page qui ne se lit pas correctement, un formulaire que vous n'arrivez pas à remplir, un élément que vous ne pouvez pas utiliser au clavier ou à la voix — dites-le-nous :</p>
+            <h2 id="testing">Méthode d'essai et dernier audit</h2>
+            <p>Être précis quant à la méthode d'essai et à la date est ce qui fait passer une déclaration d'accessibilité du domaine de l'aspiration à celui du vérifiable — et une véritable date d'audit vaut plus que toute affirmation de conformité sans date.</p>
             <ul class="bullets">
-              <li>Ce que vous essayiez de faire;</li>
-              <li>La page ou la fonctionnalité concernée;</li>
-              <li>La technologie d'assistance ou le navigateur utilisé, si vous êtes à l'aise de nous le communiquer.</li>
+              <li><strong>Approche d'essai :</strong> une combinaison d'outils automatisés et de vérifications manuelles au clavier et au lecteur d'écran sur un échantillon représentatif de pages (page d'accueil, À propos, Pour les locataires, Calculateur de location, Contact, un article de blogue, une page juridique). Pas chaque page à chaque publication.</li>
+              <li><strong>Outils automatisés utilisés :</strong> la catégorie accessibilité de Lighthouse (Chrome DevTools) et l'extension de navigateur WAVE (WebAIM) pour un deuxième avis.</li>
+              <li><strong>Vérifications manuelles :</strong> navigation au clavier seulement du début à la fin ; parcours avec VoiceOver (macOS) sur Safari ; vérification de la perte de contenu à un zoom navigateur de 200 %.</li>
+              <li><strong>Date de la dernière vérification par sondage :</strong> <time datetime={publishedDate}>2 septembre 2026</time>. Prochaine passe prévue : dans les 90 jours suivant toute modification importante d'un gabarit ou d'un composant.</li>
+              <li><strong>Audit formel par un tiers :</strong> non encore commandé. Si un audit est réalisé, cette section nommera l'auditeur et la date de l'audit.</li>
             </ul>
-            <p>Nous accuserons réception de votre rétroaction dans un délai raisonnable et vous indiquerons ce que nous prévoyons faire.</p>
 
-            <h2 id="contact">Contact</h2>
-            <p>Veuillez envoyer votre rétroaction ou vos demandes en matière d'accessibilité par l'entremise de notre <a href="/french/contact">page de contact</a>. Adresse postale : Peter Law, HomeLife Golconda Realty Inc., Brokerage — 215, 3601 HWY 7 East, Markham, ON L3R 0M3.</p>
+            <h2 id="formats">Formats accessibles et supports de communication</h2>
+            <p>En vertu de la Norme d'accessibilité pour les services à la clientèle, Peter accueillera les demandes raisonnables de formats accessibles et de supports de communication <strong>pendant la prestation des services</strong> — par exemple, en organisant une conversation téléphonique ou en personne au lieu d'un échange par courriel, en fournissant un document en gros caractères ou en texte brut, ou en faisant appel à un interprète lorsque cela est faisable. Les demandes sont traitées rapidement et sans frais supplémentaires.</p>
+            <p>Fournir sur demande chaque page de ce site Web dans tous les formats alternatifs constitue un <em>engagement volontaire</em> pour une petite organisation, et non une exigence légale en vertu de l'article 14 du RNAI. Cela dit, si vous indiquez à Peter ce dont vous avez besoin, Peter fera ce qui est raisonnable pour vous le procurer.</p>
+
+            <h2 id="feedback">Rétroaction et échéancier</h2>
+            <p>La rétroaction des personnes qui utilisent des technologies d'assistance est le signal le plus utile dont on dispose pour améliorer le Site. Si une page ne se lit pas correctement, si un formulaire ne se soumet pas ou si un contrôle ne répond pas à la saisie au clavier ou à la voix, veuillez le dire à Peter — ce que vous tentiez de faire, la page ou la fonctionnalité concernée et (si vous êtes à l'aise de le partager) la technologie d'assistance et le navigateur que vous utilisiez.</p>
+            <p><strong>Engagement de réponse :</strong></p>
+            <ul class="bullets">
+              <li><strong>Accusé de réception</strong> — dans les <strong>2 jours ouvrables</strong> suivant la réception.</li>
+              <li><strong>Réponse substantielle</strong> (ce qui est fait, l'échéancier prévu, ou le motif pour lequel un correctif n'est pas faisable) — dans les <strong>10 jours ouvrables</strong> suivant la réception.</li>
+              <li><strong>La rétroaction peut être transmise dans n'importe quel format</strong> — courriel, appel téléphonique, message vocal, message texte ou lettre. Peter n'exigera pas que vous utilisiez une voie particulière pour être entendu.</li>
+            </ul>
+
+            <h2 id="contact">Comment joindre Peter directement</h2>
+            <div class="callout">
+              <strong>Peter Law</strong> — Représentant commercial, HomeLife Golconda Realty Inc., Brokerage<br>
+              Courriel : <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              Téléphone / texto : <a href="tel:+16478888472">647-888-8472</a><br>
+              Bureau : <a href="tel:+19058888819">905-888-8819</a><br>
+              Adresse postale : 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada
+            </div>
+            <p>Une version précédente de cette page dirigeait la rétroaction en matière d'accessibilité « par l'entremise de notre page de contact ». C'est contre-productif pour toute personne qui ne peut pas utiliser le formulaire de contact. Les voies ci-dessus contournent entièrement le formulaire, et chacune d'entre elles constitue une rétroaction valide.</p>
+
+            <p class="legal-note">La présente déclaration résume une pratique opérationnelle. Elle ne constitue pas un avis juridique. La LAPHO est un environnement réglementaire évolutif et les exigences — en particulier les seuils et les définitions — peuvent changer. <strong>[À CONFIRMER AVEC UN CONSEILLER JURIDIQUE]</strong> avant de traiter cette déclaration comme une attestation de conformité.</p>
+
           </div>
         </div>
       </div>
