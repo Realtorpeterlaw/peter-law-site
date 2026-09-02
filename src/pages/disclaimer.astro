@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-01';
 const pageTitle = 'Disclaimer';
 const pageDescription = "Important notice on realtorpeterlaw.com — market data, tax topics, government programs, calculators, past sales.";
 
@@ -29,12 +29,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Legal · Content Notice</div>
+        <div class="eyebrow">Legal · Content &amp; TRESA Notice</div>
         <h1>{pageTitle}</h1>
         <p class="article-lead">Every article, calculator, past-deal note, and figure on this Site is meant to help you understand Toronto real estate — not to replace advice from your lawyer, accountant, mortgage broker, or realtor. Please read the following before relying on anything here.</p>
         <div class="article-byline">
           <span>Last updated:</span>
-          <time datetime={publishedDate}>July 19, 2026</time>
+          <time datetime={publishedDate}>September 1, 2026</time>
         </div>
       </div>
     </section>
@@ -52,10 +52,14 @@ const hreflangAlternates = [
               <li><a href="#calculators">Calculators &amp; estimates</a></li>
               <li><a href="#dollar-figures">Dollar figures in articles</a></li>
               <li><a href="#past-deals">Past deals, addresses &amp; photos</a></li>
-              <li><a href="#testimonials">Testimonials, ratings &amp; subjective language</a></li>
+              <li><a href="#testimonials">Testimonials &amp; past-results limits</a></li>
+              <li><a href="#production-claims">Production volume claims</a></li>
+              <li><a href="#market-figures">Market rate figures (BoC, Ontario guideline)</a></li>
               <li><a href="#airbnb">Airbnb &amp; prior-hospitality references</a></li>
               <li><a href="#no-relationship">No client relationship</a></li>
+              <li><a href="#self-represented">Self-represented parties (TRESA)</a></li>
               <li><a href="#referrals">Referral &amp; affiliate relationships</a></li>
+              <li><a href="#no-soliciting">Not soliciting parties under contract</a></li>
               <li><a href="#third-party">Third-party content</a></li>
               <li><a href="#external">External links</a></li>
               <li><a href="#contact">Contact &amp; corrections</a></li>
@@ -87,26 +91,71 @@ const hreflangAlternates = [
             <h2 id="calculators">Calculators &amp; estimates</h2>
             <p>Any calculators or estimates on the Site — including mortgage payment calculators, affordability calculators, closing-cost estimators, land transfer tax calculators, and CMHC insurance premium calculators — provide approximate figures for planning purposes only. Real numbers depend on your credit, lender, closing conditions, property specifics, and factors we cannot see. The underlying inputs (LTT and MLTT brackets, CMHC premium tiers, stress-test qualifying rate, HST/GST rules) can change without an update being reflected in the calculator immediately. You should not make a financial commitment in reliance on any calculator output; actual figures must be confirmed by your lender, lawyer, and accountant.</p>
 
+
+            <h2 id="market-figures">Market rate figures (BoC policy rate, Ontario rent-increase guideline)</h2>
+            <p>The Site displays certain government-published figures inline — most notably the Bank of Canada policy rate and the Ontario annual rent-increase guideline. These are hard-coded into the page and updated manually when Peter refreshes the Site.</p>
+            <ul class="bullets">
+              <li><strong>Stale-figure risk.</strong> A rate can change between Peter's update and your read. Every displayed figure carries an <em>"as of"</em> or <em>"next announcement"</em> date and links to the primary source (bankofcanada.ca, ontario.ca). If today's date is past the "next announcement" shown, treat the figure as potentially stale and check the primary source before relying on it.</li>
+              <li><strong>Display convention.</strong> Peter's practice on this Site is to show every third-party rate with (a) the numeric value, (b) an "as of" or "effective" date, (c) a link to the original source. If you see a figure without those three, please <a href="/contact">flag it</a>.</li>
+            </ul>
+            <p>Nothing on the Site should be relied on for a rate-driven decision (mortgage renewal, rent increase notice, tax filing) without first confirming the current figure directly with the responsible authority or a qualified professional.</p>
+
             <h2 id="dollar-figures">Dollar figures in blog articles</h2>
             <p>Where an article states a specific dollar figure — for example "up to $50,000 back", "saves you roughly $3,200", "up to $10,000 fine", "save about $50 per year" — that figure is illustrative and based on published rates or program parameters at the article's "Last updated" date. Actual savings, refunds, penalties, or program benefits depend on individual eligibility, timing, and program rules current at the time you act. Nothing on the Site is a promise that a specific dollar outcome will apply to you.</p>
 
             <h2 id="past-deals">Past deals, addresses &amp; photos</h2>
-            <p>Sections of the Site — including "Recent" and "Past Deals" — publish information about transactions Peter has participated in as a licensed representative. This typically includes intersection or address, month of closing, sale or lease price, general property type, and short commentary. This information is either derived from records that are publicly available (for example, sold listings distributed via TRREB / MLS® systems in accordance with the applicable rules) or shared with the express permission of the client involved.</p>
-            <p>Property photos displayed on the Site are used with the permission of the photographer, seller, or brokerage that supplied them. We do not knowingly display any image without the right to do so.</p>
-            <p><strong>Removal requests.</strong> If you were a party to a past transaction and would like your information or photos removed, or if you believe an image on the Site was published without authorization, please <a href="/contact">contact us</a>. We will investigate and, where appropriate, remove the item promptly.</p>
+            <p>Sections of the Site — including "Recent Closing" and "Sale History" — publish information about transactions Peter has participated in as a licensed representative. This typically includes intersection or address, month of closing, sale or lease price, general property type, and short commentary.</p>
+            <p><strong>Sourcing.</strong> Each item is drawn from one of two sources:</p>
+            <ul class="bullets">
+              <li><strong>Public MLS® / TRREB records</strong> — where the transaction closed on MLS® and the associated sold data is distributed to REALTOR® members in accordance with TRREB rules. These items are verifiable through MLS®.</li>
+              <li><strong>Off-market or private transactions</strong> — where the transaction did not close on MLS® (for example, exclusive listings or direct-to-landlord rental placements). These items are published only with the <em>express written consent</em> of the client involved, given at or after closing. Peter retains that consent as part of the transaction file at the brokerage.</li>
+            </ul>
+            <p>Property photos displayed on the Site are used with the permission of the photographer, seller, or brokerage that supplied them. Peter does not knowingly display an image without the right to do so.</p>
+            <p><strong>Removal requests.</strong> If you were a party to a past transaction and would like your information or photos removed, or if you believe an image was published without authorization, please <a href="/privacy#contact">contact the Privacy Officer</a>. Requests are actioned promptly.</p>
 
-            <h2 id="testimonials">Testimonials, ratings &amp; subjective language</h2>
+            <h2 id="testimonials">Testimonials &amp; past-results limits</h2>
             <p>Any client testimonials, star ratings, deal summaries, or references to past transactions shown on the Site are provided with permission and reflect the experience of specific individuals in specific circumstances. Past results are <strong>not</strong> a guarantee of future results. Every real estate transaction is different, and outcomes depend on many factors — market conditions, timing, property specifics, and negotiation dynamics — that cannot be replicated.</p>
-            <p>Some content uses shorthand or subjective language — for example "AAA tenant", "AAA location", "highest sale in the building", "great tenant", "you will win", "the best". These are Peter's own commentary and opinion, not credit ratings, appraisals, guarantees, or verifiable market rankings. They should not be relied on as objective statements of fact. Any comparative or superlative claim ("highest", "best", "biggest") is based on data known at the time of publication and is not warranted to remain accurate.</p>
+            <p>Where a specific comparative claim about a transaction is made (for example, a ranking within a building or a segment), that claim is described further under <a href="#production-claims">Production volume claims</a> below and, where based on MLS® data, was accurate as of the transaction close date.</p>
+
+            <h2 id="production-claims">Production volume claims</h2>
+            <p>Where the Site displays aggregate production figures — for example a "$10M+ Sales" badge or a lifetime-volume statement — the figure is calculated as follows:</p>
+            <ul class="bullets">
+              <li><strong>Basis:</strong> the sum of the closing prices of transactions in which Peter acted as listing representative, co-listing representative, or buyer/tenant representative under HomeLife Golconda Realty Inc., Brokerage, from Peter's registration date to the "as of" date below. Rental placements are included at the annualized value (monthly rent × 12) where consistent with industry practice, and are noted separately if a reader asks.</li>
+              <li><strong>As of:</strong> figures shown are current to the date noted on the page (or, absent a page-specific date, the "Last updated" date on this Disclaimer). They are not refreshed in real time.</li>
+              <li><strong>Documentation.</strong> On written request, Peter can produce, per transaction: (i) for MLS® transactions — the closed listing history, MLS® number, and RECO trade record sheet; (ii) for off-market transactions — the executed representation agreement, executed Agreement of Purchase and Sale (or lease), and the brokerage trade record. Client identifying information is redacted where necessary to preserve confidentiality unless the client has consented to disclosure.</li>
+              <li><strong>Off-market caveat.</strong> Off-market transactions cannot be independently verified through MLS®. Where they contribute to an aggregate figure, they are supported only by brokerage-side records; a third party challenging the number would need to accept the brokerage's records or request them through appropriate channels.</li>
+            </ul>
+            <p>Superlative or ranking claims tied to a specific transaction (for example, a top-of-building sale price) are held to the same standard: as-of dated, MLS®-verifiable where MLS® data supports the ranking at close, and withdrawn if subsequently disproven. If you spot a figure you'd like sourced, please <a href="/contact">ask</a> — Peter would rather back up a number than argue about it.</p>
+
 
             <h2 id="airbnb">Airbnb &amp; prior-hospitality references</h2>
             <p>Some pages reference Peter's prior work as an Airbnb host — for example "400+ Airbnb guest reviews" or a specific star rating. These figures reflect a separate hospitality business and are shared for context only. They are not a measure of real estate service outcomes and should not be treated as predictive of the results any client will experience in a real estate transaction.</p>
 
             <h2 id="no-relationship">No client relationship</h2>
-            <p>Reading the Site, sending a message through the contact form, subscribing to a newsletter, or scheduling an introductory call does <strong>not</strong> create a client relationship, an agency relationship, or any fiduciary duty. A real estate client relationship is only established once a written representation agreement (Buyer Representation Agreement, Seller Representation Agreement, or a similar form of representation agreement recognized by RECO) has been signed by both parties. Reading a guide about leases, N-forms, or landlord/tenant law does not form a solicitor–client, paralegal–client, or agent–client relationship.</p>
+            <p>Reading the Site, sending a message through the contact form, subscribing to a newsletter, or scheduling an introductory call does <strong>not</strong> create a client relationship, an agency relationship, or any fiduciary duty. A real estate client relationship is only established once a written representation agreement (Buyer Representation Agreement, Seller Representation Agreement, or an equivalent representation agreement recognized under TRESA) has been signed. Reading a guide about leases, N-forms, or landlord/tenant law does not form a solicitor–client, paralegal–client, or agent–client relationship.</p>
+            <p>If you are not a client, TRESA still recognises you as a <em>self-represented party</em> in certain circumstances — see the next section for what that means and the duties Peter still owes you.</p>
+
+            <h2 id="self-represented">Self-represented parties (TRESA)</h2>
+            <p>Under TRESA and its regulations, if you interact with Peter in a real estate context but you have <strong>not</strong> signed a representation agreement with Peter or HomeLife Golconda, you may be a <em>self-represented party</em> ("SRP"). This is a defined category: it applies where you have chosen not to be represented and are acting for yourself in the transaction.</p>
+            <p>Common examples in Peter's practice:</p>
+            <ul class="bullets">
+              <li>A tenant applying directly to a listing Peter is representing for the landlord, without their own agent.</li>
+              <li>A buyer contacting Peter about a listing Peter has for a seller, without their own buyer's agent.</li>
+              <li>A landlord approached by Peter on behalf of a represented tenant, where the landlord has no brokerage of their own.</li>
+            </ul>
+            <p><strong>What Peter can do for a self-represented party.</strong> Provide the property or listing information the SRP needs to make their own decision; provide standard-form documents; facilitate the mechanical steps of the transaction (submitting an offer, delivering signatures, arranging keys). Peter can be honest and courteous, but Peter is representing the <em>other</em> side in the transaction.</p>
+            <p><strong>What Peter cannot do for a self-represented party.</strong> Give advice, opinions, negotiation strategy, or recommendations that go to the substance of the SRP's own interest. Owe the SRP the fiduciary duties Peter owes his own client (loyalty, confidentiality of the SRP's confidences, prioritization of the SRP's interests over Peter's client's). Those duties are owed to Peter's client, not to the SRP.</p>
+            <p><strong>RECO Information Guide.</strong> Before providing any real-estate-related services or assistance to an SRP, Peter is required under TRESA to deliver the current <em>RECO Information Guide</em> and to receive acknowledgment of receipt. If you have interacted with Peter and did not receive this guide, please <a href="/contact">ask for it</a> — Peter will send it before continuing.</p>
+            <p>Nothing in this section limits an SRP's own right to obtain independent advice from a paralegal, lawyer, or their own realtor at any time. That is often the right decision, especially in an offer or lease dispute.</p>
+
 
             <h2 id="referrals">Referral &amp; affiliate relationships</h2>
             <p>From time to time the Site links to third-party service providers — for example internet or utility providers, tenant screening services (such as SingleKey), or mortgage professionals — that Peter has worked with or refers clients to. In some cases Peter may receive a referral fee, credit, or commission for such a referral. Where a referral relationship exists, we try to note it near the link. If you're unsure whether a link is a referral, please ask before you sign up. As always, choosing any third-party provider is your decision.</p>
+
+
+            <h2 id="no-soliciting">Not soliciting parties under contract</h2>
+            <p>Peter and HomeLife Golconda respect existing representation agreements between other consumers and other brokerages. Nothing on the Site is intended to solicit, induce, or interfere with a person who is already a party to a valid, unexpired buyer, seller, landlord, or tenant representation agreement with another brokerage.</p>
+            <p>If you are currently under contract with another agent or brokerage and you contact Peter, Peter's first step will be to ask about that agreement so any conversation stays within the bounds of TRESA, CREA's REALTOR® Code, and applicable professional conduct rules. If your agreement has expired, or if the current relationship has been terminated in writing, Peter can then discuss representation.</p>
 
             <h2 id="third-party">Third-party content</h2>
             <p>Some Site content references, quotes, or summarizes government publications, industry association guidelines, and news reporting. Where applicable, sources are named and linked. Trademarks and copyrights of those third parties remain the property of their respective owners.</p>
