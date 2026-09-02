@@ -5,9 +5,9 @@ import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-01';
 const pageTitle = 'Politique de confidentialité';
-const pageDescription = "Comment realtorpeterlaw.com collecte, utilise et protège vos renseignements personnels en vertu de la loi canadienne sur la protection de la vie privée (LPRPDE).";
+const pageDescription = "Comment realtorpeterlaw.com et Peter Law recueillent, utilisent, communiquent et protègent vos renseignements personnels en vertu de la LPRPDE, de la LCAP et du droit ontarien.";
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/privacy/' },
@@ -17,7 +17,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title={`${pageTitle} | Peter Law`}
+  title={`${pageTitle} | Peter Law — Immobilier à Toronto`}
   description={pageDescription}
   lang="fr"
   bodyClass="fr guide-page article-page"
@@ -29,12 +29,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Juridique · LPRPDE</div>
+        <div class="eyebrow">Juridique · LPRPDE · LCAP · LSCRI</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">Peter Law respecte votre vie privée. Cette politique explique quels renseignements personnels le Site recueille, pourquoi ils sont recueillis, comment ils sont conservés et les droits que vous avez en vertu de la loi canadienne.</p>
+        <p class="article-lead">Cette politique explique quels renseignements personnels le Site et Peter Law recueillent, pourquoi, qui d'autre y a accès, combien de temps ils sont conservés et les droits dont vous disposez en vertu du droit canadien de la protection de la vie privée.</p>
         <div class="article-byline">
           <span>Dernière mise à jour :</span>
-          <time datetime={publishedDate}>19 juillet 2026</time>
+          <time datetime={publishedDate}>1er septembre 2026</time>
         </div>
       </div>
     </section>
@@ -45,95 +45,204 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>Dans ce document</h4>
             <ul>
-              <li><a href="#who">Qui nous sommes</a></li>
+              <li><a href="#who">Qui est responsable</a></li>
+              <li><a href="#officer">Responsable de la protection des renseignements personnels</a></li>
               <li><a href="#what">Ce que nous recueillons</a></li>
               <li><a href="#why">Pourquoi nous le recueillons</a></li>
               <li><a href="#consent">Votre consentement</a></li>
+              <li><a href="#disclosure">Communication des demandes de location</a></li>
+              <li><a href="#screening">Vérification des locataires et rapports de crédit</a></li>
               <li><a href="#third-parties">Services tiers</a></li>
+              <li><a href="#cross-border">Transferts transfrontaliers (États-Unis)</a></li>
               <li><a href="#cookies">Témoins et analytique</a></li>
               <li><a href="#storage">Stockage et conservation</a></li>
               <li><a href="#security">Sécurité et courriel direct</a></li>
+              <li><a href="#breach">Notification des atteintes</a></li>
+              <li><a href="#newsletter">Infolettre (LCAP)</a></li>
+              <li><a href="#secondary">Communications marketing aux anciens clients</a></li>
               <li><a href="#past-deals">Renseignements sur les transactions passées</a></li>
               <li><a href="#rights">Vos droits</a></li>
-              <li><a href="#children">Enfants</a></li>
+              <li><a href="#minors">Mineurs</a></li>
               <li><a href="#changes">Modifications</a></li>
-              <li><a href="#contact">Nous joindre</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <p><strong>Version courte :</strong> Les seuls renseignements personnels que ce Site recueille sont ceux que vous nous envoyez volontairement par le formulaire de contact, l'infolettre, le formulaire de demande de location ou par courriel — votre nom, vos coordonnées et le contenu de votre message. Ils servent à vous répondre et, si vous devenez client, à vous servir. Ils ne sont pas vendus. Ils ne sont pas communiqués à des tiers à des fins de marketing. Vous pouvez demander en tout temps à les consulter, à les corriger ou à les faire supprimer.</p>
+            <p><strong>Version courte :</strong> Les renseignements personnels que vous transmettez par l'intermédiaire du Site — formulaire de contact, courriel, demande de location ou inscription à l'infolettre — servent à vous répondre et, si vous devenez client, à vous servir. Ils ne sont <strong>pas vendus</strong>. Ils ne sont <strong>pas communiqués à des tiers non liés à des fins de marketing</strong>. <strong>Toutefois</strong>, si vous demandez à Peter de vous représenter à titre de candidat locataire, le dossier de candidature complet que vous fournissez — y compris les renseignements sur le revenu, l'emploi et le crédit — sera communiqué aux propriétaires éventuels et à leur maison de courtage inscriptrice afin qu'ils puissent statuer sur votre candidature. Cette communication est la raison d'être du service, mais il s'agit d'un transfert réel de renseignements sensibles auquel vous consentez en demandant à Peter de soumettre le dossier en votre nom. Voir <a href="#disclosure">Communication des demandes de location</a> et <a href="#screening">Vérification des locataires et rapports de crédit</a>.</p>
 
-            <h2 id="who">Qui nous sommes</h2>
-            <p>Cette politique de confidentialité s'applique à <strong>realtorpeterlaw.com</strong> (le « Site »), exploité par Peter Law, représentant commercial chez HomeLife Golconda Realty Inc., Brokerage, inscrit auprès du Real Estate Council of Ontario (RECO). Aux fins de la <em>Loi sur la protection des renseignements personnels et les documents électroniques</em> (LPRPDE) du Canada, Peter Law agit à titre d'organisation responsable du traitement des renseignements personnels recueillis par l'intermédiaire du Site.</p>
+            <h2 id="who">Qui est responsable</h2>
+            <p>La présente politique de confidentialité s'applique à <strong>realtorpeterlaw.com</strong> (le « Site »), exploité par Peter Law, représentant commercial inscrit auprès du Conseil ontarien de l'immobilier (RECO) en vertu de la <em>Loi de 2002 sur les services de courtage en immobilier de confiance</em> (« LSCRI »).</p>
+            <p>La responsabilité en vertu du droit canadien de la protection de la vie privée est partagée :</p>
+            <ul class="bullets">
+              <li><strong>Peter Law</strong> — exploitant quotidien du Site. Peter est le point de contact principal pour les questions de vie privée, les demandes d'accès et les plaintes. Peter contrôle les renseignements recueillis par l'intermédiaire du Site lui-même (formulaire de contact, inscriptions à l'infolettre, courriel de demande de renseignements, analytique Web) ainsi que les renseignements recueillis dans le cours normal de la prestation de services à un client, avant qu'ils n'intègrent un dossier de transaction de la maison de courtage.</li>
+              <li><strong>HomeLife Golconda Realty Inc., Brokerage</strong> — la maison de courtage responsable. En vertu de la LSCRI, Peter effectue des opérations immobilières <em>pour le compte</em> de la maison de courtage. Dès qu'un dossier de transaction est créé — par exemple, une entente de représentation signée, une offre acceptée ou une soumission de bail complétée — ce dossier appartient à la maison de courtage et est conservé conformément aux obligations réglementaires de tenue de dossiers de la maison de courtage. Certaines décisions concernant ces dossiers (communication à un tiers en dehors du cours normal de la transaction, réponse à une demande réglementaire ou légale, escalade d'une plainte formelle) requièrent l'approbation du <strong>Courtier responsable</strong> chez HomeLife Golconda.</li>
+            </ul>
+            <p>En pratique, vous communiquez d'abord avec Peter pour presque toute question de vie privée. Peter transmet au Courtier responsable lorsque la LSCRI ou la politique de la maison de courtage l'exige. Les coordonnées des deux figurent dans <a href="#contact">Contact</a>.</p>
+
+            <h2 id="officer">Responsable de la protection des renseignements personnels</h2>
+            <p>Le principe de responsabilité de la LPRPDE exige qu'une personne désignée soit responsable de la conformité de l'organisation à la Loi. Le Responsable de la protection des renseignements personnels pour le Site et pour la pratique immobilière de Peter Law est :</p>
+            <div class="callout">
+              <strong>Peter Law — Responsable de la protection des renseignements personnels</strong><br>
+              Courriel : <a href="mailto:privacy@realtorpeterlaw.com">privacy@realtorpeterlaw.com</a> <em>(préféré)</em><br>
+              Ou : <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              Poste : a/s HomeLife Golconda Realty Inc., Brokerage — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada<br>
+              Téléphone : <a href="tel:+16478888472">647-888-8472</a>
+            </div>
+            <p>Pour les questions nécessitant l'intervention du Courtier responsable (voir <a href="#who">ci-dessus</a>), écrivez à l'adresse du Responsable de la protection des renseignements personnels et indiquez sur l'enveloppe ou dans la ligne d'objet « <em>Attn : Courtier responsable — Vie privée</em> ». Le message sera transmis à l'interne.</p>
 
             <h2 id="what">Ce que nous recueillons</h2>
             <ul class="bullets">
-              <li><strong>Renseignements que vous fournissez directement.</strong> Lorsque vous utilisez le formulaire de contact, nous écrivez, réservez un appel, vous abonnez aux mises à jour ou remplissez une demande de location, nous recueillons les renseignements que vous choisissez de partager — habituellement votre nom, votre adresse courriel, votre numéro de téléphone, votre message, les renseignements d'emploi ou de revenu que vous fournissez pour une demande de location, ainsi que toutes vos préférences (p. ex. quartier, budget, échéancier).</li>
-              <li><strong>Renseignements du client.</strong> Si vous devenez client, nous pouvons recueillir des renseignements supplémentaires exigés par la loi pour les transactions immobilières — vérification d'identité aux termes de la <em>Loi sur le recyclage des produits de la criminalité et le financement des activités terroristes</em> (LRPCFAT), contrats de représentation signés, offres et documents connexes.</li>
-              <li><strong>Renseignements techniques automatiques.</strong> Comme la plupart des sites Web, nous recueillons des données techniques de base au moyen de journaux serveur et d'outils d'analytique — type de navigateur, région géographique générale (ville ou province), pages consultées et temps passé sur la page. Ces données ne permettent pas de vous identifier personnellement.</li>
+              <li><strong>Renseignements que vous fournissez directement.</strong> Formulaire de contact, courriel, « réserver un appel », inscription à l'infolettre, demande générale — habituellement le nom, le courriel, le numéro de téléphone, le message et toute préférence indiquée (quartier, budget, échéancier).</li>
+              <li><strong>Renseignements liés à la demande de location.</strong> Si vous présentez une demande de location par l'intermédiaire de Peter, cela comprend le ou les noms du ou des demandeurs, les coordonnées, l'emploi et la profession, le revenu, la citoyenneté ou le statut d'immigration, la date d'emménagement, les adresses antérieures, les références et — avec votre consentement écrit distinct — les renseignements de crédit et d'antécédents obtenus par l'entremise d'un fournisseur de vérification de locataires. Il s'agit de renseignements personnels sensibles, traités comme tels.</li>
+              <li><strong>Renseignements sur les clients acheteurs/vendeurs.</strong> Si vous engagez Peter à titre de représentant d'acheteur ou de vendeur, des renseignements supplémentaires exigés par la loi pour les transactions immobilières sont recueillis — notamment la vérification d'identité en vertu de la <em>Loi sur le recyclage des produits de la criminalité et le financement des activités terroristes</em> (LRPCFAT/CANAFE), les ententes de représentation signées, les offres et les documents connexes. Ces dossiers sont conservés en vertu des obligations réglementaires de la maison de courtage.</li>
+              <li><strong>Renseignements techniques automatiques.</strong> Journaux de serveur de base et analytique agrégée — type de navigateur, région générale, pages consultées, temps passé sur la page. Non utilisés pour vous identifier personnellement.</li>
             </ul>
 
             <h2 id="why">Pourquoi nous le recueillons</h2>
-            <p>Nous ne recueillons des renseignements personnels qu'à des fins qu'une personne raisonnable jugerait acceptables dans les circonstances. Plus précisément :</p>
+            <p>Les renseignements personnels ne sont recueillis qu'à des fins qu'une personne raisonnable estimerait acceptables dans les circonstances, plus précisément :</p>
             <ul class="bullets">
-              <li>Pour répondre à vos questions et à vos demandes.</li>
-              <li>Pour vous offrir des services immobiliers si vous nous engagez comme représentant.</li>
-              <li>Pour respecter les obligations légales, réglementaires et les exigences du RECO qui s'appliquent aux professionnels de l'immobilier en Ontario.</li>
-              <li>Pour vous envoyer les mises à jour de l'infolettre auxquelles vous avez consenti (vous pouvez vous désabonner en tout temps).</li>
-              <li>Pour comprendre comment les visiteurs utilisent le Site afin de l'améliorer (analytique agrégée, pas de suivi individuel).</li>
+              <li>Pour répondre à vos demandes.</li>
+              <li>Pour fournir le service immobilier que vous demandez (représentation à titre d'acheteur, vendeur, propriétaire ou locataire).</li>
+              <li>Pour respecter les obligations légales, réglementaires et celles du RECO / de la maison de courtage, y compris la vérification d'identité en vertu de la LRPCFAT et la tenue de dossiers en vertu de la LSCRI.</li>
+              <li>Pour vous envoyer l'infolettre <em>si</em> vous vous y êtes expressément inscrit (voir <a href="#newsletter">Infolettre</a>).</li>
+              <li>Pour vous envoyer des mises à jour continues sur le marché immobilier <em>si</em> vous avez donné un consentement exprès distinct au moment de l'engagement (voir <a href="#secondary">Communications marketing aux anciens clients</a>).</li>
+              <li>Pour améliorer le Site au moyen d'analyses agrégées.</li>
             </ul>
-            <p>Nous ne <strong>vendons</strong>, ne louons ni n'échangeons vos renseignements personnels. Nous ne les utilisons pas pour vous cibler avec de la publicité et nous ne les partageons pas avec des tiers non liés à des fins de marketing.</p>
+            <p>Les renseignements personnels ne sont <strong>pas</strong> vendus, loués ni échangés, et ne sont <strong>pas</strong> communiqués à des tiers non liés pour leur propre marketing.</p>
 
             <h2 id="consent">Votre consentement</h2>
-            <p>En soumettant le formulaire de contact, en nous envoyant un courriel, en réservant un appel, en vous abonnant à l'infolettre ou en nous transmettant autrement des renseignements par le Site, vous consentez à la collecte et à l'utilisation de ces renseignements aux fins décrites ci-dessus. Vous pouvez retirer votre consentement en tout temps en nous contactant — sous réserve de toute exigence légale ou réglementaire de conservation des dossiers (voir la section « Stockage et conservation » ci-dessous).</p>
+            <p>En soumettant le formulaire de contact, en nous écrivant par courriel, en réservant un appel, en présentant une demande de location ou en vous abonnant à l'infolettre, vous consentez à la collecte et à l'utilisation de ces renseignements aux fins décrites ci-dessus et divulguées au moment de la collecte. Vous pouvez retirer votre consentement en tout temps en écrivant au Responsable de la protection des renseignements personnels, sous réserve de toute exigence légale ou réglementaire qui oblige la maison de courtage à conserver le dossier pendant la période de conservation (voir <a href="#storage">Stockage et conservation</a>).</p>
+            <p>Le consentement est <strong>spécifique à la finalité</strong>. Un consentement à une fin (par exemple, faire représenter par Peter dans un bail) n'est <strong>pas</strong> un consentement à une autre fin (par exemple, du marketing continu des années plus tard). Voir <a href="#secondary">Communications marketing aux anciens clients</a>.</p>
+
+            <h2 id="disclosure">Communication des demandes de location</h2>
+            <p>Cette section mérite son propre titre parce qu'il s'agit de la communication que la plupart des candidats locataires sous-estiment.</p>
+            <p>Lorsque Peter soumet une demande de location en votre nom, ce qui suit est habituellement communiqué au propriétaire éventuel et à sa maison de courtage inscriptrice (et, le cas échéant, à la société de gestion immobilière) :</p>
+            <ul class="bullets">
+              <li>Pièce d'identité délivrée par l'État.</li>
+              <li>Lettre d'emploi, talons de paye et/ou avis de cotisation.</li>
+              <li>Rapport de crédit ou cote de crédit provenant d'un fournisseur de vérification de locataires (voir <a href="#screening">la section suivante</a>).</li>
+              <li>Références locatives et coordonnées des anciens propriétaires que vous avez fournies.</li>
+              <li>Formulaire OREA 410 rempli (Demande de location résidentielle de l'Ontario) ou équivalent.</li>
+              <li>Toute lettre de présentation, coordonnées de colocataires, renseignements sur un garant ou documents à l'appui que vous avez demandé d'inclure.</li>
+            </ul>
+            <p><strong>Finalité :</strong> permettre au propriétaire de décider s'il conclut une location avec vous.</p>
+            <p><strong>Fondement du consentement :</strong> votre consentement <em>exprès et éclairé</em>, donné lorsque vous demandez à Peter de soumettre la demande en votre nom. Les demandes ne sont soumises que pour les logements que vous avez identifiés et uniquement au propriétaire / à la maison de courtage responsable de ce logement. Peter ne distribue pas votre dossier de candidature à d'autres propriétaires, ne le publie pas et ne l'utilise à aucune autre fin que la poursuite de la location précise que vous avez demandée.</p>
+            <p><strong>Traitement ultérieur :</strong> une fois que votre dossier est entre les mains du propriétaire ou de la maison de courtage inscriptrice, son traitement est régi par <em>leurs</em> pratiques de confidentialité et par la <em>Loi ontarienne sur la location à usage d'habitation</em>. Peter ne contrôle pas la manière dont un propriétaire tiers conserve ou stocke ce que vous avez envoyé. Si vous avez des préoccupations après la soumission, communiquez directement avec la maison de courtage du propriétaire et, si le problème n'est pas résolu, avec le Commissariat à la protection de la vie privée du Canada.</p>
+
+            <h2 id="screening">Vérification des locataires et rapports de crédit</h2>
+            <p>Peter utilise <strong>SingleKey</strong> (un fournisseur canadien de vérification de locataires) pour obtenir des renseignements de crédit et d'antécédents dans le cadre d'un dossier de demande de location. En Ontario, un rapport de crédit à la consommation constitue un <em>rapport de consommateur</em> au sens de la <em>Loi sur les renseignements concernant le consommateur</em> (LRO 1990, chap. C.33), et son utilisation est réglementée.</p>
+            <ul class="bullets">
+              <li><strong>Consentement écrit avant l'obtention du rapport.</strong> Peter ne demandera pas de rapport de consommateur à votre sujet sans votre <em>consentement écrit préalable</em>, donné aux fins précises de la demande de location. Ce consentement est recueilli dans le processus de demande et est distinct de votre consentement général à être contacté par Peter.</li>
+              <li><strong>Ce que vous avez le droit de savoir.</strong> Avant l'obtention du rapport, vous serez informé du nom et de l'adresse de l'agence de renseignements sur les consommateurs (SingleKey), de la nature générale des renseignements demandés et de la fin à laquelle ils seront utilisés.</li>
+              <li><strong>Décision défavorable.</strong> Si votre demande de location est refusée et que la décision a été prise en tout ou en partie sur la base d'un rapport de consommateur, le propriétaire est tenu, en vertu de la <em>Loi sur les renseignements concernant le consommateur</em>, de vous en informer et d'identifier l'agence de renseignements, afin que vous puissiez en obtenir une copie et contester les inexactitudes. Peter vous transmettra cet avis par écrit, avec les coordonnées de l'agence de renseignements.</li>
+              <li><strong>Corrections et contestations.</strong> Si vous croyez qu'un renseignement figurant dans votre rapport de consommateur est inexact, vous avez le droit de demander une correction directement à l'agence de renseignements. Peter soutiendra ce processus dans la mesure de ses moyens.</li>
+            </ul>
+            <p class="legal-note">Ce qui précède résume l'approche opérationnelle du Site; il ne s'agit pas d'un avis juridique. Si vous avez reçu un avis de décision défavorable ou que vous croyez qu'un rapport à votre sujet contient des erreurs, un parajuriste ou un avocat peut vous conseiller sur vos droits et recours précis. <strong>[À CONFIRMER AVEC UN CONSEILLER JURIDIQUE]</strong></p>
 
             <h2 id="third-parties">Services tiers</h2>
-            <p>Le Site utilise un petit nombre de services tiers qui peuvent traiter des données personnelles ou techniques limitées pour notre compte. Chaque fournisseur a sa propre politique de confidentialité. Nous ne partageons que le minimum d'information nécessaire à l'exécution de leur fonction :</p>
+            <p>Le Site utilise un petit nombre de services tiers susceptibles de traiter des données personnelles ou techniques limitées pour notre compte. Chaque fournisseur a sa propre politique de confidentialité. Seul le minimum de renseignements nécessaires est partagé :</p>
             <ul class="bullets">
-              <li><strong>Vercel</strong> — héberge le Site et fournit les journaux serveur de base.</li>
-              <li><strong>Formspree</strong> — achemine les envois du formulaire de contact vers le courriel de Peter.</li>
-              <li><strong>Cal.com</strong> — alimente le module « Réserver un appel ».</li>
-              <li><strong>beehiiv</strong> — livre l'infolettre aux abonnés.</li>
-              <li><strong>SingleKey</strong> — utilisé avec votre consentement exprès pour la vérification de locataires lorsque vous remplissez une demande de location par le Site.</li>
-              <li><strong>Services Google</strong> — le cas échéant, p. ex. polices intégrées ou analytique facultative.</li>
-              <li><strong>Fournisseurs de vidéos intégrées (YouTube, TikTok)</strong> — lorsque des visites de logements sont intégrées en vidéo, la plateforme vidéo peut déposer ses propres témoins dès que le lecteur se charge.</li>
+              <li><strong>Vercel Inc.</strong> (États-Unis) — héberge le Site et fournit les journaux de serveur de base.</li>
+              <li><strong>Formspree, Inc.</strong> (États-Unis) — achemine les soumissions du formulaire de contact vers le courriel de Peter.</li>
+              <li><strong>Cal.com, Inc.</strong> (États-Unis) — alimente le widget « Réserver un appel ».</li>
+              <li><strong>beehiiv Inc.</strong> (États-Unis) — distribue l'infolettre aux abonnés.</li>
+              <li><strong>SingleKey</strong> (Canada) — utilisé avec votre consentement écrit exprès pour la vérification des locataires lorsque vous remplissez une demande de location (voir <a href="#screening">ci-dessus</a>).</li>
+              <li><strong>Services de Google</strong> (États-Unis) — s'ils sont utilisés pour les polices intégrées ou l'analytique optionnelle.</li>
+              <li><strong>Fournisseurs vidéo intégrés</strong> (YouTube, TikTok — États-Unis) — lorsqu'une vidéo de visite est intégrée, la plateforme vidéo peut placer ses propres témoins une fois le lecteur activé.</li>
             </ul>
-            <p>Peter peut également recommander à ses clients des fournisseurs tiers (par exemple, fournisseurs d'Internet ou de services publics, professionnels du prêt hypothécaire ou SingleKey) et, dans certains cas, recevoir des frais de recommandation. Consultez la <a href="/french/disclaimer#referrals">page d'avis</a> pour en savoir plus sur les relations d'affiliation et de recommandation. Une recommandation ne change en rien la façon dont vos renseignements personnels sont traités sur le Site.</p>
+            <p>Peter peut également recommander des clients à des fournisseurs tiers (par exemple, fournisseurs d'accès Internet ou de services publics, professionnels hypothécaires ou SingleKey) et, dans certains cas, recevoir des honoraires de recommandation. Voir la <a href="/disclaimer#referrals">page Avertissement</a>. Une recommandation ne change pas la façon dont le Site traite vos renseignements personnels.</p>
+
+            <h2 id="cross-border">Transferts transfrontaliers (États-Unis)</h2>
+            <p>Plusieurs des fournisseurs de services énumérés ci-dessus (Vercel, Formspree, Cal.com, beehiiv, Google, YouTube, TikTok) sont établis aux États-Unis et stockent ou traitent des renseignements personnels sur des serveurs situés aux États-Unis.</p>
+            <p>Conformément aux directives du Commissariat à la protection de la vie privée du Canada sur les transferts à des fins de traitement : <strong>les renseignements personnels stockés ou traités aux États-Unis peuvent être accessibles aux autorités gouvernementales américaines en vertu du droit américain</strong>, y compris en vertu des lois d'accès légal, de sécurité nationale et d'application de la loi comme le USA PATRIOT Act et le CLOUD Act, indépendamment des protections offertes par le droit canadien. Des mesures contractuelles et techniques sont en place, mais aucun contrat ne prévaut sur une ordonnance d'accès légal étrangère.</p>
+            <p>Si vous ne souhaitez pas que vos renseignements soient transférés à l'extérieur du Canada, veuillez en informer le Responsable de la protection des renseignements personnels au moment de votre demande — certaines fonctions (par exemple, le formulaire de contact) reposent sur des sous-traitants basés aux États-Unis, et d'autres arrangements (comme un contact téléphonique direct) peuvent être plus appropriés.</p>
 
             <h2 id="cookies">Témoins et analytique</h2>
-            <p>Le Site utilise un petit nombre de témoins de première partie pour des fonctions de base (par exemple, se souvenir de votre préférence linguistique). Toute analytique utilisée est agrégée — nous voyons combien de personnes visitent quelles pages, pas qui vous êtes. Vous pouvez désactiver les témoins dans les réglages de votre navigateur ; certaines parties du Site pourraient ne pas fonctionner comme prévu si vous le faites. Les intégrations tierces (calendrier, vidéos, infolettre) peuvent déposer leurs propres témoins dès que vous interagissez avec elles.</p>
+            <p>Le Site utilise un petit nombre de témoins de première partie pour ses fonctionnalités de base. L'analytique est agrégée — nous voyons combien de personnes visitent quelles pages, non qui vous êtes. Vous pouvez désactiver les témoins dans votre navigateur; certaines parties du Site pourraient ne pas fonctionner comme prévu si vous le faites. Les intégrations tierces (calendrier, vidéos, infolettre) peuvent placer leurs propres témoins une fois que vous interagissez avec elles.</p>
 
             <h2 id="storage">Stockage et conservation</h2>
-            <p>Les renseignements personnels sont stockés sur des serveurs exploités par nos fournisseurs de services, qui peuvent être situés au Canada ou aux États-Unis. Nous conservons les envois du formulaire de contact et la correspondance courriel uniquement aussi longtemps que nécessaire pour traiter la demande ou, si vous devenez client, aussi longtemps que l'exigent le RECO et la loi applicable (actuellement au minimum six ans après la fin de la relation avec le client). Par la suite, les dossiers sont détruits ou dépersonnalisés.</p>
-
-            <h2 id="security">Sécurité et courriel direct</h2>
-            <p>Nous prenons des mesures techniques et organisationnelles raisonnables pour protéger les renseignements personnels — connexions chiffrées (HTTPS), mots de passe robustes, contrôles d'accès et fournisseurs de services réputés. Aucun système n'est parfaitement sécurisé. Si vous avez des raisons de croire que votre interaction avec le Site n'est plus sécurisée, veuillez nous contacter immédiatement.</p>
-            <p><strong>Remarque sur le courriel direct.</strong> Les courriels envoyés directement à <em>Admin@RealtorPeterLaw.com</em> transitent par le réseau Internet public et ne sont pas chiffrés de bout en bout. Veuillez ne pas envoyer de documents très sensibles (pièce d'identité gouvernementale, données bancaires, préapprobations hypothécaires, offres) en pièce jointe non sollicitée. Si vous devez envoyer de tels documents, demandez-nous d'abord et nous organiserons un mode de transmission sécurisé.</p>
-
-            <h2 id="past-deals">Renseignements sur les transactions passées</h2>
-            <p>Les sections « Ventes récentes » et « Historique des ventes » du Site présentent des renseignements sur les transactions auxquelles Peter a participé à titre de représentant licencié — habituellement l'intersection ou l'adresse, le mois de clôture, le prix de vente ou de location, et un bref commentaire. Ces données proviennent de dossiers publiquement disponibles (par exemple, les données de ventes diffusées par les systèmes TRREB / MLS® conformément aux règles applicables) ou sont communiquées avec l'autorisation expresse du client concerné. Les photos de propriété sont affichées avec l'autorisation du photographe, du vendeur ou de la maison de courtage qui les a fournies.</p>
-            <p>Si vous étiez partie à une transaction passée et souhaitez que vos renseignements ou une photo soient retirés, veuillez <a href="/french/contact">nous contacter</a> et nous répondrons rapidement.</p>
-
-            <h2 id="rights">Vos droits</h2>
-            <p>En vertu de la LPRPDE, vous avez le droit de :</p>
+            <p>Les renseignements personnels sont stockés sur des serveurs exploités par les fournisseurs de services énumérés ci-dessus, au Canada ou aux États-Unis. La conservation diffère selon la catégorie :</p>
             <ul class="bullets">
-              <li>Savoir quels renseignements personnels nous détenons à votre sujet.</li>
-              <li>Accéder à ces renseignements (sous réserve d'exceptions limitées).</li>
-              <li>Nous demander de corriger tout renseignement inexact.</li>
-              <li>Retirer votre consentement à l'utilisation ultérieure de vos renseignements, sous réserve d'obligations légales et contractuelles.</li>
-              <li>Vous désabonner de toute infolettre ou courriel de marketing en tout temps (utilisez le lien de désabonnement dans le courriel).</li>
-              <li>Déposer une plainte auprès de nous — ou, si elle demeure non résolue, auprès du <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">Commissariat à la protection de la vie privée du Canada</a>.</li>
+              <li><strong>Dossiers de transaction de la maison de courtage (contrôlés par HomeLife Golconda).</strong> Les ententes de représentation signées, les offres, les baux exécutés, les dossiers d'identité LRPCFAT, les dossiers de dépôts et les autres documents réglementés sont conservés par la maison de courtage pendant la période minimale exigée par la LSCRI et ses règlements (actuellement au moins <strong>six ans</strong> à compter de la fin de la transaction ou de la relation avec le client), puis détruits conformément à la politique de gestion des dossiers de la maison de courtage.</li>
+              <li><strong>Données des relations client abouties (contrôlées par Peter).</strong> Les courriels, notes et correspondances avec les clients actifs ou passés sont conservés aussi longtemps que raisonnablement nécessaire pour vous servir, puis archivés ou supprimés conformément aux exigences de la maison de courtage.</li>
+              <li><strong>Demandes de renseignements sur le Site n'aboutissant pas à une relation client.</strong> Les soumissions du formulaire de contact et les demandes générales par courriel sont conservées jusqu'à <strong>24 mois</strong> à compter de la dernière correspondance, puis supprimées.</li>
+              <li><strong>Demandes de location infructueuses.</strong> Les dossiers de demande de location — y compris les documents de revenu, les lettres d'emploi, les talons de paye et les rapports de crédit — ne sont conservés que le temps nécessaire. Si votre demande n'est pas retenue, le dossier est <strong>détruit ou supprimé de façon sécurisée dans les 90 jours</strong> suivant l'issue, sauf si vous demandez qu'il soit conservé afin de pouvoir être réutilisé pour une demande subséquente, ou sauf si la conservation est exigée par une obligation légale ou réglementaire précise.</li>
+              <li><strong>Abonnés à l'infolettre.</strong> Conservés jusqu'à votre désabonnement, plus une courte période administrative.</li>
+              <li><strong>Registres des atteintes.</strong> Les registres de toute atteinte aux mesures de sécurité sont conservés pendant au moins <strong>24 mois</strong> comme l'exige la LPRPDE (voir <a href="#breach">Notification des atteintes</a>).</li>
             </ul>
 
-            <h2 id="children">Enfants</h2>
-            <p>Le Site ne s'adresse pas aux enfants de moins de 13 ans et nous ne recueillons pas sciemment de renseignements personnels auprès d'enfants. Si vous croyez qu'un enfant a fourni des renseignements personnels, veuillez nous contacter et nous les supprimerons.</p>
+            <h2 id="security">Sécurité et courriel direct</h2>
+            <p>Des mesures de sécurité techniques et organisationnelles raisonnables sont en place, notamment des connexions chiffrées (HTTPS), des mots de passe robustes, des contrôles d'accès, des fournisseurs de services réputés et des procédures internes de traitement des documents sensibles. Aucun système n'est parfaitement sécurisé. Si vous avez des raisons de croire que votre interaction avec le Site n'est plus sécurisée, communiquez immédiatement avec le Responsable de la protection des renseignements personnels.</p>
+            <p><strong>Note sur le courriel direct.</strong> Les courriels envoyés directement à <em>Admin@RealtorPeterLaw.com</em> transitent par l'Internet public et ne sont pas chiffrés de bout en bout. Veuillez ne pas envoyer de documents hautement sensibles (pièces d'identité gouvernementales, renseignements bancaires, préapprobations hypothécaires, offres) en pièces jointes non sollicitées. Demandez d'abord et un mode de transmission sécurisé sera organisé.</p>
 
-            <h2 id="changes">Modifications à cette politique</h2>
-            <p>Nous pouvons mettre à jour cette politique de confidentialité à l'occasion. La date de « Dernière mise à jour » en haut de cette page indique quand la modification la plus récente a été effectuée. Les changements importants seront mis en évidence sur le Site.</p>
+            <h2 id="breach">Notification des atteintes</h2>
+            <p>La LPRPDE impose des obligations obligatoires aux organisations en cas d'« atteinte aux mesures de sécurité » — la perte, l'accès non autorisé ou la communication non autorisée de renseignements personnels.</p>
+            <ul class="bullets">
+              <li><strong>Évaluation.</strong> Chaque incident est évalué afin de déterminer s'il crée un <em>risque réel de préjudice grave</em> (RRPG) pour toute personne — en tenant compte de la sensibilité des renseignements, de la probabilité d'utilisation abusive et de tout autre facteur pertinent.</li>
+              <li><strong>Déclaration au Commissaire.</strong> Si l'évaluation indique un RRPG, l'atteinte est déclarée au Commissariat à la protection de la vie privée du Canada dans les meilleurs délais.</li>
+              <li><strong>Avis aux personnes concernées.</strong> Si un RRPG est constaté, les personnes concernées sont avisées directement dans les meilleurs délais, avec suffisamment de renseignements pour comprendre l'importance de l'atteinte et prendre des mesures de protection.</li>
+              <li><strong>Avis à d'autres organisations.</strong> Toute autre organisation (par exemple, la maison de courtage, un fournisseur de paiement ou un propriétaire) qui pourrait être en mesure de réduire le risque de préjudice est avisée.</li>
+              <li><strong>Tenue de dossiers.</strong> Un registre de toute atteinte aux mesures de sécurité impliquant des renseignements personnels est tenu pendant au moins <strong>24 mois</strong>, qu'elle ait ou non atteint le seuil du RRPG. Le Commissaire peut demander l'accès à ces registres.</li>
+            </ul>
+            <p>Les incidents graves impliquant des dossiers de transaction de la maison de courtage seront traités conjointement avec le Courtier responsable de HomeLife Golconda.</p>
 
-            <h2 id="contact">Nous joindre</h2>
-            <p>Pour toute question au sujet de vos renseignements personnels, pour demander l'accès ou la correction, pour demander le retrait de l'historique des ventes ou pour déposer une préoccupation en matière de confidentialité, veuillez <a href="/french/contact">contacter Peter</a>. Nous prenons au sérieux les demandes touchant la vie privée et nous y répondrons aussi rapidement que raisonnablement possible.</p>
+            <h2 id="newsletter">Infolettre (LCAP — consentement exprès)</h2>
+            <p>L'infolettre optionnelle du Site est un message électronique commercial au sens de la Loi canadienne anti-pourriel (LCAP). Peter ne l'envoie qu'avec votre <strong>consentement exprès</strong>, obtenu au moyen d'une case à cocher non préremplie sur le formulaire d'inscription. Le consentement porte sur des mises à jour périodiques sur les marchés de la location et de la revente à Toronto, sur les nouveaux articles de blogue et sur des annonces de service occasionnelles de Peter Law / HomeLife Golconda. La fréquence est habituellement d'une fois par mois, parfois plus, parfois moins.</p>
+            <ul class="bullets">
+              <li><strong>Identification de l'expéditeur.</strong> Chaque message identifie Peter Law, représentant commercial, HomeLife Golconda Realty Inc., Brokerage.</li>
+              <li><strong>Adresse postale.</strong> Chaque message inclut l'adresse postale de la maison de courtage — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada.</li>
+              <li><strong>Désabonnement.</strong> Chaque message contient un mécanisme de désabonnement fonctionnel qui peut être exécuté sans frais, qui est honoré sans délai (et en tout état de cause dans le délai exigé par la LCAP) et qui demeure valide pendant <strong>au moins 60 jours</strong> à compter de la date d'envoi du message.</li>
+              <li><strong>Retrait du consentement.</strong> Vous pouvez vous désabonner en tout temps au moyen du lien figurant dans tout message, ou en écrivant au Responsable de la protection des renseignements personnels.</li>
+            </ul>
+
+            <h2 id="secondary">Communications marketing aux anciens clients (utilisation secondaire)</h2>
+            <p>Peter aimerait rester en contact avec les anciens clients locataires — au moyen de mises à jour sur le marché et, éventuellement, de renseignements sur les services de revente, de préconstruction et d'accession à la propriété qui pourraient être utiles une fois que vous serez prêt à acheter. Il s'agit d'une <strong>utilisation secondaire</strong> des renseignements personnels que vous avez fournis à la fin initiale de la location.</p>
+            <p>Le consentement à ce que Peter vous représente dans un bail n'est <strong>pas, à lui seul, un consentement</strong> à des années de marketing subséquent. Donc :</p>
+            <ul class="bullets">
+              <li>Le consentement au marketing continu est demandé <strong>séparément</strong> au moment de l'engagement — sous forme de question autonome, non combinée à l'entente de représentation ni à la demande de location.</li>
+              <li>La demande de consentement décrit clairement : (a) l'expéditeur (Peter Law / HomeLife Golconda), (b) ce qui sera envoyé (mises à jour occasionnelles sur le marché immobilier de Toronto; éventuellement, renseignements sur les services de revente et de préconstruction), (c) approximativement à quelle fréquence, et (d) comment se désabonner.</li>
+              <li>La case d'adhésion n'est pas cochée par défaut. Vous pouvez dire « oui », « non » ou ne rien dire — par défaut, vous ne recevez aucun marketing continu.</li>
+              <li>Vous pouvez retirer votre consentement en tout temps, sans que cela n'affecte le service pour lequel vous avez initialement engagé Peter. Le retrait est honoré rapidement et enregistré afin que vous ne soyez pas réabonné par erreur.</li>
+              <li>Si des années s'écoulent et que Peter estime raisonnablement que votre situation a changé de manière importante, Peter peut reconfirmer le consentement avant de continuer à vous adresser des communications marketing.</li>
+            </ul>
+            <p class="legal-note">Les mécanismes ci-dessus décrivent la manière dont le consentement au marketing continu est présenté et conservé sur le plan opérationnel. Lorsqu'un client demande un accommodement précis ou a des questions sur la manière dont son consentement antérieur est interprété, communiquez avec le Responsable de la protection des renseignements personnels.</p>
+
+            <h2 id="past-deals">Renseignements sur les transactions passées</h2>
+            <p>« Transactions récentes » et « Historique des ventes » affichent des renseignements sur des transactions auxquelles Peter a participé à titre de représentant autorisé — habituellement l'intersection ou l'adresse, le mois de clôture, le prix de vente ou de location et un bref commentaire. Ces renseignements proviennent de dossiers publiquement accessibles (par exemple, les données de ventes diffusées via les systèmes TRREB / MLS® conformément aux règles applicables) ou communiqués avec la permission expresse du client concerné. Les photos de propriétés sont affichées avec la permission du photographe, du vendeur ou de la maison de courtage qui les a fournies.</p>
+            <p>Si vous étiez partie à une transaction passée et que vous souhaitez que vos renseignements ou une photo soient retirés, veuillez écrire au Responsable de la protection des renseignements personnels et cela sera traité rapidement.</p>
+
+            <h2 id="rights">Vos droits</h2>
+            <p>En vertu de la LPRPDE et du droit ontarien applicable, vous avez le droit de :</p>
+            <ul class="bullets">
+              <li>Savoir quels renseignements personnels sont détenus à votre sujet et pourquoi.</li>
+              <li>Accéder à ces renseignements (sous réserve d'exceptions légales limitées).</li>
+              <li>Demander que les renseignements inexacts soient corrigés.</li>
+              <li>Retirer votre consentement à toute utilisation ultérieure, sous réserve des obligations légales, contractuelles et de tenue de dossiers de la maison de courtage.</li>
+              <li>Vous désabonner de l'infolettre ou des courriels marketing en tout temps.</li>
+              <li>Obtenir — et contester directement auprès de l'agence de renseignements — une copie de tout rapport de consommateur obtenu à votre sujet (voir <a href="#screening">Vérification des locataires</a>).</li>
+              <li>Déposer une plainte auprès du Responsable de la protection des renseignements personnels — et, en cas de non-résolution, auprès du <a href="https://www.priv.gc.ca/fr/" target="_blank" rel="noopener noreferrer">Commissariat à la protection de la vie privée du Canada</a>.</li>
+            </ul>
+
+            <h2 id="minors">Mineurs</h2>
+            <p>Le Site s'adresse aux adultes qui effectuent des transactions immobilières. La LPRPDE ne fixe pas d'âge de consentement précis, mais le Commissariat à la protection de la vie privée a indiqué que le consentement d'un mineur n'est valable que lorsque le mineur comprend véritablement la nature et les conséquences de la collecte et de l'utilisation.</p>
+            <p>Aucun renseignement personnel n'est sciemment recueilli auprès de toute personne qui n'est pas assez âgée pour donner ce consentement valable. Lorsqu'un mineur est cooccupant dans une demande de location (par exemple, une famille avec enfants), le ou les adultes demandeurs fournissent les renseignements pour le compte du ménage. Si un parent ou un tuteur croit que des renseignements personnels ont été recueillis auprès d'un mineur sans consentement valable, communiquez avec le Responsable de la protection des renseignements personnels et la situation sera examinée et les renseignements supprimés s'il y a lieu.</p>
+
+            <h2 id="changes">Modifications de cette politique</h2>
+            <p>La présente Politique de confidentialité peut être mise à jour de temps à autre. La date de « Dernière mise à jour » figurant en haut indique la révision la plus récente. Les changements importants seront signalés sur le Site.</p>
+
+            <h2 id="contact">Contact</h2>
+            <p>Pour toute question de confidentialité — demandes d'accès, corrections, plaintes, questions relatives à un rapport de consommateur, retrait d'une transaction passée, retrait du consentement ou soupçon d'atteinte — communiquez avec le Responsable de la protection des renseignements personnels :</p>
+            <div class="callout">
+              <strong>Peter Law — Responsable de la protection des renseignements personnels</strong><br>
+              <a href="mailto:privacy@realtorpeterlaw.com">privacy@realtorpeterlaw.com</a> <em>(préféré)</em> · <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              a/s HomeLife Golconda Realty Inc., Brokerage<br>
+              215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada<br>
+              <a href="tel:+16478888472">647-888-8472</a>
+            </div>
+            <p>Pour les questions qui doivent être transmises au Courtier responsable (voir <a href="#who">Qui est responsable</a>), indiquez sur la correspondance « <em>Attn : Courtier responsable — Vie privée</em> ». Peter la transmettra à l'interne et confirmera la réception.</p>
+
+            <p class="legal-note">La présente Politique de confidentialité résume la pratique opérationnelle. Il ne s'agit pas d'un avis juridique. Si vous avez un litige en cours ou avez besoin de conseils sur vos droits, consultez un parajuriste ou un avocat.</p>
           </div>
         </div>
       </div>

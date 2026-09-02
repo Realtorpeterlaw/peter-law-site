@@ -6,9 +6,9 @@ import ChineseFooter from '../../components/ChineseFooter.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-01';
 const pageTitle = '隐私政策';
-const pageDescription = 'realtorpeterlaw.com 依据加拿大 PIPEDA 隐私法收集、使用与保护您个人信息的方式。';
+const pageDescription = 'realtorpeterlaw.com 与 Peter Law 依据 PIPEDA、CASL 及安省法律收集、使用、披露和保护您个人信息的方式。';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/privacy/' },
@@ -30,12 +30,12 @@ const hreflangAlternates = [
   <article>
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">法律 · PIPEDA</div>
+        <div class="eyebrow">法律 · PIPEDA · CASL · TRESA</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">Peter Law 尊重您的隐私。本政策说明本网站收集哪些个人信息、为何收集、如何存储,以及您在加拿大法律下享有的权利。</p>
+        <p class="article-lead">本政策说明本网站与 Peter Law 收集哪些个人信息、为何收集、还有谁会看到、保留多长时间,以及您在加拿大隐私法下所享有的权利。</p>
         <div class="article-byline">
           <span>最近更新:</span>
-          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+          <time datetime={publishedDate}>2026年9月1日</time>
         </div>
       </div>
     </section>
@@ -46,95 +46,204 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>本页目录</h4>
             <ul>
-              <li><a href="#who">我们是谁</a></li>
+              <li><a href="#who">责任主体</a></li>
+              <li><a href="#officer">隐私专员</a></li>
               <li><a href="#what">收集哪些信息</a></li>
               <li><a href="#why">收集目的</a></li>
               <li><a href="#consent">您的同意</a></li>
+              <li><a href="#disclosure">租客申请信息的披露</a></li>
+              <li><a href="#screening">租客背景核查与信用报告</a></li>
               <li><a href="#third-parties">第三方服务</a></li>
+              <li><a href="#cross-border">跨境数据传输(美国)</a></li>
               <li><a href="#cookies">Cookie 与分析</a></li>
               <li><a href="#storage">存储与保留</a></li>
               <li><a href="#security">安全措施与直接邮件</a></li>
+              <li><a href="#breach">数据泄露通知</a></li>
+              <li><a href="#newsletter">新闻邮件(CASL)</a></li>
+              <li><a href="#secondary">对过往客户的持续营销</a></li>
               <li><a href="#past-deals">过往成交信息</a></li>
               <li><a href="#rights">您的权利</a></li>
-              <li><a href="#children">儿童</a></li>
+              <li><a href="#minors">未成年人</a></li>
               <li><a href="#changes">政策变更</a></li>
               <li><a href="#contact">联系方式</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <p><strong>一句话总结:</strong>本网站只会收集您自愿通过联系表格、新闻邮件、租客申请表或电子邮件提交的信息 —— 姓名、联系方式,以及您所写下的内容。这些信息仅用于回复您、以及在您成为客户后为您提供服务。我们绝不出售、绝不为营销目的与第三方分享。您可随时查询、更正或要求删除。</p>
+            <p><strong>一句话总结:</strong>您通过本网站发送的个人信息 —— 联系表格、电子邮件、申请表或新闻邮件订阅 —— 仅用于回复您,以及在您成为客户后为您提供服务。这些信息<strong>不会被出售</strong>,也<strong>不会为无关第三方的营销目的而分享</strong>。<strong>但是</strong>,若您委托 Peter 代表您作为租客提交申请,您所提供的完整申请材料 —— 包括收入、雇佣与信用信息 —— 将会披露给潜在房东及其挂牌经纪公司,以便他们决定是否接受您的申请。这一披露正是该服务的核心内容,但确实涉及敏感信息的实际转移;您委托 Peter 代为提交,即视为对此同意。详见<a href="#disclosure">租客申请信息的披露</a>与<a href="#screening">租客背景核查与信用报告</a>。</p>
 
-            <h2 id="who">我们是谁</h2>
-            <p>本隐私政策适用于 <strong>realtorpeterlaw.com</strong>(下称"本网站"),由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law 运营,并已在安省地产协会(RECO)注册。就加拿大《个人信息保护与电子文档法》(PIPEDA)而言,Peter Law 是通过本网站收集之个人信息的负责组织。</p>
+            <h2 id="who">责任主体</h2>
+            <p>本隐私政策适用于 <strong>realtorpeterlaw.com</strong>(下称"本网站"),由 Peter Law 运营。Peter Law 是根据《房地产服务信托法》(TRESA)在安省房地产管理委员会(RECO)注册的销售代表。</p>
+            <p>依加拿大隐私法,责任主体分工如下:</p>
+            <ul class="bullets">
+              <li><strong>Peter Law</strong> —— 本网站的日常运营人。Peter 是隐私问题、查阅请求与投诉的首要联系人。Peter 掌控通过本网站本身所收集的信息(联系表格、新闻邮件订阅、咨询邮件、网站分析),以及在为客户提供服务的常规过程中、于进入经纪公司交易档案之前所收集的信息。</li>
+              <li><strong>HomeLife Golconda Realty Inc., Brokerage</strong> —— 记录经纪公司。根据 TRESA,Peter <em>以</em>经纪公司名义从事房地产交易活动。一旦形成交易档案 —— 例如已签署的代表协议、已接受的要约、或已递交的完整租赁申请 —— 该档案即归经纪公司所有,并按经纪公司在法规下的档案保存义务加以保留。涉及该等档案的某些决定(在交易常规流程之外向第三方公开、回应监管或法律要求、正式投诉升级)需经 HomeLife Golconda 的<strong>记录经纪人(Broker of Record)</strong>批准。</li>
+            </ul>
+            <p>实际操作中,几乎所有隐私事项您都应先联系 Peter。凡 TRESA 或经纪公司政策要求升级的事项,由 Peter 转呈记录经纪人。两方联系方式见<a href="#contact">联系方式</a>。</p>
+
+            <h2 id="officer">隐私专员</h2>
+            <p>PIPEDA 的问责原则要求组织指定专人负责本组织对该法的合规工作。本网站及 Peter Law 房地产执业活动的隐私专员为:</p>
+            <div class="callout">
+              <strong>Peter Law —— 隐私专员</strong><br>
+              电邮:<a href="mailto:privacy@realtorpeterlaw.com">privacy@realtorpeterlaw.com</a> <em>(首选)</em><br>
+              或:<a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              信件:c/o HomeLife Golconda Realty Inc., Brokerage — 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada<br>
+              电话:<a href="tel:+16478888472">647-888-8472</a>
+            </div>
+            <p>如为需要记录经纪人处理的事项(见<a href="#who">上文</a>),请将函件寄至上述隐私专员地址,并在信封或邮件主题上标注"<em>Attn: Broker of Record — Privacy</em>",即会于内部转呈。</p>
 
             <h2 id="what">收集哪些信息</h2>
             <ul class="bullets">
-              <li><strong>您主动提供的信息。</strong>当您使用联系表格、发送电子邮件、预约通话、订阅新闻邮件或填写租客申请时,我们会收集您选择分享的信息 —— 通常包括姓名、电子邮件地址、电话号码、留言内容、您为租客申请自愿提供的雇佣或收入信息,以及您注明的偏好(如社区、预算、时间线)。</li>
-              <li><strong>客户信息。</strong>若您成为客户,我们可能会根据法律规定收集房地产交易所需的额外信息 —— 依据《犯罪所得(洗钱)及恐怖主义融资法》(PCMLTFA)进行的身份核实、已签署的代表协议、要约及相关文件。</li>
-              <li><strong>自动技术信息。</strong>与大多数网站一样,我们通过服务器日志与分析工具收集基础技术数据 —— 浏览器类型、大致位置(城市或地区)、浏览页面、停留时长。此类信息不会直接识别您的身份。</li>
+              <li><strong>您直接提供的信息。</strong>联系表格、电子邮件、"预约通话"、新闻邮件订阅、一般咨询 —— 通常包括姓名、电子邮件、电话号码、留言,以及您注明的任何偏好(社区、预算、时间线)。</li>
+              <li><strong>租客申请信息。</strong>若您通过 Peter 申请租房,则包括申请人姓名、联系方式、雇佣与职业、收入、公民或移民身份、入住日期、以往住址、推荐人,以及在您单独书面同意后经租客背景核查供应商获取的信用与背景信息。此为敏感个人信息,并按敏感信息标准处理。</li>
+              <li><strong>买家/卖家客户信息。</strong>若您委托 Peter 作为买方或卖方代表,则会收集房地产交易依法所需的额外信息 —— 包括根据《犯罪所得(洗钱)和恐怖主义融资法》(PCMLTFA/FINTRAC)进行的身份核实、已签署的代表协议、要约及相关文件。此类档案由经纪公司按法规义务保存。</li>
+              <li><strong>自动技术信息。</strong>基础服务器日志与聚合分析数据 —— 浏览器类型、大致所在地区、浏览页面、停留时长。不用于对您进行个人身份识别。</li>
             </ul>
 
             <h2 id="why">收集目的</h2>
-            <p>我们只在合理必要的范围内收集个人信息,具体用途为:</p>
+            <p>个人信息仅出于合理人士在具体情境下会认为适当的目的收集,具体为:</p>
             <ul class="bullets">
-              <li>回复您的咨询与请求。</li>
-              <li>若您聘请我们作为您的房地产代表,为您提供相关服务。</li>
-              <li>履行适用于安省房地产专业人士的法律、监管及 RECO 义务。</li>
-              <li>向已订阅的用户发送新闻邮件(您可随时退订)。</li>
-              <li>了解访客如何使用本网站以进行改进(聚合分析,非个人追踪)。</li>
+              <li>回复您的咨询。</li>
+              <li>为您提供所请求的房地产服务(作为买家、卖家、房东或租客的代表)。</li>
+              <li>履行法律、监管及 RECO/经纪公司义务,包括 PCMLTFA 身份核实与 TRESA 档案保存。</li>
+              <li>在您已明示同意订阅的前提下向您发送新闻邮件(见<a href="#newsletter">新闻邮件</a>)。</li>
+              <li>在您于委托时单独明示同意的前提下,向您发送持续的房地产市场资讯(见<a href="#secondary">对过往客户的持续营销</a>)。</li>
+              <li>通过聚合分析改进本网站。</li>
             </ul>
-            <p>我们<strong>不会</strong>出售、出租或交易您的个人信息。我们不会用于向您推送广告,也不会为营销目的与任何无关第三方分享。</p>
+            <p>个人信息<strong>不会</strong>被出售、出租或交易,<strong>不会</strong>为无关第三方自身的营销目的而披露。</p>
 
             <h2 id="consent">您的同意</h2>
-            <p>通过联系表格、电子邮件、预约通话、订阅新闻邮件或以其他方式向本网站发送信息,即表示您同意按上述目的收集与使用该信息。您可随时通过联系我们撤回同意 —— 但须遵守保留记录的法律或监管要求(见下文"存储与保留")。</p>
+            <p>您在提交联系表格、发送电子邮件、预约通话、申请租房或订阅新闻邮件时,即视为同意按上述及在收集时披露的目的收集与使用该信息。您可随时向隐私专员书面撤回同意,但需遵守要求经纪公司在保留期限内保存档案的法律或监管义务(见<a href="#storage">存储与保留</a>)。</p>
+            <p>同意是<strong>特定目的性</strong>的。基于某一目的(例如委托 Peter 代表您签署租约)所给的同意,<strong>并不</strong>等于对另一目的(例如若干年后的持续营销)的同意。见<a href="#secondary">对过往客户的持续营销</a>。</p>
+
+            <h2 id="disclosure">租客申请信息的披露</h2>
+            <p>本节单列一节,是因为这是租客申请人最容易低估的一项披露。</p>
+            <p>当 Peter 代表您递交租房申请时,通常会向潜在房东及其挂牌经纪公司(以及在适用情况下的物业管理公司)披露以下内容:</p>
+            <ul class="bullets">
+              <li>政府签发的身份证件。</li>
+              <li>雇佣证明信、工资单和/或税务评估通知书(NOA)。</li>
+              <li>信用报告,或来自租客背景核查供应商的信用评分(见<a href="#screening">下一节</a>)。</li>
+              <li>租房推荐人及您提供的以往房东联系方式。</li>
+              <li>已填写的 OREA Form 410(安省住宅租客申请表)或同等文件。</li>
+              <li>您要求一并提交的任何求租信、室友信息、担保人信息或补充材料。</li>
+            </ul>
+            <p><strong>目的:</strong>供房东决定是否与您建立租约关系。</p>
+            <p><strong>同意依据:</strong>您委托 Peter 代为递交申请时所给予的<em>明示、知情</em>同意。申请仅针对您所指定的单位、仅向负责该单位的房东/经纪公司递交。Peter 不会将您的申请材料转发给其他房东、加以公开,亦不会用于您所请求追求的具体租约之外的任何其他目的。</p>
+            <p><strong>后续处理:</strong>一旦您的申请材料转至房东或挂牌经纪公司手中,其后续处理便适用<em>其自身</em>的隐私实务及安省《住宅租赁法》(Residential Tenancies Act)。Peter 无法控制第三方房东如何存储或保留您所发送的内容。若递交后您有任何疑虑,请直接联系房东所属经纪公司;若未能解决,可向加拿大隐私专员办公室投诉。</p>
+
+            <h2 id="screening">租客背景核查与信用报告</h2>
+            <p>Peter 使用 <strong>SingleKey</strong>(一家加拿大租客背景核查供应商)作为租房申请材料的一部分,获取信用与背景信息。在安省,消费者信用报告属于《消费者报告法》(Consumer Reporting Act, RSO 1990, c. C.33)下的<em>消费者报告</em>,其使用受法律规范。</p>
+            <ul class="bullets">
+              <li><strong>取得报告前需书面同意。</strong>Peter 不会在未取得您<em>事先书面同意</em>的情况下就您本人申请消费者报告;该同意专为该次租房申请之特定目的而获取,与您就一般联络所给予的同意相分离。</li>
+              <li><strong>您有权知晓的内容。</strong>在取得报告之前,您将被告知消费者征信机构(SingleKey)的名称与地址、所索取信息的一般性质,以及报告将用于何种目的。</li>
+              <li><strong>不利决定通知。</strong>若您的租房申请被拒,且该决定全部或部分基于消费者报告,房东须依《消费者报告法》告知您这一事实并指明报告出具机构,以便您获取副本并就不准确之处提出异议。Peter 将以书面形式向您转交该通知,并附上出具机构的联系方式。</li>
+              <li><strong>更正与异议。</strong>若您认为消费者报告中的信息不准确,您有权直接向报告出具机构要求更正。Peter 将在其能力范围内协助您完成该程序。</li>
+            </ul>
+            <p class="legal-note">上文概述本网站的操作方式,并非法律意见。若您已收到不利决定通知或认为关于您的报告存在错误,可向持牌辩护师(paralegal)或律师咨询,以就您的具体权利与救济途径获得建议。<strong>[需律师确认]</strong></p>
 
             <h2 id="third-parties">第三方服务</h2>
-            <p>本网站使用少量第三方服务,可能代为处理有限的个人或技术数据。各服务商各自有独立的隐私政策。我们仅共享其履职所需的最小信息:</p>
+            <p>本网站使用少量第三方服务,可能代为处理有限的个人或技术数据。各服务商均有其自身的隐私政策。我们仅共享其履职所需的最小信息:</p>
             <ul class="bullets">
-              <li><strong>Vercel</strong> —— 承载本网站并提供基础服务器日志。</li>
-              <li><strong>Formspree</strong> —— 将联系表格提交转发至 Peter 的电子邮箱。</li>
-              <li><strong>Cal.com</strong> —— 支持"预约通话"日程组件。</li>
-              <li><strong>beehiiv</strong> —— 向订阅者投递新闻邮件。</li>
-              <li><strong>SingleKey</strong> —— 在您明示同意后、通过本网站完成租客申请时用于租客背景核查。</li>
-              <li><strong>Google 相关服务</strong> —— 如嵌入字体或可选分析工具。</li>
-              <li><strong>嵌入式视频平台(YouTube、TikTok)</strong> —— 嵌入看房视频时,视频平台可能在播放器加载后即设置其自有 Cookie。</li>
+              <li><strong>Vercel Inc.</strong>(美国)—— 承载本网站并提供基础服务器日志。</li>
+              <li><strong>Formspree, Inc.</strong>(美国)—— 将联系表格提交转发至 Peter 的电邮。</li>
+              <li><strong>Cal.com, Inc.</strong>(美国)—— 支持"预约通话"日程组件。</li>
+              <li><strong>beehiiv Inc.</strong>(美国)—— 向订阅者投递新闻邮件。</li>
+              <li><strong>SingleKey</strong>(加拿大)—— 在您完成租房申请时,经您明示书面同意用于租客背景核查(见<a href="#screening">上文</a>)。</li>
+              <li><strong>Google 相关服务</strong>(美国)—— 如用于嵌入字体或可选分析功能。</li>
+              <li><strong>嵌入式视频平台</strong>(YouTube、TikTok —— 美国)—— 嵌入看房视频时,视频平台可能在播放器激活后即设置其自有 Cookie。</li>
             </ul>
-            <p>Peter 还可能将客户转介至第三方服务提供商(如互联网/公用事业供应商、按揭专业人士或 SingleKey),部分情形下可能因此收取转介费。有关联盟与转介关系的说明,请参阅<a href="/chinese/disclaimer#referrals">免责声明</a>。转介本身不改变您个人信息在本网站上的处理方式。</p>
+            <p>Peter 亦可能将客户转介至第三方服务商(例如互联网或公用事业供应商、按揭专业人士或 SingleKey),部分情形下可能因此收取转介费。见<a href="/chinese/disclaimer#referrals">免责声明</a>。转介本身不改变本网站对您个人信息的处理方式。</p>
+
+            <h2 id="cross-border">跨境数据传输(美国)</h2>
+            <p>上文列出的若干服务商(Vercel、Formspree、Cal.com、beehiiv、Google、YouTube、TikTok)总部位于美国,并在位于美国境内的服务器上存储或处理个人信息。</p>
+            <p>依加拿大隐私专员办公室关于"为处理目的而进行传输"的指引:<strong>在美国境内存储或处理的个人信息,可能依美国法律被美国政府机关取用</strong>,包括依 USA PATRIOT Act、CLOUD Act 等合法调取、国家安全及执法法规所进行的取用,不论加拿大法律下另有何种保护。虽已实施合同性与技术性保障措施,但任何合同均无法凌驾于外国合法调取令之上。</p>
+            <p>若您不希望您的信息被传输至加拿大境外,请在咨询时告知隐私专员 —— 部分功能(例如联系表格)依赖美国境内的处理商,而其他替代安排(例如直接电话联络)可能更为适合。</p>
 
             <h2 id="cookies">Cookie 与分析</h2>
-            <p>本网站使用少量第一方 Cookie 以维持基本功能(例如记住您的语言偏好)。所使用的任何分析工具均以聚合方式呈现 —— 我们能看到有多少人访问了哪些页面,但看不到您是谁。您可在浏览器设置中禁用 Cookie;若禁用,部分功能可能无法正常运行。第三方嵌入(日程组件、视频、新闻邮件)在您与其互动后可能会设置其自有 Cookie。</p>
+            <p>本网站使用少量第一方 Cookie 以维持基本功能。所使用的分析工具为聚合式 —— 我们能看到有多少人访问了哪些页面,但看不到您是谁。您可在浏览器中禁用 Cookie;若禁用,本网站部分内容可能无法按预期运行。第三方嵌入(日程组件、视频、新闻邮件)在您与其互动后可能会设置其自有 Cookie。</p>
 
             <h2 id="storage">存储与保留</h2>
-            <p>个人信息存储在我们服务商运营的服务器上,可能位于加拿大或美国。联系表格与电子邮件往来仅保留至处理咨询所需时间;若您成为客户,则按 RECO 与适用法律要求保留(目前最低为客户关系结束后 6 年)。之后记录将被销毁或去标识化。</p>
-
-            <h2 id="security">安全措施与直接邮件</h2>
-            <p>我们采取合理的技术与组织措施保护个人信息 —— 包括加密连接(HTTPS)、强密码、访问控制,以及采用信誉良好的服务商。无系统能做到绝对安全。若您有理由相信您与本网站的互动不再安全,请立即与我们联系。</p>
-            <p><strong>直接邮件说明。</strong>直接发送至 <em>Admin@RealtorPeterLaw.com</em> 的电子邮件通过公共互联网传输,并非端到端加密。请不要在未事先约定的情况下,以邮件附件方式发送高度敏感的文件(政府身份证件、银行信息、按揭预批、要约等)。若确有需要,请先与我们联系,我们会安排安全的传送方式。</p>
-
-            <h2 id="past-deals">过往成交信息</h2>
-            <p>本网站"近期"与"过往成交"栏目展示 Peter 作为注册代表参与过的交易信息 —— 通常包括交叉路口或地址、成交月份、成交价或租金,以及简短评论。此类信息或来自公开可查的记录(如通过 TRREB / MLS® 系统按规发布的成交数据),或经当事客户明确同意后发布。物业照片在获得摄影师、卖家或经纪公司授权后展示。</p>
-            <p>如您是某笔过往交易的当事人,希望删除您的信息或某张照片,请<a href="/chinese/contact">联系我们</a>,我们将尽快回复。</p>
-
-            <h2 id="rights">您的权利</h2>
-            <p>根据 PIPEDA,您有权:</p>
+            <p>个人信息存储在上述服务商运营的服务器上,可能位于加拿大或美国。按类别不同,保留期限各异:</p>
             <ul class="bullets">
-              <li>了解我们持有关于您的哪些个人信息。</li>
-              <li>查阅这些信息(受有限例外情形约束)。</li>
-              <li>要求我们更正任何不准确的信息。</li>
-              <li>在符合法律与合同义务的前提下,撤回对信息进一步使用的同意。</li>
-              <li>随时退订任何新闻邮件或营销邮件(点击邮件中的"退订"链接)。</li>
-              <li>先向我们投诉;若未能解决,可向 <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">加拿大隐私专员办公室(OPC)</a> 投诉。</li>
+              <li><strong>经纪公司交易档案(由 HomeLife Golconda 掌控)。</strong>已签署的代表协议、要约、已完成的租约、PCMLTFA 身份档案、定金记录及其他受监管文件,由经纪公司按 TRESA 及其法规规定的最短期限保留(目前自交易或客户关系结束之日起至少<strong>六年</strong>),并按经纪公司的档案管理政策予以销毁。</li>
+              <li><strong>已成为客户的咨询数据(由 Peter 掌控)。</strong>与现有或过往客户的电邮、笔记及往来函件,保留至合理服务所需的时间,之后按经纪公司要求归档或删除。</li>
+              <li><strong>未转化为客户关系的网站咨询。</strong>联系表格提交与一般邮件咨询,自最后一次通信起最长保留<strong>24 个月</strong>,之后删除。</li>
+              <li><strong>未成功的租客申请。</strong>租房申请材料 —— 包括收入证明、雇佣证明、工资单及信用报告 —— 仅在必要期限内保留。若您的申请未获接受,除非您要求保留以便用于后续申请、或因具体法律或监管义务需要保留,否则该申请材料将在结果出具后<strong>90 天内销毁或安全删除</strong>。</li>
+              <li><strong>新闻邮件订阅者。</strong>保留至您退订为止,加一段较短的行政处理期。</li>
+              <li><strong>数据泄露记录。</strong>依 PIPEDA 要求,任何安全防护措施被突破的记录至少保留<strong>24 个月</strong>(见<a href="#breach">数据泄露通知</a>)。</li>
             </ul>
 
-            <h2 id="children">儿童</h2>
-            <p>本网站并非针对 13 岁以下儿童设计,我们亦不会有意收集儿童的个人信息。若您认为有儿童向本网站提供了个人信息,请与我们联系,我们将予以删除。</p>
+            <h2 id="security">安全措施与直接邮件</h2>
+            <p>已采取合理的技术与组织性保障措施,包括加密连接(HTTPS)、强密码、访问控制、信誉良好的服务商,以及针对敏感文件的内部处理程序。没有任何系统是绝对安全的。若您有理由相信您与本网站的互动不再安全,请立即联系隐私专员。</p>
+            <p><strong>直接邮件说明。</strong>直接发送至 <em>Admin@RealtorPeterLaw.com</em> 的电子邮件通过公共互联网传输,并非端到端加密。请不要以未经约定的附件方式发送高度敏感的文件(政府身份证件、银行、按揭预批、要约)。请先联络确认,我们会安排安全的传送方式。</p>
+
+            <h2 id="breach">数据泄露通知</h2>
+            <p>PIPEDA 就"安全防护措施被突破"—— 即个人信息之遗失、未经授权的取用或未经授权的披露 —— 对组织课以强制性义务。</p>
+            <ul class="bullets">
+              <li><strong>评估。</strong>每一起事件均须评估其是否对任何个人造成<em>重大伤害的真实风险</em>(RROSH)—— 综合考虑信息的敏感性、被滥用的可能性及其他相关因素。</li>
+              <li><strong>向专员报告。</strong>若评估认定存在 RROSH,该次泄露将尽早向加拿大隐私专员办公室报告。</li>
+              <li><strong>通知受影响个人。</strong>若认定存在 RROSH,将尽早直接通知受影响个人,并提供足以使其了解泄露严重程度并采取保护措施的信息。</li>
+              <li><strong>通知其他组织。</strong>凡可能有助于降低伤害风险的其他组织(例如经纪公司、支付服务商或房东),亦将获得通知。</li>
+              <li><strong>记录保存。</strong>凡涉及个人信息的安全防护措施被突破的记录,无论是否达到 RROSH 门槛,均至少保留<strong>24 个月</strong>。专员可要求查阅该等记录。</li>
+            </ul>
+            <p>涉及经纪公司交易档案的重大事件将与 HomeLife Golconda 的记录经纪人联合处理。</p>
+
+            <h2 id="newsletter">新闻邮件(CASL —— 明示同意)</h2>
+            <p>本网站的可选新闻邮件属于《加拿大反垃圾邮件法》(CASL)下的商业电子讯息。Peter 仅在您<strong>明示同意</strong>的前提下发送该邮件,同意通过订阅表单上默认未勾选的选项获取。同意范围涵盖多伦多租赁及二手市场的定期资讯、新博客文章,以及 Peter Law / HomeLife Golconda 的偶发性服务通知。频率通常为每月一次,或多或少。</p>
+            <ul class="bullets">
+              <li><strong>发送人标识。</strong>每封邮件均标明发送方为 Peter Law, Sales Representative, HomeLife Golconda Realty Inc., Brokerage。</li>
+              <li><strong>邮寄地址。</strong>每封邮件均载明经纪公司邮寄地址 —— 215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada。</li>
+              <li><strong>退订。</strong>每封邮件均包含可运作的退订机制,可免费执行,并会及时(在任何情形下均于 CASL 所要求的时限内)兑现,自邮件发送之日起<strong>至少 60 天</strong>内保持有效。</li>
+              <li><strong>撤回同意。</strong>您可随时通过任一邮件中的退订链接、或书面联络隐私专员来退订。</li>
+            </ul>
+
+            <h2 id="secondary">对过往客户的持续营销(二次使用)</h2>
+            <p>Peter 希望与过往租客保持联系 —— 提供市场资讯,并在您日后准备置业时,提供有关二手房、楼花及自置居所服务的信息。这属于对您因原始租房目的而提供之个人信息的<strong>二次使用</strong>。</p>
+            <p>您就 Peter 代表您签署租约所给予的同意,<strong>其本身并不构成同意</strong>接受此后多年的持续营销。因此:</p>
+            <ul class="bullets">
+              <li>持续营销的同意在委托时<strong>单独</strong>提出 —— 作为独立问题,不与代表协议或租房申请捆绑。</li>
+              <li>该同意请求会清楚说明:(a)发送方(Peter Law / HomeLife Golconda),(b)将发送的内容(偶发性多伦多房地产市场资讯;日后关于二手房与楼花服务的信息),(c)大致频率,以及(d)如何退订。</li>
+              <li>选项默认不勾选。您可以选"是"、"否",也可以不作答 —— 默认情形下,您不会收到任何持续营销。</li>
+              <li>您可随时撤回同意,而不影响您最初委托 Peter 的服务。撤回将迅速兑现并留存,以避免误再次订阅。</li>
+              <li>若若干年后 Peter 合理相信您的情况已发生重大变化,Peter 可能会在继续向您营销前再次确认同意。</li>
+            </ul>
+            <p class="legal-note">以上机制描述持续营销同意在操作层面上的呈现与存储方式。若客户请求特定安排,或对其早前同意的解读有疑问,请联系隐私专员。</p>
+
+            <h2 id="past-deals">过往成交信息</h2>
+            <p>"近期成交"与"过往成交"栏目展示 Peter 作为持牌代表参与过的交易信息 —— 通常包括交叉路口或地址、成交月份、成交价或租金,以及简短评论。此类信息来源于公开可查的记录(例如通过 TRREB / MLS® 系统按适用规则发布的成交数据),或经涉及客户的明示许可后公布。物业照片在获得摄影师、卖家或提供该照片的经纪公司授权后展示。</p>
+            <p>如您是某笔过往交易的当事方,并希望删除您的信息或某张照片,请书面联系隐私专员,我们将尽快处理。</p>
+
+            <h2 id="rights">您的权利</h2>
+            <p>根据 PIPEDA 及适用的安省法律,您有权:</p>
+            <ul class="bullets">
+              <li>知悉我们持有关于您的哪些个人信息及其目的。</li>
+              <li>查阅该等信息(受有限法律例外情形约束)。</li>
+              <li>要求更正不准确的信息。</li>
+              <li>在符合法律、合同及经纪公司档案保存义务的前提下,撤回对进一步使用的同意。</li>
+              <li>随时退订新闻邮件或营销邮件。</li>
+              <li>获取关于您的消费者报告副本,并直接向出具报告的机构提出异议(见<a href="#screening">租客背景核查</a>)。</li>
+              <li>向隐私专员提出投诉;若未能解决,可向<a href="https://www.priv.gc.ca/" target="_blank" rel="noopener noreferrer">加拿大隐私专员办公室</a>投诉。</li>
+            </ul>
+
+            <h2 id="minors">未成年人</h2>
+            <p>本网站面向从事房地产交易的成年人。PIPEDA 未设固定的同意年龄,但加拿大隐私专员办公室指出,未成年人的同意只有在其真正理解收集与使用之性质与后果时,方为有效同意。</p>
+            <p>我们不会有意从尚不足以给予有效同意的人处收集个人信息。若未成年人系租房申请中的共同居住者(例如有子女的家庭),则由申请的成年人代表家庭提供相关信息。若父母或监护人认为未成年人在未有效同意的情况下被收集了个人信息,请联系隐私专员,我们将予以审查,并在适当情形下删除。</p>
 
             <h2 id="changes">政策变更</h2>
-            <p>我们可能会不时更新本《隐私政策》。页面顶部的"最近更新"日期显示最近一次修改的时间。重大变更将在本网站上突出显示。</p>
+            <p>本《隐私政策》可能会不时更新。页面顶部的"最近更新"日期显示最近一次修改。重大变更将在本网站上突出显示。</p>
 
             <h2 id="contact">联系方式</h2>
-            <p>如需查询个人信息、要求查阅或更正、要求将您从过往成交栏目下架、或提出隐私投诉,请<a href="/chinese/contact">联系 Peter</a>。我们重视每一次隐私咨询,并将尽快回复。</p>
+            <p>如涉及任何隐私事项 —— 查阅请求、更正、投诉、消费者报告问题、过往成交信息移除、撤回同意,或疑似数据泄露 —— 请联系隐私专员:</p>
+            <div class="callout">
+              <strong>Peter Law —— 隐私专员</strong><br>
+              <a href="mailto:privacy@realtorpeterlaw.com">privacy@realtorpeterlaw.com</a> <em>(首选)</em> · <a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a><br>
+              c/o HomeLife Golconda Realty Inc., Brokerage<br>
+              215 – 3601 HWY 7 East, Markham, ON L3R 0M3, Canada<br>
+              <a href="tel:+16478888472">647-888-8472</a>
+            </div>
+            <p>如为须升级至记录经纪人处理的事项(见<a href="#who">责任主体</a>),请在函件上标注"<em>Attn: Broker of Record — Privacy</em>"。Peter 会于内部转呈并回执确认。</p>
+
+            <p class="legal-note">本《隐私政策》概述操作实务,并非法律意见。若您有正在发生的争议或需就自身权利获得建议,请向持牌辩护师或律师咨询。</p>
           </div>
         </div>
       </div>
