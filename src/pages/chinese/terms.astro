@@ -6,9 +6,9 @@ import ChineseFooter from '../../components/ChineseFooter.astro';
 
 export const prerender = true;
 
-const publishedDate = '2026-07-19';
+const publishedDate = '2026-09-02';
 const pageTitle = '服务条款';
-const pageDescription = '规范 realtorpeterlaw.com 使用行为的条款 —— 由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law 运营。';
+const pageDescription = '规范 realtorpeterlaw.com 使用行为的条款 —— 由在 RECO 注册的销售代表 Peter Law 运营的个人房地产网站。';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/terms/' },
@@ -32,10 +32,10 @@ const hreflangAlternates = [
       <div class="wrap">
         <div class="eyebrow">法律 · 网站条款</div>
         <h1>{pageTitle}</h1>
-        <p class="article-lead">本条款规范您如何使用 realtorpeterlaw.com。此处内容不构成法律意见,仅设定网站、内容与商标使用的基本规则。</p>
+        <p class="article-lead">本条款规范您如何使用 realtorpeterlaw.com。此处内容不构成法律意见 —— 仅为本网站、其内容以及所使用的商标设定基本规则。</p>
         <div class="article-byline">
           <span>最近更新:</span>
-          <time datetime={publishedDate}>2026 年 7 月 19 日</time>
+          <time datetime={publishedDate}>2026年9月2日</time>
         </div>
       </div>
     </section>
@@ -46,68 +46,125 @@ const hreflangAlternates = [
           <aside class="prose-side">
             <h4>本页目录</h4>
             <ul>
-              <li><a href="#acceptance">接受条款</a></li>
+              <li><a href="#acceptance">接受与适用范围 —— 谁受约束</a></li>
               <li><a href="#site-use">网站使用</a></li>
+              <li><a href="#automated">自动化访问、TDM 与 AI 训练</a></li>
               <li><a href="#ip">知识产权与照片</a></li>
               <li><a href="#trademarks">REALTOR® 与 MLS® 商标</a></li>
               <li><a href="#no-advice">非专业意见</a></li>
               <li><a href="#services">服务承诺与交付时限</a></li>
               <li><a href="#brokerage">经纪公司与持牌状态</a></li>
+              <li><a href="#members">会员专区(预留)</a></li>
               <li><a href="#third-party">第三方链接与嵌入</a></li>
-              <li><a href="#liability">责任限制</a></li>
+              <li><a href="#liability">责任限制与 CPA 保留条款</a></li>
               <li><a href="#changes">条款变更</a></li>
-              <li><a href="#law">适用法律</a></li>
+              <li><a href="#law">管辖法律</a></li>
               <li><a href="#contact">联系方式</a></li>
+              <li><a href="#bor-schedule">附录 A —— 需记录经纪人批准的条款</a></li>
             </ul>
           </aside>
 
           <div class="prose-body">
-            <h2 id="acceptance">接受条款</h2>
-            <p>访问或使用 <strong>realtorpeterlaw.com</strong>(下称"本网站"),即表示您同意本《服务条款》。若您不同意,请勿使用本网站。本网站由 HomeLife Golconda Realty Inc. 注册销售代表 Peter Law("我们")拥有并运营,并已在安省地产协会(RECO)注册。</p>
+            <h2 id="acceptance">接受与适用范围 —— 谁受约束</h2>
+            <p><strong>本条款以 Peter Law 个人(作为本网站运营者)身份对其产生约束。</strong>本网站(<strong>realtorpeterlaw.com</strong>)是由在安省房地产管理委员会(RECO)注册的销售代表 Peter Law 运营的个人营销网站。本条款中所有"Peter""我""本人"或"我的"均指以该个人身份出现的 Peter Law。</p>
+            <p><strong>HomeLife Golconda Realty Inc., Brokerage</strong> 是 Peter 在《房地产服务信托法(2002)》(TRESA)下的记录经纪公司 —— Peter 代表该经纪公司进行房地产交易。然而,HomeLife Golconda 并未批准本网站条款,在本文件中<strong>不</strong>受其约束。当您成为 Peter Law / HomeLife Golconda 的房地产客户时,另行签署的书面代表协议将规范该关系,经纪公司自身的服务约定条款于其中适用。本条款不限制或扩展该另行签署的代表协议所载内容。有关将条款延伸至经纪公司之前需要记录经纪人批准的具体条款,请参见<a href="#bor-schedule">附录 A</a>。</p>
+            <p><strong>您如何接受本条款。</strong>本网站上不同的互动方式对应不同的接受机制:</p>
+            <ul class="bullets">
+              <li><strong>浏览本网站。</strong>仅浏览页面,只在加拿大法律对"改良型 browsewrap"所支持的有限范围内构成对本条款的接受 —— 即在本条款链接被显著且一致地展示(如本网站每一页的页脚)的情况下。纯被动阅读除对本网站知识产权及禁止性使用规则的尊重外,不产生合同义务。</li>
+              <li><strong>提交表单</strong>(联系表单、租赁申请、免费房屋估值、订阅新闻通讯)。上述每个表单在提交控件处链接到本条款与隐私政策,提交行为即为您对二者的肯定性接受。</li>
+              <li><strong>预约通话。</strong>日程组件由 cal.com 提供,受 cal.com 自身条款约束。通过该组件与 Peter 预约,即为您对该第三方条款的接受,以及在该次预约范围内对本条款的接受。</li>
+              <li><strong>任何未来的账户型功能</strong>(见<a href="#members">会员专区</a>)在账户创建时将要求完整的点击(clickwrap)接受。</li>
+            </ul>
+            <p>若您不同意本条款,请勿使用本网站。</p>
 
             <h2 id="site-use">网站使用</h2>
-            <p>您同意仅将本网站用于合法目的,且不得侵犯他人使用本网站的权利或限制他人使用本网站。禁止行为包括但不限于:</p>
+            <p>您同意仅将本网站用于合法目的,且不得侵犯他人使用本网站的权利,或限制、妨碍他人使用本网站。禁止行为包括但不限于:</p>
             <ul class="bullets">
               <li>企图未经授权访问本网站、其服务器或任何相关系统。</li>
-              <li>抓取、采集或以其他方式收集其他访客的信息。</li>
               <li>上传或传输病毒、恶意软件或其他有害代码。</li>
-              <li>未经书面许可,复制、转售或再发布本网站的任何内容。</li>
+              <li>未经书面许可,复制、转售或再发布本网站任何内容。</li>
               <li>利用本网站分发垃圾信息或未经请求的商业内容。</li>
+              <li>假冒 Peter Law、经纪公司或任何其他个人或实体。</li>
+              <li>对本网站内容的自动化收集或使用 —— 在<a href="#automated">下一节</a>中另行规范。</li>
             </ul>
+
+            <h2 id="automated">自动化访问、文本与数据挖掘,以及 AI 训练</h2>
+            <p>以下条款是对<a href="#site-use">网站使用</a>的补充,并构成对权利的明示保留:</p>
+            <ul class="bullets">
+              <li><strong>自动化收集。</strong>任何自动化代理 —— 机器人、脚本、爬虫、无头浏览器、采集器或抓取器 —— 若并非仅为建立公共搜索索引而访问页面的通用搜索引擎索引程序(Googlebot、Bingbot、DuckDuckBot 等),未经事先书面许可,一律禁止。</li>
+              <li><strong>文本与数据挖掘(TDM)。</strong>在加拿大版权法允许的最大范围内,Peter 保留对本网站内容用于文本与数据挖掘的权利,包括对事实、文本、图片或结构化数据的机器可读式提取。凡在技术上支持机器可读的权利保留(例如 <code>noai</code> / <code>noimageai</code> 元指令、TDM 保留协议或 robots.txt)之处,该保留即适用。</li>
+              <li><strong>AI 训练。</strong>本网站内容 —— 包括但不限于文章文字、计算器、指南文案、过往成交说明、博客文章与照片 —— <strong>未经 Peter 事先书面同意,不得全部或部分用于训练、微调、评估或作为任何生成式 AI 系统、大语言模型、图像模型或其他机器学习系统的知识来源</strong>,无论商业与否。就本条款而言,针对用户单次问题、对本网站实时内容进行的检索增强生成(RAG)不构成"训练",但为构建模型而对全站语料进行整体摄取则构成训练。</li>
+              <li><strong>Robots 文件合规。</strong>本网站的 <a href="/robots.txt" rel="noopener">robots.txt</a> 列出了被禁止的特定 AI 爬虫。忽略上述指令,或以通用搜索爬虫的 user-agent 出现而实际收集数据用于 AI 训练,均构成本条款下的未经授权访问。</li>
+            </ul>
+            <p class="legal-note">Robots.txt 是一种信号约定,而非访问控制机制。上述权利保留独立成立,与特定爬虫是否选择遵守 robots.txt 无关。</p>
 
             <h2 id="ip">知识产权与照片</h2>
             <p>本网站所有原创内容 —— 包括但不限于文章、博客、指南、计算器、页面布局、插图与代码 —— 均属 Peter Law 所有,受加拿大及国际版权法保护。您可为个人非商业用途浏览、分享或链接本网站页面。未经事先书面同意,不得复制、再发布、转载或用于商业目的。</p>
-            <p><strong>本网站展示的照片与物业图片</strong>(包括"近期""过往成交"及博客文章中的图片),均在获得摄影师、卖家、经纪公司或平台授权的前提下使用,版权仍属原权利人所有。若您认为本网站上的某张图片未经适当授权而被使用,请<a href="/chinese/contact">联系我们</a>,提供图片链接与简要说明;我们将进行核实,如属实将及时下架。</p>
+            <p><strong>本网站展示的照片与物业图片</strong>(包括"近期成交""销售历史"及博客文章中的图片)均在获得摄影师、卖家、经纪公司或平台授权的前提下使用,版权仍属原权利人所有。若您认为本网站上的某张图片未经适当授权而被使用,请<a href="/chinese/privacy#contact">致信 Peter</a>,提供图片链接与简要说明;我们将及时核实,如属实将下架相应图片。</p>
 
             <h2 id="trademarks">REALTOR® 与 MLS® 商标</h2>
-            <p><strong>REALTOR®</strong>、<strong>REALTORS®</strong> 及 REALTOR® 图标商标由加拿大房地产协会(CREA)控制,用以标识 CREA 会员房地产专业人士。<strong>MLS®</strong>、<strong>Multiple Listing Service®</strong> 及相关图标由 CREA 所有,用以标识 CREA 会员所提供的服务质量。本网站在获得授权的前提下使用上述商标。本网站中所有"MLS""realtor""realtors"字样,均指上述注册商标。</p>
-            <p>Peter Law 是在 RECO 注册的销售代表,隶属于 HomeLife Golconda Realty Inc. 经纪公司。</p>
+            <p>商标 <strong>REALTOR®</strong>、<strong>REALTORS®</strong> 及 REALTOR® 图标由加拿大房地产协会(CREA)控制,用以标识 CREA 会员房地产专业人士。商标 <strong>MLS®</strong>、<strong>Multiple Listing Service®</strong> 及相关图标由 CREA 所有,用以标识 CREA 会员所提供的服务质量。本网站在获得授权的前提下使用上述商标。本网站中所有"MLS""realtor""realtors"字样,均指上述注册商标。</p>
+            <p>Peter Law 是在安省房地产管理委员会(RECO)注册的销售代表,隶属于 HomeLife Golconda Realty Inc. 经纪公司。</p>
 
             <h2 id="no-advice">非专业意见</h2>
-            <p>本网站提供关于安省与多伦多房地产市场、政府项目、税收优惠等主题的一般性信息。这些内容<strong>不构成法律、税务、财务、按揭、评估或其他专业意见</strong>。房地产规则、税率与政府项目经常变动 —— 有时在文章发布之后到您阅读之时之间就已发生变化。做出决定之前,请务必向相应的专业人士(房地产律师、税务师、按揭经纪、评估师或相关政府机构)核实最新信息。如需完整说明,请参阅<a href="/chinese/disclaimer">免责声明</a>。</p>
-            <p>阅读本网站或通过本网站与我们联系,并不构成客户关系、代理关系或任何信托义务。客户关系仅在双方签署书面代表协议后才成立。</p>
+            <p>本网站提供关于安省与多伦多房地产市场、政府项目、税收优惠及相关主题的一般性信息。这些内容<strong>不构成法律、税务、财务、按揭、估价或其他专业意见</strong>。房地产规则、税率与政府项目经常变动 —— 有时在文章撰写之后到您阅读之时之间即已发生变化。做出任何决定之前,请务必向相应的专业人士(房地产律师、税务师、按揭经纪、估价师或相关政府机构)核实最新信息。有关如何阅读本网站内容的完整说明,请参阅<a href="/chinese/disclaimer">免责声明</a>。</p>
+            <p>阅读本网站或通过本网站与 Peter 联系,并不构成客户关系、代理关系或任何受信责任。客户关系仅在签署书面代表协议后才成立。若您在未签署此类协议的情况下就某项具体交易与 Peter 互动,TRESA 可能将您视为自我代表方 —— 参见<a href="/chinese/disclaimer#self-represented">免责声明</a>。</p>
 
             <h2 id="services">服务承诺与交付时限</h2>
-            <p>当本网站提及某项服务的交付时限(如"48 小时内交付免费房屋估值""一个工作日内回复"或已预约的通话时间),这些均为我们尽力达成的<em>目标</em>,并非承诺。因不可控因素(系统故障、周末与节假日、咨询量激增,或需向您进一步收集信息)可能出现延迟。</p>
-            <p>由 Peter 提供的比较市场分析(CMA)或"房屋估值"是<strong>基于同类近期成交与市场数据所作的意见</strong>,并非加拿大评估学会《加拿大统一专业评估执业标准》(CUSPAP)或同等标准下的正式评估,不应用于融资、法律或税务等需要正式评估的场合。</p>
+            <p>当本网站提及某项服务的交付时限(例如"48 小时内交付免费房屋估值""一个工作日内回复"或已预约的通话时间),这些均为 Peter 尽力达成的服务<em>目标</em>,并非承诺。因不可控因素(系统故障、周末与节假日、咨询量激增,或需向您进一步收集信息)可能出现延迟。</p>
+            <p>由 Peter 出具的比较市场分析(CMA)或"房屋估值"是<strong>基于当时可得的近期同类成交与市场数据所作的价值意见</strong>,并非加拿大估价师协会《加拿大估价专业实务统一标准》(CUSPAP)或任何同等标准所指的估价,不应用于任何需要正式估价的融资、法律或税务用途。</p>
 
             <h2 id="brokerage">经纪公司与持牌状态</h2>
-            <p>Peter Law 是在 RECO 注册的销售代表,隶属于 HomeLife Golconda Realty Inc. 经纪公司。本网站中任何关于未来持牌状态、教育或职业进阶的表述(如"正在攻读经纪牌照"),表达的是意向,且以本网站最近更新日期为准,不代表当前状态。房地产从业者当前的持牌与注册状态,以 RECO 官方注册人查询为准。</p>
+            <p>Peter Law 是在安省房地产管理委员会(RECO)注册的销售代表,隶属于 HomeLife Golconda Realty Inc., Brokerage。本网站中任何关于未来持牌状态、教育或职业进阶的表述(例如"正在攻读经纪牌照")表达的是意向,并以本网站最近更新日期为准,不代表当前状态。房地产从业者的当前牌照与注册状态,以 RECO 官方注册人查询为权威来源。</p>
+
+            <h2 id="members">会员专区(预留供未来使用)</h2>
+            <p><em>本节为 Peter 正在考虑推出的会员专属投资者门户所预留的占位说明。该功能尚未上线。若日后上线,会员专区的使用将受本条款以及在账户创建时展示的任何额外注册条款共同规范。</em></p>
+            <ul class="bullets">
+              <li><strong>账户创建与安全。</strong>若您注册会员专区账户,您同意提供准确的注册信息、妥善保管凭据,并在发现任何未经授权的账户使用时立即通知 Peter。您对账户名下发生的活动负责。</li>
+              <li><strong>可接受使用。</strong>会员专区仅供已注册账户持有人个人非商业性使用。禁止共享账户凭据、对会员专区进行屏幕抓取或再发布其中的内容。</li>
+              <li><strong>会员专区内容的保密性。</strong>登录后展示的投资者材料、交易管线、估值备忘录及其他内容,均系为已注册账户持有人的决策而保密提供。将该等内容对外披露、转发或复制至账户持有人自身顾问范围以外,须事先获得书面同意。</li>
+              <li><strong>终止。</strong>Peter 可在有或无通知的情况下,因您违反本条款、滥用平台或继续访问与 Peter 在 TRESA 下的专业义务不符而暂停或终止会员专区账户。终止不影响任何已经产生的保密义务。</li>
+              <li><strong>MLS® 衍生数据 —— 特殊规则。</strong>若会员专区在未来展示 MLS® 挂牌数据、成交价格或其他从 TRREB、CREA 或其他房地产协会取得授权的数据,该展示将受 CREA 的 DDF® 与 TRREB 的 VOW 政策下的<strong>虚拟办公室网站(VOW)规则</strong>约束。VOW 规则施加额外要求 —— 包括(但不限于)在账户创建时对 VOW 使用条款的单独接受、针对 FSBO / 独家挂牌的退出机制、对成交数据展示与共享方式的限制、针对公共搜索爬虫的 noindex 指令,以及源协会保留的定期审计权。启用 VOW 的会员专区的落地实施需要记录经纪人批准并另行进行合规工作;本占位说明并不授权任何此类实施。</li>
+            </ul>
 
             <h2 id="third-party">第三方链接与嵌入</h2>
-            <p>本网站链接并嵌入第三方服务与网站(政府页面、行业协会、服务提供商、租客背景核查服务、视频平台、日程组件、新闻邮件平台、新闻来源),仅为方便您查阅。我们不认可、不控制、也不对这些网站与平台的内容、准确性或隐私做法承担责任。您对第三方网站的使用,受该网站自身条款约束。部分情形下,我们可能因将客户转介至第三方服务而收取转介费 —— 详见<a href="/chinese/disclaimer#referrals">免责声明</a>。</p>
+            <p>本网站链接并嵌入第三方服务与网站(政府页面、行业协会、服务提供商、租客背景核查提供商、视频平台、日程组件、新闻通讯平台、新闻来源),仅为方便您查阅。Peter 不控制、不认可、也不对这些网站与平台的内容、准确性或隐私做法承担责任。您对任何第三方网站的使用,受该网站自身条款约束。部分情形下,Peter 可能因将客户转介至第三方服务而收取转介费 —— 详见<a href="/chinese/disclaimer#referrals">免责声明</a>。</p>
 
-            <h2 id="liability">责任限制</h2>
-            <p>本网站及其内容按"现状"与"可用即用"的原则提供,不作任何明示或默示的保证。我们不保证本网站不中断、无错误或无病毒。在法律允许的最大范围内,Peter Law 及 HomeLife Golconda Realty Inc. 对您因使用或无法使用本网站或其内容 —— 包括对本网站信息、计算器结果、市场数据、过往成交引用或第三方链接的依赖 —— 而产生的任何直接、间接、附带、后果性或惩罚性损害不承担责任。</p>
+            <h2 id="liability">责任限制与消费者保护保留条款</h2>
+
+            <p><strong>消费者保护保留条款。</strong>本条款中的任何内容均不排除、限制或修改您依《消费者保护法(2002)》(安大略省)或任何其他不可通过协议合法弃权的加拿大消费者保护立法所享有的权利或救济,包括 —— 在本网站构成"消费者交易"或"网络协议"时 —— 默示保证、法定撤销权,以及该法第 7 条对弃权的禁止。若本条款的任何规定原本会违反上述法规,该规定将在合规所需的范围内被限缩解读,本条款其余部分继续适用。</p>
+
+            <p><strong>本网站按"现状"提供。</strong>在遵循上述保留条款的前提下,本网站及其内容按"现状"与"可用即用"的原则提供,不作任何明示或默示的保证。Peter 不保证本网站不中断、无错误或无病毒。</p>
+
+            <p><strong>对 Peter 责任的限制。</strong>在法律允许的最大范围内并在遵循上述保留条款的前提下,Peter Law 因您使用本网站或其内容而产生的、或与之相关的累计责任 —— 包括对本网站上任何文章、计算器结果、市场数据、过往成交引用或第三方链接的依赖 —— 以 <strong>(a) 500 加元或 (b) 引发索赔事件发生前十二 (12) 个月内您实际向 Peter Law 本人支付的费用,二者中较高者</strong>为上限。Peter 不对间接、附带、后果性、惩戒性或惩罚性损害,或利润损失、数据损失或机会损失负责,即使已被告知此类损害的可能性。本段中的责任上限与责任排除按每一索赔人适用,并对源于同一基础事实的所有索赔合并适用。</p>
+
+            <p><strong>经纪公司不受本条款约束。</strong>本责任限制仅代表以本网站运营者身份出现的 Peter Law 个人,并不试图限制 HomeLife Golconda Realty Inc., Brokerage 的任何责任 —— 参见<a href="#acceptance">接受与适用范围</a>与<a href="#bor-schedule">附录 A</a>。若 Peter 依据已签署的代表协议为您提供代表服务,该协议(以及经纪公司自身的服务约定条款)优先适用,而非本网站条款。</p>
+
+            <p class="legal-note">在加拿大消费者语境下,一个适度且具体的责任上限通常比对责任的一揽子排除更具可执行性。法院经常将过于宽泛的责任排除认定为显失公平、违反法规或违反合理预期 —— 并且经常整条无效,导致网站运营者完全丧失保护。而一个让消费者仍能获得有意义救济的上限往往能通过审查。<strong>[需律师确认]</strong> —— 上述金额与以费用为基础的尾部条款属于起草选择,并非固定规则。</p>
 
             <h2 id="changes">条款变更</h2>
-            <p>我们可能会不时更新本《服务条款》。页面顶部的"最近更新"日期显示最近一次修改的时间。您在变更后继续使用本网站,即视为接受更新后的条款。</p>
+            <p>Peter 可能会不时更新本《服务条款》。页面顶部的"最近更新"日期显示最近一次修改的时间。重大变更将在本网站上以显著方式提示。您在任何变更后继续使用本网站,即视为接受更新后的条款。</p>
 
-            <h2 id="law">适用法律</h2>
-            <p>本条款受安大略省法律及适用于安省的加拿大联邦法律管辖。因本条款或您对本网站的使用所产生的任何争议,均由安省法院处理。</p>
+            <h2 id="law">管辖法律</h2>
+            <p>本条款受安大略省法律及适用于安省的加拿大联邦法律管辖。因本条款或您对本网站的使用所产生的任何争议,均由安省法院处理。本条款中任何内容均不排除消费者在适用情况下依《消费者保护法(2002)》在其所在司法辖区提起诉讼的法定权利。</p>
 
             <h2 id="contact">联系方式</h2>
-            <p>对本《服务条款》有疑问?<a href="/chinese/contact">联系 Peter</a>。</p>
+            <p>对本《服务条款》有疑问?请致信 Peter:<a href="mailto:Admin@RealtorPeterLaw.com">Admin@RealtorPeterLaw.com</a>。电话:647-888-8472。经纪公司:HomeLife Golconda Realty Inc., Brokerage,地址:215 – 3601 HWY 7 East, Markham, ON L3R 0M3。隐私相关问题请联系<a href="/chinese/privacy#contact">Peter</a>。</p>
+
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--rule);">
+
+            <h2 id="bor-schedule">附录 A —— 需记录经纪人批准的条款</h2>
+            <p><em>本附录列出本条款中需在获得 HomeLife Golconda Realty Inc., Brokerage 记录经纪人批准之后,方可对经纪公司产生约束的具体条款。在每一项分别获得记录经纪人书面批准之前,其仅约束 Peter Law 个人。</em></p>
+            <ol class="bullets">
+              <li><strong><a href="#acceptance">接受与适用范围</a> —— 经纪公司层面的接受。</strong>任何试图将本网站条款延伸至经纪公司的做法 —— 例如将"我们"定义为包含 HomeLife Golconda,或由经纪公司将本条款采纳为其面向网站的政策 —— 均需记录经纪人批准。</li>
+              <li><strong><a href="#liability">责任限制</a> —— 经纪公司层面的上限。</strong>本条款中的责任上限仅限制 Peter Law 个人。将其延伸至 HomeLife Golconda(并为经纪公司设定累计上限金额)需记录经纪人批准。</li>
+              <li><strong><a href="#no-advice">非专业意见 / 不构成客户关系</a> —— 经纪公司层面的版本。</strong>本网站中的该条款是 Peter 的个人声明。经纪公司可能有希望网站访客看到的等效条款;在本网站上采用该等语言需记录经纪人签字。</li>
+              <li><strong><a href="#services">CMA / 价值意见范围</a> —— 经纪公司层面的披露。</strong>CMA / CUSPAP 条款描述的是 Peter 交付的内容。若经纪公司希望进行更广泛的经纪公司层面披露(例如涵盖同一经纪公司下其他经纪人出具的 CMA),该等扩展需记录经纪人批准。</li>
+              <li><strong><a href="#members">会员专区 / MLS® 数据展示</a>。</strong>无论本网站条款如何表述,任何 MLS® 衍生会员专区的实际落地均以记录经纪人批准为门槛。TRREB / CREA 的 VOW 政策要求记录经纪人对平台、单个会员使用条款、数据审计程序,以及 FSBO / 独家挂牌退出机制签字批准。</li>
+              <li><strong>对超出 Peter 个人可弃权范围的法定权利的任何弃权。</strong>若本条款某一规定试图限制原本应由经纪公司(而非 Peter 个人)对网站访客或客户承担的权利,则该规定在获得记录经纪人书面批准之前,对经纪公司不产生效力。</li>
+              <li><strong>管辖法律与争议解决条款</strong>在可能适用于经纪公司一方行为的层面。<a href="#law">管辖法律</a>条款约束 Peter。将其适用于经纪公司自身行为需记录经纪人签字。</li>
+            </ol>
+            <p class="legal-note">本附录的存在,是为了让 Peter 能就此清单逐项交由记录经纪人审查 —— 而非默认经纪公司通过沉默采纳整份文件。在某项获得书面批准之前,其不约束 HomeLife Golconda。</p>
           </div>
         </div>
       </div>
