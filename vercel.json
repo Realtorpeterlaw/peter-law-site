@@ -43,5 +43,242 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/downtown-toronto-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/east-york-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/king-west-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/leslieville-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/liberty-village-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/markham-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/north-york-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/waterfront-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/yonge-eglinton-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/yorkville-rental-realtor",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/affordability-calculator",
+      "destination": "/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/affordability-calculator",
+      "destination": "/chinese/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/french/affordability-calculator",
+      "destination": "/french/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/about-me",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/aboutme",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/homepage",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/main",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage-calculator",
+      "destination": "/payment-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage",
+      "destination": "/payment-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/calculator",
+      "destination": "/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/calculators",
+      "destination": "/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/reviews",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/listings",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/properties",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/homes-for-sale",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/rental-application",
+      "destination": "/apply",
+      "permanent": true
+    },
+    {
+      "source": "/rental-tours",
+      "destination": "/rental-tour",
+      "permanent": true
+    },
+    {
+      "source": "/tours",
+      "destination": "/rental-tour",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/english",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/cn",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/fr",
+      "destination": "/french",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/apply.html",
+      "destination": "/apply",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/rss",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/feed.xml",
+      "destination": "/blog",
+      "permanent": true
+    }
   ]
 }
