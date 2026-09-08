@@ -1,0 +1,541 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rent-vs-buy-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rent-vs-buy-calculator/' },
+];
+---
+<BaseLayout
+  title="Rent vs Buy Calculator | Peter Law"
+  description="Should you rent or buy in Toronto? Compare total monthly payments, long-term equity, home appreciation, and cost of renting over your holding period."
+  bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Rent vs Buy calculator</div>
+      <h1>Rent or buy? See the numbers side-by-side.</h1>
+      <p>Enter your buying and renting scenario. This tool compares the total cost of renting versus owning over your expected holding period, then shows the long-term equity you'd build as an owner.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 32px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Buyer resources</h4>
+          <ul>
+            <li><a href="/buyer-guide">Buyer Guide</a></li>
+            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
+            <li><a href="/closing-costs">Closing Costs</a></li>
+            <li><a href="/all-calculator">★ BUY Calculator</a></li>
+            <li><a href="/payment-calculator">Mortgage Calculator</a></li>
+            <li><a href="/cmhc-insurance-calculator">CMHC Insurance Calculator</a></li>
+            <li><a href="/rent-vs-buy-calculator"><strong>Rent vs Buy Calculator</strong></a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="calc rvb-calc">
+            <div class="rvb-columns">
+              <div class="rvb-col">
+                <div class="rvb-col-title">If Buying</div>
+                <div class="rvb-field">
+                  <label for="rvb-price">Purchase Price of Home</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-price" type="number" value="750000" min="0" step="5000" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-down">Downpayment</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-down" type="number" value="75000" min="0" step="1000" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-amort">Amortization Period</label>
+                  <div class="input-suffix" data-suffix="years"><input id="rvb-amort" type="number" value="25" min="1" max="30" step="1" inputmode="numeric"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-rate">Interest Rate</label>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-rate" type="number" value="4.5" min="0" max="25" step="0.01" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-cmhc">CMHC Rate <span class="hint">(auto — from LTV)</span></label>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-cmhc" type="number" value="0.00" step="0.01" inputmode="decimal" readonly></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-closing">Buying Closing Cost</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-closing" type="number" value="15000" min="0" step="500" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-maint">Monthly Maintenance / Condo Fees</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-maint" type="number" value="500" min="0" step="25" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-tax">Annual Property Taxes</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-tax" type="number" value="4000" min="0" step="100" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-hoi">Annual Homeowners Insurance</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-hoi" type="number" value="1200" min="0" step="50" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-appr">Home Appreciation Rate</label>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-appr" type="number" value="3" step="0.1" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-years">Years Before Selling</label>
+                  <div class="input-suffix" data-suffix="years"><input id="rvb-years" type="number" value="5" min="1" max="40" step="1" inputmode="numeric"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-sellcost">Selling Costs (as % of price)</label>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-sellcost" type="number" value="5" min="0" max="20" step="0.1" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-infl">Inflation Rate</label>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-infl" type="number" value="2" step="0.1" inputmode="decimal"></div>
+                </div>
+              </div>
+
+              <div class="rvb-col">
+                <div class="rvb-col-title">If Renting</div>
+                <div class="rvb-field">
+                  <label for="rvb-rent">Monthly Rent</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-rent" type="number" value="2500" min="0" step="50" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-content-ins">Monthly Contents Insurance</label>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-content-ins" type="number" value="25" min="0" step="5" inputmode="decimal"></div>
+                </div>
+                <div class="rvb-field">
+                  <label for="rvb-rentinc">Annual Rent Increase (by percentage)</label>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-rentinc" type="number" value="3" step="0.1" inputmode="decimal"></div>
+                </div>
+
+                <div class="rvb-side-note">
+                  <p><strong>Note on Ontario rent increases:</strong> most units built before Nov 15, 2018 are rent-controlled and capped at the annual guideline (1.7% for 2024, 2.5% for 2025). Newer buildings can raise rent at market on lease renewal. Set this input to match your actual situation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rvb-actions">
+              <button type="button" id="rvb-submit" class="btn-primary">Calculate</button>
+              <button type="button" id="rvb-reset" class="btn-secondary">Reset</button>
+            </div>
+          </div>
+
+          <div class="rvb-result-wrap">
+            <h3 class="rvb-result-title">Result:</h3>
+
+            <div class="rvb-scroll">
+            <table class="rvb-table">
+              <thead>
+                <tr>
+                  <th class="rvb-th-left">Rent vs. Buying Comparison <span class="rvb-years-note">(over <span id="rvb-yrs-out">5</span> years)</span></th>
+                  <th>If Buying</th>
+                  <th>If Renting</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Monthly Payment</td><td id="rvb-r-buy-monthly">$0</td><td id="rvb-r-rent-monthly">$0</td></tr>
+                <tr><td>Insurance / Taxes / Maintenance <span class="rvb-td-note">(avg monthly)</span></td><td id="rvb-r-buy-tmi">$0</td><td id="rvb-r-rent-tmi">$0</td></tr>
+                <tr><td><strong>Total Monthly Payment</strong></td><td id="rvb-r-buy-total-monthly"><strong>$0</strong></td><td id="rvb-r-rent-total-monthly"><strong>$0</strong></td></tr>
+                <tr><td>Total Payments Over <span class="rvb-yrs-inline">5</span> Years</td><td id="rvb-r-buy-total-out">$0</td><td id="rvb-r-rent-total-out">$0</td></tr>
+                <tr><td>Total Mortgage Principal Paid</td><td id="rvb-r-buy-principal">$0</td><td class="rvb-td-empty">—</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div class="rvb-scroll" style="margin-top:18px;">
+            <table class="rvb-table rvb-table-benefits">
+              <thead>
+                <tr>
+                  <th class="rvb-th-left">Long-Term Benefits of Home Ownership</th>
+                  <th colspan="2">If Buying</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Home Value at Expected Selling Date</td><td colspan="2" id="rvb-b-home-value">$0</td></tr>
+                <tr><td>Less Down Payment</td><td colspan="2" id="rvb-b-down">$0</td></tr>
+                <tr><td>Less Loan Balance</td><td colspan="2" id="rvb-b-loan">$0</td></tr>
+                <tr><td>Less Buying &amp; Selling Costs</td><td colspan="2" id="rvb-b-costs">$0</td></tr>
+                <tr><td><strong>Total Home Gain</strong> <span class="rvb-td-note">(net equity you'd walk away with)</span></td><td colspan="2" id="rvb-b-gain"><strong>$0</strong></td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Enter your numbers and press Calculate.</div>
+          </div>
+
+          <p class="calc-disclaimer">
+            <strong>Disclaimer.</strong> This calculator is for illustration only. It uses Canadian mortgage math (interest compounded semi-annually, converted to a monthly effective rate) and standard amortization. The CMHC rate is auto-derived from your loan-to-value using CMHC's December 15, 2024 schedule; Ontario 8% PST on the CMHC premium is paid at closing and is not modeled here. Home appreciation, inflation, and rent-increase assumptions are inputs — actual outcomes vary. Property tax and insurance are assumed to grow at the inflation rate you enter. Selling costs are estimated as a flat percentage of the sale price and typically cover real estate commission (with HST), legal fees, and adjustments. This tool does not model income tax, mortgage penalties for breaking a term, HELOC borrowing, or the opportunity cost of investing your down payment differently. I am a licensed real estate Sales Representative — not a mortgage broker, financial planner, tax advisor, or investment advisor. For a decision this large, please consult qualified professionals in each of those fields.
+          </p>
+
+          <h2 style="margin-top:48px;">How the numbers work</h2>
+          <ul class="bullets">
+            <li><strong>Mortgage payment:</strong> principal + interest only, using Canada's convention of interest compounded semi-annually not in advance. Property tax, insurance, and maintenance are shown separately.</li>
+            <li><strong>Total Monthly Payment (Buying):</strong> mortgage payment plus the monthly share of property tax, homeowners insurance, and maintenance/condo fees.</li>
+            <li><strong>Total Monthly Payment (Renting):</strong> monthly rent plus monthly contents insurance.</li>
+            <li><strong>Total Payments Over N Years:</strong> for buying, mortgage + all TMI paid during your holding period (TMI grown by inflation). For renting, rent + contents insurance, both compounded annually by their respective inputs.</li>
+            <li><strong>Home Value at Selling:</strong> purchase price × (1 + appreciation)<sup>years</sup>.</li>
+            <li><strong>Total Home Gain:</strong> Home Value − Down Payment − Remaining Loan Balance − Buying Closing Cost − Selling Costs. This is the equity you keep if you sell at year N.</li>
+          </ul>
+
+          <h2 style="margin-top:40px;">Tips &amp; advice — for renters</h2>
+          <ul class="bullets">
+            <li><strong>Renting is not "throwing money away."</strong> You're buying flexibility, mobility, and freedom from repair costs. That has real value — put a number on it before you compare.</li>
+            <li><strong>Know your rent-control status.</strong> In Ontario, units in buildings first occupied for residential purposes before Nov 15, 2018 are covered by the annual guideline. Newer buildings can be raised to market on lease renewal. Ask before you sign.</li>
+            <li><strong>Contents insurance is cheap.</strong> Tenant policies typically run $20–$40/month and cover your belongings, liability, and additional living expenses if the unit is uninhabitable.</li>
+            <li><strong>Budget for the invisible costs of buying.</strong> Land transfer tax, legal fees, home inspection, moving, and the first year of repairs are real. See my <a href="/closing-costs">Closing Costs</a> page and <a href="/land-transfer-tax">Land Transfer Tax</a> calculator.</li>
+            <li><strong>Don't just compare monthly payments — compare 5-year outcomes.</strong> Buying looks expensive month one and cheap year ten. Use the "Years Before Selling" input to test both.</li>
+            <li><strong>Stress-test the interest rate.</strong> If today's rate is 4.5% and your renewal in 5 years is 6%, does the math still work? Bump the rate up in the calculator and see.</li>
+            <li><strong>Investing your down payment matters.</strong> If you keep renting, invest the down payment amount. This tool does not model that — for a fuller picture, ask a financial planner to run buy-vs-invest.</li>
+            <li><strong>Have at least 5% liquid on top of closing costs.</strong> Furniture, appliances, moving, first-month utilities and small repairs add up fast in year one.</li>
+            <li><strong>If you are staying under 3 years, renting usually wins.</strong> Transaction costs (LTT going in, commission going out) rarely earn back in that timeframe unless the market runs hard.</li>
+            <li><strong>Talk to a mortgage broker before you commit.</strong> Pre-approval is free and tells you what a lender will actually give you — not what a calculator says you can afford.</li>
+          </ul>
+
+          <p class="legal-note" style="margin-top:24px;">This page is educational. Numbers change with rates, market conditions, insurance rules, and your personal financial picture. For a definitive plan, work with a mortgage broker, an accountant, and a financial planner alongside your realtor.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Want to run these numbers on a real listing?" lead="Numbers in a vacuum don't help. Let's look at real Toronto properties in your range and run rent vs buy on each one — with your actual down payment, rate, and holding period. One call, no pressure." />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .rvb-calc { padding: 24px; }
+  .rvb-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 720px) { .rvb-columns { grid-template-columns: 1fr; gap: 24px; } }
+
+  .rvb-col-title {
+    text-align: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: 0.01em;
+  }
+
+  .rvb-field {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 540px) { .rvb-field { grid-template-columns: 1fr; gap: 4px; } }
+  .rvb-field label {
+    font-size: 13px;
+    color: var(--ink);
+    text-align: right;
+    line-height: 1.35;
+  }
+  @media (max-width: 540px) { .rvb-field label { text-align: left; font-weight: 600; } }
+  .rvb-field .hint { font-weight: 400; color: var(--ink-mute); font-size: 11px; display: block; }
+
+  .rvb-field input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--ink);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .rvb-field input[readonly] { background: var(--bg-warm); color: var(--ink-soft); cursor: not-allowed; }
+
+  .input-prefix, .input-suffix { position: relative; display: block; }
+  .input-prefix input { padding-left: 28px; }
+  .input-suffix input { padding-right: 52px; }
+  .input-prefix::before {
+    content: attr(data-prefix);
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--ink-mute); font-size: 13px; pointer-events: none;
+  }
+  .input-suffix::after {
+    content: attr(data-suffix);
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--ink-mute); font-size: 12px; pointer-events: none;
+  }
+
+  .rvb-side-note {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+  }
+  .rvb-side-note p { margin: 0; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+  .rvb-actions {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .rvb-actions .btn-primary,
+  .rvb-actions .btn-secondary {
+    display: inline-block;
+    padding: 10px 24px;
+    margin: 0 6px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+  }
+  .rvb-actions .btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .rvb-actions .btn-primary:hover { opacity: 0.85; }
+  .rvb-actions .btn-secondary { background: transparent; color: var(--ink); border-color: var(--rule); }
+  .rvb-actions .btn-secondary:hover { background: var(--bg-warm); }
+
+  .rvb-result-wrap { margin-top: 40px; }
+  .rvb-result-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+    color: var(--ink);
+  }
+
+  .rvb-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .rvb-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .rvb-table thead th {
+    background: #cfe0e5;
+    color: #143740;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 700;
+  }
+  .rvb-table thead th.rvb-th-left { font-weight: 700; }
+  .rvb-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    background: var(--bg);
+  }
+  .rvb-table tbody tr:nth-child(even) td { background: var(--bg-warm); }
+  .rvb-table tbody td:nth-child(2),
+  .rvb-table tbody td:nth-child(3) {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .rvb-td-note { font-weight: 400; color: var(--ink-mute); font-size: 12px; }
+  .rvb-td-empty { color: var(--ink-mute); font-family: inherit !important; font-weight: 400 !important; }
+  .rvb-years-note { font-weight: 400; color: var(--ink-mute); font-size: 12px; text-transform: none; letter-spacing: 0; }
+
+  .rvb-verdict {
+    margin-top: 22px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid transparent;
+  }
+  .rvb-verdict-neutral { background: var(--bg-warm); border-color: var(--rule); color: var(--ink-soft); }
+  .rvb-verdict-buy { background: #f0f6f0; border-color: #cfe0cf; color: #1a5b28; }
+  .rvb-verdict-rent { background: #fbf6ea; border-color: #efdfad; color: #7a5a10; }
+
+  /* Dark-mode polish for the RVB table + verdict panels */
+  html[data-theme="dark"] .rvb-table thead th { background: #2a3a3d; color: #d9eef4; }
+  html[data-theme="dark"] .rvb-verdict-buy { background: #12331b; border-color: #245a30; color: #a8dcb4; }
+  html[data-theme="dark"] .rvb-verdict-rent { background: #2a2410; border-color: #6b551f; color: #f0d494; }
+</style>
+
+<script>
+  (function() {
+    const $ = (id) => document.getElementById(id);
+    const ids = ['price','down','amort','rate','cmhc','closing','maint','tax','hoi','appr','years','sellcost','infl','rent','content-ins','rentinc'];
+    const el = {};
+    ids.forEach(k => el[k] = $('rvb-' + k));
+
+    const btnSubmit = $('rvb-submit');
+    const btnReset = $('rvb-reset');
+    const verdictEl = $('rvb-verdict');
+
+    const DEFAULTS = {
+      price: 750000, down: 75000, amort: 25, rate: 4.5,
+      closing: 15000, maint: 500, tax: 4000, hoi: 1200,
+      appr: 3, years: 5, sellcost: 5, infl: 2,
+      rent: 2500, 'content-ins': 25, rentinc: 3,
+    };
+
+    function num(k) { return parseFloat(el[k].value) || 0; }
+    function fmt$(n) {
+      if (!isFinite(n)) return '—';
+      const sign = n < 0 ? '-' : '';
+      return sign + '$' + Math.round(Math.abs(n)).toLocaleString('en-CA');
+    }
+
+    // CMHC premium rate from LTV (Dec 15, 2024 schedule)
+    function cmhcRate(ltv) {
+      if (ltv <= 0.80) return 0;
+      if (ltv <= 0.85) return 0.0280;
+      if (ltv <= 0.90) return 0.0310;
+      if (ltv <= 0.95) return 0.0400;
+      return 0; // above 95% LTV is not insurable
+    }
+
+    // Canadian mortgage: nominal annual rate compounded semi-annually.
+    // Effective monthly rate = (1 + nominal/2)^(1/6) - 1
+    function monthlyRateCA(annualPct) {
+      const r = (annualPct || 0) / 100;
+      return Math.pow(1 + r / 2, 1 / 6) - 1;
+    }
+
+    // Standard mortgage payment formula
+    function mortgagePayment(principal, monthlyRate, nMonths) {
+      if (principal <= 0 || nMonths <= 0) return 0;
+      if (monthlyRate === 0) return principal / nMonths;
+      const pow = Math.pow(1 + monthlyRate, nMonths);
+      return principal * (monthlyRate * pow) / (pow - 1);
+    }
+
+    // Remaining balance after k monthly payments
+    function balanceAfter(principal, monthlyRate, payment, kMonths) {
+      if (monthlyRate === 0) return Math.max(0, principal - payment * kMonths);
+      const pow = Math.pow(1 + monthlyRate, kMonths);
+      return principal * pow - payment * (pow - 1) / monthlyRate;
+    }
+
+    function calc() {
+      const price = num('price');
+      const down = num('down');
+      const amort = Math.max(1, num('amort'));
+      const rateAnnual = num('rate');
+      const closing = num('closing');
+      const maint = num('maint');
+      const tax = num('tax');
+      const hoi = num('hoi');
+      const apprPct = num('appr') / 100;
+      const years = Math.max(1, num('years'));
+      const sellPct = num('sellcost') / 100;
+      const inflPct = num('infl') / 100;
+      const rent = num('rent');
+      const contentIns = num('content-ins');
+      const rentIncPct = num('rentinc') / 100;
+
+      // CMHC auto-calc from LTV
+      const baseLoan = Math.max(0, price - down);
+      const ltv = price > 0 ? baseLoan / price : 0;
+      const cRate = cmhcRate(ltv);
+      el.cmhc.value = (cRate * 100).toFixed(2);
+
+      const premium = baseLoan * cRate;
+      const principal = baseLoan + premium;
+      const mRate = monthlyRateCA(rateAnnual);
+      const nMonthsTotal = amort * 12;
+      const monthlyMortgage = mortgagePayment(principal, mRate, nMonthsTotal);
+
+      // TMI monthly (year 1)
+      const monthlyTMI = (tax + hoi) / 12 + maint;
+
+      // Aggregate over holding period, applying inflation to TMI year by year
+      let totalMortgage = 0;
+      let totalTMI = 0;
+      const monthsHeld = Math.min(nMonthsTotal, years * 12);
+
+      // Mortgage payments (constant per month once set)
+      totalMortgage = monthlyMortgage * monthsHeld;
+
+      // TMI grows annually with inflation
+      for (let y = 0; y < years; y++) {
+        const infFactor = Math.pow(1 + inflPct, y);
+        const yearlyMaint = maint * 12 * infFactor;
+        const yearlyTax = tax * infFactor;
+        const yearlyHOI = hoi * infFactor;
+        totalTMI += yearlyMaint + yearlyTax + yearlyHOI;
+      }
+
+      // Rent: compounds annually
+      let totalRent = 0;
+      let totalContentIns = 0;
+      for (let y = 0; y < years; y++) {
+        const rentFactor = Math.pow(1 + rentIncPct, y);
+        totalRent += rent * 12 * rentFactor;
+        const infFactor = Math.pow(1 + inflPct, y);
+        totalContentIns += contentIns * 12 * infFactor;
+      }
+
+      // Loan balance at year N
+      const loanBalance = balanceAfter(principal, mRate, monthlyMortgage, monthsHeld);
+      const principalPaid = principal - loanBalance;
+
+      // Home value at year N + selling costs
+      const homeValue = price * Math.pow(1 + apprPct, years);
+      const sellingCost = homeValue * sellPct;
+      const totalHomeGain = homeValue - down - loanBalance - closing - sellingCost;
+
+      // Fill "Comparison" table
+      $('rvb-yrs-out').textContent = years;
+      document.querySelectorAll('.rvb-yrs-inline').forEach(n => n.textContent = years);
+      $('rvb-r-buy-monthly').textContent = fmt$(monthlyMortgage);
+      $('rvb-r-rent-monthly').textContent = fmt$(rent);
+      $('rvb-r-buy-tmi').textContent = fmt$(monthlyTMI);
+      $('rvb-r-rent-tmi').textContent = fmt$(contentIns);
+      $('rvb-r-buy-total-monthly').innerHTML = '<strong>' + fmt$(monthlyMortgage + monthlyTMI) + '</strong>';
+      $('rvb-r-rent-total-monthly').innerHTML = '<strong>' + fmt$(rent + contentIns) + '</strong>';
+      $('rvb-r-buy-total-out').textContent = fmt$(totalMortgage + totalTMI);
+      $('rvb-r-rent-total-out').textContent = fmt$(totalRent + totalContentIns);
+      $('rvb-r-buy-principal').textContent = fmt$(principalPaid);
+
+      // Fill "Long-Term Benefits" table
+      $('rvb-b-home-value').textContent = fmt$(homeValue);
+      $('rvb-b-down').textContent = fmt$(down);
+      $('rvb-b-loan').textContent = fmt$(loanBalance);
+      $('rvb-b-costs').textContent = fmt$(closing + sellingCost);
+      $('rvb-b-gain').innerHTML = '<strong>' + fmt$(totalHomeGain) + '</strong>';
+
+      // Verdict: compare net position of buying vs renting over the holding period.
+      // Buy "net cost" = total cash out (mortgage + TMI + closing + selling costs) - equity gained (home value - loan balance)
+      // Rent "net cost" = total cash out (rent + contents insurance) + opportunity cost of down payment (rough — not modeled here)
+      const buyNetCost = totalMortgage + totalTMI + closing + sellingCost - (homeValue - loanBalance);
+      const rentNetCost = totalRent + totalContentIns;
+      const diff = rentNetCost - buyNetCost; // positive = buying wins
+
+      verdictEl.classList.remove('rvb-verdict-neutral','rvb-verdict-buy','rvb-verdict-rent');
+      if (Math.abs(diff) < 1000) {
+        verdictEl.classList.add('rvb-verdict-neutral');
+        verdictEl.textContent = 'Over ' + years + ' years, buying and renting are roughly a wash in this scenario. Non-financial factors (flexibility vs stability) should decide it.';
+      } else if (diff > 0) {
+        verdictEl.classList.add('rvb-verdict-buy');
+        verdictEl.textContent = 'Over ' + years + ' years, buying comes out ahead by roughly ' + fmt$(diff) + ' — before accounting for the opportunity cost of your down payment. Talk to a mortgage broker to confirm pre-approval before you shop.';
+      } else {
+        verdictEl.classList.add('rvb-verdict-rent');
+        verdictEl.textContent = 'Over ' + years + ' years, renting comes out ahead by roughly ' + fmt$(-diff) + ' in pure cash terms. That does NOT include the long-term equity you would build past this holding period. Extend "Years Before Selling" and recalculate.';
+      }
+    }
+
+    btnSubmit.addEventListener('click', calc);
+    btnReset.addEventListener('click', function() {
+      Object.keys(DEFAULTS).forEach(k => { if (el[k]) el[k].value = DEFAULTS[k]; });
+      calc();
+    });
+
+    // Auto-recalc as user tweaks any input
+    ids.forEach(k => { if (el[k]) el[k].addEventListener('input', calc); });
+
+    calc();
+  })();
+</script>
