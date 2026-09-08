@@ -1692,12 +1692,12 @@ details summary:focus-visible {
 
 
 /* ============================================================
-   DARK MODE — respects OS-level prefers-color-scheme: dark
-   Preserves the quiet-luxury feel: warm-black background, cream ink,
-   accent gold shifts warmer. All contrast pairs verified AA+.
+   DARK MODE — activated by html[data-theme="dark"], toggled via
+   the sun/moon button in the topbar. Saved in localStorage.
+   Same palette as the previous auto-mode; no OS-following.
    ============================================================ */
-@media (prefers-color-scheme: dark) {
-  :root {
+html[data-theme="dark"] {
+
     --bg:        #0f0e0c;   /* warm near-black */
     --bg-warm:   #17150f;   /* slightly warmer surface */
     --surface:   #1c1a15;   /* card/callout background */
@@ -1712,7 +1712,9 @@ details summary:focus-visible {
     --text-secondary: #c5c0b6;
     --text-mute:      #948e82;
     --border:         #2f2c26;
-  }
+}
+
+  
 
   /* Body-level surfaces already use --bg via existing rules */
 
@@ -1733,8 +1735,8 @@ details summary:focus-visible {
 
   /* Verdict tiles — flip accent brightness */
   .ac-verdict-green  { background: #142013; border-color: #2a4a2a; }
-  .ac-verdict-yellow { background: #241f10; border-color: #4a3f18; }
-  .ac-verdict-red    { background: #2a1613; border-color: #4a2018; }
+  html[data-theme="dark"] .ac-verdict-yellow{ background: #241f10; border-color: #4a3f18; }
+  html[data-theme="dark"] .ac-verdict-red{ background: #2a1613; border-color: #4a2018; }
 
   /* Sticky header on dark: use --bg */
   body > header { background: var(--bg); border-bottom-color: var(--rule); }
@@ -1744,7 +1746,7 @@ details summary:focus-visible {
 
   /* Blog cards + tour cards */
   .blog-card, .tour-card, .sale-card, .deals-carousel { background: var(--surface); border-color: var(--rule); }
-  .blog-card-icon { background: var(--bg-warm); }
+  html[data-theme="dark"] .blog-card-icon{ background: var(--bg-warm); }
 
   /* Newsletter form + inputs — inverted */
   input, textarea, select {
@@ -1752,25 +1754,26 @@ details summary:focus-visible {
     color: var(--ink) !important;
     border-color: var(--rule) !important;
   }
-  input::placeholder, textarea::placeholder { color: var(--ink-mute); }
+  html[data-theme="dark"] input::placeholder,
+  html[data-theme="dark"] textarea::placeholder{ color: var(--ink-mute); }
 
   /* Buttons: primary stays cream-on-dark (invert of light mode's dark-on-cream) */
   .btn-primary { background: var(--ink); color: var(--bg); }
-  .btn-primary:hover { background: #ffffff; }
+  html[data-theme="dark"] .btn-primary:hover{ background: #ffffff; }
 
   /* Dropdown menu on dark */
   .dropdown-menu { background: var(--surface); border-color: var(--rule); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
-  .dropdown-menu a:hover { background: var(--bg-warm); }
+  html[data-theme="dark"] .dropdown-menu a:hover{ background: var(--bg-warm); }
 
   /* Mobile menu */
   .mobile-menu { background: var(--bg); }
 
   /* CTA section (dark band) — bump surface slightly to keep contrast */
   .cta-section { background: #060505; }
-  .cta-box     { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10); }
-  .cta-box .btn-primary { background: var(--bg); color: var(--ink); }
-  .cta-box .btn-primary:hover { background: #ffffff; }
-}
+  html[data-theme="dark"] .cta-box{ background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10); }
+  html[data-theme="dark"] .cta-box .btn-primary{ background: var(--bg); color: var(--ink); }
+  html[data-theme="dark"] .cta-box .btn-primary:hover{ background: #ffffff; }
+
 
 
 /* ============================================================
@@ -1853,3 +1856,27 @@ details summary:focus-visible {
     padding-bottom: 4pt; margin-bottom: 12pt;
   }
 }
+
+
+/* ============================================================
+   THEME TOGGLE — small sun/moon icon button in the topbar
+   ============================================================ */
+.theme-toggle {
+  background: transparent;
+  border: 0;
+  padding: 4px 6px;
+  margin: 0;
+  cursor: pointer;
+  color: #d4cfc4;                    /* topbar text default */
+  display: inline-flex;
+  align-items: center;
+  border-radius: 3px;
+  transition: color 0.15s, background 0.15s;
+}
+.theme-toggle:hover { color: #ffffff; background: rgba(255,255,255,0.06); }
+.theme-toggle:focus-visible { outline: 2px solid #d9a978; outline-offset: 2px; }
+.theme-toggle .theme-icon-moon { display: none; }
+.theme-toggle .theme-icon-sun  { display: inline-block; }
+/* When dark mode is active, show sun icon meaning "switch to light" */
+html[data-theme="dark"] .theme-toggle .theme-icon-sun  { display: none; }
+html[data-theme="dark"] .theme-toggle .theme-icon-moon { display: inline-block; }

@@ -63,12 +63,25 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script is:inline>
+    /* Restore saved theme choice BEFORE first paint — prevents dark-mode flash.
+       If no saved choice, default = light (site's original palette). */
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          var m = document.getElementById('theme-color-meta');
+          if (m) m.setAttribute('content', '#0f0e0c');
+        }
+      } catch (_) { /* localStorage blocked — silently keep light */ }
+    })();
+  </script>
   <!-- Mobile safety: prevent iOS from auto-linking arbitrary numbers/addresses/dates
        (Peter has actual tel: links for the real phone; iOS would otherwise wrap any
        10-digit sequence in tel:, creating spoofable "tap to call" targets). -->
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-  <meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f4f0" id="theme-color-meta" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -229,6 +242,62 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
             });
           });
           calcOutputs.forEach(function (n) { obs.observe(n, { childList: true, characterData: true, subtree: true }); });
+        }
+      });
+    })();
+  </script>
+  <script is:inline>
+    /* Theme toggle: switch dark ↔ light, persist in localStorage,
+       and keep the theme-color meta in sync so mobile browser chrome updates. */
+    (function () {
+      function ready(fn) {
+        if (document.readyState !== 'loading') fn();
+        else document.addEventListener('DOMContentLoaded', fn);
+      }
+      function apply(theme) {
+        if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        else document.documentElement.removeAttribute('data-theme');
+        var m = document.getElementById('theme-color-meta');
+        if (m) m.setAttribute('content', theme === 'dark' ? '#0f0e0c' : '#f6f4f0');
+        try { localStorage.setItem('theme', theme); } catch (_) {}
+        // Update all aria-labels on the toggle buttons
+        var next = theme === 'dark' ? 'light' : 'dark';
+        document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+          var langLabels = {
+            light: btn.closest('.topbar') && btn.closest('.topbar').textContent.indexOf('中文') === -1 && btn.closest('.topbar').textContent.indexOf('EN') === -1
+              ? { light: 'Switch to light mode', dark: 'Switch to dark mode' }
+              : { light: 'Switch to light mode', dark: 'Switch to dark mode' }
+          };
+          // Simpler: language-agnostic swap based on current text
+          var currentLabel = btn.getAttribute('aria-label') || '';
+          if (currentLabel.indexOf('dark') >= 0 || currentLabel.indexOf('sombre') >= 0 || currentLabel.indexOf('深色') >= 0) {
+            // Currently offering dark → now should offer light
+            if (currentLabel.indexOf('dark') >= 0) btn.setAttribute('aria-label', 'Switch to light mode');
+            else if (currentLabel.indexOf('sombre') >= 0) btn.setAttribute('aria-label', 'Basculer en mode clair');
+            else btn.setAttribute('aria-label', '切换浅色模式');
+          } else {
+            if (currentLabel.indexOf('light') >= 0) btn.setAttribute('aria-label', 'Switch to dark mode');
+            else if (currentLabel.indexOf('clair') >= 0) btn.setAttribute('aria-label', 'Basculer en mode sombre');
+            else btn.setAttribute('aria-label', '切换深色模式');
+          }
+        });
+      }
+      ready(function () {
+        document.addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-theme-toggle]');
+          if (!btn) return;
+          var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          apply(current === 'dark' ? 'light' : 'dark');
+        });
+        // Sync toggle aria-label to current state on load
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        if (current === 'dark') {
+          document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+            var current = btn.getAttribute('aria-label') || '';
+            if (current.indexOf('dark') >= 0) btn.setAttribute('aria-label', 'Switch to light mode');
+            else if (current.indexOf('sombre') >= 0) btn.setAttribute('aria-label', 'Basculer en mode clair');
+            else if (current.indexOf('深色') >= 0) btn.setAttribute('aria-label', '切换浅色模式');
+          });
         }
       });
     })();
