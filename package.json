@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/vercel": "^11.0.5",
+    "@astrojs/vercel": "^11.0.10",
     "@vercel/analytics": "^2.0.1",
     "astro": "^7.2.2"
   },
@@ -29,5 +29,8 @@
     "@playwright/test": "^1.62.1",
     "http-server": "^14.1.1",
     "purgecss": "^8.0.0"
+  },
+  "overrides": {
+    "path-to-regexp": "^6.3.0"
   }
 }
