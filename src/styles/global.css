@@ -710,9 +710,29 @@ a.airbnb-card:hover .airbnb-name { text-decoration: underline; text-decoration-t
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.2s ease;
 }
+/* When the mobile menu is open, put emphasis on the close (X) icon:
+   translucent red circle + thicker + brighter red bars. Signals
+   "tap here to close" clearly against the dark drawer. */
+body.mobile-menu-open .mobile-menu-toggle {
+  background: rgba(184, 0, 46, 0.18);
+  border: 1.5px solid rgba(184, 0, 46, 0.55);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(184, 0, 46, 0.30);
+}
+body.mobile-menu-open .mobile-menu-toggle span {
+  background: #ff3b5c;
+  height: 2.6px;
+  width: 24px;
+  box-shadow: 0 0 4px rgba(255, 59, 92, 0.60);
+}
 body.mobile-menu-open .mobile-menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 body.mobile-menu-open .mobile-menu-toggle span:nth-child(2) { opacity: 0; }
 body.mobile-menu-open .mobile-menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* Match update in dark mode — inherit the red X from the light-mode rules
+   above (which already override --ink). No separate override needed. */
+html[data-theme="dark"] body.mobile-menu-open .mobile-menu-toggle span {
+  background: #ff3b5c;
+}
 
 .mobile-menu {
   position: fixed;
