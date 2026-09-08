@@ -1858,25 +1858,67 @@ html[data-theme="dark"] {
 }
 
 
+
+
 /* ============================================================
-   THEME TOGGLE — small sun/moon icon button in the topbar
+   THEME TOGGLE — pill-style slider (topbar-right)
+   Reference: rounded pill with sun on left, moon on right, cream
+   thumb that slides between them. Sits in the dark topbar band.
    ============================================================ */
 .theme-toggle {
-  background: transparent;
-  border: 0;
-  padding: 4px 6px;
-  margin: 0;
-  cursor: pointer;
-  color: #d4cfc4;                    /* topbar text default */
+  position: relative;
   display: inline-flex;
   align-items: center;
-  border-radius: 3px;
-  transition: color 0.15s, background 0.15s;
+  width: 52px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  margin-left: 2px;
 }
-.theme-toggle:hover { color: #ffffff; background: rgba(255,255,255,0.06); }
+.theme-toggle:hover  { background: rgba(255, 255, 255, 0.20); border-color: rgba(255, 255, 255, 0.25); }
 .theme-toggle:focus-visible { outline: 2px solid #d9a978; outline-offset: 2px; }
-.theme-toggle .theme-icon-moon { display: none; }
-.theme-toggle .theme-icon-sun  { display: inline-block; }
-/* When dark mode is active, show sun icon meaning "switch to light" */
-html[data-theme="dark"] .theme-toggle .theme-icon-sun  { display: none; }
-html[data-theme="dark"] .theme-toggle .theme-icon-moon { display: inline-block; }
+.theme-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f4f0e8;
+  opacity: 0.75;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.theme-toggle-icon-sun  { left: 6px; }
+.theme-toggle-icon-moon { right: 6px; }
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f4f0e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45), 0 1px 1px rgba(0, 0, 0, 0.25);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
+  pointer-events: none;
+}
+
+/* Dark mode: thumb slides to the right; icons flip emphasis */
+html[data-theme="dark"] .theme-toggle-thumb { transform: translate(26px, -50%); }
+html[data-theme="dark"] .theme-toggle-icon-sun  { opacity: 1; }
+html[data-theme="dark"] .theme-toggle-icon-moon { opacity: 0.35; }
+/* Light mode: moon is the "click me to switch" side */
+html:not([data-theme="dark"]) .theme-toggle-icon-sun  { opacity: 0.35; }
+html:not([data-theme="dark"]) .theme-toggle-icon-moon { opacity: 1; }
+
+/* Tighten spacing on very small screens so the topbar-right stays one row */
+@media (max-width: 380px) {
+  .theme-toggle { width: 46px; height: 24px; }
+  .theme-toggle-thumb { width: 18px; height: 18px; }
+  html[data-theme="dark"] .theme-toggle-thumb { transform: translate(22px, -50%); }
+}
