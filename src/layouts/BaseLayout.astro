@@ -67,7 +67,8 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
        (Peter has actual tel: links for the real phone; iOS would otherwise wrap any
        10-digit sequence in tel:, creating spoofable "tap to call" targets). -->
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -174,6 +175,62 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         // Wait a beat for images/fonts to influence layout before measuring.
         setTimeout(function () { scrollToId(location.hash.slice(1)); }, 60);
       }
+    })();
+  </script>
+  <script is:inline>
+    /* Vercel Analytics — custom event tracking.
+       Waits for window.va (loaded by <Analytics />), then attaches delegated
+       listeners for the CTAs that actually matter to conversion. Cookieless. */
+    (function () {
+      function ready(fn) {
+        if (document.readyState !== 'loading') fn();
+        else document.addEventListener('DOMContentLoaded', fn);
+      }
+      function track(name, props) {
+        try { if (window.va) window.va('event', { name: name, data: props || {} }); } catch (_) {}
+      }
+      function tagFor(el) {
+        // Best-effort human label for the source element.
+        return (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 60);
+      }
+      ready(function () {
+        // --- CTA clicks ---
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest('a');
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          if (href.indexOf('cal.com/peter-law') >= 0)   track('cta_book_call',  { location: location.pathname, label: tagFor(a) });
+          else if (href.indexOf('wa.me/') === 0 || href.indexOf('wa.me/') > 0) track('cta_whatsapp', { location: location.pathname });
+          else if (href.indexOf('tel:') === 0)  track('cta_phone_tap',  { location: location.pathname, number: href.replace('tel:', '') });
+          else if (href.indexOf('mailto:') === 0) track('cta_email_tap', { location: location.pathname, address: href.replace('mailto:', '').split('?')[0] });
+          else if (a.matches('.btn-primary, .btn-warm')) track('cta_primary_click', { location: location.pathname, label: tagFor(a), href: href });
+        });
+        // --- Form submissions ---
+        document.addEventListener('submit', function (e) {
+          var f = e.target;
+          if (!f || f.tagName !== 'FORM') return;
+          var action = f.getAttribute('action') || '';
+          var formName = f.id || f.className || 'form';
+          if (action.indexOf('formspree.io') >= 0)          track('form_submit_formspree', { form: formName, location: location.pathname });
+          else if (action.indexOf('beehiiv.com') >= 0)      track('form_submit_newsletter', { location: location.pathname });
+          else                                              track('form_submit_other', { form: formName, location: location.pathname });
+        });
+        // --- Calculator completion — fires when a verdict/output appears ---
+        // Uses MutationObserver on known calculator output nodes.
+        var calcOutputs = document.querySelectorAll('[data-output], .ac-verdict-title, .rc-verdict-title, [data-cash]');
+        if (calcOutputs.length && 'MutationObserver' in window) {
+          var fired = {};
+          var obs = new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+              var key = (m.target && (m.target.id || m.target.className || '')) + '';
+              if (fired[key]) return;
+              fired[key] = true;
+              track('calculator_output', { calculator: location.pathname, target: key.slice(0, 40) });
+            });
+          });
+          calcOutputs.forEach(function (n) { obs.observe(n, { childList: true, characterData: true, subtree: true }); });
+        }
+      });
     })();
   </script>
 </body>

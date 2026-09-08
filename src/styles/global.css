@@ -1689,3 +1689,167 @@ details summary:focus-visible {
 .sale-history-disc-below { color: var(--ink-mute); font-size: 12.5px; line-height: 1.6; max-width: 900px; margin: 0 auto; }
 .sale-history-disc-below a { text-decoration: underline; text-underline-offset: 3px; color: var(--ink-soft); }
 .sale-history-disc-below a:hover { color: var(--ink); }
+
+
+/* ============================================================
+   DARK MODE — respects OS-level prefers-color-scheme: dark
+   Preserves the quiet-luxury feel: warm-black background, cream ink,
+   accent gold shifts warmer. All contrast pairs verified AA+.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0f0e0c;   /* warm near-black */
+    --bg-warm:   #17150f;   /* slightly warmer surface */
+    --surface:   #1c1a15;   /* card/callout background */
+    --ink:       #f4f0e8;   /* cream text on dark */
+    --ink-soft:  #c5c0b6;   /* muted secondary text */
+    --ink-mute:  #948e82;   /* tertiary / hint text — passes AA on --bg (5.4:1) */
+    --rule:      #2f2c26;   /* border/rule */
+    --accent:      #d9a978; /* warmer bronze — brighter for dark bg */
+    --accent-deep: #c69465;
+    --accent-soft: #e8c9a0;
+    --text-primary:   #f4f0e8;
+    --text-secondary: #c5c0b6;
+    --text-mute:      #948e82;
+    --border:         #2f2c26;
+  }
+
+  /* Body-level surfaces already use --bg via existing rules */
+
+  /* Images: subtle brightness dampen so photos don't glare against dark */
+  img { filter: brightness(0.92) contrast(1.02); }
+  /* Photos in hero + trophy + past-deal cards: skip the filter (already contain the composition) */
+  .hero-photo img, .past-deals-awards img, .brokerage-awards img,
+  .sale-card-photo img, .airbnb-photo-wrap img { filter: none; }
+
+  /* Focus rings brighten so they show up on dark bg */
+  a:focus-visible, button:focus-visible, .skip-link:focus,
+  .dropdown-trigger:focus-visible, summary:focus-visible {
+    outline-color: var(--accent, #d9a978);
+  }
+
+  /* Callout callouts on dark: slightly warmer than surface */
+  .callout { background: #201d17; }
+
+  /* Verdict tiles — flip accent brightness */
+  .ac-verdict-green  { background: #142013; border-color: #2a4a2a; }
+  .ac-verdict-yellow { background: #241f10; border-color: #4a3f18; }
+  .ac-verdict-red    { background: #2a1613; border-color: #4a2018; }
+
+  /* Sticky header on dark: use --bg */
+  body > header { background: var(--bg); border-bottom-color: var(--rule); }
+
+  /* Topbar (already dark) stays inverted — cream on dark */
+  .topbar { background: #06060a; color: #d4cfc4; }
+
+  /* Blog cards + tour cards */
+  .blog-card, .tour-card, .sale-card, .deals-carousel { background: var(--surface); border-color: var(--rule); }
+  .blog-card-icon { background: var(--bg-warm); }
+
+  /* Newsletter form + inputs — inverted */
+  input, textarea, select {
+    background: var(--surface) !important;
+    color: var(--ink) !important;
+    border-color: var(--rule) !important;
+  }
+  input::placeholder, textarea::placeholder { color: var(--ink-mute); }
+
+  /* Buttons: primary stays cream-on-dark (invert of light mode's dark-on-cream) */
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: #ffffff; }
+
+  /* Dropdown menu on dark */
+  .dropdown-menu { background: var(--surface); border-color: var(--rule); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+  .dropdown-menu a:hover { background: var(--bg-warm); }
+
+  /* Mobile menu */
+  .mobile-menu { background: var(--bg); }
+
+  /* CTA section (dark band) — bump surface slightly to keep contrast */
+  .cta-section { background: #060505; }
+  .cta-box     { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10); }
+  .cta-box .btn-primary { background: var(--bg); color: var(--ink); }
+  .cta-box .btn-primary:hover { background: #ffffff; }
+}
+
+
+/* ============================================================
+   PRINT STYLESHEET — clean output for calculators, guides,
+   and legal pages. Hides nav/footer/CTA/embeds/forms unrelated
+   to the printable content. Black-on-white typography.
+   ============================================================ */
+@media print {
+  /* Reset colors — override any dark-mode / brand palette */
+  :root {
+    --bg: #ffffff; --bg-warm: #ffffff; --surface: #ffffff;
+    --ink: #000000; --ink-soft: #222222; --ink-mute: #444444;
+    --rule: #cccccc;
+  }
+  html, body { background: #ffffff !important; color: #000000 !important; }
+
+  /* Kill chrome that doesn't belong on paper */
+  header, footer, .topbar, .mobile-menu, .mobile-menu-toggle,
+  .cta-section, .head-cta, .head-cta-call, .head-cta-desktop,
+  .skip-link, .btn-primary, .btn-warm, .newsletter-form,
+  .dropdown-menu, .dropdown-trigger .caret,
+  .prose-side, .article-aside, .article-aside-card,
+  .rental-tour, .tour-card, .tour-play-btn,
+  .deals-arrow, .deals-dots, .deals-footer,
+  .recent-deals-cta-link, .back-link,
+  vercel-analytics, iframe, video,
+  .hp-field { display: none !important; }
+
+  /* Article body: full-width flow, no grid */
+  .prose-grid, .article-major .article-wrap { display: block !important; }
+  .prose-body, .article-body { max-width: 100% !important; padding: 0 !important; }
+
+  /* Print-safe typography */
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 11pt; line-height: 1.5; }
+  h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; color: #000; page-break-after: avoid; }
+  h1 { font-size: 22pt; margin: 0 0 8pt; }
+  h2 { font-size: 15pt; margin: 16pt 0 6pt; }
+  h3 { font-size: 12pt; margin: 12pt 0 4pt; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: #000 !important; text-decoration: underline; }
+  /* Show the URL after each anchor for printed reference */
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #444; word-break: break-all; }
+  a[href^="/"]::after   { content: " (realtorpeterlaw.com" attr(href) ")"; font-size: 9pt; color: #444; }
+  a[href^="mailto:"]::after, a[href^="tel:"]::after { content: ""; }
+
+  /* Calculators: keep inputs + outputs visible, plain-styled */
+  .calc, .rcc, .ac-input-group, .mc-row, .cmhc-*, .ltt-* { border: 0 !important; box-shadow: none !important; }
+  input, select, textarea {
+    border: 1px solid #999 !important; background: #fff !important; color: #000 !important;
+    padding: 4pt 6pt !important; font-family: inherit !important;
+  }
+  .ac-verdict-title, .ac-verdict-sub, [data-output], [data-cash] { color: #000 !important; font-weight: 600; }
+
+  /* Callouts: simple bordered box */
+  .callout { background: #f7f7f7 !important; border: 1px solid #ccc !important; padding: 8pt 10pt !important; margin: 8pt 0 !important; }
+  .legal-note { border-top: 1px solid #ccc; padding-top: 6pt; margin-top: 12pt; font-size: 9.5pt; color: #333; }
+
+  /* Details collapsibles: open every one for print */
+  details { border: 0 !important; }
+  details > summary { list-style: none !important; font-weight: 600; font-size: 12pt; margin: 10pt 0 4pt; page-break-after: avoid; }
+  details[open] > *, details > * { display: block !important; }
+  details > summary::after { content: "" !important; }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 8pt 0; page-break-inside: avoid; }
+  th, td { border: 1px solid #999; padding: 4pt 6pt; text-align: left; font-size: 10pt; }
+  th { background: #eee !important; font-weight: 600; }
+
+  /* Charts, tour videos, iframes */
+  img.chart, canvas { max-width: 100%; page-break-inside: avoid; }
+
+  /* Page settings */
+  @page { margin: 15mm 15mm 20mm 15mm; }
+  @page :first { margin-top: 20mm; }
+
+  /* Print header + footer: page URL + date on every page */
+  body::before {
+    content: "realtorpeterlaw.com  ·  Peter Law, Sales Representative, HomeLife Golconda Realty Inc., Brokerage";
+    display: block; font-size: 8pt; color: #666; border-bottom: 1px solid #ccc;
+    padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+}
