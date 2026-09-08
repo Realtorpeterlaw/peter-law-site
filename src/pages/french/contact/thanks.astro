@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LTopBar from '../../../components/FrenchTopBar.astro';
+import LHeader from '../../../components/FrenchHeader.astro';
+import LFooter from '../../../components/FrenchFooter.astro';
+---
+<BaseLayout title="Message envoyé — Peter Law" description="Merci de votre message.">
+
+  <LTopBar />
+  <LHeader />
+
+  <section class="page-hero" style="padding-bottom:120px;">
+    <div class="wrap" style="text-align:center;">
+      <div class="eyebrow">Message reçu</div>
+      <h1 style="margin:0 auto 20px;">Merci — je vous répondrai sous peu.</h1>
+      <p style="margin:0 auto 36px;">La plupart des messages reçoivent une réponse dans les quelques heures ouvrables. Pour une urgence, envoyez un texto ou appelez au <a href="tel:+16478888472" style="text-decoration:underline;text-underline-offset:3px;">647-888-8472</a> (WhatsApp disponible).</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="/french" class="btn-primary">Retour à l'accueil
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <LFooter />
+</BaseLayout>
