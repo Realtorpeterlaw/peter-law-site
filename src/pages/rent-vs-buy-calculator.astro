@@ -50,55 +50,55 @@ const hreflangAlternates = [
                 <div class="rvb-col-title">If Buying</div>
                 <div class="rvb-field">
                   <label for="rvb-price">Purchase Price of Home</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-price" type="number" value="750000" min="0" step="5000" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-price" type="text" value="750000" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-down">Downpayment</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-down" type="number" value="75000" min="0" step="1000" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-down" type="text" value="75000" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-amort">Amortization Period</label>
-                  <div class="input-suffix" data-suffix="years"><input id="rvb-amort" type="number" value="25" min="1" max="30" step="1" inputmode="numeric"></div>
+                  <div class="input-suffix" data-suffix="years"><input id="rvb-amort" type="text" value="25" inputmode="numeric" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-rate">Interest Rate</label>
-                  <div class="input-prefix" data-prefix="%"><input id="rvb-rate" type="number" value="4.5" min="0" max="25" step="0.01" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-rate" type="text" value="4.5" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-cmhc">CMHC Rate <span class="hint">(auto — from LTV)</span></label>
-                  <div class="input-prefix" data-prefix="%"><input id="rvb-cmhc" type="number" value="0.00" step="0.01" inputmode="decimal" readonly></div>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-cmhc" type="text" value="0.00" inputmode="decimal" autocomplete="off" readonly></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-closing">Buying Closing Cost</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-closing" type="number" value="15000" min="0" step="500" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-closing" type="text" value="15000" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-maint">Monthly Maintenance / Condo Fees</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-maint" type="number" value="500" min="0" step="25" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-maint" type="text" value="500" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-tax">Annual Property Taxes</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-tax" type="number" value="4000" min="0" step="100" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-tax" type="text" value="4000" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-hoi">Annual Homeowners Insurance</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-hoi" type="number" value="1200" min="0" step="50" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-hoi" type="text" value="1200" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-appr">Home Appreciation Rate</label>
-                  <div class="input-prefix" data-prefix="%"><input id="rvb-appr" type="number" value="3" step="0.1" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-appr" type="text" value="3" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-years">Years Before Selling</label>
-                  <div class="input-suffix" data-suffix="years"><input id="rvb-years" type="number" value="5" min="1" max="40" step="1" inputmode="numeric"></div>
+                  <div class="input-suffix" data-suffix="years"><input id="rvb-years" type="text" value="5" inputmode="numeric" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-sellcost">Selling Costs (as % of price)</label>
-                  <div class="input-prefix" data-prefix="%"><input id="rvb-sellcost" type="number" value="5" min="0" max="20" step="0.1" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-sellcost" type="text" value="5" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-infl">Inflation Rate</label>
-                  <div class="input-prefix" data-prefix="%"><input id="rvb-infl" type="number" value="2" step="0.1" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-infl" type="text" value="2" inputmode="decimal" autocomplete="off"></div>
                 </div>
               </div>
 
@@ -106,15 +106,15 @@ const hreflangAlternates = [
                 <div class="rvb-col-title">If Renting</div>
                 <div class="rvb-field">
                   <label for="rvb-rent">Monthly Rent</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-rent" type="number" value="2500" min="0" step="50" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-rent" type="text" value="2500" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-content-ins">Monthly Contents Insurance</label>
-                  <div class="input-prefix" data-prefix="$"><input id="rvb-content-ins" type="number" value="25" min="0" step="5" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="$"><input id="rvb-content-ins" type="text" value="25" inputmode="decimal" autocomplete="off"></div>
                 </div>
                 <div class="rvb-field">
                   <label for="rvb-rentinc">Annual Rent Increase (by percentage)</label>
-                  <div class="input-prefix" data-prefix="%"><input id="rvb-rentinc" type="number" value="3" step="0.1" inputmode="decimal"></div>
+                  <div class="input-prefix" data-prefix="%"><input id="rvb-rentinc" type="text" value="3" inputmode="decimal" autocomplete="off"></div>
                 </div>
 
                 <div class="rvb-side-note">
@@ -258,14 +258,16 @@ const hreflangAlternates = [
   .rvb-field input[readonly] { background: var(--bg-warm); color: var(--ink-soft); cursor: not-allowed; }
 
   .input-prefix, .input-suffix { position: relative; display: block; }
-  .input-prefix input { padding-left: 28px; }
-  .input-suffix input { padding-right: 52px; }
-  .input-prefix::before {
+  /* Higher specificity than .rvb-field input so padding is not overridden */
+  .rvb-field .input-prefix input[type="text"] { padding-left: 30px; }
+  .rvb-field .input-suffix input[type="text"] { padding-right: 56px; }
+  .rvb-field .input-prefix::before {
     content: attr(data-prefix);
     position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
-    color: var(--ink-mute); font-size: 13px; pointer-events: none;
+    color: var(--ink); font-size: 13px; font-weight: 600; pointer-events: none;
+    line-height: 1;
   }
-  .input-suffix::after {
+  .rvb-field .input-suffix::after {
     content: attr(data-suffix);
     position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
     color: var(--ink-mute); font-size: 12px; pointer-events: none;
@@ -381,7 +383,24 @@ const hreflangAlternates = [
       rent: 2500, 'content-ins': 25, rentinc: 3,
     };
 
-    function num(k) { return parseFloat(el[k].value) || 0; }
+    // Strip commas / any non-numeric characters (keep one decimal point + minus)
+    function parseNum(str) {
+      if (typeof str !== 'string') str = String(str || '');
+      // keep digits, optional single dot, minus sign
+      const cleaned = str.replace(/[^0-9.\-]/g, '');
+      const v = parseFloat(cleaned);
+      return isFinite(v) ? v : 0;
+    }
+    function num(k) { return parseNum(el[k] ? el[k].value : ''); }
+
+    // Format a number for display: thousand-separator commas, period decimals.
+    // decimals is the max decimals to show (trailing zeros trimmed).
+    function fmtNum(n, decimals) {
+      if (!isFinite(n)) return '';
+      const opts = { minimumFractionDigits: 0, maximumFractionDigits: decimals != null ? decimals : 2 };
+      return n.toLocaleString('en-CA', opts);
+    }
+
     function fmt$(n) {
       if (!isFinite(n)) return '—';
       const sign = n < 0 ? '-' : '';
@@ -533,8 +552,46 @@ const hreflangAlternates = [
       calc();
     });
 
-    // Auto-recalc as user tweaks any input
+    // Which inputs get comma formatting on blur? Dollar-valued fields only.
+    // Percentage / years fields display as-is (no commas needed under 1000).
+    const COMMA_FIELDS = ['price','down','closing','maint','tax','hoi','rent','content-ins'];
+
+    function reformatCommas(k) {
+      if (!el[k]) return;
+      if (el[k].readOnly) return;
+      const v = parseNum(el[k].value);
+      // Preserve empty state
+      if (el[k].value.trim() === '') return;
+      el[k].value = fmtNum(v, 0);
+    }
+    function stripCommas(k) {
+      if (!el[k] || el[k].readOnly) return;
+      const v = parseNum(el[k].value);
+      if (v === 0 && el[k].value.trim() === '') return;
+      el[k].value = String(v);
+    }
+
+    // Initial commas
+    COMMA_FIELDS.forEach(reformatCommas);
+
+    // On focus: show the raw number so user can edit easily.
+    // On blur: reformat with commas.
+    COMMA_FIELDS.forEach(k => {
+      if (!el[k]) return;
+      el[k].addEventListener('focus', function() { stripCommas(k); });
+      el[k].addEventListener('blur',  function() { reformatCommas(k); });
+    });
+
+    // Auto-recalc as user tweaks any input (works with commas or without —
+    // parseNum() strips them before doing math).
     ids.forEach(k => { if (el[k]) el[k].addEventListener('input', calc); });
+
+    // Original Reset also needs to reformat commas after restoring defaults
+    // (already covered because reformatCommas is idempotent).
+    const _origReset = btnReset.onclick;
+    btnReset.addEventListener('click', function() {
+      COMMA_FIELDS.forEach(reformatCommas);
+    });
 
     calc();
   })();
