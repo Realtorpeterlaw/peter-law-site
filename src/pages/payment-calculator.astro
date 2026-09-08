@@ -55,8 +55,8 @@ const hreflangAlternates = [
               <div class="calc-field">
                 <label for="mc-toronto">Location</label>
                 <select id="mc-toronto">
-                  <option value="yes" selected>Toronto (both LTTs)</option>
-                  <option value="no">Ontario (outside TO)</option>
+                  <option value="yes" selected>Toronto (LTT + MLTT)</option>
+                  <option value="no">Ontario (LTT only)</option>
                 </select>
               </div>
               <div class="calc-field">
@@ -634,11 +634,16 @@ const hreflangAlternates = [
   .mc-row select { padding-right: 22px; }
   .mc-scenario .mc-row-pair .mc-row select { font-size: 14px; padding: 8px 6px 8px 8px; }
 
-  /* Basics grid: narrow the numeric-dollar columns (col A, col C) so the
-     middle column (Location / Monthly heating/utilities) has enough room for
-     the longer 'Toronto (both LTTs)' select value. */
+  /* Basics grid: narrow numeric-dollar columns (col A + col C) and enforce
+     a floor width on col B (Location / heating) so 'Toronto (both LTTs)' can
+     never clip. Col A holds $-values that are short numbers (140px floor is
+     plenty for $9,999,999). Col B needs ~240px floor for the longest select
+     option plus chevron. */
   .mc-shared .mc-shared-fields {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr) minmax(0, 0.9fr);
+    grid-template-columns:
+      minmax(140px, 0.8fr)
+      minmax(240px, 1.7fr)
+      minmax(140px, 1fr);
   }
   @media (max-width: 720px) {
     .mc-shared .mc-shared-fields { grid-template-columns: 1fr 1fr; }
@@ -663,5 +668,19 @@ const hreflangAlternates = [
     box-sizing: border-box;
     min-width: 0;
     width: 100%;
+  }
+
+  /* Consistent select rendering — remove native OS chevron, add our own via
+     background-image so the select's text area is fully under our control.
+     Prevents Chromium from clipping the leading character in narrow widths. */
+  .mc-shared .calc-field select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 32px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4l3 3 3-3' stroke='%23555' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 10px;
   }
 </style>
