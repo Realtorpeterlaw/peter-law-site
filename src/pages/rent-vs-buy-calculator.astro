@@ -285,6 +285,31 @@ const hreflangAlternates = [
 
 <style>
   /* Rent vs Buy specific — extends the shared .mc- component classes */
+
+  /* Hide native number-input spinners so the digit is not clipped by the
+     browser's up/down arrows in narrow columns. Applies to any input on
+     this page. */
+  .prose-body input[type="number"]::-webkit-inner-spin-button,
+  .prose-body input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .prose-body input[type="number"] { -moz-appearance: textfield; }
+
+  /* Belt + braces: ensure every input in the shared box respects its column */
+  .mc-shared .calc-field input,
+  .mc-shared .calc-field select {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    min-width: 0;
+  }
+  .mc-shared .calc-field .input-prefix {
+    display: block;
+    width: 100%;
+  }
+  .mc-shared .calc-field .input-prefix input { width: 100%; }
+
   .rvb-scenarios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 900px) { .rvb-scenarios { grid-template-columns: 1fr; } }
 
