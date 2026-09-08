@@ -1699,19 +1699,19 @@ details summary:focus-visible {
 html[data-theme="dark"] {
 
     --bg:        #0f0e0c;   /* warm near-black */
-    --bg-warm:   #17150f;   /* slightly warmer surface */
-    --surface:   #1c1a15;   /* card/callout background */
+    --bg-warm:   #1e1a13;   /* slightly warmer surface */
+    --surface:   #26221b;   /* card/callout background */
     --ink:       #f4f0e8;   /* cream text on dark */
     --ink-soft:  #c5c0b6;   /* muted secondary text */
     --ink-mute:  #948e82;   /* tertiary / hint text — passes AA on --bg (5.4:1) */
-    --rule:      #2f2c26;   /* border/rule */
+    --rule:      #423d34;   /* border/rule */
     --accent:      #d9a978; /* warmer bronze — brighter for dark bg */
     --accent-deep: #c69465;
     --accent-soft: #e8c9a0;
     --text-primary:   #f4f0e8;
     --text-secondary: #c5c0b6;
     --text-mute:      #948e82;
-    --border:         #2f2c26;
+    --border:         #423d34;
 }
 
   
@@ -1921,4 +1921,477 @@ html:not([data-theme="dark"]) .theme-toggle-icon-moon { opacity: 1; }
   .theme-toggle { width: 46px; height: 24px; }
   .theme-toggle-thumb { width: 18px; height: 18px; }
   html[data-theme="dark"] .theme-toggle-thumb { transform: translate(22px, -50%); }
+}
+
+
+/* ============================================================
+   DARK MODE POLISH — component overrides for readability
+   Addresses Peter's feedback: calculators too dark, borders faint.
+   Targets components with hardcoded light-mode colors that need
+   explicit dark treatment.
+   ============================================================ */
+
+/* Rent-control calculator — hardcoded light-mode surfaces */
+html[data-theme="dark"] .rcc {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .rcc-input-prefix {
+  background: var(--bg-warm);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .rcc-input-prefix:focus-within {
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .rcc-input-prefix input {
+  color: var(--ink);
+  background: transparent;
+}
+html[data-theme="dark"] .rcc-input-prefix > span {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .rcc-out-card {
+  background: var(--bg-warm);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .rcc-out-primary {
+  background: linear-gradient(180deg, #2a2419 0%, var(--surface) 60%);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .rcc-out-value {
+  color: var(--ink);
+}
+html[data-theme="dark"] .rcc-fine {
+  color: var(--ink-mute);
+  border-top-color: var(--rule);
+}
+html[data-theme="dark"] .rcc h2 {
+  color: var(--ink);
+}
+html[data-theme="dark"] .rcc-field label {
+  color: var(--ink);
+}
+
+/* Mortgage-calculator explainer collapsible — hardcoded #fafaf7 background */
+html[data-theme="dark"] .mc-explainer,
+html[data-theme="dark"] .mc-explainer.mc-collapsible {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .mc-explainer-body h3,
+html[data-theme="dark"] .mc-explainer-body h4 {
+  color: var(--ink);
+}
+html[data-theme="dark"] .mc-explainer-body p {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .mc-explainer-cta {
+  border-top-color: var(--rule);
+  color: var(--ink) !important;
+}
+html[data-theme="dark"] .mc-explainer-cta a {
+  color: var(--accent);
+}
+
+/* Generic mortgage-calc rows */
+html[data-theme="dark"] .mc-collapsible {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .mc-collapsible summary {
+  color: var(--ink);
+}
+html[data-theme="dark"] .mc-collapsible-body {
+  border-top-color: var(--rule);
+}
+html[data-theme="dark"] .mc-row input,
+html[data-theme="dark"] .mc-row select {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+
+/* ALL Calculator + shared calc container */
+html[data-theme="dark"] .calc {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 22px;
+}
+html[data-theme="dark"] .calc-result {
+  background: var(--bg-warm);
+  border: 1px solid var(--rule);
+}
+html[data-theme="dark"] .calc-field input,
+html[data-theme="dark"] .calc-field select,
+html[data-theme="dark"] .calc-field textarea {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+html[data-theme="dark"] .calc-field label {
+  color: var(--ink);
+}
+html[data-theme="dark"] .calc-field label .hint {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .calc-field input:focus,
+html[data-theme="dark"] .calc-field select:focus,
+html[data-theme="dark"] .calc-field textarea:focus {
+  border-color: var(--accent) !important;
+}
+
+/* ac-* (ALL Calculator specific) input group */
+html[data-theme="dark"] .ac-input-group input,
+html[data-theme="dark"] .ac-input-group select {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+html[data-theme="dark"] .ac-input-group input:focus,
+html[data-theme="dark"] .ac-input-group select:focus {
+  border-color: var(--accent) !important;
+}
+html[data-theme="dark"] .ac-input-group label {
+  color: var(--ink);
+}
+html[data-theme="dark"] .ac-input-group .input-prefix::before,
+html[data-theme="dark"] .ac-input-group .input-suffix::after {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .ac-more {
+  border-top-color: var(--rule);
+}
+
+/* Verdict tiles — punch up the color hint so they're still readable in dark */
+html[data-theme="dark"] .ac-verdict-green  { background: #16241a; border-color: #3a5c3a; }
+html[data-theme="dark"] .ac-verdict-yellow { background: #2a2410; border-color: #6b551f; }
+html[data-theme="dark"] .ac-verdict-red    { background: #2e1a14; border-color: #6b2f25; }
+html[data-theme="dark"] .ac-verdict-green  .ac-verdict-dot { background: #7ac97a; }
+html[data-theme="dark"] .ac-verdict-yellow .ac-verdict-dot { background: #d9a834; }
+html[data-theme="dark"] .ac-verdict-red    .ac-verdict-dot { background: #d16b52; }
+html[data-theme="dark"] .ac-verdict-title { color: var(--ink); }
+html[data-theme="dark"] .ac-verdict-sub   { color: var(--ink-soft); }
+
+/* LTT + CMHC tables */
+html[data-theme="dark"] .cmhc-table th,
+html[data-theme="dark"] .oesp-table th,
+html[data-theme="dark"] .b60-table th {
+  background: var(--bg-warm);
+  color: var(--ink);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .cmhc-table td,
+html[data-theme="dark"] .oesp-table td,
+html[data-theme="dark"] .b60-table td {
+  border-bottom-color: var(--rule);
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .oesp-table tbody tr:hover,
+html[data-theme="dark"] .cmhc-table tbody tr:hover,
+html[data-theme="dark"] .b60-table tbody tr:hover {
+  background: var(--bg-warm);
+}
+
+/* Bill 60 + N-forms + guide collapsibles */
+html[data-theme="dark"] .b60-section-toggle {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .b60-section-toggle[open] {
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .b60-section-toggle-summary {
+  color: var(--ink);
+}
+html[data-theme="dark"] .b60-section-toggle-summary:hover {
+  background: var(--bg-warm);
+}
+html[data-theme="dark"] .b60-section-toggle > .b60-section-body {
+  border-top-color: var(--rule);
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .b60-section-toggle > .b60-section-body p strong {
+  color: var(--ink);
+}
+html[data-theme="dark"] .b60-section-toggle > ul.bullets {
+  border-top-color: var(--rule);
+}
+
+/* Prose (guide + article) body text needs to inherit the cream palette */
+html[data-theme="dark"] .prose-body p,
+html[data-theme="dark"] .prose-body ul.bullets,
+html[data-theme="dark"] .article-body p,
+html[data-theme="dark"] .article-body ul,
+html[data-theme="dark"] .article-body ol,
+html[data-theme="dark"] .article-body li {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .prose-body h2,
+html[data-theme="dark"] .prose-body h3,
+html[data-theme="dark"] .article-body h2,
+html[data-theme="dark"] .article-body h3 {
+  color: var(--ink);
+}
+html[data-theme="dark"] .prose-body p strong,
+html[data-theme="dark"] .article-body p strong {
+  color: var(--ink);
+}
+html[data-theme="dark"] .prose-side a {
+  color: var(--ink-soft);
+  border-left-color: var(--rule);
+}
+html[data-theme="dark"] .prose-side a:hover {
+  color: var(--ink);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .prose-side h4 {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .prose-body .callout,
+html[data-theme="dark"] .callout {
+  background: #26221b;
+  border: 1px solid var(--rule);
+}
+html[data-theme="dark"] .prose-body .callout strong,
+html[data-theme="dark"] .callout strong {
+  color: var(--ink);
+}
+html[data-theme="dark"] .legal-note {
+  color: var(--ink-mute);
+  border-color: var(--rule);
+}
+
+/* Form-row inputs (contact form, apply, free-home-eval) */
+html[data-theme="dark"] .form-row input,
+html[data-theme="dark"] .form-row textarea,
+html[data-theme="dark"] .form-row select {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+html[data-theme="dark"] .form-row input:focus,
+html[data-theme="dark"] .form-row textarea:focus,
+html[data-theme="dark"] .form-row select:focus {
+  border-color: var(--accent) !important;
+}
+html[data-theme="dark"] .form-row label {
+  color: var(--ink);
+}
+
+/* Rental quiz on homepage */
+html[data-theme="dark"] .quiz-field select,
+html[data-theme="dark"] .quiz-field input {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+html[data-theme="dark"] .quiz-field select:focus,
+html[data-theme="dark"] .quiz-field input:focus {
+  border-color: var(--accent) !important;
+}
+html[data-theme="dark"] .quiz-field label,
+html[data-theme="dark"] .quiz-check {
+  color: var(--ink);
+}
+html[data-theme="dark"] .quiz-hint {
+  color: var(--ink-mute);
+}
+
+/* Newsletter input */
+html[data-theme="dark"] .newsletter-form input[type="email"] {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+html[data-theme="dark"] .newsletter-form input[type="email"]:focus {
+  border-color: var(--accent) !important;
+}
+
+/* Blog search */
+html[data-theme="dark"] .blog-search input {
+  background: var(--bg-warm) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+
+/* Sale History past-deal cards */
+html[data-theme="dark"] .sale-card {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .sale-status,
+html[data-theme="dark"] .sale-rep,
+html[data-theme="dark"] .sale-rep-note {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .sale-price,
+html[data-theme="dark"] .sale-name {
+  color: var(--ink);
+}
+html[data-theme="dark"] .sale-address,
+html[data-theme="dark"] .sale-features,
+html[data-theme="dark"] .sale-house-style {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .sale-details-summary {
+  color: var(--accent);
+}
+html[data-theme="dark"] .sales-filter-tab {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .sales-filter-tab.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+html[data-theme="dark"] .sales-subfilter-tab {
+  color: var(--ink-mute);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .sales-subfilter-tab.is-active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+html[data-theme="dark"] .sales-filter {
+  border-bottom-color: var(--rule);
+}
+html[data-theme="dark"] .sale-history-disc-below {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .sale-history-disc-below a {
+  color: var(--ink-soft);
+}
+
+/* Blog cards + tour cards + condo cards — brighter borders + labels */
+html[data-theme="dark"] .blog-card,
+html[data-theme="dark"] .tour-card,
+html[data-theme="dark"] .condo-card {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .blog-card:hover,
+html[data-theme="dark"] .tour-card:hover,
+html[data-theme="dark"] .condo-card:hover {
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .blog-card-title,
+html[data-theme="dark"] .blog-card-read {
+  color: var(--ink);
+}
+html[data-theme="dark"] .blog-card-eyebrow,
+html[data-theme="dark"] .blog-card-meta {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .blog-card-icon {
+  background: var(--bg-warm);
+  border-color: var(--rule);
+  color: var(--ink);
+}
+
+/* Deals carousel on homepage */
+html[data-theme="dark"] .deals-carousel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+html[data-theme="dark"] .deal-eyebrow,
+html[data-theme="dark"] .deal-rent-period,
+html[data-theme="dark"] .deal-city {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .deal-rent-amount,
+html[data-theme="dark"] .deal-location {
+  color: var(--ink);
+}
+html[data-theme="dark"] .deal-note {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .deals-arrow {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .deals-arrow:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+html[data-theme="dark"] .deals-dot::before {
+  background: var(--rule);
+}
+html[data-theme="dark"] .deals-dot.is-active::before {
+  background: var(--accent);
+}
+
+/* Airbnb credentials card on /about */
+html[data-theme="dark"] .airbnb-card {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .airbnb-card:hover {
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .airbnb-name,
+html[data-theme="dark"] .stat-num,
+html[data-theme="dark"] .stat-num .star {
+  color: var(--ink);
+}
+html[data-theme="dark"] .airbnb-role,
+html[data-theme="dark"] .stat-lbl {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .airbnb-verified {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--surface);
+}
+
+/* Brokerage awards + past-deals awards figures */
+html[data-theme="dark"] .brokerage-awards img,
+html[data-theme="dark"] .past-deals-awards img {
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .brokerage-awards figcaption,
+html[data-theme="dark"] .past-deals-awards figcaption {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .award-tier-heading,
+html[data-theme="dark"] .award-tier-list li strong {
+  color: var(--ink);
+}
+html[data-theme="dark"] .award-tier-list li {
+  color: var(--ink-soft);
+}
+
+/* BoC widget + market cells */
+html[data-theme="dark"] .boc-widget-grid {
+  border-top-color: var(--rule);
+  border-bottom-color: var(--rule);
+}
+html[data-theme="dark"] .boc-cell strong {
+  color: var(--ink);
+}
+html[data-theme="dark"] .boc-cell,
+html[data-theme="dark"] .boc-source {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .boc-source:hover {
+  color: var(--ink);
+}
+html[data-theme="dark"] .boc-divider {
+  background: var(--rule);
+}
+
+/* Affiliations section (professional bodies chips) — sits inside .cta-section */
+html[data-theme="dark"] .affiliations-list a {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Property Sales grid custom scrollbar */
+html[data-theme="dark"] .sales-grid::-webkit-scrollbar-thumb {
+  background: var(--rule);
+}
+html[data-theme="dark"] .sales-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-mute);
 }
