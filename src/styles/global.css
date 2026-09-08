@@ -472,6 +472,25 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
   color: var(--ink-mute); font-size: 14px; pointer-events: none;
 }
 .calc-field .input-prefix input { padding-left: 28px; }
+/* Generic .input-prefix / .input-suffix fallback — applies when the wrapper
+   isn't nested under .calc-field or .ac-input-group (e.g. inside .mc-row).
+   Lower specificity than the scoped rules above, so it does not override them. */
+.input-prefix { position: relative; }
+.input-prefix::before {
+  content: attr(data-prefix);
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--ink); font-size: 13px; font-weight: 600; pointer-events: none;
+  line-height: 1;
+}
+.input-prefix > input { padding-left: 28px !important; }
+.input-suffix { position: relative; }
+.input-suffix::after {
+  content: attr(data-suffix);
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--ink-mute); font-size: 12px; pointer-events: none;
+}
+.input-suffix > input { padding-right: 52px !important; }
+
 .calc-result { background: var(--bg-warm); padding: 28px 32px; border-radius: 4px; margin-top: 28px; }
 .calc-result-main { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 34px; line-height: 1.1; color: var(--ink); margin-bottom: 8px; }
 .calc-result-main .label { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }

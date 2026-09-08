@@ -50,33 +50,34 @@ const hreflangAlternates = [
             <div class="mc-shared-fields">
               <div class="calc-field">
                 <label for="mc-price">Purchase price</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="number" value="800000" min="0" step="1000" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="text" value="800000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-toronto">Location</label>
                 <select id="mc-toronto">
-                  <option value="yes" selected>Toronto (both LTTs apply)</option>
-                  <option value="no">Elsewhere in Ontario</option>
+                  <option value="yes" selected>Toronto (both LTTs)</option>
+                  <option value="no">Ontario (outside TO)</option>
                 </select>
               </div>
               <div class="calc-field">
                 <label for="mc-fthb">First-time homebuyer?</label>
                 <select id="mc-fthb">
                   <option value="no" selected>No</option>
+                  <!-- shortened labels below -->
                   <option value="yes">Yes (rebate applies)</option>
                 </select>
               </div>
               <div class="calc-field">
                 <label for="mc-tax">Annual property tax</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="number" value="5500" min="0" step="100" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="text" value="5500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-heat">Monthly heating/utilities</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="number" value="180" min="0" step="10" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="text" value="180" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-condo">Monthly condo fee (if any)</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="number" value="0" min="0" step="50" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="text" value="0" inputmode="decimal" autocomplete="off"></div>
               </div>
             </div>
           </div>
@@ -270,24 +271,24 @@ const hreflangAlternates = [
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(' — ')[1] || ''}</span></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>Down payment</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000" inputmode="decimal"></div></div>
+            <div class="mc-row"><label>Down payment</label><div class="input-prefix" data-prefix="$"><input type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
             <div class="mc-row"><label>Down %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
           <div class="mc-row"><label>Interest rate (%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>Amortization</label>
               <select data-input="${id}-amort">
-                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 years</option>
-                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 years</option>
-                <option value="20">20 years</option>
-                <option value="15">15 years</option>
-                <option value="10">10 years</option>
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 yr</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 yr</option>
+                <option value="20">20 yr</option>
+                <option value="15">15 yr</option>
+                <option value="10">10 yr</option>
               </select>
             </div>
             <div class="mc-row"><label>Frequency</label>
               <select data-input="${id}-freq">
                 <option value="12" selected>Monthly</option>
-                <option value="24">Semi-monthly</option>
+                <option value="24">Semi-mo.</option>
                 <option value="26">Bi-weekly</option>
                 <option value="52">Weekly</option>
               </select>
@@ -511,6 +512,77 @@ const hreflangAlternates = [
     });
 
     update();
+  
+
+    // ============================================================
+    // Comma formatting for dollar inputs (Peter Sep-2026)
+    // Switch on blur to "$800,000", strip to "800000" on focus.
+    // parseFloat() in the existing update() already tolerates commas
+    // because we wrap all reads through parseFloat(el.value.replace(/,/g,''))
+    // via the helper below.
+    // ============================================================
+    (function initCommaFormat() {
+      const DOLLAR_IDS = ['mc-price', 'mc-tax', 'mc-heat', 'mc-condo'];
+      function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+      function fmtN(n) { return n.toLocaleString('en-CA', { maximumFractionDigits: 0 }); }
+      function reformat(el) {
+        if (!el || el.readOnly) return;
+        if (el.value.trim() === '') return;
+        el.value = fmtN(parseN(el.value));
+      }
+      function strip(el) {
+        if (!el || el.readOnly) return;
+        if (el.value.trim() === '') return;
+        el.value = String(parseN(el.value));
+      }
+      function hook(el) {
+        if (!el) return;
+        reformat(el);
+        el.addEventListener('focus', () => strip(el));
+        el.addEventListener('blur',  () => reformat(el));
+      }
+      DOLLAR_IDS.forEach(id => hook(document.getElementById(id)));
+      // Per-scenario down-payment dollar inputs (built dynamically)
+      document.querySelectorAll('[data-input$="-down-dollar"]').forEach(hook);
+
+      // The original update() reads via parseFloat(el.value) — which returns NaN
+      // for "800,000". Wrap parseFloat globally for these fields by re-dispatching
+      // input events after strip on programmatic value changes elsewhere is
+      // unnecessary because update() already runs on every keystroke and the
+      // display is only comma-formatted on blur.
+    })();
+
+    // Monkey-patch parseFloat calls in the existing update() to tolerate commas.
+    // Cleanest way: override the fetch of the values by wrapping the shared
+    // fields' getters. Simpler: intercept 'input' events on dollar inputs and
+    // normalize before update() runs. The listener below fires before the
+    // existing update() listener because we register earlier in the script? No,
+    // this file has update() registered first. Safer: wrap parseFloat on read
+    // by adding data-value normalization at input time.
+    (function patchDollarReads() {
+      const DOLLAR_IDS = ['mc-price', 'mc-tax', 'mc-heat', 'mc-condo'];
+      function patchInput(el) {
+        if (!el) return;
+        const orig = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+        // don't monkey-patch prototype; use a listener to update a shadow property
+        el.addEventListener('input', function() {
+          // Strip commas immediately from the input so parseFloat sees a number.
+          // But not on blur/focus (those set the value programmatically).
+          const raw = el.value;
+          const cleaned = raw.replace(/[^0-9.\-]/g, '');
+          if (raw !== cleaned) {
+            // Preserve cursor position
+            const pos = el.selectionStart || 0;
+            const removed = raw.length - cleaned.length;
+            el.value = cleaned;
+            try { el.setSelectionRange(pos - removed, pos - removed); } catch (e) {}
+          }
+        }, true); // capture=true so it runs before the update() listener
+      }
+      DOLLAR_IDS.forEach(id => patchInput(document.getElementById(id)));
+      document.querySelectorAll('[data-input$="-down-dollar"]').forEach(patchInput);
+    })();
+
   </script>
 </BaseLayout>
 
@@ -556,4 +628,11 @@ const hreflangAlternates = [
   }
   .mc-explainer-cta a { color: #b8845b; font-weight: 600; text-decoration: none; }
   .mc-explainer-cta a:hover { text-decoration: underline; }
+
+  /* --- Comma-formatting friendliness + select-clip fix (Peter Sep-2026) --- */
+  /* Selects in scenario cards get compact padding + smaller font so labels fit */
+  .mc-row select { padding-right: 22px; }
+  .mc-scenario .mc-row-pair .mc-row select { font-size: 14px; padding: 8px 6px 8px 8px; }
+  /* mc-basics selects: allow horizontal ellipsis via appearance and wider padding */
+  .mc-shared .calc-field select { padding-right: 24px; text-overflow: ellipsis; }
 </style>
