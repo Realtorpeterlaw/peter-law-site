@@ -1922,8 +1922,17 @@ html[data-theme="dark"] {
 html:not([data-theme="dark"]) .theme-toggle-icon-sun  { opacity: 1; }
 html:not([data-theme="dark"]) .theme-toggle-icon-moon { opacity: 0.55; }
 
-/* Dark mode: thumb slides right over the moon; moon glows, sun dims */
-html[data-theme="dark"] .theme-toggle-thumb { transform: translate(26px, -50%); }
+/* Dark mode: thumb slides right over the moon; moon glows, sun dims.
+   Thumb turns crispy yellow-gold-brown as the "click me to switch back to bright" cue. */
+html[data-theme="dark"] .theme-toggle-thumb {
+  transform: translate(26px, -50%);
+  background: linear-gradient(180deg, #f2c14a 0%, #c98a2e 60%, #8b5a1c 100%);
+  box-shadow:
+    0 0 6px rgba(242, 193, 74, 0.55),
+    0 1px 3px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 232, 165, 0.6),
+    inset 0 -1px 0 rgba(90, 55, 15, 0.6);
+}
 html[data-theme="dark"] .theme-toggle-icon-sun {
   opacity: 0.55;
   filter: drop-shadow(0 0 2px rgba(255, 212, 0, 0.35));
