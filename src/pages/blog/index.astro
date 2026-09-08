@@ -317,7 +317,19 @@ export const prerender = true;
   }
   .blog-filter-chip-sale .blog-filter-dot { background: #1a6b32; }
   .blog-filter-chip-rent .blog-filter-dot { background: #b8002e; }
-  html[data-theme="dark"] .blog-filter-chip { background: var(--surface); }
-  html[data-theme="dark"] .blog-filter-chip:hover { background: var(--bg-warm); }
+  html[data-theme="dark"] .blog-filter-chip { background: var(--surface); color: var(--ink-soft); border-color: var(--rule); }
+  html[data-theme="dark"] .blog-filter-chip:hover { background: var(--bg-warm); color: var(--ink); }
+  /* Active-state override for dark mode. Without this, the earlier
+     dark-mode background rule wins by specificity and the chip renders
+     dark-on-dark, making the label + dot invisible. Cream fill + deep
+     dark ink for high-contrast active state. */
+  html[data-theme="dark"] .blog-filter-chip.is-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  html[data-theme="dark"] .blog-filter-chip.is-active .blog-filter-dot {
+    background: var(--bg);
+  }
 </style>
 
