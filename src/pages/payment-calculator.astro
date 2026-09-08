@@ -629,10 +629,39 @@ const hreflangAlternates = [
   .mc-explainer-cta a { color: #b8845b; font-weight: 600; text-decoration: none; }
   .mc-explainer-cta a:hover { text-decoration: underline; }
 
-  /* --- Comma-formatting friendliness + select-clip fix (Peter Sep-2026) --- */
+  /* --- Layout + comma-formatting fixes (Peter Sep-2026) --- */
   /* Selects in scenario cards get compact padding + smaller font so labels fit */
   .mc-row select { padding-right: 22px; }
   .mc-scenario .mc-row-pair .mc-row select { font-size: 14px; padding: 8px 6px 8px 8px; }
-  /* mc-basics selects: allow horizontal ellipsis via appearance and wider padding */
-  .mc-shared .calc-field select { padding-right: 24px; text-overflow: ellipsis; }
+
+  /* Basics grid: narrow the numeric-dollar columns (col A, col C) so the
+     middle column (Location / Monthly heating/utilities) has enough room for
+     the longer 'Toronto (both LTTs)' select value. */
+  .mc-shared .mc-shared-fields {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr) minmax(0, 0.9fr);
+  }
+  @media (max-width: 720px) {
+    .mc-shared .mc-shared-fields { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .mc-shared .mc-shared-fields { grid-template-columns: 1fr; }
+  }
+
+  /* mc-basics selects: adequate right padding for the native chevron.
+     Do NOT set text-overflow: ellipsis on native selects — it was clipping
+     the leading character of the selected value in Chromium.
+     Also enforce box-sizing so nothing pushes past its column edge. */
+  .mc-shared .calc-field select {
+    padding-right: 26px;
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+  }
+  .mc-shared .calc-field input,
+  .mc-shared .calc-field .input-prefix,
+  .mc-shared .calc-field .input-prefix input {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+  }
 </style>

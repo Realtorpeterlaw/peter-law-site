@@ -1,0 +1,506 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LTopBar from '../../components/FrenchTopBar.astro';
+import LHeader from '../../components/FrenchHeader.astro';
+import LFooter from '../../components/FrenchFooter.astro';
+import LCTA from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rent-vs-buy-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/rent-vs-buy-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/rent-vs-buy-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/rent-vs-buy-calculator/' },
+];
+---
+<BaseLayout
+  title="Calculateur Louer ou acheter | Peter Law"
+  description="Devriez-vous louer ou acheter à Toronto? Comparez les paiements mensuels totaux, l'équité à long terme, l'appréciation de la propriété et le coût de la location sur votre période de détention."
+  lang="fr"
+  bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <LTopBar />
+  <LHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Calculateur Louer ou acheter</div>
+      <h1>Louer ou acheter? Calculez ci-dessous.</h1>
+      <p>Entrez un scénario et comparez les chiffres de l'achat et de la location côte à côte. Conçu pour les règles canadiennes : composition semestrielle de l'hypothèque, paliers SCHL et particularités du contrôle des loyers en Ontario.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Ressources pour acheteurs</h4>
+          <ul>
+            <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
+            <li><a href="/french/payment-calculator">Calculateur hypothécaire</a></li>
+            <li><a href="/french/cmhc-insurance-calculator">Calculateur d'assurance SCHL</a></li>
+            <li><a href="/french/land-transfer-tax">Droits de mutation immobilière</a></li>
+            <li><a href="/french/closing-costs">Frais de clôture</a></li>
+            <li><a href="/french/rent-vs-buy-calculator"><strong>Calculateur Louer ou acheter</strong></a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <!-- ============================================================
+               SHARED SCENARIO INPUTS (applies to both Buying + Renting)
+               ============================================================ -->
+          <div class="mc-shared">
+            <h3>Le scénario (s'applique aux deux)</h3>
+            <div class="mc-shared-fields">
+              <div class="calc-field">
+                <label for="rvb-price">Prix d'achat</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-price" type="text" value="750000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rvb-down">Mise de fonds</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-down" type="text" value="75000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rvb-years">Années avant la revente</label>
+                <input id="rvb-years" type="number" value="5" min="1" max="40" step="1" inputmode="numeric">
+              </div>
+              <div class="calc-field">
+                <label for="rvb-amort">Amortissement</label>
+                <select id="rvb-amort">
+                  <option value="25" selected>25 ans</option>
+                  <option value="30">30 ans</option>
+                  <option value="20">20 ans</option>
+                  <option value="15">15 ans</option>
+                  <option value="10">10 ans</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="rvb-rate">Taux d'intérêt (%)</label>
+                <input id="rvb-rate" type="number" value="4.5" min="0" max="25" step="0.05" inputmode="decimal">
+              </div>
+              <div class="calc-field">
+                <label for="rvb-appr">Appréciation de la propriété (%/an)</label>
+                <input id="rvb-appr" type="number" value="3" step="0.1" inputmode="decimal">
+              </div>
+              <div class="calc-field">
+                <label for="rvb-sellcost">Frais de vente (% du prix)</label>
+                <input id="rvb-sellcost" type="number" value="5" min="0" max="20" step="0.1" inputmode="decimal">
+              </div>
+              <div class="calc-field">
+                <label for="rvb-infl">Taux d'inflation (%)</label>
+                <input id="rvb-infl" type="number" value="2" step="0.1" inputmode="decimal">
+              </div>
+              <div class="calc-field">
+                <label for="rvb-closing">Frais de clôture (achat)</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-closing" type="text" value="15000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               TWO SCENARIOS SIDE-BY-SIDE: IF BUYING vs IF RENTING
+               ============================================================ -->
+          <div class="mc-scenarios rvb-scenarios">
+
+            <!-- IF BUYING -->
+            <div class="mc-scenario">
+              <div class="mc-scenario-header">
+                <h4>Si vous achetez</h4>
+                <span class="mc-scenario-tag" id="rvb-buy-tag">10,0 % de mise · 4,5 %</span>
+              </div>
+              <div class="mc-row">
+                <label>Frais d'entretien / de condo (mensuels)</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-maint" type="text" value="500" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="mc-row">
+                <label>Impôt foncier annuel</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-tax" type="text" value="4000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="mc-row">
+                <label>Assurance habitation annuelle</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-hoi" type="text" value="1200" inputmode="decimal" autocomplete="off"></div>
+              </div>
+
+              <div class="mc-row mc-output">
+                <label>Prime d'assurance SCHL</label>
+                <span class="value" id="rvb-cmhc-out">0 $</span>
+              </div>
+              <div class="mc-row mc-output">
+                <label>Prêt hypothécaire total</label>
+                <span class="value" id="rvb-mortgage-out">0 $</span>
+              </div>
+              <div class="mc-row mc-output">
+                <label>Assurance / impôts / entretien (moy. mensuelle)</label>
+                <span class="value" id="rvb-buy-tmi-out">0 $</span>
+              </div>
+              <div class="mc-row mc-payment">
+                <label>Paiement mensuel total</label>
+                <span class="value" id="rvb-buy-total-out">0 $</span>
+                <span class="freq">/mois</span>
+              </div>
+            </div>
+
+            <!-- IF RENTING -->
+            <div class="mc-scenario">
+              <div class="mc-scenario-header">
+                <h4>Si vous louez</h4>
+                <span class="mc-scenario-tag" id="rvb-rent-tag">3,0 % d'augmentation annuelle</span>
+              </div>
+              <div class="mc-row">
+                <label>Loyer mensuel</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-rent" type="text" value="2500" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="mc-row">
+                <label>Assurance de locataire (mensuelle)</label>
+                <div class="input-prefix" data-prefix="$"><input id="rvb-content-ins" type="text" value="25" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="mc-row">
+                <label>Augmentation de loyer annuelle (%)</label>
+                <input id="rvb-rentinc" type="number" value="3" step="0.1" inputmode="decimal">
+              </div>
+
+              <div class="mc-row mc-output">
+                <label>Ligne directrice de l'Ontario (2025)</label>
+                <span class="value">2,50 %</span>
+              </div>
+              <div class="mc-row mc-output">
+                <label>Assurance de locataire (mensuelle)</label>
+                <span class="value" id="rvb-rent-ins-out">0 $</span>
+              </div>
+              <div class="mc-row mc-output">
+                <label>Immeubles à loyer contrôlé</label>
+                <span class="value" style="font-size:12px;font-family:'Inter',sans-serif;font-weight:400;color:var(--ink-mute);">Avant nov.&nbsp;2018 seulement</span>
+              </div>
+              <div class="mc-row mc-payment">
+                <label>Paiement mensuel total</label>
+                <span class="value" id="rvb-rent-total-out">0 $</span>
+                <span class="freq">/mois</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               COMPARISON BLOCK (over N years) — same style as mc-ltt-block
+               ============================================================ -->
+          <div class="mc-ltt-block">
+            <h3>Comparaison sur <span id="rvb-years-head">5</span> ans</h3>
+            <div class="mc-ltt-rows">
+              <div class="row"><span>Coût total de l'achat (hypothèque + taxes/assurance/entretien + clôture + vente)</span><strong id="rvb-cmp-buy">0 $</strong></div>
+              <div class="row"><span>Coût total de la location (loyer + assurance de locataire)</span><strong id="rvb-cmp-rent">0 $</strong></div>
+              <div class="row"><span>Capital hypothécaire remboursé (équité accumulée)</span><strong id="rvb-cmp-principal">0 $</strong></div>
+              <div class="row"><span>Valeur de la propriété à la revente</span><strong id="rvb-cmp-homevalue">0 $</strong></div>
+              <div class="row total"><span><strong>Différence nette (coût net Location − Achat)</strong></span><strong id="rvb-cmp-diff">0 $</strong></div>
+            </div>
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Entrez vos chiffres ci-dessus — le calculateur se met à jour en temps réel.</div>
+          </div>
+
+          <!-- ============================================================
+               LONG-TERM OWNERSHIP EQUITY (collapsible)
+               ============================================================ -->
+          <details class="mc-collapsible">
+            <summary>Avantages à long terme de l'accession à la propriété</summary>
+            <div class="mc-collapsible-body">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Si vous vendez à l'année <span id="rvb-years-eq">5</span>, voici l'équité qu'il vous resterait après avoir remboursé le prêt et couvert les frais de vente.</p>
+              <div style="overflow-x: auto;">
+                <table class="mc-table">
+                  <thead><tr><th>Poste</th><th style="text-align:right;">Montant</th></tr></thead>
+                  <tbody>
+                    <tr><td>Valeur de la propriété à la date de revente prévue</td><td id="rvb-eq-hv" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr><td>Moins : mise de fonds</td><td id="rvb-eq-down" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr><td>Moins : solde du prêt restant</td><td id="rvb-eq-loan" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr><td>Moins : frais d'achat et de vente</td><td id="rvb-eq-costs" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr style="border-top:2px solid var(--ink);"><td><strong>Gain total sur la propriété</strong></td><td id="rvb-eq-gain" style="text-align:right;font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);">0 $</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+
+          <!-- ============================================================
+               HOW THE NUMBERS WORK (collapsible)
+               ============================================================ -->
+          <details class="mc-collapsible">
+            <summary>Comment les chiffres sont calculés</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>Paiement hypothécaire :</strong> capital et intérêts seulement, selon la convention canadienne de l'intérêt composé semestriellement et non à l'avance. L'impôt foncier, l'assurance et l'entretien sont indiqués séparément.</li>
+                <li><strong>Prime SCHL :</strong> calculée automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024. La TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici.</li>
+                <li><strong>Total mensuel (achat) :</strong> paiement hypothécaire + part mensuelle de l'impôt foncier + assurance habitation + frais d'entretien/de condo.</li>
+                <li><strong>Total mensuel (location) :</strong> loyer mensuel + assurance de locataire mensuelle.</li>
+                <li><strong>Comparaison sur N années :</strong> les paiements hypothécaires demeurent stables; l'impôt foncier, l'assurance et l'entretien augmentent au taux d'inflation. Le loyer est composé annuellement selon le taux que vous entrez. L'assurance de locataire augmente au taux d'inflation.</li>
+                <li><strong>Valeur de la propriété à la revente :</strong> prix d'achat × (1 + appréciation)<sup>années</sup>.</li>
+                <li><strong>Gain total sur la propriété :</strong> valeur de la propriété − mise de fonds − solde du prêt restant − frais de clôture (achat) − frais de vente.</li>
+                <li><strong>Différence nette :</strong> coût total de la location moins le « coût net » de l'achat (total des sorties de fonds − équité accumulée). Positif = l'achat l'emporte sur cette période de détention.</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- ============================================================
+               TIPS & ADVICE (collapsible, styled as explainer)
+               ============================================================ -->
+          <details class="mc-collapsible mc-explainer">
+            <summary>Conseils et astuces — pour les locataires</summary>
+            <div class="mc-collapsible-body mc-explainer-body">
+
+              <h3>Louer, ce n'est pas « jeter son argent par les fenêtres »</h3>
+              <p>Vous achetez de la flexibilité, de la mobilité et une tranquillité d'esprit face aux réparations. Cela a une valeur réelle — chiffrez-la avant de comparer avec la propriété.</p>
+
+              <h3>Connaissez votre statut de contrôle des loyers</h3>
+              <p>En Ontario, les logements dans des immeubles occupés à des fins résidentielles pour la première fois <strong>avant le 15 novembre 2018</strong> sont couverts par la ligne directrice annuelle sur l'augmentation des loyers (2,5 % pour 2025). Les immeubles plus récents peuvent être ajustés au prix du marché lors du renouvellement du bail. Posez la question avant de signer.</p>
+
+              <h3>L'assurance de locataire est abordable et essentielle</h3>
+              <p>Les polices pour locataires coûtent habituellement entre 20 $ et 40 $ par mois et couvrent vos biens, votre responsabilité civile personnelle et vos frais de subsistance supplémentaires si votre logement devient inhabitable. La police du propriétaire ne couvre rien de tout ça.</p>
+
+              <h4>Moins de 3 ans? La location l'emporte habituellement</h4>
+              <p>Les frais de transaction (droits de mutation à l'achat, commission immobilière à la vente) sont rarement rentabilisés sur un horizon de 3 ans, à moins que le marché ne progresse fortement. Augmentez le nombre d'« Années avant la revente » ci-dessus pour voir à quel moment la tendance s'inverse.</p>
+
+              <h4>Prévoyez les coûts invisibles de l'achat</h4>
+              <p>Les droits de mutation, les honoraires juridiques, l'inspection, le déménagement et les petites réparations de la première année sont bien réels. Consultez ma page <a href="/french/closing-costs">Frais de clôture</a> et mon calculateur de <a href="/french/land-transfer-tax">droits de mutation immobilière</a>.</p>
+
+              <h4>Testez la résistance du taux d'intérêt</h4>
+              <p>Si le taux actuel est de 4,5 % et que votre renouvellement dans 5 ans est de 6 %, les chiffres tiennent-ils toujours? Augmentez le taux dans le calculateur et vérifiez à nouveau.</p>
+
+              <h4>Gardez au moins 5 % de liquidités en plus des frais de clôture</h4>
+              <p>Les meubles, électroménagers, le déménagement, le premier mois de services publics et les petites réparations s'accumulent vite la première année. Ne mettez pas chaque dollar dans la mise de fonds.</p>
+
+              <h4>Le coût d'opportunité de la mise de fonds compte</h4>
+              <p>Si vous continuez à louer, vous pourriez investir le montant de la mise de fonds. Cet outil ne modélise pas ce scénario — pour un portrait complet, demandez à un planificateur financier de comparer l'achat et l'investissement côte à côte.</p>
+
+              <h4>Obtenez une préapprobation avant de magasiner</h4>
+              <p>La préapprobation est gratuite et vous indique ce qu'un prêteur vous accordera réellement — pas ce qu'un calculateur estime que vous pouvez vous permettre. Elle bloque aussi un taux pendant 90 à 120 jours pendant que vous magasinez.</p>
+
+              <p class="mc-explainer-cta"><em>Vous hésitez à vous lancer cette année? Je travaille autant avec des acheteurs qu'avec des locataires — et mes conseils dépendent de votre situation réelle, pas d'un chiffrier. <a href="/french/contact">Communiquez avec moi</a>.</em></p>
+            </div>
+          </details>
+
+          <p class="calc-disclaimer">
+            <strong>Avis.</strong> Ce calculateur est fourni à titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement et non à l'avance. Le taux SCHL est calculé automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024; la TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici. L'appréciation de la propriété, l'inflation et l'augmentation du loyer sont des hypothèses saisies par vous — les résultats réels varieront. L'impôt foncier, l'assurance habitation et l'entretien sont présumés augmenter au taux d'inflation que vous entrez. Les frais de vente sont estimés comme un pourcentage fixe du prix de vente et couvrent habituellement la commission immobilière (avec TVH), les honoraires juridiques et les ajustements. Cet outil ne modélise pas l'impôt sur le revenu, les pénalités hypothécaires pour bris de terme, l'emprunt sur marge de crédit hypothécaire (MCH), ni le coût d'opportunité d'investir votre mise de fonds autrement. Je suis un représentant commercial en immobilier inscrit — pas un courtier hypothécaire, un planificateur financier, un conseiller fiscal ou un conseiller en placement. Pour une décision de cette ampleur, veuillez consulter des professionnels qualifiés dans chacun de ces domaines.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LCTA heading="Vous voulez appliquer ces chiffres à une propriété réelle?" lead="Des chiffres dans le vide ne servent à rien. Regardons des propriétés réelles à Toronto dans votre fourchette de prix et comparons la location et l'achat pour chacune — avec votre mise de fonds, votre taux et votre période de détention réels. Un seul appel, sans pression." />
+  <LFooter />
+</BaseLayout>
+
+<style>
+  /* Rent vs Buy specific — extends the shared .mc- component classes */
+
+  /* Hide native number-input spinners so the digit is not clipped by the
+     browser's up/down arrows in narrow columns. Applies to any input on
+     this page. */
+  .prose-body input[type="number"]::-webkit-inner-spin-button,
+  .prose-body input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .prose-body input[type="number"] { -moz-appearance: textfield; }
+
+  /* Belt + braces: ensure every input in the shared box respects its column */
+  .mc-shared .calc-field input,
+  .mc-shared .calc-field select {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    min-width: 0;
+  }
+  .mc-shared .calc-field .input-prefix {
+    display: block;
+    width: 100%;
+  }
+  .mc-shared .calc-field .input-prefix input { width: 100%; }
+
+  .rvb-scenarios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .rvb-scenarios { grid-template-columns: 1fr; } }
+
+  .rvb-verdict {
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid transparent;
+  }
+  .rvb-verdict-neutral { background: var(--bg-warm); border-color: var(--rule); color: var(--ink-soft); }
+  .rvb-verdict-buy { background: #f0f6f0; border-color: #cfe0cf; color: #1a5b28; }
+  .rvb-verdict-rent { background: #fbf6ea; border-color: #efdfad; color: #7a5a10; }
+  html[data-theme="dark"] .rvb-verdict-buy { background: #12331b; border-color: #245a30; color: #a8dcb4; }
+  html[data-theme="dark"] .rvb-verdict-rent { background: #2a2410; border-color: #6b551f; color: #f0d494; }
+</style>
+
+<script>
+  (function() {
+    const $ = (id) => document.getElementById(id);
+    const ids = [
+      'price','down','years','amort','rate','appr','sellcost','infl','closing',
+      'maint','tax','hoi',
+      'rent','content-ins','rentinc'
+    ];
+    const el = {};
+    ids.forEach(k => el[k] = $('rvb-' + k));
+
+    // Parse a value that may contain commas
+    function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+    function num(k) { return parseN(el[k] ? el[k].value : ''); }
+    function fmtCAD(n) {
+      if (!isFinite(n)) return '—';
+      const abs = Math.abs(n);
+      const sign = n < 0 ? '-' : '';
+      return sign + Math.round(abs).toLocaleString('fr-CA') + ' $';
+    }
+    function fmtN(n) { return n.toLocaleString('fr-CA', { maximumFractionDigits: 0 }); }
+
+    // === CMHC (Dec 15, 2024 schedule) ===
+    function cmhcRate(ltv) {
+      if (ltv <= 0.80) return 0;
+      if (ltv <= 0.85) return 0.0280;
+      if (ltv <= 0.90) return 0.0310;
+      if (ltv <= 0.95) return 0.0400;
+      return 0;
+    }
+
+    // Canadian mortgage: nominal annual rate compounded semi-annually.
+    // Effective monthly rate = (1 + nominal/2)^(1/6) - 1
+    function monthlyRateCA(annualPct) {
+      const r = (annualPct || 0) / 100;
+      return Math.pow(1 + r / 2, 1 / 6) - 1;
+    }
+    function mortgagePayment(principal, monthlyRate, nMonths) {
+      if (principal <= 0 || nMonths <= 0) return 0;
+      if (monthlyRate === 0) return principal / nMonths;
+      const pow = Math.pow(1 + monthlyRate, nMonths);
+      return principal * (monthlyRate * pow) / (pow - 1);
+    }
+    function balanceAfter(principal, monthlyRate, payment, kMonths) {
+      if (monthlyRate === 0) return Math.max(0, principal - payment * kMonths);
+      const pow = Math.pow(1 + monthlyRate, kMonths);
+      return principal * pow - payment * (pow - 1) / monthlyRate;
+    }
+
+    function calc() {
+      const price = num('price');
+      const down = num('down');
+      const amort = Math.max(1, num('amort'));
+      const rateAnnual = num('rate');
+      const closing = num('closing');
+      const maint = num('maint');
+      const tax = num('tax');
+      const hoi = num('hoi');
+      const apprPct = num('appr') / 100;
+      const years = Math.max(1, num('years'));
+      const sellPct = num('sellcost') / 100;
+      const inflPct = num('infl') / 100;
+      const rent = num('rent');
+      const contentIns = num('content-ins');
+      const rentIncPct = num('rentinc') / 100;
+
+      const baseLoan = Math.max(0, price - down);
+      const ltv = price > 0 ? baseLoan / price : 0;
+      const cRate = cmhcRate(ltv);
+      const premium = baseLoan * cRate;
+      const totalMortgage = baseLoan + premium;
+
+      const mRate = monthlyRateCA(rateAnnual);
+      const nMonthsTotal = amort * 12;
+      const monthlyMortgage = mortgagePayment(totalMortgage, mRate, nMonthsTotal);
+      const monthlyTMI = (tax + hoi) / 12 + maint;
+
+      const monthsHeld = Math.min(nMonthsTotal, years * 12);
+      const totalMortgagePaid = monthlyMortgage * monthsHeld;
+
+      // TMI grown by inflation year by year
+      let totalTMI = 0;
+      let totalRent = 0;
+      let totalContentIns = 0;
+      for (let y = 0; y < years; y++) {
+        const inf = Math.pow(1 + inflPct, y);
+        totalTMI += (maint * 12 + tax + hoi) * inf;
+        const rInc = Math.pow(1 + rentIncPct, y);
+        totalRent += rent * 12 * rInc;
+        totalContentIns += contentIns * 12 * inf;
+      }
+
+      const loanBalance = balanceAfter(totalMortgage, mRate, monthlyMortgage, monthsHeld);
+      const principalPaid = totalMortgage - loanBalance;
+      const homeValue = price * Math.pow(1 + apprPct, years);
+      const sellingCost = homeValue * sellPct;
+      const totalHomeGain = homeValue - down - loanBalance - closing - sellingCost;
+
+      // Scenario tags
+      const downPct = price > 0 ? (down / price * 100) : 0;
+      $('rvb-buy-tag').textContent = downPct.toFixed(1) + ' % de mise · ' + rateAnnual + ' %';
+      $('rvb-rent-tag').textContent = (rentIncPct * 100).toFixed(1) + ' % d\'augmentation annuelle';
+
+      // If Buying card outputs
+      $('rvb-cmhc-out').textContent = premium > 0 ? fmtCAD(premium) : '0 $ (non requis)';
+      $('rvb-mortgage-out').textContent = fmtCAD(totalMortgage);
+      $('rvb-buy-tmi-out').textContent = fmtCAD(monthlyTMI);
+      $('rvb-buy-total-out').textContent = fmtCAD(monthlyMortgage + monthlyTMI);
+
+      // If Renting card outputs
+      $('rvb-rent-ins-out').textContent = fmtCAD(contentIns);
+      $('rvb-rent-total-out').textContent = fmtCAD(rent + contentIns);
+
+      // Comparison-over-N-years block
+      $('rvb-years-head').textContent = years;
+      $('rvb-years-eq').textContent = years;
+      $('rvb-cmp-buy').textContent = fmtCAD(totalMortgagePaid + totalTMI + closing + sellingCost);
+      $('rvb-cmp-rent').textContent = fmtCAD(totalRent + totalContentIns);
+      $('rvb-cmp-principal').textContent = fmtCAD(principalPaid);
+      $('rvb-cmp-homevalue').textContent = fmtCAD(homeValue);
+
+      // Long-term equity table
+      $('rvb-eq-hv').textContent = fmtCAD(homeValue);
+      $('rvb-eq-down').textContent = fmtCAD(down);
+      $('rvb-eq-loan').textContent = fmtCAD(loanBalance);
+      $('rvb-eq-costs').textContent = fmtCAD(closing + sellingCost);
+      $('rvb-eq-gain').textContent = fmtCAD(totalHomeGain);
+
+      // Verdict
+      const buyNetCost = totalMortgagePaid + totalTMI + closing + sellingCost - (homeValue - loanBalance);
+      const rentNetCost = totalRent + totalContentIns;
+      const diff = rentNetCost - buyNetCost;
+      $('rvb-cmp-diff').textContent = fmtCAD(diff);
+
+      const v = $('rvb-verdict');
+      v.classList.remove('rvb-verdict-neutral','rvb-verdict-buy','rvb-verdict-rent');
+      if (Math.abs(diff) < 1000) {
+        v.classList.add('rvb-verdict-neutral');
+        v.textContent = 'Sur ' + years + ' ans, acheter et louer s\'équivalent à peu près. Les facteurs non financiers (flexibilité vs stabilité) devraient trancher.';
+      } else if (diff > 0) {
+        v.classList.add('rvb-verdict-buy');
+        v.textContent = 'Sur ' + years + ' ans, l\'achat l\'emporte par environ ' + fmtCAD(diff) + ' — avant de tenir compte du coût d\'opportunité de votre mise de fonds. Parlez à un courtier hypothécaire pour confirmer votre préapprobation avant de magasiner.';
+      } else {
+        v.classList.add('rvb-verdict-rent');
+        v.textContent = 'Sur ' + years + ' ans, la location l\'emporte par environ ' + fmtCAD(-diff) + ' en termes de liquidités pures. Cela N\'INCLUT PAS l\'équité que vous continueriez à accumuler au-delà de cette période de détention. Augmentez le nombre d\'« Années avant la revente » et recalculez.';
+      }
+    }
+
+    // ==== Comma formatting for dollar inputs ====
+    const DOLLAR_IDS = ['price','down','closing','maint','tax','hoi','rent','content-ins'];
+    function reformat(k) {
+      if (!el[k]) return;
+      if (el[k].value.trim() === '') return;
+      el[k].value = fmtN(parseN(el[k].value));
+    }
+    function strip(k) {
+      if (!el[k]) return;
+      if (el[k].value.trim() === '') return;
+      el[k].value = String(parseN(el[k].value));
+    }
+    DOLLAR_IDS.forEach(k => {
+      if (!el[k]) return;
+      reformat(k);
+      el[k].addEventListener('focus', () => strip(k));
+      el[k].addEventListener('blur',  () => reformat(k));
+    });
+
+    // Auto-recalc on any input change
+    ids.forEach(k => { if (el[k]) el[k].addEventListener('input', calc); });
+
+    calc();
+  })();
+</script>

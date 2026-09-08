@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import TopBar from '../components/TopBar.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import CTASection from '../components/CTASection.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/rent-vs-buy-calculator/' },
@@ -13,19 +13,20 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="Rent vs Buy Calculator | Peter Law"
-  description="Should you rent or buy in Toronto? Compare total monthly payments, long-term equity, home appreciation, and cost of renting over your holding period."
+  title="租房 vs 购房计算器 | Peter Law"
+  description="在多伦多,您该租房还是买房?对比每月总支出、长期净值积累、房屋增值,以及持有期内的租房总成本。"
   bodyClass="calc-page"
+  zh={true}
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="buyers" />
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Rent vs Buy calculator</div>
-      <h1>Rent or Buy? Calculate below.</h1>
-      <p>Enter one scenario and see the buying and renting numbers side-by-side. Built for Canadian rules: semi-annual mortgage compounding, CMHC tiers, and Ontario rent-control awareness.</p>
+      <div class="eyebrow">租房 vs 购房计算器</div>
+      <h1>租房还是买房?在下方计算。</h1>
+      <p>输入一组场景,即可并排看到购房与租房的具体数字。按加拿大规则设计:半年复利房贷、CMHC 分级费率,并考虑安省的租金管制规则。</p>
     </div>
   </section>
 
@@ -33,14 +34,14 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Buyer resources</h4>
+          <h4>买家资源</h4>
           <ul>
-            <li><a href="/buyer-guide">Buyer Guide</a></li>
-            <li><a href="/payment-calculator">Mortgage Calculator</a></li>
-            <li><a href="/cmhc-insurance-calculator">CMHC Insurance Calculator</a></li>
-            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
-            <li><a href="/closing-costs">Closing Costs</a></li>
-            <li><a href="/rent-vs-buy-calculator"><strong>Rent vs Buy Calculator</strong></a></li>
+            <li><a href="/chinese/buyer-guide">买家指南</a></li>
+            <li><a href="/chinese/payment-calculator">房贷计算器</a></li>
+            <li><a href="/chinese/cmhc-insurance-calculator">CMHC 保险计算器</a></li>
+            <li><a href="/chinese/land-transfer-tax">土地转让税</a></li>
+            <li><a href="/chinese/closing-costs">交接成本</a></li>
+            <li><a href="/chinese/rent-vs-buy-calculator"><strong>租房 vs 购房计算器</strong></a></li>
           </ul>
         </aside>
         <div class="prose-body">
@@ -49,48 +50,48 @@ const hreflangAlternates = [
                SHARED SCENARIO INPUTS (applies to both Buying + Renting)
                ============================================================ -->
           <div class="mc-shared">
-            <h3>The scenario (applies to both)</h3>
+            <h3>共同场景设置(购房与租房通用)</h3>
             <div class="mc-shared-fields">
               <div class="calc-field">
-                <label for="rvb-price">Purchase price</label>
+                <label for="rvb-price">购买价格</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-price" type="text" value="750000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
-                <label for="rvb-down">Down payment</label>
+                <label for="rvb-down">首付</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-down" type="text" value="75000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
-                <label for="rvb-years">Years before selling</label>
+                <label for="rvb-years">卖出前的年数</label>
                 <input id="rvb-years" type="number" value="5" min="1" max="40" step="1" inputmode="numeric">
               </div>
               <div class="calc-field">
-                <label for="rvb-amort">Amortization</label>
+                <label for="rvb-amort">摊销期</label>
                 <select id="rvb-amort">
-                  <option value="25" selected>25 yr</option>
-                  <option value="30">30 yr</option>
-                  <option value="20">20 yr</option>
-                  <option value="15">15 yr</option>
-                  <option value="10">10 yr</option>
+                  <option value="25" selected>25 年</option>
+                  <option value="30">30 年</option>
+                  <option value="20">20 年</option>
+                  <option value="15">15 年</option>
+                  <option value="10">10 年</option>
                 </select>
               </div>
               <div class="calc-field">
-                <label for="rvb-rate">Interest rate (%)</label>
+                <label for="rvb-rate">利率(%)</label>
                 <input id="rvb-rate" type="number" value="4.5" min="0" max="25" step="0.05" inputmode="decimal">
               </div>
               <div class="calc-field">
-                <label for="rvb-appr">Home appreciation (%/yr)</label>
+                <label for="rvb-appr">房屋增值率(%/年)</label>
                 <input id="rvb-appr" type="number" value="3" step="0.1" inputmode="decimal">
               </div>
               <div class="calc-field">
-                <label for="rvb-sellcost">Selling costs (% of price)</label>
+                <label for="rvb-sellcost">卖房成本(占房价 %)</label>
                 <input id="rvb-sellcost" type="number" value="5" min="0" max="20" step="0.1" inputmode="decimal">
               </div>
               <div class="calc-field">
-                <label for="rvb-infl">Inflation rate (%)</label>
+                <label for="rvb-infl">通胀率(%)</label>
                 <input id="rvb-infl" type="number" value="2" step="0.1" inputmode="decimal">
               </div>
               <div class="calc-field">
-                <label for="rvb-closing">Buying closing cost</label>
+                <label for="rvb-closing">购房交接成本</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-closing" type="text" value="15000" inputmode="decimal" autocomplete="off"></div>
               </div>
             </div>
@@ -104,76 +105,76 @@ const hreflangAlternates = [
             <!-- IF BUYING -->
             <div class="mc-scenario">
               <div class="mc-scenario-header">
-                <h4>If Buying</h4>
-                <span class="mc-scenario-tag" id="rvb-buy-tag">10.0% down · 4.5%</span>
+                <h4>如果购房</h4>
+                <span class="mc-scenario-tag" id="rvb-buy-tag">10.0% 首付 · 4.5%</span>
               </div>
               <div class="mc-row">
-                <label>Monthly maintenance / condo fees</label>
+                <label>每月维护费 / Condo 物业费</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-maint" type="text" value="500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Annual property taxes</label>
+                <label>年物业税</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-tax" type="text" value="4000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Annual homeowners insurance</label>
+                <label>年房屋保险</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-hoi" type="text" value="1200" inputmode="decimal" autocomplete="off"></div>
               </div>
 
               <div class="mc-row mc-output">
-                <label>CMHC insurance premium</label>
+                <label>CMHC 保险费</label>
                 <span class="value" id="rvb-cmhc-out">$0</span>
               </div>
               <div class="mc-row mc-output">
-                <label>Total mortgage</label>
+                <label>总贷款额</label>
                 <span class="value" id="rvb-mortgage-out">$0</span>
               </div>
               <div class="mc-row mc-output">
-                <label>Insurance / Taxes / Maintenance (avg mo)</label>
+                <label>保险 / 税费 / 维护费(月均)</label>
                 <span class="value" id="rvb-buy-tmi-out">$0</span>
               </div>
               <div class="mc-row mc-payment">
-                <label>Total monthly payment</label>
+                <label>每月总支出</label>
                 <span class="value" id="rvb-buy-total-out">$0</span>
-                <span class="freq">/mo</span>
+                <span class="freq">/月</span>
               </div>
             </div>
 
             <!-- IF RENTING -->
             <div class="mc-scenario">
               <div class="mc-scenario-header">
-                <h4>If Renting</h4>
-                <span class="mc-scenario-tag" id="rvb-rent-tag">3.0% annual increase</span>
+                <h4>如果租房</h4>
+                <span class="mc-scenario-tag" id="rvb-rent-tag">3.0% 年涨幅</span>
               </div>
               <div class="mc-row">
-                <label>Monthly rent</label>
+                <label>每月租金</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-rent" type="text" value="2500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Monthly contents insurance</label>
+                <label>每月租客保险</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-content-ins" type="text" value="25" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Annual rent increase (%)</label>
+                <label>年租金涨幅(%)</label>
                 <input id="rvb-rentinc" type="number" value="3" step="0.1" inputmode="decimal">
               </div>
 
               <div class="mc-row mc-output">
-                <label>Ontario guideline (2025)</label>
+                <label>安省指导上限(2025年)</label>
                 <span class="value">2.50%</span>
               </div>
               <div class="mc-row mc-output">
-                <label>Contents insurance (mo)</label>
+                <label>租客保险(月)</label>
                 <span class="value" id="rvb-rent-ins-out">$0</span>
               </div>
               <div class="mc-row mc-output">
-                <label>Rent-controlled buildings</label>
-                <span class="value" style="font-size:12px;font-family:'Inter',sans-serif;font-weight:400;color:var(--ink-mute);">Pre-Nov&nbsp;2018 only</span>
+                <label>受租金管制的楼盘</label>
+                <span class="value" style="font-size:12px;font-family:'Inter',sans-serif;font-weight:400;color:var(--ink-mute);">仅限2018年11月前建成</span>
               </div>
               <div class="mc-row mc-payment">
-                <label>Total monthly payment</label>
+                <label>每月总支出</label>
                 <span class="value" id="rvb-rent-total-out">$0</span>
-                <span class="freq">/mo</span>
+                <span class="freq">/月</span>
               </div>
             </div>
           </div>
@@ -182,33 +183,33 @@ const hreflangAlternates = [
                COMPARISON BLOCK (over N years) — same style as mc-ltt-block
                ============================================================ -->
           <div class="mc-ltt-block">
-            <h3>Comparison over <span id="rvb-years-head">5</span> years</h3>
+            <h3>未来 <span id="rvb-years-head">5</span> 年的对比</h3>
             <div class="mc-ltt-rows">
-              <div class="row"><span>Total Buying costs (mortgage + TMI + closing + selling)</span><strong id="rvb-cmp-buy">$0</strong></div>
-              <div class="row"><span>Total Renting costs (rent + contents insurance)</span><strong id="rvb-cmp-rent">$0</strong></div>
-              <div class="row"><span>Total mortgage principal paid (equity built)</span><strong id="rvb-cmp-principal">$0</strong></div>
-              <div class="row"><span>Home value at selling date</span><strong id="rvb-cmp-homevalue">$0</strong></div>
-              <div class="row total"><span><strong>Net difference (Rent − Buy net cost)</strong></span><strong id="rvb-cmp-diff">$0</strong></div>
+              <div class="row"><span>购房总成本(贷款 + 税费保险维护 + 交接成本 + 卖房成本)</span><strong id="rvb-cmp-buy">$0</strong></div>
+              <div class="row"><span>租房总成本(租金 + 租客保险)</span><strong id="rvb-cmp-rent">$0</strong></div>
+              <div class="row"><span>已偿还贷款本金(累积净值)</span><strong id="rvb-cmp-principal">$0</strong></div>
+              <div class="row"><span>卖出时的房屋价值</span><strong id="rvb-cmp-homevalue">$0</strong></div>
+              <div class="row total"><span><strong>净差额(租房成本 − 购房净成本)</strong></span><strong id="rvb-cmp-diff">$0</strong></div>
             </div>
-            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Enter your numbers above — the calculator updates live.</div>
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">请在上方输入您的数字 — 计算器会实时更新。</div>
           </div>
 
           <!-- ============================================================
                LONG-TERM OWNERSHIP EQUITY (collapsible)
                ============================================================ -->
           <details class="mc-collapsible">
-            <summary>Long-term benefits of home ownership</summary>
+            <summary>长期持有自住房的收益</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">If you sell at year <span id="rvb-years-eq">5</span>, this is the equity you'd walk away with after paying off the loan and covering selling costs.</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">如果您在第 <span id="rvb-years-eq">5</span> 年卖出,这是您在还清贷款并支付卖房成本后,能够带走的净值。</p>
               <div style="overflow-x: auto;">
                 <table class="mc-table">
-                  <thead><tr><th>Line item</th><th style="text-align:right;">Amount</th></tr></thead>
+                  <thead><tr><th>项目</th><th style="text-align:right;">金额</th></tr></thead>
                   <tbody>
-                    <tr><td>Home value at expected selling date</td><td id="rvb-eq-hv" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
-                    <tr><td>Less: down payment</td><td id="rvb-eq-down" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
-                    <tr><td>Less: remaining loan balance</td><td id="rvb-eq-loan" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
-                    <tr><td>Less: buying &amp; selling costs</td><td id="rvb-eq-costs" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
-                    <tr style="border-top:2px solid var(--ink);"><td><strong>Total home gain</strong></td><td id="rvb-eq-gain" style="text-align:right;font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);">$0</td></tr>
+                    <tr><td>预计卖出时的房屋价值</td><td id="rvb-eq-hv" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
+                    <tr><td>减:首付</td><td id="rvb-eq-down" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
+                    <tr><td>减:剩余贷款余额</td><td id="rvb-eq-loan" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
+                    <tr><td>减:购房与卖房成本</td><td id="rvb-eq-costs" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
+                    <tr style="border-top:2px solid var(--ink);"><td><strong>房屋总收益</strong></td><td id="rvb-eq-gain" style="text-align:right;font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);">$0</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -219,17 +220,17 @@ const hreflangAlternates = [
                HOW THE NUMBERS WORK (collapsible)
                ============================================================ -->
           <details class="mc-collapsible">
-            <summary>How the numbers work</summary>
+            <summary>数字是如何算出来的</summary>
             <div class="mc-collapsible-body">
               <ul class="bullets">
-                <li><strong>Mortgage payment:</strong> principal + interest only, using Canada's convention of interest compounded semi-annually not in advance. Property tax, insurance, and maintenance are shown separately.</li>
-                <li><strong>CMHC premium:</strong> auto-derived from your loan-to-value using CMHC's Dec 15, 2024 schedule. Ontario 8% PST on the premium is paid at closing and isn't modeled here.</li>
-                <li><strong>Total Monthly (Buying):</strong> mortgage payment + monthly share of property tax + homeowners insurance + maintenance/condo fees.</li>
-                <li><strong>Total Monthly (Renting):</strong> monthly rent + monthly contents insurance.</li>
-                <li><strong>Comparison over N years:</strong> mortgage payments stay flat; property tax, insurance, and maintenance grow at inflation. Rent compounds annually by the rate you enter. Contents insurance grows at inflation.</li>
-                <li><strong>Home value at selling:</strong> purchase price × (1 + appreciation)<sup>years</sup>.</li>
-                <li><strong>Total home gain:</strong> home value − down payment − remaining loan balance − buying closing cost − selling costs.</li>
-                <li><strong>Net difference:</strong> total rent cost minus buying's "net cost" (all cash out − equity gained). Positive = buying wins over this holding period.</li>
+                <li><strong>房贷月供:</strong>仅包含本金和利息,采用加拿大惯例 —— 利息按半年复利、不提前计息。物业税、保险与维护费单独列出。</li>
+                <li><strong>CMHC 保费:</strong>根据您的贷款价值比自动算出,采用 CMHC 2024 年 12 月 15 日生效的费率表。安省对保费另收的 8% PST 在交接时支付,本工具未计入。</li>
+                <li><strong>每月总支出(购房):</strong>月供 + 物业税月均 + 房屋保险 + 维护费/Condo 物业费。</li>
+                <li><strong>每月总支出(租房):</strong>每月租金 + 每月租客保险。</li>
+                <li><strong>N 年内的对比:</strong>月供保持不变;物业税、保险与维护费按通胀率增长。租金按您输入的涨幅逐年复利上涨。租客保险按通胀率增长。</li>
+                <li><strong>卖出时的房屋价值:</strong>购买价格 ×(1 + 增值率)<sup>年数</sup>。</li>
+                <li><strong>房屋总收益:</strong>房屋价值 − 首付 − 剩余贷款余额 − 购房交接成本 − 卖房成本。</li>
+                <li><strong>净差额:</strong>租房总成本减去购房的"净成本"(全部现金支出 − 已获得的净值)。数值为正,表示在此持有期内购房更划算。</li>
               </ul>
             </div>
           </details>
@@ -238,42 +239,42 @@ const hreflangAlternates = [
                TIPS & ADVICE (collapsible, styled as explainer)
                ============================================================ -->
           <details class="mc-collapsible mc-explainer">
-            <summary>Tips &amp; advice — for renters</summary>
+            <summary>贴士与建议 — 写给租客</summary>
             <div class="mc-collapsible-body mc-explainer-body">
 
-              <h3>Rent isn't "throwing money away"</h3>
-              <p>You're buying flexibility, mobility, and freedom from repair bills. That has real value — put a number on it before you compare against ownership.</p>
+              <h3>租房不是"打水漂"</h3>
+              <p>您花钱买到的是灵活性、可流动性,以及不用操心维修账单的自由。这些都有实实在在的价值 —— 在与购房对比之前,先给它标个价。</p>
 
-              <h3>Know your rent-control status</h3>
-              <p>In Ontario, units in buildings first occupied for residential purposes <strong>before Nov 15, 2018</strong> are covered by the annual rent-increase guideline (2.5% for 2025). Newer buildings can be raised to market on lease renewal. Ask before you sign.</p>
+              <h3>了解您的租金管制状态</h3>
+              <p>在安大略省,首次投入住宅使用<strong>早于2018年11月15日</strong>的楼盘单位,受年度租金涨幅指导上限保护(2025年为2.5%)。较新的楼盘可以在续租时把租金涨到市场价。签约前请务必问清楚。</p>
 
-              <h3>Contents insurance is cheap and essential</h3>
-              <p>Tenant policies typically run $20–$40/month and cover your belongings, personal liability, and additional living expenses if your unit becomes uninhabitable. Landlord's policy doesn't cover any of that.</p>
+              <h3>租客保险便宜且必不可少</h3>
+              <p>租客保单一般每月 $20–$40,涵盖您的个人财物、个人责任,以及在单位无法居住时的额外生活费用。房东的保单不会覆盖这些内容。</p>
 
-              <h4>Under 3 years? Renting usually wins</h4>
-              <p>Transaction costs (Land Transfer Tax going in, real-estate commission going out) rarely earn back in a 3-year horizon unless the market runs hard. Extend "Years before selling" above and see when it flips.</p>
+              <h4>持有不到 3 年?通常租房更划算</h4>
+              <p>交易成本(买入时的土地转让税、卖出时的地产佣金)在 3 年的持有期内很难赚回来,除非市场表现非常强劲。把上方的"卖出前的年数"调大,看看什么时候情况会反转。</p>
 
-              <h4>Budget for the invisible costs of buying</h4>
-              <p>Land Transfer Tax, legal fees, home inspection, moving, and the first year of small repairs are real. See my <a href="/closing-costs">Closing Costs</a> page and <a href="/land-transfer-tax">Land Transfer Tax</a> calculator.</p>
+              <h4>为购房中看不见的成本做好预算</h4>
+              <p>土地转让税、律师费、验房、搬家,以及第一年零星的维修费用都是真实存在的。请参阅我的<a href="/chinese/closing-costs">交接成本</a>页面和<a href="/chinese/land-transfer-tax">土地转让税</a>计算器。</p>
 
-              <h4>Stress-test the interest rate</h4>
-              <p>If today's rate is 4.5% and your renewal in 5 years is 6%, does the math still work? Bump the rate up in the calculator and recheck.</p>
+              <h4>对利率做压力测试</h4>
+              <p>如果今天的利率是 4.5%,而 5 年后续约时变成了 6%,这笔账还算得过来吗?把计算器里的利率调高,再重新检查一遍。</p>
 
-              <h4>Have at least 5% liquid on top of closing costs</h4>
-              <p>Furniture, appliances, moving, first-month utilities, and small repairs add up fast in the first year. Don't drain every dollar into the down payment.</p>
+              <h4>除交接成本外,至少预留 5% 的现金</h4>
+              <p>家具、电器、搬家、第一个月的水电费,以及零星维修,在第一年里加起来很快。别把每一分钱都投进首付里。</p>
 
-              <h4>The opportunity cost of a down payment matters</h4>
-              <p>If you keep renting, you'd invest the down payment amount. This tool doesn't model that — for the full picture, ask a financial planner to run buy-vs-invest side-by-side.</p>
+              <h4>首付的机会成本很重要</h4>
+              <p>如果您继续租房,首付这笔钱本可以拿去投资。本工具没有对此建模 —— 想看到完整的情况,请找理财规划师帮您做"购房 vs 投资"的并列测算。</p>
 
-              <h4>Get pre-approved before you shop</h4>
-              <p>Pre-approval is free and tells you what a lender will actually give you — not what a calculator says you can afford. It also locks a rate for 90–120 days while you look.</p>
+              <h4>看房前先拿到预批</h4>
+              <p>预批是免费的,它能告诉您贷款机构实际愿意批给您多少 —— 而不是计算器估算出的"您能负担多少"。预批还能在您看房期间锁定利率 90 到 120 天。</p>
 
-              <p class="mc-explainer-cta"><em>Not sure whether to jump in this year? I work with buyers and renters both — and my advice depends on your actual situation, not a spreadsheet. <a href="/contact">Get in touch</a>.</em></p>
+              <p class="mc-explainer-cta"><em>不确定今年该不该出手?我同时服务买家和租客 —— 我的建议取决于您的实际情况,而不是一张表格。<a href="/chinese/contact">联系我</a>。</em></p>
             </div>
           </details>
 
           <p class="calc-disclaimer">
-            <strong>Disclaimer.</strong> This calculator is for illustrative purposes only. Canadian mortgages compound semi-annually not in advance. CMHC rate is auto-derived from your loan-to-value using CMHC's Dec 15, 2024 schedule; Ontario 8% PST on the premium is paid at closing and isn't modeled here. Home appreciation, inflation, and rent-increase assumptions are inputs — actual outcomes vary. Property tax, homeowners insurance, and maintenance are assumed to grow at the inflation rate you enter. Selling costs are estimated as a flat percentage of the sale price and typically cover real estate commission (with HST), legal fees, and adjustments. This tool doesn't model income tax, mortgage penalties for breaking a term, HELOC borrowing, or the opportunity cost of investing your down payment differently. I am a licensed real estate Sales Representative — not a mortgage broker, financial planner, tax advisor, or investment advisor. For a decision this large, please consult qualified professionals in each of those fields.
+            <strong>免责声明。</strong>本计算器仅供参考。加拿大房贷按半年复利、不提前计息的方式计算。CMHC 费率根据您的贷款价值比自动算出,采用 CMHC 2024 年 12 月 15 日生效的费率表;安省对保费另收的 8% PST 在交接时支付,本工具未计入。房屋增值、通胀与租金涨幅均为您输入的假设值 —— 实际结果会有所不同。物业税、房屋保险与维护费均假设按您输入的通胀率增长。卖房成本按房屋售价的固定百分比估算,通常涵盖地产佣金(含 HST)、律师费与调整款项。本工具未对所得税、提前解约的贷款违约金、HELOC 借款,或将首付另作投资的机会成本进行建模。我是持牌房地产销售代表 —— 不是房贷经纪、理财规划师、税务顾问或投资顾问。对于这样重大的决定,请就上述各领域咨询合格的专业人士。
           </p>
 
         </div>
@@ -281,8 +282,8 @@ const hreflangAlternates = [
     </div>
   </section>
 
-  <CTASection heading="Want to run these numbers on a real listing?" lead="Numbers in a vacuum don't help. Let's look at real Toronto properties in your range and run rent-vs-buy on each one — with your actual down payment, rate, and holding period. One call, no pressure." />
-  <Footer />
+  <ChineseCTASection heading="想用真实房源来算一算这些数字吗?" lead="脱离实际房源谈数字没有意义。我们一起看看您预算范围内的真实多伦多房源,针对每一套都跑一遍租房 vs 购房的对比 —— 用您真实的首付、利率和持有年限。一次通话,没有压力。" />
+  <ChineseFooter />
 </BaseLayout>
 
 <style>
@@ -430,11 +431,11 @@ const hreflangAlternates = [
 
       // Scenario tags
       const downPct = price > 0 ? (down / price * 100) : 0;
-      $('rvb-buy-tag').textContent = downPct.toFixed(1) + '% down · ' + rateAnnual + '%';
-      $('rvb-rent-tag').textContent = (rentIncPct * 100).toFixed(1) + '% annual increase';
+      $('rvb-buy-tag').textContent = downPct.toFixed(1) + '% 首付 · ' + rateAnnual + '%';
+      $('rvb-rent-tag').textContent = (rentIncPct * 100).toFixed(1) + '% 年涨幅';
 
       // If Buying card outputs
-      $('rvb-cmhc-out').textContent = premium > 0 ? fmtCAD(premium) : '$0 (not required)';
+      $('rvb-cmhc-out').textContent = premium > 0 ? fmtCAD(premium) : '$0(无需购买)';
       $('rvb-mortgage-out').textContent = fmtCAD(totalMortgage);
       $('rvb-buy-tmi-out').textContent = fmtCAD(monthlyTMI);
       $('rvb-buy-total-out').textContent = fmtCAD(monthlyMortgage + monthlyTMI);
@@ -468,13 +469,13 @@ const hreflangAlternates = [
       v.classList.remove('rvb-verdict-neutral','rvb-verdict-buy','rvb-verdict-rent');
       if (Math.abs(diff) < 1000) {
         v.classList.add('rvb-verdict-neutral');
-        v.textContent = 'Over ' + years + ' years, buying and renting are roughly a wash. Non-financial factors (flexibility vs stability) should decide it.';
+        v.textContent = '在 ' + years + ' 年内,购房与租房的成本大致打平。这时候应该由非财务因素(灵活性 vs 稳定性)来做决定。';
       } else if (diff > 0) {
         v.classList.add('rvb-verdict-buy');
-        v.textContent = 'Over ' + years + ' years, buying comes out ahead by roughly ' + fmtCAD(diff) + ' — before accounting for the opportunity cost of your down payment. Talk to a mortgage broker to confirm pre-approval before you shop.';
+        v.textContent = '在 ' + years + ' 年内,购房大约领先 ' + fmtCAD(diff) + ' —— 这还没算上首付的机会成本。看房前请先找房贷经纪确认预批。';
       } else {
         v.classList.add('rvb-verdict-rent');
-        v.textContent = 'Over ' + years + ' years, renting comes out ahead by roughly ' + fmtCAD(-diff) + ' in pure cash terms. That does NOT include equity you would keep building past this holding period. Extend "Years before selling" and recalculate.';
+        v.textContent = '在 ' + years + ' 年内,单纯从现金角度看,租房大约领先 ' + fmtCAD(-diff) + '。这还不包括如果继续持有房产、您本可以继续积累的净值。请把"卖出前的年数"调大,再重新计算。';
       }
     }
 
