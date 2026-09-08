@@ -1866,27 +1866,43 @@ html[data-theme="dark"] {
   width: 52px;
   height: 26px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  /* Green pill — matches Peter's spec */
+  background: linear-gradient(180deg, #2f9a5c 0%, #1f7a48 100%);
+  border: 1px solid #2b7a45;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    0 1px 2px rgba(0, 0, 0, 0.35);
   padding: 0;
   cursor: pointer;
   vertical-align: middle;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   margin-left: 2px;
 }
-.theme-toggle:hover  { background: rgba(255, 255, 255, 0.20); border-color: rgba(255, 255, 255, 0.25); }
-.theme-toggle:focus-visible { outline: 2px solid #d9a978; outline-offset: 2px; }
+.theme-toggle:hover {
+  background: linear-gradient(180deg, #37ac68 0%, #268652 100%);
+  border-color: #329057;
+}
+.theme-toggle:focus-visible { outline: 2px solid #ffd400; outline-offset: 2px; }
 .theme-toggle-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #f4f0e8;
-  opacity: 0.75;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, filter 0.2s ease, color 0.2s ease;
 }
-.theme-toggle-icon-sun  { left: 6px; }
-.theme-toggle-icon-moon { right: 6px; }
+/* Sun — bright yellow, glowing */
+.theme-toggle-icon-sun {
+  left: 6px;
+  color: #ffd400;
+  filter: drop-shadow(0 0 3px rgba(255, 212, 0, 0.75));
+}
+/* Moon — shaded / muted yellow */
+.theme-toggle-icon-moon {
+  right: 6px;
+  color: #c9a227;
+  filter: drop-shadow(0 0 2px rgba(201, 162, 39, 0.45));
+}
 
 .theme-toggle-thumb {
   position: absolute;
@@ -1902,13 +1918,21 @@ html[data-theme="dark"] {
   pointer-events: none;
 }
 
-/* Dark mode: thumb slides to the right; icons flip emphasis */
+/* Light mode: sun stays bright (highlighted), moon is muted "switch to me" cue */
+html:not([data-theme="dark"]) .theme-toggle-icon-sun  { opacity: 1; }
+html:not([data-theme="dark"]) .theme-toggle-icon-moon { opacity: 0.55; }
+
+/* Dark mode: thumb slides right over the moon; moon glows, sun dims */
 html[data-theme="dark"] .theme-toggle-thumb { transform: translate(26px, -50%); }
-html[data-theme="dark"] .theme-toggle-icon-sun  { opacity: 1; }
-html[data-theme="dark"] .theme-toggle-icon-moon { opacity: 0.35; }
-/* Light mode: moon is the "click me to switch" side */
-html:not([data-theme="dark"]) .theme-toggle-icon-sun  { opacity: 0.35; }
-html:not([data-theme="dark"]) .theme-toggle-icon-moon { opacity: 1; }
+html[data-theme="dark"] .theme-toggle-icon-sun {
+  opacity: 0.55;
+  filter: drop-shadow(0 0 2px rgba(255, 212, 0, 0.35));
+}
+html[data-theme="dark"] .theme-toggle-icon-moon {
+  opacity: 1;
+  color: #e6c04a;
+  filter: drop-shadow(0 0 3px rgba(230, 192, 74, 0.75));
+}
 
 /* Tighten spacing on very small screens so the topbar-right stays one row */
 @media (max-width: 380px) {
