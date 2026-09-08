@@ -1770,13 +1770,7 @@ html[data-theme="dark"] {
 
   /* CTA section (dark band) — bump surface slightly to keep contrast */
   .cta-section { background: #060505; }
-  html[data-theme="dark"] .cta-box{ background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10); }
-  html[data-theme="dark"] .cta-box .btn-primary{ background: var(--bg); color: var(--ink); }
-  html[data-theme="dark"] .cta-box .btn-primary:hover{ background: #ffffff; }
-
-
-
-/* ============================================================
+  /* ============================================================
    PRINT STYLESHEET — clean output for calculators, guides,
    and legal pages. Hides nav/footer/CTA/embeds/forms unrelated
    to the printable content. Black-on-white typography.
@@ -2383,15 +2377,221 @@ html[data-theme="dark"] .boc-divider {
 }
 
 /* Affiliations section (professional bodies chips) — sits inside .cta-section */
-html[data-theme="dark"] .affiliations-list a {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.05);
-}
-
 /* Property Sales grid custom scrollbar */
 html[data-theme="dark"] .sales-grid::-webkit-scrollbar-thumb {
   background: var(--rule);
 }
 html[data-theme="dark"] .sales-grid::-webkit-scrollbar-thumb:hover {
   background: var(--ink-mute);
+}
+
+
+/* ============================================================
+   DARK MODE — CTA SECTION, FOOTER, TOPBAR ELEVATION FIX
+   Text was inheriting `color: var(--bg)` (light-mode cream, now near-
+   black in dark), producing invisible text. Bands were set to be even
+   darker than the page, removing visual boundaries. This block inverts
+   the pattern: dark bands become slightly LIFTED (level 1 elevation),
+   headings + copy force cream, cta-box lifts further (level 3), and
+   the primary button flips to cream-on-dark for maximum contrast.
+   ============================================================ */
+
+/* --- CTA band (dark section that appears at the bottom of most pages) --- */
+html[data-theme="dark"] .cta-section {
+  background: #17140f;                         /* level 1 elevation, warmer than --bg */
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
+}
+html[data-theme="dark"] .cta-section h2 {
+  color: var(--ink);                           /* was invisible near-black */
+}
+html[data-theme="dark"] .cta-section p {
+  color: var(--ink-soft);
+}
+
+/* --- CTA box (the callout card inside the CTA band) --- */
+html[data-theme="dark"] .cta-box {
+  background: #302c24;                         /* level 3 — clearly elevated inside the band */
+  border: 1px solid var(--rule);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+html[data-theme="dark"] .cta-box h3   { color: var(--ink); }
+html[data-theme="dark"] .cta-box p    { color: var(--ink-soft); }
+html[data-theme="dark"] .cta-box .alt { color: var(--ink-mute); }
+
+/* Primary button INSIDE the elevated cta-box: cream bg, dark text — high contrast */
+html[data-theme="dark"] .cta-box .btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+html[data-theme="dark"] .cta-box .btn-primary:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* --- Affiliations bar inside CTA section --- */
+html[data-theme="dark"] .cta-section .affiliations {
+  border-top-color: var(--rule);
+}
+html[data-theme="dark"] .affiliations-label {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .affiliations-list a {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--rule);
+  color: var(--ink);
+}
+html[data-theme="dark"] .affiliations-list a:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .aff-name { color: var(--ink-soft); }
+html[data-theme="dark"] .aff-acronym { color: var(--ink); }
+
+/* --- FOOTER — matches CTA band elevation for visual continuity --- */
+html[data-theme="dark"] footer {
+  background: #17140f;                         /* same level 1 elevation as CTA */
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+}
+html[data-theme="dark"] .foot-grid,
+html[data-theme="dark"] .foot-grid-5,
+html[data-theme="dark"] .foot-grid-6 {
+  border-bottom-color: var(--rule);
+}
+html[data-theme="dark"] .foot-col h4 {
+  color: var(--ink);
+}
+html[data-theme="dark"] .foot-col a {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .foot-col a:hover {
+  color: var(--ink);
+}
+html[data-theme="dark"] .foot-brand p {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .foot-bottom {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .foot-bottom a {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .foot-bottom a:hover {
+  color: var(--ink);
+}
+
+/* --- TOPBAR — subtly elevated dark band above header --- */
+html[data-theme="dark"] .topbar {
+  background: #100e0b;                         /* just below level 1 — subtle differentiation from footer */
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+}
+html[data-theme="dark"] .topbar a {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .topbar a:hover {
+  color: var(--ink);
+}
+html[data-theme="dark"] .topbar-left span+span::before {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .lang-sep {
+  color: var(--ink-mute);
+}
+
+/* --- Header + sticky nav + logo --- */
+html[data-theme="dark"] body > header {
+  background: #17140f;                         /* matches CTA + footer band tone */
+  border-bottom-color: var(--rule);
+}
+html[data-theme="dark"] .head-inner nav.primary a {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .head-inner nav.primary a:hover,
+html[data-theme="dark"] .head-inner nav.primary a.active,
+html[data-theme="dark"] .dropdown-trigger.active,
+html[data-theme="dark"] .has-dropdown:hover .dropdown-trigger,
+html[data-theme="dark"] .has-dropdown:focus-within .dropdown-trigger {
+  color: var(--ink);
+}
+html[data-theme="dark"] .head-cta {
+  background: var(--ink);
+  color: var(--bg);
+}
+html[data-theme="dark"] .head-cta:hover {
+  background: #ffffff;
+  color: #000000;
+}
+html[data-theme="dark"] .logo {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .logo:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .logo-home-hint {
+  color: var(--ink-mute);
+}
+/* Logo SVG text: was #1a1a1a in light — force cream in dark */
+html[data-theme="dark"] .logo svg text,
+html[data-theme="dark"] header .logo svg text,
+html[data-theme="dark"] footer .foot-brand svg text {
+  fill: var(--ink);
+}
+html[data-theme="dark"] .logo svg rect {
+  stroke: var(--ink);
+}
+html[data-theme="dark"] .logo svg text[font-family*="Inter"] {
+  fill: var(--ink-mute);
+}
+
+/* --- Nav separator + dropdown caret --- */
+html[data-theme="dark"] .nav-separator {
+  background: var(--rule);
+}
+html[data-theme="dark"] .dropdown-menu a {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .dropdown-menu a:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Mobile menu toggle --- */
+html[data-theme="dark"] .mobile-menu-toggle span {
+  background: var(--ink);
+}
+html[data-theme="dark"] .mobile-menu {
+  background: #17140f;
+}
+html[data-theme="dark"] .mobile-section-btn {
+  color: var(--ink);
+}
+html[data-theme="dark"] .mobile-section {
+  border-bottom-color: var(--rule);
+}
+html[data-theme="dark"] .mobile-section:first-child {
+  border-top-color: var(--rule);
+}
+html[data-theme="dark"] .mobile-section-list a {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .mobile-section-list a:hover,
+html[data-theme="dark"] .mobile-section-list a:focus {
+  color: var(--ink);
+}
+html[data-theme="dark"] .mobile-link {
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+html[data-theme="dark"] .mobile-link.mobile-lang {
+  color: var(--ink-soft);
+}
+
+/* --- Skip link visibility on dark --- */
+html[data-theme="dark"] .skip-link {
+  background: var(--ink);
+  color: var(--bg);
 }
