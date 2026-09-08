@@ -1817,7 +1817,7 @@ details summary:focus-visible {
   a[href^="mailto:"]::after, a[href^="tel:"]::after { content: ""; }
 
   /* Calculators: keep inputs + outputs visible, plain-styled */
-  .calc, .rcc, .ac-input-group, .mc-row, .cmhc-*, .ltt-* { border: 0 !important; box-shadow: none !important; }
+  .calc, .rcc, .ac-input-group, .mc-row, [class^="cmhc-"], [class^="ltt-"] { border: 0 !important; box-shadow: none !important; }
   input, select, textarea {
     border: 1px solid #999 !important; background: #fff !important; color: #000 !important;
     padding: 4pt 6pt !important; font-family: inherit !important;
