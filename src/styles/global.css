@@ -2840,3 +2840,7 @@ html[data-theme="dark"] .ltt-out-value,
 html[data-theme="dark"] .ltt-total {
   color: var(--ink);
 }
+
+
+/* WhatsApp availability note under phone number on Contact pages */
+.contact-wa { display: block; font-size: 11px; color: var(--ink-mute); font-style: italic; margin-top: 2px; letter-spacing: 0.01em; }

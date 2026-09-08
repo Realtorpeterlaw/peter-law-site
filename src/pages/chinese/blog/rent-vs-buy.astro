@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-09-07';
+const articleTitle = '租房 vs 买房:何时、为何、如何';
+const articleDescription = '一篇写给还在纠结"到底该继续租房,还是该开始买房"的人的通俗指南 —— 讲清楚在多伦多什么时候买房划算、为什么这件事重要,以及具体怎么开始,并附一个可以自己上手玩的实时计算器。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/rent-vs-buy';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  inLanguage: 'zh-CN',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — 多伦多房地产',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: '租房还是买房 多伦多, 该租房还是买房, 多伦多首次购房者, 租房买房计算器, 多伦多房产小贴士, 安省什么时候该买房, 加拿大如何买第一套房, 租房买房盈亏平衡年数',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/rent-vs-buy/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/rent-vs-buy/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/rent-vs-buy/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/rent-vs-buy/' },
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 买家基础</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">该继续租房,还是开始买房?这个问题没人能一句话答完。但只要知道该看哪些数字,您完全可以在十分钟内为<em>自己</em>找到答案。这里是精简版 —— 外加一个可以免费上手玩的计算器。</p>
+        <div class="article-byline">
+          <span>作者 <a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 9 月 7 日</time>
+          <span class="dot">·</span>
+          <span>阅读 6 分钟</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页内容</h4>
+            <ul>
+              <li><a href="#quick">30 秒版答案</a></li>
+              <li><a href="#when">WHEN:什么时候该考虑买房</a></li>
+              <li><a href="#why">WHY:为什么这很重要</a></li>
+              <li><a href="#how">HOW:具体怎么开始</a></li>
+              <li><a href="#calc">试试计算器</a></li>
+              <li><a href="#tips">下决心前的提示</a></li>
+              <li><a href="#mistakes">常见错误</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+
+            <p id="quick"><strong>快速回答:</strong>如果您打算至少住满 <strong>5 年</strong>、收入稳定,并且能拿出至少 <strong>5%</strong> 的首付,外加大约 <strong>4%</strong> 的交接成本,通常买房更划算。如果您可能很快就要搬家、收入不稳定,或者凑首付会掏空您的全部积蓄,那租房通常更划算。没有哪个"更聪明"——它们只是解决不同的问题。</p>
+
+            <div class="callout"><strong>这篇文章写给谁看:</strong>写给多伦多地区(其实整个安省都算)的租客 —— 身边亲戚朋友天天说"你该买房了",而您想用实打实的数字、而不是感觉,搞清楚现在买房到底适不适合自己。</div>
+
+            <details class="b60-section-toggle" id="when">
+              <summary class="b60-section-toggle-summary">WHEN:什么时候适合买房</summary>
+              <div class="b60-section-body">
+
+            <p>三个简单的检查项。如果三项都能回答"是",您就进入了"适合买房"的区间。只要有一项回答"否",就先继续租房 —— 这没什么好丢人的。</p>
+
+            <ul class="bullets">
+              <li><strong>您打算至少住满 5 年。</strong> 买了房两年后就卖掉,成本很高。买的时候要交土地转让税,卖的时候要付地产佣金,两头都有律师费。这些成本只有住得够久才能摊薄。</li>
+              <li><strong>您的收入稳定。</strong> 稳定到即使车坏了,或者丢了一个客户,每月的大额房贷还款也不会把您压垮。放贷机构在批贷前会用更高的利率给您做压力测试 —— 您应该先自己给自己做一遍。</li>
+              <li><strong>您有首付,外加大约 4% 的交接成本。</strong> 一套 $500,000 的房子至少需要 $25,000 首付(5%)。但您还需要额外大约 $20,000,用于土地转让税、律师费、验房和搬家。所有人都会忘记算交接成本。别做那个人。</li>
+            </ul>
+
+            <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+              <strong>经验法则:</strong>如果您打算住不到 3 年,几乎总是租房划算。3 到 5 年之间,要看您的首付、市场行情和利率。超过 5 年,买房通常会反超 —— 住得越久,差距越大。
+            </div>
+              </div>
+            </details>
+<details class="b60-section-toggle" id="why">
+  <summary class="b60-section-toggle-summary">WHY:为什么这件事重要(不只是钱的问题)</summary>
+  <div class="b60-section-body">
+
+            <p>钱不是唯一要考虑的东西。这里有三组真实的取舍,先把它们说清楚会有帮助。</p>
+
+            <h3>买房换来什么</h3>
+            <ul class="bullets">
+              <li><strong>净值。</strong> 每一次还房贷都包含一部分本金 —— 那是您在为自己存钱。年复一年,这笔钱会越滚越多。这也是为什么业主卖房时常常能拿到一大笔支票。</li>
+              <li><strong>价格稳定。</strong> 一旦签下房贷,在整个贷款期内(通常 5 年)您的还款金额基本不变。房东则可以每年涨租。对于 2018 年 11 月 15 日之后建成的新楼,涨租幅度甚至没有上限。</li>
+              <li><strong>掌控权。</strong> 想刷墙就刷墙,想养宠物就养宠物,想装修就装修。房子是您的。这种自由对有些人来说,本身就值钱。</li>
+            </ul>
+
+            <h3>租房换来什么</h3>
+            <ul class="bullets">
+              <li><strong>灵活性。</strong> 明年在温哥华找到工作?提前 60 天通知,说走就走。业主没法这么快搬家 —— 卖房既慢又费钱。</li>
+              <li><strong>不用操心维修。</strong> 冰箱坏了?屋顶漏水?那是房东的问题。业主则要自己全部承担,还要搭上处理这些事的时间。</li>
+              <li><strong>资金保持流动。</strong> 原本要锁进首付里的钱,可以留在账户里生息,或者投资到别的地方。这种灵活性本身就有实实在在的价值。</li>
+            </ul>
+
+            <p><strong>租房不是"把钱白白扔掉"。</strong> 您付的钱换来了一个屋顶,外加灵活性。业主付的钱换来了一个屋顶,外加长期净值。取舍不同,生活方式也不同。</p>
+  </div>
+</details>
+<details class="b60-section-toggle" id="how">
+  <summary class="b60-section-toggle-summary">HOW:具体怎么开始(如果您已经准备好了)</summary>
+  <div class="b60-section-body">
+
+            <p>如果上面三项检查都是"是",接下来是具体的操作顺序。请按这个顺序来 —— 大多数首次购房者栽跟头,都是因为跳过了某个步骤。</p>
+
+            <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
+              <li><strong>拉一份信用报告。</strong> 可以在 <a href="https://borrowell.com" target="_blank" rel="noopener">Borrowell</a> 或 <a href="https://www.equifax.ca" target="_blank" rel="noopener">Equifax</a> 免费查询。信用分数至少要到 <strong>680</strong>,才能拿到最好的房贷利率。低于 600,放贷机构就会开始犹豫。买房前先把报告里的错误改掉。</li>
+              <li><strong>找贷款经纪做预批。</strong> 免费,大概花一个小时。它会告诉您放贷机构到底愿意借您多少钱(而不是计算器估算的"理论上能负担多少")。还能帮您锁定一个 90 到 120 天有效的利率,方便您慢慢看房。我可以介绍几位合作过的贷款经纪给您。</li>
+              <li><strong>开一个首次购房储蓄账户(FHSA)。</strong> 如果您还没开的话。每年最多 $8,000 的供款可以抵税,用于购买首套房时提取完全免税。<a href="/chinese/blog/fhsa">完整指南在这里。</a></li>
+              <li><strong>把交接成本加总。</strong> 包括土地转让税(如果是在多伦多市内买房,省级和市级都要算)、律师费、验房费、搬家费,以及入住第一年的零星维修费。可以参考我的<a href="/chinese/closing-costs">交接成本</a>页面和<a href="/chinese/land-transfer-tax">土地转让税</a>计算器。</li>
+              <li><strong>看清楚真实的月度开支。</strong> 不只是房贷月供 —— 还要加上地税、房屋保险、公寓管理费(如果适用),以及取暖和水电费。这才是您每月真正要承担的金额。我的<a href="/chinese/payment-calculator">房贷计算器</a>会把三种方案并排显示给您看。</li>
+              <li><strong>做完以上这些,才开始看房。</strong> 买家找 REALTOR® 是免费的(佣金由卖家支付)。他们的工作就是站在您这边 —— 谈价格、发现问题、协调验房,并帮您顺利走到交接的那一天。</li>
+            </ol>
+  </div>
+</details>
+<h2 id="calc">试试这个计算器</h2>
+            <p>与其瞎猜,不如把您自己的数字填进去。我的<strong>租房 vs 买房计算器</strong>会对比买房和租房的每月总成本,再算出如果您一直住下去,能积累多少长期净值。</p>
+
+            <div class="callout" style="background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 18px 22px; margin: 20px 0;">
+              <p style="margin: 0 0 10px; font-weight: 600; font-size: 16px; color: var(--ink);">→ 打开租房 vs 买房计算器</p>
+              <p style="margin: 0 0 12px; font-size: 14px;">输入您的购房价格、首付、目前的租金,以及打算住多久。两种方案会并排显示,并直接告诉您在您的持有期内哪个更划算。</p>
+              <p style="margin: 0;"><a href="/chinese/rent-vs-buy-calculator" class="btn-primary" style="display: inline-block; padding: 8px 16px; font-size: 14px; text-decoration: none; border-radius: 4px;">现在就试试 →</a></p>
+            </div>
+
+            <p>试着改一改"打算住多少年后卖出"这一项,看看数字是怎么翻转的。这是最关键的一个变量 —— 您到底会在这套房子里住多久。</p>
+
+            <details class="b60-section-toggle" id="tips">
+              <summary class="b60-section-toggle-summary">下定决心前的几个提示</summary>
+              <div class="b60-section-body">
+
+            <ul class="bullets">
+              <li><strong>给利率做压力测试。</strong> 如果现在的利率是 4.5%,但 5 年后续约变成 6%,这笔账还算得过来吗?在计算器里试一下。如果 6% 会让您吃不消,就不要只按 4.5% 去规划。</li>
+              <li><strong>不要为了凑首付把积蓄全部掏空。</strong> 交接之后,至少保留 3 到 6 个月的生活费作为流动资金。家具、家电、搬家,还有第一笔维修账单,会很快吃掉您的缓冲垫。</li>
+              <li><strong>从入住第一天起就买财物保险。</strong> 即使是租房,财物保险每月也就 $20 到 $40,能保您的物品、您的责任险,以及万一房子不能住时的临时住宿。房东自己的保单对这些完全不覆盖。详见我整理的<a href="/chinese/for-renters#insurance">保险建议</a>。</li>
+              <li><strong>多比较几家贷款经纪。</strong> 同一个借款人,不同放贷机构给的利率可能完全不同。经纪会一次性帮您比较所有选项 —— 花您一个小时,五年下来可能省下好几千块。</li>
+              <li><strong>一定要验房。</strong> 花 $500 到 $700,可能帮您省下 $50,000。如果卖家不允许验房,直接放弃这套房子,没有商量的余地。</li>
+              <li><strong>仔细看公寓状况证明。</strong> 如果买的是公寓,律师必须审查状况证明。重点看有没有特别摊款、储备金是否健康,以及公寓公司有没有涉及诉讼。</li>
+              <li><strong>贷款经纪和财务规划师都要聊一聊。</strong> 贷款经纪告诉您能借多少。财务规划师则会结合您整体的财务状况,告诉您<em>应该</em>借多少。</li>
+            </ul>
+              </div>
+            </details>
+<h2 id="mistakes">我常见到的几个错误</h2>
+            <ul class="bullets">
+              <li><strong>因为"大家都说我该买"而买房。</strong> 家人的压力不是财务规划。请针对自己的情况算一遍数字。</li>
+              <li><strong>忘记算交接成本。</strong> 几乎每个首次购房者都会忘。结果在交接前最后一周,手忙脚乱地去凑 $20,000。</li>
+              <li><strong>把预算用到极限。</strong> 银行可能批给您 $700,000 的额度。这不代表您真的应该花掉 $700,000。给自己的生活留点余地。</li>
+              <li><strong>为了赢竞价而跳过验房。</strong> 屋顶或地基出问题的维修费,往往比您坚持要验房条款而错失的那套房子更贵。</li>
+              <li><strong>只比较每月还款金额。</strong> 租金 $2,500,房贷 $2,700。"你看 —— 买房只多花 $200!"—— 不对。买房还有 $20,000 的交接成本、每年 $4,000 的地税、每年 $1,000 的保险,以及每年 $6,000 的维护费。要比较<strong>全部成本</strong>,不能只看房贷那一行。</li>
+            </ul>
+
+            <p>总结一句:租房和买房都没有绝对的对错。取决于您的时间规划、收入、存款,老实说,还取决于您想要什么样的生活。去玩一玩计算器,找经纪聊一聊。如果您想找一个不推销任何东西、只是陪您把账算清楚的人聊聊,我随时在这。</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseCTASection heading="在考虑买您的第一套房吗?" lead="纸面上的数字只能帮到这一步。如果您想拿多伦多真实的房源,用您实际的首付、利率和持有期,跑一遍租房 vs 买房的对比 —— 把您的情况发给我,我们一起聊聊。没有压力,不推销。" />
+  <ChineseFooter />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
