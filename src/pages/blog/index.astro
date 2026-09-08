@@ -24,6 +24,7 @@ const icons = {
 const posts = [
   {
     slug: 'rent-vs-buy',
+    category: 'rent',
     title: 'RENT vs BUY: When, Why, and How',
     eyebrow: 'Buyer Basics · Calculator',
     readMin: 6,
@@ -31,6 +32,7 @@ const posts = [
   },
   {
     slug: 'ontario-property-taxes-rising',
+    category: 'sale',
     title: 'ONTARIO: Property Taxes on the rise',
     eyebrow: 'Ontario Property Owners · Policy',
     readMin: 7,
@@ -38,6 +40,7 @@ const posts = [
   },
   {
     slug: 'vacant-home-tax',
+    category: 'sale',
     title: 'Vacant Home Tax',
     eyebrow: 'Toronto Homeowners · Tax',
     readMin: 8,
@@ -45,6 +48,7 @@ const posts = [
   },
   {
     slug: 'hcra-illegal-building',
+    category: 'sale',
     title: 'HCRA: Illegal Building',
     eyebrow: 'Buyer Protection · Ontario',
     readMin: 7,
@@ -52,6 +56,7 @@ const posts = [
   },
   {
     slug: 'rhsp',
+    category: 'rent',
     title: 'Rental Housing Supply Program',
     eyebrow: 'Toronto Housing · Policy',
     readMin: 8,
@@ -59,6 +64,7 @@ const posts = [
   },
   {
     slug: 'oesp',
+    category: 'rent',
     title: '~50% Reduction in Your Utility Bill: OESP',
     eyebrow: 'Energy Savings · Ontario',
     readMin: 8,
@@ -66,6 +72,7 @@ const posts = [
   },
   {
     slug: 'foreign-buyer-ban',
+    category: 'sale',
     title: "2026: Canada's Foreign Buyer Ban",
     eyebrow: 'Policy · Federal Law',
     readMin: 9,
@@ -73,6 +80,7 @@ const posts = [
   },
   {
     slug: 'fhsa',
+    category: 'sale',
     title: 'First Home Savings Account (FHSA): What is it?',
     eyebrow: 'Buyer Savings · Tax',
     readMin: 8,
@@ -80,6 +88,7 @@ const posts = [
   },
   {
     slug: 'fthb-rebate',
+    category: 'sale',
     title: '2026: First-time Home Buyer (FTHB) GST/HST Rebate',
     eyebrow: 'Buyer Rebate · 2026',
     readMin: 8,
@@ -87,6 +96,7 @@ const posts = [
   },
   {
     slug: 'heloc',
+    category: 'sale',
     title: 'HELOC: What is it?',
     eyebrow: 'Financing · Home Equity',
     readMin: 7,
@@ -94,6 +104,7 @@ const posts = [
   },
   {
     slug: 'time-of-use-tou',
+    category: 'rent',
     title: 'BIG SAVINGS, Utility Bill: Time of Use (TOU)',
     eyebrow: 'Home tips · Hydro',
     date: 'June 3, 2026',
@@ -102,6 +113,7 @@ const posts = [
   },
   {
     slug: 'bill-60-ontario',
+    category: 'rent',
     iconKey: 'scroll',
     title: 'Bill 60 Ontario: Tenants and Landlords MUST know',
     eyebrow: 'Legislation · 2026',
@@ -110,6 +122,7 @@ const posts = [
   },
   {
     slug: 'reverse-mortgage',
+    category: 'sale',
     iconKey: 'house',
     title: 'Reverse Mortgage: What is it?',
     eyebrow: 'Senior Buyers · Financing',
@@ -137,6 +150,12 @@ export const prerender = true;
         <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         <input id="blog-search-input" type="search" placeholder="Search articles…" aria-label="Search blog articles" autocomplete="off" />
       </div>
+
+      <div class="blog-filter" role="group" aria-label="Filter articles by category">
+        <button type="button" class="blog-filter-chip is-active" data-filter="all">All</button>
+        <button type="button" class="blog-filter-chip blog-filter-chip-sale" data-filter="sale"><span class="blog-filter-dot" aria-hidden="true"></span>Sales</button>
+        <button type="button" class="blog-filter-chip blog-filter-chip-rent" data-filter="rent"><span class="blog-filter-dot" aria-hidden="true"></span>Rent</button>
+      </div>
     </div>
   </section>
 
@@ -144,8 +163,11 @@ export const prerender = true;
     <div class="wrap">
       <div class="blog-list">
         {posts.map((post) => (
-          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()}>
+          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={post.category || ''}>
             <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Read: ${post.title}`}>
+              {post.category && (
+                <span class={`blog-card-badge blog-card-badge-${post.category}`} aria-label={post.category === 'rent' ? 'Category: Rent' : 'Category: Sales'}>{post.category === 'rent' ? 'Rent' : 'Sales'}</span>
+              )}
               {post.iconKey && icons[post.iconKey] && (
                 <div class="blog-card-icon" set:html={icons[post.iconKey]} />
               )}
@@ -191,12 +213,26 @@ export const prerender = true;
       const cards = document.querySelectorAll('.blog-card');
       const noResults = document.getElementById('blog-no-results');
       if (!input || !cards.length) return;
+      let activeCategory = 'all';
+      const chipBtns = document.querySelectorAll('.blog-filter-chip');
+      chipBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          chipBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          activeCategory = btn.getAttribute('data-filter') || 'all';
+          filter();
+        });
+      });
+
       function filter() {
         const q = input.value.trim().toLowerCase();
         let visibleCount = 0;
         cards.forEach(function(card) {
           const text = card.getAttribute('data-search') || '';
-          const match = !q || text.indexOf(q) !== -1;
+          const cat = card.getAttribute('data-category') || '';
+          const searchMatch = !q || text.indexOf(q) !== -1;
+          const catMatch = activeCategory === 'all' || cat === activeCategory;
+          const match = searchMatch && catMatch;
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
         });
@@ -206,3 +242,67 @@ export const prerender = true;
     })();
   </script>
 </BaseLayout>
+
+<style>
+  /* Blog-post category badge — top-right corner of the card */
+  .blog-card { position: relative; }
+  .blog-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    line-height: 1;
+    border: 1px solid transparent;
+    pointer-events: none;
+  }
+  .blog-card-badge-sale { background: #e6f3ea; color: #1a6b32; border-color: #b7d8bf; }
+  .blog-card-badge-rent { background: #fbe9ec; color: #b8002e; border-color: #efbfc7; }
+  html[data-theme="dark"] .blog-card-badge-sale { background: #12331b; color: #a8dcb4; border-color: #245a30; }
+  html[data-theme="dark"] .blog-card-badge-rent { background: #3b1218; color: #f4b3bd; border-color: #6b2530; }
+
+  /* Filter chips row (below search input) */
+  .blog-filter {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .blog-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--bg);
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .blog-filter-chip:hover { background: var(--bg-warm); color: var(--ink); }
+  .blog-filter-chip.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .blog-filter-chip.is-active .blog-filter-dot { background: currentColor; }
+  .blog-filter-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .blog-filter-chip-sale .blog-filter-dot { background: #1a6b32; }
+  .blog-filter-chip-rent .blog-filter-dot { background: #b8002e; }
+  html[data-theme="dark"] .blog-filter-chip { background: var(--surface); }
+  html[data-theme="dark"] .blog-filter-chip:hover { background: var(--bg-warm); }
+</style>
+
