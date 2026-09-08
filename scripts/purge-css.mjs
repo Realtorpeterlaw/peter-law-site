@@ -24,7 +24,7 @@ const SAFELIST_DEEP = [
   /^deal-card/, /^deals-dot/, /^mc-collapsible/, /^means-collapse/, /^blog-card/,
 ];
 const SAFELIST_GREEDY = [
-  /^\[aria-/, /^\[data-/, /^:focus-visible/, /^:hover/, /:where\(/, /:is\(/,
+  /^\[aria-/, /^\[data-/, /data-theme/, /^:focus-visible/, /^:hover/, /:where\(/, /:is\(/,
 ];
 
 async function walk(dir) {
