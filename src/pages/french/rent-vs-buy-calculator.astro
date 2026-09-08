@@ -235,6 +235,25 @@ const hreflangAlternates = [
             </div>
           </details>
 
+
+          <!-- ============================================================
+               PROJECTION CHART — Ownership vs Renting over time
+               ============================================================ -->
+          <section class="rvb-chart-section" aria-label="Propriété vs location au fil du temps">
+            <h3 class="rvb-chart-title">Propriété vs location au fil du temps</h3>
+            <p class="rvb-chart-lead">Sortie de fonds cumulée année par année. Le point de croisement des deux courbes est votre seuil de rentabilité — l'année où l'achat commence à surpasser la location en pure comptabilité. La zone dorée représente la valeur nette que vous garderiez si vous vendiez à cette année-là.</p>
+            <div class="rvb-chart-wrap">
+              <svg id="rvb-chart-svg" class="rvb-chart-svg" viewBox="0 0 720 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- rendered dynamically by JS -->
+              </svg>
+            </div>
+            <div class="rvb-chart-legend">
+              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-equity"></span>Valeur nette (conservée si vendu cette année)</span>
+              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-buy"></span>Achat (hypothèque + TIE + frais de clôture + frais de vente)</span>
+              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-rent"></span>Location (loyer + assurance contenu, cumulé)</span>
+            </div>
+            <p class="rvb-chart-note" id="rvb-chart-note"></p>
+          </section>
           <!-- ============================================================
                TIPS & ADVICE (collapsible, styled as explainer)
                ============================================================ -->
@@ -329,6 +348,24 @@ const hreflangAlternates = [
   .rvb-verdict-rent { background: #fbf6ea; border-color: #efdfad; color: #7a5a10; }
   html[data-theme="dark"] .rvb-verdict-buy { background: #12331b; border-color: #245a30; color: #a8dcb4; }
   html[data-theme="dark"] .rvb-verdict-rent { background: #2a2410; border-color: #6b551f; color: #f0d494; }
+
+  /* Rent vs Buy projection chart */
+  .rvb-chart-section { margin-top: 28px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+  .rvb-chart-title { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 20px; margin: 0 0 8px; color: var(--ink); }
+  .rvb-chart-lead { font-size: 14px; color: var(--ink-soft); margin: 0 0 16px; line-height: 1.55; }
+  .rvb-chart-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .rvb-chart-svg { display: block; width: 100%; min-width: 480px; height: auto; }
+  .rvb-chart-legend { display: flex; flex-wrap: wrap; gap: 16px 22px; margin-top: 14px; font-size: 12.5px; color: var(--ink-soft); }
+  .rvb-chart-key { display: inline-flex; align-items: center; gap: 7px; }
+  .rvb-chart-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; }
+  .rvb-chart-swatch-rent { background: #b8002e; }
+  .rvb-chart-swatch-buy { background: #1a6b32; }
+  .rvb-chart-swatch-equity { background: #d9a978; }
+  .rvb-chart-note { margin: 12px 0 0; font-size: 13px; color: var(--ink-mute); font-style: italic; }
+  /* Dark-mode swatch tweaks */
+  html[data-theme="dark"] .rvb-chart-swatch-rent { background: #e35a72; }
+  html[data-theme="dark"] .rvb-chart-swatch-buy { background: #4bc774; }
+  html[data-theme="dark"] .rvb-chart-swatch-equity { background: #f0c586; }
 </style>
 
 <script>
@@ -477,6 +514,7 @@ const hreflangAlternates = [
         v.classList.add('rvb-verdict-rent');
         v.textContent = 'Sur ' + years + ' ans, la location l\'emporte par environ ' + fmtCAD(-diff) + ' en termes de liquidités pures. Cela N\'INCLUT PAS l\'équité que vous continueriez à accumuler au-delà de cette période de détention. Augmentez le nombre d\'« Années avant la revente » et recalculez.';
       }
+      buildProjection();
     }
 
     // ==== Comma formatting for dollar inputs ====
@@ -502,5 +540,155 @@ const hreflangAlternates = [
     ids.forEach(k => { if (el[k]) el[k].addEventListener('input', calc); });
 
     calc();
+  
+
+    // ============================================================
+    // Projection chart — cumulative Rent vs Buy net cost, plus
+    // gold area for equity you'd keep if you sold at year k.
+    // ============================================================
+    function drawChart(rows, crossoverYear) {
+      const svg = document.getElementById('rvb-chart-svg');
+      if (!svg) return;
+      // Plot area inside 720x380 viewBox
+      const PL = 66, PR = 18, PT = 20, PB = 44;
+      const W = 720, H = 380;
+      const inW = W - PL - PR;
+      const inH = H - PT - PB;
+
+      const years = rows.length - 1; // rows include year 0
+      // Y-axis max across rent, buy, equity
+      let maxY = 0;
+      for (const r of rows) {
+        if (r.rent > maxY) maxY = r.rent;
+        if (r.buy > maxY) maxY = r.buy;
+        if (r.equity > maxY) maxY = r.equity;
+      }
+      if (maxY <= 0) maxY = 1;
+      // Round maxY up to a nice number for gridlines
+      const magnitude = Math.pow(10, Math.max(0, Math.floor(Math.log10(maxY)) - 1));
+      maxY = Math.ceil(maxY / magnitude) * magnitude;
+
+      function xAt(k) { return PL + (k / Math.max(1, years)) * inW; }
+      function yAt(v) { return PT + inH - (v / maxY) * inH; }
+
+      // Build gridlines + labels (5 horizontal)
+      let grid = '';
+      const gridSteps = 5;
+      for (let i = 0; i <= gridSteps; i++) {
+        const v = (maxY / gridSteps) * i;
+        const y = yAt(v);
+        grid += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="rgba(120,120,120,0.18)" stroke-width="1" />';
+        grid += '<text x="' + (PL - 6) + '" y="' + (y + 4) + '" text-anchor="end" font-size="10" fill="currentColor" opacity="0.65">$' + Math.round(v / 1000) + 'K</text>';
+      }
+
+      // X-axis labels (year ticks)
+      let xLabels = '';
+      const tickStep = Math.max(1, Math.ceil(years / 6));
+      for (let k = 0; k <= years; k += tickStep) {
+        const x = xAt(k);
+        xLabels += '<line x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + (PT + inH) + '" y2="' + (PT + inH + 4) + '" stroke="currentColor" opacity="0.35" />';
+        xLabels += '<text x="' + x.toFixed(1) + '" y="' + (PT + inH + 18) + '" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">Yr ' + k + '</text>';
+      }
+      // Also ensure last year label
+      if (years % tickStep !== 0) {
+        const x = xAt(years);
+        xLabels += '<text x="' + x.toFixed(1) + '" y="' + (PT + inH + 18) + '" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">Yr ' + years + '</text>';
+      }
+
+      // Equity area (fill)
+      let eqArea = 'M ' + xAt(0) + ',' + yAt(0);
+      for (let k = 0; k <= years; k++) eqArea += ' L ' + xAt(k) + ',' + yAt(Math.max(0, rows[k].equity));
+      eqArea += ' L ' + xAt(years) + ',' + yAt(0) + ' Z';
+
+      // Buy + Rent polylines
+      function poly(get) {
+        const parts = [];
+        for (let k = 0; k <= years; k++) parts.push(xAt(k).toFixed(1) + ',' + yAt(Math.max(0, get(rows[k]))).toFixed(1));
+        return parts.join(' ');
+      }
+      const buyLine = poly(r => r.buy);
+      const rentLine = poly(r => r.rent);
+
+      // Crossover marker
+      let crossMarker = '';
+      if (crossoverYear != null && crossoverYear > 0 && crossoverYear <= years) {
+        const x = xAt(crossoverYear);
+        crossMarker =
+          '<line x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + PT + '" y2="' + (PT + inH) + '" stroke="#8b5a1c" stroke-width="1.3" stroke-dasharray="4,4" opacity="0.75" />' +
+          '<circle cx="' + x.toFixed(1) + '" cy="' + PT + '" r="4" fill="#8b5a1c" />';
+      }
+
+      // Axis borders
+      const axes =
+        '<line x1="' + PL + '" x2="' + PL + '" y1="' + PT + '" y2="' + (PT + inH) + '" stroke="currentColor" opacity="0.35" />' +
+        '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + (PT + inH) + '" y2="' + (PT + inH) + '" stroke="currentColor" opacity="0.35" />';
+
+      svg.innerHTML =
+        grid +
+        '<path d="' + eqArea + '" fill="#d9a978" fill-opacity="0.28" stroke="none" />' +
+        '<polyline points="' + rentLine + '" fill="none" stroke="#b8002e" stroke-width="2.4" stroke-linejoin="round" />' +
+        '<polyline points="' + buyLine + '" fill="none" stroke="#1a6b32" stroke-width="2.4" stroke-linejoin="round" />' +
+        crossMarker + axes + xLabels;
+    }
+
+    function buildProjection() {
+      // Reuses inputs already read by calc() but we re-read to be safe.
+      const price = num('price'), down = num('down'), amort = Math.max(1, num('amort'));
+      const rateAnnual = num('rate'), closing = num('closing');
+      const maint = num('maint'), tax = num('tax'), hoi = num('hoi');
+      const apprPct = num('appr') / 100, years = Math.max(1, num('years'));
+      const sellPct = num('sellcost') / 100, inflPct = num('infl') / 100;
+      const rent = num('rent'), contentIns = num('content-ins');
+      const rentIncPct = num('rentinc') / 100;
+
+      const baseLoan = Math.max(0, price - down);
+      const ltv = price > 0 ? baseLoan / price : 0;
+      const cRate = cmhcRate(ltv);
+      const premium = baseLoan * cRate;
+      const totalMortgage = baseLoan + premium;
+      const mRate = monthlyRateCA(rateAnnual);
+      const nMonthsTotal = amort * 12;
+      const monthlyMortgage = mortgagePayment(totalMortgage, mRate, nMonthsTotal);
+
+      // Per-year cumulative arrays (index 0..years)
+      const rows = [];
+      let cumRent = 0, cumBuyCash = 0;
+      let cumTMI = 0, cumRentIns = 0;
+      rows.push({ rent: 0, buy: closing, equity: 0 });
+      let crossoverYear = null;
+      for (let k = 1; k <= years; k++) {
+        const inf = Math.pow(1 + inflPct, k - 1);
+        const rInc = Math.pow(1 + rentIncPct, k - 1);
+        cumTMI += (maint * 12 + tax + hoi) * inf;
+        cumRent += rent * 12 * rInc;
+        cumRentIns += contentIns * 12 * inf;
+
+        const monthsHeld = Math.min(nMonthsTotal, k * 12);
+        const mortgagePaid = monthlyMortgage * monthsHeld;
+        const loanBalance = balanceAfter(totalMortgage, mRate, monthlyMortgage, monthsHeld);
+        const homeValue = price * Math.pow(1 + apprPct, k);
+        const sellingCost = homeValue * sellPct;
+
+        const buyNet = mortgagePaid + cumTMI + closing + sellingCost - (homeValue - loanBalance);
+        const rentTotal = cumRent + cumRentIns;
+        const equity = Math.max(0, homeValue - loanBalance - sellingCost);
+
+        rows.push({ rent: rentTotal, buy: Math.max(0, buyNet), equity: equity });
+
+        if (crossoverYear == null && rentTotal >= buyNet) crossoverYear = k;
+      }
+
+      drawChart(rows, crossoverYear);
+
+      const noteEl = document.getElementById('rvb-chart-note');
+      if (noteEl) {
+        if (crossoverYear != null) {
+          noteEl.textContent = 'Seuil atteint à l\'année ' + crossoverYear + '.';
+        } else {
+          noteEl.textContent = 'Aucun seuil de rentabilité atteint pendant cette période. Prolongez « Années avant vente » ou augmentez la mise de fonds.';
+        }
+      }
+    }
+
   })();
 </script>
