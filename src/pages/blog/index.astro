@@ -131,12 +131,20 @@ const posts = [
   },
 ];
 
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/' },
+];
+
 export const prerender = true;
 ---
 <BaseLayout
   title="Toronto Real Estate Blog | Peter Law"
   description="Real talk on Toronto rentals, sales, financing, and Ontario real estate legislation. Plain-English explainers from a bilingual Toronto realtor. Updated regularly."
   bodyClass="blog-page"
+  hreflangAlternates={hreflangAlternates}
 >
   <TopBar />
   <Header active="blog" />

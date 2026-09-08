@@ -115,12 +115,20 @@ const posts = [
     readMin: 7,
   },
 ];
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/' },
+];
 ---
 <BaseLayout
   title="多伦多房地产博客 | Peter Law"
   description="关于多伦多租赁、买卖、融资和安省房地产立法的真实解读。由双语多伦多中介撰写的通俗讲解,定期更新。"
   bodyClass="blog-page"
   zh={true}
+  hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
   <ChineseHeader active="blog" />
