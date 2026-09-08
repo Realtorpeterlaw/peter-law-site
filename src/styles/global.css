@@ -2595,3 +2595,186 @@ html[data-theme="dark"] .skip-link {
   background: var(--ink);
   color: var(--bg);
 }
+
+
+/* ============================================================
+   DARK MODE — CALCULATOR VERDICT + CALLOUT CLASSES
+   Per-page style blocks hardcode light-mode colors on verdict
+   panels (rental calc's "Tight" yellow callout, rent-control's
+   "over 80%" red panel, etc.). These overrides beat the page-
+   scoped rules via the added html[data-theme=dark] specificity.
+   ============================================================ */
+
+/* Rental Calculator verdict panels (was: light green/cream/pink) */
+html[data-theme="dark"] .rc-verdict {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .rc-verdict-title {
+  color: var(--ink);
+}
+html[data-theme="dark"] .rc-verdict-sub {
+  color: var(--ink-soft);
+}
+
+/* Green — "Safe zone" */
+html[data-theme="dark"] .rc-verdict-green {
+  background: #16241a;
+  border-color: #3a5c3a;
+}
+html[data-theme="dark"] .rc-verdict-green .rc-verdict-icon {
+  color: #7ac97a;
+}
+
+/* Yellow — "Tight" (the one in Peter's screenshot) */
+html[data-theme="dark"] .rc-verdict-yellow {
+  background: #2a2410;
+  border-color: #6b551f;
+}
+html[data-theme="dark"] .rc-verdict-yellow .rc-verdict-icon {
+  color: #d9a834;
+}
+
+/* Red — "Too much" */
+html[data-theme="dark"] .rc-verdict-red {
+  background: #2e1a14;
+  border-color: #6b2f25;
+}
+html[data-theme="dark"] .rc-verdict-red .rc-verdict-icon {
+  color: #d16b52;
+}
+
+/* Neutral (initial state, no numbers yet) */
+html[data-theme="dark"] .rc-verdict-neutral {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .rc-verdict-neutral .rc-verdict-icon {
+  color: var(--ink-mute);
+}
+
+/* Rental calculator inline heading + hint note */
+html[data-theme="dark"] .ac-inline-h {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .rc-hint-note {
+  background: var(--bg-warm);
+  color: var(--ink-soft);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .ac-headline-per {
+  color: var(--ink);
+}
+
+/* Rental calculator "tier-*" pill labels (Safe / Tight / Too Much / Very High) */
+html[data-theme="dark"] .tier-safe   { color: #7ac97a; }
+html[data-theme="dark"] .tier-tight  { color: #d9a834; }
+html[data-theme="dark"] .tier-high   { color: #d16b52; }
+html[data-theme="dark"] .tier-vhigh  { color: #d16b52; }
+
+/* Where-the-money-goes summary rows */
+html[data-theme="dark"] .rc-summary,
+html[data-theme="dark"] .rc-summary-row {
+  color: var(--ink-soft);
+}
+html[data-theme="dark"] .rc-summary-total,
+html[data-theme="dark"] .rc-summary-row.rc-summary-total {
+  color: var(--ink);
+  border-top-color: var(--rule);
+}
+
+/* "Reality check" / verdict container secondary text */
+html[data-theme="dark"] .rc-reality-check,
+html[data-theme="dark"] .reality-check {
+  color: var(--ink);
+}
+
+/* Housing-percent large number display */
+html[data-theme="dark"] .rc-pct-value,
+html[data-theme="dark"] .ac-pct-value,
+html[data-theme="dark"] .headline-num {
+  color: var(--ink);
+}
+
+/* Housing-percent bar track/fill */
+html[data-theme="dark"] .rc-bar-track,
+html[data-theme="dark"] .ac-bar-track {
+  background: var(--rule);
+}
+html[data-theme="dark"] .rc-bar-fill,
+html[data-theme="dark"] .ac-bar-fill {
+  background: linear-gradient(90deg, #d9a834 0%, #d16b52 100%);
+}
+html[data-theme="dark"] .rc-bar-marker,
+html[data-theme="dark"] .ac-bar-marker {
+  color: var(--ink-mute);
+}
+
+/* Verdict icons (info/warning/error) */
+html[data-theme="dark"] .rc-verdict-icon svg circle,
+html[data-theme="dark"] .rc-verdict-icon svg path {
+  stroke: currentColor;
+}
+
+/* Any leftover .rc-* or .ac-* content — final belt-and-suspenders on text hierarchy */
+html[data-theme="dark"] .rc-card,
+html[data-theme="dark"] .rc-out-card,
+html[data-theme="dark"] .ac-out-card {
+  background: var(--surface);
+  border-color: var(--rule);
+  color: var(--ink);
+}
+html[data-theme="dark"] .rc-out-label,
+html[data-theme="dark"] .ac-out-label,
+html[data-theme="dark"] .rc-out-note,
+html[data-theme="dark"] .ac-out-note {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .rc-out-value,
+html[data-theme="dark"] .ac-out-value,
+html[data-theme="dark"] .rc-num,
+html[data-theme="dark"] .ac-num {
+  color: var(--ink);
+}
+html[data-theme="dark"] .rc-per,
+html[data-theme="dark"] .ac-per {
+  color: var(--ink-soft);
+}
+
+/* Mortgage calculator scenario cards ("Compare 3 scenarios") */
+html[data-theme="dark"] .mc-scenario,
+html[data-theme="dark"] .mc-scenario-card {
+  background: var(--surface);
+  border-color: var(--rule);
+}
+html[data-theme="dark"] .mc-scenario-title,
+html[data-theme="dark"] .mc-scenario-value,
+html[data-theme="dark"] .mc-output-value,
+html[data-theme="dark"] .mc-amort-tab {
+  color: var(--ink);
+}
+html[data-theme="dark"] .mc-scenario-label,
+html[data-theme="dark"] .mc-output-label {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .mc-amort-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* CMHC table + status pills */
+html[data-theme="dark"] .cmhc-status,
+html[data-theme="dark"] .cmhc-eligible {
+  color: var(--ink);
+}
+
+/* LTT calculator legend + tier labels */
+html[data-theme="dark"] .calc-legend,
+html[data-theme="dark"] .ltt-legend,
+html[data-theme="dark"] .ltt-tier-label {
+  color: var(--ink-mute);
+}
+html[data-theme="dark"] .ltt-out-value,
+html[data-theme="dark"] .ltt-total {
+  color: var(--ink);
+}
