@@ -1,0 +1,698 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-09-08';
+const articleTitle = '安省公寓(Condo)首次购房指南';
+const articleDescription = '一篇通俗易懂的指南,教您在安省买下您的第一套公寓。涵盖公寓类型、状况证明书、储备金、管理费、车位规则、保险、期房风险,并专门为国际买家设有完整章节。配有图表、公式和交接前完整清单。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/first-time-buyer-guide-condos';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  inLanguage: 'zh-CN',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law — 多伦多房地产',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: '安省首次购房 公寓, 多伦多公寓指南, 公寓状况证明书, 储备金 特别摊款, 管理费 房贷审批, 安省期房公寓, 10天冷静期 公寓, 临时占用期, POTL 公寓, 租赁地公寓 合作公寓, 安省NRST 外国买家, 加拿大公寓 国际买家',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/first-time-buyer-guide-condos/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/first-time-buyer-guide-condos/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/first-time-buyer-guide-condos/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/first-time-buyer-guide-condos/' },
+];
+
+// Condo-type icons (small SVG silhouettes)
+const condoIcons = {
+  highrise: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="26" y="10" width="28" height="58" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><rect x="30" y="14" width="5" height="6" fill="currentColor" opacity="0.7"/><rect x="38" y="14" width="5" height="6" fill="currentColor" opacity="0.7"/><rect x="46" y="14" width="5" height="6" fill="currentColor" opacity="0.7"/><rect x="30" y="24" width="5" height="6" fill="currentColor" opacity="0.5"/><rect x="38" y="24" width="5" height="6" fill="currentColor" opacity="0.5"/><rect x="46" y="24" width="5" height="6" fill="currentColor" opacity="0.5"/><rect x="30" y="34" width="5" height="6" fill="currentColor" opacity="0.7"/><rect x="38" y="34" width="5" height="6" fill="currentColor" opacity="0.5"/><rect x="46" y="34" width="5" height="6" fill="currentColor" opacity="0.7"/><rect x="30" y="44" width="5" height="6" fill="currentColor" opacity="0.5"/><rect x="38" y="44" width="5" height="6" fill="currentColor" opacity="0.7"/><rect x="46" y="44" width="5" height="6" fill="currentColor" opacity="0.5"/><rect x="35" y="56" width="10" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  condotown: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="34" width="20" height="32" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><rect x="28" y="34" width="20" height="32" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><rect x="48" y="34" width="20" height="32" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><path d="M8 34 L18 22 L28 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M28 34 L38 22 L48 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M48 34 L58 22 L68 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="14" y="48" width="6" height="12" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="34" y="48" width="6" height="12" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="54" y="48" width="6" height="12" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`,
+  stacked: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="18" width="52" height="18" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="36" width="52" height="18" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="54" width="52" height="14" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><rect x="22" y="22" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="52" y="22" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="22" y="40" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="52" y="40" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="36" y="58" width="8" height="10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`,
+  back2back: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="10" y="30" width="60" height="36" fill="var(--bg-warm)" stroke="currentColor" stroke-width="1.8"/><line x1="40" y1="30" x2="40" y2="66" stroke="currentColor" stroke-width="1.6"/><path d="M8 32 L40 12 L72 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="18" y="40" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="56" y="40" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="28" y="56" width="8" height="10" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="44" y="56" width="8" height="10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`,
+  potl: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="36" width="44" height="30" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><path d="M12 40 L40 18 L68 40 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="34" y="48" width="12" height="18" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 68 L 78 68" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3,3" opacity="0.6"/><text x="72" y="76" font-size="7" fill="currentColor" opacity="0.55" text-anchor="end">shared road</text></svg>`,
+  vacantland: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="20" y="38" width="40" height="28" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><path d="M14 42 L40 22 L66 42 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="34" y="48" width="12" height="18" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4" y="30" width="16" height="10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/><rect x="60" y="30" width="16" height="10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/><text x="12" y="52" font-size="7" fill="currentColor" opacity="0.55" text-anchor="middle">lot</text><text x="68" y="52" font-size="7" fill="currentColor" opacity="0.55" text-anchor="middle">lot</text></svg>`,
+  leasehold: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="18" y="36" width="44" height="30" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><path d="M12 40 L40 18 L68 40 Z" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="34" y="48" width="12" height="18" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 68 L 74 68" stroke="currentColor" stroke-width="2" opacity="0.5"/><text x="40" y="76" font-size="8" fill="currentColor" opacity="0.65" text-anchor="middle">LAND LEASED</text></svg>`,
+  coop: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="20" y="14" width="40" height="52" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><line x1="20" y1="26" x2="60" y2="26" stroke="currentColor" stroke-width="1.6"/><line x1="20" y1="38" x2="60" y2="38" stroke="currentColor" stroke-width="1.6"/><line x1="20" y1="50" x2="60" y2="50" stroke="currentColor" stroke-width="1.6"/><rect x="35" y="56" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="40" y="22" font-size="6" fill="currentColor" opacity="0.65" text-anchor="middle">SHARES</text><text x="40" y="34" font-size="6" fill="currentColor" opacity="0.65" text-anchor="middle">SHARES</text><text x="40" y="46" font-size="6" fill="currentColor" opacity="0.65" text-anchor="middle">SHARES</text></svg>`,
+  loft: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="20" width="52" height="48" fill="var(--bg-warm)" stroke="currentColor" stroke-width="2"/><line x1="14" y1="42" x2="66" y2="42" stroke="currentColor" stroke-width="1.4"/><rect x="20" y="26" width="8" height="12" fill="none" stroke="currentColor" stroke-width="1.2"/><line x1="24" y1="26" x2="24" y2="38" stroke="currentColor" stroke-width="0.8"/><line x1="20" y1="32" x2="28" y2="32" stroke="currentColor" stroke-width="0.8"/><rect x="34" y="26" width="8" height="12" fill="none" stroke="currentColor" stroke-width="1.2"/><line x1="38" y1="26" x2="38" y2="38" stroke="currentColor" stroke-width="0.8"/><line x1="34" y1="32" x2="42" y2="32" stroke="currentColor" stroke-width="0.8"/><rect x="48" y="26" width="8" height="12" fill="none" stroke="currentColor" stroke-width="1.2"/><line x1="52" y1="26" x2="52" y2="38" stroke="currentColor" stroke-width="0.8"/><line x1="48" y1="32" x2="56" y2="32" stroke="currentColor" stroke-width="0.8"/><rect x="33" y="52" width="14" height="16" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`,
+};
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 买家指南 · 公寓</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">买公寓时,您其实买下了两样东西:您的单元,以及这栋楼的一份份额。您不只是在买一个家 —— 您是在加入一家公司,并且承担它的账单、规则和问题的一部分。这份指南会告诉您,在下决心之前,该如何审查这家公司。</p>
+        <div class="article-byline">
+          <span>作者 <a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 9 月 8 日</time>
+          <span class="dot">·</span>
+          <span>阅读 16 分钟</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== QUICK STAT CARDS ====== -->
+    <section class="fh-stats-wrap">
+      <div class="wrap">
+        <div class="fh-stats-grid">
+          <div class="fh-stat"><div class="fh-stat-num">10 天</div><div class="fh-stat-label">冷静期</div><div class="fh-stat-sub">仅限期房</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">$100</div><div class="fh-stat-label">状况证明书收费上限</div><div class="fh-stat-sub">10 天内交付</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">50%</div><div class="fh-stat-label">管理费计入比例</div><div class="fh-stat-sub">计入您的房贷负债比</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">15–25 年</div><div class="fh-stat-label">尴尬期</div><div class="fh-stat-sub">大修往往集中出现在这个阶段</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>本页内容</h4>
+            <ul>
+              <li><a href="#types">公寓类型</a></li>
+              <li><a href="#afford">您能负担多少</a></li>
+              <li><a href="#programs">政府补助计划</a></li>
+              <li><a href="#status">状况证明书</a></li>
+              <li><a href="#reserve">储备金与特别摊款</a></li>
+              <li><a href="#fees">管理费</a></li>
+              <li><a href="#parking">车位、储物间与您到底拥有什么</a></li>
+              <li><a href="#rules">您将要遵守的规则</a></li>
+              <li><a href="#insurance">保险 —— 两份保单</a></li>
+              <li><a href="#resale">购买二手公寓</a></li>
+              <li><a href="#preconstruction">购买期房公寓</a></li>
+              <li><a href="#international">致国际买家</a></li>
+              <li><a href="#redflags">危险信号</a></li>
+              <li><a href="#mistakes">10 个常见错误</a></li>
+              <li><a href="#checklist">完整清单</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+
+            <!-- ============================================================
+                 PART 1 — TYPES
+                 ============================================================ -->
+            <h2 id="types">第 1 部分 · 安省公寓类型</h2>
+            <p>不是所有公寓都是公寓楼里的一套单元。下面是九种常见类型 —— 其中有一种其实根本不是"公寓"。</p>
+
+            <div class="fh-house-grid">
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.highrise} />
+                <div class="fh-house-title">标准公寓</div>
+                <p>高层或低层公寓楼。您拥有自己的单元,公寓公司拥有并维护其余的一切。这是最常见的类型。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.condotown} />
+                <div class="fh-house-title">公寓联排屋(Condo Townhouse)</div>
+                <p>您拥有屋内空间。屋顶、外墙、草坪和除雪由公寓公司负责。您需要支付每月管理费。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.stacked} />
+                <div class="fh-house-title">叠拼联排屋(Stacked Townhouse)</div>
+                <p>两到三层叠加而成,通常各有独立入口。比普通联排屋便宜。单元之间容易听到噪音,楼梯也随处可见。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.back2back} />
+                <div class="fh-house-title">背靠背联排屋(Back-to-Back Townhouse)</div>
+                <p>与相邻单元共用侧墙,以及后墙。没有后院。是最便宜的形式,转售也更难。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.potl} />
+                <div class="fh-house-title">共有设施地契屋(POTL)</div>
+                <p>您完全拥有土地和房屋 —— 属于<strong>永久产权(Freehold)</strong>。但您需要为私人道路、公园等共用设施支付每月费用。费用不高,但是真实存在的支出,而且会上涨。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.vacantland} />
+                <div class="fh-house-title">空地公寓(Vacant Land Condo)</div>
+                <p>您拥有地块,并在其上自建或拥有房屋。共用道路和设施由公寓公司管理。常见于较新的郊区开发项目。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.leasehold} />
+                <div class="fh-house-title">租赁地公寓(Leasehold Condo)</div>
+                <p>您并不拥有土地 —— 而是在固定年限内租用土地(通常从大学或医院租用)。便宜是有原因的。<strong>随着租期缩短,贷款和转售都会变得更困难。</strong></p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.coop} />
+                <div class="fh-house-title">合作公寓(Co-op,并非真正的公寓)</div>
+                <p>您购买的是拥有该建筑的公司股份 —— 而不是房地产本身。许多放贷机构不会为其提供贷款。当您出售时,董事会有权拒绝您的买家。只有在您完全理解其中利弊的情况下才应考虑。</p>
+              </div>
+              <div class="fh-house-card">
+                <div class="fh-house-icon" set:html={condoIcons.loft} />
+                <div class="fh-house-title">阁楼(Loft,硬阁楼或软阁楼)</div>
+                <p><strong>硬阁楼(Hard Loft)</strong> = 真正的旧工业建筑改造而成。<strong>软阁楼(Soft Loft)</strong> = 新建但刻意做旧的建筑。硬阁楼通常有些特殊问题:保温差、噪音大、户型古怪、取暖费更高。</p>
+              </div>
+            </div>
+
+            <!-- ============================================================
+                 PART 2 — AFFORDABILITY
+                 ============================================================ -->
+            <h2 id="afford" style="margin-top:48px;">第 2 部分 · 您能负担多少</h2>
+
+            <h3>压力测试</h3>
+            <p>放贷机构不会按照他们提供给您的利率来批准贷款。您必须以两者中<strong>较高</strong>的一个利率通过资格审核:</p>
+
+            <div class="fh-formula" aria-label="压力测试公式">
+              <div class="fh-formula-cell">
+                <div class="fh-formula-label">合同利率</div>
+                <div class="fh-formula-value">4.5%</div>
+                <div class="fh-formula-sub">举例</div>
+              </div>
+              <div class="fh-formula-op">+</div>
+              <div class="fh-formula-cell">
+                <div class="fh-formula-label">压力缓冲</div>
+                <div class="fh-formula-value">2%</div>
+              </div>
+              <div class="fh-formula-op">或</div>
+              <div class="fh-formula-cell">
+                <div class="fh-formula-label">底线利率</div>
+                <div class="fh-formula-value">5.25%</div>
+              </div>
+              <div class="fh-formula-op">→</div>
+              <div class="fh-formula-cell fh-formula-result">
+                <div class="fh-formula-label">以两者中较高者作为审核利率</div>
+                <div class="fh-formula-value">6.5%</div>
+              </div>
+            </div>
+
+            <h3 style="margin-top:26px;">管理费会降低您能借到的额度</h3>
+            <p>大多数首次购房者都会忽略这一点。</p>
+            <p>当放贷机构核算您的负债比时,会把您每月管理费的 <strong>50%</strong> 计入住房支出。也就是说,一笔 $700 的管理费,会在您还没付一分钱房贷之前,就吃掉您大约 $350/月的借贷额度。</p>
+
+            <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+              <strong>经验法则:</strong>两套价格相同的公寓,仅仅因为管理费不同,贷款获批的结果就可能天差地别。高额管理费既会降低您的获批额度,也会拉低转售价格。
+            </div>
+
+            <h3 style="margin-top:26px;">最低首付要求</h3>
+            <div class="fh-dp-chart" role="img" aria-label="按购房价格区间划分的最低首付比例">
+              <div class="fh-dp-row">
+                <div class="fh-dp-label">$500,000 以下</div>
+                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 20%;"></div><span class="fh-dp-pct">5%</span></div>
+                <div class="fh-dp-example">$500K → $25K</div>
+              </div>
+              <div class="fh-dp-row">
+                <div class="fh-dp-label">$500,001–$1,499,999</div>
+                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 35%;"></div><span class="fh-dp-pct">5% + 10% 混合</span></div>
+                <div class="fh-dp-example">$700K → $45K</div>
+              </div>
+              <div class="fh-dp-row">
+                <div class="fh-dp-label">$1,500,000 及以上</div>
+                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 100%;"></div><span class="fh-dp-pct">20%</span></div>
+                <div class="fh-dp-example">$1.5M → $300K</div>
+              </div>
+            </div>
+            <p style="margin-top:12px;font-size:14px;color:var(--ink-mute);">首付低于 20% = 需要购买房贷违约保险(约为贷款额的 2.8%–4%,可并入贷款)。安省 8% 的保费 PST 需要在交接当天以现金支付。</p>
+
+            <h3 style="margin-top:26px;">您真实的每月支出</h3>
+            <div class="fh-closing-stack">
+              <div class="fh-closing-row"><span>房贷月供</span><span>本金 + 利息</span></div>
+              <div class="fh-closing-row"><span>+ 管理费</span><span>楼宇维护</span></div>
+              <div class="fh-closing-row"><span>+ 地税</span><span>始终与管理费分开计算</span></div>
+              <div class="fh-closing-row"><span>+ 公寓单元保险</span><span>您自己的保单</span></div>
+              <div class="fh-closing-row"><span>+ 管理费未涵盖的水电网络</span><span>电费、网络、有线电视</span></div>
+              <div class="fh-closing-row fh-closing-row-total"><span><strong>= 您实际的每月支出</strong></span><span>在您爱上这套房子之前,先算一遍这笔账</span></div>
+            </div>
+
+            <p style="margin-top:14px;"><strong>现场试算:</strong> <a href="/chinese/payment-calculator">房贷计算器</a> · <a href="/chinese/rent-vs-buy-calculator">租房 vs 买房计算器</a>。</p>
+
+            <!-- ============================================================
+                 PART 3 — PROGRAMS
+                 ============================================================ -->
+            <h2 id="programs" style="margin-top:48px;">第 3 部分 · 可以叠加使用的政府补助计划</h2>
+            <p>一定要用上这些计划。它们是最容易拿到手的实惠。</p>
+
+            <div class="fh-program-grid">
+              <div class="fh-program-card">
+                <div class="fh-program-tag">储蓄</div>
+                <div class="fh-program-title">FHSA</div>
+                <p><strong>每年 $8,000,终身上限 $40,000。</strong>供款时可抵扣应税收入。用于购买首套房时提取完全免税,永远不用偿还。单年最高可供 <strong>$16,000</strong>。<a href="/chinese/blog/fhsa">完整指南。</a></p>
+              </div>
+              <div class="fh-program-card">
+                <div class="fh-program-tag">RRSP</div>
+                <div class="fh-program-title">购房者计划(HBP)</div>
+                <p>单人最高 <strong>$60,000</strong>(夫妻合计最高 $120,000)。需在 15 年内还清。提取前资金必须已在 RRSP 内存放满 <strong>90 天</strong>。请优先使用 FHSA。</p>
+              </div>
+              <div class="fh-program-card">
+                <div class="fh-program-tag">税务抵免</div>
+                <div class="fh-program-title">首次购房税务抵免(FTHB Tax Credit)</div>
+                <p>报税时可退回 <strong>$1,500</strong>。金额不大,但申请很简单。在交接后的下一次报税时申报即可。</p>
+              </div>
+              <div class="fh-program-card">
+                <div class="fh-program-tag">LTT 返还</div>
+                <div class="fh-program-title">土地转让税(LTT)返还</div>
+                <p>安省最高 <strong>$4,000</strong>。多伦多市另有额外 <strong>$4,475</strong>。合计上限 <strong>$8,475</strong>。要求您此前在全球范围内都从未拥有过住房。</p>
+              </div>
+            </div>
+
+            <details class="b60-section-toggle" style="margin-top:22px;">
+              <summary class="b60-section-toggle-summary">仅限新建物业:HST 返还(最高合计 $130,000)</summary>
+              <div class="b60-section-body">
+                <p>二手公寓不涉及 HST。但从开发商处购买的全新公寓需要缴纳 HST。</p>
+                <ul class="bullets">
+                  <li><strong>联邦 FTHB 返还:</strong>符合条件的住房最高可返还 <strong>$50,000</strong>。</li>
+                  <li><strong>安省临时计划:</strong>最高可返还 <strong>$80,000</strong>。目前的申请窗口要求买卖协议须在 <strong>2027 年 3 月 31 日</strong>前签署。</li>
+                  <li><strong>合计上限:</strong>最高 <strong>$130,000</strong>。</li>
+                </ul>
+                <p><strong>叠加使用的规则相当复杂。</strong>在签署任何文件之前,请先咨询您的律师和会计师。另请参阅<a href="/chinese/blog/fthb-rebate">FTHB 返还详解</a>。</p>
+              </div>
+            </details>
+
+            <!-- ============================================================
+                 PART 4 — STATUS CERTIFICATE
+                 ============================================================ -->
+            <h2 id="status" style="margin-top:48px;">第 4 部分 · 状况证明书 —— 千万不要跳过这一步</h2>
+            <p>这是公寓交易中最重要的一份文件,没有之一。</p>
+
+            <div class="fh-formula" style="justify-content: flex-start; flex-wrap: wrap;">
+              <div class="fh-formula-cell">
+                <div class="fh-formula-label">交付时限</div>
+                <div class="fh-formula-value">10 天</div>
+                <div class="fh-formula-sub">自您书面申请之日起</div>
+              </div>
+              <div class="fh-formula-op">·</div>
+              <div class="fh-formula-cell">
+                <div class="fh-formula-label">费用(法律设有上限)</div>
+                <div class="fh-formula-value">$100</div>
+                <div class="fh-formula-sub">含税</div>
+              </div>
+              <div class="fh-formula-op">·</div>
+              <div class="fh-formula-cell fh-formula-result">
+                <div class="fh-formula-label">谁来审查</div>
+                <div class="fh-formula-value" style="font-size:20px;">您的律师</div>
+                <div class="fh-formula-sub">不是您自己</div>
+              </div>
+            </div>
+
+            <h3 style="margin-top:22px;">文件里包含什么</h3>
+            <ul class="bullets">
+              <li><strong>储备金</strong>余额,以及最新的<strong>储备金研究报告</strong></li>
+              <li>当前<strong>预算</strong>,以及您单元当前的<strong>管理费</strong></li>
+              <li>已批准或即将出台的<strong>特别摊款</strong></li>
+              <li><strong>声明书(Declaration)、章程与规则</strong></li>
+              <li><strong>保险证明</strong></li>
+              <li>涉及公寓公司的任何<strong>诉讼</strong></li>
+              <li>现任业主在该单元上是否<strong>有欠款</strong></li>
+            </ul>
+
+            <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+              <strong>您的报价必须附上"律师审查状况证明书"这一条件。</strong>请给自己留出足够的天数,去真正拿到并读完它。这正是您付钱请律师要做的事。
+            </div>
+
+            <!-- ============================================================
+                 PART 5 — RESERVE FUND
+                 ============================================================ -->
+            <h2 id="reserve" style="margin-top:48px;">第 5 部分 · 储备金与特别摊款</h2>
+            <p>储备金是整栋楼用于大型维修的储蓄账户 —— 屋顶、电梯、窗户、车库、锅炉等。每位业主都通过每月管理费为其供款。</p>
+
+            <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
+              <strong>为什么这比其他任何事都重要:</strong>如果大修来临时储备金不够用,公寓公司就会直接向业主收费。这就是<strong>特别摊款</strong>。金额可能是每户几千甚至几万元,通知期很短,而且没有办法拒绝缴纳。只要摊款征收那天您是业主,您就要付这笔钱。
+            </div>
+
+            <h3 style="margin-top:22px;">如何核实</h3>
+            <ul class="bullets">
+              <li>阅读<strong>储备金研究报告</strong>。它会预测未来的维修需求,以及储备金是否足以覆盖。</li>
+              <li>查看<strong>费用历史</strong>。从不上涨的管理费其实是一个警示信号,而不是好消息 —— 成本本身在上涨,一个拒绝涨价的公寓公司往往就是在少交储备金。</li>
+              <li>询问未来五年内是否计划有<strong>重大工程</strong>。</li>
+            </ul>
+
+            <h3 style="margin-top:22px;">尴尬期</h3>
+            <p>楼龄大约在 <strong>15 到 25 年</strong>之间的建筑,通常会同时迎来第一波大规模维修:窗户、阳台、车库防水层、电梯。对处于这个年龄段的楼盘,请格外仔细地审查其储备金。</p>
+
+            <!-- ============================================================
+                 PART 6 — CONDO FEES
+                 ============================================================ -->
+            <h2 id="fees" style="margin-top:48px;">第 6 部分 · 管理费</h2>
+
+            <div class="fh-before-after" style="grid-template-columns: 1fr 1fr;">
+              <div class="fh-ba-col fh-ba-do">
+                <div class="fh-ba-title">管理费通常包含什么</div>
+                <ul>
+                  <li>楼宇维护</li>
+                  <li>建筑物保险</li>
+                  <li>各类设施(泳池、健身房、活动室)</li>
+                  <li>员工、除雪与绿化</li>
+                  <li>储备金供款</li>
+                  <li>通常包括水费和暖气费</li>
+                </ul>
+              </div>
+              <div class="fh-ba-col fh-ba-dont">
+                <div class="fh-ba-title">管理费通常不包含什么</div>
+                <ul>
+                  <li>您自己单元内部的维修</li>
+                  <li>您自己的公寓保险</li>
+                  <li>电费(许多楼盘不含)</li>
+                  <li>网络和有线电视(大多数不含)</li>
+                  <li>地税 —— 始终单独计算</li>
+                </ul>
+              </div>
+            </div>
+
+            <p style="margin-top:14px;"><strong>管理费高并不总是坏事。</strong>一栋配有泳池、健身房、礼宾服务和活动室的大楼,运营成本本来就更高。真正重要的是,这笔费用相对于您得到的服务是否合理,以及储备金是否充足。</p>
+
+            <p><strong>低管理费加上薄弱的储备金,才是最危险的组合。</strong>要做好管理费每年上涨的心理准备 —— 索要过去五年的费用历史记录。</p>
+
+            <!-- ============================================================
+                 PART 7 — PARKING
+                 ============================================================ -->
+            <h2 id="parking" style="margin-top:48px;">第 7 部分 · 车位、储物间与您到底拥有什么</h2>
+            <p>有三种安排方式 —— 它们并不相同。</p>
+
+            <div class="fh-program-grid" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="fh-program-card">
+                <div class="fh-program-tag">最佳</div>
+                <div class="fh-program-title">产权拥有(记入产权)</div>
+                <p>您完全拥有它,产权文件上会有记载。在部分楼盘中,您可以单独出售。</p>
+              </div>
+              <div class="fh-program-card">
+                <div class="fh-program-tag">尚可</div>
+                <div class="fh-program-title">专属使用权</div>
+                <p>归公寓公司所有,但只有您可以使用。通常不能单独出售。</p>
+              </div>
+              <div class="fh-program-card" style="border-left-color: #b8002e;">
+                <div class="fh-program-tag" style="color: #b8002e;">有风险</div>
+                <div class="fh-program-title">租用</div>
+                <p>属于别人。租约到期后就不再属于您。</p>
+              </div>
+            </div>
+
+            <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px; margin-top:18px;">
+              <strong>在无条件成交之前,务必以书面形式确认到底是哪一种。</strong>买家经常在交接之后才发现,当初看房时那个车位其实并不包含在内。同时也要确认:车位够不够大?位置在哪里?停在 P5 层最远角落的车位,和紧挨电梯的车位完全不是一回事。
+            </div>
+
+            <!-- ============================================================
+                 PART 8 — RULES
+                 ============================================================ -->
+            <h2 id="rules" style="margin-top:48px;">第 8 部分 · 您将要遵守的规则</h2>
+            <p>公寓规则具有强制力。请在购买之前阅读,而不是之后。</p>
+
+            <ul class="bullets">
+              <li><strong>宠物。</strong>体重限制、品种限制,甚至完全禁止饲养宠物,都很常见。</li>
+              <li><strong>短租。</strong>现在大多数楼盘都禁止短租(不允许 Airbnb)。</li>
+              <li><strong>长租。</strong>有些楼盘会限制可出租单元的数量比例。</li>
+              <li><strong>吸烟。</strong>许多楼盘现已全面禁烟,包括大麻,也包括阳台。</li>
+              <li><strong>装修。</strong>地板、管道以及任何涉及结构的改动,通常都需要董事会批准。<strong>许多楼盘在首层以上禁止安装实木地板。</strong></li>
+              <li><strong>阳台使用。</strong>烧烤、堆放杂物和加装屏风等,通常都受到限制。</li>
+              <li><strong>搬家。</strong>预订电梯、缴纳押金、限定搬家时间段,都是常见要求。</li>
+            </ul>
+
+            <!-- ============================================================
+                 PART 9 — INSURANCE
+                 ============================================================ -->
+            <h2 id="insurance" style="margin-top:48px;">第 9 部分 · 保险 —— 没人跟您讲清楚的部分</h2>
+            <p>这里涉及<strong>两份</strong>保单,您需要同时了解这两份。</p>
+
+            <div class="fh-before-after" style="grid-template-columns: 1fr 1fr;">
+              <div class="fh-ba-col fh-ba-after">
+                <div class="fh-ba-title">公寓公司的保单</div>
+                <ul>
+                  <li>覆盖建筑物本身</li>
+                  <li>覆盖公共区域(大堂、走廊、电梯、屋顶)</li>
+                  <li>由您的管理费支付</li>
+                </ul>
+              </div>
+              <div class="fh-ba-col fh-ba-do">
+                <div class="fh-ba-title">您自己的保单(单元业主)</div>
+                <ul>
+                  <li>覆盖您的财物</li>
+                  <li>覆盖您的装修升级部分</li>
+                  <li>覆盖您的责任险</li>
+                  <li>如被迫搬离,覆盖临时居住费用</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:22px;">免赔额陷阱</h3>
+            <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
+              如果损坏源头在您自己的单元内 —— 比如水管爆裂、浴缸溢水 —— 公寓公司可以把它保单的免赔额转嫁给您来承担。这些免赔额通常高达 <strong>$25,000 到 $100,000 甚至更多</strong>。
+            </div>
+            <p style="margin-top:14px;">您个人的公寓保单需要为此专门投保相应的保障。通常加保费用不高。<strong>请直接向保险经纪指名要求这项保障</strong>,并给他们一份状况证明书副本,以便匹配正确的保额。</p>
+
+            <!-- ============================================================
+                 PART 10 — RESALE
+                 ============================================================ -->
+            <h2 id="resale" style="margin-top:48px;">第 10 部分 · 购买二手公寓 —— 要看什么</h2>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">单元本身 —— 楼层、朝向、采光、噪音、户型</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>楼层与朝向。</strong>南向和西向采光更好、也更热。北向较暗、较凉。东向清晨采光好。</li>
+                  <li><strong>窗外是什么。</strong>查一下隔壁地块是空地,还是已获批建高楼。您的景观随时可能消失。</li>
+                  <li><strong>噪音。</strong>电梯井、垃圾滑道、机房、活动室、临街酒吧。请在晚上去看房。</li>
+                  <li><strong>户型。</strong>狭长型单元,以及卧室没有窗户的单元,转售会更困难。</li>
+                  <li><strong>实际面积。</strong>向开发商索要户型图。挂牌标注的面积可能有出入。</li>
+                  <li><strong>冷暖系统。</strong>老楼通常有季节性切换,这意味着初秋时可能没有空调可用。</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">整栋楼 —— 电梯、整洁度、挂牌数量、租客比例</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>电梯配比。</strong>单元数量太多而电梯太少 = 每天都要长时间等电梯。</li>
+                  <li><strong>公共区域的整洁度。</strong>维护良好的大堂,通常意味着一个管理良好的公寓公司。</li>
+                  <li><strong>在售单元数量。</strong>同时挂牌数量过多,可能是个问题信号。</li>
+                  <li><strong>租客比例。</strong>租客比例过高,可能影响贷款和楼宇维护。</li>
+                  <li><strong>和礼宾员或住户聊聊。</strong>他们会告诉您任何挂牌信息都不会写的事情。</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- ============================================================
+                 PART 11 — PRE-CONSTRUCTION
+                 ============================================================ -->
+            <h2 id="preconstruction" style="margin-top:48px;">第 11 部分 · 购买期房公寓</h2>
+            <p>流程不同,风险也不同。如果您在考虑期房,请仔细阅读。</p>
+
+            <div class="callout" style="border-left: 3px solid #1a6b32; padding-left: 22px;">
+              <strong>10 天冷静期。</strong>根据《公寓法》(Condominium Act),您在签约后有 <strong>10 个日历日</strong>(含周末)可以取消合同并拿回全部定金。<strong>请把这 10 天全部用上。</strong>请一位有期房经验的律师审查买卖协议、披露声明、预算,以及 Tarion 附加条款。这是您唯一可以谈判的窗口期。(<em>二手公寓和永久产权独立屋没有冷静期。</em>)
+            </div>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">定金与临时占用期 —— 最容易被误解的部分</summary>
+              <div class="b60-section-body">
+                <p><strong>定金。</strong>通常为房价的 15%–20%,分几个月分期支付。根据《公寓法》,公寓定金必须由信托账户保管。</p>
+                <p><strong>临时占用期。</strong>当您的单元已经完工,但整栋楼尚未完成注册时,您可以在还未真正拥有产权的情况下先行入住。这期间您需要向开发商支付每月<strong>占用费</strong>,涵盖预估的未付房款利息、预估地税,以及预估管理费。</p>
+                <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
+                  <strong>这不是房贷月供。它不会为您积累任何净值,也不能抵税。</strong>临时占用期通常持续 3 到 18 个月,大型项目可能更久。请把它当作额外的一笔"租金"来做预算。
+                </div>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">开发杂费、转让权,以及 HST 陷阱</summary>
+              <div class="b60-section-body">
+                <ul class="bullets">
+                  <li><strong>开发杂费。</strong>新公寓的交接成本远高于二手公寓。预计会有开发及教育杂费、市政管线接入费、Tarion 注册费、律师费等 —— 合计约为房价的 3%–5%。<strong>请在 10 天冷静期内,协商为开发杂费设定一个上限。</strong>没有上限的杂费可能高达数万元。这是您的律师能为您做的最有价值的事情之一。</li>
+                  <li><strong>转让权(Assignment)。</strong>指在交接前转手出售您的购房合同。许多开发商会对此加以限制、收取高额费用,或干脆禁止。如果灵活性对您很重要,请在签约前查看这一条款。</li>
+                  <li><strong>HST 陷阱。</strong>新公寓的 HST 返还是给自住业主的。如果您原本打算自住,结果在交接时改为出租,开发商已经预先抵扣给您的返还款可能会被追回 —— 您可能要在交接当天补交一大笔钱。房东也有单独的返还政策,但规则不同。不要凭猜测行事 —— 请咨询您的会计师。</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">Tarion 保修(1 年 / 2 年 / 7 年)</summary>
+              <div class="b60-section-body">
+                <p>新公寓的保修分为三个阶段:</p>
+                <div class="fh-formula" style="justify-content: space-around;">
+                  <div class="fh-formula-cell">
+                    <div class="fh-formula-label">工艺质量</div>
+                    <div class="fh-formula-value">1 年</div>
+                  </div>
+                  <div class="fh-formula-cell">
+                    <div class="fh-formula-label">水管、电气、管道、暖气</div>
+                    <div class="fh-formula-value">2 年</div>
+                  </div>
+                  <div class="fh-formula-cell fh-formula-result">
+                    <div class="fh-formula-label">主体结构</div>
+                    <div class="fh-formula-value">7 年</div>
+                  </div>
+                </div>
+                <p>此外还有针对定金、延迟入住和项目取消的保障。申请理赔的截止日期十分严格。请认真做好<strong>交房前验收(Pre-Delivery Inspection)</strong>—— 这是您唯一一次能把缺陷正式记录在案的机会。</p>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">老实说的风险</summary>
+              <div class="b60-section-body">
+                <p>项目延期数年是常有的事。有些项目甚至会被取消。在整个过程中,您的财务状况必须保持稳定,因为房贷审批是在接近尾声时才进行,而不是一开始。如果您的收入下降,或利率上升,您可能会陷入困境。</p>
+              </div>
+            </details>
+
+            <!-- ============================================================
+                 PART 12 — INTERNATIONAL BUYERS
+                 ============================================================ -->
+            <h2 id="international" style="margin-top:48px;">第 12 部分 · 致国际买家</h2>
+            <p>如果您不是加拿大公民或永久居民,适用于您的规则会有所不同。请在开始看房之前先阅读本节内容。</p>
+
+            <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
+              <strong>联邦外国买家禁令。</strong>根据《禁止非加拿大人购买住宅物业法》(Prohibition on the Purchase of Residential Property by Non-Canadians Act),非加拿大人目前被禁止购买绝大多数住宅物业(该禁令已延长至至少 2027 年 1 月 1 日)。存在有限的豁免情形 —— 例如国际留学生、满足特定条件的工签持有人、难民,以及部分外交人员。<strong>在签署任何文件之前,请务必请加拿大房地产律师确认您是否符合豁免资格。</strong>详见我写的<a href="/chinese/blog/foreign-buyer-ban">外国买家禁令完整解析</a>。
+            </div>
+
+            <h3 style="margin-top:22px;">非居民投机税(Non-Resident Speculation Tax,简称 NRST)</h3>
+            <p>如果您属于禁令的合法豁免情形并且可以购买,安省还会向非公民及非永久居民,按购房价格征收 <strong>25% 的非居民投机税(NRST)</strong>。这笔税款须在交接当天缴清,并且是在土地转让税之外额外征收的。目前存在有限的返还机制(例如,如果您在规定期限内后来成为永久居民)。</p>
+
+            <h3 style="margin-top:22px;">国际买家实用清单</h3>
+            <ul class="bullets">
+              <li><strong>首先确认资格。</strong>在您出价之前,必须由加拿大房地产律师对照联邦禁令审查您的移民身份。不要依赖开发商或地产经纪的判断。</li>
+              <li><strong>开设加拿大银行账户。</strong>您需要用它来存放定金和交接资金。部分加拿大银行为迁居而来的人士提供"新客户"专属计划。</li>
+              <li><strong>预期需要更高的首付。</strong>对大多数非居民借款人,放贷机构要求首付至少 35% 以上。有些要求高达 50%。通常无法申请受保房贷。</li>
+              <li><strong>资金来源证明文件。</strong>根据加拿大反洗钱规定(FINTRAC),您需要提供文件证明首付资金的来源。包括过去 3 到 12 个月的银行对账单、雇主证明信、您所在国家的纳税记录,以及若资金来自家人赠与所需的赠与信。请尽早开始准备这些材料。</li>
+              <li><strong>汇率风险。</strong>如果您的收入和存款是以其他货币计价,从出价到交接之间,汇率可能波动 5% 到 15%。可以考虑通过加拿大外汇公司签订远期合约来锁定汇率。</li>
+              <li><strong>税务责任。</strong>非居民持有加拿大房产,在租金收入和日后出售时都涉及预扣税规定。请咨询有跨境税务经验的加拿大会计师。</li>
+              <li><strong>法律代表。</strong>请聘请独立于开发商的加拿大房地产律师。如果您购买的是期房,请专门聘请具备期房公寓经验的律师。</li>
+              <li><strong>身份核实。</strong>根据安省地产行业规定,您的地产经纪必须用政府颁发的身份证件核实您的身份。请提前准备好您的护照和移民相关文件。</li>
+              <li><strong>物业管理。</strong>如果您计划在海外远程出租该单元,请预留租金总额的 8%–12% 用于聘请物业管理公司,并确认该楼盘允许长租(许多楼盘对此有限制)。</li>
+              <li><strong>紧急联系人与邮寄地址。</strong>您需要一个加拿大邮寄地址,用于接收地税账单、公寓通知和市政信函。部分物业管理公司可以提供这项服务。</li>
+            </ul>
+
+            <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
+              <strong>我的真心话:</strong>如果您在 2026–2027 年是非加拿大人,最稳妥的路径是:(1)先请律师书面确认您的购房资格,(2)为 NRST、更高的首付以及更高的交接成本做好预算,(3)做好心理准备 —— 这将是一项至少 5 年以上的长期承诺。在目前的规则下,以非居民身份购买加拿大公寓并快速转手套利,并不是一个可行的策略。
+            </div>
+
+            <!-- ============================================================
+                 RED FLAGS
+                 ============================================================ -->
+            <h2 id="redflags" style="margin-top:48px;">危险信号 —— 遇到这些请放慢脚步</h2>
+            <ul class="bullets">
+              <li>储备金研究报告显示储备金不足</li>
+              <li>特别摊款已获批准、正在讨论,或"正在考虑中"</li>
+              <li>管理费多年未曾上涨</li>
+              <li>涉及公寓公司的进行中诉讼</li>
+              <li>正在进行的大型维修却没有明确的资金计划</li>
+              <li>物业管理公司频繁更换</li>
+              <li>同一时间在售单元数量偏多</li>
+              <li>已知的全楼性问题:渗漏、外墙板、车库防水层、管道</li>
+              <li>任何要求您<strong>放弃状况证明书条件</strong>的压力</li>
+            </ul>
+
+            <!-- ============================================================
+                 COMMON MISTAKES
+                 ============================================================ -->
+            <h2 id="mistakes" style="margin-top:48px;">公寓买家最常犯的 10 个错误</h2>
+            <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
+              <li><strong>跳过或匆忙审查状况证明书。</strong>这是公寓交易中代价最高的错误。</li>
+              <li><strong>忽视储备金。</strong>特别摊款没有上限。</li>
+              <li><strong>忘记管理费会降低您的房贷获批额度。</strong></li>
+              <li><strong>想当然地以为车位或储物间已经包含在内。</strong>请以书面形式确认。</li>
+              <li><strong>没有阅读规则。</strong>结果交接之后才发现宠物或木地板被禁止。</li>
+              <li><strong>购买时没有为公寓公司的免赔额</strong>投保相应的保险。</li>
+              <li><strong>没有查清隔壁地块能建什么。</strong>景观是不受保护的。</li>
+              <li><strong>没有在晚上或周末去看房。</strong></li>
+              <li><strong>把期房当二手房来对待。</strong>占用费和各类杂费常常让人措手不及。</li>
+              <li><strong>浪费了 10 天冷静期。</strong>这是您在新楼盘交易中唯一的谈判筹码。</li>
+            </ol>
+
+            <!-- ============================================================
+                 CHECKLIST
+                 ============================================================ -->
+            <h2 id="checklist" style="margin-top:48px;">您的完整清单</h2>
+
+            <details class="b60-section-toggle" open>
+              <summary class="b60-section-toggle-summary">看房之前</summary>
+              <div class="b60-section-body">
+                <ul class="fh-check">
+                  <li>开设 FHSA 账户</li>
+                  <li>获得贷款预批,并了解管理费如何影响您的贷款额度</li>
+                  <li>选定一位专门处理公寓交易的房地产律师</li>
+                  <li>确定您能负担的每月最高支出上限,包含管理费在内</li>
+                  <li><strong>国际买家:</strong>请首先确认您在联邦禁令下的购房资格</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">看房时</summary>
+              <div class="b60-section-body">
+                <ul class="fh-check">
+                  <li>记录楼层、朝向,以及窗外的景观</li>
+                  <li>检查噪音来源 —— 电梯、垃圾滑道、机房、临街噪音</li>
+                  <li>在晚上和周末都去看一次楼</li>
+                  <li>查看走廊、车库和大堂的状况</li>
+                  <li>确认管理费具体包含哪些内容</li>
+                  <li>确认车位和储物间的归属状态</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">出价时</summary>
+              <div class="b60-section-body">
+                <ul class="fh-check">
+                  <li>加入"状况证明书条件",并留出足够的天数</li>
+                  <li>加入贷款条件</li>
+                  <li>立即申请状况证明书</li>
+                  <li>收到后当天就发给您的律师</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">转为无条件成交之前</summary>
+              <div class="b60-section-body">
+                <ul class="fh-check">
+                  <li>律师已审查并向您解释了状况证明书</li>
+                  <li>储备金已审查</li>
+                  <li>没有待定的特别摊款</li>
+                  <li>已核对规则是否符合您的实际生活方式</li>
+                  <li>已获得保险报价,包含免赔额保障</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="b60-section-toggle">
+              <summary class="b60-section-toggle-summary">交接之前</summary>
+              <div class="b60-section-body">
+                <ul class="fh-check">
+                  <li>已与放贷机构确认最终贷款批准</li>
+                  <li>保险已生效</li>
+                  <li>已与律师确认交接成本</li>
+                  <li>已预订搬家当天的电梯</li>
+                  <li>您的财务状况没有发生变化</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- ============================================================
+                 DISCLAIMER
+                 ============================================================ -->
+            <p class="calc-disclaimer" style="margin-top:44px;">
+              <strong>免责声明。</strong>我是持牌房地产经纪人。我不是贷款经纪、财务顾问、会计师、律师、保险经纪或验房师,本指南中的任何内容都不构成贷款、财务、税务、法律或保险方面的建议。本指南仅为一般性信息,并非针对您个人情况的建议,也不构成客户关系。公寓法规、政府补助计划、税务规则、移民规则以及返还申请截止日期都可能发生变化。每一栋楼、每一个公寓公司都各不相同。本文所述内容是否适用于您,取决于您个人的具体情况。在做出任何决定之前,请自行进行尽职调查,并向合适的持牌专业人士咨询 —— 请房地产律师审查状况证明书、买卖协议以及任何开发商合同;请贷款经纪或放贷机构评估您的融资方案和可获批额度;请会计师或税务专业人士解答关于 FHSA、RRSP、HST 返还、跨境税务和 NRST 的问题;请合格的验房师评估单元状况;请保险经纪确定您真正需要的保障范围,包括公寓公司的免赔额部分。请勿仅依赖本指南做决定。凡是涉及您钱财的事项,都请向持牌专业人士核实清楚。
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseCTASection heading="正在考虑在多伦多购买您的第一套公寓吗?" lead="每一套公寓背后都有类似的故事。如果您想拿一套真实的房源,结合您实际的预算、时间安排,以及我信任的各领域专业人士,把上面这份清单走一遍 —— 请把您的情况发给我。提供英语、普通话和粤语服务。" />
+  <ChineseFooter />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>

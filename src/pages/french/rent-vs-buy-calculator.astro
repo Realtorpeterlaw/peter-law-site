@@ -587,12 +587,12 @@ const hreflangAlternates = [
       for (let k = 0; k <= years; k += tickStep) {
         const x = xAt(k);
         xLabels += '<line x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + (PT + inH) + '" y2="' + (PT + inH + 4) + '" stroke="currentColor" opacity="0.35" />';
-        xLabels += '<text x="' + x.toFixed(1) + '" y="' + (PT + inH + 18) + '" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">Yr ' + k + '</text>';
+        xLabels += '<text x="' + x.toFixed(1) + '" y="' + (PT + inH + 18) + '" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">An ' + k + '</text>';
       }
       // Also ensure last year label
       if (years % tickStep !== 0) {
         const x = xAt(years);
-        xLabels += '<text x="' + x.toFixed(1) + '" y="' + (PT + inH + 18) + '" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">Yr ' + years + '</text>';
+        xLabels += '<text x="' + x.toFixed(1) + '" y="' + (PT + inH + 18) + '" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">An ' + years + '</text>';
       }
 
       // Equity area (fill)
