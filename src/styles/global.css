@@ -2887,7 +2887,7 @@ html[data-theme="dark"] .ltt-total {
   /* House-type grid */
   .fh-house-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
   @media (max-width: 900px) { .fh-house-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 540px) { .fh-house-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 540px) { .fh-house-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .fh-house-card { padding: 14px; } .fh-house-icon { width: 44px; height: 44px; } .fh-house-title { font-size: 15px; } .fh-house-card p { font-size: 12.5px; line-height: 1.45; } }
   .fh-house-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px; transition: transform 0.18s ease, border-color 0.18s ease; }
   .fh-house-card:hover { transform: translateY(-2px); border-color: var(--accent); }
   .fh-house-icon { width: 60px; height: 60px; color: var(--ink); margin-bottom: 8px; }
@@ -2980,7 +2980,9 @@ html[data-theme="dark"] .ltt-total {
   .fh-stats-grid { grid-template-columns: 1fr; }
   .fh-formula-cell { flex: 1 0 100%; }
   .fh-formula-op { display: none; }
-  .fh-house-icon { width: 48px; height: 48px; }
+  .fh-house-icon { width: 40px; height: 40px; }
+  /* At very narrow widths drop to 1 col — 2 cols is too cramped */
+  .fh-house-grid { grid-template-columns: 1fr !important; }
 }
 /* FH GUIDE STYLES END */
 
@@ -2989,10 +2991,11 @@ html[data-theme="dark"] .ltt-total {
    phones. Bump !important on the phone breakpoints. */
 @media (max-width: 640px) {
   .fh-before-after,
-  .fh-house-grid,
   .fh-stats-grid,
   .fh-dp-row,
   .fh-cost-row,
   .fh-program-grid { grid-template-columns: 1fr !important; }
+  /* fh-house-grid intentionally stays 2-col — see 540px rule above */
+  .fh-house-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px; }
 }
 
