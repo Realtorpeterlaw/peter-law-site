@@ -279,6 +279,96 @@
       "source": "/feed.xml",
       "destination": "/blog",
       "permanent": true
+    },
+    {
+      "source": "/korean",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/korean/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/russian",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/russian/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/spanish",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/spanish/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/condo",
+      "destination": "/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/condo/:path*",
+      "destination": "/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/condo",
+      "destination": "/chinese/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/condo/:path*",
+      "destination": "/chinese/all-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/upload-documents",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/upload-documents",
+      "destination": "/chinese/contact",
+      "permanent": true
+    },
+    {
+      "source": "/home-insurance-quoter",
+      "destination": "/for-renters#insurance",
+      "permanent": true
+    },
+    {
+      "source": "/land-transfer-tax-calculator",
+      "destination": "/land-transfer-tax",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/land-transfer-tax-calculator",
+      "destination": "/chinese/land-transfer-tax",
+      "permanent": true
+    },
+    {
+      "source": "/french/land-transfer-tax-calculator",
+      "destination": "/french/land-transfer-tax",
+      "permanent": true
+    },
+    {
+      "source": "/zh",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/zh/:path*",
+      "destination": "/chinese/:path*",
+      "permanent": true
     }
   ]
 }
