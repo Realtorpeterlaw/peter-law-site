@@ -281,36 +281,6 @@
       "permanent": true
     },
     {
-      "source": "/korean",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/korean/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/russian",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/russian/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/spanish",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/spanish/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/condo",
       "destination": "/all-calculator",
       "permanent": true
