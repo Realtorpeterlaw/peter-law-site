@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter — getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-09-14',
+    intersection_en: 'Charlotte St & King St W',
+    intersection_zh: 'Charlotte St 与 King St W',
+    intersection_fr: 'Charlotte St et King St W',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$2,700',
+    note_en: 'Secured an amazing CORNER unit in a desirable condo — competing with MULTIPLE offers at the asking price.',
+    note_zh: '为客户拿下一套抢手大楼的绝佳转角单位 —— 多组竞价情况下按叫价成交。',
+    note_fr: "Unité de COIN exceptionnelle dans une copropriété recherchée — obtenue face à PLUSIEURS offres, au prix demandé.",
+  },
+  {
     date: '2026-09-10',
     intersection_en: 'Church St & Wellesley St E',
     intersection_zh: 'Church St 与 Wellesley St E',
