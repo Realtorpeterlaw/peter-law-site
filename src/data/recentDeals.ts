@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter, getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-09-17',
+    intersection_en: 'Spadina Ave & Fort York Blvd',
+    intersection_zh: 'Spadina Ave 与 Fort York Blvd',
+    intersection_fr: 'Spadina Ave et Fort York Blvd',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多,安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$2,500',
+    note_en: 'Secured another amazing CORNER unit in the cozy CITY PLACE neighbourhood.',
+    note_zh: '为客户再次拿下 CITY PLACE 街区一套绝佳转角单位, 温馨舒适。',
+    note_fr: "Autre unité de COIN exceptionnelle sécurisée dans le charmant quartier de CITY PLACE.",
+  },
+  {
     date: '2026-09-14',
     intersection_en: 'Charlotte St & King St W',
     intersection_zh: 'Charlotte St 与 King St W',
