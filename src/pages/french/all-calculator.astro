@@ -166,19 +166,19 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">Chiffres à titre indicatif. Les hypothèques canadiennes sont composées semi-annuellement. Les primes SCHL présentées sont les tiers standards actuels (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par le propriétaire de moins de 1,5 M$. Le test de résistance fédéral utilise le plus élevé entre (votre taux + 2 %) ou 5,25 %. L'estimation des taxes foncières est de 0,7 % du prix par année (moyenne de Toronto) et le chauffage est de 150 $/mois — la banque utilise des chiffres approximatifs similaires pour le ratio ATD. Les frais juridiques + titre + ajustements par défaut de 2 500 $ sont typiques pour un achat de revente à Toronto. Les chiffres réels dépendent de votre crédit, du prêteur, de la propriété et des détails de clôture. Confirmez toujours avec un courtier hypothécaire, un avocat et un comptable avant de signer quoi que ce soit. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
+          <p class="calc-disclaimer">Chiffres à titre indicatif. Les hypothèques canadiennes sont composées semi-annuellement. Les primes SCHL présentées sont les tiers standards actuels (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par le propriétaire de moins de 1,5 M$. Le test de résistance fédéral utilise le plus élevé entre (votre taux + 2 %) ou 5,25 %. L'estimation des taxes foncières est de 0,7 % du prix par année (moyenne de Toronto) et le chauffage est de 150 $/mois, la banque utilise des chiffres approximatifs similaires pour le ratio ATD. Les frais juridiques + titre + ajustements par défaut de 2 500 $ sont typiques pour un achat de revente à Toronto. Les chiffres réels dépendent de votre crédit, du prêteur, de la propriété et des détails de clôture. Confirmez toujours avec un courtier hypothécaire, un avocat et un comptable avant de signer quoi que ce soit. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <FrenchCTASection heading="Voulez-vous que je vous guide avec des chiffres réels ?" lead="Apportez votre revenu et le quartier que vous visez. 15 minutes au téléphone et vous saurez exactement quelle fourchette de prix vous convient — et ce qui ne convient pas." />
+  <FrenchCTASection heading="Voulez-vous que je vous guide avec des chiffres réels ?" lead="Apportez votre revenu et le quartier que vous visez. 15 minutes au téléphone et vous saurez exactement quelle fourchette de prix vous convient, et ce qui ne convient pas." />
 
   <FrenchFooter />
 
   <script is:inline>
     // ============================================================
-    // CALCULATEUR ACHAT COMPLET — hypothèque + LTT + SCHL + frais de clôture
+    // CALCULATEUR ACHAT COMPLET, hypothèque + LTT + SCHL + frais de clôture
     // ============================================================
     (function() {
       function fmtCAD(n, dp) {
@@ -286,7 +286,7 @@ const hreflangAlternates = [
           feeLabel.innerHTML = '6. Frais HOA <span class="hint">Par mois.</span>';
         } else if (propType === 'condo') {
           feeRow.style.display = '';
-          feeLabel.innerHTML = '6. Frais de copropriété <span class="hint">Par mois. Demandez avant de signer — certains incluent le chauffage, l\'eau ou l\'électricité.</span>';
+          feeLabel.innerHTML = '6. Frais de copropriété <span class="hint">Par mois. Demandez avant de signer, certains incluent le chauffage, l\'eau ou l\'électricité.</span>';
         }
 
         const minDown = minDownPayment(price);
@@ -331,9 +331,9 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? '(non autorisé — il faut au moins 5 % de plus)'
+          ? '(non autorisé, il faut au moins 5 % de plus)'
           : premiumRate === 0
-            ? '(vous avez 20 %+ de mise de fonds — pas d\'assurance requise)'
+            ? '(vous avez 20 %+ de mise de fonds, pas d\'assurance requise)'
             : '(' + (premiumRate * 100).toFixed(2) + ' % du prêt)';
         $('ac-ltt-on').textContent = fmtCAD(lttOnt, 0);
         $('ac-ltt-mltt').textContent = fmtCAD(lttMltt, 0);
@@ -361,7 +361,7 @@ const hreflangAlternates = [
         const downPct = price > 0 ? (actualDown / price * 100) : 0;
         $('ac-mindown-sub').textContent = 'Vous avez ' + Math.round(savings).toLocaleString('fr-CA') + ' $'
           + '. Vous mettez ' + downPct.toFixed(1).replace('.', ',') + ' % du prix.'
-          + (shortfall > 0 ? ' Il vous manque ' + fmtCAD(shortfall, 0) + ' — il faut plus d\'épargne avant que la banque approuve.' : '');
+          + (shortfall > 0 ? ' Il vous manque ' + fmtCAD(shortfall, 0) + ', il faut plus d\'épargne avant que la banque approuve.' : '');
         $('ac-stress').textContent = fmtCAD(stressPayment, 0) + '/mois';
         $('ac-gds').textContent = gds.toFixed(1).replace('.', ',') + ' %';
         $('ac-interest').textContent = fmtCAD(totalInterest, 0);

@@ -245,12 +245,12 @@ const labels = zh
     overscroll-behavior: contain;            /* stop scroll-chain to page */
     scroll-behavior: smooth;
     padding-right: 10px;                     /* room for scrollbar so it doesn't overlap card border */
-    /* Subtle top/bottom fade on the scroll edges — quiet-luxury cue that
+    /* Subtle top/bottom fade on the scroll edges, quiet-luxury cue that
        more content is available above/below. */
     mask-image: linear-gradient(180deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
     -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
   }
-  /* Minimal scrollbar styling — thin, matches the site's rule/ink tokens. */
+  /* Minimal scrollbar styling, thin, matches the site's rule/ink tokens. */
   .sales-grid::-webkit-scrollbar { width: 8px; }
   .sales-grid::-webkit-scrollbar-track { background: transparent; }
   .sales-grid::-webkit-scrollbar-thumb {
@@ -263,7 +263,7 @@ const labels = zh
   .sales-grid { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
 
   @media (max-width: 720px) {
-    /* Mobile: cards stack (image on top → taller) — cap at ~85vh so page
+    /* Mobile: cards stack (image on top → taller), cap at ~85vh so page
        still fits everything, but internal scroll kicks in for long lists. */
     .sales-grid { max-height: 85vh; padding-right: 6px; }
   }

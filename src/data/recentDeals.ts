@@ -1,10 +1,10 @@
-// Centralized recent deals data — sorted newest-first via YYYY-MM `date` field.
+// Centralized recent deals data, sorted newest-first via YYYY-MM `date` field.
 // Carousel on homepage takes top 3; /about page shows the full archive.
 
 export type DealLang = 'en' | 'zh' | 'fr';
 
 export interface DealRaw {
-  date: string;                // 'YYYY-MM' — sort key (source of truth)
+  date: string;                // 'YYYY-MM', sort key (source of truth)
   intersection_en: string;
   intersection_zh: string;
   intersection_fr: string;
@@ -40,7 +40,7 @@ const MONTHS_FR = [
   'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
 ];
 
-// Add new deals here. Order doesn't matter — getDeals() sorts by date.
+// Add new deals here. Order doesn't matter, getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
     date: '2026-09-14',
@@ -51,9 +51,9 @@ export const dealsRaw: DealRaw[] = [
     city_zh: '多伦多,安省',
     city_fr: 'Toronto, Ontario',
     rent: '$2,700',
-    note_en: 'Secured an amazing CORNER unit in a desirable condo — competing with MULTIPLE offers at the asking price.',
-    note_zh: '为客户拿下一套抢手大楼的绝佳转角单位 —— 多组竞价情况下按叫价成交。',
-    note_fr: "Unité de COIN exceptionnelle dans une copropriété recherchée — obtenue face à PLUSIEURS offres, au prix demandé.",
+    note_en: 'Secured an amazing CORNER unit in a desirable condo, competing with MULTIPLE offers at the asking price.',
+    note_zh: '为客户拿下一套抢手大楼的绝佳转角单位, 多组竞价情况下按叫价成交。',
+    note_fr: "Unité de COIN exceptionnelle dans une copropriété recherchée, obtenue face à PLUSIEURS offres, au prix demandé.",
   },
   {
     date: '2026-09-10',
@@ -132,9 +132,9 @@ export const dealsRaw: DealRaw[] = [
     city_zh: '多伦多,安省',
     city_fr: 'Toronto, Ontario',
     rent: '$6,600',
-    note_en: 'Desirable neighbourhood — 3,000+ sq ft of living space.',
+    note_en: 'Desirable neighbourhood, 3,000+ sq ft of living space.',
     note_zh: '热门社区 · 逾 3,000 平方英尺居住面积。',
-    note_fr: 'Quartier prisé — plus de 3 000 pi² d\'espace habitable.',
+    note_fr: 'Quartier prisé, plus de 3 000 pi² d\'espace habitable.',
   },
   {
     date: '2026-08-15',

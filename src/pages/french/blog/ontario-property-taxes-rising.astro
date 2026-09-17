@@ -21,7 +21,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
   publisher: {
     '@type': 'Organization',
-    name: 'Peter Law — Immobilier à Toronto',
+    name: 'Peter Law, Immobilier à Toronto',
     logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
   },
   inLanguage: 'fr-CA',
@@ -111,7 +111,7 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
       <div class="wrap">
         <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Propriétaires en Ontario · Politique</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Les taxes foncières dans les villes de l'Ontario grimpent plus vite que la valeur des maisons, plus vite que les revenus des familles, et plus vite que l'économie en général. Voici ce que les chiffres disent vraiment — en français simple.</p>
+        <p class="article-lead">Les taxes foncières dans les villes de l'Ontario grimpent plus vite que la valeur des maisons, plus vite que les revenus des familles, et plus vite que l'économie en général. Voici ce que les chiffres disent vraiment, en français simple.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
@@ -131,9 +131,9 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
               <li><a href="#quick">Faits rapides</a></li>
               <li><a href="#what">Qu'est-ce qu'une taxe foncière ?</a></li>
               <li><a href="#big">La vue d'ensemble</a></li>
-              <li><a href="#chart1">Graphique 1 — Qui paie le plus ?</a></li>
-              <li><a href="#chart2">Graphique 2 — Où est la richesse ?</a></li>
-              <li><a href="#chart3">Graphique 3 — Taxes vs le reste</a></li>
+              <li><a href="#chart1">Graphique 1, Qui paie le plus ?</a></li>
+              <li><a href="#chart2">Graphique 2, Où est la richesse ?</a></li>
+              <li><a href="#chart3">Graphique 3, Taxes vs le reste</a></li>
               <li><a href="#why">Pourquoi ça arrive ?</a></li>
               <li><a href="#means">Ce que ça veut dire pour vous</a></li>
               <li><a href="#disclaimer">Avis</a></li>
@@ -153,10 +153,10 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
 
             <h2 id="what">Qu'est-ce qu'une taxe foncière ?</h2>
             <p>Une <strong>taxe foncière</strong> est l'argent que votre ville vous facture chaque année pour posséder une maison, un condo ou un terrain. La ville utilise cet argent pour payer des choses comme la collecte des ordures, le déneigement, les routes, les bibliothèques, les parcs, et une partie du budget des services de police et d'incendie.</p>
-            <p>La facture est calculée avec deux chiffres : <strong>le taux de taxe</strong> (un pourcentage que la ville fixe chaque année) et <strong>la valeur de votre propriété</strong> (appelée l'évaluation). En Ontario, la partie évaluation est un peu bizarre — la valeur utilisée par la province est <strong>figée à la valeur de votre maison en 2016</strong>. Elle n'a pas été mise à jour depuis dix ans. Ça veut dire que la récente flambée immobilière n'est pas dans les chiffres.</p>
+            <p>La facture est calculée avec deux chiffres : <strong>le taux de taxe</strong> (un pourcentage que la ville fixe chaque année) et <strong>la valeur de votre propriété</strong> (appelée l'évaluation). En Ontario, la partie évaluation est un peu bizarre, la valeur utilisée par la province est <strong>figée à la valeur de votre maison en 2016</strong>. Elle n'a pas été mise à jour depuis dix ans. Ça veut dire que la récente flambée immobilière n'est pas dans les chiffres.</p>
 
             <h2 id="big">La vue d'ensemble</h2>
-            <p>L'Ontario a 444 villes et villages. Les taxes foncières sont leur plus grande source unique d'argent — <strong>44,1 % de ce qu'ils collectent chaque année</strong>. Sur les dix dernières années, cet argent a beaucoup augmenté :</p>
+            <p>L'Ontario a 444 villes et villages. Les taxes foncières sont leur plus grande source unique d'argent, <strong>44,1 % de ce qu'ils collectent chaque année</strong>. Sur les dix dernières années, cet argent a beaucoup augmenté :</p>
             <ul>
               <li>En <strong>2015</strong>, les villes de l'Ontario ont collecté environ <strong>19 milliards $</strong> en taxes foncières.</li>
               <li>En <strong>2025</strong>, elles ont collecté environ <strong>27 milliards $</strong>.</li>
@@ -165,10 +165,10 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
             <p>Sur la même période, les revenus des familles en Ontario n'ont augmenté que d'environ 14 %. La facture de taxe a donc augmenté environ <strong>2,5 fois plus vite</strong> que ce que les gens gagnaient.</p>
 
             <!-- ─── GRAPHIQUE 1 ─── -->
-            <h2 id="chart1">Graphique 1 — Qui paie le plus ? (2025)</h2>
+            <h2 id="chart1">Graphique 1, Qui paie le plus ? (2025)</h2>
             <p>C'est <strong>combien de taxe chaque personne paie</strong> dans une ville, en moyenne, en 2025. Le haut de la liste est où la facture par personne est la plus grosse. Le bas de la liste est où elle est la plus petite.</p>
             <figure class="bar-chart" aria-labelledby="c1-cap">
-              <figcaption id="c1-cap">Prélèvement municipal net par habitant, 2025 — 6 du haut vs 4 du bas des 35 grandes villes de l'Ontario.</figcaption>
+              <figcaption id="c1-cap">Prélèvement municipal net par habitant, 2025, 6 du haut vs 4 du bas des 35 grandes villes de l'Ontario.</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">Taxe par personne la plus élevée</div>
                 {chart1_top.map((r) => (
@@ -194,10 +194,10 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
             <p><strong>Ce que ça dit :</strong> si vous habitez Pickering, votre ville prend environ <strong>2 300 $ par personne</strong> en moyenne, en taxe municipale. Si vous habitez Milton, elle prend environ <strong>1 230 $</strong>. Même province, environ le double de facture.</p>
 
             <!-- ─── GRAPHIQUE 2 ─── -->
-            <h2 id="chart2">Graphique 2 — Où est la richesse ? (2025)</h2>
-            <p>C'est <strong>la valeur de l'immobilier</strong> dans chaque ville, par personne. Les villes du haut ont des propriétés très chères. Celles du bas ont des propriétés moins chères. Une ville avec une plus grosse base fiscale devrait, en théorie, avoir besoin d'un taux plus bas pour lever la même somme — parce qu'il y a plus de valeur à taxer.</p>
+            <h2 id="chart2">Graphique 2, Où est la richesse ? (2025)</h2>
+            <p>C'est <strong>la valeur de l'immobilier</strong> dans chaque ville, par personne. Les villes du haut ont des propriétés très chères. Celles du bas ont des propriétés moins chères. Une ville avec une plus grosse base fiscale devrait, en théorie, avoir besoin d'un taux plus bas pour lever la même somme, parce qu'il y a plus de valeur à taxer.</p>
             <figure class="bar-chart" aria-labelledby="c2-cap">
-              <figcaption id="c2-cap">Évaluation imposable non pondérée par habitant, 2025 — 6 du haut vs 3 du bas.</figcaption>
+              <figcaption id="c2-cap">Évaluation imposable non pondérée par habitant, 2025, 6 du haut vs 3 du bas.</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">Base fiscale par personne la plus riche</div>
                 {chart2_top.map((r) => (
@@ -223,7 +223,7 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
             <p><strong>Ce que ça dit :</strong> Richmond Hill a plus de <strong>quatre fois</strong> la valeur imposable par personne comparée à Windsor. Pourtant, comme le montre le graphique 1, la facture par personne de Windsor n'est pas quatre fois plus basse. Quelque chose d'autre se passe.</p>
 
             <!-- ─── GRAPHIQUE 3 ─── -->
-            <h2 id="chart3">Graphique 3 — Taxes vs le reste (2015-2025)</h2>
+            <h2 id="chart3">Graphique 3, Taxes vs le reste (2015-2025)</h2>
             <p>C'est le graphique le plus important. Il compare la vitesse à laquelle quatre choses ont augmenté sur dix ans, en moyenne, dans 35 grandes villes de l'Ontario.</p>
             <figure class="bar-chart" aria-labelledby="c3-cap">
               <figcaption id="c3-cap">Croissance moyenne sur 10 ans (2015 → 2025), 35 grandes villes de l'Ontario.</figcaption>
@@ -247,7 +247,7 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
               <li><strong>La province donne moins d'argent aux villes qu'avant</strong>, donc les villes vous facturent plus pour combler la différence.</li>
               <li><strong>Tout coûte plus cher après la pandémie.</strong> Réparer une route, faire fonctionner un centre récréatif ou payer un pompier coûte tout plus cher.</li>
               <li><strong>La province a transféré des programmes</strong> (santé, services sociaux) que les villes paient maintenant.</li>
-              <li><strong>Ou</strong> — et c'est vers celle-ci que le rapport penche — <strong>les villes dépensent simplement plus, sur plus de choses, sans se demander si le contribuable peut suivre</strong>.</li>
+              <li><strong>Ou</strong>, et c'est vers celle-ci que le rapport penche, <strong>les villes dépensent simplement plus, sur plus de choses, sans se demander si le contribuable peut suivre</strong>.</li>
             </ul>
             <p>Le rapport termine en disant : ce n'est peut-être pas un problème de revenu. C'est peut-être un problème de dépenses.</p>
 
@@ -255,7 +255,7 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
               <summary>Ce que ça veut dire pour vous</summary>
               <div class="means-body">
                 <div class="callout">
-                  <strong>Si vous êtes déjà propriétaire :</strong> la taxe foncière est un vrai coût récurrent qui augmente presque chaque année. Prévoyez-le au budget. Si vous achetez, demandez la facture de l'année en cours — pas juste celle d'il y a deux ans.
+                  <strong>Si vous êtes déjà propriétaire :</strong> la taxe foncière est un vrai coût récurrent qui augmente presque chaque année. Prévoyez-le au budget. Si vous achetez, demandez la facture de l'année en cours, pas juste celle d'il y a deux ans.
                 </div>
                 <div class="callout">
                   <strong>Si vous achetez :</strong> ne regardez pas juste le prix. Une maison moins chère dans une ville à taxe par personne élevée (comme Pickering, Whitby, Sudbury) peut finir par coûter plus par mois qu'une maison un peu plus chère dans une ville à taux plus bas (Milton, Brampton, Kitchener). J'inclus la taxe foncière dans les scénarios que je fais pour mes clients.
@@ -270,7 +270,7 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
             </details>
 
             <h2 id="disclaimer">Avis</h2>
-            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">Cet article résume et reformule en français simple un commentaire intitulé <em>« Property taxes growing quickly in Ontario municipalities »</em> par Livio Di Matteo, professeur d'économie à l'Université Lakehead, publié par le Fraser Institute le 2 juin 2026. Tous les chiffres, pourcentages et données par ville proviennent de ce rapport et du Rapport municipal BMA 2025 qu'il cite. La formulation et l'analyse dans ce billet sont le résumé de Peter Law écrit pour un lecteur général — ce ne sont pas des citations directes et ne devraient pas être traités comme telles. Rien dans cet article n'est un avis juridique, fiscal ou financier, et Peter Law est un représentant commercial immobilier inscrit (RECO), pas un fiscaliste. Les taux de taxe foncière, les règles d'évaluation et les budgets municipaux changent chaque année ; consultez toujours les renseignements à jour sur le site Web de votre municipalité ou auprès d'un conseiller fiscal autorisé avant de prendre une décision basée sur ce contenu. Sources : Fraser Institute (fraserinstitute.org), Rapport municipal BMA 2025.</p>
+            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">Cet article résume et reformule en français simple un commentaire intitulé <em>« Property taxes growing quickly in Ontario municipalities »</em> par Livio Di Matteo, professeur d'économie à l'Université Lakehead, publié par le Fraser Institute le 2 juin 2026. Tous les chiffres, pourcentages et données par ville proviennent de ce rapport et du Rapport municipal BMA 2025 qu'il cite. La formulation et l'analyse dans ce billet sont le résumé de Peter Law écrit pour un lecteur général, ce ne sont pas des citations directes et ne devraient pas être traités comme telles. Rien dans cet article n'est un avis juridique, fiscal ou financier, et Peter Law est un représentant commercial immobilier inscrit (RECO), pas un fiscaliste. Les taux de taxe foncière, les règles d'évaluation et les budgets municipaux changent chaque année ; consultez toujours les renseignements à jour sur le site Web de votre municipalité ou auprès d'un conseiller fiscal autorisé avant de prendre une décision basée sur ce contenu. Sources : Fraser Institute (fraserinstitute.org), Rapport municipal BMA 2025.</p>
 
           </div>
         </div>
@@ -278,7 +278,7 @@ function fmt(n: number): string { return n.toLocaleString('fr-CA'); }
     </section>
   </article>
 
-  <CTASection heading="Vous achetez ou louez dans une ville précise ?" lead="Parlez-moi des quartiers que vous considérez. J'inclus la taxe foncière et les coûts de possession mensuels dans chaque scénario que je fais pour un client — la sélection que vous obtenez tient donc déjà compte de ce que chaque ville coûte vraiment pour y vivre." />
+  <CTASection heading="Vous achetez ou louez dans une ville précise ?" lead="Parlez-moi des quartiers que vous considérez. J'inclus la taxe foncière et les coûts de possession mensuels dans chaque scénario que je fais pour un client, la sélection que vous obtenez tient donc déjà compte de ce que chaque ville coûte vraiment pour y vivre." />
   <Footer />
 
   <style>

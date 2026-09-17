@@ -21,7 +21,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
   publisher: {
     '@type': 'Organization',
-    name: 'Peter Law — Immobilier à Toronto',
+    name: 'Peter Law, Immobilier à Toronto',
     logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
   },
   inLanguage: 'fr-CA',
@@ -114,7 +114,7 @@ const houseIcons = {
           <div class="prose-body">
 
             <!-- ============================================================
-                 PART 1 — TYPES OF HOUSES
+                 PART 1, TYPES OF HOUSES
                  ============================================================ -->
             <h2 id="types">Partie 1 · Types de maisons en Ontario</h2>
             <p>Toutes les « maisons » ne sont pas le même produit. Deux bâtiments identiques vus de la rue peuvent avoir une propriété, des coûts mensuels et un risque de revente complètement différents. Voici chaque type que vous allez rencontrer.</p>
@@ -133,7 +133,7 @@ const houseIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.detached} />
                 <div class="fh-house-title">Maison « link »</div>
-                <p>Semble détachée depuis la rue, mais les fondations (ou les garages) sont reliées sous le sol. Moins chère qu'une vraie détachée — <strong>vérifiez toujours le certificat de localisation</strong>.</p>
+                <p>Semble détachée depuis la rue, mais les fondations (ou les garages) sont reliées sous le sol. Moins chère qu'une vraie détachée, <strong>vérifiez toujours le certificat de localisation</strong>.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.town} />
@@ -143,7 +143,7 @@ const houseIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.bungalow} />
                 <div class="fh-house-title">Bungalow &amp; bungalow surélevé</div>
-                <p>Tout sur un seul niveau. Les versions surélevées ont un sous-sol partiellement hors sol — plus facile pour un appartement au sous-sol légal.</p>
+                <p>Tout sur un seul niveau. Les versions surélevées ont un sous-sol partiellement hors sol, plus facile pour un appartement au sous-sol légal.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.century} />
@@ -195,7 +195,7 @@ const houseIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 2 — AFFORDABILITY
+                 PART 2, AFFORDABILITY
                  ============================================================ -->
             <h2 id="afford" style="margin-top:48px;">Partie 2 · Ce que vous pouvez vous permettre</h2>
 
@@ -260,15 +260,15 @@ const houseIcons = {
               <div class="fh-cost-row"><span class="fh-cost-item">Remplacement de la fosse septique</span><div class="fh-cost-bar-wrap"><div class="fh-cost-bar fh-cost-bar-hot" style="width:90%;"></div></div><span class="fh-cost-range">20K$–45K$+</span></div>
             </div>
 
-            <p style="margin-top:14px;"><strong>Budget continu :</strong> 1 % à 1,5 % de la valeur de la maison par année en entretien. Sur une maison de 800K$, c'est <strong>8K$–12K$/année</strong>. Ce n'est pas « peut-être un jour » — prévoyez-le chaque année.</p>
+            <p style="margin-top:14px;"><strong>Budget continu :</strong> 1 % à 1,5 % de la valeur de la maison par année en entretien. Sur une maison de 800K$, c'est <strong>8K$–12K$/année</strong>. Ce n'est pas « peut-être un jour », prévoyez-le chaque année.</p>
 
             <p style="margin-top:14px;"><strong>Essayez-le en direct :</strong> entrez vos chiffres dans la <a href="/french/payment-calculator">Calculatrice hypothécaire</a> et voyez trois scénarios côte à côte.</p>
 
             <!-- ============================================================
-                 PART 3 — GOVERNMENT PROGRAMS
+                 PART 3, GOVERNMENT PROGRAMS
                  ============================================================ -->
             <h2 id="programs" style="margin-top:48px;">Partie 3 · Programmes gouvernementaux cumulables</h2>
-            <p>Les premiers acheteurs reçoivent plus d'aide que la plupart des gens ne le pensent. Les quatre programmes ci-dessous se cumulent — vous pouvez tous les utiliser.</p>
+            <p>Les premiers acheteurs reçoivent plus d'aide que la plupart des gens ne le pensent. Les quatre programmes ci-dessous se cumulent, vous pouvez tous les utiliser.</p>
 
             <div class="fh-program-grid">
               <div class="fh-program-card">
@@ -284,12 +284,12 @@ const houseIcons = {
               <div class="fh-program-card">
                 <div class="fh-program-tag">Crédit d'impôt</div>
                 <div class="fh-program-title">Crédit d'impôt pour premier acheteur</div>
-                <p><strong>1 500 $ de retour à l'impôt.</strong> Modeste, mais automatique — réclamez-le dans votre prochaine déclaration après la clôture.</p>
+                <p><strong>1 500 $ de retour à l'impôt.</strong> Modeste, mais automatique, réclamez-le dans votre prochaine déclaration après la clôture.</p>
               </div>
               <div class="fh-program-card">
                 <div class="fh-program-tag">Remise des droits de mutation</div>
                 <div class="fh-program-title">Remise des droits de mutation immobilière</div>
-                <p>Ontario jusqu'à <strong>4 000 $</strong>. Toronto ajoute <strong>4 475 $</strong>. Les acheteurs à Toronto obtiennent les deux — <strong>jusqu'à 8 475 $</strong> combinés. Vous ne devez jamais avoir été propriétaire d'une maison, où que ce soit dans le monde.</p>
+                <p>Ontario jusqu'à <strong>4 000 $</strong>. Toronto ajoute <strong>4 475 $</strong>. Les acheteurs à Toronto obtiennent les deux, <strong>jusqu'à 8 475 $</strong> combinés. Vous ne devez jamais avoir été propriétaire d'une maison, où que ce soit dans le monde.</p>
               </div>
             </div>
 
@@ -307,16 +307,16 @@ const houseIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 4 — WHAT TO CHECK
+                 PART 4, WHAT TO CHECK
                  ============================================================ -->
             <h2 id="check" style="margin-top:48px;">Partie 4 · Quoi vérifier dans n'importe quelle maison</h2>
             <p>Quatre couches, de la structure aux papiers en passant par la rue. Sautez une couche et vous sautez le problème qui s'y cache.</p>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">1. La structure — fondation, toit, eau, drainage</summary>
+              <summary class="b60-section-toggle-summary">1. La structure, fondation, toit, eau, drainage</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>Fondation.</strong> Cherchez des fissures. <strong>Les fissures horizontales sont sérieuses</strong> — elles peuvent indiquer des murs qui s'arquent. Les petites fissures verticales sont habituellement mineures. Un résidu blanc et crayeux sur les murs du sous-sol = infiltration d'eau passée.</li>
+                  <li><strong>Fondation.</strong> Cherchez des fissures. <strong>Les fissures horizontales sont sérieuses</strong>, elles peuvent indiquer des murs qui s'arquent. Les petites fissures verticales sont habituellement mineures. Un résidu blanc et crayeux sur les murs du sous-sol = infiltration d'eau passée.</li>
                   <li><strong>Toit.</strong> Demandez son âge. Cherchez des bardeaux qui se soulèvent ou manquent, et des taches au plafond à l'intérieur.</li>
                   <li><strong>Eau.</strong> Le problème le plus coûteux dans n'importe quelle maison. Vérifiez sous chaque évier, autour de chaque fenêtre, au sous-sol, au grenier. Les odeurs de moisi comptent. Les planchers spongieux comptent.</li>
                   <li><strong>Nivellement &amp; drainage.</strong> Le sol doit s'incliner À L'OPPOSÉ de la maison. Les descentes pluviales doivent évacuer l'eau bien loin de la fondation.</li>
@@ -325,14 +325,14 @@ const houseIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">2. Les systèmes — CVC, électricité, plomberie, fenêtres</summary>
+              <summary class="b60-section-toggle-summary">2. Les systèmes, CVC, électricité, plomberie, fenêtres</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Fournaise, climatiseur, chauffe-eau.</strong> Trouvez les numéros de modèle et de série et vérifiez leur âge. Les fournaises durent 15 à 25 ans. Les chauffe-eau, 7 à 15 ans.</li>
                   <li><strong>Signaux d'alarme électriques :</strong>
                     <ul class="bullets" style="margin-top:4px;">
-                      <li><strong>Câblage à tube et à cheville</strong> — plusieurs assureurs refusent la couverture ou exigent son remplacement.</li>
-                      <li><strong>Câblage en aluminium</strong> (milieu des années 1960 à fin des années 1970) — assurable, mais exige habituellement des connecteurs certifiés et une inspection.</li>
+                      <li><strong>Câblage à tube et à cheville</strong>, plusieurs assureurs refusent la couverture ou exigent son remplacement.</li>
+                      <li><strong>Câblage en aluminium</strong> (milieu des années 1960 à fin des années 1970), assurable, mais exige habituellement des connecteurs certifiés et une inspection.</li>
                     </ul>
                   </li>
                   <li><strong>Taille du panneau.</strong> 100 ampères est le minimum pratique; un service de 60 ampères devra être mis à niveau.</li>
@@ -343,7 +343,7 @@ const houseIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">3. Les papiers — équipement loué, permis, certificat de localisation, environnement</summary>
+              <summary class="b60-section-toggle-summary">3. Les papiers, équipement loué, permis, certificat de localisation, environnement</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Équipement loué.</strong> Les maisons ontariennes ont très souvent des <strong>chauffe-eau, fournaises, climatiseurs ou adoucisseurs d'eau loués</strong>, sous des contrats qui vous sont transférés. Certains sont longs et coûteux à résilier. Demandez ce qui est loué, obtenez le contrat, et incluez-le dans l'offre.</li>
@@ -355,7 +355,7 @@ const houseIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">4. L'emplacement — la seule chose qu'on ne peut jamais rénover</summary>
+              <summary class="b60-section-toggle-summary">4. L'emplacement, la seule chose qu'on ne peut jamais rénover</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li>Parcourez la rue un matin de semaine, un soir de semaine et une fin de semaine.</li>
@@ -367,26 +367,26 @@ const houseIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 5 — RURAL
+                 PART 5, RURAL
                  ============================================================ -->
-            <h2 id="rural" style="margin-top:48px;">Partie 5 · Rural, chalet &amp; ferme — les devoirs supplémentaires</h2>
+            <h2 id="rural" style="margin-top:48px;">Partie 5 · Rural, chalet &amp; ferme, les devoirs supplémentaires</h2>
             <p>Les acheteurs urbains sous-estiment cet aspect. Les problèmes ruraux se cachent sous terre et dans les dépendances.</p>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Eau de puits — ne sautez jamais cette étape</summary>
+              <summary class="b60-section-toggle-summary">Eau de puits, ne sautez jamais cette étape</summary>
               <div class="b60-section-body">
                 <p>Un simple coup d'œil au capuchon du puits <strong>n'est pas un test</strong>. Rendez votre offre conditionnelle à :</p>
                 <ul class="bullets">
-                  <li><strong>Un test de qualité de l'eau</strong> — au minimum coliformes totaux, E. coli et nitrates.</li>
-                  <li><strong>Un test de débit</strong> — un puits qui s'assèche en août est un problème sérieux.</li>
-                  <li><strong>Le dossier du puits</strong> dans le registre de l'Ontario — consultez-le.</li>
+                  <li><strong>Un test de qualité de l'eau</strong>, au minimum coliformes totaux, E. coli et nitrates.</li>
+                  <li><strong>Un test de débit</strong>, un puits qui s'assèche en août est un problème sérieux.</li>
+                  <li><strong>Le dossier du puits</strong> dans le registre de l'Ontario, consultez-le.</li>
                 </ul>
                 <p>Vérifiez aussi la distance entre le puits et le lit d'épandage septique, ainsi que les exploitations agricoles voisines.</p>
               </div>
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Fosse septique — inspecteur distinct requis</summary>
+              <summary class="b60-section-toggle-summary">Fosse septique, inspecteur distinct requis</summary>
               <div class="b60-section-body">
                 <p>Rendez votre offre conditionnelle à une <strong>inspection septique par un inspecteur septique qualifié</strong>, et non l'inspecteur en bâtiment général. Demandez :</p>
                 <ul class="bullets">
@@ -413,7 +413,7 @@ const houseIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Spécifique au chalet — réserve de chemin de rive, accès par voie d'eau, assurance</summary>
+              <summary class="b60-section-toggle-summary">Spécifique au chalet, réserve de chemin de rive, accès par voie d'eau, assurance</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Réserve de chemin de rive.</strong> Plusieurs propriétés riveraines de l'Ontario ont une bande de terrain le long de l'eau qui appartient encore à la municipalité. Si elle n'a pas été achetée et fermée, vous pourriez ne pas être propriétaire jusqu'à la ligne des hautes eaux. Votre avocat doit vérifier.</li>
@@ -426,13 +426,13 @@ const houseIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Spécifique à la ferme — zonage, DSM, TVH, fermiers locataires</summary>
+              <summary class="b60-section-toggle-summary">Spécifique à la ferme, zonage, DSM, TVH, fermiers locataires</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Zonage.</strong> Confirmez avec la municipalité ce que vous pouvez réellement faire.</li>
                   <li><strong>Distance séparatrice minimale (DSM).</strong> Régit la proximité permise entre les maisons et les bâtiments d'élevage.</li>
                   <li><strong>TVH.</strong> Les terres agricoles sont souvent assujetties à la TVH sur la portion agricole; la portion résidentielle peut ne pas l'être. Obtenez des conseils fiscaux <strong>avant</strong> de signer.</li>
-                  <li><strong>Catégorie d'impôt foncier agricole.</strong> Un taux réduit est offert pour les fermes admissibles — mais vous devez en faire la demande et être admissible.</li>
+                  <li><strong>Catégorie d'impôt foncier agricole.</strong> Un taux réduit est offert pour les fermes admissibles, mais vous devez en faire la demande et être admissible.</li>
                   <li><strong>Fermiers locataires / baux à parts de récolte.</strong> Ceux-ci peuvent survivre à votre achat.</li>
                   <li><strong>Drainage souterrain.</strong> Demandez les plans et tout prêt de drainage impayé (ils peuvent être transférés).</li>
                   <li><strong>Financement.</strong> Les prêteurs agricoles peuvent être mieux adaptés qu'une banque.</li>
@@ -442,7 +442,7 @@ const houseIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 6 — OFFER + INSPECTION
+                 PART 6, OFFER + INSPECTION
                  ============================================================ -->
             <h2 id="offer" style="margin-top:48px;">Partie 6 · L'offre et l'inspection</h2>
 
@@ -460,7 +460,7 @@ const houseIcons = {
               <li><strong>Zonage / vérification diligente</strong> (rural, ferme, ou changement d'usage).</li>
               <li><strong>Révision par un avocat</strong> (recommandé pour les fermes et les propriétés atypiques).</li>
             </ul>
-            <p>Dans un marché concurrentiel, les acheteurs abandonnent parfois des conditions pour l'emporter. Comprenez exactement ce que vous abandonnez d'abord — une condition de financement non protégée qui échoue peut vous coûter tout votre dépôt.</p>
+            <p>Dans un marché concurrentiel, les acheteurs abandonnent parfois des conditions pour l'emporter. Comprenez exactement ce que vous abandonnez d'abord, une condition de financement non protégée qui échoue peut vous coûter tout votre dépôt.</p>
 
             <h3 style="margin-top:22px;">L'inspection</h3>
             <p><strong>Faites-en une. Choisissez votre propre inspecteur.</strong> Quelqu'un avec une formation en métier ou en construction, qui vous remet un rapport écrit. Assistez à l'inspection et faites le tour avec lui à la fin.</p>
@@ -474,10 +474,10 @@ const houseIcons = {
             <p><strong>Les inspecteurs n'ouvrent pas les murs.</strong> S'ils signalent quelque chose de sérieux, faites appel à un spécialiste avant de lever les conditions.</p>
 
             <h3 style="margin-top:22px;">Le dépôt</h3>
-            <p>Démontre votre sérieux. Il est déduit du prix à la clôture. Une fois la transaction ferme, vous ne pouvez pas le récupérer simplement parce que vous avez changé d'avis — sa libération exige l'accord écrit des deux parties, ou une ordonnance du tribunal. Gardez cet argent liquide; vous pourriez avoir besoin d'une traite bancaire à court préavis.</p>
+            <p>Démontre votre sérieux. Il est déduit du prix à la clôture. Une fois la transaction ferme, vous ne pouvez pas le récupérer simplement parce que vous avez changé d'avis, sa libération exige l'accord écrit des deux parties, ou une ordonnance du tribunal. Gardez cet argent liquide; vous pourriez avoir besoin d'une traite bancaire à court préavis.</p>
 
             <!-- ============================================================
-                 PART 7 — CLOSING COSTS
+                 PART 7, CLOSING COSTS
                  ============================================================ -->
             <h2 id="closing" style="margin-top:48px;">Partie 7 · Frais de clôture</h2>
             <p>Prévoyez <strong>1,5 % à 4 %</strong> du prix, comptant, en plus de votre mise de fonds.</p>
@@ -498,13 +498,13 @@ const houseIcons = {
             <p style="margin-top:14px;"><strong>Faites le calcul :</strong> <a href="/french/land-transfer-tax">Calculatrice des droits de mutation immobilière</a> · <a href="/french/closing-costs">Page des frais de clôture</a> · <a href="/french/cmhc-insurance-calculator">Calculatrice de la prime SCHL</a>.</p>
 
             <!-- ============================================================
-                 PART 8 — BEFORE + AFTER CLOSING
+                 PART 8, BEFORE + AFTER CLOSING
                  ============================================================ -->
             <h2 id="before-after" style="margin-top:48px;">Partie 8 · Avant &amp; après la clôture</h2>
 
             <div class="fh-before-after">
               <div class="fh-ba-col fh-ba-dont">
-                <div class="fh-ba-title">Avant la clôture — À NE PAS FAIRE</div>
+                <div class="fh-ba-title">Avant la clôture, À NE PAS FAIRE</div>
                 <ul>
                   <li>Changer d'emploi</li>
                   <li>Acheter ou louer une voiture</li>
@@ -514,7 +514,7 @@ const houseIcons = {
                 <p class="fh-ba-note">Les prêteurs revérifient votre dossier.</p>
               </div>
               <div class="fh-ba-col fh-ba-do">
-                <div class="fh-ba-title">Avant la clôture — À FAIRE</div>
+                <div class="fh-ba-title">Avant la clôture, À FAIRE</div>
                 <ul>
                   <li>Visite finale le plus près possible de la clôture</li>
                   <li>Organiser l'assurance habitation (le prêteur exige une preuve)</li>
@@ -563,7 +563,7 @@ const houseIcons = {
                   <li>Ouvrir un CELIAPP</li>
                   <li>Rembourser vos dettes</li>
                   <li>Obtenir une préapprobation</li>
-                  <li>Choisir un avocat — avec de l'expérience rurale / agricole si c'est votre cible</li>
+                  <li>Choisir un avocat, avec de l'expérience rurale / agricole si c'est votre cible</li>
                   <li>Fixer votre paiement mensuel <strong>confortable</strong>, pas votre maximum</li>
                 </ul>
               </div>
@@ -625,7 +625,7 @@ const houseIcons = {
                  DISCLAIMER
                  ============================================================ -->
             <p class="calc-disclaimer" style="margin-top:44px;">
-              <strong>Avis de non-responsabilité.</strong> Je suis un agent immobilier titulaire d'un permis. Je NE SUIS PAS courtier hypothécaire, conseiller financier, comptable, avocat, courtier d'assurance, inspecteur en bâtiment, spécialiste septique ou de puits, ni agronome, et rien dans ce guide ne constitue un conseil hypothécaire, financier, fiscal, juridique, d'assurance ou technique. Ce guide est une information générale seulement. Ce n'est pas un conseil pour votre situation et cela ne crée pas de relation client. Les programmes gouvernementaux, les règles fiscales, les règles hypothécaires, le zonage et les échéances de remise changent. Chaque propriété est différente, et les propriétés rurales, riveraines et agricoles comportent en particulier des risques qui exigent des spécialistes. Avant de prendre une décision, faites vos propres vérifications diligentes et obtenez les conseils des bons professionnels titulaires d'un permis — un avocat en droit immobilier, un courtier hypothécaire ou un prêteur, un comptable ou un fiscaliste, un inspecteur en bâtiment qualifié ainsi que des spécialistes distincts en puits / fosse septique / WETT le cas échéant, la municipalité et l'office de protection de la nature, et votre assureur. Ne vous fiez pas uniquement à ce guide. Vérifiez tout ce qui touche votre argent auprès d'une personne autorisée à vous conseiller à ce sujet.
+              <strong>Avis de non-responsabilité.</strong> Je suis un agent immobilier titulaire d'un permis. Je NE SUIS PAS courtier hypothécaire, conseiller financier, comptable, avocat, courtier d'assurance, inspecteur en bâtiment, spécialiste septique ou de puits, ni agronome, et rien dans ce guide ne constitue un conseil hypothécaire, financier, fiscal, juridique, d'assurance ou technique. Ce guide est une information générale seulement. Ce n'est pas un conseil pour votre situation et cela ne crée pas de relation client. Les programmes gouvernementaux, les règles fiscales, les règles hypothécaires, le zonage et les échéances de remise changent. Chaque propriété est différente, et les propriétés rurales, riveraines et agricoles comportent en particulier des risques qui exigent des spécialistes. Avant de prendre une décision, faites vos propres vérifications diligentes et obtenez les conseils des bons professionnels titulaires d'un permis, un avocat en droit immobilier, un courtier hypothécaire ou un prêteur, un comptable ou un fiscaliste, un inspecteur en bâtiment qualifié ainsi que des spécialistes distincts en puits / fosse septique / WETT le cas échéant, la municipalité et l'office de protection de la nature, et votre assureur. Ne vous fiez pas uniquement à ce guide. Vérifiez tout ce qui touche votre argent auprès d'une personne autorisée à vous conseiller à ce sujet.
             </p>
 
           </div>
@@ -634,7 +634,7 @@ const houseIcons = {
     </section>
   </article>
 
-  <LCTA heading="Vous achetez votre première maison en Ontario ?" lead="Chaque propriété a sa version de cette histoire. Si vous voulez parcourir la liste de vérification ci-dessus sur une inscription réelle — avec votre budget réel, votre échéancier réel et des spécialistes en qui j'ai confiance — envoyez-moi votre situation. Un appel, aucune pression." />
+  <LCTA heading="Vous achetez votre première maison en Ontario ?" lead="Chaque propriété a sa version de cette histoire. Si vous voulez parcourir la liste de vérification ci-dessus sur une inscription réelle, avec votre budget réel, votre échéancier réel et des spécialistes en qui j'ai confiance, envoyez-moi votre situation. Un appel, aucune pression." />
   <Footer />
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

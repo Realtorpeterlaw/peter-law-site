@@ -15,7 +15,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="Calculateur de location — le loyer est-il tenable ? | Peter Law"
+  title="Calculateur de location, le loyer est-il tenable ? | Peter Law"
   description="Une seule page. Entrez ce que vous gagnez, le loyer, vos dépenses. Voyez si ce loyer est dans votre zone confortable, serrée ou trop élevée."
   lang="fr"
   bodyClass="fr calc-page"
@@ -143,13 +143,13 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">Chiffres à titre indicatif. La plupart des propriétaires torontois utilisent 30 à 33 % du revenu mensuel brut comme seuil d'abordabilité, bien que des garants, un excellent crédit, des mois de loyer d'avance ou des baux corporatifs puissent étirer cela. Les services publics varient beaucoup selon l'immeuble — demandez toujours ce qui est inclus dans le bail. C'est un outil de dépistage, pas une approbation. Discutez de votre situation avec un agent immobilier licencié avant de signer. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
+          <p class="calc-disclaimer">Chiffres à titre indicatif. La plupart des propriétaires torontois utilisent 30 à 33 % du revenu mensuel brut comme seuil d'abordabilité, bien que des garants, un excellent crédit, des mois de loyer d'avance ou des baux corporatifs puissent étirer cela. Les services publics varient beaucoup selon l'immeuble, demandez toujours ce qui est inclus dans le bail. C'est un outil de dépistage, pas une approbation. Discutez de votre situation avec un agent immobilier licencié avant de signer. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <FrenchCTASection heading="Vous n'êtes pas sûr qu'une inscription vous convienne ?" lead="Envoyez-moi l'adresse et votre revenu — je vous dirai honnêtement si le propriétaire va vous approuver, si le prix est juste, et si c'est le bon moment pour négocier." />
+  <FrenchCTASection heading="Vous n'êtes pas sûr qu'une inscription vous convienne ?" lead="Envoyez-moi l'adresse et votre revenu, je vous dirai honnêtement si le propriétaire va vous approuver, si le prix est juste, et si c'est le bon moment pour négocier." />
 
   <FrenchFooter />
 
@@ -218,23 +218,23 @@ const hreflangAlternates = [
           vClass = 'rc-verdict-neutral';
           vIcon = '';
         } else if (pct <= 30) {
-          vTitle = 'Oui — vous pouvez payer ce loyer.';
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu — dans la zone sûre. Les propriétaires approuvent ce genre de demandes toute la journée.';
+          vTitle = 'Oui, vous pouvez payer ce loyer.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu, dans la zone sûre. Les propriétaires approuvent ce genre de demandes toute la journée.';
           vClass = 'rc-verdict-green';
           vIcon = ICON_CHECK;
         } else if (pct <= 40) {
           vTitle = 'Tendu. Faisable, mais vous le sentirez.';
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu — au-dessus de la ligne de confort de 30 % mais encore accessible. Épicerie, transport et épargne seront plus serrés. Le propriétaire peut demander un garant ou plusieurs mois de loyer d\'avance.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu, au-dessus de la ligne de confort de 30 % mais encore accessible. Épicerie, transport et épargne seront plus serrés. Le propriétaire peut demander un garant ou plusieurs mois de loyer d\'avance.';
           vClass = 'rc-verdict-yellow';
           vIcon = ICON_WARN;
         } else if (pct < 80) {
           vTitle = 'Possible, mais parlez-en avec votre agent immobilier.';
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu — la plupart des propriétaires diront non à ce ratio. Exceptions possibles : garant, loyer d\'avance, bail corporatif, excellent crédit. Parlez à un agent immobilier licencié avant de soumettre.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu, la plupart des propriétaires diront non à ce ratio. Exceptions possibles : garant, loyer d\'avance, bail corporatif, excellent crédit. Parlez à un agent immobilier licencié avant de soumettre.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         } else {
           vTitle = "Malheureusement, votre ratio revenu/loyer est trop élevé et ne suffira pas dans le marché actuel.";
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu. À ce ratio, quasiment aucun propriétaire n\'approuvera — la limite standard que la plupart des courtiers appliquent est autour de 33 à 40 %. Envisagez une unité moins chère, un cosignataire, ou augmentez votre revenu vérifiable avant de postuler.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu. À ce ratio, quasiment aucun propriétaire n\'approuvera, la limite standard que la plupart des courtiers appliquent est autour de 33 à 40 %. Envisagez une unité moins chère, un cosignataire, ou augmentez votre revenu vérifiable avant de postuler.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         }

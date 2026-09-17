@@ -109,25 +109,25 @@ const hreflangAlternates = [
 
             <h3>Conventional vs. High-Ratio Mortgages</h3>
             <p>A regular mortgage is called <strong>conventional</strong>. You get one when your down payment is at least 20% of the home's price. Because your loan is 80% or less of the home's value, you do not need mortgage insurance.</p>
-            <p>If you put down <em>less than</em> 20%, it is a <strong>high-ratio</strong> mortgage. You are borrowing more than 80% of the home's price, so the lender is taking on more risk. You have to pay for mortgage insurance — usually between <strong>0.6% and 4.5%</strong> of the loan amount. There is also a maximum home price you can buy under this option.</p>
+            <p>If you put down <em>less than</em> 20%, it is a <strong>high-ratio</strong> mortgage. You are borrowing more than 80% of the home's price, so the lender is taking on more risk. You have to pay for mortgage insurance, usually between <strong>0.6% and 4.5%</strong> of the loan amount. There is also a maximum home price you can buy under this option.</p>
 
             <h3>Second Mortgage</h3>
-            <p>If you already have a mortgage but need more money, you can take a <strong>second mortgage</strong> against your home. It uses your home as security, just like the first one. If you stop paying, the lender can force a sale of the property. The first mortgage always gets paid back first, so the second lender is at higher risk — that is why second mortgages usually charge <strong>higher interest</strong>.</p>
+            <p>If you already have a mortgage but need more money, you can take a <strong>second mortgage</strong> against your home. It uses your home as security, just like the first one. If you stop paying, the lender can force a sale of the property. The first mortgage always gets paid back first, so the second lender is at higher risk, that is why second mortgages usually charge <strong>higher interest</strong>.</p>
 
             <h3>Mortgage Features</h3>
             <p>Every lender is different. Each one lets you customize the terms of your loan. Here are the features worth asking about before you sign.</p>
 
             <h4>Prepayment</h4>
-            <p>A <strong>prepayment</strong> right lets you pay extra toward the loan on top of your regular monthly payments. This is great if you get bonuses or your income changes month to month. An <em>open</em> mortgage lets you pay the whole thing off any time — no penalty. A <em>closed</em> mortgage limits how much extra you can pay each year (usually 10–20%). Extra payments go straight to the principal, so you finish the loan faster.</p>
+            <p>A <strong>prepayment</strong> right lets you pay extra toward the loan on top of your regular monthly payments. This is great if you get bonuses or your income changes month to month. An <em>open</em> mortgage lets you pay the whole thing off any time, no penalty. A <em>closed</em> mortgage limits how much extra you can pay each year (usually 10–20%). Extra payments go straight to the principal, so you finish the loan faster.</p>
 
             <h4>Portability</h4>
-            <p>If you like your current interest rate and do not want to lose it, ask for <strong>portability</strong>. It lets you move your existing mortgage — same rate, same terms — over to a new home when you move. Very useful when today's market rates are higher than the rate you originally locked in.</p>
+            <p>If you like your current interest rate and do not want to lose it, ask for <strong>portability</strong>. It lets you move your existing mortgage, same rate, same terms, over to a new home when you move. Very useful when today's market rates are higher than the rate you originally locked in.</p>
 
             <h4>Assumability</h4>
             <p>When you sell your home, an <strong>assumable</strong> mortgage means the buyer can take over your existing loan. This is a big selling point when your rate is better than today's market. <strong>Warning:</strong> if the buyer stops paying, you can still be held responsible. Make sure the lender formally approves the new buyer so you are fully released.</p>
 
             <h4>Expandability</h4>
-            <p>An <strong>expandable</strong> mortgage lets you add more money to your loan later without starting from scratch. Your new rate will be a <em>blend</em> of your current rate and the market rate at that time. This is useful if you know large expenses are coming — a renovation, a wedding, tuition, or a second property.</p>
+            <p>An <strong>expandable</strong> mortgage lets you add more money to your loan later without starting from scratch. Your new rate will be a <em>blend</em> of your current rate and the market rate at that time. This is useful if you know large expenses are coming, a renovation, a wedding, tuition, or a second property.</p>
 
             <p class="mc-explainer-cta"><em>Not sure which features fit your situation? I work with mortgage brokers who can walk you through this. <a href="/contact">Get in touch</a>.</em></p>
             </div>
@@ -259,9 +259,9 @@ const hreflangAlternates = [
 
     // === DEFAULT SCENARIOS ===
     const defaults = {
-      a: { downPct: 5, rate: 5.0, amort: 25, freq: 12, label: 'A — 5% down' },
-      b: { downPct: 10, rate: 5.0, amort: 25, freq: 12, label: 'B — 10% down' },
-      c: { downPct: 20, rate: 5.0, amort: 25, freq: 12, label: 'C — 20% down' },
+      a: { downPct: 5, rate: 5.0, amort: 25, freq: 12, label: 'A, 5% down' },
+      b: { downPct: 10, rate: 5.0, amort: 25, freq: 12, label: 'B, 10% down' },
+      c: { downPct: 20, rate: 5.0, amort: 25, freq: 12, label: 'C, 20% down' },
     };
     const freqLabel = { 12: '/mo', 24: '/semi-mo', 26: '/bi-wk', 52: '/wk' };
 
@@ -269,7 +269,7 @@ const hreflangAlternates = [
     function buildScenarioCard(id, def) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(' — ')[1] || ''}</span></div>
+          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>Down payment</label><div class="input-prefix" data-prefix="$"><input type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
             <div class="mc-row"><label>Down %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
@@ -472,7 +472,7 @@ const hreflangAlternates = [
       grid.innerHTML = variants.map(v => {
         const pmt = periodicPayment(s.mortgage, v.rate, s.amort, 12);
         const delta = pmt - basePmt;
-        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mo' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mo' : '—';
+        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mo' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mo' : ',';
         return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label} (${v.rate.toFixed(2)}%)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
       }).join('');
     }
@@ -545,7 +545,7 @@ const hreflangAlternates = [
       // Per-scenario down-payment dollar inputs (built dynamically)
       document.querySelectorAll('[data-input$="-down-dollar"]').forEach(hook);
 
-      // The original update() reads via parseFloat(el.value) — which returns NaN
+      // The original update() reads via parseFloat(el.value), which returns NaN
       // for "800,000". Wrap parseFloat globally for these fields by re-dispatching
       // input events after strip on programmatic value changes elsewhere is
       // unnecessary because update() already runs on every keystroke and the
@@ -587,7 +587,7 @@ const hreflangAlternates = [
 </BaseLayout>
 
 <style>
-  /* Collapsible explainer — extends .mc-collapsible with warmer background + typography */
+  /* Collapsible explainer, extends .mc-collapsible with warmer background + typography */
   .mc-explainer.mc-collapsible {
     background: #fafaf7;
     margin-top: 24px;
@@ -653,7 +653,7 @@ const hreflangAlternates = [
   }
 
   /* mc-basics selects: adequate right padding for the native chevron.
-     Do NOT set text-overflow: ellipsis on native selects — it was clipping
+     Do NOT set text-overflow: ellipsis on native selects, it was clipping
      the leading character of the selected value in Chromium.
      Also enforce box-sizing so nothing pushes past its column edge. */
   .mc-shared .calc-field select {
@@ -670,7 +670,7 @@ const hreflangAlternates = [
     width: 100%;
   }
 
-  /* Consistent select rendering — remove native OS chevron, add our own via
+  /* Consistent select rendering, remove native OS chevron, add our own via
      background-image so the select's text area is fully under our control.
      Prevents Chromium from clipping the leading character in narrow widths. */
   .mc-shared .calc-field select {

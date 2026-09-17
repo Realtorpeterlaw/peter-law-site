@@ -15,8 +15,8 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="购房计算器 — 一页搞定按揭、土地转让税、CMHC、交房费用 | Peter Law"
-  description="一页搞定。输入您的年收入、房价、以及已存下的钱 —— 立刻看到月供、土地转让税、按揭保险、交房费用,以及成交当天要准备的现金。不用在 5 个计算器之间来回跳。"
+  title="购房计算器, 一页搞定按揭、土地转让税、CMHC、交房费用 | Peter Law"
+  description="一页搞定。输入您的年收入、房价、以及已存下的钱, 立刻看到月供、土地转让税、按揭保险、交房费用,以及成交当天要准备的现金。不用在 5 个计算器之间来回跳。"
   bodyClass="calc-page"
   zh={true}
   hreflangAlternates={hreflangAlternates}
@@ -166,7 +166,7 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">数字仅供参考。加拿大按揭为半年复利。CMHC 保费采用当前标准档(4.00% / 3.10% / 2.80%),适用于 150 万元以下自住房。联邦压力测试采用(您的利率 + 2%)或 5.25%(取较高者)。地税按房价 0.7% / 年估算(多伦多平均),取暖费按 $150 / 月估算 —— 银行 GDS 比率使用类似的粗略数值。律师 + 产权 + 调整项默认 $2,500,适合多伦多二手房。真实数字取决于您的信用、贷款方、物业与成交细节。签署任何文件前,请务必与按揭经纪、律师和税务师确认。完整说明见<a href="/chinese/disclaimer#calculators">免责声明</a>。</p>
+          <p class="calc-disclaimer">数字仅供参考。加拿大按揭为半年复利。CMHC 保费采用当前标准档(4.00% / 3.10% / 2.80%),适用于 150 万元以下自住房。联邦压力测试采用(您的利率 + 2%)或 5.25%(取较高者)。地税按房价 0.7% / 年估算(多伦多平均),取暖费按 $150 / 月估算, 银行 GDS 比率使用类似的粗略数值。律师 + 产权 + 调整项默认 $2,500,适合多伦多二手房。真实数字取决于您的信用、贷款方、物业与成交细节。签署任何文件前,请务必与按揭经纪、律师和税务师确认。完整说明见<a href="/chinese/disclaimer#calculators">免责声明</a>。</p>
         </div>
       </div>
     </div>
@@ -266,7 +266,7 @@ const hreflangAlternates = [
           feeLabel.innerHTML = '6. HOA 管理费 <span class="hint">每月。</span>';
         } else if (propType === 'condo') {
           feeRow.style.display = '';
-          feeLabel.innerHTML = '6. 管理费 <span class="hint">每月。签约前请问清楚 —— 有的包含暖气、水或电。</span>';
+          feeLabel.innerHTML = '6. 管理费 <span class="hint">每月。签约前请问清楚, 有的包含暖气、水或电。</span>';
         }
 
         const minDown = minDownPayment(price);
@@ -309,9 +309,9 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? '(不允许 —— 需至少再多 5% 首付)'
+          ? '(不允许, 需至少再多 5% 首付)'
           : premiumRate === 0
-            ? '(首付 20%+ —— 不需保险)'
+            ? '(首付 20%+, 不需保险)'
             : '(贷款金额的 ' + (premiumRate * 100).toFixed(2) + '%)';
         $('ac-ltt-on').textContent = fmtCAD(lttOnt, 0);
         $('ac-ltt-mltt').textContent = fmtCAD(lttMltt, 0);
@@ -339,7 +339,7 @@ const hreflangAlternates = [
         const downPct = price > 0 ? (actualDown / price * 100) : 0;
         $('ac-mindown-sub').textContent = '您已存 $' + Math.round(savings).toLocaleString('en-CA')
           + ',首付占房价的 ' + downPct.toFixed(1) + '%。'
-          + (shortfall > 0 ? ' 还差 ' + fmtCAD(shortfall, 0) + ' —— 银行不会批贷,需再存更多。' : '');
+          + (shortfall > 0 ? ' 还差 ' + fmtCAD(shortfall, 0) + ', 银行不会批贷,需再存更多。' : '');
         $('ac-stress').textContent = fmtCAD(stressPayment, 0) + '/月';
         $('ac-gds').textContent = gds.toFixed(1) + '%';
         $('ac-interest').textContent = fmtCAD(totalInterest, 0);

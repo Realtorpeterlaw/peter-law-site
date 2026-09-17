@@ -21,7 +21,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
   publisher: {
     '@type': 'Organization',
-    name: 'Peter Law — Immobilier à Toronto',
+    name: 'Peter Law, Immobilier à Toronto',
     logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
   },
   inLanguage: 'fr-CA',
@@ -68,7 +68,7 @@ const condoIcons = {
       <div class="wrap">
         <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Guide acheteur · Condos</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Quand vous achetez un condo, vous achetez deux choses : votre unité, et une part de l'immeuble. Vous n'achetez pas seulement un chez-vous — vous rejoignez un syndicat de copropriété et prenez en charge une part de ses factures, de ses règles et de ses problèmes. Ce guide vous montre comment vérifier ce syndicat avant de vous engager.</p>
+        <p class="article-lead">Quand vous achetez un condo, vous achetez deux choses : votre unité, et une part de l'immeuble. Vous n'achetez pas seulement un chez-vous, vous rejoignez un syndicat de copropriété et prenez en charge une part de ses factures, de ses règles et de ses problèmes. Ce guide vous montre comment vérifier ce syndicat avant de vous engager.</p>
         <div class="article-byline">
           <span>Par <a href="/french/about">Peter Law</a></span>
           <span class="dot">·</span>
@@ -105,7 +105,7 @@ const condoIcons = {
               <li><a href="#fees">Frais de copropriété</a></li>
               <li><a href="#parking">Stationnement, casiers &amp; ce que vous possédez</a></li>
               <li><a href="#rules">Les règles sous lesquelles vous vivrez</a></li>
-              <li><a href="#insurance">Assurance — deux polices</a></li>
+              <li><a href="#insurance">Assurance, deux polices</a></li>
               <li><a href="#resale">Acheter un condo de revente</a></li>
               <li><a href="#preconstruction">Acheter un condo en préconstruction</a></li>
               <li><a href="#international">Pour les acheteurs internationaux</a></li>
@@ -118,10 +118,10 @@ const condoIcons = {
           <div class="prose-body">
 
             <!-- ============================================================
-                 PART 1 — TYPES
+                 PART 1, TYPES
                  ============================================================ -->
             <h2 id="types">Partie 1 · Types de condos en Ontario</h2>
-            <p>Les condos ne sont pas tous des appartements. Voici neuf types courants — et l'un d'eux n'est même pas un condo.</p>
+            <p>Les condos ne sont pas tous des appartements. Voici neuf types courants, et l'un d'eux n'est même pas un condo.</p>
 
             <div class="fh-house-grid">
               <div class="fh-house-card">
@@ -147,7 +147,7 @@ const condoIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.potl} />
                 <div class="fh-house-title">Éléments communs (POTL)</div>
-                <p>Vous êtes propriétaire du terrain et de la maison en toute propriété — <strong>franc-quartier (freehold)</strong>. Mais vous payez des frais mensuels pour des éléments partagés comme une route privée ou un parc. Les frais sont modestes mais bien réels, et ils peuvent augmenter.</p>
+                <p>Vous êtes propriétaire du terrain et de la maison en toute propriété, <strong>franc-quartier (freehold)</strong>. Mais vous payez des frais mensuels pour des éléments partagés comme une route privée ou un parc. Les frais sont modestes mais bien réels, et ils peuvent augmenter.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.vacantland} />
@@ -157,12 +157,12 @@ const condoIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.leasehold} />
                 <div class="fh-house-title">Condo à bail (leasehold)</div>
-                <p>Vous n'êtes pas propriétaire du terrain — vous le louez (souvent d'une université ou d'un hôpital) pour un nombre d'années déterminé. Moins cher, pour une raison. <strong>Le financement et la revente deviennent plus difficiles à mesure que le bail se rapproche de son échéance.</strong></p>
+                <p>Vous n'êtes pas propriétaire du terrain, vous le louez (souvent d'une université ou d'un hôpital) pour un nombre d'années déterminé. Moins cher, pour une raison. <strong>Le financement et la revente deviennent plus difficiles à mesure que le bail se rapproche de son échéance.</strong></p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.coop} />
                 <div class="fh-house-title">Coopérative (PAS un condo)</div>
-                <p>Vous achetez des parts dans une société qui possède l'immeuble — pas un bien immobilier. Beaucoup de prêteurs refusent de les financer. Le conseil d'administration peut refuser votre acheteur au moment de la vente. À considérer seulement si vous comprenez pleinement les compromis.</p>
+                <p>Vous achetez des parts dans une société qui possède l'immeuble, pas un bien immobilier. Beaucoup de prêteurs refusent de les financer. Le conseil d'administration peut refuser votre acheteur au moment de la vente. À considérer seulement si vous comprenez pleinement les compromis.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.loft} />
@@ -172,7 +172,7 @@ const condoIcons = {
             </div>
 
             <!-- ============================================================
-                 PART 2 — AFFORDABILITY
+                 PART 2, AFFORDABILITY
                  ============================================================ -->
             <h2 id="afford" style="margin-top:48px;">Partie 2 · Ce que vous pouvez vous permettre</h2>
 
@@ -204,7 +204,7 @@ const condoIcons = {
 
             <h3 style="margin-top:26px;">Les frais de copropriété réduisent votre capacité d'emprunt</h3>
             <p>La plupart des premiers acheteurs ne le savent pas.</p>
-            <p>Quand un prêteur calcule vos ratios, il compte <strong>50 % de vos frais de copropriété mensuels</strong> comme coût de logement. Donc des frais de 700 $ grugent environ 350 $/mois de votre capacité d'emprunt — <em>avant même</em> que vous ayez payé un sou d'hypothèque.</p>
+            <p>Quand un prêteur calcule vos ratios, il compte <strong>50 % de vos frais de copropriété mensuels</strong> comme coût de logement. Donc des frais de 700 $ grugent environ 350 $/mois de votre capacité d'emprunt, <em>avant même</em> que vous ayez payé un sou d'hypothèque.</p>
 
             <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
               <strong>Règle de base :</strong> deux condos au même prix peuvent être admissibles très différemment selon les frais seulement. Des frais élevés réduisent à la fois votre montant d'approbation ET votre prix de revente.
@@ -243,7 +243,7 @@ const condoIcons = {
             <p style="margin-top:14px;"><strong>Essayez-le en direct :</strong> <a href="/french/payment-calculator">Calculatrice hypothécaire</a> · <a href="/french/rent-vs-buy-calculator">Calculatrice Louer vs Acheter</a>.</p>
 
             <!-- ============================================================
-                 PART 3 — PROGRAMS
+                 PART 3, PROGRAMS
                  ============================================================ -->
             <h2 id="programs" style="margin-top:48px;">Partie 3 · Les programmes gouvernementaux qui se cumulent</h2>
             <p>Utilisez-les. Ce sont les plus grosses économies faciles à obtenir.</p>
@@ -285,9 +285,9 @@ const condoIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 4 — STATUS CERTIFICATE
+                 PART 4, STATUS CERTIFICATE
                  ============================================================ -->
-            <h2 id="status" style="margin-top:48px;">Partie 4 · Le certificat d'état — ne sautez PAS cette étape</h2>
+            <h2 id="status" style="margin-top:48px;">Partie 4 · Le certificat d'état, ne sautez PAS cette étape</h2>
             <p>Le document le plus important dans un achat de condo.</p>
 
             <div class="fh-formula" style="justify-content: flex-start; flex-wrap: wrap;">
@@ -326,10 +326,10 @@ const condoIcons = {
             </div>
 
             <!-- ============================================================
-                 PART 5 — RESERVE FUND
+                 PART 5, RESERVE FUND
                  ============================================================ -->
             <h2 id="reserve" style="margin-top:48px;">Partie 5 · Fonds de réserve &amp; cotisations spéciales</h2>
-            <p>Le fonds de réserve est le compte d'épargne de l'immeuble pour les grosses réparations — toit, ascenseurs, fenêtres, garage, chaudières. Chaque propriétaire y contribue par ses frais mensuels.</p>
+            <p>Le fonds de réserve est le compte d'épargne de l'immeuble pour les grosses réparations, toit, ascenseurs, fenêtres, garage, chaudières. Chaque propriétaire y contribue par ses frais mensuels.</p>
 
             <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
               <strong>Pourquoi c'est plus important que tout le reste :</strong> si le fonds de réserve est trop petit quand une grosse réparation devient nécessaire, le syndicat facture directement les propriétaires. C'est une <strong>cotisation spéciale</strong>. Elle peut se chiffrer à des milliers, voire des dizaines de milliers de dollars par unité, exigible à court préavis, sans possibilité de s'y soustraire. Si vous êtes propriétaire le jour où elle est imposée, vous la devez.
@@ -338,7 +338,7 @@ const condoIcons = {
             <h3 style="margin-top:22px;">Comment vérifier</h3>
             <ul class="bullets">
               <li>Lisez l'<strong>étude du fonds de réserve</strong>. Elle projette les réparations futures et si le fonds peut les couvrir.</li>
-              <li>Regardez l'<strong>historique des frais</strong>. Des frais qui n'augmentent jamais sont un signal d'alarme, pas un bon signe — les coûts montent, et un syndicat qui refuse d'augmenter les frais sous-finance souvent sa réserve.</li>
+              <li>Regardez l'<strong>historique des frais</strong>. Des frais qui n'augmentent jamais sont un signal d'alarme, pas un bon signe, les coûts montent, et un syndicat qui refuse d'augmenter les frais sous-finance souvent sa réserve.</li>
               <li>Demandez si des <strong>travaux majeurs</strong> sont prévus dans les cinq prochaines années.</li>
             </ul>
 
@@ -346,7 +346,7 @@ const condoIcons = {
             <p>Les immeubles d'environ <strong>15 à 25 ans</strong> vivent souvent leur première vague de réparations majeures d'un seul coup : fenêtres, balcons, membrane du garage, ascenseurs. Examinez de très près le fonds de réserve des immeubles de cette tranche d'âge.</p>
 
             <!-- ============================================================
-                 PART 6 — CONDO FEES
+                 PART 6, CONDO FEES
                  ============================================================ -->
             <h2 id="fees" style="margin-top:48px;">Partie 6 · Frais de copropriété</h2>
 
@@ -369,20 +369,20 @@ const condoIcons = {
                   <li>Votre propre assurance de condo</li>
                   <li>L'hydro (dans plusieurs immeubles)</li>
                   <li>Internet et câble (dans la plupart)</li>
-                  <li>L'impôt foncier — toujours séparé</li>
+                  <li>L'impôt foncier, toujours séparé</li>
                 </ul>
               </div>
             </div>
 
             <p style="margin-top:14px;"><strong>Des frais élevés ne sont pas toujours mauvais.</strong> Un immeuble avec piscine, gym, concierge et salle de réception coûte plus cher à exploiter. Ce qui compte, c'est si les frais sont raisonnables pour ce que vous obtenez, et si la réserve est bien financée.</p>
 
-            <p><strong>Des frais bas combinés à un fonds de réserve faible, c'est la combinaison dangereuse.</strong> Prévoyez que les frais augmentent chaque année — demandez l'historique des cinq dernières années.</p>
+            <p><strong>Des frais bas combinés à un fonds de réserve faible, c'est la combinaison dangereuse.</strong> Prévoyez que les frais augmentent chaque année, demandez l'historique des cinq dernières années.</p>
 
             <!-- ============================================================
-                 PART 7 — PARKING
+                 PART 7, PARKING
                  ============================================================ -->
             <h2 id="parking" style="margin-top:48px;">Partie 7 · Stationnement, casiers &amp; ce que vous possédez réellement</h2>
-            <p>Trois arrangements — ils ne sont pas équivalents.</p>
+            <p>Trois arrangements, ils ne sont pas équivalents.</p>
 
             <div class="fh-program-grid" style="grid-template-columns: repeat(3, 1fr);">
               <div class="fh-program-card">
@@ -407,7 +407,7 @@ const condoIcons = {
             </div>
 
             <!-- ============================================================
-                 PART 8 — RULES
+                 PART 8, RULES
                  ============================================================ -->
             <h2 id="rules" style="margin-top:48px;">Partie 8 · Les règles sous lesquelles vous vivrez</h2>
             <p>Les règles de condo sont exécutoires. Lisez-les AVANT d'acheter, pas après.</p>
@@ -423,9 +423,9 @@ const condoIcons = {
             </ul>
 
             <!-- ============================================================
-                 PART 9 — INSURANCE
+                 PART 9, INSURANCE
                  ============================================================ -->
-            <h2 id="insurance" style="margin-top:48px;">Partie 9 · Assurance — la partie que personne n'explique</h2>
+            <h2 id="insurance" style="margin-top:48px;">Partie 9 · Assurance, la partie que personne n'explique</h2>
             <p>Il y a DEUX polices, et vous devez comprendre les deux.</p>
 
             <div class="fh-before-after" style="grid-template-columns: 1fr 1fr;">
@@ -450,17 +450,17 @@ const condoIcons = {
 
             <h3 style="margin-top:22px;">Le piège de la franchise</h3>
             <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
-              Si un dégât commence dans votre unité — un boyau qui éclate, une baignoire qui déborde — le syndicat peut vous refacturer sa franchise d'assurance. Ces franchises sont souvent de <strong>25 000 $ à 100 000 $, voire plus</strong>.
+              Si un dégât commence dans votre unité, un boyau qui éclate, une baignoire qui déborde, le syndicat peut vous refacturer sa franchise d'assurance. Ces franchises sont souvent de <strong>25 000 $ à 100 000 $, voire plus</strong>.
             </div>
             <p style="margin-top:14px;">Votre police de condo personnelle a besoin d'une couverture spécifique pour ça. C'est habituellement peu coûteux à ajouter. <strong>Demandez-la nommément à votre courtier d'assurance</strong>, et remettez-lui une copie du certificat d'état pour qu'il puisse ajuster le montant.</p>
 
             <!-- ============================================================
-                 PART 10 — RESALE
+                 PART 10, RESALE
                  ============================================================ -->
-            <h2 id="resale" style="margin-top:48px;">Partie 10 · Acheter un condo de revente — quoi vérifier</h2>
+            <h2 id="resale" style="margin-top:48px;">Partie 10 · Acheter un condo de revente, quoi vérifier</h2>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">L'unité — étage, orientation, lumière, bruit, plan</summary>
+              <summary class="b60-section-toggle-summary">L'unité, étage, orientation, lumière, bruit, plan</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Étage et orientation.</strong> Le sud et l'ouest reçoivent plus de lumière et de chaleur. Le nord est sombre et plus frais. L'est est lumineux le matin.</li>
@@ -474,7 +474,7 @@ const condoIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">L'immeuble — ascenseurs, propreté, inscriptions, ratio de locataires</summary>
+              <summary class="b60-section-toggle-summary">L'immeuble, ascenseurs, propreté, inscriptions, ratio de locataires</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Ratio d'ascenseurs.</strong> Trop peu d'ascenseurs pour trop d'unités = de longues attentes tous les jours.</li>
@@ -487,7 +487,7 @@ const condoIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 11 — PRE-CONSTRUCTION
+                 PART 11, PRE-CONSTRUCTION
                  ============================================================ -->
             <h2 id="preconstruction" style="margin-top:48px;">Partie 11 · Acheter un condo en préconstruction</h2>
             <p>Processus différent, risques différents. Lisez attentivement si vous y songez.</p>
@@ -497,7 +497,7 @@ const condoIcons = {
             </div>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Dépôts &amp; occupation intérimaire — la partie mal comprise</summary>
+              <summary class="b60-section-toggle-summary">Dépôts &amp; occupation intérimaire, la partie mal comprise</summary>
               <div class="b60-section-body">
                 <p><strong>Dépôts.</strong> Habituellement 15 %–20 % du prix, payés en versements échelonnés sur plusieurs mois. Les dépôts de condo doivent être détenus en fiducie en vertu de la Loi sur les condominiums.</p>
                 <p><strong>Occupation intérimaire.</strong> Quand votre unité est prête mais que l'immeuble n'est pas encore enregistré, vous pouvez emménager sans en être propriétaire. Vous payez des <strong>frais d'occupation</strong> mensuels au constructeur couvrant l'intérêt estimé sur le solde impayé, l'impôt foncier estimé et les frais de copropriété estimés.</p>
@@ -511,9 +511,9 @@ const condoIcons = {
               <summary class="b60-section-toggle-summary">Redevances d'aménagement, cession, et le piège de la TVH</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>Redevances d'aménagement.</strong> Les frais de clôture d'un condo neuf sont beaucoup plus élevés que pour une revente. Attendez-vous à des redevances d'aménagement et d'éducation, des raccordements aux services publics, l'inscription Tarion, des frais juridiques — au total 3 % à 5 % du prix. <strong>Négociez un plafond sur les redevances d'aménagement</strong> pendant votre période de réflexion de 10 jours. Des redevances non plafonnées peuvent atteindre des dizaines de milliers de dollars. C'est l'une des choses les plus précieuses que votre avocat puisse faire pour vous.</li>
+                  <li><strong>Redevances d'aménagement.</strong> Les frais de clôture d'un condo neuf sont beaucoup plus élevés que pour une revente. Attendez-vous à des redevances d'aménagement et d'éducation, des raccordements aux services publics, l'inscription Tarion, des frais juridiques, au total 3 % à 5 % du prix. <strong>Négociez un plafond sur les redevances d'aménagement</strong> pendant votre période de réflexion de 10 jours. Des redevances non plafonnées peuvent atteindre des dizaines de milliers de dollars. C'est l'une des choses les plus précieuses que votre avocat puisse faire pour vous.</li>
                   <li><strong>Cession.</strong> Vendre votre contrat avant la clôture. Beaucoup de constructeurs la restreignent, exigent des frais élevés, ou l'interdisent carrément. Si la flexibilité compte pour vous, vérifiez cette clause avant de signer.</li>
-                  <li><strong>Le piège de la TVH.</strong> Le remboursement de TVH pour condo neuf s'adresse aux gens qui <em>y emménagent</em>. Si vous achetez avec l'intention d'y habiter puis que vous le louez à la clôture, le remboursement crédité par le constructeur peut être récupéré — vous pourriez devoir une somme importante le jour de la clôture. Il existe un remboursement distinct pour les propriétaires-bailleurs, avec des règles différentes. Ne devinez pas — demandez à votre comptable.</li>
+                  <li><strong>Le piège de la TVH.</strong> Le remboursement de TVH pour condo neuf s'adresse aux gens qui <em>y emménagent</em>. Si vous achetez avec l'intention d'y habiter puis que vous le louez à la clôture, le remboursement crédité par le constructeur peut être récupéré, vous pourriez devoir une somme importante le jour de la clôture. Il existe un remboursement distinct pour les propriétaires-bailleurs, avec des règles différentes. Ne devinez pas, demandez à votre comptable.</li>
                 </ul>
               </div>
             </details>
@@ -536,7 +536,7 @@ const condoIcons = {
                     <div class="fh-formula-value">7 ans</div>
                   </div>
                 </div>
-                <p>Il existe aussi des protections pour les dépôts, les retards d'occupation et l'annulation du projet. Les délais pour déposer une réclamation sont stricts. Faites votre <strong>inspection préalable à la livraison</strong> avec soin — c'est votre seule chance de documenter les défauts au dossier.</p>
+                <p>Il existe aussi des protections pour les dépôts, les retards d'occupation et l'annulation du projet. Les délais pour déposer une réclamation sont stricts. Faites votre <strong>inspection préalable à la livraison</strong> avec soin, c'est votre seule chance de documenter les défauts au dossier.</p>
               </div>
             </details>
 
@@ -548,13 +548,13 @@ const condoIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 12 — INTERNATIONAL BUYERS
+                 PART 12, INTERNATIONAL BUYERS
                  ============================================================ -->
             <h2 id="international" style="margin-top:48px;">Partie 12 · Pour les acheteurs internationaux</h2>
             <p>Si vous n'êtes ni citoyen canadien ni résident permanent, vos règles sont différentes. Lisez cette section AVANT de magasiner.</p>
 
             <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
-              <strong>Interdiction fédérale d'achat pour non-Canadiens.</strong> En vertu de la Loi sur l'interdiction d'achat d'immeubles résidentiels par des non-Canadiens, il est actuellement interdit aux non-Canadiens d'acheter la plupart des immeubles résidentiels (interdiction prolongée jusqu'au 1er janvier 2027 au moins). Il existe des exceptions limitées — étudiants internationaux, titulaires de permis de travail répondant à des conditions précises, réfugiés, et certains diplomates. <strong>Confirmez votre admissibilité auprès d'un avocat immobilier canadien avant de signer quoi que ce soit.</strong> Voir mon <a href="/french/blog/foreign-buyer-ban">dossier complet sur l'interdiction</a>.
+              <strong>Interdiction fédérale d'achat pour non-Canadiens.</strong> En vertu de la Loi sur l'interdiction d'achat d'immeubles résidentiels par des non-Canadiens, il est actuellement interdit aux non-Canadiens d'acheter la plupart des immeubles résidentiels (interdiction prolongée jusqu'au 1er janvier 2027 au moins). Il existe des exceptions limitées, étudiants internationaux, titulaires de permis de travail répondant à des conditions précises, réfugiés, et certains diplomates. <strong>Confirmez votre admissibilité auprès d'un avocat immobilier canadien avant de signer quoi que ce soit.</strong> Voir mon <a href="/french/blog/foreign-buyer-ban">dossier complet sur l'interdiction</a>.
             </div>
 
             <h3 style="margin-top:22px;">Taxe de spéculation des non-résidents (NRST)</h3>
@@ -565,7 +565,7 @@ const condoIcons = {
               <li><strong>Confirmez d'abord votre admissibilité.</strong> Un avocat immobilier canadien doit examiner votre statut d'immigration par rapport à l'interdiction fédérale AVANT que vous fassiez une offre. Ne vous fiez pas à un constructeur ou à un COURTIER IMMOBILIER®.</li>
               <li><strong>Ouvrez un compte bancaire canadien.</strong> Vous en aurez besoin pour détenir votre dépôt et vos fonds de clôture. Certaines banques canadiennes offrent des programmes « nouveaux arrivants » pour les personnes qui se relocalisent.</li>
               <li><strong>Attendez-vous à une mise de fonds plus élevée.</strong> Pour la plupart des emprunteurs non-résidents, les prêteurs exigent 35 % et plus de mise de fonds. Certains exigent 50 %. Les hypothèques assurées ne sont généralement pas offertes.</li>
-              <li><strong>Documentation de la provenance des fonds.</strong> En vertu des règles canadiennes de lutte contre le blanchiment d'argent (FINTRAC — le Centre d'analyse des opérations et déclarations financières du Canada), on vous demandera de documenter la provenance de votre mise de fonds. Relevés bancaires des 3 à 12 derniers mois, lettres d'employeurs, déclarations de revenus de votre pays d'origine, et lettres de don si les fonds proviennent de votre famille. Commencez à les rassembler tôt.</li>
+              <li><strong>Documentation de la provenance des fonds.</strong> En vertu des règles canadiennes de lutte contre le blanchiment d'argent (FINTRAC, le Centre d'analyse des opérations et déclarations financières du Canada), on vous demandera de documenter la provenance de votre mise de fonds. Relevés bancaires des 3 à 12 derniers mois, lettres d'employeurs, déclarations de revenus de votre pays d'origine, et lettres de don si les fonds proviennent de votre famille. Commencez à les rassembler tôt.</li>
               <li><strong>Risque de change.</strong> Si vos revenus et vos économies sont dans une autre devise, le taux de change peut varier de 5 % à 15 % entre l'offre et la clôture. Envisagez un contrat à terme avec une firme de change canadienne pour verrouiller le taux.</li>
               <li><strong>Obligations fiscales.</strong> Les non-résidents propriétaires d'un bien immobilier canadien sont soumis à des règles de retenue d'impôt sur les revenus locatifs, et lors de la vente éventuelle. Parlez à un comptable canadien ayant de l'expérience en fiscalité transfrontalière.</li>
               <li><strong>Représentation juridique.</strong> Engagez un avocat immobilier canadien indépendant du constructeur. Si vous achetez en préconstruction, engagez-en un spécifiquement expérimenté en condos préconstruction.</li>
@@ -581,7 +581,7 @@ const condoIcons = {
             <!-- ============================================================
                  RED FLAGS
                  ============================================================ -->
-            <h2 id="redflags" style="margin-top:48px;">Signaux d'alarme — ralentissez si vous voyez ceci</h2>
+            <h2 id="redflags" style="margin-top:48px;">Signaux d'alarme, ralentissez si vous voyez ceci</h2>
             <ul class="bullets">
               <li>L'étude du fonds de réserve indique que le fonds est sous-financé</li>
               <li>Une cotisation spéciale approuvée, discutée, ou « à l'étude »</li>
@@ -634,7 +634,7 @@ const condoIcons = {
               <div class="b60-section-body">
                 <ul class="fh-check">
                   <li>Notez l'étage, l'orientation et ce qu'il y a devant la fenêtre</li>
-                  <li>Vérifiez les sources de bruit — ascenseurs, vide-ordures, salles mécaniques, rues</li>
+                  <li>Vérifiez les sources de bruit, ascenseurs, vide-ordures, salles mécaniques, rues</li>
                   <li>Visitez l'immeuble le soir et la fin de semaine</li>
                   <li>Regardez l'état des corridors, du garage et du hall</li>
                   <li>Confirmez ce que les frais incluent</li>
@@ -685,7 +685,7 @@ const condoIcons = {
                  DISCLAIMER
                  ============================================================ -->
             <p class="calc-disclaimer" style="margin-top:44px;">
-              <strong>Avis de non-responsabilité.</strong> Je suis un vendeur immobilier titulaire d'un permis. Je ne suis PAS courtier hypothécaire, conseiller financier, comptable, avocat, courtier d'assurance, ni inspecteur en bâtiment, et rien dans ce guide ne constitue un conseil hypothécaire, financier, fiscal, juridique ou en assurance. Ce guide est de l'information générale seulement. Ce n'est pas un conseil pour votre situation et ça ne crée pas de relation client. Le droit condominial, les programmes gouvernementaux, les règles fiscales, les règles d'immigration et les échéances de remboursement changent. Chaque immeuble et chaque syndicat sont différents. L'admissibilité à tout ce qui est décrit ici dépend de faits propres à votre situation. Avant de prendre une décision, faites vos propres vérifications diligentes et obtenez des conseils des bons professionnels titulaires d'un permis — un avocat immobilier pour réviser le certificat d'état, la convention d'achat-vente, et toute convention avec un constructeur; un courtier hypothécaire ou un prêteur pour le financement et ce à quoi vous êtes admissible; un comptable ou un fiscaliste pour les questions de CELIAPP, REER, remboursement de TVH, fiscalité transfrontalière et NRST; un inspecteur en bâtiment qualifié pour l'état de l'unité; et un courtier d'assurance pour la couverture dont vous avez réellement besoin, incluant la franchise du syndicat. Ne vous fiez pas à ce guide seul. Vérifiez tout ce qui touche votre argent auprès de quelqu'un de titulaire d'un permis pour vous conseiller à ce sujet.
+              <strong>Avis de non-responsabilité.</strong> Je suis un vendeur immobilier titulaire d'un permis. Je ne suis PAS courtier hypothécaire, conseiller financier, comptable, avocat, courtier d'assurance, ni inspecteur en bâtiment, et rien dans ce guide ne constitue un conseil hypothécaire, financier, fiscal, juridique ou en assurance. Ce guide est de l'information générale seulement. Ce n'est pas un conseil pour votre situation et ça ne crée pas de relation client. Le droit condominial, les programmes gouvernementaux, les règles fiscales, les règles d'immigration et les échéances de remboursement changent. Chaque immeuble et chaque syndicat sont différents. L'admissibilité à tout ce qui est décrit ici dépend de faits propres à votre situation. Avant de prendre une décision, faites vos propres vérifications diligentes et obtenez des conseils des bons professionnels titulaires d'un permis, un avocat immobilier pour réviser le certificat d'état, la convention d'achat-vente, et toute convention avec un constructeur; un courtier hypothécaire ou un prêteur pour le financement et ce à quoi vous êtes admissible; un comptable ou un fiscaliste pour les questions de CELIAPP, REER, remboursement de TVH, fiscalité transfrontalière et NRST; un inspecteur en bâtiment qualifié pour l'état de l'unité; et un courtier d'assurance pour la couverture dont vous avez réellement besoin, incluant la franchise du syndicat. Ne vous fiez pas à ce guide seul. Vérifiez tout ce qui touche votre argent auprès de quelqu'un de titulaire d'un permis pour vous conseiller à ce sujet.
             </p>
 
           </div>
@@ -694,7 +694,7 @@ const condoIcons = {
     </section>
   </article>
 
-  <LCTA heading="Vous achetez votre premier condo à Toronto ?" lead="Chaque condo a sa propre version de cette histoire. Si vous voulez parcourir la liste de vérification ci-dessus sur une inscription réelle — avec votre budget, votre échéancier et les spécialistes en qui j'ai confiance — envoyez-moi votre situation. Je sers les acheteurs en anglais, en mandarin et en cantonais." />
+  <LCTA heading="Vous achetez votre premier condo à Toronto ?" lead="Chaque condo a sa propre version de cette histoire. Si vous voulez parcourir la liste de vérification ci-dessus sur une inscription réelle, avec votre budget, votre échéancier et les spécialistes en qui j'ai confiance, envoyez-moi votre situation. Je sers les acheteurs en anglais, en mandarin et en cantonais." />
   <Footer />
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

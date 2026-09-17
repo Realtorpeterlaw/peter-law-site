@@ -71,7 +71,7 @@ const hreflangAlternates = [
                 <div class="row"><span>适用保费率</span><strong id="cmhc-rate">0%</strong></div>
                 <div class="row"><span>总贷款额 <span style="font-weight:400;color:var(--ink-mute);">(含保险)</span></span><strong id="cmhc-total">$0</strong></div>
                 <div class="row"><span>最低首付要求</span><strong id="cmhc-min-down">$0</strong></div>
-                <div class="row" id="cmhc-status-row"><span>状态</span><strong id="cmhc-status" style="color:var(--ink);">—</strong></div>
+                <div class="row" id="cmhc-status-row"><span>状态</span><strong id="cmhc-status" style="color:var(--ink);">,</strong></div>
               </div>
             </div>
             <p class="calc-disclaimer" id="cmhc-disclaimer">仅供估算。保费率参考 CMHC 公布的标准。CMHC、Sagen、Canada Guaranty 实际收取的保费可能略有不同。安省对保费另收 8% PST,在交接日支付(不滚入贷款)。在依据本计算结果做决策前,请咨询持牌贷款专业人士。</p>
@@ -105,7 +105,7 @@ const hreflangAlternates = [
     </div>
   </section>
 
-  <ChineseCTASection heading="需要结合实际房子来看吗?" lead="脱离房子谈数字太抽象。我们一起看一些您预算范围里的真实房源,把全部成本都算上 — 房价、首付、CMHC、土地转让税、交接成本。一次通话就能讲清楚。" />
+  <ChineseCTASection heading="需要结合实际房子来看吗?" lead="脱离房子谈数字太抽象。我们一起看一些您预算范围里的真实房源,把全部成本都算上, 房价、首付、CMHC、土地转让税、交接成本。一次通话就能讲清楚。" />
   <ChineseFooter />
 
   <style>
@@ -183,7 +183,7 @@ const hreflangAlternates = [
         minDownEl.textContent = fmt$(minDp);
 
         if (price > 1500000 && down < price * 0.20) {
-          statusEl.textContent = '房价超过 150 万,无法购买 CMHC — 首付至少 20%';
+          statusEl.textContent = '房价超过 150 万,无法购买 CMHC, 首付至少 20%';
           statusEl.style.color = '#b8002e';
           premiumEl.textContent = '$0';
           rateEl.textContent = 'N/A';
@@ -211,7 +211,7 @@ const hreflangAlternates = [
         premiumEl.textContent = fmt$(premium);
         rateEl.textContent = (rate * 100).toFixed(2) + '%';
         totalEl.textContent = fmt$(mortgage + premium);
-        statusEl.textContent = '可投保 — 保费滚入贷款';
+        statusEl.textContent = '可投保, 保费滚入贷款';
         statusEl.style.color = '#1a6b32';
       }
 

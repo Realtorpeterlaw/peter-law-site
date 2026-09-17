@@ -21,7 +21,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
   publisher: {
     '@type': 'Organization',
-    name: 'Peter Law — 多伦多房地产',
+    name: 'Peter Law, 多伦多房地产',
     logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
   },
   datePublished: publishedDate,
@@ -51,7 +51,7 @@ const condoIcons = {
 };
 ---
 <BaseLayout
-  title={`${articleTitle} | Peter Law — 多伦多房地产博客`}
+  title={`${articleTitle} | Peter Law, 多伦多房地产博客`}
   description={articleDescription}
   bodyClass="guide-page article-page"
   zh={true}
@@ -65,7 +65,7 @@ const condoIcons = {
       <div class="wrap">
         <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 买家指南 · 公寓</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">买公寓时,您其实买下了两样东西:您的单元,以及这栋楼的一份份额。您不只是在买一个家 —— 您是在加入一家公司,并且承担它的账单、规则和问题的一部分。这份指南会告诉您,在下决心之前,该如何审查这家公司。</p>
+        <p class="article-lead">买公寓时,您其实买下了两样东西:您的单元,以及这栋楼的一份份额。您不只是在买一个家, 您是在加入一家公司,并且承担它的账单、规则和问题的一部分。这份指南会告诉您,在下决心之前,该如何审查这家公司。</p>
         <div class="article-byline">
           <span>作者 <a href="/chinese/about">Peter Law</a></span>
           <span class="dot">·</span>
@@ -102,7 +102,7 @@ const condoIcons = {
               <li><a href="#fees">管理费</a></li>
               <li><a href="#parking">车位、储物间与您到底拥有什么</a></li>
               <li><a href="#rules">您将要遵守的规则</a></li>
-              <li><a href="#insurance">保险 —— 两份保单</a></li>
+              <li><a href="#insurance">保险, 两份保单</a></li>
               <li><a href="#resale">购买二手公寓</a></li>
               <li><a href="#preconstruction">购买期房公寓</a></li>
               <li><a href="#international">致国际买家</a></li>
@@ -115,10 +115,10 @@ const condoIcons = {
           <div class="prose-body">
 
             <!-- ============================================================
-                 PART 1 — TYPES
+                 PART 1, TYPES
                  ============================================================ -->
             <h2 id="types">第 1 部分 · 安省公寓类型</h2>
-            <p>不是所有公寓都是公寓楼里的一套单元。下面是九种常见类型 —— 其中有一种其实根本不是"公寓"。</p>
+            <p>不是所有公寓都是公寓楼里的一套单元。下面是九种常见类型, 其中有一种其实根本不是"公寓"。</p>
 
             <div class="fh-house-grid">
               <div class="fh-house-card">
@@ -144,7 +144,7 @@ const condoIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.potl} />
                 <div class="fh-house-title">共有设施地契屋(POTL)</div>
-                <p>您完全拥有土地和房屋 —— 属于<strong>永久产权(Freehold)</strong>。但您需要为私人道路、公园等共用设施支付每月费用。费用不高,但是真实存在的支出,而且会上涨。</p>
+                <p>您完全拥有土地和房屋, 属于<strong>永久产权(Freehold)</strong>。但您需要为私人道路、公园等共用设施支付每月费用。费用不高,但是真实存在的支出,而且会上涨。</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.vacantland} />
@@ -154,12 +154,12 @@ const condoIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.leasehold} />
                 <div class="fh-house-title">租赁地公寓(Leasehold Condo)</div>
-                <p>您并不拥有土地 —— 而是在固定年限内租用土地(通常从大学或医院租用)。便宜是有原因的。<strong>随着租期缩短,贷款和转售都会变得更困难。</strong></p>
+                <p>您并不拥有土地, 而是在固定年限内租用土地(通常从大学或医院租用)。便宜是有原因的。<strong>随着租期缩短,贷款和转售都会变得更困难。</strong></p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.coop} />
                 <div class="fh-house-title">合作公寓(Co-op,并非真正的公寓)</div>
-                <p>您购买的是拥有该建筑的公司股份 —— 而不是房地产本身。许多放贷机构不会为其提供贷款。当您出售时,董事会有权拒绝您的买家。只有在您完全理解其中利弊的情况下才应考虑。</p>
+                <p>您购买的是拥有该建筑的公司股份, 而不是房地产本身。许多放贷机构不会为其提供贷款。当您出售时,董事会有权拒绝您的买家。只有在您完全理解其中利弊的情况下才应考虑。</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={condoIcons.loft} />
@@ -169,7 +169,7 @@ const condoIcons = {
             </div>
 
             <!-- ============================================================
-                 PART 2 — AFFORDABILITY
+                 PART 2, AFFORDABILITY
                  ============================================================ -->
             <h2 id="afford" style="margin-top:48px;">第 2 部分 · 您能负担多少</h2>
 
@@ -240,7 +240,7 @@ const condoIcons = {
             <p style="margin-top:14px;"><strong>现场试算:</strong> <a href="/chinese/payment-calculator">房贷计算器</a> · <a href="/chinese/rent-vs-buy-calculator">租房 vs 买房计算器</a>。</p>
 
             <!-- ============================================================
-                 PART 3 — PROGRAMS
+                 PART 3, PROGRAMS
                  ============================================================ -->
             <h2 id="programs" style="margin-top:48px;">第 3 部分 · 可以叠加使用的政府补助计划</h2>
             <p>一定要用上这些计划。它们是最容易拿到手的实惠。</p>
@@ -282,9 +282,9 @@ const condoIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 4 — STATUS CERTIFICATE
+                 PART 4, STATUS CERTIFICATE
                  ============================================================ -->
-            <h2 id="status" style="margin-top:48px;">第 4 部分 · 状况证明书 —— 千万不要跳过这一步</h2>
+            <h2 id="status" style="margin-top:48px;">第 4 部分 · 状况证明书, 千万不要跳过这一步</h2>
             <p>这是公寓交易中最重要的一份文件,没有之一。</p>
 
             <div class="fh-formula" style="justify-content: flex-start; flex-wrap: wrap;">
@@ -323,10 +323,10 @@ const condoIcons = {
             </div>
 
             <!-- ============================================================
-                 PART 5 — RESERVE FUND
+                 PART 5, RESERVE FUND
                  ============================================================ -->
             <h2 id="reserve" style="margin-top:48px;">第 5 部分 · 储备金与特别摊款</h2>
-            <p>储备金是整栋楼用于大型维修的储蓄账户 —— 屋顶、电梯、窗户、车库、锅炉等。每位业主都通过每月管理费为其供款。</p>
+            <p>储备金是整栋楼用于大型维修的储蓄账户, 屋顶、电梯、窗户、车库、锅炉等。每位业主都通过每月管理费为其供款。</p>
 
             <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
               <strong>为什么这比其他任何事都重要:</strong>如果大修来临时储备金不够用,公寓公司就会直接向业主收费。这就是<strong>特别摊款</strong>。金额可能是每户几千甚至几万元,通知期很短,而且没有办法拒绝缴纳。只要摊款征收那天您是业主,您就要付这笔钱。
@@ -335,7 +335,7 @@ const condoIcons = {
             <h3 style="margin-top:22px;">如何核实</h3>
             <ul class="bullets">
               <li>阅读<strong>储备金研究报告</strong>。它会预测未来的维修需求,以及储备金是否足以覆盖。</li>
-              <li>查看<strong>费用历史</strong>。从不上涨的管理费其实是一个警示信号,而不是好消息 —— 成本本身在上涨,一个拒绝涨价的公寓公司往往就是在少交储备金。</li>
+              <li>查看<strong>费用历史</strong>。从不上涨的管理费其实是一个警示信号,而不是好消息, 成本本身在上涨,一个拒绝涨价的公寓公司往往就是在少交储备金。</li>
               <li>询问未来五年内是否计划有<strong>重大工程</strong>。</li>
             </ul>
 
@@ -343,7 +343,7 @@ const condoIcons = {
             <p>楼龄大约在 <strong>15 到 25 年</strong>之间的建筑,通常会同时迎来第一波大规模维修:窗户、阳台、车库防水层、电梯。对处于这个年龄段的楼盘,请格外仔细地审查其储备金。</p>
 
             <!-- ============================================================
-                 PART 6 — CONDO FEES
+                 PART 6, CONDO FEES
                  ============================================================ -->
             <h2 id="fees" style="margin-top:48px;">第 6 部分 · 管理费</h2>
 
@@ -366,20 +366,20 @@ const condoIcons = {
                   <li>您自己的公寓保险</li>
                   <li>电费(许多楼盘不含)</li>
                   <li>网络和有线电视(大多数不含)</li>
-                  <li>地税 —— 始终单独计算</li>
+                  <li>地税, 始终单独计算</li>
                 </ul>
               </div>
             </div>
 
             <p style="margin-top:14px;"><strong>管理费高并不总是坏事。</strong>一栋配有泳池、健身房、礼宾服务和活动室的大楼,运营成本本来就更高。真正重要的是,这笔费用相对于您得到的服务是否合理,以及储备金是否充足。</p>
 
-            <p><strong>低管理费加上薄弱的储备金,才是最危险的组合。</strong>要做好管理费每年上涨的心理准备 —— 索要过去五年的费用历史记录。</p>
+            <p><strong>低管理费加上薄弱的储备金,才是最危险的组合。</strong>要做好管理费每年上涨的心理准备, 索要过去五年的费用历史记录。</p>
 
             <!-- ============================================================
-                 PART 7 — PARKING
+                 PART 7, PARKING
                  ============================================================ -->
             <h2 id="parking" style="margin-top:48px;">第 7 部分 · 车位、储物间与您到底拥有什么</h2>
-            <p>有三种安排方式 —— 它们并不相同。</p>
+            <p>有三种安排方式, 它们并不相同。</p>
 
             <div class="fh-program-grid" style="grid-template-columns: repeat(3, 1fr);">
               <div class="fh-program-card">
@@ -404,7 +404,7 @@ const condoIcons = {
             </div>
 
             <!-- ============================================================
-                 PART 8 — RULES
+                 PART 8, RULES
                  ============================================================ -->
             <h2 id="rules" style="margin-top:48px;">第 8 部分 · 您将要遵守的规则</h2>
             <p>公寓规则具有强制力。请在购买之前阅读,而不是之后。</p>
@@ -420,9 +420,9 @@ const condoIcons = {
             </ul>
 
             <!-- ============================================================
-                 PART 9 — INSURANCE
+                 PART 9, INSURANCE
                  ============================================================ -->
-            <h2 id="insurance" style="margin-top:48px;">第 9 部分 · 保险 —— 没人跟您讲清楚的部分</h2>
+            <h2 id="insurance" style="margin-top:48px;">第 9 部分 · 保险, 没人跟您讲清楚的部分</h2>
             <p>这里涉及<strong>两份</strong>保单,您需要同时了解这两份。</p>
 
             <div class="fh-before-after" style="grid-template-columns: 1fr 1fr;">
@@ -447,17 +447,17 @@ const condoIcons = {
 
             <h3 style="margin-top:22px;">免赔额陷阱</h3>
             <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
-              如果损坏源头在您自己的单元内 —— 比如水管爆裂、浴缸溢水 —— 公寓公司可以把它保单的免赔额转嫁给您来承担。这些免赔额通常高达 <strong>$25,000 到 $100,000 甚至更多</strong>。
+              如果损坏源头在您自己的单元内, 比如水管爆裂、浴缸溢水, 公寓公司可以把它保单的免赔额转嫁给您来承担。这些免赔额通常高达 <strong>$25,000 到 $100,000 甚至更多</strong>。
             </div>
             <p style="margin-top:14px;">您个人的公寓保单需要为此专门投保相应的保障。通常加保费用不高。<strong>请直接向保险经纪指名要求这项保障</strong>,并给他们一份状况证明书副本,以便匹配正确的保额。</p>
 
             <!-- ============================================================
-                 PART 10 — RESALE
+                 PART 10, RESALE
                  ============================================================ -->
-            <h2 id="resale" style="margin-top:48px;">第 10 部分 · 购买二手公寓 —— 要看什么</h2>
+            <h2 id="resale" style="margin-top:48px;">第 10 部分 · 购买二手公寓, 要看什么</h2>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">单元本身 —— 楼层、朝向、采光、噪音、户型</summary>
+              <summary class="b60-section-toggle-summary">单元本身, 楼层、朝向、采光、噪音、户型</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>楼层与朝向。</strong>南向和西向采光更好、也更热。北向较暗、较凉。东向清晨采光好。</li>
@@ -471,7 +471,7 @@ const condoIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">整栋楼 —— 电梯、整洁度、挂牌数量、租客比例</summary>
+              <summary class="b60-section-toggle-summary">整栋楼, 电梯、整洁度、挂牌数量、租客比例</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>电梯配比。</strong>单元数量太多而电梯太少 = 每天都要长时间等电梯。</li>
@@ -484,7 +484,7 @@ const condoIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 11 — PRE-CONSTRUCTION
+                 PART 11, PRE-CONSTRUCTION
                  ============================================================ -->
             <h2 id="preconstruction" style="margin-top:48px;">第 11 部分 · 购买期房公寓</h2>
             <p>流程不同,风险也不同。如果您在考虑期房,请仔细阅读。</p>
@@ -494,7 +494,7 @@ const condoIcons = {
             </div>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">定金与临时占用期 —— 最容易被误解的部分</summary>
+              <summary class="b60-section-toggle-summary">定金与临时占用期, 最容易被误解的部分</summary>
               <div class="b60-section-body">
                 <p><strong>定金。</strong>通常为房价的 15%–20%,分几个月分期支付。根据《公寓法》,公寓定金必须由信托账户保管。</p>
                 <p><strong>临时占用期。</strong>当您的单元已经完工,但整栋楼尚未完成注册时,您可以在还未真正拥有产权的情况下先行入住。这期间您需要向开发商支付每月<strong>占用费</strong>,涵盖预估的未付房款利息、预估地税,以及预估管理费。</p>
@@ -508,9 +508,9 @@ const condoIcons = {
               <summary class="b60-section-toggle-summary">开发杂费、转让权,以及 HST 陷阱</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>开发杂费。</strong>新公寓的交接成本远高于二手公寓。预计会有开发及教育杂费、市政管线接入费、Tarion 注册费、律师费等 —— 合计约为房价的 3%–5%。<strong>请在 10 天冷静期内,协商为开发杂费设定一个上限。</strong>没有上限的杂费可能高达数万元。这是您的律师能为您做的最有价值的事情之一。</li>
+                  <li><strong>开发杂费。</strong>新公寓的交接成本远高于二手公寓。预计会有开发及教育杂费、市政管线接入费、Tarion 注册费、律师费等, 合计约为房价的 3%–5%。<strong>请在 10 天冷静期内,协商为开发杂费设定一个上限。</strong>没有上限的杂费可能高达数万元。这是您的律师能为您做的最有价值的事情之一。</li>
                   <li><strong>转让权(Assignment)。</strong>指在交接前转手出售您的购房合同。许多开发商会对此加以限制、收取高额费用,或干脆禁止。如果灵活性对您很重要,请在签约前查看这一条款。</li>
-                  <li><strong>HST 陷阱。</strong>新公寓的 HST 返还是给自住业主的。如果您原本打算自住,结果在交接时改为出租,开发商已经预先抵扣给您的返还款可能会被追回 —— 您可能要在交接当天补交一大笔钱。房东也有单独的返还政策,但规则不同。不要凭猜测行事 —— 请咨询您的会计师。</li>
+                  <li><strong>HST 陷阱。</strong>新公寓的 HST 返还是给自住业主的。如果您原本打算自住,结果在交接时改为出租,开发商已经预先抵扣给您的返还款可能会被追回, 您可能要在交接当天补交一大笔钱。房东也有单独的返还政策,但规则不同。不要凭猜测行事, 请咨询您的会计师。</li>
                 </ul>
               </div>
             </details>
@@ -533,7 +533,7 @@ const condoIcons = {
                     <div class="fh-formula-value">7 年</div>
                   </div>
                 </div>
-                <p>此外还有针对定金、延迟入住和项目取消的保障。申请理赔的截止日期十分严格。请认真做好<strong>交房前验收(Pre-Delivery Inspection)</strong>—— 这是您唯一一次能把缺陷正式记录在案的机会。</p>
+                <p>此外还有针对定金、延迟入住和项目取消的保障。申请理赔的截止日期十分严格。请认真做好<strong>交房前验收(Pre-Delivery Inspection)</strong>, 这是您唯一一次能把缺陷正式记录在案的机会。</p>
               </div>
             </details>
 
@@ -545,13 +545,13 @@ const condoIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 12 — INTERNATIONAL BUYERS
+                 PART 12, INTERNATIONAL BUYERS
                  ============================================================ -->
             <h2 id="international" style="margin-top:48px;">第 12 部分 · 致国际买家</h2>
             <p>如果您不是加拿大公民或永久居民,适用于您的规则会有所不同。请在开始看房之前先阅读本节内容。</p>
 
             <div class="callout" style="border-left: 3px solid #b8002e; padding-left: 22px;">
-              <strong>联邦外国买家禁令。</strong>根据《禁止非加拿大人购买住宅物业法》(Prohibition on the Purchase of Residential Property by Non-Canadians Act),非加拿大人目前被禁止购买绝大多数住宅物业(该禁令已延长至至少 2027 年 1 月 1 日)。存在有限的豁免情形 —— 例如国际留学生、满足特定条件的工签持有人、难民,以及部分外交人员。<strong>在签署任何文件之前,请务必请加拿大房地产律师确认您是否符合豁免资格。</strong>详见我写的<a href="/chinese/blog/foreign-buyer-ban">外国买家禁令完整解析</a>。
+              <strong>联邦外国买家禁令。</strong>根据《禁止非加拿大人购买住宅物业法》(Prohibition on the Purchase of Residential Property by Non-Canadians Act),非加拿大人目前被禁止购买绝大多数住宅物业(该禁令已延长至至少 2027 年 1 月 1 日)。存在有限的豁免情形, 例如国际留学生、满足特定条件的工签持有人、难民,以及部分外交人员。<strong>在签署任何文件之前,请务必请加拿大房地产律师确认您是否符合豁免资格。</strong>详见我写的<a href="/chinese/blog/foreign-buyer-ban">外国买家禁令完整解析</a>。
             </div>
 
             <h3 style="margin-top:22px;">非居民投机税(Non-Resident Speculation Tax,简称 NRST)</h3>
@@ -572,13 +572,13 @@ const condoIcons = {
             </ul>
 
             <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
-              <strong>我的真心话:</strong>如果您在 2026–2027 年是非加拿大人,最稳妥的路径是:(1)先请律师书面确认您的购房资格,(2)为 NRST、更高的首付以及更高的交接成本做好预算,(3)做好心理准备 —— 这将是一项至少 5 年以上的长期承诺。在目前的规则下,以非居民身份购买加拿大公寓并快速转手套利,并不是一个可行的策略。
+              <strong>我的真心话:</strong>如果您在 2026–2027 年是非加拿大人,最稳妥的路径是:(1)先请律师书面确认您的购房资格,(2)为 NRST、更高的首付以及更高的交接成本做好预算,(3)做好心理准备, 这将是一项至少 5 年以上的长期承诺。在目前的规则下,以非居民身份购买加拿大公寓并快速转手套利,并不是一个可行的策略。
             </div>
 
             <!-- ============================================================
                  RED FLAGS
                  ============================================================ -->
-            <h2 id="redflags" style="margin-top:48px;">危险信号 —— 遇到这些请放慢脚步</h2>
+            <h2 id="redflags" style="margin-top:48px;">危险信号, 遇到这些请放慢脚步</h2>
             <ul class="bullets">
               <li>储备金研究报告显示储备金不足</li>
               <li>特别摊款已获批准、正在讨论,或"正在考虑中"</li>
@@ -631,7 +631,7 @@ const condoIcons = {
               <div class="b60-section-body">
                 <ul class="fh-check">
                   <li>记录楼层、朝向,以及窗外的景观</li>
-                  <li>检查噪音来源 —— 电梯、垃圾滑道、机房、临街噪音</li>
+                  <li>检查噪音来源, 电梯、垃圾滑道、机房、临街噪音</li>
                   <li>在晚上和周末都去看一次楼</li>
                   <li>查看走廊、车库和大堂的状况</li>
                   <li>确认管理费具体包含哪些内容</li>
@@ -682,7 +682,7 @@ const condoIcons = {
                  DISCLAIMER
                  ============================================================ -->
             <p class="calc-disclaimer" style="margin-top:44px;">
-              <strong>免责声明。</strong>我是持牌房地产经纪人。我不是贷款经纪、财务顾问、会计师、律师、保险经纪或验房师,本指南中的任何内容都不构成贷款、财务、税务、法律或保险方面的建议。本指南仅为一般性信息,并非针对您个人情况的建议,也不构成客户关系。公寓法规、政府补助计划、税务规则、移民规则以及返还申请截止日期都可能发生变化。每一栋楼、每一个公寓公司都各不相同。本文所述内容是否适用于您,取决于您个人的具体情况。在做出任何决定之前,请自行进行尽职调查,并向合适的持牌专业人士咨询 —— 请房地产律师审查状况证明书、买卖协议以及任何开发商合同;请贷款经纪或放贷机构评估您的融资方案和可获批额度;请会计师或税务专业人士解答关于 FHSA、RRSP、HST 返还、跨境税务和 NRST 的问题;请合格的验房师评估单元状况;请保险经纪确定您真正需要的保障范围,包括公寓公司的免赔额部分。请勿仅依赖本指南做决定。凡是涉及您钱财的事项,都请向持牌专业人士核实清楚。
+              <strong>免责声明。</strong>我是持牌房地产经纪人。我不是贷款经纪、财务顾问、会计师、律师、保险经纪或验房师,本指南中的任何内容都不构成贷款、财务、税务、法律或保险方面的建议。本指南仅为一般性信息,并非针对您个人情况的建议,也不构成客户关系。公寓法规、政府补助计划、税务规则、移民规则以及返还申请截止日期都可能发生变化。每一栋楼、每一个公寓公司都各不相同。本文所述内容是否适用于您,取决于您个人的具体情况。在做出任何决定之前,请自行进行尽职调查,并向合适的持牌专业人士咨询, 请房地产律师审查状况证明书、买卖协议以及任何开发商合同;请贷款经纪或放贷机构评估您的融资方案和可获批额度;请会计师或税务专业人士解答关于 FHSA、RRSP、HST 返还、跨境税务和 NRST 的问题;请合格的验房师评估单元状况;请保险经纪确定您真正需要的保障范围,包括公寓公司的免赔额部分。请勿仅依赖本指南做决定。凡是涉及您钱财的事项,都请向持牌专业人士核实清楚。
             </p>
 
           </div>
@@ -691,7 +691,7 @@ const condoIcons = {
     </section>
   </article>
 
-  <ChineseCTASection heading="正在考虑在多伦多购买您的第一套公寓吗?" lead="每一套公寓背后都有类似的故事。如果您想拿一套真实的房源,结合您实际的预算、时间安排,以及我信任的各领域专业人士,把上面这份清单走一遍 —— 请把您的情况发给我。提供英语、普通话和粤语服务。" />
+  <ChineseCTASection heading="正在考虑在多伦多购买您的第一套公寓吗?" lead="每一套公寓背后都有类似的故事。如果您想拿一套真实的房源,结合您实际的预算、时间安排,以及我信任的各领域专业人士,把上面这份清单走一遍, 请把您的情况发给我。提供英语、普通话和粤语服务。" />
   <ChineseFooter />
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

@@ -70,7 +70,7 @@ const hreflangAlternates = [
                 <div class="row"><span>Premium rate applied</span><strong id="cmhc-rate">0%</strong></div>
                 <div class="row"><span>Total mortgage <span style="font-weight:400;color:var(--ink-mute);">(with insurance added)</span></span><strong id="cmhc-total">$0</strong></div>
                 <div class="row"><span>Minimum down payment required</span><strong id="cmhc-min-down">$0</strong></div>
-                <div class="row" id="cmhc-status-row"><span>Status</span><strong id="cmhc-status" style="color:var(--ink);">—</strong></div>
+                <div class="row" id="cmhc-status-row"><span>Status</span><strong id="cmhc-status" style="color:var(--ink);">,</strong></div>
               </div>
             </div>
             <p class="calc-disclaimer" id="cmhc-disclaimer">Estimates only. Premium rates from CMHC's published schedule. Actual premium charged by CMHC, Sagen, or Canada Guaranty may differ slightly. Ontario charges 8% PST on the premium at closing (it is NOT rolled into the mortgage). Consult a licensed mortgage professional before relying on these figures.</p>
@@ -97,7 +97,7 @@ const hreflangAlternates = [
           <ul class="bullets">
             <li><strong>Purchase price ≤ $500,000:</strong> minimum 5% down.</li>
             <li><strong>$500,001 to $1,500,000:</strong> minimum 5% on the first $500K + 10% on the portion above $500K.</li>
-            <li><strong>Above $1,500,000:</strong> CMHC insurance is NOT available — you'll need a minimum 20% down payment from your own funds.</li>
+            <li><strong>Above $1,500,000:</strong> CMHC insurance is NOT available, you'll need a minimum 20% down payment from your own funds.</li>
           </ul>
 
           <p class="legal-note" style="margin-top:24px;">This calculator is informational. Premium schedules, eligibility rules, and the $1.5M insurable cap can change. Current rules reflect CMHC's December 15, 2024 update. For a definitive quote, talk to a mortgage broker or your bank. I'm a registered real estate sales representative, not a mortgage advisor.</p>
@@ -106,7 +106,7 @@ const hreflangAlternates = [
     </div>
   </section>
 
-  <CTASection heading="Need this in context of an actual property?" lead="Numbers without a property are abstract. Let's look at real listings in your range and run the full picture — purchase price, down payment, CMHC, land transfer tax, closing costs. One call." />
+  <CTASection heading="Need this in context of an actual property?" lead="Numbers without a property are abstract. Let's look at real listings in your range and run the full picture, purchase price, down payment, CMHC, land transfer tax, closing costs. One call." />
   <Footer />
 </BaseLayout>
 
@@ -186,7 +186,7 @@ const hreflangAlternates = [
 
       // Status checks
       if (price > 1500000 && down < price * 0.20) {
-        statusEl.textContent = 'CMHC not available above $1.5M — 20% down required';
+        statusEl.textContent = 'CMHC not available above $1.5M, 20% down required';
         statusEl.style.color = '#b8002e';
         premiumEl.textContent = '$0';
         rateEl.textContent = 'N/A';
@@ -215,7 +215,7 @@ const hreflangAlternates = [
       premiumEl.textContent = fmt$(premium);
       rateEl.textContent = (rate * 100).toFixed(2) + '%';
       totalEl.textContent = fmt$(mortgage + premium);
-      statusEl.textContent = 'Insurable — premium added to mortgage';
+      statusEl.textContent = 'Insurable, premium added to mortgage';
       statusEl.style.color = '#1a6b32';
     }
 

@@ -71,7 +71,7 @@ const hreflangAlternates = [
                 <div class="row"><span>Taux de prime appliqué</span><strong id="cmhc-rate">0 %</strong></div>
                 <div class="row"><span>Hypothèque totale <span style="font-weight:400;color:var(--ink-mute);">(assurance incluse)</span></span><strong id="cmhc-total">0 $</strong></div>
                 <div class="row"><span>Mise de fonds minimale requise</span><strong id="cmhc-min-down">0 $</strong></div>
-                <div class="row" id="cmhc-status-row"><span>État</span><strong id="cmhc-status" style="color:var(--ink);">—</strong></div>
+                <div class="row" id="cmhc-status-row"><span>État</span><strong id="cmhc-status" style="color:var(--ink);">,</strong></div>
               </div>
             </div>
             <p class="calc-disclaimer" id="cmhc-disclaimer">Estimations seulement. Taux de prime tirés du barème publié par la SCHL. La prime réelle facturée par la SCHL, Sagen ou Canada Guaranty peut varier légèrement. En Ontario, une TVP de 8 % s'applique à la prime à la clôture (elle N'EST PAS ajoutée à l'hypothèque). Consultez un professionnel du prêt hypothécaire agréé avant de vous fier à ces chiffres.</p>
@@ -98,7 +98,7 @@ const hreflangAlternates = [
           <ul class="bullets">
             <li><strong>Prix d'achat ≤ 500 000 $ :</strong> mise de fonds minimale de 5 %.</li>
             <li><strong>De 500 001 $ à 1 500 000 $ :</strong> 5 % minimum sur les premiers 500 000 $ + 10 % sur la portion au-delà de 500 000 $.</li>
-            <li><strong>Au-delà de 1 500 000 $ :</strong> l'assurance SCHL N'EST PAS offerte — il vous faut une mise de fonds minimale de 20 % provenant de vos propres fonds.</li>
+            <li><strong>Au-delà de 1 500 000 $ :</strong> l'assurance SCHL N'EST PAS offerte, il vous faut une mise de fonds minimale de 20 % provenant de vos propres fonds.</li>
           </ul>
 
           <p class="legal-note" style="margin-top:24px;">Ce calculateur est informatif. Les barèmes de primes, les règles d'admissibilité et le plafond assurable de 1,5 M$ peuvent changer. Les règles actuelles reflètent la mise à jour de la SCHL du 15 décembre 2024. Pour une estimation ferme, parlez à un courtier hypothécaire ou à votre banque. Je suis un représentant commercial en immobilier inscrit, pas un conseiller hypothécaire.</p>
@@ -107,7 +107,7 @@ const hreflangAlternates = [
     </div>
   </section>
 
-  <LCTA heading="Vous voulez ce chiffre dans le contexte d'une vraie propriété?" lead="Les chiffres sans propriété restent abstraits. Regardons des inscriptions réelles dans votre fourchette et faisons le portrait complet — prix d'achat, mise de fonds, SCHL, droits de mutation, frais de clôture. Un seul appel." />
+  <LCTA heading="Vous voulez ce chiffre dans le contexte d'une vraie propriété?" lead="Les chiffres sans propriété restent abstraits. Regardons des inscriptions réelles dans votre fourchette et faisons le portrait complet, prix d'achat, mise de fonds, SCHL, droits de mutation, frais de clôture. Un seul appel." />
   <LFooter />
 </BaseLayout>
 
@@ -187,7 +187,7 @@ const hreflangAlternates = [
 
       // Status checks
       if (price > 1500000 && down < price * 0.20) {
-        statusEl.textContent = "L'assurance SCHL n'est pas offerte au-delà de 1,5 M$ — mise de fonds de 20 % requise";
+        statusEl.textContent = "L'assurance SCHL n'est pas offerte au-delà de 1,5 M$, mise de fonds de 20 % requise";
         statusEl.style.color = '#b8002e';
         premiumEl.textContent = '0 $';
         rateEl.textContent = 'S. O.';
@@ -216,7 +216,7 @@ const hreflangAlternates = [
       premiumEl.textContent = fmt$(premium);
       rateEl.textContent = (rate * 100).toFixed(2) + ' %';
       totalEl.textContent = fmt$(mortgage + premium);
-      statusEl.textContent = 'Assurable — prime ajoutée à l’hypothèque';
+      statusEl.textContent = 'Assurable, prime ajoutée à l’hypothèque';
       statusEl.style.color = '#1a6b32';
     }
 

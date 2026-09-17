@@ -165,19 +165,19 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">Numbers are illustrative. Canadian mortgages compound semi-annually. CMHC premiums shown are current standard tiers (4.00% / 3.10% / 2.80%) for owner-occupied homes under $1.5M. Federal stress test uses the greater of (your rate + 2%) or 5.25%. Property tax estimate is 0.7% of price / year (Toronto average) and heat is $150/mo — the bank uses similar rough numbers for the GDS ratio. Legal + title + adjustments defaults to $2,500 which is typical for a Toronto resale purchase. Real numbers depend on your credit, lender, property, and closing details. Always confirm with a mortgage broker, lawyer, and accountant before signing anything. See the <a href="/disclaimer#calculators">Disclaimer</a> for full detail.</p>
+          <p class="calc-disclaimer">Numbers are illustrative. Canadian mortgages compound semi-annually. CMHC premiums shown are current standard tiers (4.00% / 3.10% / 2.80%) for owner-occupied homes under $1.5M. Federal stress test uses the greater of (your rate + 2%) or 5.25%. Property tax estimate is 0.7% of price / year (Toronto average) and heat is $150/mo, the bank uses similar rough numbers for the GDS ratio. Legal + title + adjustments defaults to $2,500 which is typical for a Toronto resale purchase. Real numbers depend on your credit, lender, property, and closing details. Always confirm with a mortgage broker, lawyer, and accountant before signing anything. See the <a href="/disclaimer#calculators">Disclaimer</a> for full detail.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <CTASection heading="Want me to walk you through it in real numbers?" lead="Bring your income and the neighbourhood you're looking at. 15 minutes on the phone and you'll know exactly what price range works for you — and what doesn't." />
+  <CTASection heading="Want me to walk you through it in real numbers?" lead="Bring your income and the neighbourhood you're looking at. 15 minutes on the phone and you'll know exactly what price range works for you, and what doesn't." />
 
   <Footer />
 
   <script is:inline>
     // ============================================================
-    // ALL CALCULATOR — one-page mortgage + LTT + CMHC + closing costs
+    // ALL CALCULATOR, one-page mortgage + LTT + CMHC + closing costs
     // Uses the same Canadian math as the individual calculator pages.
     // ============================================================
     (function() {
@@ -200,7 +200,7 @@ const hreflangAlternates = [
         return principal * r / (1 - Math.pow(1 + r, -n));
       }
 
-      // CMHC (default insurance) premium — owner-occupied, under $1.5M
+      // CMHC (default insurance) premium, owner-occupied, under $1.5M
       function cmhcPremiumRate(ltv) {
         if (ltv > 95) return null;   // not allowed
         if (ltv > 90) return 0.0400;
@@ -293,7 +293,7 @@ const hreflangAlternates = [
           feeLabel.innerHTML = '6. HOA Fee <span class="hint">Per month.</span>';
         } else if (propType === 'condo') {
           feeRow.style.display = '';
-          feeLabel.innerHTML = '6. Maintenance Fee <span class="hint">Per month. Ask before you sign — some cover heat, water, or hydro.</span>';
+          feeLabel.innerHTML = '6. Maintenance Fee <span class="hint">Per month. Ask before you sign, some cover heat, water, or hydro.</span>';
         }
 
         // ---- DOWN PAYMENT / MORTGAGE / CMHC ----
@@ -352,9 +352,9 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? '(not allowed — need at least 5% more)'
+          ? '(not allowed, need at least 5% more)'
           : premiumRate === 0
-            ? '(you have 20%+ down — no insurance needed)'
+            ? '(you have 20%+ down, no insurance needed)'
             : '(' + (premiumRate * 100).toFixed(2) + '% of loan)';
         $('ac-ltt-on').textContent = fmtCAD(lttOnt, 0);
         $('ac-ltt-mltt').textContent = fmtCAD(lttMltt, 0);
@@ -383,7 +383,7 @@ const hreflangAlternates = [
         const downPct = price > 0 ? (actualDown / price * 100) : 0;
         $('ac-mindown-sub').textContent = 'You have $' + Math.round(savings).toLocaleString('en-CA')
           + '. You\'re putting down ' + downPct.toFixed(1) + '% of the price.'
-          + (shortfall > 0 ? ' Short by ' + fmtCAD(shortfall, 0) + ' — you need more savings before the bank will approve.' : '');
+          + (shortfall > 0 ? ' Short by ' + fmtCAD(shortfall, 0) + ', you need more savings before the bank will approve.' : '');
         $('ac-stress').textContent = fmtCAD(stressPayment, 0) + '/mo';
         $('ac-gds').textContent = gds.toFixed(1) + '%';
         $('ac-interest').textContent = fmtCAD(totalInterest, 0);

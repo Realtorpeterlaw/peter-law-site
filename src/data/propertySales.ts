@@ -1,4 +1,4 @@
-// Past property sales — used by PropertySales.astro on /past-deals.
+// Past property sales, used by PropertySales.astro on /past-deals.
 // Add new listings here. category drives the filter system.
 
 export interface PropertySale {
@@ -15,7 +15,7 @@ export interface PropertySale {
   status_zh: string;
   representation_en?: string;
   representation_zh?: string;
-  /* role — normalized representation for sub-filter. Auto-inferred if not set. */
+  /* role, normalized representation for sub-filter. Auto-inferred if not set. */
   role?: 'seller' | 'buyer' | 'landlord' | 'tenant';
   representationNote_en?: string;
   representationNote_zh?: string;

@@ -9,7 +9,7 @@ export const prerender = true;
 
 const publishedDate = '2026-07-24';
 const articleTitle = "ONTARIO: Property Taxes on the rise";
-const articleDescription = "Why property taxes in Ontario cities are climbing fast — and what homeowners should expect over the next 4 years.";
+const articleDescription = "Why property taxes in Ontario cities are climbing fast, and what homeowners should expect over the next 4 years.";
 const articleUrl = 'https://www.realtorpeterlaw.com/blog/ontario-property-taxes-rising';
 
 const jsonLd = {
@@ -20,7 +20,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/about' },
   publisher: {
     '@type': 'Organization',
-    name: 'Peter Law — Toronto Real Estate',
+    name: 'Peter Law, Toronto Real Estate',
     logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
   },
   inLanguage: 'en-CA',
@@ -108,7 +108,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
       <div class="wrap">
         <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Ontario Property Owners · Policy</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">Property taxes in Ontario cities have been going up faster than home values, faster than family incomes, and faster than the overall economy. Here's what the numbers actually show — in plain English.</p>
+        <p class="article-lead">Property taxes in Ontario cities have been going up faster than home values, faster than family incomes, and faster than the overall economy. Here's what the numbers actually show, in plain English.</p>
         <div class="article-byline">
           <span>By <a href="/about">Peter Law</a></span>
           <span class="dot">·</span>
@@ -128,9 +128,9 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               <li><a href="#quick">Quick facts</a></li>
               <li><a href="#what">What is a property tax?</a></li>
               <li><a href="#big">The big picture</a></li>
-              <li><a href="#chart1">Chart 1 — Who pays the most?</a></li>
-              <li><a href="#chart2">Chart 2 — Where is the wealth?</a></li>
-              <li><a href="#chart3">Chart 3 — Taxes vs everything else</a></li>
+              <li><a href="#chart1">Chart 1, Who pays the most?</a></li>
+              <li><a href="#chart2">Chart 2, Where is the wealth?</a></li>
+              <li><a href="#chart3">Chart 3, Taxes vs everything else</a></li>
               <li><a href="#why">Why is this happening?</a></li>
               <li><a href="#means">What it means for you</a></li>
               <li><a href="#disclaimer">Disclaimer</a></li>
@@ -150,10 +150,10 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
 
             <h2 id="what">What is a property tax?</h2>
             <p>A <strong>property tax</strong> is money your city charges you every year for owning a home, condo, or piece of land. The city uses that money to pay for things like garbage pickup, snow removal, roads, libraries, parks, and part of the police and fire budget.</p>
-            <p>The bill is calculated with two numbers: <strong>the tax rate</strong> (a percentage the city sets each year) and <strong>the value of your property</strong> (called the assessment). In Ontario, the assessment part is a bit weird — the value the province uses is <strong>frozen at what your home was worth back in 2016</strong>. It has not been updated in ten years. That means the recent housing boom is not in the numbers.</p>
+            <p>The bill is calculated with two numbers: <strong>the tax rate</strong> (a percentage the city sets each year) and <strong>the value of your property</strong> (called the assessment). In Ontario, the assessment part is a bit weird, the value the province uses is <strong>frozen at what your home was worth back in 2016</strong>. It has not been updated in ten years. That means the recent housing boom is not in the numbers.</p>
 
             <h2 id="big">The big picture</h2>
-            <p>Ontario has 444 cities and towns. Property taxes are their biggest single source of money — <strong>44.1% of what they collect every year</strong>. Over the last ten years, that money grew a lot:</p>
+            <p>Ontario has 444 cities and towns. Property taxes are their biggest single source of money, <strong>44.1% of what they collect every year</strong>. Over the last ten years, that money grew a lot:</p>
             <ul>
               <li>In <strong>2015</strong>, Ontario cities collected about <strong>$19 billion</strong> in property taxes.</li>
               <li>In <strong>2025</strong>, they collected about <strong>$27 billion</strong>.</li>
@@ -162,10 +162,10 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             <p>Over the same time, family incomes in Ontario only went up about 14%. So the tax bill grew about <strong>2.5 times faster</strong> than what people were earning.</p>
 
             <!-- ─── CHART 1 ─── -->
-            <h2 id="chart1">Chart 1 — Who pays the most? (2025)</h2>
+            <h2 id="chart1">Chart 1, Who pays the most? (2025)</h2>
             <p>This is <strong>how much tax each person pays</strong> in a city, on average, in 2025. The top of the list is where the tax bill is biggest per person. The bottom of the list is where it is smallest.</p>
             <figure class="bar-chart" aria-labelledby="c1-cap">
-              <figcaption id="c1-cap">Per-capita net municipal tax levy, 2025 — top 6 vs. bottom 4 of 35 major Ontario cities.</figcaption>
+              <figcaption id="c1-cap">Per-capita net municipal tax levy, 2025, top 6 vs. bottom 4 of 35 major Ontario cities.</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">Highest per-person tax</div>
                 {chart1_top.map((r) => (
@@ -191,10 +191,10 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             <p><strong>What it says:</strong> if you live in Pickering, your city takes about <strong>$2,300 per person</strong>, on average, in municipal tax. If you live in Milton, it takes about <strong>$1,230</strong>. Same province, roughly double the bill.</p>
 
             <!-- ─── CHART 2 ─── -->
-            <h2 id="chart2">Chart 2 — Where is the wealth? (2025)</h2>
-            <p>This is <strong>how valuable the real estate is</strong> in each city, on a per-person basis. Cities at the top have very expensive property. Cities at the bottom have cheaper property. A city with a bigger tax base should, in theory, need a lower tax rate to raise the same money — because there's more value to tax.</p>
+            <h2 id="chart2">Chart 2, Where is the wealth? (2025)</h2>
+            <p>This is <strong>how valuable the real estate is</strong> in each city, on a per-person basis. Cities at the top have very expensive property. Cities at the bottom have cheaper property. A city with a bigger tax base should, in theory, need a lower tax rate to raise the same money, because there's more value to tax.</p>
             <figure class="bar-chart" aria-labelledby="c2-cap">
-              <figcaption id="c2-cap">Per-capita taxable unweighted assessment, 2025 — top 6 vs. bottom 3 cities.</figcaption>
+              <figcaption id="c2-cap">Per-capita taxable unweighted assessment, 2025, top 6 vs. bottom 3 cities.</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">Richest tax base per person</div>
                 {chart2_top.map((r) => (
@@ -220,7 +220,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             <p><strong>What it says:</strong> Richmond Hill has more than <strong>four times</strong> the taxable property value per person compared to Windsor. And yet, as Chart 1 shows, Windsor's tax bill per person is not four times lower. Something else is going on.</p>
 
             <!-- ─── CHART 3 ─── -->
-            <h2 id="chart3">Chart 3 — Taxes vs everything else (2015–2025)</h2>
+            <h2 id="chart3">Chart 3, Taxes vs everything else (2015–2025)</h2>
             <p>This is the most important chart. It compares how fast four things grew over ten years, on average, across 35 major Ontario cities.</p>
             <figure class="bar-chart" aria-labelledby="c3-cap">
               <figcaption id="c3-cap">Average 10-year growth (2015 → 2025), 35 major Ontario cities.</figcaption>
@@ -244,7 +244,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               <li><strong>The province gives cities less money than before</strong>, so cities charge you more to make up the difference.</li>
               <li><strong>Things cost more after the pandemic.</strong> Fixing a road, running a rec centre, or paying a firefighter all got more expensive.</li>
               <li><strong>The province downloaded programs</strong> (health, social services) that cities now pay for.</li>
-              <li><strong>Or</strong> — and this is the one the report leans toward — <strong>cities are simply spending more, on more things, without asking whether the taxpayer can keep up</strong>.</li>
+              <li><strong>Or</strong>, and this is the one the report leans toward, <strong>cities are simply spending more, on more things, without asking whether the taxpayer can keep up</strong>.</li>
             </ul>
             <p>The report ends by saying: this may not be a revenue problem. It may be a spending problem.</p>
 
@@ -252,7 +252,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               <summary>What it means for you</summary>
               <div class="means-body">
                 <div class="callout">
-                  <strong>If you already own:</strong> Property tax is a real, ongoing cost that goes up almost every year. Budget for it. If you're buying, ask what the current year's bill is — not just what it was two years ago.
+                  <strong>If you already own:</strong> Property tax is a real, ongoing cost that goes up almost every year. Budget for it. If you're buying, ask what the current year's bill is, not just what it was two years ago.
                 </div>
                 <div class="callout">
                   <strong>If you're buying:</strong> Don't just look at the price. A cheaper home in a city with high per-person tax (like Pickering, Whitby, Sudbury) can end up costing more each month than a slightly pricier home in a city with a lower rate (Milton, Brampton, Kitchener). I include property tax in the numbers when I run scenarios for my clients.
@@ -267,7 +267,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             </details>
 
             <h2 id="disclaimer">Disclaimer</h2>
-            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">This article summarizes and paraphrases in plain English a commentary titled <em>"Property taxes growing quickly in Ontario municipalities"</em> by Livio Di Matteo, Professor of Economics at Lakehead University, published by the Fraser Institute on June 2, 2026. All numbers, percentages, and city-level figures shown are from that report and the BMA Municipal Report 2025 it cites. The wording and analysis in this post are Peter Law's own summary written for a general reader — they are not a direct quote and should not be treated as one. Nothing in this article is legal, tax, or financial advice, and Peter Law is a registered Real Estate Sales Representative (RECO), not a tax professional. Property tax rates, assessment rules, and municipal budgets change every year; always check the current-year information on your municipality's website or with a licensed tax advisor before making a decision based on this content. Sources: Fraser Institute (fraserinstitute.org), BMA Municipal Report 2025.</p>
+            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">This article summarizes and paraphrases in plain English a commentary titled <em>"Property taxes growing quickly in Ontario municipalities"</em> by Livio Di Matteo, Professor of Economics at Lakehead University, published by the Fraser Institute on June 2, 2026. All numbers, percentages, and city-level figures shown are from that report and the BMA Municipal Report 2025 it cites. The wording and analysis in this post are Peter Law's own summary written for a general reader, they are not a direct quote and should not be treated as one. Nothing in this article is legal, tax, or financial advice, and Peter Law is a registered Real Estate Sales Representative (RECO), not a tax professional. Property tax rates, assessment rules, and municipal budgets change every year; always check the current-year information on your municipality's website or with a licensed tax advisor before making a decision based on this content. Sources: Fraser Institute (fraserinstitute.org), BMA Municipal Report 2025.</p>
 
           </div>
         </div>
@@ -275,7 +275,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
     </section>
   </article>
 
-  <CTASection heading="Buying or renting in a specific city?" lead="Talk to me about the neighbourhoods you're considering. I include property tax and monthly carrying costs in every scenario I run for a client — so the shortlist you get already accounts for what each city really costs to live in." />
+  <CTASection heading="Buying or renting in a specific city?" lead="Talk to me about the neighbourhoods you're considering. I include property tax and monthly carrying costs in every scenario I run for a client, so the shortlist you get already accounts for what each city really costs to live in." />
   <Footer />
 
   <style>

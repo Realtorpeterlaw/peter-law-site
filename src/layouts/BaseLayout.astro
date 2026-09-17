@@ -68,7 +68,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script is:inline>
-    /* Restore saved theme choice BEFORE first paint — prevents dark-mode flash.
+    /* Restore saved theme choice BEFORE first paint, prevents dark-mode flash.
        If no saved choice, default = light (site's original palette). */
     (function () {
       try {
@@ -78,7 +78,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
           var m = document.getElementById('theme-color-meta');
           if (m) m.setAttribute('content', '#0f0e0c');
         }
-      } catch (_) { /* localStorage blocked — silently keep light */ }
+      } catch (_) { /* localStorage blocked, silently keep light */ }
     })();
   </script>
   <!-- Mobile safety: prevent iOS from auto-linking arbitrary numbers/addresses/dates
@@ -123,7 +123,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
       src: url('/fonts/inter-latin.woff2') format('woff2-variations');
       unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
     }
-    /* Fallback metrics — matched to Fraunces + Inter so the pre-swap
+    /* Fallback metrics, matched to Fraunces + Inter so the pre-swap
        system-font render lays out at the same size, eliminating CLS. */
     @font-face {
       font-family: 'Fraunces Fallback';
@@ -155,7 +155,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <script is:inline>
     /* Anchor navigation:
        - If target is inside/is a <details>, open the ancestor so content is visible.
-       - Manually scroll with a fixed pixel offset (SCROLL_OFFSET) — more reliable
+       - Manually scroll with a fixed pixel offset (SCROLL_OFFSET), more reliable
          than scrollIntoView({block:'start'}), which is inconsistent across
          browsers when scroll-padding-top is used alongside a sticky header.
        - Applies to TOC clicks AND page loads with a #hash. */
@@ -199,7 +199,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
     })();
   </script>
   <script is:inline>
-    /* Vercel Analytics — custom event tracking.
+    /* Vercel Analytics, custom event tracking.
        Waits for window.va (loaded by <Analytics />), then attaches delegated
        listeners for the CTAs that actually matter to conversion. Cookieless. */
     (function () {
@@ -236,7 +236,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
           else if (action.indexOf('beehiiv.com') >= 0)      track('form_submit_newsletter', { location: location.pathname });
           else                                              track('form_submit_other', { form: formName, location: location.pathname });
         });
-        // --- Calculator completion — fires when a verdict/output appears ---
+        // --- Calculator completion, fires when a verdict/output appears ---
         // Uses MutationObserver on known calculator output nodes.
         var calcOutputs = document.querySelectorAll('[data-output], .ac-verdict-title, .rc-verdict-title, [data-cash]');
         if (calcOutputs.length && 'MutationObserver' in window) {

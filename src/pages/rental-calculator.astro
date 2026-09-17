@@ -15,7 +15,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="Rental Calculator — can you afford this rent? | Peter Law"
+  title="Rental Calculator, can you afford this rent? | Peter Law"
   description="One page. Type what you make, what the rent is, and your basic living costs. See instantly whether the rent fits your income, whether you'll feel it, or…"
   bodyClass="calc-page"
   hreflangAlternates={hreflangAlternates}
@@ -142,13 +142,13 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">Numbers are illustrative. Most Toronto landlords use 30-33% of gross monthly income as their affordability threshold, though guarantors, strong credit, extra months upfront, or corporate leases can stretch that. Utilities vary widely by building — always ask what's included in the lease. This is a screening tool, not an approval. Discuss your situation with a licensed realtor before signing. See the <a href="/disclaimer#calculators">Disclaimer</a> for full detail.</p>
+          <p class="calc-disclaimer">Numbers are illustrative. Most Toronto landlords use 30-33% of gross monthly income as their affordability threshold, though guarantors, strong credit, extra months upfront, or corporate leases can stretch that. Utilities vary widely by building, always ask what's included in the lease. This is a screening tool, not an approval. Discuss your situation with a licensed realtor before signing. See the <a href="/disclaimer#calculators">Disclaimer</a> for full detail.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <CTASection heading="Not sure if a listing fits you?" lead="Send me the address and your income — I'll tell you honestly whether the landlord will approve, whether the price is fair, and whether it's the right time to negotiate." />
+  <CTASection heading="Not sure if a listing fits you?" lead="Send me the address and your income, I'll tell you honestly whether the landlord will approve, whether the price is fair, and whether it's the right time to negotiate." />
 
   <Footer />
 
@@ -219,23 +219,23 @@ const hreflangAlternates = [
           vClass = 'rc-verdict-neutral';
           vIcon = '';
         } else if (pct <= 30) {
-          vTitle = 'Yes — you can afford this rent.';
-          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — inside the safe zone. Landlords approve applications like this all day.';
+          vTitle = 'Yes, you can afford this rent.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income, inside the safe zone. Landlords approve applications like this all day.';
           vClass = 'rc-verdict-green';
           vIcon = ICON_CHECK;
         } else if (pct <= 40) {
           vTitle = 'Tight. Doable but you\'ll feel it.';
-          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — above the 30% comfort line but still within reach. Groceries, transit, and savings will be tighter. Landlord may ask for guarantor or extra months upfront.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income, above the 30% comfort line but still within reach. Groceries, transit, and savings will be tighter. Landlord may ask for guarantor or extra months upfront.';
           vClass = 'rc-verdict-yellow';
           vIcon = ICON_WARN;
         } else if (pct < 80) {
           vTitle = 'Possible, but discuss with your Realtor.';
-          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income — most landlords will say no at this ratio. Exceptions apply: guarantor, upfront rent, corporate lease, strong credit. Talk to a licensed Realtor before you apply.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income, most landlords will say no at this ratio. Exceptions apply: guarantor, upfront rent, corporate lease, strong credit. Talk to a licensed Realtor before you apply.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         } else {
           vTitle = "Unfortunately, your Income to Rent ratio is too high and won't suffice in today's market.";
-          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income. At this ratio, virtually no landlord will approve — the standard cutoff most brokerages enforce is around 33-40%. Consider a lower-priced unit, a co-signer, or increasing your provable income before applying.';
+          vSub = 'Housing is ' + pct.toFixed(1) + '% of your income. At this ratio, virtually no landlord will approve, the standard cutoff most brokerages enforce is around 33-40%. Consider a lower-priced unit, a co-signer, or increasing your provable income before applying.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         }
