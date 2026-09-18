@@ -276,11 +276,22 @@ const hreflangAlternates = [
      'years' sits close to the digit instead of at the far right. */
   .mc-shared .mc-shared-fields {
     grid-template-columns:
-      minmax(160px, 1.4fr)
-      minmax(120px, 0.85fr)
-      minmax(120px, 0.85fr);
+      minmax(0, 1.4fr)
+      minmax(0, 0.85fr)
+      minmax(0, 0.85fr);
   }
-  .mc-shared .input-suffix { max-width: 180px; }
+  /* Keep box-sizing + width:100% so the input never escapes its cell */
+  .mc-shared .input-suffix,
+  .mc-shared .input-suffix > input {
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+  /* Shorten a wrapping label so col 3 does not visually feel cramped */
+  .mc-shared .calc-field label[for="rf-current-amort"] {
+    white-space: normal;
+    line-height: 1.35;
+  }
   @media (max-width: 720px) {
     .mc-shared .mc-shared-fields { grid-template-columns: 1fr 1fr; }
     .mc-shared .input-suffix { max-width: none; }
