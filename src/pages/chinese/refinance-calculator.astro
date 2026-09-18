@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../components/ChineseHeader.astro';
+import ChineseFooter from '../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../components/ChineseCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/refinance-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/refinance-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/refinance-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/refinance-calculator/' },
+];
+---
+<BaseLayout
+  title="再融资计算器 | Peter Law"
+  description="同时对比三种再融资方案。查看您的新月供、与目前相比的每月变化,以及在新摊销期内的总利息成本。按照加拿大规则计算:半年复利。"
+  bodyClass="calc-page"
+  zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">再融资计算器</div>
+      <h1>要不要再融资?一次对比清楚每月还款。</h1>
+      <p>将三种再融资方案与您目前的房贷进行对比。输入贷款剩余金额、目前支付的利率,以及新报价的利率。计算器会显示您的新月供,以及与现在相比会有多大变化。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>买家资源</h4>
+          <ul>
+            <li><a href="/chinese/buyer-guide">买家指南</a></li>
+            <li><a href="/chinese/land-transfer-tax">土地转让税</a></li>
+            <li><a href="/chinese/closing-costs">交房费用</a></li>
+            <li><a href="/chinese/all-calculator">★ BUY 计算器</a></li>
+            <li><a href="/chinese/payment-calculator">按揭计算器</a></li>
+            <li><a href="/chinese/refinance-calculator"><strong>再融资计算器</strong></a></li>
+            <li><a href="/chinese/rent-vs-buy-calculator">租房 vs 买房计算器</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="mc-shared">
+            <h3>您目前的房贷</h3>
+            <div class="mc-shared-fields">
+              <div class="calc-field">
+                <label for="rf-balance">剩余贷款余额</label>
+                <div class="input-prefix" data-prefix="$"><input id="rf-balance" type="text" value="500000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rf-current-rate">当前利率</label>
+                <div class="input-prefix" data-prefix="%"><input id="rf-current-rate" type="number" value="5.5" min="0" max="25" step="0.05" inputmode="decimal"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rf-current-amort">当前摊销剩余年数</label>
+                <div class="input-suffix" data-suffix="years"><input id="rf-current-amort" type="number" value="20" min="1" max="35" step="1" inputmode="numeric"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mc-scenarios" id="rf-scenarios"></div>
+
+          <h2 style="margin-top: 40px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px;">谁、何时、如何</h2>
+
+          <details class="mc-collapsible" open>
+            <summary>谁适合再融资?</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>房贷期限未到期的业主</strong>,想在续约前锁定更低的利率。</li>
+                <li><strong>未来 4 个月内到期续约的业主。</strong> 您有 4 个月的窗口期,可以免罚金货比多家续约。此时再融资是最干净利落的机会。</li>
+                <li><strong>想动用房屋净值的业主</strong>(装修、学费、债务重组、投资)。再融资可以让您将贷款额提高到房屋价值的 80%。</li>
+                <li><strong>正在偿还高息消费债务的业主</strong>(信用卡、个人贷款)。把这些债务并入低利率的房贷,能大幅释放每月现金流。</li>
+                <li><strong>正在经历人生变化的业主</strong>,结婚、离婚、配偶加入或退出产权。再融资通常是重新调整产权结构的时机。</li>
+              </ul>
+              <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px; margin-top: 16px;">
+                <strong>不适合的情况:</strong> 您的房贷快要还清了、违约金高于未来 2、3 年能省下的钱,或者您的信用或收入自首次批贷以来有所下滑(新的贷款机构可能无法批准您想要的利率)。
+              </div>
+            </div>
+          </details>
+
+          <details class="mc-collapsible">
+            <summary>什么时候是最佳时机?</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>在贷款期限的最后 4 个月内。</strong> 大多数贷款机构允许您提前续约或再融资而不收罚金。建议在到期日前约 120 天开始比价。</li>
+                <li><strong>当您的利率比目前最优的 5 年期固定利率至少高出 0.75%–1% 时。</strong> 低于这个差距,违约金通常会吃掉省下的钱。</li>
+                <li><strong>加拿大央行(BoC)降息之后。</strong> 新贷款的利率通常在几天内就会跟着变动。如果您本来就打算再融资,在降息后操作可以省下数千元。</li>
+                <li><strong>自您上次再融资以来房屋大幅升值时。</strong> 更多的净值意味着更多选择,通常也能拿到更好的利率档位。</li>
+                <li><strong>在您计划以更高利率为一笔大额支出融资之前。</strong> 再融资几乎总是比个人贷款、HELOC 提款或信用卡债务更划算。</li>
+              </ul>
+              <div class="callout" style="border-left: 3px solid var(--accent); padding-left: 22px; margin-top: 16px;">
+                <strong>经验法则。</strong> 如果再融资在 2、3 年内省下的钱超过违约金加交接成本,通常就是划算的。超过这个期限,越早再融资省得越多。
+              </div>
+            </div>
+          </details>
+
+          <details class="mc-collapsible">
+            <summary>具体怎么做?</summary>
+            <div class="mc-collapsible-body">
+              <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
+                <li><strong>拿到您目前房贷的详细信息。</strong> 剩余余额、当前利率、到期日,以及提前解约的确切罚金(致电贷款机构,要求书面说明)。</li>
+                <li><strong>至少从 3 个渠道获取利率报价。</strong> 您目前的贷款机构、一位经纪人,以及另一家银行。经纪人可以一次比较几十家贷款机构,只花您一个小时。</li>
+                <li><strong>把数字输入这个计算器。</strong> 对比 3 种方案与您目前的还款额、每月变化,以及在新摊销期内节省的总利息。</li>
+                <li><strong>加总交接成本。</strong> 违约金 + 律师/解押费(约 $500 至 $1,500)+ 评估费(约 $300 至 $500)+ 如需要的产权保险。从预计节省额中减去这些费用。</li>
+                <li><strong>如果算下来划算,</strong> 就向胜出的贷款机构申请。您需要重新审核资格:收入核实、信用检查、房屋评估。批准通常需要 1 到 3 周。</li>
+                <li><strong>完成交接。</strong> 您的律师会登记新贷款、还清旧贷款,并将任何额外提取的现金存入您的银行账户。</li>
+              </ol>
+              <p><strong>值得一用的工具:</strong> 用<a href="/chinese/payment-calculator">按揭计算器</a>来模拟不同房价方案下的新月供,如果您在权衡 HELOC 与全额再融资之间的选择,可以参考我的<a href="/chinese/blog/heloc">HELOC 指南</a>。</p>
+            </div>
+          </details>
+
+          <details class="mc-collapsible" open>
+            <summary>再融资的计算原理</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>余额不变,利率变、摊销期变。</strong> 再融资是用一笔新利率的新贷款取代您现有的贷款。如果您把摊销期重新拉长,每月还款会下降,但贷款期内支付的总利息会增加。</li>
+                <li><strong>加拿大式复利。</strong> 所有计算均采用半年复利(加拿大的惯例),再换算为您选择的还款频率。</li>
+                <li><strong>留意违约金。</strong> 在期限中途解约通常会产生罚金(3 个月利息或利率差额 IRD,以较高者为准)。本计算器不包含这笔罚金,转贷前请向您目前的贷款机构询问确切数字。</li>
+                <li><strong>需要另外加上的费用。</strong> 律师/解押费(约 $500–$1,500)、评估费(约 $300–$500),以及如新贷款机构要求的产权保险。</li>
+                <li><strong>经验法则。</strong> 如果 3 年以上省下的钱超过违约金加新贷款的交接成本,再融资通常是划算的。建议请贷款经纪根据您的具体数字进行测算。</li>
+              </ul>
+            </div>
+          </details>
+
+          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。实际利率、罚金(三个月利息或 IRD)与贷款审批因人而异。本计算器不包含您的违约金、律师费、评估费或 CMHC 保险变化。在进行再融资前,请咨询持牌贷款专业人士。</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ChineseCTASection heading="在考虑再融资吗?" lead="利率在变,您的情况也在变。如果您的房贷快到续约期,或者想知道提前解约是否划算,告诉我您的具体数字,我会为您对接一位值得信赖的经纪人。" />
+  <ChineseFooter />
+
+  <script>
+    // ============ Number formatting ============
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n)) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0, minimumFractionDigits: 0 });
+    }
+    function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+
+    // ============ Canadian mortgage math ============
+    function periodicRate(annualRatePct, paymentsPerYear) {
+      const semiAnnual = annualRatePct / 200;
+      return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+    }
+    function periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || amortYears <= 0) return 0;
+      const r = periodicRate(annualRatePct, paymentsPerYear);
+      const n = amortYears * paymentsPerYear;
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
+    }
+    function totalInterest(principal, annualRatePct, amortYears, paymentsPerYear) {
+      const p = periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear);
+      return p * amortYears * paymentsPerYear - principal;
+    }
+
+    // ============ Default 3 scenarios ============
+    const defaults = {
+      a: { rate: 4.5, amort: 25, freq: 12 },
+      b: { rate: 4.75, amort: 20, freq: 12 },
+      c: { rate: 5.0, amort: 15, freq: 12 },
+    };
+    const freqLabel = { 12: '/月', 24: '/半月', 26: '/双周', 52: '/周' };
+
+    function buildScenario(id, def) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.rate}% · ${def.amort} 年</span></div>
+          <div class="mc-row"><label>利率(%)</label><input type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>摊销期</label>
+              <select data-input="${id}-amort">
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 年</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 年</option>
+                <option value="20" ${def.amort === 20 ? 'selected' : ''}>20 年</option>
+                <option value="15" ${def.amort === 15 ? 'selected' : ''}>15 年</option>
+                <option value="10" ${def.amort === 10 ? 'selected' : ''}>10 年</option>
+              </select>
+            </div>
+            <div class="mc-row"><label>还款频率</label>
+              <select data-input="${id}-freq">
+                <option value="12" selected>每月</option>
+                <option value="24">半月</option>
+                <option value="26">双周</option>
+                <option value="52">每周</option>
+              </select>
+            </div>
+          </div>
+          <div class="mc-row mc-output"><label>新月供</label><span class="value" data-output="${id}-pmt">$0</span></div>
+          <div class="mc-row mc-output"><label>较目前变化</label><span class="value" data-output="${id}-change">$0</span></div>
+          <div class="mc-row mc-output"><label>总利息成本</label><span class="value" data-output="${id}-int">$0</span></div>
+          <div class="mc-row mc-payment"><label>月供</label><span class="value" data-output="${id}-monthly">$0</span><span class="freq" data-output="${id}-freq-label">/月</span></div>
+        </div>`;
+    }
+
+    document.getElementById('rf-scenarios').innerHTML = ['a','b','c'].map(id => buildScenario(id, defaults[id])).join('');
+
+    function update() {
+      const balance = parseN(document.getElementById('rf-balance').value);
+      const currentRate = parseFloat(document.getElementById('rf-current-rate').value) || 0;
+      const currentAmort = parseFloat(document.getElementById('rf-current-amort').value) || 0;
+      const currentMonthly = periodicPayment(balance, currentRate, currentAmort, 12);
+
+      ['a','b','c'].forEach(id => {
+        const rate = parseN(document.querySelector(`[data-input="${id}-rate"]`).value);
+        const amort = parseFloat(document.querySelector(`[data-input="${id}-amort"]`).value) || 25;
+        const freq = parseFloat(document.querySelector(`[data-input="${id}-freq"]`).value) || 12;
+        const pmt = periodicPayment(balance, rate, amort, freq);
+        const monthly = freq === 12 ? pmt : pmt * freq / 12;
+        const change = monthly - currentMonthly;
+        const totalInt = totalInterest(balance, rate, amort, freq);
+
+        document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
+        document.querySelector(`[data-output="${id}-change"]`).textContent = (change >= 0 ? '+' : '') + fmtCAD(change) + '/月';
+        document.querySelector(`[data-output="${id}-change"]`).style.color = change < 0 ? '#2f6b30' : (change > 0 ? '#b8002e' : '');
+        document.querySelector(`[data-output="${id}-int"]`).textContent = fmtCAD(totalInt);
+        document.querySelector(`[data-output="${id}-monthly"]`).textContent = fmtCAD(monthly);
+        document.querySelector(`[data-output="${id}-freq-label"]`).textContent = freqLabel[freq] || '/月';
+        const tag = document.querySelector(`[data-tag="${id}"]`);
+        if (tag) tag.textContent = rate + '% · ' + amort + ' 年';
+      });
+    }
+
+    // Comma format for balance
+    const balEl = document.getElementById('rf-balance');
+    function reformat() {
+      if (!balEl.value.trim()) return;
+      balEl.value = parseN(balEl.value).toLocaleString('en-CA', { maximumFractionDigits: 0 });
+    }
+    function strip() {
+      if (!balEl.value.trim()) return;
+      balEl.value = String(parseN(balEl.value));
+    }
+    reformat();
+    balEl.addEventListener('focus', strip);
+    balEl.addEventListener('blur', reformat);
+    balEl.addEventListener('input', update);
+    document.getElementById('rf-current-rate').addEventListener('input', update);
+    document.getElementById('rf-current-amort').addEventListener('input', update);
+    document.querySelectorAll('[data-input]').forEach(el => el.addEventListener('input', update));
+    document.querySelectorAll('[data-input] select, select[data-input]').forEach(el => el.addEventListener('change', update));
+
+    update();
+  </script>
+</BaseLayout>

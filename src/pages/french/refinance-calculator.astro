@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/refinance-calculator/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/refinance-calculator/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/refinance-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/refinance-calculator/' },
+];
+---
+<BaseLayout
+  title="Calculateur de refinancement | Peter Law"
+  description="Comparez 3 scénarios de refinancement côte à côte. Consultez votre nouveau paiement mensuel, le changement par rapport à votre hypothèque actuelle et le coût total des intérêts sur le nouvel amortissement. Conçu pour les règles canadiennes : composition semestrielle."
+  lang="fr"
+  bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <FrenchTopBar />
+  <FrenchHeader active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Calculateur de refinancement</div>
+      <h1>Devriez-vous refinancer? Comparez les paiements côte à côte.</h1>
+      <p>Comparez 3 scénarios de refinancement à votre hypothèque actuelle. Entrez ce qu'il reste sur votre prêt, le taux que vous payez actuellement et les nouveaux taux qui vous sont offerts. Le calculateur affiche votre nouveau paiement mensuel et son changement par rapport à aujourd'hui.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Ressources pour acheteurs</h4>
+          <ul>
+            <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
+            <li><a href="/french/land-transfer-tax">Droits de mutation</a></li>
+            <li><a href="/french/closing-costs">Frais de clôture</a></li>
+            <li><a href="/french/all-calculator">★ BUY Calculateur</a></li>
+            <li><a href="/french/payment-calculator">Calculateur hypothécaire</a></li>
+            <li><a href="/french/refinance-calculator"><strong>Calculateur de refinancement</strong></a></li>
+            <li><a href="/french/rent-vs-buy-calculator">Louer ou acheter</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="mc-shared">
+            <h3>Votre hypothèque actuelle</h3>
+            <div class="mc-shared-fields">
+              <div class="calc-field">
+                <label for="rf-balance">Solde hypothécaire restant</label>
+                <div class="input-prefix" data-prefix="$"><input id="rf-balance" type="text" value="500000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rf-current-rate">Taux d'intérêt actuel</label>
+                <div class="input-prefix" data-prefix="%"><input id="rf-current-rate" type="number" value="5.5" min="0" max="25" step="0.05" inputmode="decimal"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rf-current-amort">Années restantes sur l'amortissement actuel</label>
+                <div class="input-suffix" data-suffix="ans"><input id="rf-current-amort" type="number" value="20" min="1" max="35" step="1" inputmode="numeric"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mc-scenarios" id="rf-scenarios"></div>
+
+          <h2 style="margin-top: 40px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px;">Qui, quand et comment</h2>
+
+          <details class="mc-collapsible" open>
+            <summary>À qui s'adresse un refinancement?</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>Les propriétaires en milieu de terme hypothécaire</strong> qui veulent verrouiller un taux plus bas avant le renouvellement.</li>
+                <li><strong>Les propriétaires dont le renouvellement approche dans les 4 prochains mois.</strong> Vous disposez d'une fenêtre de 4 mois pour magasiner votre renouvellement auprès d'autres prêteurs sans pénalité. Refinancer à ce moment est l'occasion la plus simple.</li>
+                <li><strong>Les propriétaires qui veulent accéder à leur équité</strong> (rénovation, frais de scolarité, consolidation de dettes, investissement). Le refinancement permet d'augmenter le prêt jusqu'à 80 % de la valeur de la propriété.</li>
+                <li><strong>Les propriétaires qui paient des dettes de consommation à taux élevé</strong> (cartes de crédit, prêts personnels). Les regrouper dans une hypothèque à taux plus bas peut libérer beaucoup de liquidités mensuelles.</li>
+                <li><strong>Les propriétaires qui traversent un changement de vie</strong>, mariage, divorce, ajout ou retrait d'un conjoint du titre. Le refinancement est habituellement le moment de restructurer la propriété du titre.</li>
+              </ul>
+              <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px; margin-top: 16px;">
+                <strong>Ce n'est pas une bonne option si :</strong> votre hypothèque est presque remboursée, votre pénalité de rupture dépasse les économies que vous réaliseriez au cours des 2, 3 premières années, ou si votre crédit ou votre revenu a diminué depuis votre première qualification (un nouveau prêteur pourrait ne pas vous approuver au taux souhaité).
+              </div>
+            </div>
+          </details>
+
+          <details class="mc-collapsible">
+            <summary>Quel est le meilleur moment?</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>Dans les 4 derniers mois de votre terme.</strong> La plupart des prêteurs vous permettent de renouveler ou de refinancer tôt sans pénalité. Commencez à magasiner environ 120 jours avant votre date d'échéance.</li>
+                <li><strong>Lorsque votre taux est d'au moins 0,75 % à 1 % supérieur au meilleur taux fixe de 5 ans actuel.</strong> En deçà de cet écart, la pénalité de rupture absorbe habituellement les économies.</li>
+                <li><strong>Juste après une baisse de taux de la Banque du Canada.</strong> Les taux des nouvelles hypothèques bougent habituellement en quelques jours. Si vous prévoyez refinancer de toute façon, le faire après une baisse peut vous faire économiser des milliers de dollars.</li>
+                <li><strong>Lorsque votre propriété a pris de la valeur de façon importante</strong> depuis votre dernier refinancement. Plus d'équité signifie plus d'options et souvent un meilleur palier de taux.</li>
+                <li><strong>Avant une dépense importante que vous prévoyiez financer à des taux plus élevés.</strong> Un refinancement bat presque toujours un prêt personnel, un retrait sur MCH ou une dette de carte de crédit.</li>
+              </ul>
+              <div class="callout" style="border-left: 3px solid var(--accent); padding-left: 22px; margin-top: 16px;">
+                <strong>Règle générale.</strong> Si le refinancement vous fait économiser plus que la pénalité de rupture et les frais de clôture en 2, 3 ans, ça vaut habituellement la peine. Au-delà de cet horizon, plus tôt vous refinancez, plus vous économisez.
+              </div>
+            </div>
+          </details>
+
+          <details class="mc-collapsible">
+            <summary>Comment procéder?</summary>
+            <div class="mc-collapsible-body">
+              <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
+                <li><strong>Obtenez les détails de votre hypothèque actuelle.</strong> Solde restant, taux actuel, date d'échéance et la pénalité exacte de rupture (appelez votre prêteur, demandez-la par écrit).</li>
+                <li><strong>Obtenez des soumissions de taux d'au moins 3 sources.</strong> Votre prêteur actuel, un courtier et une autre banque. Les courtiers magasinent des dizaines de prêteurs à la fois, une heure de votre temps.</li>
+                <li><strong>Entrez les chiffres dans ce calculateur.</strong> Comparez 3 scénarios à votre paiement actuel, le changement mensuel et le total des intérêts économisés sur le nouvel amortissement.</li>
+                <li><strong>Additionnez les frais de clôture.</strong> Pénalité de rupture + frais juridiques/mainlevée (environ 500 $, 1 500 $) + évaluation (environ 300 $, 500 $) + assurance titres si requise. Soustrayez ce montant de vos économies projetées.</li>
+                <li><strong>Si les chiffres fonctionnent,</strong> faites une demande auprès du prêteur gagnant. Vous devrez vous requalifier : vérification du revenu, vérification de crédit, évaluation de la propriété. L'approbation prend habituellement 1, 3 semaines.</li>
+                <li><strong>Clôture.</strong> Votre avocat enregistre la nouvelle hypothèque, rembourse l'ancienne et verse tout montant supplémentaire à votre compte bancaire.</li>
+              </ol>
+              <p><strong>Outils utiles :</strong> <a href="/french/payment-calculator">Calculateur hypothécaire</a> pour modéliser le nouveau paiement selon différents scénarios de prix d'achat, et mon <a href="/french/blog/heloc">guide sur la MCH</a> si vous hésitez entre une MCH et un refinancement complet.</p>
+            </div>
+          </details>
+
+          <details class="mc-collapsible" open>
+            <summary>Comment fonctionne le calcul du refinancement</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>Même solde, nouveau taux, nouvel amortissement.</strong> Le refinancement remplace votre prêt existant par un nouveau à un nouveau taux. Si vous étirez de nouveau l'amortissement, votre paiement mensuel diminue, mais vous payez plus d'intérêts sur la durée du prêt.</li>
+                <li><strong>Composition canadienne.</strong> Tous les calculs utilisent la composition semestrielle (la convention canadienne) convertie à votre fréquence de paiement.</li>
+                <li><strong>Attention à la pénalité de rupture.</strong> Rompre votre hypothèque existante en cours de terme entraîne habituellement une pénalité (3 mois d'intérêts ou le différentiel de taux d'intérêt [IRD], le plus élevé des deux). Ce calculateur n'inclut PAS cette pénalité. Demandez le montant exact à votre prêteur actuel avant de changer.</li>
+                <li><strong>Autres frais à ajouter.</strong> Frais juridiques/mainlevée (environ 500 $, 1 500 $), évaluation (environ 300 $, 500 $) et assurance titres si le nouveau prêteur l'exige.</li>
+                <li><strong>Règle générale.</strong> Le refinancement en vaut habituellement la peine si les économies sur 3 ans ou plus dépassent la pénalité de rupture et les frais de clôture de la nouvelle hypothèque. Demandez à un courtier hypothécaire de modéliser vos chiffres précis.</li>
+              </ul>
+            </div>
+          </details>
+
+          <p class="calc-disclaimer">À titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement. Les taux réels, les pénalités (trois mois d'intérêts ou IRD) et les approbations des prêteurs varient. Ce calculateur ne modélise pas votre pénalité de rupture, vos frais juridiques, le coût d'évaluation ni les changements d'assurance SCHL. Consultez un professionnel hypothécaire agréé avant de refinancer.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FrenchCTASection heading="Vous songez à refinancer?" lead="Les taux changent. Votre situation aussi. Si votre hypothèque approche du renouvellement, ou si vous voulez savoir si ça vaut la peine de rompre tôt, communiquez-moi vos chiffres et je vous mettrai en contact avec un courtier en qui j'ai confiance." />
+  <FrenchFooter />
+
+  <script>
+    // ============ Number formatting ============
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n)) return '$0';
+      return n.toLocaleString('fr-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0, minimumFractionDigits: 0 });
+    }
+    function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+
+    // ============ Canadian mortgage math ============
+    function periodicRate(annualRatePct, paymentsPerYear) {
+      const semiAnnual = annualRatePct / 200;
+      return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+    }
+    function periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || amortYears <= 0) return 0;
+      const r = periodicRate(annualRatePct, paymentsPerYear);
+      const n = amortYears * paymentsPerYear;
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
+    }
+    function totalInterest(principal, annualRatePct, amortYears, paymentsPerYear) {
+      const p = periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear);
+      return p * amortYears * paymentsPerYear - principal;
+    }
+
+    // ============ Default 3 scenarios ============
+    const defaults = {
+      a: { rate: 4.5, amort: 25, freq: 12 },
+      b: { rate: 4.75, amort: 20, freq: 12 },
+      c: { rate: 5.0, amort: 15, freq: 12 },
+    };
+    const freqLabel = { 12: '/mois', 24: '/demi-mois', 26: '/2 sem.', 52: '/sem.' };
+
+    function buildScenario(id, def) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>Scénario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.rate} % · ${def.amort} ans</span></div>
+          <div class="mc-row"><label>Taux d'intérêt (%)</label><input type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>Amortissement</label>
+              <select data-input="${id}-amort">
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 ans</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 ans</option>
+                <option value="20" ${def.amort === 20 ? 'selected' : ''}>20 ans</option>
+                <option value="15" ${def.amort === 15 ? 'selected' : ''}>15 ans</option>
+                <option value="10" ${def.amort === 10 ? 'selected' : ''}>10 ans</option>
+              </select>
+            </div>
+            <div class="mc-row"><label>Fréquence</label>
+              <select data-input="${id}-freq">
+                <option value="12" selected>Mensuel</option>
+                <option value="24">Bimensuel</option>
+                <option value="26">Aux 2 semaines</option>
+                <option value="52">Hebdomadaire</option>
+              </select>
+            </div>
+          </div>
+          <div class="mc-row mc-output"><label>Nouveau paiement</label><span class="value" data-output="${id}-pmt">$0</span></div>
+          <div class="mc-row mc-output"><label>Changement par rapport à aujourd'hui</label><span class="value" data-output="${id}-change">$0</span></div>
+          <div class="mc-row mc-output"><label>Coût total des intérêts</label><span class="value" data-output="${id}-int">$0</span></div>
+          <div class="mc-row mc-payment"><label>Paiement mensuel</label><span class="value" data-output="${id}-monthly">$0</span><span class="freq" data-output="${id}-freq-label">/mois</span></div>
+        </div>`;
+    }
+
+    document.getElementById('rf-scenarios').innerHTML = ['a','b','c'].map(id => buildScenario(id, defaults[id])).join('');
+
+    function update() {
+      const balance = parseN(document.getElementById('rf-balance').value);
+      const currentRate = parseFloat(document.getElementById('rf-current-rate').value) || 0;
+      const currentAmort = parseFloat(document.getElementById('rf-current-amort').value) || 0;
+      const currentMonthly = periodicPayment(balance, currentRate, currentAmort, 12);
+
+      ['a','b','c'].forEach(id => {
+        const rate = parseN(document.querySelector(`[data-input="${id}-rate"]`).value);
+        const amort = parseFloat(document.querySelector(`[data-input="${id}-amort"]`).value) || 25;
+        const freq = parseFloat(document.querySelector(`[data-input="${id}-freq"]`).value) || 12;
+        const pmt = periodicPayment(balance, rate, amort, freq);
+        const monthly = freq === 12 ? pmt : pmt * freq / 12;
+        const change = monthly - currentMonthly;
+        const totalInt = totalInterest(balance, rate, amort, freq);
+
+        document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
+        document.querySelector(`[data-output="${id}-change"]`).textContent = (change >= 0 ? '+' : '') + fmtCAD(change) + '/mois';
+        document.querySelector(`[data-output="${id}-change"]`).style.color = change < 0 ? '#2f6b30' : (change > 0 ? '#b8002e' : '');
+        document.querySelector(`[data-output="${id}-int"]`).textContent = fmtCAD(totalInt);
+        document.querySelector(`[data-output="${id}-monthly"]`).textContent = fmtCAD(monthly);
+        document.querySelector(`[data-output="${id}-freq-label"]`).textContent = freqLabel[freq] || '/mois';
+        const tag = document.querySelector(`[data-tag="${id}"]`);
+        if (tag) tag.textContent = rate + ' % · ' + amort + ' ans';
+      });
+    }
+
+    // Comma format for balance
+    const balEl = document.getElementById('rf-balance');
+    function reformat() {
+      if (!balEl.value.trim()) return;
+      balEl.value = parseN(balEl.value).toLocaleString('fr-CA', { maximumFractionDigits: 0 });
+    }
+    function strip() {
+      if (!balEl.value.trim()) return;
+      balEl.value = String(parseN(balEl.value));
+    }
+    reformat();
+    balEl.addEventListener('focus', strip);
+    balEl.addEventListener('blur', reformat);
+    balEl.addEventListener('input', update);
+    document.getElementById('rf-current-rate').addEventListener('input', update);
+    document.getElementById('rf-current-amort').addEventListener('input', update);
+    document.querySelectorAll('[data-input]').forEach(el => el.addEventListener('input', update));
+    document.querySelectorAll('[data-input] select, select[data-input]').forEach(el => el.addEventListener('change', update));
+
+    update();
+  </script>
+</BaseLayout>
