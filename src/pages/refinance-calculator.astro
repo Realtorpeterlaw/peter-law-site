@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/refinance-calculator/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/refinance-calculator/' },
+];
+---
+<BaseLayout
+  title="Refinance Calculator | Peter Law"
+  description="Compare 3 refinance scenarios side by side. See your new monthly payment, monthly change vs your current mortgage, and total interest cost over the new amortization. Built for Canadian rules: semi-annual compounding."
+  bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Refinance calculator</div>
+      <h1>Should you refinance? See the payment side by side.</h1>
+      <p>Compare 3 refinance scenarios against your current mortgage. Enter what's left on your loan, the rate you're paying now, and the new rates you're being offered. The calculator shows your new monthly payment and how much it changes vs today.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="prose-grid">
+        <aside class="prose-side">
+          <h4>Buyer resources</h4>
+          <ul>
+            <li><a href="/buyer-guide">Buyer Guide</a></li>
+            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
+            <li><a href="/closing-costs">Closing Costs</a></li>
+            <li><a href="/all-calculator">★ BUY Calculator</a></li>
+            <li><a href="/payment-calculator">Mortgage Calculator</a></li>
+            <li><a href="/refinance-calculator"><strong>Refinance Calculator</strong></a></li>
+            <li><a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a></li>
+          </ul>
+        </aside>
+        <div class="prose-body">
+
+          <div class="mc-shared">
+            <h3>Your current mortgage</h3>
+            <div class="mc-shared-fields">
+              <div class="calc-field">
+                <label for="rf-balance">Remaining mortgage balance</label>
+                <div class="input-prefix" data-prefix="$"><input id="rf-balance" type="text" value="500000" inputmode="decimal" autocomplete="off"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rf-current-rate">Current interest rate</label>
+                <div class="input-prefix" data-prefix="%"><input id="rf-current-rate" type="number" value="5.5" min="0" max="25" step="0.05" inputmode="decimal"></div>
+              </div>
+              <div class="calc-field">
+                <label for="rf-current-amort">Years left on current amortization</label>
+                <div class="input-suffix" data-suffix="years"><input id="rf-current-amort" type="number" value="20" min="1" max="35" step="1" inputmode="numeric"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mc-scenarios" id="rf-scenarios"></div>
+
+          <details class="mc-collapsible" open>
+            <summary>How refinance math works</summary>
+            <div class="mc-collapsible-body">
+              <ul class="bullets">
+                <li><strong>Same balance, new rate, new amortization.</strong> Refinancing replaces your existing loan with a new one at a new rate. If you stretch the amortization back out, your monthly payment drops but you pay more interest over the life of the loan.</li>
+                <li><strong>Canadian compounding.</strong> All calculations use semi-annual compounding (Canada's convention) converted to your payment frequency.</li>
+                <li><strong>Watch the break fee.</strong> Breaking your existing mortgage mid-term usually costs a penalty (3 months' interest or Interest Rate Differential, whichever is larger). This calculator does NOT include that penalty. Ask your current lender for the exact figure before you switch.</li>
+                <li><strong>Other costs to add.</strong> Legal/discharge fees (~$500–$1,500), appraisal (~$300–$500), and title insurance if the new lender requires it.</li>
+                <li><strong>Rule of thumb.</strong> Refinancing usually pays off if the savings over 3+ years exceed the break fee + new-mortgage closing costs. Ask a mortgage broker to model your specific numbers.</li>
+              </ul>
+            </div>
+          </details>
+
+          <p class="calc-disclaimer">For illustrative purposes only. Canadian mortgages compound semi-annually. Actual rates, penalties (three-months interest or IRD), and lender approvals vary. This calculator does not model your break fee, legal fees, appraisal cost, or CMHC insurance changes. Consult a licensed mortgage professional before refinancing.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Thinking about refinancing?" lead="Rates move. Your situation moves. If your mortgage is coming up for renewal, or you want to know whether it's worth breaking early, tell me your numbers and I'll connect you with a broker I trust." />
+  <Footer />
+
+  <script>
+    // ============ Number formatting ============
+    function fmtCAD(n) {
+      if (!isFinite(n) || isNaN(n)) return '$0';
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0, minimumFractionDigits: 0 });
+    }
+    function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+
+    // ============ Canadian mortgage math ============
+    function periodicRate(annualRatePct, paymentsPerYear) {
+      const semiAnnual = annualRatePct / 200;
+      return Math.pow(1 + semiAnnual, 2 / paymentsPerYear) - 1;
+    }
+    function periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear) {
+      if (principal <= 0 || amortYears <= 0) return 0;
+      const r = periodicRate(annualRatePct, paymentsPerYear);
+      const n = amortYears * paymentsPerYear;
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
+    }
+    function totalInterest(principal, annualRatePct, amortYears, paymentsPerYear) {
+      const p = periodicPayment(principal, annualRatePct, amortYears, paymentsPerYear);
+      return p * amortYears * paymentsPerYear - principal;
+    }
+
+    // ============ Default 3 scenarios ============
+    const defaults = {
+      a: { rate: 4.5, amort: 25, freq: 12 },
+      b: { rate: 4.75, amort: 20, freq: 12 },
+      c: { rate: 5.0, amort: 15, freq: 12 },
+    };
+    const freqLabel = { 12: '/mo', 24: '/semi-mo', 26: '/bi-wk', 52: '/wk' };
+
+    function buildScenario(id, def) {
+      return `
+        <div class="mc-scenario" data-scenario="${id}">
+          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.rate}% · ${def.amort} yr</span></div>
+          <div class="mc-row"><label>Interest rate (%)</label><input type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
+          <div class="mc-row-pair">
+            <div class="mc-row"><label>Amortization</label>
+              <select data-input="${id}-amort">
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 yr</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 yr</option>
+                <option value="20" ${def.amort === 20 ? 'selected' : ''}>20 yr</option>
+                <option value="15" ${def.amort === 15 ? 'selected' : ''}>15 yr</option>
+                <option value="10" ${def.amort === 10 ? 'selected' : ''}>10 yr</option>
+              </select>
+            </div>
+            <div class="mc-row"><label>Frequency</label>
+              <select data-input="${id}-freq">
+                <option value="12" selected>Monthly</option>
+                <option value="24">Semi-mo.</option>
+                <option value="26">Bi-weekly</option>
+                <option value="52">Weekly</option>
+              </select>
+            </div>
+          </div>
+          <div class="mc-row mc-output"><label>New payment</label><span class="value" data-output="${id}-pmt">$0</span></div>
+          <div class="mc-row mc-output"><label>Change vs today</label><span class="value" data-output="${id}-change">$0</span></div>
+          <div class="mc-row mc-output"><label>Total interest cost</label><span class="value" data-output="${id}-int">$0</span></div>
+          <div class="mc-row mc-payment"><label>Monthly payment</label><span class="value" data-output="${id}-monthly">$0</span><span class="freq" data-output="${id}-freq-label">/mo</span></div>
+        </div>`;
+    }
+
+    document.getElementById('rf-scenarios').innerHTML = ['a','b','c'].map(id => buildScenario(id, defaults[id])).join('');
+
+    function update() {
+      const balance = parseN(document.getElementById('rf-balance').value);
+      const currentRate = parseFloat(document.getElementById('rf-current-rate').value) || 0;
+      const currentAmort = parseFloat(document.getElementById('rf-current-amort').value) || 0;
+      const currentMonthly = periodicPayment(balance, currentRate, currentAmort, 12);
+
+      ['a','b','c'].forEach(id => {
+        const rate = parseN(document.querySelector(`[data-input="${id}-rate"]`).value);
+        const amort = parseFloat(document.querySelector(`[data-input="${id}-amort"]`).value) || 25;
+        const freq = parseFloat(document.querySelector(`[data-input="${id}-freq"]`).value) || 12;
+        const pmt = periodicPayment(balance, rate, amort, freq);
+        const monthly = freq === 12 ? pmt : pmt * freq / 12;
+        const change = monthly - currentMonthly;
+        const totalInt = totalInterest(balance, rate, amort, freq);
+
+        document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
+        document.querySelector(`[data-output="${id}-change"]`).textContent = (change >= 0 ? '+' : '') + fmtCAD(change) + '/mo';
+        document.querySelector(`[data-output="${id}-change"]`).style.color = change < 0 ? '#2f6b30' : (change > 0 ? '#b8002e' : '');
+        document.querySelector(`[data-output="${id}-int"]`).textContent = fmtCAD(totalInt);
+        document.querySelector(`[data-output="${id}-monthly"]`).textContent = fmtCAD(monthly);
+        document.querySelector(`[data-output="${id}-freq-label"]`).textContent = freqLabel[freq] || '/mo';
+        const tag = document.querySelector(`[data-tag="${id}"]`);
+        if (tag) tag.textContent = rate + '% · ' + amort + ' yr';
+      });
+    }
+
+    // Comma format for balance
+    const balEl = document.getElementById('rf-balance');
+    function reformat() {
+      if (!balEl.value.trim()) return;
+      balEl.value = parseN(balEl.value).toLocaleString('en-CA', { maximumFractionDigits: 0 });
+    }
+    function strip() {
+      if (!balEl.value.trim()) return;
+      balEl.value = String(parseN(balEl.value));
+    }
+    reformat();
+    balEl.addEventListener('focus', strip);
+    balEl.addEventListener('blur', reformat);
+    balEl.addEventListener('input', update);
+    document.getElementById('rf-current-rate').addEventListener('input', update);
+    document.getElementById('rf-current-amort').addEventListener('input', update);
+    document.querySelectorAll('[data-input]').forEach(el => el.addEventListener('input', update));
+    document.querySelectorAll('[data-input] select, select[data-input]').forEach(el => el.addEventListener('change', update));
+
+    update();
+  </script>
+</BaseLayout>

@@ -294,6 +294,21 @@
       "permanent": true
     },
     {
+      "source": "/cmhc-insurance-calculator",
+      "destination": "/payment-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/cmhc-insurance-calculator",
+      "destination": "/chinese/payment-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/french/cmhc-insurance-calculator",
+      "destination": "/french/payment-calculator",
+      "permanent": true
+    },
+        {
       "source": "/feed.xml",
       "destination": "/blog",
       "permanent": true
