@@ -2998,4 +2998,6 @@ html[data-theme="dark"] .ltt-total {
   /* fh-house-grid intentionally stays 2-col — see 540px rule above */
   .fh-house-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px; }
 }
+/* Divider between real-estate credentials and other credentials on About page */
+.creds-divider { border: 0; border-top: 1px dashed var(--rule); margin: 12px 0; max-width: 320px; }
 
