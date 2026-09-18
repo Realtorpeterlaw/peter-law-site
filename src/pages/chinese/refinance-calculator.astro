@@ -60,7 +60,7 @@ const hreflangAlternates = [
               </div>
               <div class="calc-field">
                 <label for="rf-current-amort">当前摊销剩余年数</label>
-                <div class="input-suffix" data-suffix="years"><input id="rf-current-amort" type="number" value="20" min="1" max="35" step="1" inputmode="numeric"></div>
+                <div class="input-suffix" data-suffix="years"><input id="rf-current-amort" type="text" value="20" inputmode="numeric" autocomplete="off"></div>
               </div>
             </div>
           </div>
@@ -253,3 +253,23 @@ const hreflangAlternates = [
     update();
   </script>
 </BaseLayout>
+<style>
+  /* Refinance calc "years" input: tighten suffix positioning and hide any
+     residual native number spinners (belt + braces with type=text). */
+  .mc-shared input[type="number"]::-webkit-inner-spin-button,
+  .mc-shared input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  .mc-shared input[type="number"] { -moz-appearance: textfield; }
+  .mc-shared .input-suffix { position: relative; }
+  .mc-shared .input-suffix::after {
+    content: attr(data-suffix);
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-mute);
+    font-size: 12.5px;
+    pointer-events: none;
+  }
+  .mc-shared .input-suffix > input { padding-right: 52px !important; text-align: left; }
+</style>
+
