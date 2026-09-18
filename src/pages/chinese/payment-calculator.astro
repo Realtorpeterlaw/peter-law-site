@@ -458,3 +458,44 @@ const hreflangAlternates = [
     update();
   </script>
 </BaseLayout>
+<style>
+  /* --- Basics grid + select-clip fix (Peter Sep 2026, ported from EN) --- */
+  .mc-row select { padding-right: 22px; }
+  .mc-scenario .mc-row-pair .mc-row select { font-size: 14px; padding: 8px 6px 8px 8px; }
+  .mc-shared .mc-shared-fields {
+    grid-template-columns:
+      minmax(140px, 0.8fr)
+      minmax(220px, 1.6fr)
+      minmax(140px, 1fr);
+  }
+  @media (max-width: 720px) {
+    .mc-shared .mc-shared-fields { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .mc-shared .mc-shared-fields { grid-template-columns: 1fr; }
+  }
+  .mc-shared .calc-field select {
+    padding-right: 26px;
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+  }
+  .mc-shared .calc-field input,
+  .mc-shared .calc-field .input-prefix,
+  .mc-shared .calc-field .input-prefix input {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+  }
+  .mc-shared .calc-field select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 32px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4l3 3 3-3' stroke='%23555' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 10px;
+  }
+</style>
+
