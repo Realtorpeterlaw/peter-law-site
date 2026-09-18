@@ -270,5 +270,24 @@ const hreflangAlternates = [
     pointer-events: none;
   }
   .mc-shared .input-suffix > input { padding-right: 52px !important; text-align: left; }
+
+  /* 'Your current mortgage' grid: give the balance column extra room,
+     narrow the rate + years columns, and cap the years input width so
+     'years' sits close to the digit instead of at the far right. */
+  .mc-shared .mc-shared-fields {
+    grid-template-columns:
+      minmax(160px, 1.4fr)
+      minmax(120px, 0.85fr)
+      minmax(120px, 0.85fr);
+  }
+  .mc-shared .input-suffix { max-width: 180px; }
+  @media (max-width: 720px) {
+    .mc-shared .mc-shared-fields { grid-template-columns: 1fr 1fr; }
+    .mc-shared .input-suffix { max-width: none; }
+  }
+  @media (max-width: 480px) {
+    .mc-shared .mc-shared-fields { grid-template-columns: 1fr; }
+  }
+
 </style>
 
