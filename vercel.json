@@ -308,7 +308,7 @@
       "destination": "/french/payment-calculator",
       "permanent": true
     },
-        {
+    {
       "source": "/feed.xml",
       "destination": "/blog",
       "permanent": true
@@ -371,6 +371,21 @@
     {
       "source": "/zh/:path*",
       "destination": "/chinese/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#book",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/contact",
+      "destination": "/chinese#book",
+      "permanent": true
+    },
+    {
+      "source": "/french/contact",
+      "destination": "/french#book",
       "permanent": true
     }
   ]
