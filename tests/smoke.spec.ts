@@ -5,7 +5,7 @@ test('homepage loads with expected content', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle(/Toronto Rental Realtor/i);
   await expect(page.locator('h1').first()).toBeVisible();
-  await expect(page.locator('a[href="/contact"]').first()).toBeVisible();
+  await expect(page.locator('section#book')).toBeVisible();
 });
 
 test('language switcher offers EN / 中文 / FR', async ({ page }) => {
@@ -60,7 +60,7 @@ test('BUY Calculator (all-calculator) page loads', async ({ page }) => {
 test('For Renters page loads and CTA works', async ({ page }) => {
   await page.goto('/for-renters');
   await expect(page.locator('h1')).toBeVisible();
-  await expect(page.locator('a[href="/contact"]').first()).toBeVisible();
+  await expect(page.locator('section#book')).toBeVisible();
 });
 
 test('Buyer Guide loads', async ({ page }) => {
@@ -73,10 +73,15 @@ test('About page loads with credentials', async ({ page }) => {
   await expect(page.locator('body')).toContainText(/RECO/i);
 });
 
-test('Contact page has the form', async ({ page }) => {
-  await page.goto('/contact');
-  await expect(page.locator('form')).toBeVisible();
-  await expect(page.locator('input[type="email"]').first()).toBeVisible();
+test('Refinance Calculator computes 3 scenarios', async ({ page }) => {
+  await page.goto('/refinance-calculator');
+  await expect(page.locator('h1')).toContainText(/refinance/i);
+  await expect(page.locator('[data-output="a-monthly"]')).not.toHaveText('$0');
+});
+
+test('Form thank-you page still exists', async ({ page }) => {
+  await page.goto('/contact/thanks');
+  await expect(page.locator('h1')).toBeVisible();
 });
 
 // ─── BLOG ──────────────────────────────────────────────────
