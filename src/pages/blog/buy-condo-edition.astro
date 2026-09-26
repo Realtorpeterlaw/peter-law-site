@@ -1,0 +1,308 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-09-25';
+const articleTitle = 'BUY: Condo Edition';
+const articleDescription = 'Toronto condo prices have dropped. Is it a good time to buy one and rent it out? A plain-language, three-step check: does the rent cover the costs, is the condo fee healthy, and where your money really comes from.';
+const articleUrl = 'https://www.realtorpeterlaw.com/blog/buy-condo-edition';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law, Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'Toronto condo investment 2026, buy condo to rent out, negative cash flow condo, condo fee to rent ratio, status certificate reserve fund, condo investor Toronto, rent control November 15 2018, investment condo checklist',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/buy-condo-edition/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/buy-condo-edition/' },
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Investing · Condos</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Condo prices in Toronto have dropped. That makes a lot of people ask: is now a good time to buy one and rent it out? The honest answer is: sometimes. A lower price helps, but it does not make every condo a good investment. This guide shows you how to check the numbers in plain language.</p>
+        <div class="article-byline">
+          <span>By <a href="/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>September 25, 2026</time>
+          <span class="dot">·</span>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="fh-stats-wrap">
+      <div class="wrap">
+        <div class="fh-stats-grid">
+          <div class="fh-stat"><div class="fh-stat-num">-$1,160</div><div class="fh-stat-label">Monthly shortfall</div><div class="fh-stat-sub">$600K one-bed, 20% down</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">8 in 10</div><div class="fh-stat-label">Investors losing money</div><div class="fh-stat-sub">each month (CIBC / Urbanation, 2024)</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">&lt; 20%</div><div class="fh-stat-label">Fee-to-rent target</div><div class="fh-stat-sub">condo fee as a share of rent</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">10+ yrs</div><div class="fh-stat-label">Hold period</div><div class="fh-stat-sub">plus 6 months of cash on hand</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h4>On this page</h4>
+            <ul>
+              <li><a href="#takeaways">Key takeaways</a></li>
+              <li><a href="#step-1">Step 1: Does the rent cover the costs?</a></li>
+              <li><a href="#step-2">Step 2: Check the condo fee three ways</a></li>
+              <li><a href="#step-3">Step 3: Where your money comes from</a></li>
+              <li><a href="#checklist">What a good investment condo looks like</a></li>
+              <li><a href="#red-flags">Red flags: when to walk away</a></li>
+              <li><a href="#bottom-line">The bottom line</a></li>
+              <li><a href="#disclaimer">Important disclaimer</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+
+            <div class="callout bce-advisor" role="note">
+              <strong>Before you read:</strong> this article is general education, not financial advice. Please speak with a qualified financial advisor (and a mortgage professional, accountant and lawyer) before buying any investment property. <a href="#disclaimer">Read the full disclaimer.</a>
+            </div>
+
+            <h2 id="takeaways">Key takeaways</h2>
+            <ul class="bullets">
+              <li><strong>Lower prices are not the same as a good deal.</strong> Rents have dropped too, so you still need to do the math.</li>
+              <li><strong>Most Toronto condos cost more each month than they earn in rent</strong> when you put 20% down.</li>
+              <li><strong>Your profit usually comes from two things you cannot see each month:</strong> paying down your mortgage and the condo going up in value.</li>
+              <li><strong>A low condo fee can be a warning sign, not a bargain.</strong> Always read the building's financial report (the status certificate).</li>
+              <li><strong>Buy for the long term.</strong> Plan to hold for 10 years or more, and keep extra cash on hand.</li>
+            </ul>
+
+            <!-- ===================== STEP 1 ===================== -->
+            <h2 id="step-1" style="margin-top:44px;">Step 1: Does the rent cover the costs?</h2>
+            <p>This is the first question every investor should ask. When you own a rental condo, you pay four bills every month: the mortgage, the condo fee, property tax, and insurance. The rent needs to cover all of them.</p>
+            <p>Here is what that looks like for a typical one-bedroom condo in Toronto today:</p>
+
+            <figure class="bce-chart" aria-label="Monthly costs of $3,460 versus rent of $2,300">
+              <figcaption class="bce-chart-title">A typical condo costs more each month than it rents for</figcaption>
+              <div class="bce-chart-sub">Monthly dollars: $600K one-bedroom, 20% down, 4.4% mortgage rate (estimate)</div>
+              <div class="bce-bars">
+                <div class="bce-bar-row">
+                  <span class="bce-bar-label">What you pay</span>
+                  <div class="bce-bar-track">
+                    <div class="bce-stack">
+                      <span class="seg seg-mortgage" style="width:65.75%" title="Mortgage $2,630"></span>
+                      <span class="seg seg-fee" style="width:11%" title="Condo fee $440"></span>
+                      <span class="seg seg-tax" style="width:9%" title="Property tax $360"></span>
+                      <span class="seg seg-ins" style="width:0.75%" title="Insurance $30"></span>
+                    </div>
+                    <span class="bce-bar-value">$3,460</span>
+                  </div>
+                </div>
+                <div class="bce-bar-row">
+                  <span class="bce-bar-label">Rent you collect</span>
+                  <div class="bce-bar-track">
+                    <div class="bce-stack"><span class="seg seg-rent" style="width:57.5%" title="Rent $2,300"></span></div>
+                    <span class="bce-bar-value">$2,300 <em class="bce-neg">Short by $1,160 a month</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="bce-legend">
+                <span><i class="seg-mortgage"></i>Mortgage $2,630</span>
+                <span><i class="seg-fee"></i>Condo fee $440</span>
+                <span><i class="seg-tax"></i>Property tax $360</span>
+                <span><i class="seg-ins"></i>Insurance $30</span>
+              </div>
+              <div class="bce-note">Estimate for illustration · $600K one-bedroom, 25-year mortgage, rent based on September 2026 Toronto averages</div>
+            </figure>
+
+            <p>In this example, the owner pays about <strong>$1,160 a month</strong> out of their own pocket. This is called <strong>negative cash flow</strong>. It is very common right now. A study by CIBC and Urbanation found that about 8 out of 10 condo investors with a mortgage were losing money each month in 2024.</p>
+            <div class="callout"><strong>Tip:</strong> when you guess the rent, look at what similar units actually rented for, not what landlords are asking. Asking rents are often higher than what tenants really pay. My <a href="/rental-calculator">Rental Calculator</a> and <a href="/payment-calculator">Mortgage Calculator</a> can help you run your own version.</div>
+
+            <!-- ===================== STEP 2 ===================== -->
+            <h2 id="step-2" style="margin-top:44px;">Step 2: Check the condo fee three ways</h2>
+            <p>The condo fee (also called the maintenance fee) pays for the building: cleaning, repairs, security, and savings for big future fixes. Many buyers ask what the "perfect" fee is. There isn't one. Instead, use these three simple checks.</p>
+
+            <h3>Check 1: Compare the fee to the rent</h3>
+            <p>This is the most useful check.</p>
+            <figure class="bce-chart" aria-label="Condo fee as a share of rent: example is 19 percent">
+              <figcaption class="bce-chart-title">Keep the condo fee under 20% of the rent</figcaption>
+              <div class="bce-chart-sub">Monthly condo fee as a share of monthly rent (percent)</div>
+              <div class="bce-gauge">
+                <div class="bce-zone zone-good" style="width:50%"><span>Healthy</span></div>
+                <div class="bce-zone zone-watch" style="width:15%"><span>Watch closely</span></div>
+                <div class="bce-zone zone-bad" style="width:35%"><span>Too costly</span></div>
+                <div class="bce-marker" style="left:47.5%"><span>Our example: 19%</span></div>
+              </div>
+              <div class="bce-scale"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span></div>
+              <div class="bce-note">How to check: divide the monthly condo fee by the monthly rent ($440 ÷ $2,300 = 19%). Guideline ranges from Peter Law's practice experience, not an official standard.</div>
+            </figure>
+
+            <h3>Check 2: Look at the fee per square foot</h3>
+            <p>Divide the monthly fee by the unit's size. In Toronto, about <strong>$0.60 to $0.90 per square foot</strong> is normal. But be careful: a very low fee in an older building can mean the building isn't saving enough money. That can lead to a surprise bill later, called a <strong>special assessment</strong>, which can cost owners thousands of dollars.</p>
+
+            <h3>Check 3: Read the status certificate</h3>
+            <p>This is the building's financial report card. Look at three things: how much money is in the savings account (the <strong>reserve fund</strong>), how often fees have gone up, and whether the building is being sued. Also check what the fee includes. A fee that covers heat and water is worth more than one that doesn't. My <a href="/blog/first-time-buyer-guide-condos#status">Condo Buyer's Guide</a> explains the status certificate in more detail.</p>
+
+            <!-- ===================== STEP 3 ===================== -->
+            <h2 id="step-3" style="margin-top:44px;">Step 3: Know where your money really comes from</h2>
+            <p>If the rent doesn't cover the bills, why do people still buy? Because money comes in three ways, and only one of them shows up in your bank account each month:</p>
+            <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
+              <li><strong>Monthly cash flow:</strong> rent minus all your bills. Right now this is usually negative.</li>
+              <li><strong>Mortgage paydown:</strong> every payment makes your loan a little smaller, so you own more of the condo.</li>
+              <li><strong>Value growth:</strong> the condo may be worth more when you sell.</li>
+            </ol>
+            <p>Here is how that adds up in year one:</p>
+
+            <figure class="bce-chart" aria-label="Year one: rent shortfall minus $13,920, mortgage paydown plus $10,600, value growth plus $12,000, total plus $8,680">
+              <figcaption class="bce-chart-title">Your profit depends on the condo going up in value</figcaption>
+              <div class="bce-chart-sub">Year-one money in and out, same $600K example (dollars)</div>
+              <div class="bce-cols">
+                <div class="bce-col"><div class="bce-col-area"><div class="bce-col-bar neg" style="height:46.4%"><span>-$13,920</span></div></div><div class="bce-col-label">Rent shortfall</div></div>
+                <div class="bce-col"><div class="bce-col-area"><div class="bce-col-bar pos" style="height:35.3%"><span>+$10,600</span></div></div><div class="bce-col-label">Mortgage paydown</div></div>
+                <div class="bce-col"><div class="bce-col-area"><div class="bce-col-bar pos" style="height:40%"><span>+$12,000</span></div></div><div class="bce-col-label">Value growth (2%)</div></div>
+                <div class="bce-col"><div class="bce-col-area"><div class="bce-col-bar total" style="height:28.9%"><span>+$8,680</span></div></div><div class="bce-col-label"><strong>Year 1 total</strong></div></div>
+              </div>
+              <div class="bce-note">Estimate for illustration · same $600K example · 2% value growth is an assumption, not a promise · does not include closing costs</div>
+            </figure>
+
+            <div class="callout" style="border-left:3px solid #b8002e; padding-left:22px;">
+              <strong>Look closely.</strong> If the condo's value stays flat, the total drops to about <strong>-$3,300</strong> for the year. That means this deal only works if the price goes up. Nobody can promise that.
+            </div>
+            <p><strong>A simple test:</strong> ask yourself, "Would I still be okay if the price didn't move for five years?" If the answer is no, the deal is too risky for you.</p>
+            <p>Also remember the costs of buying. In Toronto, you pay <a href="/land-transfer-tax">land transfer tax</a> twice (once to Ontario and once to the city), plus legal fees. Those take years to earn back. See <a href="/closing-costs">Closing Costs</a>.</p>
+
+            <!-- ===================== CHECKLIST ===================== -->
+            <h2 id="checklist" style="margin-top:44px;">What a good investment condo looks like</h2>
+            <p>Use this checklist when you compare units. The more boxes you can check, the better.</p>
+            <div class="fh-closing-stack">
+              <div class="fh-closing-row"><span><strong>Condo fee</strong></span><span>Under 20% of the rent</span></div>
+              <div class="fh-closing-row"><span><strong>Building savings</strong></span><span>Healthy reserve fund, no big surprise bills coming</span></div>
+              <div class="fh-closing-row"><span><strong>Size and layout</strong></span><span>Over 550 sq ft, smart layout (a den with a door is a plus)</span></div>
+              <div class="fh-closing-row"><span><strong>Rent control</strong></span><span>Units first lived in after Nov 15, 2018 can raise rent more freely</span></div>
+              <div class="fh-closing-row"><span><strong>Real rent</strong></span><span>Based on what similar units actually rented for</span></div>
+              <div class="fh-closing-row"><span><strong>Your down payment</strong></span><span>Enough to be close to breaking even monthly (often 30% to 35%)</span></div>
+              <div class="fh-closing-row"><span><strong>Time</strong></span><span>You plan to keep it for 10 years or more</span></div>
+              <div class="fh-closing-row"><span><strong>Cash cushion</strong></span><span>Savings for at least 6 months of costs if the unit sits empty</span></div>
+            </div>
+            <p style="margin-top:14px;"><strong>Why size matters:</strong> since prices peaked, very small condos (under 550 square feet) have dropped the most. Families and couples want more space, and two-bedroom units have held their value better.</p>
+
+            <!-- ===================== RED FLAGS ===================== -->
+            <h2 id="red-flags" style="margin-top:44px;">Red flags: when to walk away</h2>
+            <div class="fh-before-after" style="grid-template-columns: 1fr;">
+              <div class="fh-ba-col fh-ba-dont">
+                <ul>
+                  <li><strong>"It will pay for itself."</strong> If a seller or sales office promises the rent will cover everything, ask to see the math. Right now, it usually won't.</li>
+                  <li><strong>A very cheap condo fee in an old building.</strong> The building may not be saving enough for repairs.</li>
+                  <li><strong>Special assessments or lawsuits</strong> listed in the status certificate.</li>
+                  <li><strong>Buying pre-construction just to flip it.</strong> Many people who tried this recently lost money.</li>
+                  <li><strong>You're stretching to make the 20% down payment.</strong> If one empty month would hurt you, wait.</li>
+                  <li><strong>Lots of similar units for rent in the same building.</strong> You'll be competing for tenants and may need to lower your rent.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ===================== BOTTOM LINE ===================== -->
+            <h2 id="bottom-line" style="margin-top:44px;">The bottom line</h2>
+            <p>Today's lower prices can be a good chance for the right buyer. That buyer has a larger down payment, extra savings, and a long-term plan. For everyone else, a condo that loses money every month can become a heavy weight.</p>
+            <p>Before you buy, do three things:</p>
+            <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
+              <li>Do the monthly math with real rents.</li>
+              <li>Check the condo fee three ways.</li>
+              <li>Read the status certificate with your lawyer.</li>
+            </ol>
+            <p>Then take your numbers to a qualified financial advisor before you sign anything. If you want help pulling the real rent and building data on a specific condo, <a href="#book">reach out</a> and I'll walk you through what I see.</p>
+
+            <!-- ===================== DISCLAIMER ===================== -->
+            <div id="disclaimer" class="bce-disclaimer">
+              <h2>Important disclaimer: speak with a financial advisor first</h2>
+              <p><strong>This article is for general information and education only. It is not financial, investment, tax, mortgage, accounting, or legal advice, and it is not a recommendation to buy, sell, or hold any property.</strong></p>
+              <p>Peter Law is a registered real estate professional with HomeLife Golconda Realty Inc., Brokerage. Peter is <strong>not</strong> a financial advisor, investment advisor, financial planner, mortgage broker or agent, accountant, tax professional, or lawyer, and does not provide advice in those areas.</p>
+              <p>All figures, charts, rents, rates, fees, growth rates, and examples in this article are <strong>illustrative estimates only</strong>, based on assumed inputs and general market conditions in September 2026. They are not a forecast, promise, or guarantee of any rent, cash flow, appreciation, return, or outcome. Real numbers will be different for every property and every buyer. Real estate values and rents can go down as well as up, and you can lose money, including money you put in as a down payment.</p>
+              <p><strong>Before buying any investment property, you should consult a qualified, licensed financial advisor</strong> about whether it fits your goals, finances, and risk tolerance, and also speak with a licensed mortgage professional, an accountant or tax professional, and a real estate lawyer. Any decision you make is your own responsibility.</p>
+              <p>Reading this article does not create a client, agency, or advisory relationship. A real estate client relationship is only created by a signed written agreement. To the fullest extent permitted by law, Peter Law and HomeLife Golconda Realty Inc., Brokerage accept no liability for any loss or damage arising from reliance on this article. Third-party data (including the CIBC / Urbanation figure) is cited as published and has not been independently verified. See also the site-wide <a href="/disclaimer">Disclaimer</a>.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTASection heading="Thinking about an investment condo?" lead="Bring me the listing. I'll pull what similar units actually rented for, check the fee against the rent, and flag anything in the building worth a closer look, so you can take real numbers to your financial advisor." />
+  <Footer />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  .bce-advisor { border-left: 3px solid var(--accent); padding-left: 22px; margin-bottom: 28px; }
+  .bce-chart { margin: 20px 0 22px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+  .bce-chart-title { font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--ink); }
+  .bce-chart-sub { font-size: 12.5px; color: var(--ink-mute); margin: 4px 0 16px; }
+  .bce-note { font-size: 12px; color: var(--ink-mute); font-style: italic; margin-top: 14px; line-height: 1.5; }
+  .bce-bars { display: flex; flex-direction: column; gap: 16px; }
+  .bce-bar-row { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; }
+  .bce-bar-label { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+  .bce-bar-track { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .bce-stack { flex: 1; display: flex; height: 30px; background: var(--bg-warm); border-radius: 3px; overflow: hidden; }
+  .bce-stack .seg { display: block; height: 100%; }
+  .bce-bar-value { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 14px; color: var(--ink); white-space: nowrap; }
+  .bce-neg { display: block; font-style: normal; font-family: 'Inter', sans-serif; font-size: 11.5px; color: #b8002e; font-weight: 600; }
+  .seg-mortgage { background: #2f6fd6; } .seg-fee { background: #e8743b; } .seg-tax { background: #1faa7a; } .seg-ins { background: #1c2f5e; } .seg-rent { background: #2f8f3a; }
+  .bce-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 12.5px; color: var(--ink-soft); }
+  .bce-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  .bce-gauge { position: relative; display: flex; height: 34px; margin-top: 30px; }
+  .bce-zone { display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; border: 1px solid; border-radius: 3px; }
+  .zone-good { background: #dff0dd; border-color: #6cb86a; color: #1f5a22; }
+  .zone-watch { background: #fbecc9; border-color: #e0a93a; color: #7a5a10; }
+  .zone-bad { background: #f6d6d6; border-color: #d16a6a; color: #8a1c1c; }
+  .bce-marker { position: absolute; top: -26px; bottom: -4px; width: 2px; background: var(--ink); }
+  .bce-marker span { position: absolute; top: 0; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; font-weight: 600; color: var(--ink); }
+  .bce-scale { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-mute); margin-top: 6px; }
+  .bce-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .bce-col-area { position: relative; height: 240px; border-bottom: 1px solid var(--rule); }
+  .bce-col-area::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--ink-mute); opacity: 0.5; }
+  .bce-col-bar { position: absolute; left: 18%; right: 18%; border-radius: 2px; }
+  .bce-col-bar span { position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12.5px; font-weight: 700; color: var(--ink); }
+  .bce-col-bar.pos, .bce-col-bar.total { bottom: 50%; }
+  .bce-col-bar.pos { background: #2f8f3a; } .bce-col-bar.total { background: #2f6fd6; }
+  .bce-col-bar.pos span, .bce-col-bar.total span { top: -20px; }
+  .bce-col-bar.neg { top: 50%; background: #c83a3a; }
+  .bce-col-bar.neg span { bottom: -20px; }
+  .bce-col-label { text-align: center; font-size: 12.5px; color: var(--ink-soft); margin-top: 8px; }
+  .bce-disclaimer { margin-top: 48px; padding: 22px 24px; border: 1px solid var(--rule); border-left: 4px solid #b8002e; border-radius: 4px; background: var(--bg-warm); }
+  .bce-disclaimer h2 { font-size: 20px; margin: 0 0 12px; }
+  .bce-disclaimer p { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 10px; }
+  @media (max-width: 560px) {
+    .bce-bar-row { grid-template-columns: 1fr; gap: 6px; }
+    .bce-cols { gap: 6px; }
+    .bce-col-bar { left: 8%; right: 8%; }
+    .bce-col-bar span, .bce-col-label { font-size: 11px; }
+    .bce-zone { font-size: 10.5px; }
+  }
+</style>
