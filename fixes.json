@@ -1,0 +1,302 @@
+[
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "都是为了帮您理解多伦多房地产, 而非取代律师",
+    "new": "都是为了帮您理解多伦多房地产,而非取代律师",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "变化频繁, 有时非常突然",
+    "new": "变化频繁,有时非常突然",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "所发布的一切内容, 包括博客、指南、表格、计算器、过往成交记录、所引用的利率与信息图, 仅供一般参考",
+    "new": "所发布的一切内容(包括博客、指南、表格、计算器、过往成交记录、所引用的利率与信息图)仅供一般参考",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "均来自我们认为可靠的来源, 包括多伦多地区房地产协会(TRREB)、MLS® 系统数据、市政物业评估公司(MPAC)估值,以及加拿大按揭及住房公司(CMHC)公开资料, 但不作任何保证",
+    "new": "均来自我们认为可靠的来源(包括多伦多地区房地产协会(TRREB)、MLS® 系统数据、市政物业评估公司(MPAC)估值,以及加拿大按揭及住房公司(CMHC)公开资料),但不作任何保证",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "本网站上任何计算器或估算, 包括按揭付款计算器、可负担性计算器、结算成本估算器、土地转让税计算器与 CMHC 保费计算器, 均提供近似数字",
+    "new": "本网站上任何计算器或估算(包括按揭付款计算器、可负担性计算器、结算成本估算器、土地转让税计算器与 CMHC 保费计算器)均提供近似数字",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "本网站会在页面中直接展示若干由政府发布的数据, 最典型的是加拿大央行政策利率与安省年度租金上涨指导线。",
+    "new": "本网站会在页面中直接展示若干由政府发布的数据:最典型的是加拿大央行政策利率与安省年度租金上涨指导线。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "当文章中出现具体金额, 如\"最高退还 5 万元\"\"大约节省 3,200 元\"\"最高罚款 1 万元\"\"每年省约 50 元\", 这些数字仅为示例",
+    "new": "当文章中出现具体金额(如\"最高退还 5 万元\"\"大约节省 3,200 元\"\"最高罚款 1 万元\"\"每年省约 50 元\"),这些数字仅为示例",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "本网站部分栏目, 如\"近期成交\"与\"过往成交\", 会展示 Peter 作为注册代表参与过的交易信息",
+    "new": "本网站部分栏目(如\"近期成交\"与\"过往成交\")会展示 Peter 作为注册代表参与过的交易信息",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "本网站显示的合计成交额数据, 例如\"$10M+ 成交\"徽章或累计成交额陈述, 计算方式如下:",
+    "new": "本网站显示的合计成交额数据(例如\"$10M+ 成交\"徽章或累计成交额陈述)计算方式如下:",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "(i) 对于 MLS® 交易, 已成交挂盘历史、MLS® 编号,及 RECO 交易记录表;",
+    "new": "(i) 对于 MLS® 交易:已成交挂盘历史、MLS® 编号,及 RECO 交易记录表;",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "(ii) 对于私下成交, 已签署的代理协议、已签署的《房屋买卖协议》(或租约),以及经纪公司交易记录。",
+    "new": "(ii) 对于私下成交:已签署的代理协议、已签署的《房屋买卖协议》(或租约),以及经纪公司交易记录。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "本网站部分页面引用 Peter 以往作为 Airbnb 房东的业绩, 如\"400+ Airbnb 好评\"或某项星级评分。这些数字反映的是",
+    "new": "本网站部分页面引用 Peter 以往作为 Airbnb 房东的业绩(如\"400+ Airbnb 好评\"或某项星级评分)。这些数字反映的是",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/disclaimer.astro",
+    "old": "本网站有时会链接至第三方服务提供商, 如互联网/公用事业供应商、租客背景核查服务(如 SingleKey)、按揭专业人士等, Peter 曾与其合作或将客户转介至该等机构。",
+    "new": "本网站有时会链接至第三方服务提供商(如互联网/公用事业供应商、租客背景核查服务(如 SingleKey)、按揭专业人士等),Peter 曾与其合作或将客户转介至该等机构。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "背景调查、看房、租约草拟, 由一位酒店业出身的中介为您完成,知道什么是好租客的样子。",
+    "new": "背景调查、看房、租约草拟:由一位酒店业出身的中介为您完成,知道什么是好租客的样子。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<strong>市场定价</strong>, 比对同类房源",
+    "new": "<strong>市场定价</strong>:比对同类房源",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<strong>挂牌与推广</strong>, MLS、社交媒体、个人渠道",
+    "new": "<strong>挂牌与推广</strong>:MLS、社交媒体、个人渠道",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<strong>租客筛选</strong>, 信用调查、雇主核实、推荐人核实、面对面评估",
+    "new": "<strong>租客筛选</strong>:信用调查、雇主核实、推荐人核实、面对面评估",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<strong>带看</strong>, 我亲自带看",
+    "new": "<strong>带看</strong>:我亲自带看",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<strong>租约草拟与签订</strong>, 安省标准租约",
+    "new": "<strong>租约草拟与签订</strong>:安省标准租约",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<strong>入住与交钥匙</strong>, 包括房屋状况记录、大楼介绍",
+    "new": "<strong>入住与交钥匙</strong>:包括房屋状况记录、大楼介绍",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<div class=\"attr\">, Peter</div>",
+    "new": "<div class=\"attr\">Peter</div>",
+    "why": "typo"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "主动开发中文租客社群, 这是很多中介错过的一块。",
+    "new": "主动开发中文租客社群:这是很多中介错过的一块。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "我会加上定制条款, 宠物、吸烟、转租、水电分摊, 把日后的纠纷提前堵住。",
+    "new": "我会加上定制条款(宠物、吸烟、转租、水电分摊),把日后的纠纷提前堵住。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<li><strong>第一周</strong>, 咨询、定价分析、拍摄、挂牌上线</li>",
+    "new": "<li><strong>第一周</strong>:咨询、定价分析、拍摄、挂牌上线</li>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<li><strong>第一到二周</strong>, 带看(通常 5 到 10 组合格租客)</li>",
+    "new": "<li><strong>第一到二周</strong>:带看(通常 5 到 10 组合格租客)</li>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<li><strong>第二到三周</strong>, 申请审核、背景调查、推荐人选</li>",
+    "new": "<li><strong>第二到三周</strong>:申请审核、背景调查、推荐人选</li>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "<li><strong>第二到三周</strong>, 签约、收取首末月租金、安排交钥匙</li>",
+    "new": "<li><strong>第二到三周</strong>:签约、收取首末月租金、安排交钥匙</li>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "安省标准租约, 即 <strong>住宅租赁协议(Form 2229E)</strong>, 是安省政府强制使用的",
+    "new": "安省标准租约,即 <strong>住宅租赁协议(Form 2229E)</strong>,是安省政府强制使用的",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/for-landlords.astro",
+    "old": "会不定期更新, 请到 <a href",
+    "new": "会不定期更新,请到 <a href",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<h3>第一步, 15 分钟初步通话</h3>",
+    "new": "<h3>第一步:15 分钟初步通话</h3>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<h3 id=\"apply\">第二步, 准备申请材料</h3>",
+    "new": "<h3 id=\"apply\">第二步:准备申请材料</h3>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "填一下下面的表格, 这些基本信息能让我更快为您准备完整的申请包",
+    "new": "填一下下面的表格,这些基本信息能让我更快为您准备完整的申请包",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "我会告诉您哪些替代材料管用, 担保人信、提前多缴押金、雇主证明信、海外信用报告, 也会告诉您哪些房东愿意接受这些材料。",
+    "new": "我会告诉您哪些替代材料管用(担保人信、提前多缴押金、雇主证明信、海外信用报告),也会告诉您哪些房东愿意接受这些材料。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<h3>第三步, 看真正合适的房子</h3>",
+    "new": "<h3>第三步:看真正合适的房子</h3>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<h3>第四步, 签约、搬家、安顿</h3>",
+    "new": "<h3>第四步:签约、搬家、安顿</h3>",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "每一份租约我都会逐条审阅, 特别关注租金涨幅条款、额外费用、解约条款。",
+    "new": "每一份租约我都会逐条审阅:特别关注租金涨幅条款、额外费用、解约条款。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "而是申请包让房东读完后没有任何疑问的那位, 一眼看完就说\"就是他了\"。",
+    "new": "而是申请包让房东读完后没有任何疑问的那位:一眼看完就说\"就是他了\"。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>政府签发的身份证件</strong>, 护照、驾照、加拿大公民卡或安省身份证。",
+    "new": "<strong>政府签发的身份证件</strong>:护照、驾照、加拿大公民卡或安省身份证。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>雇主信</strong>, 公司抬头纸,签字,出具日期在 30 天以内。",
+    "new": "<strong>雇主信</strong>:公司抬头纸,签字,出具日期在 30 天以内。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>工资单</strong>, 最近 2 到 3 次的工资单。",
+    "new": "<strong>工资单</strong>:最近 2 到 3 次的工资单。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>信用报告</strong>, 由 Equifax 或 TransUnion 出具,30 天内的。",
+    "new": "<strong>信用报告</strong>:由 Equifax 或 TransUnion 出具,30 天内的。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>租房申请表</strong>, OREA Form 410。",
+    "new": "<strong>租房申请表</strong>:OREA Form 410。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "一份完整的 OREA Form 410, 他对比的是只交了一半材料的其他申请人。",
+    "new": "一份完整的 OREA Form 410,他对比的是只交了一半材料的其他申请人。",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "但需要替代材料, 海外信用报告、担保人、提前多缴押金,或者找愿意接受新移民的房东。",
+    "new": "但需要替代材料(海外信用报告、担保人、提前多缴押金),或者找愿意接受新移民的房东。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>水电煤气</strong>, 每月 $70 到 $130",
+    "new": "<strong>水电煤气</strong>:每月 $70 到 $130",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>互联网</strong>, 每月 $55 到 $90",
+    "new": "<strong>互联网</strong>:每月 $55 到 $90",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "推荐链接, 我会获得一点积分",
+    "new": "推荐链接,我会获得一点积分",
+    "why": "stray_space"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>租客责任保险</strong>, 每月 $10 到 $30。",
+    "new": "<strong>租客责任保险</strong>:每月 $10 到 $30。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>储物柜(可选)</strong>, 每月 $20 到 $100。",
+    "new": "<strong>储物柜(可选)</strong>:每月 $20 到 $100。",
+    "why": "colon_or_parens"
+  },
+  {
+    "file": "src/pages/chinese/for-renters.astro",
+    "old": "<strong>入住登记 / 电梯</strong>, 大多数大楼需缴",
+    "new": "<strong>入住登记 / 电梯</strong>:大多数大楼需缴",
+    "why": "colon_or_parens"
+  }
+]

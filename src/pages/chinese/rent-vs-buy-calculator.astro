@@ -190,7 +190,7 @@ const hreflangAlternates = [
               <div class="row"><span>卖出时的房屋价值</span><strong id="rvb-cmp-homevalue">$0</strong></div>
               <div class="row total"><span><strong>净差额(租房成本 − 购房净成本)</strong></span><strong id="rvb-cmp-diff">$0</strong></div>
             </div>
-            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">请在上方输入您的数字, 计算器会实时更新。</div>
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">请在上方输入您的数字,计算器会实时更新。</div>
           </div>
 
           <!-- ============================================================
@@ -222,7 +222,7 @@ const hreflangAlternates = [
             <summary>数字是如何算出来的</summary>
             <div class="mc-collapsible-body">
               <ul class="bullets">
-                <li><strong>房贷月供:</strong>仅包含本金和利息,采用加拿大惯例, 利息按半年复利、不提前计息。物业税、保险与维护费单独列出。</li>
+                <li><strong>房贷月供:</strong>仅包含本金和利息,采用加拿大惯例,利息按半年复利、不提前计息。物业税、保险与维护费单独列出。</li>
                 <li><strong>CMHC 保费:</strong>根据您的贷款价值比自动算出,采用 CMHC 2024 年 12 月 15 日生效的费率表。安省对保费另收的 8% PST 在交接时支付,本工具未计入。</li>
                 <li><strong>每月总支出(购房):</strong>月供 + 物业税月均 + 房屋保险 + 维护费/Condo 物业费。</li>
                 <li><strong>每月总支出(租房):</strong>每月租金 + 每月租客保险。</li>
@@ -240,7 +240,7 @@ const hreflangAlternates = [
                ============================================================ -->
           <section class="rvb-chart-section" aria-label="购房 vs 租房：随时间变化">
             <h3 class="rvb-chart-title">购房 vs 租房：随时间变化</h3>
-            <p class="rvb-chart-lead">每年累计现金支出。两条线相交处即您的盈亏平衡点, 从这一年开始,买房在纯现金层面开始占优。金色区域表示您若在该年出售,可留住的房产净值。</p>
+            <p class="rvb-chart-lead">每年累计现金支出。两条线相交处即您的盈亏平衡点:从这一年开始,买房在纯现金层面开始占优。金色区域表示您若在该年出售,可留住的房产净值。</p>
             <div class="rvb-chart-wrap">
               <svg id="rvb-chart-svg" class="rvb-chart-svg" viewBox="0 0 720 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- rendered dynamically by JS -->
@@ -248,7 +248,7 @@ const hreflangAlternates = [
             </div>
             <div class="rvb-chart-legend">
               <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-equity"></span>房产净值(该年出售时可保留)</span>
-              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-buy"></span>买房(房贷 + TMI + 收官成本 + 出售成本)</span>
+              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-buy"></span>买房(房贷 + TMI + 交接成本 + 出售成本)</span>
               <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-rent"></span>租房(租金 + 内容保险,累计)</span>
             </div>
             <p class="rvb-chart-note" id="rvb-chart-note"></p>
@@ -257,11 +257,11 @@ const hreflangAlternates = [
                TIPS & ADVICE (collapsible, styled as explainer)
                ============================================================ -->
           <details class="mc-collapsible mc-explainer">
-            <summary>贴士与建议, 写给租客</summary>
+            <summary>贴士与建议:写给租客</summary>
             <div class="mc-collapsible-body mc-explainer-body">
 
               <h3>租房不是"打水漂"</h3>
-              <p>您花钱买到的是灵活性、可流动性,以及不用操心维修账单的自由。这些都有实实在在的价值, 在与购房对比之前,先给它标个价。</p>
+              <p>您花钱买到的是灵活性、可流动性,以及不用操心维修账单的自由。这些都有实实在在的价值,在与购房对比之前,先给它标个价。</p>
 
               <h3>了解您的租金管制状态</h3>
               <p>在安大略省,首次投入住宅使用<strong>早于2018年11月15日</strong>的楼盘单位,受年度租金涨幅指导上限保护(2027年为1.9%)。较新的楼盘可以在续租时把租金涨到市场价。签约前请务必问清楚。</p>
@@ -282,17 +282,17 @@ const hreflangAlternates = [
               <p>家具、电器、搬家、第一个月的水电费,以及零星维修,在第一年里加起来很快。别把每一分钱都投进首付里。</p>
 
               <h4>首付的机会成本很重要</h4>
-              <p>如果您继续租房,首付这笔钱本可以拿去投资。本工具没有对此建模, 想看到完整的情况,请找理财规划师帮您做"购房 vs 投资"的并列测算。</p>
+              <p>如果您继续租房,首付这笔钱本可以拿去投资。本工具没有对此建模:想看到完整的情况,请找理财规划师帮您做"购房 vs 投资"的并列测算。</p>
 
               <h4>看房前先拿到预批</h4>
-              <p>预批是免费的,它能告诉您贷款机构实际愿意批给您多少, 而不是计算器估算出的"您能负担多少"。预批还能在您看房期间锁定利率 90 到 120 天。</p>
+              <p>预批是免费的,它能告诉您贷款机构实际愿意批给您多少,而不是计算器估算出的"您能负担多少"。预批还能在您看房期间锁定利率 90 到 120 天。</p>
 
-              <p class="mc-explainer-cta"><em>不确定今年该不该出手?我同时服务买家和租客, 我的建议取决于您的实际情况,而不是一张表格。<a href="#book">联系我</a>。</em></p>
+              <p class="mc-explainer-cta"><em>不确定今年该不该出手?我同时服务买家和租客:我的建议取决于您的实际情况,而不是一张表格。<a href="#book">联系我</a>。</em></p>
             </div>
           </details>
 
           <p class="calc-disclaimer">
-            <strong>免责声明。</strong>本计算器仅供参考。加拿大房贷按半年复利、不提前计息的方式计算。CMHC 费率根据您的贷款价值比自动算出,采用 CMHC 2024 年 12 月 15 日生效的费率表;安省对保费另收的 8% PST 在交接时支付,本工具未计入。房屋增值、通胀与租金涨幅均为您输入的假设值, 实际结果会有所不同。物业税、房屋保险与维护费均假设按您输入的通胀率增长。卖房成本按房屋售价的固定百分比估算,通常涵盖地产佣金(含 HST)、律师费与调整款项。本工具未对所得税、提前解约的贷款违约金、HELOC 借款,或将首付另作投资的机会成本进行建模。我是持牌房地产销售代表, 不是房贷经纪、理财规划师、税务顾问或投资顾问。对于这样重大的决定,请就上述各领域咨询合格的专业人士。
+            <strong>免责声明。</strong>本计算器仅供参考。加拿大房贷按半年复利、不提前计息的方式计算。CMHC 费率根据您的贷款价值比自动算出,采用 CMHC 2024 年 12 月 15 日生效的费率表;安省对保费另收的 8% PST 在交接时支付,本工具未计入。房屋增值、通胀与租金涨幅均为您输入的假设值,实际结果会有所不同。物业税、房屋保险与维护费均假设按您输入的通胀率增长。卖房成本按房屋售价的固定百分比估算,通常涵盖地产佣金(含 HST)、律师费与调整款项。本工具未对所得税、提前解约的贷款违约金、HELOC 借款,或将首付另作投资的机会成本进行建模。我是持牌房地产销售代表,不是房贷经纪、理财规划师、税务顾问或投资顾问。对于这样重大的决定,请就上述各领域咨询合格的专业人士。
           </p>
 
         </div>
@@ -300,7 +300,7 @@ const hreflangAlternates = [
     </div>
   </section>
 
-  <ChineseCTASection heading="想用真实房源来算一算这些数字吗?" lead="脱离实际房源谈数字没有意义。我们一起看看您预算范围内的真实多伦多房源,针对每一套都跑一遍租房 vs 购房的对比, 用您真实的首付、利率和持有年限。一次通话,没有压力。" />
+  <ChineseCTASection heading="想用真实房源来算一算这些数字吗?" lead="脱离实际房源谈数字没有意义。我们一起看看您预算范围内的真实多伦多房源,针对每一套都跑一遍租房 vs 购房的对比,用您真实的首付、利率和持有年限。一次通话,没有压力。" />
   <ChineseFooter />
 </BaseLayout>
 
@@ -382,7 +382,7 @@ const hreflangAlternates = [
     function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
     function num(k) { return parseN(el[k] ? el[k].value : ''); }
     function fmtCAD(n) {
-      if (!isFinite(n)) return ',';
+      if (!isFinite(n)) return '$0';
       const abs = Math.abs(n);
       const sign = n < 0 ? '-' : '';
       return sign + '$' + Math.round(abs).toLocaleString('en-CA');
@@ -508,7 +508,7 @@ const hreflangAlternates = [
         v.textContent = '在 ' + years + ' 年内,购房与租房的成本大致打平。这时候应该由非财务因素(灵活性 vs 稳定性)来做决定。';
       } else if (diff > 0) {
         v.classList.add('rvb-verdict-buy');
-        v.textContent = '在 ' + years + ' 年内,购房大约领先 ' + fmtCAD(diff) + ', 这还没算上首付的机会成本。看房前请先找房贷经纪确认预批。';
+        v.textContent = '在 ' + years + ' 年内,购房大约领先 ' + fmtCAD(diff) + ',这还没算上首付的机会成本。看房前请先找房贷经纪确认预批。';
       } else {
         v.classList.add('rvb-verdict-rent');
         v.textContent = '在 ' + years + ' 年内,单纯从现金角度看,租房大约领先 ' + fmtCAD(-diff) + '。这还不包括如果继续持有房产、您本可以继续积累的净值。请把"卖出前的年数"调大,再重新计算。';

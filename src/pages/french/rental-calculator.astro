@@ -229,12 +229,12 @@ const hreflangAlternates = [
           vIcon = ICON_WARN;
         } else if (pct < 80) {
           vTitle = 'Possible, mais parlez-en avec votre agent immobilier.';
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu, la plupart des propriétaires diront non à ce ratio. Exceptions possibles : garant, loyer d\'avance, bail corporatif, excellent crédit. Parlez à un agent immobilier licencié avant de soumettre.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu : la plupart des propriétaires diront non à ce ratio. Exceptions possibles : garant, loyer d\'avance, bail corporatif, excellent crédit. Parlez à un agent immobilier licencié avant de soumettre.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         } else {
           vTitle = "Malheureusement, votre ratio revenu/loyer est trop élevé et ne suffira pas dans le marché actuel.";
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu. À ce ratio, quasiment aucun propriétaire n\'approuvera, la limite standard que la plupart des courtiers appliquent est autour de 33 à 40 %. Envisagez une unité moins chère, un cosignataire, ou augmentez votre revenu vérifiable avant de postuler.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu. À ce ratio, quasiment aucun propriétaire n\'approuvera; la limite standard que la plupart des courtiers appliquent est autour de 33 à 40 %. Envisagez une unité moins chère, un cosignataire, ou augmentez votre revenu vérifiable avant de postuler.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         }

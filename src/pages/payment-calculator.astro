@@ -111,7 +111,7 @@ const hreflangAlternates = [
             <p>If you put down <em>less than</em> 20%, it is a <strong>high-ratio</strong> mortgage. You are borrowing more than 80% of the home's price, so the lender is taking on more risk. You have to pay for mortgage insurance, usually between <strong>0.6% and 4.5%</strong> of the loan amount. There is also a maximum home price you can buy under this option.</p>
 
             <h3>Second Mortgage</h3>
-            <p>If you already have a mortgage but need more money, you can take a <strong>second mortgage</strong> against your home. It uses your home as security, just like the first one. If you stop paying, the lender can force a sale of the property. The first mortgage always gets paid back first, so the second lender is at higher risk, that is why second mortgages usually charge <strong>higher interest</strong>.</p>
+            <p>If you already have a mortgage but need more money, you can take a <strong>second mortgage</strong> against your home. It uses your home as security, just like the first one. If you stop paying, the lender can force a sale of the property. The first mortgage always gets paid back first, so the second lender is at higher risk; that is why second mortgages usually charge <strong>higher interest</strong>.</p>
 
             <h3>Mortgage Features</h3>
             <p>Every lender is different. Each one lets you customize the terms of your loan. Here are the features worth asking about before you sign.</p>
@@ -471,7 +471,7 @@ const hreflangAlternates = [
       grid.innerHTML = variants.map(v => {
         const pmt = periodicPayment(s.mortgage, v.rate, s.amort, 12);
         const delta = pmt - basePmt;
-        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mo' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mo' : ',';
+        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mo' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mo' : 'No change';
         return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label} (${v.rate.toFixed(2)}%)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
       }).join('');
     }

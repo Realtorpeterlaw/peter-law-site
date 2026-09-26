@@ -27,7 +27,7 @@ const jsonLd = {
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: '安省房产税, 多伦多房产税, Pickering 房产税, Milton 房产税, Fraser Institute 房产税报告, 市政税 安省 2026, 人均房产税 安省, MPAC 评估 2016, 房产税 增长 安省',
+  keywords: '安省房产税,多伦多房产税, Pickering 房产税, Milton 房产税, Fraser Institute 房产税报告,市政税 安省 2026, 人均房产税 安省, MPAC 评估 2016, 房产税 增长 安省',
   citation: {
     '@type': 'CreativeWork',
     name: 'Property taxes growing quickly in Ontario municipalities',
@@ -127,9 +127,9 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               <li><a href="#quick">核心数据一览</a></li>
               <li><a href="#what">什么是房产税?</a></li>
               <li><a href="#big">十年大局</a></li>
-              <li><a href="#chart1">图 1, 哪些城市税负最高?</a></li>
-              <li><a href="#chart2">图 2, 哪些城市的房产最值钱?</a></li>
-              <li><a href="#chart3">图 3, 税负与其他指标的对比</a></li>
+              <li><a href="#chart1">图 1:哪些城市税负最高?</a></li>
+              <li><a href="#chart2">图 2:哪些城市的房产最值钱?</a></li>
+              <li><a href="#chart3">图 3:税负与其他指标的对比</a></li>
               <li><a href="#why">为什么会这样?</a></li>
               <li><a href="#means">这对您意味着什么</a></li>
               <li><a href="#disclaimer">免责声明</a></li>
@@ -149,7 +149,7 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
 
             <h2 id="what">什么是房产税?</h2>
             <p><strong>房产税</strong>是您向所在市政府缴纳的年度税款,针对您拥有的房屋、公寓或土地。市政府用这些钱支付垃圾清运、除雪、道路维护、图书馆、公园以及部分警察和消防经费。</p>
-            <p>税单由两个数字决定:<strong>税率</strong>(市政府每年设定的百分比)与<strong>房产评估价值</strong>(assessment)。在安省,评估价值有个"怪现象",,省府仍然使用您房屋<strong>2016 年的价值</strong>,已经十年未更新。这意味着最近的楼市大涨并未反映在计算基础中。</p>
+            <p>税单由两个数字决定:<strong>税率</strong>(市政府每年设定的百分比)与<strong>房产评估价值</strong>(assessment)。在安省,评估价值有个"怪现象",省府仍然使用您房屋<strong>2016 年的价值</strong>,已经十年未更新。这意味着最近的楼市大涨并未反映在计算基础中。</p>
 
             <h2 id="big">十年大局</h2>
             <p>安省共有 444 个城镇。房产税是它们最大的单一收入来源,占市政年度收入的 <strong>44.1%</strong>。过去十年,这块收入增长明显:</p>
@@ -161,10 +161,10 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             <p>同期,安省家庭中位收入仅上涨约 14%。也就是说,税负增长速度约为收入增长的 <strong>2.5 倍</strong>。</p>
 
             <!-- ─── 图 1 ─── -->
-            <h2 id="chart1">图 1, 哪些城市税负最高?(2025)</h2>
+            <h2 id="chart1">图 1:哪些城市税负最高?(2025)</h2>
             <p>下表展示 2025 年各市<strong>人均缴纳的市政税</strong>。上半部分是税负最高的城市,下半部分是最低的城市。</p>
             <figure class="bar-chart" aria-labelledby="c1-cap">
-              <figcaption id="c1-cap">2025 年人均市政税,,35 个主要安省城市中的前 6 名与后 4 名。</figcaption>
+              <figcaption id="c1-cap">2025 年人均市政税,35 个主要安省城市中的前 6 名与后 4 名。</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">人均税负 最高</div>
                 {chart1_top.map((r) => (
@@ -187,13 +187,13 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               </div>
               <p class="chart-note">数据来源:BMA Municipal Report 2025,经 Fraser Institute 整理。坐标最大值:$2,500。</p>
             </figure>
-            <p><strong>解读:</strong>如果您住在 Pickering,人均市政税约 <strong>$2,300</strong>;如果住在 Milton,仅约 <strong>$1,230</strong>,,同一省内,税负相差近一倍。</p>
+            <p><strong>解读:</strong>如果您住在 Pickering,人均市政税约 <strong>$2,300</strong>;如果住在 Milton,仅约 <strong>$1,230</strong>,同一省内,税负相差近一倍。</p>
 
             <!-- ─── 图 2 ─── -->
-            <h2 id="chart2">图 2, 哪些城市的房产最值钱?(2025)</h2>
+            <h2 id="chart2">图 2:哪些城市的房产最值钱?(2025)</h2>
             <p>此图为<strong>各市人均房产评估价值</strong>。上半部分为房价最高的城市,下半部分为最低的城市。理论上,税基越大,税率就越能压低,因为可课税总值更多。</p>
             <figure class="bar-chart" aria-labelledby="c2-cap">
-              <figcaption id="c2-cap">2025 年人均可课税评估值,,前 6 名与后 3 名。</figcaption>
+              <figcaption id="c2-cap">2025 年人均可课税评估值,前 6 名与后 3 名。</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">人均税基 最高</div>
                 {chart2_top.map((r) => (
@@ -216,13 +216,13 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               </div>
               <p class="chart-note">数据来源:BMA Municipal Report 2025。坐标最大值:$300,000。</p>
             </figure>
-            <p><strong>解读:</strong>Richmond Hill 的人均税基是 Windsor 的 <strong>4 倍以上</strong>。但从图 1 可以看到,Windsor 的人均税负并非只有 Richmond Hill 的四分之一,,显然还有别的因素在起作用。</p>
+            <p><strong>解读:</strong>Richmond Hill 的人均税基是 Windsor 的 <strong>4 倍以上</strong>。但从图 1 可以看到,Windsor 的人均税负并非只有 Richmond Hill 的四分之一,显然还有别的因素在起作用。</p>
 
             <!-- ─── 图 3 ─── -->
-            <h2 id="chart3">图 3, 税负与其他指标对比(2015–2025)</h2>
+            <h2 id="chart3">图 3:税负与其他指标对比(2015–2025)</h2>
             <p>这是最关键的一张图。对比过去 10 年 35 个主要城市在四个方面的<strong>平均增长速度</strong>。</p>
             <figure class="bar-chart" aria-labelledby="c3-cap">
-              <figcaption id="c3-cap">2015 → 2025 十年平均增长,,35 个主要安省城市。</figcaption>
+              <figcaption id="c3-cap">2015 → 2025 十年平均增长,35 个主要安省城市。</figcaption>
               <div class="bar-group">
                 {chart3.map((r) => (
                   <div class="bar-row">
@@ -234,16 +234,16 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
               </div>
               <p class="chart-note">数据来源:BMA Municipal Report 2025 + Statistics Canada,由 Fraser Institute 整理。坐标最大值:+40%。</p>
             </figure>
-            <p><strong>解读:</strong>人均税负增长<strong>快于所有其他指标</strong>,,比人口涨得快,比房产评估值涨得快,更远远快于家庭收入。</p>
+            <p><strong>解读:</strong>人均税负增长<strong>快于所有其他指标</strong>,比人口涨得快,比房产评估值涨得快,更远远快于家庭收入。</p>
             <p>换句话说,<strong>整个"蛋糕"在变大,但每个人分担的那一块变得更大、更快。</strong></p>
 
             <h2 id="why">为什么会这样?</h2>
             <p>Fraser Institute 的报告给出几种可能的解释,用大白话讲:</p>
             <ul>
               <li><strong>省府拨款减少</strong>,市府只能向纳税人多收。</li>
-              <li><strong>疫情后成本普涨</strong>,,修路、运营社区中心、支付消防员工资都更贵了。</li>
+              <li><strong>疫情后成本普涨</strong>,修路、运营社区中心、支付消防员工资都更贵了。</li>
               <li><strong>省府将部分项目"下放"</strong>(如卫生、社会服务),现在由市府承担。</li>
-              <li><strong>或者</strong>,,报告更倾向于这一点,,<strong>市府支出扩张过快,忽略了纳税人承受能力</strong>。</li>
+              <li><strong>或者</strong>(报告更倾向于这一点),<strong>市府支出扩张过快,忽略了纳税人承受能力</strong>。</li>
             </ul>
             <p>报告最后指出:这可能不是收入不足的问题,而是<strong>支出过多的问题</strong>。</p>
 

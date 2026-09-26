@@ -470,7 +470,7 @@ const hreflangAlternates = [
       grid.innerHTML = variants.map(v => {
         const pmt = periodicPayment(s.mortgage, v.rate, s.amort, 12);
         const delta = pmt - basePmt;
-        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mois' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mois' : ',';
+        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mois' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mois' : 'Aucun changement';
         return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label} (${v.rate.toFixed(2)} %)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
       }).join('');
     }

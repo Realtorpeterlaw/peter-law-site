@@ -189,7 +189,7 @@ const hreflangAlternates = [
               <div class="row"><span>Home value at selling date</span><strong id="rvb-cmp-homevalue">$0</strong></div>
               <div class="row total"><span><strong>Net difference (Rent − Buy net cost)</strong></span><strong id="rvb-cmp-diff">$0</strong></div>
             </div>
-            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Enter your numbers above, the calculator updates live.</div>
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Enter your numbers above: the calculator updates live.</div>
           </div>
 
           <!-- ============================================================
@@ -381,7 +381,7 @@ const hreflangAlternates = [
     function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
     function num(k) { return parseN(el[k] ? el[k].value : ''); }
     function fmtCAD(n) {
-      if (!isFinite(n)) return ',';
+      if (!isFinite(n)) return '$0';
       const abs = Math.abs(n);
       const sign = n < 0 ? '-' : '';
       return sign + '$' + Math.round(abs).toLocaleString('en-CA');

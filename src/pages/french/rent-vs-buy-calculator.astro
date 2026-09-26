@@ -190,7 +190,7 @@ const hreflangAlternates = [
               <div class="row"><span>Valeur de la propriété à la revente</span><strong id="rvb-cmp-homevalue">0 $</strong></div>
               <div class="row total"><span><strong>Différence nette (coût net Location − Achat)</strong></span><strong id="rvb-cmp-diff">0 $</strong></div>
             </div>
-            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Entrez vos chiffres ci-dessus, le calculateur se met à jour en temps réel.</div>
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Entrez vos chiffres ci-dessus : le calculateur se met à jour en temps réel.</div>
           </div>
 
           <!-- ============================================================
@@ -261,7 +261,7 @@ const hreflangAlternates = [
             <div class="mc-collapsible-body mc-explainer-body">
 
               <h3>Louer, ce n'est pas « jeter son argent par les fenêtres »</h3>
-              <p>Vous achetez de la flexibilité, de la mobilité et une tranquillité d'esprit face aux réparations. Cela a une valeur réelle, chiffrez-la avant de comparer avec la propriété.</p>
+              <p>Vous achetez de la flexibilité, de la mobilité et une tranquillité d'esprit face aux réparations. Cela a une valeur réelle : chiffrez-la avant de comparer avec la propriété.</p>
 
               <h3>Connaissez votre statut de contrôle des loyers</h3>
               <p>En Ontario, les logements dans des immeubles occupés à des fins résidentielles pour la première fois <strong>avant le 15 novembre 2018</strong> sont couverts par la ligne directrice annuelle sur l'augmentation des loyers (1,9 % pour 2027). Les immeubles plus récents peuvent être ajustés au prix du marché lors du renouvellement du bail. Posez la question avant de signer.</p>
@@ -282,7 +282,7 @@ const hreflangAlternates = [
               <p>Les meubles, électroménagers, le déménagement, le premier mois de services publics et les petites réparations s'accumulent vite la première année. Ne mettez pas chaque dollar dans la mise de fonds.</p>
 
               <h4>Le coût d'opportunité de la mise de fonds compte</h4>
-              <p>Si vous continuez à louer, vous pourriez investir le montant de la mise de fonds. Cet outil ne modélise pas ce scénario, pour un portrait complet, demandez à un planificateur financier de comparer l'achat et l'investissement côte à côte.</p>
+              <p>Si vous continuez à louer, vous pourriez investir le montant de la mise de fonds. Cet outil ne modélise pas ce scénario. Pour un portrait complet, demandez à un planificateur financier de comparer l'achat et l'investissement côte à côte.</p>
 
               <h4>Obtenez une préapprobation avant de magasiner</h4>
               <p>La préapprobation est gratuite et vous indique ce qu'un prêteur vous accordera réellement, pas ce qu'un calculateur estime que vous pouvez vous permettre. Elle bloque aussi un taux pendant 90 à 120 jours pendant que vous magasinez.</p>
@@ -292,7 +292,7 @@ const hreflangAlternates = [
           </details>
 
           <p class="calc-disclaimer">
-            <strong>Avis.</strong> Ce calculateur est fourni à titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement et non à l'avance. Le taux SCHL est calculé automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024; la TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici. L'appréciation de la propriété, l'inflation et l'augmentation du loyer sont des hypothèses saisies par vous, les résultats réels varieront. L'impôt foncier, l'assurance habitation et l'entretien sont présumés augmenter au taux d'inflation que vous entrez. Les frais de vente sont estimés comme un pourcentage fixe du prix de vente et couvrent habituellement la commission immobilière (avec TVH), les honoraires juridiques et les ajustements. Cet outil ne modélise pas l'impôt sur le revenu, les pénalités hypothécaires pour bris de terme, l'emprunt sur marge de crédit hypothécaire (MCH), ni le coût d'opportunité d'investir votre mise de fonds autrement. Je suis un représentant commercial en immobilier inscrit, pas un courtier hypothécaire, un planificateur financier, un conseiller fiscal ou un conseiller en placement. Pour une décision de cette ampleur, veuillez consulter des professionnels qualifiés dans chacun de ces domaines.
+            <strong>Avis.</strong> Ce calculateur est fourni à titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement et non à l'avance. Le taux SCHL est calculé automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024; la TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici. L'appréciation de la propriété, l'inflation et l'augmentation du loyer sont des hypothèses saisies par vous; les résultats réels varieront. L'impôt foncier, l'assurance habitation et l'entretien sont présumés augmenter au taux d'inflation que vous entrez. Les frais de vente sont estimés comme un pourcentage fixe du prix de vente et couvrent habituellement la commission immobilière (avec TVH), les honoraires juridiques et les ajustements. Cet outil ne modélise pas l'impôt sur le revenu, les pénalités hypothécaires pour bris de terme, l'emprunt sur marge de crédit hypothécaire (MCH), ni le coût d'opportunité d'investir votre mise de fonds autrement. Je suis un représentant commercial en immobilier inscrit, pas un courtier hypothécaire, un planificateur financier, un conseiller fiscal ou un conseiller en placement. Pour une décision de cette ampleur, veuillez consulter des professionnels qualifiés dans chacun de ces domaines.
           </p>
 
         </div>
@@ -382,7 +382,7 @@ const hreflangAlternates = [
     function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
     function num(k) { return parseN(el[k] ? el[k].value : ''); }
     function fmtCAD(n) {
-      if (!isFinite(n)) return ',';
+      if (!isFinite(n)) return '0 $';
       const abs = Math.abs(n);
       const sign = n < 0 ? '-' : '';
       return sign + Math.round(abs).toLocaleString('fr-CA') + ' $';
