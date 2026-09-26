@@ -180,6 +180,7 @@ const hreflangAlternates = [
 
   <script>
     // === FORMATTING ===
+    function toNum(v) { return parseFloat(String(v == null ? '' : v).replace(/[^0-9.\-]/g, '')) || 0; }
     function fmtCAD(n, dp) {
       if (dp === undefined) dp = 0;
       if (!isFinite(n) || isNaN(n)) return '$0';
@@ -242,7 +243,7 @@ const hreflangAlternates = [
         lower = upper;
       }
       if (price > 2000000) {
-        const luxury = [[3000000, 0.025], [4000000, 0.035], [5000000, 0.045], [10000000, 0.055], [20000000, 0.065]];
+        const luxury = [[3000000, 0.025], [4000000, 0.044], [5000000, 0.0545], [10000000, 0.065], [20000000, 0.0755]];
         let lo = 2000000;
         for (const [up, rate] of luxury) {
           if (price > lo) {
@@ -251,7 +252,7 @@ const hreflangAlternates = [
           }
           lo = up;
         }
-        if (price > 20000000) t += (price - 20000000) * 0.075;
+        if (price > 20000000) t += (price - 20000000) * 0.086;
       }
       return t;
     }
@@ -329,30 +330,30 @@ const hreflangAlternates = [
 
     // === SYNC down $/% inputs ===
     function syncDown(id, changed) {
-      const price = parseFloat(document.getElementById('mc-price').value) || 0;
+      const price = toNum(document.getElementById('mc-price').value);
       const dollarInput = document.querySelector(`[data-input="${id}-down-dollar"]`);
       const pctInput = document.querySelector(`[data-input="${id}-down-pct"]`);
       if (changed === 'dollar') {
-        const val = parseFloat(dollarInput.value) || 0;
+        const val = toNum(dollarInput.value);
         pctInput.value = price > 0 ? (val / price * 100).toFixed(2) : 0;
       } else if (changed === 'pct') {
-        const val = parseFloat(pctInput.value) || 0;
+        const val = toNum(pctInput.value);
         dollarInput.value = Math.round(price * val / 100);
       } else {
         // recalculate dollar from current pct (e.g. when price changes)
-        const val = parseFloat(pctInput.value) || 0;
+        const val = toNum(pctInput.value);
         dollarInput.value = Math.round(price * val / 100);
       }
     }
 
     // === MAIN UPDATE ===
     function update() {
-      const price = parseFloat(document.getElementById('mc-price').value) || 0;
+      const price = toNum(document.getElementById('mc-price').value);
       const inToronto = document.getElementById('mc-toronto').value === 'yes';
       const isFTHB = document.getElementById('mc-fthb').value === 'yes';
-      const annualTax = parseFloat(document.getElementById('mc-tax').value) || 0;
-      const monthlyHeat = parseFloat(document.getElementById('mc-heat').value) || 0;
-      const monthlyCondo = parseFloat(document.getElementById('mc-condo').value) || 0;
+      const annualTax = toNum(document.getElementById('mc-tax').value);
+      const monthlyHeat = toNum(document.getElementById('mc-heat').value);
+      const monthlyCondo = toNum(document.getElementById('mc-condo').value);
 
       // LTT
       const ont = ontarioLTT(price);
@@ -374,20 +375,24 @@ const hreflangAlternates = [
       // Per scenario
       const results = {};
       ['a','b','c'].forEach(id => {
-        const down = parseFloat(document.querySelector(`[data-input="${id}-down-dollar"]`).value) || 0;
-        const downPct = parseFloat(document.querySelector(`[data-input="${id}-down-pct"]`).value) || 0;
-        const rate = parseFloat(document.querySelector(`[data-input="${id}-rate"]`).value) || 0;
+        const down = toNum(document.querySelector(`[data-input="${id}-down-dollar"]`).value);
+        const downPct = toNum(document.querySelector(`[data-input="${id}-down-pct"]`).value);
+        const rate = toNum(document.querySelector(`[data-input="${id}-rate"]`).value);
         const amort = parseFloat(document.querySelector(`[data-input="${id}-amort"]`).value) || 25;
         const freq = parseFloat(document.querySelector(`[data-input="${id}-freq"]`).value) || 12;
 
         const mortgageBefore = Math.max(0, price - down);
         const ltv = price > 0 ? mortgageBefore / price * 100 : 0;
-        const premRate = cmhcPremiumRate(ltv);
+        let premRate = cmhcPremiumRate(ltv);
+        // CMHC: not insurable at $1.5M+ or below the minimum down payment
+        if (ltv > 80 && (price >= 1500000 || down < minDownPayment(price) - 0.5)) premRate = null;
+        // CMHC adds 0.20% to the premium for amortizations over 25 years
+        if (premRate && amort > 25) premRate += 0.002;
         const premium = (premRate === null || premRate === 0) ? 0 : mortgageBefore * premRate;
         const totalMortgage = mortgageBefore + premium;
         const pmt = periodicPayment(totalMortgage, rate, amort, freq);
 
-        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premium > 0 ? fmtCAD(premium) : '$0 (not required)';
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? 'Not insurable: minimum down payment not met' : premium > 0 ? fmtCAD(premium) : '$0 (not required)';
         document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
         document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
@@ -466,6 +471,7 @@ const hreflangAlternates = [
         { rate: s.rate + 1, label: '+1%' },
         { rate: s.rate + 2, label: '+2%' },
         { rate: s.rate + 3, label: '+3%' },
+        { rate: Math.max(s.rate + 2, 5.25), label: 'Qualifying (stress test)', baseClass: 'qual' },
       ];
       const basePmt = periodicPayment(s.mortgage, s.rate, s.amort, 12);
       grid.innerHTML = variants.map(v => {

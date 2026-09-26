@@ -82,7 +82,7 @@ const hreflangAlternates = [
           <!-- ── 租金管制计算器 ────────────────────── -->
           <section class="rcc" id="rent-calculator" aria-labelledby="rcc-h">
             <h2 id="rcc-h">租金管制计算器</h2>
-            <p class="rcc-lead">输入您当前的租金和本年度的省级指导线百分比。计算器会显示房东在下一年最多可以收取的租金,以及每月最多可以涨多少。安省的 <strong>2027 年指导线为 1.9%</strong>,已预填入,方便您使用真实数据快速上手。</p>
+            <p class="rcc-lead">输入您当前的租金和本年度的省级指导线百分比。计算器会显示房东在下一年最多可以收取的租金,以及每月最多可以涨多少。安省 <strong>2026 年指导线为 2.1%</strong>(已预填入)。2027 年生效的涨租请使用 <strong>1.9%</strong>。依法指导线最高不超过 2.5%。</p>
 
             <div class="rcc-grid">
               <div class="rcc-inputs">
@@ -97,7 +97,7 @@ const hreflangAlternates = [
                 <div class="rcc-field">
                   <label for="rcc-pct">省级指导线 %</label>
                   <div class="rcc-input-prefix">
-                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="1.9" inputmode="decimal" />
+                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="2.1" inputmode="decimal" />
                     <span class="rcc-suffix">%</span>
                   </div>
                 </div>
@@ -106,17 +106,17 @@ const hreflangAlternates = [
               <div class="rcc-outputs" aria-live="polite">
                 <div class="rcc-out-card rcc-out-primary">
                   <div class="rcc-out-label">允许的最高新租金</div>
-                  <div class="rcc-out-value"><span id="rcc-new-rent">$2,241.80</span><span class="rcc-per"> / 月</span></div>
+                  <div class="rcc-out-value"><span id="rcc-new-rent">$2,246.20</span><span class="rcc-per"> / 月</span></div>
                   <div class="rcc-out-sub">当前租金 + 指导线百分比。</div>
                 </div>
                 <div class="rcc-out-card">
                   <div class="rcc-out-label">每月最高涨幅</div>
-                  <div class="rcc-out-value"><span id="rcc-delta">$41.80</span><span class="rcc-per"> / 月</span></div>
+                  <div class="rcc-out-value"><span id="rcc-delta">$46.20</span><span class="rcc-per"> / 月</span></div>
                   <div class="rcc-out-sub">超过该数额则需要 LTB 批准的 AGI。</div>
                 </div>
                 <div class="rcc-out-card">
                   <div class="rcc-out-label">全年增加</div>
-                  <div class="rcc-out-value"><span id="rcc-annual">$501.60</span><span class="rcc-per"> / 年</span></div>
+                  <div class="rcc-out-value"><span id="rcc-annual">$554.40</span><span class="rcc-per"> / 年</span></div>
                   <div class="rcc-out-sub">这笔涨幅一年下来会多付多少。</div>
                 </div>
               </div>

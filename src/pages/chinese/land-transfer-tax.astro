@@ -63,7 +63,7 @@ const hreflangAlternates = [
                     <details class="b60-section-toggle" id="toronto">
             <summary class="b60-section-toggle-summary">多伦多 MLTT(附加)</summary>
             <div class="b60-section-body">
-  <p>如果房产位于多伦多市内,您还需缴纳市级土地转让税。税率档与安省 LTT 完全一致,另加 2024 年新增的针对 300 万以上房产的"豪宅"税级。</p>
+  <p>如果房产位于多伦多市内,您还需缴纳市级土地转让税。税率档与安省 LTT 完全一致,另加针对 300 万以上房产的"豪宅"税级(2024 年推出,2026 年 4 月 1 日上调至 4.40% 至 8.60%)。</p>
             <div class="callout"><strong>实际例子:</strong>在多伦多市中心购买一套 $900,000 的 condo,总 LTT 约为 $27,950($13,950 省级 + $13,950 市级),退税之前。</div>
             </div>
           </details>
@@ -183,7 +183,7 @@ const hreflangAlternates = [
       }
       if (price > 2000000) {
         if (isSingleFamily) {
-          const luxury = [[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]];
+          const luxury = [[3000000, 0.025], [4000000, 0.044], [5000000, 0.0545], [10000000, 0.065], [20000000, 0.0755]];
           let lo = 2000000;
           for (const [up, rate] of luxury) {
             if (price > lo) {
@@ -192,7 +192,7 @@ const hreflangAlternates = [
             }
             lo = up;
           }
-          if (price > 20000000) t += (price - 20000000) * 0.075;
+          if (price > 20000000) t += (price - 20000000) * 0.086;
         } else {
           t += (price - 2000000) * 0.020;
         }

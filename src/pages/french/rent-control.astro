@@ -82,7 +82,7 @@ const hreflangAlternates = [
           <!-- ── Calculateur de contrôle des loyers ────────────────────── -->
           <section class="rcc" id="rent-calculator" aria-labelledby="rcc-h">
             <h2 id="rcc-h">Calculateur de contrôle des loyers</h2>
-            <p class="rcc-lead">Saisissez votre loyer actuel et la directive provinciale de l'année en cours. Le calculateur affiche le loyer maximum que votre propriétaire peut demander pour l'année à venir, ainsi que l'augmentation maximale en dollars. La <strong>directive 2027 de l'Ontario est de 1,9 %</strong> : elle est préremplie pour partir d'un chiffre réel.</p>
+            <p class="rcc-lead">Saisissez votre loyer actuel et la directive provinciale de l'année en cours. Le calculateur affiche le loyer maximum que votre propriétaire peut demander pour l'année à venir, ainsi que l'augmentation maximale en dollars. La <strong>directive 2026 de l'Ontario est de 2,1 %</strong> (préremplie). Pour les augmentations qui prennent effet en 2027, utilisez <strong>1,9 %</strong>. Selon la loi, la directive ne peut jamais dépasser 2,5 %.</p>
 
             <div class="rcc-grid">
               <div class="rcc-inputs">
@@ -97,7 +97,7 @@ const hreflangAlternates = [
                 <div class="rcc-field">
                   <label for="rcc-pct">Directive provinciale %</label>
                   <div class="rcc-input-prefix">
-                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="1.9" inputmode="decimal" />
+                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="2.1" inputmode="decimal" />
                     <span class="rcc-suffix">%</span>
                   </div>
                 </div>
@@ -106,17 +106,17 @@ const hreflangAlternates = [
               <div class="rcc-outputs" aria-live="polite">
                 <div class="rcc-out-card rcc-out-primary">
                   <div class="rcc-out-label">Loyer maximum</div>
-                  <div class="rcc-out-value"><span id="rcc-new-rent">2 241,80 $</span><span class="rcc-per"> / mois</span></div>
+                  <div class="rcc-out-value"><span id="rcc-new-rent">2 246,20 $</span><span class="rcc-per"> / mois</span></div>
                   <div class="rcc-out-sub">Votre loyer actuel + le pourcentage de la directive.</div>
                 </div>
                 <div class="rcc-out-card">
                   <div class="rcc-out-label">Augmentation mensuelle maximale</div>
-                  <div class="rcc-out-value"><span id="rcc-delta">41,80 $</span><span class="rcc-per"> / mois</span></div>
+                  <div class="rcc-out-value"><span id="rcc-delta">46,20 $</span><span class="rcc-per"> / mois</span></div>
                   <div class="rcc-out-sub">Tout ce qui dépasse ce montant requiert une AGI approuvée par la CLI.</div>
                 </div>
                 <div class="rcc-out-card">
                   <div class="rcc-out-label">Augmentation annuelle</div>
-                  <div class="rcc-out-value"><span id="rcc-annual">501,60 $</span><span class="rcc-per"> / an</span></div>
+                  <div class="rcc-out-value"><span id="rcc-annual">554,40 $</span><span class="rcc-per"> / an</span></div>
                   <div class="rcc-out-sub">Ce que l'augmentation vous coûte sur 12 mois.</div>
                 </div>
               </div>

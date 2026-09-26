@@ -240,7 +240,7 @@ const hreflangAlternates = [
           lower = upper;
         }
         if (price > 2000000) {
-          const luxury = [[3000000, 0.025], [4000000, 0.035], [5000000, 0.045], [10000000, 0.055], [20000000, 0.065]];
+          const luxury = [[3000000, 0.025], [4000000, 0.044], [5000000, 0.0545], [10000000, 0.065], [20000000, 0.0755]];
           let lo = 2000000;
           for (const [up, rate] of luxury) {
             if (price > lo) {
@@ -249,7 +249,7 @@ const hreflangAlternates = [
             }
             lo = up;
           }
-          if (price > 20000000) t += (price - 20000000) * 0.075;
+          if (price > 20000000) t += (price - 20000000) * 0.086;
         }
         return t;
       }
@@ -294,7 +294,8 @@ const hreflangAlternates = [
         const shortfall = Math.max(0, minDown - downFromSavings);
         const actualDown = downFromSavings;
         const ltv = price > 0 ? (price - actualDown) / price * 100 : 0;
-        const premiumRate = cmhcPremiumRate(ltv);
+        let premiumRate = cmhcPremiumRate(ltv);
+        if (premiumRate && amort > 25) premiumRate += 0.002; // CMHC 30-yr surcharge
         const baseLoan = Math.max(0, price - actualDown);
         const cmhcPremium = (premiumRate !== null && premiumRate > 0) ? baseLoan * premiumRate : 0;
         const totalMortgage = baseLoan + cmhcPremium;

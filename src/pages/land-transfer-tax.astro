@@ -62,7 +62,7 @@ const hreflangAlternates = [
                     <details class="b60-section-toggle" id="toronto">
             <summary class="b60-section-toggle-summary">Toronto MLTT (additional)</summary>
             <div class="b60-section-body">
-  <p>If the property is within the City of Toronto, you also pay the Municipal Land Transfer Tax. The brackets mirror the Ontario LTT brackets, plus additional luxury tiers introduced in 2024 for properties above $3 million.</p>
+  <p>If the property is within the City of Toronto, you also pay the Municipal Land Transfer Tax. The brackets mirror the Ontario LTT brackets, plus additional luxury tiers for properties above $3 million (introduced in 2024 and raised on April 1, 2026: 4.40% to 8.60%).</p>
             <div class="callout"><strong>Practical example:</strong> Buying a $900,000 condo in downtown Toronto, your total LTT is roughly $27,950 ($13,950 provincial + $13,950 municipal), before any rebate.</div>
             </div>
           </details>
@@ -182,7 +182,7 @@ const hreflangAlternates = [
       }
       if (price > 2000000) {
         if (isSingleFamily) {
-          const luxury = [[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]];
+          const luxury = [[3000000, 0.025], [4000000, 0.044], [5000000, 0.0545], [10000000, 0.065], [20000000, 0.0755]];
           let lo = 2000000;
           for (const [up, rate] of luxury) {
             if (price > lo) {
@@ -191,7 +191,7 @@ const hreflangAlternates = [
             }
             lo = up;
           }
-          if (price > 20000000) t += (price - 20000000) * 0.075;
+          if (price > 20000000) t += (price - 20000000) * 0.086;
         } else {
           t += (price - 2000000) * 0.020;
         }

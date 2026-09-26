@@ -81,7 +81,7 @@ const hreflangAlternates = [
           <!-- ── Rent Control Calculator ────────────────────── -->
           <section class="rcc" id="rent-calculator" aria-labelledby="rcc-h">
             <h2 id="rcc-h">Rent Control Calculator</h2>
-            <p class="rcc-lead">Enter your current rent and the current year's provincial guideline. The calculator shows the maximum new rent your landlord can charge for the coming year, and the maximum dollar increase. Ontario's <strong>2027 guideline is 1.9%</strong>; that's pre-filled so you can start with a real number.</p>
+            <p class="rcc-lead">Enter your current rent and the current year's provincial guideline. The calculator shows the maximum new rent your landlord can charge for the coming year, and the maximum dollar increase. Ontario's <strong>2026 guideline is 2.1%</strong> (pre-filled). For increases taking effect in 2027, use <strong>1.9%</strong>. By law the guideline can never exceed 2.5%.</p>
 
             <div class="rcc-grid">
               <div class="rcc-inputs">
@@ -96,7 +96,7 @@ const hreflangAlternates = [
                 <div class="rcc-field">
                   <label for="rcc-pct">Provincial guideline %</label>
                   <div class="rcc-input-prefix">
-                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="1.9" inputmode="decimal" />
+                    <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="2.1" inputmode="decimal" />
                     <span class="rcc-suffix">%</span>
                   </div>
                 </div>
@@ -105,17 +105,17 @@ const hreflangAlternates = [
               <div class="rcc-outputs" aria-live="polite">
                 <div class="rcc-out-card rcc-out-primary">
                   <div class="rcc-out-label">Maximum new rent</div>
-                  <div class="rcc-out-value"><span id="rcc-new-rent">$2,241.80</span><span class="rcc-per"> / month</span></div>
+                  <div class="rcc-out-value"><span id="rcc-new-rent">$2,246.20</span><span class="rcc-per"> / month</span></div>
                   <div class="rcc-out-sub">Your existing rent + the guideline%.</div>
                 </div>
                 <div class="rcc-out-card">
                   <div class="rcc-out-label">Maximum monthly increase</div>
-                  <div class="rcc-out-value"><span id="rcc-delta">$41.80</span><span class="rcc-per"> / month</span></div>
+                  <div class="rcc-out-value"><span id="rcc-delta">$46.20</span><span class="rcc-per"> / month</span></div>
                   <div class="rcc-out-sub">Anything above this needs an AGI approved by the LTB.</div>
                 </div>
                 <div class="rcc-out-card">
                   <div class="rcc-out-label">Annual increase</div>
-                  <div class="rcc-out-value"><span id="rcc-annual">$501.60</span><span class="rcc-per"> / year</span></div>
+                  <div class="rcc-out-value"><span id="rcc-annual">$554.40</span><span class="rcc-per"> / year</span></div>
                   <div class="rcc-out-sub">What the increase costs you over 12 months.</div>
                 </div>
               </div>

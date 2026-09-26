@@ -64,7 +64,7 @@ const hreflangAlternates = [
           <details class="b60-section-toggle" id="toronto">
             <summary class="b60-section-toggle-summary">Taxe municipale de mutation immobilière de Toronto (MLTT)</summary>
             <div class="b60-section-body">
-              <p>Si la propriété se trouve dans les limites de la Ville de Toronto, vous payez également la taxe municipale de mutation immobilière. Les tranches sont calquées sur celles du LTT provincial, avec l'ajout de paliers de luxe introduits en 2024 pour les propriétés de plus de 3 millions de dollars.</p>
+              <p>Si la propriété se trouve dans les limites de la Ville de Toronto, vous payez également la taxe municipale de mutation immobilière. Les tranches sont calquées sur celles du LTT provincial, avec l'ajout de paliers de luxe pour les propriétés de plus de 3 millions de dollars (introduits en 2024 et haussés le 1er avril 2026 : de 4,40 % à 8,60 %).</p>
               <div class="callout"><strong>Exemple concret :</strong> pour l'achat d'un condo à 900 000 $ au centre-ville de Toronto, votre LTT total est d'environ 27 950 $ (13 950 $ au provincial + 13 950 $ au municipal), avant tout remboursement.</div>
             </div>
           </details>
@@ -184,7 +184,7 @@ const hreflangAlternates = [
       }
       if (price > 2000000) {
         if (isSingleFamily) {
-          const luxury = [[3000000,0.025],[4000000,0.035],[5000000,0.045],[10000000,0.055],[20000000,0.065]];
+          const luxury = [[3000000, 0.025], [4000000, 0.044], [5000000, 0.0545], [10000000, 0.065], [20000000, 0.0755]];
           let lo = 2000000;
           for (const [up, rate] of luxury) {
             if (price > lo) {
@@ -193,7 +193,7 @@ const hreflangAlternates = [
             }
             lo = up;
           }
-          if (price > 20000000) t += (price - 20000000) * 0.075;
+          if (price > 20000000) t += (price - 20000000) * 0.086;
         } else {
           t += (price - 2000000) * 0.020;
         }

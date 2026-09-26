@@ -96,9 +96,8 @@ const hreflangAlternates = [
               <div class="ac-headline-sub">租金 + 网络 + 保险 + 水电。</div>
             </div>
             <div class="ac-headline-item">
-              <div class="ac-headline-label">住房支出后剩余</div>
-              <div class="ac-headline-value" id="rc-leftover">$0</div>
-              <div class="ac-headline-sub">每月剩余,用于其他所有开支。</div>
+              <div class="ac-headline-label">每月开支(不含租金)</div>
+              <div class="ac-headline-value"><span id="rc-leftover">$0</span><span class="ac-headline-per"> / 月</span></div>
             </div>
           </div>
 
@@ -181,12 +180,13 @@ const hreflangAlternates = [
         const totalHousing = rent + internet + insurance + utilities;
         const pct = income > 0 ? (totalHousing / income) * 100 : 0;
         const leftover = income - totalHousing;
+        const expensesNoRent = internet + insurance + utilities;
         const safeCeiling = income * 0.30;
         const approvableRent = Math.max(0, income * 0.30 - internet - insurance - utilities);
 
         $('rc-out-total').textContent     = fmtCAD(totalHousing, 0);
         $('rc-out-total-2').textContent   = fmtCAD(totalHousing, 0);
-        $('rc-leftover').textContent      = fmtCAD(leftover, 0);
+        $('rc-leftover').textContent      = fmtCAD(expensesNoRent, 0);
         $('rc-out-rent').textContent      = fmtCAD(rent, 0);
         $('rc-out-internet').textContent  = fmtCAD(internet, 0);
         $('rc-out-insurance').textContent = fmtCAD(insurance, 0);

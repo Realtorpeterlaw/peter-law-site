@@ -434,7 +434,7 @@ const hreflangAlternates = [
 
       const baseLoan = Math.max(0, price - down);
       const ltv = price > 0 ? baseLoan / price : 0;
-      const cRate = cmhcRate(ltv);
+      const cRate = (price >= 1500000 ? 0 : cmhcRate(ltv)) + (price < 1500000 && cmhcRate(ltv) > 0 && amort > 25 ? 0.002 : 0);
       const premium = baseLoan * cRate;
       const totalMortgage = baseLoan + premium;
 
@@ -641,7 +641,7 @@ const hreflangAlternates = [
 
       const baseLoan = Math.max(0, price - down);
       const ltv = price > 0 ? baseLoan / price : 0;
-      const cRate = cmhcRate(ltv);
+      const cRate = (price >= 1500000 ? 0 : cmhcRate(ltv)) + (price < 1500000 && cmhcRate(ltv) > 0 && amort > 25 ? 0.002 : 0);
       const premium = baseLoan * cRate;
       const totalMortgage = baseLoan + premium;
       const mRate = monthlyRateCA(rateAnnual);
