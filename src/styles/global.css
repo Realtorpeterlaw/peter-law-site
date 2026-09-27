@@ -3002,3 +3002,72 @@ html[data-theme="dark"] .ltt-total {
 /* Divider between real-estate credentials and other credentials on About page */
 .creds-divider { border: 0; border-top: 1px dashed var(--rule); margin: 12px 0; max-width: 320px; }
 
+
+/* ============================================================
+   MOBILE HARDENING (Sep 2026 device audit, 375px / 360px)
+   ============================================================ */
+/* 1) Stop grid "blowout": a 1fr column can't shrink below its
+      content's min width, which pushed whole pages past the screen
+      edge (bill-60, rent-control, refinance, rent-vs-buy, LTT). */
+@media (max-width: 900px) {
+  .prose-grid { grid-template-columns: minmax(0, 1fr); }
+}
+.prose-body, .prose-side, .mc-shared, .mc-scenario, .calc-field, .mc-row { min-width: 0; }
+.prose-body, .prose-side { overflow-wrap: break-word; }
+
+/* 2) Wide data tables scroll inside their own box on phones. */
+@media (max-width: 720px) {
+  .oesp-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* 3) Header fits on small phones (French 'Appelez-moi' pushed the
+      menu button ~10px off-screen). */
+@media (max-width: 420px) {
+  .head-inner { gap: 8px; }
+  .logo { flex: 0 1 auto; min-width: 0; padding: 4px 6px 5px; }
+  .logo svg { width: 150px; height: auto; }
+  .logo-home-hint { padding-left: 33px; font-size: 9px; }
+  .head-cta-call { padding: 7px 9px; font-size: 11px; letter-spacing: 0.06em; margin-right: 2px; }
+  .head-cta-call svg { display: none; }
+  .mobile-menu-toggle { flex-shrink: 0; }
+}
+@media (max-width: 340px) {
+  .logo svg { width: 128px; }
+  .logo-home-hint { display: none; }
+}
+
+/* 4) iOS Safari zooms the page when a field under 16px is focused. */
+@media (max-width: 900px) {
+  input:not([type=checkbox]):not([type=radio]), select, textarea { font-size: 16px; }
+}
+
+/* 5) Bigger tap targets without changing the look. */
+@media (max-width: 900px) {
+  .topbar a { display: inline-block; padding: 6px 6px; margin: -6px -3px; }
+  .article-byline a { display: inline-block; padding: 4px 0; margin: -4px 0; }
+  .back-link { display: inline-block; padding: 6px 0; margin: -6px 0; }
+  .prose-side a { display: inline-block; padding-top: 4px; padding-bottom: 4px; }
+  footer .foot-col a { display: inline-block; padding: 4px 0; }
+}
+
+/* 6) Rent Control calculator grid blowout on phones */
+@media (max-width: 780px) { .rcc-grid { grid-template-columns: minmax(0, 1fr); } }
+.rcc-grid > *, .rcc-inputs > *, .rcc-outputs > *, .rcc-field, .rcc-input-prefix { min-width: 0; }
+.rcc-input-prefix input { min-width: 0; width: 100%; }
+
+/* 7) Very small phones (320-360px) */
+@media (max-width: 700px) {
+  .foot-grid-6, .foot-grid-5, .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+  .foot-col { min-width: 0; overflow-wrap: break-word; }
+}
+@media (max-width: 900px) {
+  input, select, textarea { min-width: 0; max-width: 100%; }
+  .deals-dots { flex-wrap: wrap; justify-content: center; min-width: 0; }
+  .deals-footer { flex-wrap: wrap; row-gap: 10px; }
+}
+@media (max-width: 420px) {
+  header .wrap.head-inner { padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width: 360px) {
+  .head-cta-call { padding: 6px 7px; font-size: 10.5px; letter-spacing: 0.04em; }
+}

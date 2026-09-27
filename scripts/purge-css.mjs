@@ -18,10 +18,14 @@ const SAFELIST_STANDARD = [
   'ac-verdict-neutral', 'ac-verdict-green', 'ac-verdict-yellow', 'ac-verdict-red',
   'ac-fee-row', 'ac-tax-row',
   'blog-no-results',
+  // Elements that only exist inside JS-built markup (scripts are bundled to
+  // /_astro/*.js, so PurgeCSS never sees these tags in the page HTML).
+  'select', 'option', 'input', 'label', 'table', 'thead', 'tbody', 'tr', 'th', 'td',
+  'svg', 'path', 'line', 'polyline', 'circle', 'text', 'rect',
 ];
 const SAFELIST_DEEP = [
   /^is-/, /^has-/, /^rc-verdict-/, /^ac-verdict-/, /^tier-/,
-  /^deal-card/, /^deals-dot/, /^mc-collapsible/, /^means-collapse/, /^blog-card/,
+  /^deal-card/, /^deals-dot/, /^mc-/, /^rvb-/, /^rf-/, /^means-collapse/, /^blog-card/,
 ];
 const SAFELIST_GREEDY = [
   /^\[aria-/, /^\[data-/, /data-theme/, /^:focus-visible/, /^:hover/, /:where\(/, /:is\(/,
