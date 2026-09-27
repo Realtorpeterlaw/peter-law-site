@@ -20,21 +20,21 @@ const icons = {
 };
 
 const posts = [
-  { slug: 'first-time-buyer-guide-condos', title: 'Guide d\'achat CONDO première fois (Ontario)', eyebrow: 'Guide acheteur · Condos', readMin: 16, iconKey: 'building' },
-  { slug: 'first-time-buyer-guide-houses', title: 'Guide d\'achat MAISON première fois (Ontario)', eyebrow: 'Guide acheteur · Maisons', readMin: 15, iconKey: 'house' },
-  { slug: 'rent-vs-buy', title: 'LOUER ou ACHETER : quand, pourquoi et comment', eyebrow: "Bases de l'acheteur · Calculatrice", readMin: 6, iconKey: 'house' },
-  { slug: 'ontario-property-taxes-rising', title: 'Ontario : la taxe foncière en hausse', eyebrow: 'Propriétaires Ontario · Politique', readMin: 5, iconKey: 'coins' },
-  { slug: 'vacant-home-tax', title: 'Taxe sur les logements vacants', eyebrow: 'Propriétaires Toronto · Fiscalité', readMin: 5, iconKey: 'percent' },
-  { slug: 'hcra-illegal-building', title: 'HCRA : construction illégale', eyebrow: 'Protection acheteur · Ontario', readMin: 4, iconKey: 'warning' },
-  { slug: 'rhsp', title: 'Rental Housing Supply Program (RHSP)', eyebrow: 'Logement Toronto · Politique', readMin: 5, iconKey: 'building' },
-  { slug: 'oesp', title: 'OESP, réduire la facture d\'électricité', eyebrow: 'Économies d\'énergie · Ontario', readMin: 4, iconKey: 'bolt' },
-  { slug: 'foreign-buyer-ban', title: 'Interdiction d\'achat aux non-Canadiens (2026)', eyebrow: 'Politique · Loi fédérale', readMin: 5, iconKey: 'shield' },
-  { slug: 'fhsa', title: 'CELIAPP (FHSA), épargne premier acheteur', eyebrow: 'Épargne acheteur · Fiscalité', readMin: 5, iconKey: 'coins' },
-  { slug: 'fthb-rebate', title: 'Remboursement TPS/TVH premier acheteur', eyebrow: 'Remise acheteur · 2026', readMin: 5, iconKey: 'key' },
-  { slug: 'heloc', title: 'Marge de crédit hypothécaire (HELOC)', eyebrow: 'Financement · Valeur nette', readMin: 5, iconKey: 'card' },
-  { slug: 'time-of-use-tou', title: 'Time-of-Use (TOU), réduire l\'hydro', eyebrow: 'Astuces maison · Hydro', readMin: 4, iconKey: 'tou' },
-  { slug: 'bill-60-ontario', title: 'Loi 60 Ontario, locataires et propriétaires', eyebrow: 'Législation · 2026', readMin: 5, iconKey: 'scroll' },
-  { slug: 'reverse-mortgage', title: 'Hypothèque inversée, 55 ans et plus', eyebrow: 'Acheteurs aînés · Financement', readMin: 5, iconKey: 'house' },
+  { slug: 'first-time-buyer-guide-condos', categories: ['sale'], title: 'Guide d\'achat CONDO première fois (Ontario)', eyebrow: 'Guide acheteur · Condos', readMin: 16, iconKey: 'building' },
+  { slug: 'first-time-buyer-guide-houses', categories: ['sale'], title: 'Guide d\'achat MAISON première fois (Ontario)', eyebrow: 'Guide acheteur · Maisons', readMin: 15, iconKey: 'house' },
+  { slug: 'rent-vs-buy', categories: ['sale', 'rent'], title: 'LOUER ou ACHETER : quand, pourquoi et comment', eyebrow: "Bases de l'acheteur · Calculatrice", readMin: 6, iconKey: 'house' },
+  { slug: 'ontario-property-taxes-rising', categories: ['sale'], title: 'Ontario : la taxe foncière en hausse', eyebrow: 'Propriétaires Ontario · Politique', readMin: 5, iconKey: 'coins' },
+  { slug: 'vacant-home-tax', categories: ['sale'], title: 'Taxe sur les logements vacants', eyebrow: 'Propriétaires Toronto · Fiscalité', readMin: 5, iconKey: 'percent' },
+  { slug: 'hcra-illegal-building', categories: ['sale'], title: 'HCRA : construction illégale', eyebrow: 'Protection acheteur · Ontario', readMin: 4, iconKey: 'warning' },
+  { slug: 'rhsp', categories: ['rent'], title: 'Rental Housing Supply Program (RHSP)', eyebrow: 'Logement Toronto · Politique', readMin: 5, iconKey: 'building' },
+  { slug: 'oesp', categories: ['rent', 'sale'], title: 'OESP, réduire la facture d\'électricité', eyebrow: 'Économies d\'énergie · Ontario', readMin: 4, iconKey: 'bolt' },
+  { slug: 'foreign-buyer-ban', categories: ['sale'], title: 'Interdiction d\'achat aux non-Canadiens (2026)', eyebrow: 'Politique · Loi fédérale', readMin: 5, iconKey: 'shield' },
+  { slug: 'fhsa', categories: ['sale'], title: 'CELIAPP (FHSA), épargne premier acheteur', eyebrow: 'Épargne acheteur · Fiscalité', readMin: 5, iconKey: 'coins' },
+  { slug: 'fthb-rebate', categories: ['sale'], title: 'Remboursement TPS/TVH premier acheteur', eyebrow: 'Remise acheteur · 2026', readMin: 5, iconKey: 'key' },
+  { slug: 'heloc', categories: ['sale'], title: 'Marge de crédit hypothécaire (HELOC)', eyebrow: 'Financement · Valeur nette', readMin: 5, iconKey: 'card' },
+  { slug: 'time-of-use-tou', categories: ['rent'], title: 'Time-of-Use (TOU), réduire l\'hydro', eyebrow: 'Astuces maison · Hydro', readMin: 4, iconKey: 'tou' },
+  { slug: 'bill-60-ontario', categories: ['rent', 'sale'], title: 'Loi 60 Ontario, locataires et propriétaires', eyebrow: 'Législation · 2026', readMin: 5, iconKey: 'scroll' },
+  { slug: 'reverse-mortgage', categories: ['sale'], title: 'Hypothèque inversée, 55 ans et plus', eyebrow: 'Acheteurs aînés · Financement', readMin: 5, iconKey: 'house' },
 ];
 
 const hreflangAlternates = [
@@ -63,6 +63,11 @@ const hreflangAlternates = [
         <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         <input id="blog-search-input" type="search" placeholder="Chercher un article…" aria-label="Chercher un article" autocomplete="off" />
       </div>
+      <div class="blog-filter" role="group" aria-label="Filtrer les articles par catégorie">
+        <button type="button" class="blog-filter-chip is-active" data-filter="all">Tous</button>
+        <button type="button" class="blog-filter-chip blog-filter-chip-sale" data-filter="sale"><span class="blog-filter-dot" aria-hidden="true"></span>Vente</button>
+        <button type="button" class="blog-filter-chip blog-filter-chip-rent" data-filter="rent"><span class="blog-filter-dot" aria-hidden="true"></span>Location</button>
+      </div>
     </div>
   </section>
 
@@ -70,8 +75,15 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="blog-list">
         {posts.map((post) => (
-          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()}>
+          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
             <a href={`/french/blog/${post.slug}`} class="blog-card-link" aria-label={`Lire : ${post.title}`}>
+              {post.categories && post.categories.length > 0 && (
+                <span class="blog-card-dots" role="img" aria-label={`Catégories : ${post.categories.map(c => c === 'rent' ? 'Location' : 'Vente').join(', ')}`}>
+                  {post.categories.map(c => (
+                    <span class={`blog-card-dot blog-card-dot-${c}`} title={c === 'rent' ? 'Location' : 'Vente'}></span>
+                  ))}
+                </span>
+              )}
               {post.iconKey && icons[post.iconKey] && (
                 <div class="blog-card-icon" set:html={icons[post.iconKey]} />
               )}
@@ -117,12 +129,26 @@ const hreflangAlternates = [
       const cards = document.querySelectorAll('.blog-card');
       const noResults = document.getElementById('blog-no-results');
       if (!input || !cards.length) return;
+      let activeCategory = 'all';
+      const chipBtns = document.querySelectorAll('.blog-filter-chip');
+      chipBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          chipBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          activeCategory = btn.getAttribute('data-filter') || 'all';
+          filter();
+        });
+      });
+
       function filter() {
         const q = input.value.trim().toLowerCase();
         let visibleCount = 0;
         cards.forEach(function(card) {
           const text = card.getAttribute('data-search') || '';
-          const match = !q || text.indexOf(q) !== -1;
+          const catList = (card.getAttribute('data-category') || '').split(' ').filter(Boolean);
+          const searchMatch = !q || text.indexOf(q) !== -1;
+          const catMatch = activeCategory === 'all' || catList.indexOf(activeCategory) !== -1;
+          const match = searchMatch && catMatch;
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
         });
@@ -132,3 +158,81 @@ const hreflangAlternates = [
     })();
   </script>
 </BaseLayout>
+<style>
+  /* Blog-post category dots, top-right corner of the card
+     (solid coloured circles, no text; multiple stack side-by-side) */
+  .blog-card { position: relative; }
+  .blog-card-dots {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    pointer-events: none;
+  }
+  .blog-card-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  }
+  .blog-card-dot-sale { background: #1a6b32; }
+  .blog-card-dot-rent { background: #b8002e; }
+  html[data-theme="dark"] .blog-card-dot { border-color: rgba(255, 255, 255, 0.15); }
+  html[data-theme="dark"] .blog-card-dot-sale { background: #4bc774; }
+  html[data-theme="dark"] .blog-card-dot-rent { background: #e35a72; }
+
+  /* Filter chips row (below search input) */
+  .blog-filter {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .blog-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--bg);
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .blog-filter-chip:hover { background: var(--bg-warm); color: var(--ink); }
+  .blog-filter-chip.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .blog-filter-chip.is-active .blog-filter-dot { background: currentColor; }
+  .blog-filter-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .blog-filter-chip-sale .blog-filter-dot { background: #1a6b32; }
+  .blog-filter-chip-rent .blog-filter-dot { background: #b8002e; }
+  html[data-theme="dark"] .blog-filter-chip { background: var(--surface); color: var(--ink-soft); border-color: var(--rule); }
+  html[data-theme="dark"] .blog-filter-chip:hover { background: var(--bg-warm); color: var(--ink); }
+  /* Active-state override for dark mode. Without this, the earlier
+     dark-mode background rule wins by specificity and the chip renders
+     dark-on-dark, making the label + dot invisible. Cream fill + deep
+     dark ink for high-contrast active state. */
+  html[data-theme="dark"] .blog-filter-chip.is-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  html[data-theme="dark"] .blog-filter-chip.is-active .blog-filter-dot {
+    background: var(--bg);
+  }
+</style>
+

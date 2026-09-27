@@ -10,6 +10,7 @@ interface Props {
   lang?: string;
   dir?: 'ltr' | 'rtl';
   hreflangAlternates?: HreflangAlt[];
+  noindex?: boolean;
 }
 const {
   title,
@@ -19,6 +20,7 @@ const {
   lang: langProp,
   dir: dirProp,
   hreflangAlternates = [],
+  noindex = false,
 } = Astro.props;
 // Normalize lang codes to include the region for hreflang/SEO parity.
 // If lang prop is provided (e.g. 'fr' from French pages), upgrade to 'fr-CA'.
@@ -91,6 +93,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />

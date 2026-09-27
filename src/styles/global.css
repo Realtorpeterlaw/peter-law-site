@@ -587,6 +587,8 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .mc-scenario { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .mc-scenario-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
 .mc-scenario-header h4, .mc-scenario-header h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 18px; color: var(--ink); }
+.mc-scenario-header h3 { white-space: nowrap; }
+.mc-scenario-header .mc-scenario-tag { text-align: right; margin-left: 10px; }
 .mc-scenario-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
 .mc-row { display: flex; flex-direction: column; gap: 4px; }
 .mc-row label { font-size: 12px; color: var(--ink-mute); font-weight: 500; letter-spacing: 0.02em; }

@@ -107,15 +107,15 @@ const hreflangAlternates = [
                 <span class="mc-scenario-tag" id="rvb-buy-tag">10.0% down · 4.5%</span>
               </div>
               <div class="mc-row">
-                <label>Monthly maintenance / condo fees</label>
+                <label for="rvb-maint">Monthly maintenance / condo fees</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-maint" type="text" value="500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Annual property taxes</label>
+                <label for="rvb-tax">Annual property taxes</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-tax" type="text" value="4000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Annual homeowners insurance</label>
+                <label for="rvb-hoi">Annual homeowners insurance</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-hoi" type="text" value="1200" inputmode="decimal" autocomplete="off"></div>
               </div>
 
@@ -145,15 +145,15 @@ const hreflangAlternates = [
                 <span class="mc-scenario-tag" id="rvb-rent-tag">3.0% annual increase</span>
               </div>
               <div class="mc-row">
-                <label>Monthly rent</label>
+                <label for="rvb-rent">Monthly rent</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-rent" type="text" value="2500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Monthly contents insurance</label>
+                <label for="rvb-content-ins">Monthly contents insurance</label>
                 <div class="input-prefix" data-prefix="$"><input id="rvb-content-ins" type="text" value="25" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="mc-row">
-                <label>Annual rent increase (%)</label>
+                <label for="rvb-rentinc">Annual rent increase (%)</label>
                 <input id="rvb-rentinc" type="number" value="3" step="0.1" inputmode="decimal">
               </div>
 
@@ -201,7 +201,7 @@ const hreflangAlternates = [
               <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">If you sell at year <span id="rvb-years-eq">5</span>, this is the equity you'd walk away with after paying off the loan and covering selling costs.</p>
               <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
                 <table class="mc-table">
-                  <thead><tr><th>Line item</th><th style="text-align:right;">Amount</th></tr></thead>
+                  <thead><tr><th scope="col">Line item</th><th scope="col" style="text-align:right;">Amount</th></tr></thead>
                   <tbody>
                     <tr><td>Home value at expected selling date</td><td id="rvb-eq-hv" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
                     <tr><td>Less: down payment</td><td id="rvb-eq-down" style="text-align:right;font-weight:600;color:var(--ink);">$0</td></tr>
@@ -419,18 +419,18 @@ const hreflangAlternates = [
       const price = num('price');
       const down = num('down');
       const amort = Math.max(1, num('amort'));
-      const rateAnnual = num('rate');
+      const rateAnnual = Math.min(30, Math.max(0, num('rate')));
       const closing = num('closing');
       const maint = num('maint');
       const tax = num('tax');
       const hoi = num('hoi');
-      const apprPct = num('appr') / 100;
-      const years = Math.max(1, num('years'));
-      const sellPct = num('sellcost') / 100;
-      const inflPct = num('infl') / 100;
+      const apprPct = Math.min(30, Math.max(-30, num('appr'))) / 100;
+      const years = Math.min(40, Math.max(1, Math.round(num('years'))));
+      const sellPct = Math.min(20, Math.max(0, num('sellcost'))) / 100;
+      const inflPct = Math.min(30, Math.max(-30, num('infl'))) / 100;
       const rent = num('rent');
       const contentIns = num('content-ins');
-      const rentIncPct = num('rentinc') / 100;
+      const rentIncPct = Math.min(30, Math.max(-30, num('rentinc'))) / 100;
 
       const baseLoan = Math.max(0, price - down);
       const ltv = price > 0 ? baseLoan / price : 0;
@@ -632,12 +632,12 @@ const hreflangAlternates = [
     function buildProjection() {
       // Reuses inputs already read by calc() but we re-read to be safe.
       const price = num('price'), down = num('down'), amort = Math.max(1, num('amort'));
-      const rateAnnual = num('rate'), closing = num('closing');
+      const rateAnnual = Math.min(30, Math.max(0, num('rate'))), closing = num('closing');
       const maint = num('maint'), tax = num('tax'), hoi = num('hoi');
-      const apprPct = num('appr') / 100, years = Math.max(1, num('years'));
-      const sellPct = num('sellcost') / 100, inflPct = num('infl') / 100;
+      const apprPct = Math.min(30, Math.max(-30, num('appr'))) / 100, years = Math.min(40, Math.max(1, Math.round(num('years'))));
+      const sellPct = Math.min(20, Math.max(0, num('sellcost'))) / 100, inflPct = Math.min(30, Math.max(-30, num('infl'))) / 100;
       const rent = num('rent'), contentIns = num('content-ins');
-      const rentIncPct = num('rentinc') / 100;
+      const rentIncPct = Math.min(30, Math.max(-30, num('rentinc'))) / 100;
 
       const baseLoan = Math.max(0, price - down);
       const ltv = price > 0 ? baseLoan / price : 0;

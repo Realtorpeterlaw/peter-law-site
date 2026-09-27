@@ -39,29 +39,29 @@ const hreflangAlternates = [
         <!-- BLOC D'ENTRÉE -->
         <div class="ac-inputs">
           <div class="ac-input-group">
-            <label>1. Combien gagnez-vous par année ? <span class="hint">Avant impôts.</span></label>
+            <label for="ac-income">1. Combien gagnez-vous par année ? <span class="hint">Avant impôts.</span></label>
             <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>2. Prix d'achat ACCEPTÉ <span class="hint">Condo, maison en rangée ou maison.</span></label>
+            <label for="ac-price">2. Prix d'achat ACCEPTÉ <span class="hint">Condo, maison en rangée ou maison.</span></label>
             <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>3. Mise de fonds <span class="hint">Idéalement 20 à 25 % du prix d'achat.</span></label>
+            <label for="ac-savings">3. Mise de fonds <span class="hint">Idéalement 20 à 25 % du prix d'achat.</span></label>
             <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group ac-checkbox-group">
-            <label class="ac-checkbox">
+            <label for="ac-fthb" class="ac-checkbox">
               <input type="checkbox" id="ac-fthb" checked />
               <span class="ac-checkbox-text">Je suis un premier acheteur <span class="hint">Vous donne droit à un remboursement des droits de mutation.</span></span>
             </label>
           </div>
 
           <div class="ac-input-group">
-            <label>4. Type de propriété <span class="hint">Change les coûts mensuels qui s'appliquent.</span></label>
+            <label for="ac-proptype">4. Type de propriété <span class="hint">Change les coûts mensuels qui s'appliquent.</span></label>
             <select id="ac-proptype">
               <option value="freehold" selected>Propriété franche (Maison)</option>
               <option value="freehold-hoa">Propriété franche avec HOA</option>
@@ -70,12 +70,12 @@ const hreflangAlternates = [
           </div>
 
           <div class="ac-input-group" id="ac-tax-row">
-            <label>5. Taxes foncières <span class="hint">Par mois. Laissez vide pour une estimation automatique à 0,7 % du prix par année.</span></label>
+            <label for="ac-proptax">5. Taxes foncières <span class="hint">Par mois. Laissez vide pour une estimation automatique à 0,7 % du prix par année.</span></label>
             <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="ex. 400" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group" id="ac-fee-row" style="display:none;">
-            <label id="ac-fee-label">6. Frais HOA <span class="hint">Par mois.</span></label>
+            <label for="ac-fee" id="ac-fee-label">6. Frais HOA <span class="hint">Par mois.</span></label>
             <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="ex. 150" inputmode="decimal" /></div>
           </div>
 
@@ -83,11 +83,11 @@ const hreflangAlternates = [
             <summary>Plus d'options (facultatif)</summary>
             <div class="ac-more-body">
               <div class="ac-input-group">
-                <label>Taux hypothécaire <span class="hint">5 % est normal en 2026.</span></label>
+                <label for="ac-rate">Taux hypothécaire <span class="hint">5 % est normal en 2026.</span></label>
                 <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
-                <label>Amortissement <span class="hint">Combien d'années pour tout rembourser. La plupart des gens choisissent 25 ans.</span></label>
+                <label for="ac-amort">Amortissement <span class="hint">Combien d'années pour tout rembourser. La plupart des gens choisissent 25 ans.</span></label>
                 <select id="ac-amort">
                   <option value="20">20 ans</option>
                   <option value="25" selected>25 ans</option>
@@ -95,7 +95,7 @@ const hreflangAlternates = [
                 </select>
               </div>
               <div class="ac-input-group">
-                <label>Où se trouve la propriété ?</label>
+                <label for="ac-location">Où se trouve la propriété ?</label>
                 <select id="ac-location">
                   <option value="toronto" selected>Ville de Toronto</option>
                   <option value="ontario">Reste de l'Ontario</option>

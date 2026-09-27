@@ -190,7 +190,7 @@ export const prerender = true;
           <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
             <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Read: ${post.title}`}>
               {post.categories && post.categories.length > 0 && (
-                <span class="blog-card-dots" aria-label={`Categories: ${post.categories.map(c => c === 'rent' ? 'Rent' : 'Sales').join(', ')}`}>
+                <span class="blog-card-dots" role="img" aria-label={`Categories: ${post.categories.map(c => c === 'rent' ? 'Rent' : 'Sales').join(', ')}`}>
                   {post.categories.map(c => (
                     <span class={`blog-card-dot blog-card-dot-${c}`} title={c === 'rent' ? 'Rent' : 'Sales'}></span>
                   ))}

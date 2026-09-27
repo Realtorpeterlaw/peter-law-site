@@ -38,29 +38,29 @@ const hreflangAlternates = [
         <!-- INPUT BLOCK -->
         <div class="ac-inputs">
           <div class="ac-input-group">
-            <label>1. How much do you make a year? <span class="hint">Before taxes.</span></label>
+            <label for="ac-income">1. How much do you make a year? <span class="hint">Before taxes.</span></label>
             <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>2. ACCEPTED Home Price <span class="hint">Condo, townhouse, or house.</span></label>
+            <label for="ac-price">2. ACCEPTED Home Price <span class="hint">Condo, townhouse, or house.</span></label>
             <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>3. Down Payment <span class="hint">Ideally 20-25% Down payment of Purchase Price.</span></label>
+            <label for="ac-savings">3. Down Payment <span class="hint">Ideally 20-25% Down payment of Purchase Price.</span></label>
             <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group ac-checkbox-group">
-            <label class="ac-checkbox">
+            <label for="ac-fthb" class="ac-checkbox">
               <input type="checkbox" id="ac-fthb" checked />
               <span class="ac-checkbox-text">I'm a first-time buyer <span class="hint">Gets you a rebate on land transfer tax.</span></span>
             </label>
           </div>
 
           <div class="ac-input-group">
-            <label>4. Property Type <span class="hint">Changes what monthly costs apply.</span></label>
+            <label for="ac-proptype">4. Property Type <span class="hint">Changes what monthly costs apply.</span></label>
             <select id="ac-proptype">
               <option value="freehold" selected>Freehold (House)</option>
               <option value="freehold-hoa">Freehold with HOA</option>
@@ -69,12 +69,12 @@ const hreflangAlternates = [
           </div>
 
           <div class="ac-input-group" id="ac-tax-row">
-            <label>5. Property Taxes <span class="hint">Per month. Leave blank to auto-estimate at 0.7% of price / yr.</span></label>
+            <label for="ac-proptax">5. Property Taxes <span class="hint">Per month. Leave blank to auto-estimate at 0.7% of price / yr.</span></label>
             <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="e.g. 400" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group" id="ac-fee-row" style="display:none;">
-            <label id="ac-fee-label">6. HOA Fee <span class="hint">Per month.</span></label>
+            <label for="ac-fee" id="ac-fee-label">6. HOA Fee <span class="hint">Per month.</span></label>
             <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="e.g. 150" inputmode="decimal" /></div>
           </div>
 
@@ -82,11 +82,11 @@ const hreflangAlternates = [
             <summary>More settings (optional)</summary>
             <div class="ac-more-body">
               <div class="ac-input-group">
-                <label>Mortgage rate <span class="hint">5% is normal in 2026.</span></label>
+                <label for="ac-rate">Mortgage rate <span class="hint">5% is normal in 2026.</span></label>
                 <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
-                <label>Amortization <span class="hint">How many years to pay it off. Most people pick 25.</span></label>
+                <label for="ac-amort">Amortization <span class="hint">How many years to pay it off. Most people pick 25.</span></label>
                 <select id="ac-amort">
                   <option value="20">20 years</option>
                   <option value="25" selected>25 years</option>
@@ -94,7 +94,7 @@ const hreflangAlternates = [
                 </select>
               </div>
               <div class="ac-input-group">
-                <label>Where is it?</label>
+                <label for="ac-location">Where is it?</label>
                 <select id="ac-location">
                   <option value="toronto" selected>Inside City of Toronto</option>
                   <option value="ontario">Rest of Ontario</option>

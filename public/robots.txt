@@ -95,5 +95,7 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /contact/thanks
+Disallow: /chinese/contact/thanks
+Disallow: /french/contact/thanks
 
 Sitemap: https://www.realtorpeterlaw.com/sitemap-index.xml

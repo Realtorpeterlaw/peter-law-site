@@ -39,12 +39,12 @@ const hreflangAlternates = [
         <!-- 输入 -->
         <div class="ac-inputs">
           <div class="ac-input-group">
-            <label>1. 您一个月赚多少? <span class="hint">税前。</span></label>
+            <label for="rc-income">1. 您一个月赚多少? <span class="hint">税前。</span></label>
             <div class="input-prefix"><input type="number" id="rc-income" value="6500" min="0" step="100" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>2. 每月租金支出</label>
+            <label for="rc-rent">2. 每月租金支出</label>
             <div class="input-prefix"><input type="number" id="rc-rent" value="2200" min="0" step="50" inputmode="decimal" /></div>
           </div>
 
@@ -61,7 +61,7 @@ const hreflangAlternates = [
           </div>
 
           <div class="ac-input-group">
-            <label>5. <span class="rc-icon-label"><span class="rc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/></svg></span><span>水电煤气</span></span> <span class="hint">水电费用大约每月 $60 至 $100。*</span></label>
+            <label for="rc-utilities">5. <span class="rc-icon-label"><span class="rc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/></svg></span><span>水电煤气</span></span> <span class="hint">水电费用大约每月 $60 至 $100。*</span></label>
             <div class="input-prefix"><input type="number" id="rc-utilities" value="100" min="0" step="5" inputmode="decimal" /></div>
           </div>
 

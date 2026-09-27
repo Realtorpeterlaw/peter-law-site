@@ -39,29 +39,29 @@ const hreflangAlternates = [
         <!-- 输入区 -->
         <div class="ac-inputs">
           <div class="ac-input-group">
-            <label>1. 您一年赚多少? <span class="hint">税前。</span></label>
+            <label for="ac-income">1. 您一年赚多少? <span class="hint">税前。</span></label>
             <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>2. 已接受的房价 <span class="hint">Condo、镇屋、独立屋均可。</span></label>
+            <label for="ac-price">2. 已接受的房价 <span class="hint">Condo、镇屋、独立屋均可。</span></label>
             <div class="input-prefix"><input type="number" id="ac-price" value="1000000" min="0" step="5000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group">
-            <label>3. 首付 <span class="hint">理想首付为房价的 20-25%。</span></label>
+            <label for="ac-savings">3. 首付 <span class="hint">理想首付为房价的 20-25%。</span></label>
             <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group ac-checkbox-group">
-            <label class="ac-checkbox">
+            <label for="ac-fthb" class="ac-checkbox">
               <input type="checkbox" id="ac-fthb" checked />
               <span class="ac-checkbox-text">我是首次购房者 <span class="hint">可获得土地转让税退税。</span></span>
             </label>
           </div>
 
           <div class="ac-input-group">
-            <label>4. 物业类型 <span class="hint">决定适用哪些每月支出。</span></label>
+            <label for="ac-proptype">4. 物业类型 <span class="hint">决定适用哪些每月支出。</span></label>
             <select id="ac-proptype">
               <option value="freehold" selected>独立产权(House)</option>
               <option value="freehold-hoa">独立产权(含 HOA)</option>
@@ -70,12 +70,12 @@ const hreflangAlternates = [
           </div>
 
           <div class="ac-input-group" id="ac-tax-row">
-            <label>5. 地税 <span class="hint">每月。留空则按房价 0.7%/年 自动估算。</span></label>
+            <label for="ac-proptax">5. 地税 <span class="hint">每月。留空则按房价 0.7%/年 自动估算。</span></label>
             <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="如 400" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group" id="ac-fee-row" style="display:none;">
-            <label id="ac-fee-label">6. HOA 管理费 <span class="hint">每月。</span></label>
+            <label for="ac-fee" id="ac-fee-label">6. HOA 管理费 <span class="hint">每月。</span></label>
             <div class="input-prefix"><input type="number" id="ac-fee" value="" min="0" step="5" placeholder="如 150" inputmode="decimal" /></div>
           </div>
 
@@ -83,11 +83,11 @@ const hreflangAlternates = [
             <summary>更多设置(可选)</summary>
             <div class="ac-more-body">
               <div class="ac-input-group">
-                <label>按揭利率 <span class="hint">2026 年常见约 5%。</span></label>
+                <label for="ac-rate">按揭利率 <span class="hint">2026 年常见约 5%。</span></label>
                 <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
-                <label>摊还期 <span class="hint">多少年还清。大多数人选 25 年。</span></label>
+                <label for="ac-amort">摊还期 <span class="hint">多少年还清。大多数人选 25 年。</span></label>
                 <select id="ac-amort">
                   <option value="20">20 年</option>
                   <option value="25" selected>25 年</option>
@@ -95,7 +95,7 @@ const hreflangAlternates = [
                 </select>
               </div>
               <div class="ac-input-group">
-                <label>房子在哪?</label>
+                <label for="ac-location">房子在哪?</label>
                 <select id="ac-location">
                   <option value="toronto" selected>多伦多市内</option>
                   <option value="ontario">安省其他地区</option>

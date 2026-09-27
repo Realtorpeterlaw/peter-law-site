@@ -38,6 +38,7 @@ const posts = [
   },
   {
     slug: 'rent-vs-buy',
+    categories: ['sale', 'rent'],
     title: '租房 vs 买房:何时、为何、如何',
     eyebrow: '买家基础 · 计算器',
     readMin: 6,
@@ -45,6 +46,7 @@ const posts = [
   },
   {
     slug: 'ontario-property-taxes-rising',
+    categories: ['sale'],
     title: '安省房产税持续上涨',
     eyebrow: '安省业主 · 政策',
     readMin: 7,
@@ -52,6 +54,7 @@ const posts = [
   },
   {
     slug: 'vacant-home-tax',
+    categories: ['sale'],
     title: '空置房屋税(Vacant Home Tax)',
     eyebrow: '多伦多业主 · 税务',
     readMin: 8,
@@ -59,6 +62,7 @@ const posts = [
   },
   {
     slug: 'hcra-illegal-building',
+    categories: ['sale'],
     title: 'HCRA:非法建造',
     eyebrow: '买家保护 · 安省',
     readMin: 7,
@@ -66,6 +70,7 @@ const posts = [
   },
   {
     slug: 'rhsp',
+    categories: ['rent'],
     title: '租赁住房供应计划(RHSP)',
     eyebrow: '多伦多住房 · 政策',
     readMin: 8,
@@ -73,6 +78,7 @@ const posts = [
   },
   {
     slug: 'oesp',
+    categories: ['rent', 'sale'],
     title: '电费账单减约 50%:OESP(安省电力补助计划)',
     eyebrow: '节省能源 · 安省',
     readMin: 8,
@@ -80,6 +86,7 @@ const posts = [
   },
   {
     slug: 'foreign-buyer-ban',
+    categories: ['sale'],
     title: '2026:加拿大外国买家禁令',
     eyebrow: '政策 · 联邦法律',
     readMin: 9,
@@ -87,6 +94,7 @@ const posts = [
   },
   {
     slug: 'fhsa',
+    categories: ['sale'],
     title: '首次购房储蓄账户(FHSA):是什么?',
     eyebrow: '买家储蓄 · 税务',
     readMin: 8,
@@ -94,6 +102,7 @@ const posts = [
   },
   {
     slug: 'fthb-rebate',
+    categories: ['sale'],
     title: '2026 首次购房者(FTHB)GST/HST 退税',
     eyebrow: '买家退税 · 2026',
     readMin: 8,
@@ -101,6 +110,7 @@ const posts = [
   },
   {
     slug: 'heloc',
+    categories: ['sale'],
     title: 'HELOC(房屋净值信用额度):是什么?',
     eyebrow: '融资 · 房屋净值',
     readMin: 7,
@@ -108,6 +118,7 @@ const posts = [
   },
   {
     slug: 'time-of-use-tou',
+    categories: ['rent'],
     title: '电费大省:分时电价(Time of Use, TOU)',
     eyebrow: '家居小贴士 · 水电',
     date: '2026 年 6 月 3 日',
@@ -116,6 +127,7 @@ const posts = [
   },
   {
     slug: 'bill-60-ontario',
+    categories: ['rent', 'sale'],
     iconKey: 'scroll',
     title: '安省 Bill 60:租客与房东必须知道的事',
     eyebrow: '立法 · 2026',
@@ -124,6 +136,7 @@ const posts = [
   },
   {
     slug: 'reverse-mortgage',
+    categories: ['sale'],
     iconKey: 'house',
     title: '反向房贷(Reverse Mortgage):是什么?',
     eyebrow: '长者买家 · 融资',
@@ -158,6 +171,11 @@ const hreflangAlternates = [
         <svg class="blog-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         <input id="blog-search-input" type="search" placeholder="搜索文章…" aria-label="搜索博客文章" autocomplete="off" />
       </div>
+      <div class="blog-filter" role="group" aria-label="按类别筛选文章">
+        <button type="button" class="blog-filter-chip is-active" data-filter="all">全部</button>
+        <button type="button" class="blog-filter-chip blog-filter-chip-sale" data-filter="sale"><span class="blog-filter-dot" aria-hidden="true"></span>买卖</button>
+        <button type="button" class="blog-filter-chip blog-filter-chip-rent" data-filter="rent"><span class="blog-filter-dot" aria-hidden="true"></span>租赁</button>
+      </div>
     </div>
   </section>
 
@@ -165,8 +183,15 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="blog-list">
         {posts.map((post) => (
-          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()}>
+          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
             <a href={`/chinese/blog/${post.slug}`} class="blog-card-link" aria-label={`阅读:${post.title}`}>
+              {post.categories && post.categories.length > 0 && (
+                <span class="blog-card-dots" role="img" aria-label={`类别:${post.categories.map(c => c === 'rent' ? '租赁' : '买卖').join(', ')}`}>
+                  {post.categories.map(c => (
+                    <span class={`blog-card-dot blog-card-dot-${c}`} title={c === 'rent' ? '租赁' : '买卖'}></span>
+                  ))}
+                </span>
+              )}
               {post.iconKey && icons[post.iconKey] && (
                 <div class="blog-card-icon" set:html={icons[post.iconKey]} />
               )}
@@ -212,12 +237,26 @@ const hreflangAlternates = [
       const cards = document.querySelectorAll('.blog-card');
       const noResults = document.getElementById('blog-no-results');
       if (!input || !cards.length) return;
+      let activeCategory = 'all';
+      const chipBtns = document.querySelectorAll('.blog-filter-chip');
+      chipBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          chipBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          activeCategory = btn.getAttribute('data-filter') || 'all';
+          filter();
+        });
+      });
+
       function filter() {
         const q = input.value.trim().toLowerCase();
         let visibleCount = 0;
         cards.forEach(function(card) {
           const text = card.getAttribute('data-search') || '';
-          const match = !q || text.indexOf(q) !== -1;
+          const catList = (card.getAttribute('data-category') || '').split(' ').filter(Boolean);
+          const searchMatch = !q || text.indexOf(q) !== -1;
+          const catMatch = activeCategory === 'all' || catList.indexOf(activeCategory) !== -1;
+          const match = searchMatch && catMatch;
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
         });
@@ -227,3 +266,81 @@ const hreflangAlternates = [
     })();
   </script>
 </BaseLayout>
+<style>
+  /* Blog-post category dots, top-right corner of the card
+     (solid coloured circles, no text; multiple stack side-by-side) */
+  .blog-card { position: relative; }
+  .blog-card-dots {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    pointer-events: none;
+  }
+  .blog-card-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  }
+  .blog-card-dot-sale { background: #1a6b32; }
+  .blog-card-dot-rent { background: #b8002e; }
+  html[data-theme="dark"] .blog-card-dot { border-color: rgba(255, 255, 255, 0.15); }
+  html[data-theme="dark"] .blog-card-dot-sale { background: #4bc774; }
+  html[data-theme="dark"] .blog-card-dot-rent { background: #e35a72; }
+
+  /* Filter chips row (below search input) */
+  .blog-filter {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .blog-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--bg);
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .blog-filter-chip:hover { background: var(--bg-warm); color: var(--ink); }
+  .blog-filter-chip.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .blog-filter-chip.is-active .blog-filter-dot { background: currentColor; }
+  .blog-filter-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .blog-filter-chip-sale .blog-filter-dot { background: #1a6b32; }
+  .blog-filter-chip-rent .blog-filter-dot { background: #b8002e; }
+  html[data-theme="dark"] .blog-filter-chip { background: var(--surface); color: var(--ink-soft); border-color: var(--rule); }
+  html[data-theme="dark"] .blog-filter-chip:hover { background: var(--bg-warm); color: var(--ink); }
+  /* Active-state override for dark mode. Without this, the earlier
+     dark-mode background rule wins by specificity and the chip renders
+     dark-on-dark, making the label + dot invisible. Cream fill + deep
+     dark ink for high-contrast active state. */
+  html[data-theme="dark"] .blog-filter-chip.is-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  html[data-theme="dark"] .blog-filter-chip.is-active .blog-filter-dot {
+    background: var(--bg);
+  }
+</style>
+
