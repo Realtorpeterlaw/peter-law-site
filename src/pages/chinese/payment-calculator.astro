@@ -34,7 +34,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>买家资源</h4>
+          <h2 class="side-h">买家资源</h2>
           <ul>
             <li><a href="/chinese/buyer-guide">买家指南</a></li>
             <li><a href="/chinese/payment-calculator">房贷</a></li>
@@ -113,7 +113,7 @@ const hreflangAlternates = [
                 <button class="mc-amort-tab" data-scenario="b" type="button">方案 B</button>
                 <button class="mc-amort-tab" data-scenario="c" type="button">方案 C</button>
               </div>
-              <div style="overflow-x: auto;">
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
                 <table class="mc-table" id="mc-amort-table">
                   <thead><tr><th>年份</th><th>本金支付</th><th>利息支付</th><th>总支付</th><th>剩余本金</th></tr></thead>
                   <tbody></tbody>
@@ -224,7 +224,7 @@ const hreflangAlternates = [
     function buildScenarioCard(id, def) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
+          <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>首付金额</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000" inputmode="decimal"></div></div>
             <div class="mc-row"><label>首付 %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
@@ -258,7 +258,7 @@ const hreflangAlternates = [
     function buildCashCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
+          <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
           <div class="mc-row mc-output"><label>首付</label><span class="value" data-cash="${id}-down">$0</span></div>
           <div class="mc-row mc-output"><label>土地转让税</label><span class="value" data-cash="${id}-ltt">$0</span></div>
           <div class="mc-row mc-output"><label>律师费 + 产权(估算)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
@@ -270,7 +270,7 @@ const hreflangAlternates = [
     function buildExpenseCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4></div>
+          <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3></div>
           <div class="mc-row mc-output"><label>月供</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
           <div class="mc-row mc-output"><label>物业税</label><span class="value" data-exp="${id}-tax">$0</span></div>
           <div class="mc-row mc-output"><label>取暖 / 水电</label><span class="value" data-exp="${id}-heat">$0</span></div>

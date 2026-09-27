@@ -33,7 +33,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Buyer resources</h4>
+          <h2 class="side-h">Buyer resources</h2>
           <ul>
             <li><a href="/buyer-guide">Buyer Guide</a></li>
             <li><a href="/payment-calculator">Mortgage</a></li>
@@ -151,7 +151,7 @@ const hreflangAlternates = [
                 <button class="mc-amort-tab" data-scenario="b" type="button">Scenario B</button>
                 <button class="mc-amort-tab" data-scenario="c" type="button">Scenario C</button>
               </div>
-              <div style="overflow-x: auto;">
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
                 <table class="mc-table" id="mc-amort-table">
                   <thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Total paid</th><th>Balance remaining</th></tr></thead>
                   <tbody></tbody>
@@ -269,7 +269,7 @@ const hreflangAlternates = [
     function buildScenarioCard(id, def) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
+          <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>Down payment</label><div class="input-prefix" data-prefix="$"><input type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
             <div class="mc-row"><label>Down %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
@@ -303,7 +303,7 @@ const hreflangAlternates = [
     function buildCashCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
+          <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
           <div class="mc-row mc-output"><label>Down payment</label><span class="value" data-cash="${id}-down">$0</span></div>
           <div class="mc-row mc-output"><label>Land Transfer Tax</label><span class="value" data-cash="${id}-ltt">$0</span></div>
           <div class="mc-row mc-output"><label>Legal fees + title (est.)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
@@ -315,7 +315,7 @@ const hreflangAlternates = [
     function buildExpenseCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scenario ${id.toUpperCase()}</h4></div>
+          <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3></div>
           <div class="mc-row mc-output"><label>Mortgage (monthly)</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
           <div class="mc-row mc-output"><label>Property tax</label><span class="value" data-exp="${id}-tax">$0</span></div>
           <div class="mc-row mc-output"><label>Heating / utilities</label><span class="value" data-exp="${id}-heat">$0</span></div>

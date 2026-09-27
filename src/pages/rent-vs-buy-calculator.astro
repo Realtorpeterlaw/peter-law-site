@@ -33,7 +33,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Buyer resources</h4>
+          <h2 class="side-h">Buyer resources</h2>
           <ul>
             <li><a href="/buyer-guide">Buyer Guide</a></li>
             <li><a href="/payment-calculator">Mortgage Calculator</a></li>
@@ -199,7 +199,7 @@ const hreflangAlternates = [
             <summary>Long-term benefits of home ownership</summary>
             <div class="mc-collapsible-body">
               <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">If you sell at year <span id="rvb-years-eq">5</span>, this is the equity you'd walk away with after paying off the loan and covering selling costs.</p>
-              <div style="overflow-x: auto;">
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
                 <table class="mc-table">
                   <thead><tr><th>Line item</th><th style="text-align:right;">Amount</th></tr></thead>
                   <tbody>
@@ -240,7 +240,7 @@ const hreflangAlternates = [
           <section class="rvb-chart-section" aria-label="Ownership vs Renting over time">
             <h3 class="rvb-chart-title">Ownership vs Renting over time</h3>
             <p class="rvb-chart-lead">Cumulative cash outflow year-by-year. Where the two lines cross is your break-even point, the year buying starts winning in pure cash terms. The gold area shows equity you would keep at each year if you sold.</p>
-            <div class="rvb-chart-wrap">
+            <div class="rvb-chart-wrap" tabindex="0" role="region" aria-label="Chart">
               <svg id="rvb-chart-svg" class="rvb-chart-svg" viewBox="0 0 720 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- rendered dynamically by JS -->
               </svg>

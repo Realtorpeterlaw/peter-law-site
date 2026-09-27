@@ -34,7 +34,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>买家资源</h4>
+          <h2 class="side-h">买家资源</h2>
           <ul>
             <li><a href="/chinese/buyer-guide">买家指南</a></li>
             <li><a href="/chinese/land-transfer-tax">土地转让税</a></li>
@@ -175,7 +175,7 @@ const hreflangAlternates = [
     function buildScenario(id, def) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>方案 ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.rate}% · ${def.amort} 年</span></div>
+          <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.rate}% · ${def.amort} 年</span></div>
           <div class="mc-row"><label>利率(%)</label><input type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>摊销期</label>
@@ -222,7 +222,7 @@ const hreflangAlternates = [
 
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
         document.querySelector(`[data-output="${id}-change"]`).textContent = (change >= 0 ? '+' : '') + fmtCAD(change) + '/月';
-        document.querySelector(`[data-output="${id}-change"]`).style.color = change < 0 ? '#2f6b30' : (change > 0 ? '#b8002e' : '');
+        { const ch = document.querySelector(`[data-output="${id}-change"]`); ch.classList.toggle('is-save', change < 0); ch.classList.toggle('is-cost', change > 0); }
         document.querySelector(`[data-output="${id}-int"]`).textContent = fmtCAD(totalInt);
         document.querySelector(`[data-output="${id}-monthly"]`).textContent = fmtCAD(monthly);
         document.querySelector(`[data-output="${id}-freq-label"]`).textContent = freqLabel[freq] || '/月';

@@ -310,5 +310,29 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
       });
     })();
   </script>
+  <script is:inline>
+    /* Accessibility: tie each form label to its field (calculator fields,
+       including ones built by JavaScript) so screen readers announce them. */
+    (function () {
+      var n = 0;
+      function link(root) {
+        (root || document).querySelectorAll('label:not([for])').forEach(function (l) {
+          if (l.querySelector('input,select,textarea')) return;
+          var box = l.parentElement; if (!box) return;
+          var f = box.querySelectorAll('input:not([type=hidden]),select,textarea');
+          if (f.length !== 1) return;
+          var el = f[0]; if (!el.id) el.id = 'fld-' + (++n);
+          l.htmlFor = el.id;
+        });
+      }
+      function run() { link(document); }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+      window.addEventListener('load', run);
+      if ('MutationObserver' in window) {
+        var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(run, 50); })
+          .observe(document.documentElement, { childList: true, subtree: true });
+      }
+    })();
+  </script>
 </body>
 </html>

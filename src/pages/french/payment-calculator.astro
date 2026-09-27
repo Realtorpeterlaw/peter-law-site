@@ -34,7 +34,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h4>Ressources pour acheteurs</h4>
+          <h2 class="side-h">Ressources pour acheteurs</h2>
           <ul>
             <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
             <li><a href="/french/payment-calculator">Hypothèque</a></li>
@@ -151,7 +151,7 @@ const hreflangAlternates = [
                 <button class="mc-amort-tab" data-scenario="b" type="button">Scénario B</button>
                 <button class="mc-amort-tab" data-scenario="c" type="button">Scénario C</button>
               </div>
-              <div style="overflow-x: auto;">
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
                 <table class="mc-table" id="mc-amort-table">
                   <thead><tr><th>Année</th><th>Capital payé</th><th>Intérêts payés</th><th>Total payé</th><th>Solde restant</th></tr></thead>
                   <tbody></tbody>
@@ -269,7 +269,7 @@ const hreflangAlternates = [
     function buildScenarioCard(id, def) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scénario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
+          <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label>Mise de fonds</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000" inputmode="decimal"></div></div>
             <div class="mc-row"><label>Mise %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
@@ -303,7 +303,7 @@ const hreflangAlternates = [
     function buildCashCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scénario ${id.toUpperCase()}</h4><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
+          <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
           <div class="mc-row mc-output"><label>Mise de fonds</label><span class="value" data-cash="${id}-down">$0</span></div>
           <div class="mc-row mc-output"><label>Droits de mutation</label><span class="value" data-cash="${id}-ltt">$0</span></div>
           <div class="mc-row mc-output"><label>Honoraires juridiques + titres (est.)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
@@ -315,7 +315,7 @@ const hreflangAlternates = [
     function buildExpenseCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h4>Scénario ${id.toUpperCase()}</h4></div>
+          <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3></div>
           <div class="mc-row mc-output"><label>Hypothèque (mensuel)</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
           <div class="mc-row mc-output"><label>Impôt foncier</label><span class="value" data-exp="${id}-tax">$0</span></div>
           <div class="mc-row mc-output"><label>Chauffage / services publics</label><span class="value" data-exp="${id}-heat">$0</span></div>

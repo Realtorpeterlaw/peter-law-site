@@ -5,7 +5,7 @@
   --surface: #ffffff;
   --ink: #1a1a1a;
   --ink-soft: #4a4a4a;
-  --ink-mute: #6d6d6d;   /* darkened for WCAG AA on cream */
+  --ink-mute: #626262;   /* WCAG AA 4.7:1+ on every cream background */
   --rule: #d8d4cc;
   --max: 1180px;
 }
@@ -144,7 +144,7 @@ h2.section-h { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; fon
 
 footer { background: var(--bg); color: var(--ink-soft); padding: 64px 0 32px; font-size: 14px; border-top: 1px solid var(--rule); }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule); }
-.foot-col h4 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); margin-bottom: 16px; font-weight: 600; }
+.foot-col h4, .foot-col h2.foot-h { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); margin-bottom: 16px; font-weight: 600; }
 .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .foot-col a:hover { color: var(--ink); }
 .foot-brand p { margin-top: 16px; font-size: 13px; color: var(--ink-mute); }
@@ -154,7 +154,7 @@ footer { background: var(--bg); color: var(--ink-soft); padding: 64px 0 32px; fo
 
 .prose-grid { display: grid; grid-template-columns: 280px 1fr; gap: 80px; align-items: start; }
 .prose-side { position: sticky; top: 110px; }
-.prose-side h4 { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 14px; font-weight: 500; }
+.prose-side h4, .prose-side h2.side-h { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 14px; font-weight: 500; }
 .prose-side ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .prose-side a { color: var(--ink-soft); border-left: 1px solid var(--rule); padding-left: 12px; transition: color 0.15s, border-color 0.15s; }
 .prose-side a:hover { color: var(--ink); border-color: var(--ink); }
@@ -586,7 +586,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 
 .mc-scenario { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .mc-scenario-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
-.mc-scenario-header h4 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 18px; color: var(--ink); }
+.mc-scenario-header h4, .mc-scenario-header h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 18px; color: var(--ink); }
 .mc-scenario-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
 .mc-row { display: flex; flex-direction: column; gap: 4px; }
 .mc-row label { font-size: 12px; color: var(--ink-mute); font-weight: 500; letter-spacing: 0.02em; }
@@ -598,7 +598,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .mc-row.mc-payment { background: var(--ink); color: var(--bg); padding: 14px 16px; border-radius: 4px; margin-top: 4px; }
 .mc-row.mc-payment label { color: #d4cfc4; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; }
 .mc-row.mc-payment .value { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 26px; font-weight: 500; color: var(--bg); line-height: 1.1; }
-.mc-row.mc-payment .freq { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: #5f5c53; font-weight: 400; margin-top: 2px; }
+.mc-row.mc-payment .freq { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: #b8b3a8; font-weight: 400; margin-top: 2px; }
 .mc-row-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
 .mc-ltt-block { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 24px; margin-bottom: 24px; }
@@ -633,9 +633,9 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .mc-stress-cell .pmt { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 22px; font-weight: 500; margin-top: 6px; }
 .mc-stress-cell .delta { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
 .mc-stress-cell.base { background: var(--ink); color: var(--bg); }
-.mc-stress-cell.base .rate { color: #5f5c53; }
+.mc-stress-cell.base .rate { color: #b8b3a8; }
 .mc-stress-cell.base .pmt { color: var(--bg); }
-.mc-stress-cell.base .delta { color: #5f5c53; }
+.mc-stress-cell.base .delta { color: #b8b3a8; }
 
 /* Proof bar item as link */
 a.proof-item.proof-link { display: block; color: inherit; text-decoration: none; transition: color 0.15s; }
@@ -958,7 +958,7 @@ body.mobile-menu-open { overflow: hidden; }
 
 /* SEO topic tags at bottom of blog articles */
 .seo-tags { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--rule); }
-.seo-tags h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 14px; }
+.seo-tags h4, .seo-tags h2.seo-tags-h { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 14px; }
 .seo-tags ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .seo-tags li { font-size: 12px; color: var(--ink-soft); background: var(--bg-warm); border: 1px solid var(--rule); padding: 5px 12px; border-radius: 999px; line-height: 1; }
 
@@ -1533,7 +1533,7 @@ body.mobile-menu-open { overflow: hidden; }
 .rc-meter-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: #2f6b30; transition: width 0.35s ease, background 0.35s ease; max-width: 100%; }
 .rc-meter-fill.tier-yellow { background: #8a6810; }
 .rc-meter-fill.tier-red    { background: #b64830; }
-.rc-meter-tick { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink-mute); opacity: 0.55; }
+.rc-meter-tick { position: absolute; top: -4px; bottom: -4px; width: 2px; background: rgba(98, 98, 98, 0.55); }
 .rc-meter-tick-label { position: absolute; top: 18px; transform: translateX(-50%); font-size: 10.5px; color: var(--ink-mute); letter-spacing: 0.06em; white-space: nowrap; }
 .rc-meter-tiers { display: flex; justify-content: space-between; margin-top: 30px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
 .rc-meter-tiers span { display: inline-flex; align-items: center; gap: 6px; }
@@ -2222,7 +2222,8 @@ html[data-theme="dark"] .prose-side a:hover {
   color: var(--ink);
   border-left-color: var(--accent);
 }
-html[data-theme="dark"] .prose-side h4 {
+html[data-theme="dark"] .prose-side h4,
+html[data-theme="dark"] .prose-side h2.side-h {
   color: var(--ink-mute);
 }
 html[data-theme="dark"] .prose-body .callout,
@@ -2542,7 +2543,8 @@ html[data-theme="dark"] .foot-grid-5,
 html[data-theme="dark"] .foot-grid-6 {
   border-bottom-color: var(--rule);
 }
-html[data-theme="dark"] .foot-col h4 {
+html[data-theme="dark"] .foot-col h4,
+html[data-theme="dark"] .foot-col h2.foot-h {
   color: var(--ink);
 }
 html[data-theme="dark"] .foot-col a {
@@ -2974,7 +2976,7 @@ html[data-theme="dark"] .ltt-total {
   .fh-program-grid { grid-template-columns: 1fr !important; }
   .fh-house-card p, .fh-program-card p, .fh-ba-col li { font-size: 13px; }
   .fh-closing-row { flex-wrap: wrap; padding: 10px 14px; gap: 4px; }
-  .fh-closing-row span:last-child { font-size: 12px; opacity: 0.85; }
+  .fh-closing-row span:last-child { font-size: 12px; }
 }
 /* Very narrow phones (< 380px): make sure nothing overflows */
 @media (max-width: 380px) {
@@ -3071,3 +3073,41 @@ html[data-theme="dark"] .ltt-total {
 @media (max-width: 360px) {
   .head-cta-call { padding: 6px 7px; font-size: 10.5px; letter-spacing: 0.04em; }
 }
+
+/* Sidebar/footer section labels are now <h2> (correct heading order for
+   screen readers); keep the original small uppercase look. */
+h2.side-h, h2.foot-h { font-family: inherit; line-height: 1.4; }
+
+h2.seo-tags-h { font-family: inherit; }
+.fh-program-tag { color: #8a5f38; }
+html[data-theme="dark"] .fh-program-tag { color: var(--accent); }
+.fh-formula-result .fh-formula-value { color: #8a5f38; }
+html[data-theme="dark"] .fh-formula-result .fh-formula-value { color: var(--accent); }
+
+/* ============ Dark-mode contrast repairs (Sep 2026 axe audit) ============ */
+/* Inverted boxes use background var(--ink), which is cream in dark mode,
+   but some of their text was hard-coded light -> invisible. */
+html[data-theme="dark"] .mc-row.mc-payment label,
+html[data-theme="dark"] .mc-row.mc-payment .freq,
+html[data-theme="dark"] .mc-stress-cell.base .rate,
+html[data-theme="dark"] .mc-stress-cell.base .delta,
+html[data-theme="dark"] .heloc-formula-result .heloc-formula-label,
+html[data-theme="dark"] .heloc-formula-result .heloc-formula-sub { color: #4a4640; }
+html[data-theme="dark"] .cta-box .alt { color: #b3ada1; }
+/* Refinance 'change vs today' colours (class-based so dark mode can adapt) */
+.is-save { color: #2f6b30; }
+.is-cost { color: #b8002e; }
+html[data-theme="dark"] .is-save { color: #7fd08a; }
+html[data-theme="dark"] .is-cost { color: #ff8a9c; }
+/* Property-tax post charts + collapsible had a hard-coded light background */
+html[data-theme="dark"] .bar-chart,
+html[data-theme="dark"] .means-collapse { background: var(--surface); border-color: var(--rule); }
+html[data-theme="dark"] .qf-label { color: var(--ink-mute); }
+html[data-theme="dark"] .qf-val { color: var(--ink); }
+/* Time-of-use tier strip */
+html[data-theme="dark"] .tou-tier-mid, html[data-theme="dark"] .tou-strip-mid { background: #3a3326; }
+/* Misc accents on dark cards */
+html[data-theme="dark"] .rc-meter-tiers .tier-over { color: #f08a6e; }
+html[data-theme="dark"] .fh-program-tag[style*="b8002e"] { color: #ff8a9c !important; }
+html[data-theme="dark"] .qf-card { background: var(--surface); border-color: var(--rule); }
+html[data-theme="dark"] .tou-tier-on .tou-tier-sub, html[data-theme="dark"] .tou-tier-on .tou-tier-label { color: #4a4640; opacity: 1; }
