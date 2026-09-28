@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+// Google Search Console verification: set PUBLIC_GSC_VERIFICATION in Vercel env vars (Settings > Environment Variables) and redeploy.
+const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION || '';
 interface HreflangAlt { hreflang: string; href: string; }
 interface Props {
   title: string;
@@ -121,6 +124,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href={canonical} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
+  {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
@@ -182,6 +186,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <slot />
   <Analytics />
+  <SpeedInsights />
   <script is:inline>
     /* Anchor navigation:
        - If target is inside/is a <details>, open the ancestor so content is visible.
@@ -229,9 +234,10 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
     })();
   </script>
   <script is:inline>
-    /* Vercel Analytics, custom event tracking.
-       Waits for window.va (loaded by <Analytics />), then attaches delegated
-       listeners for the CTAs that actually matter to conversion. Cookieless. */
+    /* Vercel Analytics, custom event tracking. Cookieless, no personal data:
+       no typed numbers, no names, no emails. Only which action happened where.
+       Event budget matters on the Hobby plan, so every event fires at most
+       once per page view unless noted. */
     (function () {
       function ready(fn) {
         if (document.readyState !== 'loading') fn();
@@ -241,20 +247,49 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         try { if (window.va) window.va('event', { name: name, data: props || {} }); } catch (_) {}
       }
       function tagFor(el) {
-        // Best-effort human label for the source element.
         return (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 60);
       }
+      var path = location.pathname;
+      var lang = path.indexOf('/chinese') === 0 ? 'zh' : path.indexOf('/french') === 0 ? 'fr' : 'en';
+      function langOf(href) {
+        if (href.indexOf('/chinese') === 0) return 'zh';
+        if (href.indexOf('/french') === 0) return 'fr';
+        if (href === '/' || href.indexOf('/#') === 0) return 'en';
+        return null;
+      }
+      function once(key) {
+        // returns true the first time key is seen on this page view
+        once.seen = once.seen || {};
+        if (once.seen[key]) return false;
+        once.seen[key] = true; return true;
+      }
       ready(function () {
-        // --- CTA clicks ---
+        // --- Clicks: CTAs, language switches, outbound links, downloads ---
         document.addEventListener('click', function (e) {
           var a = e.target.closest('a');
           if (!a) return;
           var href = a.getAttribute('href') || '';
-          if (href.indexOf('cal.com/peter-law') >= 0)   track('cta_book_call',  { location: location.pathname, label: tagFor(a) });
-          else if (href.indexOf('wa.me/') === 0 || href.indexOf('wa.me/') > 0) track('cta_whatsapp', { location: location.pathname });
-          else if (href.indexOf('tel:') === 0)  track('cta_phone_tap',  { location: location.pathname, number: href.replace('tel:', '') });
-          else if (href.indexOf('mailto:') === 0) track('cta_email_tap', { location: location.pathname, address: href.replace('mailto:', '').split('?')[0] });
-          else if (a.matches('.btn-primary, .btn-warm')) track('cta_primary_click', { location: location.pathname, label: tagFor(a), href: href });
+          if (href.indexOf('cal.com/peter-law') >= 0)   { track('cta_book_call',  { location: path, label: tagFor(a) }); return; }
+          if (href.indexOf('wa.me/') >= 0)              { track('cta_whatsapp',   { location: path }); return; }
+          if (href.indexOf('tel:') === 0)               { track('cta_phone_tap',  { location: path }); return; }
+          if (href.indexOf('mailto:') === 0)            { track('cta_email_tap',  { location: path }); return; }
+          var to = langOf(href);
+          if (to && to !== lang && (a.closest('.topbar') || a.classList.contains('mobile-lang') || a.classList.contains('lang-link'))) {
+            track('lang_switch', { from: lang, to: to, location: path }); return;
+          }
+          if (/\.pdf(\?|#|$)/i.test(href)) { track('file_download', { file: href.split('/').pop().split('?')[0], location: path }); return; }
+          if (/^https?:\/\//i.test(href) && href.indexOf(location.host) === -1) {
+            var host = ''; try { host = new URL(href).hostname.replace(/^www\./, ''); } catch (_) {}
+            track('outbound_click', { host: host, location: path, label: tagFor(a) }); return;
+          }
+          if (a.matches('.btn-primary, .btn-warm')) track('cta_primary_click', { location: path, label: tagFor(a), href: href });
+        });
+        // --- Theme toggle ---
+        document.addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-theme-toggle]');
+          if (!btn) return;
+          var to = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          track('theme_toggle', { to: to, location: path });
         });
         // --- Form submissions ---
         document.addEventListener('submit', function (e) {
@@ -262,15 +297,65 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
           if (!f || f.tagName !== 'FORM') return;
           var action = f.getAttribute('action') || '';
           var formName = f.id || f.className || 'form';
-          if (action.indexOf('formspree.io') >= 0)          track('form_submit_formspree', { form: formName, location: location.pathname });
-          else if (action.indexOf('beehiiv.com') >= 0)      track('form_submit_newsletter', { location: location.pathname });
-          else                                              track('form_submit_other', { form: formName, location: location.pathname });
+          if (action.indexOf('formspree.io') >= 0)          track('form_submit_formspree', { form: formName, location: path });
+          else if (action.indexOf('beehiiv.com') >= 0)      track('form_submit_newsletter', { location: path });
+          else                                              track('form_submit_other', { form: formName, location: path });
         });
-        // --- Calculator usage: one event per page view, on the first input the visitor makes ---
+        // --- Calculators: one "used" event on first input, one "result" event
+        //     with the verdict colour after the visitor stops typing (no numbers sent) ---
+        var slug = path.replace(/\/$/, '').split('/').pop() || 'home';
+        var calcName = ({ 'all-calculator': 'buy', 'payment-calculator': 'mortgage', 'rental-calculator': 'rental', 'rent-vs-buy-calculator': 'rent-vs-buy', 'refinance-calculator': 'refinance', 'land-transfer-tax': 'land-transfer-tax', 'rent-control': 'rent-control' })[slug] || slug;
+        var verdictEl = document.querySelector('#ac-verdict, #rc-verdict, #rvb-verdict');
         if (document.querySelector('[data-output], .ac-verdict-title, .rc-verdict-title, [data-cash]')) {
+          var resultTimer = null;
           document.addEventListener('input', function () {
-            track('calculator_output', { calculator: location.pathname });
-          }, { once: true, passive: true });
+            if (once('calc_used')) track('calculator_used', { calculator: calcName, lang: lang });
+            if (!verdictEl) return;
+            clearTimeout(resultTimer);
+            resultTimer = setTimeout(function () {
+              if (!once('calc_result')) return;
+              var m = (verdictEl.className || '').match(/-verdict-(green|yellow|red|neutral|buy|rent)/);
+              track('calculator_result', { calculator: calcName, verdict: m ? m[1] : 'unknown', lang: lang });
+            }, 2500);
+          }, { passive: true });
+        }
+        // --- Blog: search terms, category filter, articles read to the end ---
+        var search = document.getElementById('blog-search-input');
+        if (search) {
+          var searchTimer = null;
+          search.addEventListener('input', function () {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(function () {
+              var q = search.value.trim().toLowerCase().slice(0, 40);
+              if (!q) return;
+              var hits = 0;
+              document.querySelectorAll('.blog-card').forEach(function (c) { if (c.style.display !== 'none') hits++; });
+              track('blog_search', { q: q, results: hits, lang: lang });
+            }, 900);
+          });
+          document.addEventListener('click', function (e) {
+            var chip = e.target.closest('.blog-filter-chip');
+            if (chip) track('blog_filter', { filter: chip.getAttribute('data-filter') || '', lang: lang });
+          });
+        }
+        var article = document.querySelector('body.article-page article, body.article-page .prose-body, body.article-page main');
+        if (article && 'IntersectionObserver' in window) {
+          var sentinel = document.createElement('div');
+          sentinel.setAttribute('aria-hidden', 'true');
+          sentinel.style.cssText = 'height:1px;width:1px;';
+          article.appendChild(sentinel);
+          var startedAt = Date.now();
+          var io = new IntersectionObserver(function (entries) {
+            if (!entries.some(function (en) { return en.isIntersecting; })) return;
+            io.disconnect();
+            track('article_read_end', { post: slug, seconds: Math.round((Date.now() - startedAt) / 1000), lang: lang });
+          }, { rootMargin: '0px 0px -10% 0px' });
+          io.observe(sentinel);
+        }
+        // --- 404s: where did the visitor come from, and what did they ask for ---
+        if (document.querySelector('.nf-h')) {
+          var ref = ''; try { ref = document.referrer ? new URL(document.referrer).hostname : '(direct)'; } catch (_) { ref = '(unknown)'; }
+          track('page_not_found', { path: path.slice(0, 120), referrer: ref });
         }
       });
     })();
