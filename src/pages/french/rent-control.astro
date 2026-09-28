@@ -175,7 +175,7 @@ const hreflangAlternates = [
     function compute() {
       var r = Math.max(0, parseFloat(rent.value) || 0);
       var p = Math.max(0, parseFloat(pct.value) || 0);
-      var delta = r * (p / 100);
+      var delta = Math.round(r * (p / 100) * 100) / 100; // rounded to the cent so the annual figure is exactly 12x the monthly
       out.newRent.textContent = fmt(r + delta);
       out.delta.textContent   = fmt(delta);
       out.annual.textContent  = fmt(delta * 12);

@@ -220,8 +220,7 @@ const hreflangAlternates = [
       document.getElementById('ltt-rebate').textContent = '−' + fmtCAD(totalRebate);
     }
     document.querySelectorAll('#ltt-price,#ltt-toronto,#ltt-firsttime,#ltt-type').forEach(el => {
-      el.addEventListener('input', update);
-      el.addEventListener('change', update);
+      el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', update);
     });
     update();
   </script>

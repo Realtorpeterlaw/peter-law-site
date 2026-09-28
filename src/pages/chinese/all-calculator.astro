@@ -202,7 +202,7 @@ const hreflangAlternates = [
         return 0;
       }
       function minDownPayment(price) {
-        if (price > 1500000) return price * 0.20;
+        if (price >= 1500000) return price * 0.20;
         if (price <= 500000) return price * 0.05;
         return 500000 * 0.05 + (price - 500000) * 0.10;
       }
@@ -243,7 +243,7 @@ const hreflangAlternates = [
 
       const $ = (id) => document.getElementById(id);
       const inputs = ['ac-income', 'ac-price', 'ac-savings', 'ac-rate', 'ac-amort', 'ac-location', 'ac-fthb', 'ac-proptype', 'ac-proptax', 'ac-fee'];
-      inputs.forEach((id) => { const el = $(id); if (!el) return; el.addEventListener('input', recompute); el.addEventListener('change', recompute); });
+      inputs.forEach((id) => { const el = $(id); if (!el) return; el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', recompute); });
 
       function recompute() {
         const income   = Math.max(0, parseFloat($('ac-income').value)  || 0);
@@ -275,6 +275,7 @@ const hreflangAlternates = [
         const actualDown = downFromSavings;
         const ltv = price > 0 ? (price - actualDown) / price * 100 : 0;
         let premiumRate = cmhcPremiumRate(ltv);
+        if (ltv > 80 && (shortfall > 0 || price >= 1500000)) premiumRate = null; // not insurable
         if (premiumRate && amort > 25) premiumRate += 0.002; // CMHC 30-yr surcharge
         const baseLoan = Math.max(0, price - actualDown);
         const cmhcPremium = (premiumRate !== null && premiumRate > 0) ? baseLoan * premiumRate : 0;
@@ -291,7 +292,8 @@ const hreflangAlternates = [
         }
         const totalLTT = Math.max(0, lttOnt + lttMltt - rebate);
         const legalEtc = 2500;
-        const cashToClose = actualDown + totalLTT + legalEtc;
+        const cmhcPST = cmhcPremium * 0.08; // Ontario PST on the CMHC premium, due at closing
+        const cashToClose = actualDown + totalLTT + legalEtc + cmhcPST;
 
         const stressRate = Math.max(rate + 2, 5.25);
         const stressPayment = monthlyPayment(totalMortgage, stressRate, amort);
@@ -300,7 +302,7 @@ const hreflangAlternates = [
         const propTaxMo = (isFinite(proptaxRaw) && proptaxRaw >= 0) ? proptaxRaw : (price * 0.007 / 12);
         const ownershipFeeMo = (isFinite(feeRaw) && feeRaw >= 0 && propType !== 'freehold') ? feeRaw : 0;
         const heatMo = propType === 'condo' ? 0 : 150;
-        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo + heatMo) / monthlyIncome * 100 : 0;
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo * 0.5 + heatMo) / monthlyIncome * 100 : 0;
 
         const totalInterest = monthly * amort * 12 - totalMortgage;
 
@@ -310,7 +312,7 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? '(不允许,需至少再多 5% 首付)'
+          ? (shortfall > 0 ? '(不可投保:低于最低首付)' : '(不可投保:房价达 150 万元需 20% 首付)')
           : premiumRate === 0
             ? '(首付 20%+, 不需保险)'
             : '(贷款金额的 ' + (premiumRate * 100).toFixed(2) + '%)';
@@ -351,7 +353,7 @@ const hreflangAlternates = [
         if (income <= 0 || price <= 0) {
           vTitle = '请在上方输入数字。';
           vSub = '银行会看住房支出占收入的比例。低于 32% 安全,高于 39% 银行一般不批。';
-        } else if (premiumRate === null) {
+        } else if (premiumRate === null && shortfall <= 0) {
           vTitle = '此房价所需首付更多。';
           vSub = '房价超过 150 万元时,最低首付为 20%。您目前低于此门槛,需再存,或考虑低一点的价位。';
           vClass = 'ac-verdict-red';

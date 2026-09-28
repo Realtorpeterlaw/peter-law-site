@@ -33,28 +33,55 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 // Auto-generate BreadcrumbList JSON-LD from URL path
 const _path = Astro.url.pathname.replace(/\/$/, '');
 const _segments = _path.split('/').filter(Boolean);
-const _labelMap: Record<string, string> = {
-  chinese: '中文', french: 'Français',
-  blog: 'Blog', 'past-deals': 'Sale History', about: 'About', contact: 'Contact',
-  'buyer-guide': 'Buyer Guide', 'for-renters': 'For Renters', 'for-landlords': 'For Landlords',
-  'rental-tour': 'Rental Tour', 'rent-control': 'Rent Control', 'lease-renewal': 'Lease Renewal',
-  'n-forms': 'N Forms', 'land-transfer-tax': 'Land Transfer Tax',
-  'payment-calculator': 'Mortgage Calculator', 
-  'cmhc-insurance-calculator': 'CMHC Insurance Calculator', 'closing-costs': 'Closing Costs',
-  'all-calculator': 'BUY Calculator', 'rental-calculator': 'Rental Calculator',
-  'free-home-evaluation': 'Free Home Evaluation', apply: 'Apply',
-  terms: 'Terms of Service', privacy: 'Privacy Policy',
-  disclaimer: 'Disclaimer', accessibility: 'Accessibility',
+const _labelMaps: Record<string, Record<string, string>> = {
+  en: {
+    chinese: '中文', french: 'Français',
+    blog: 'Blog', 'past-deals': 'Sale History', about: 'About',
+    'buyer-guide': 'Buyer Guide', 'for-renters': 'For Renters', 'for-landlords': 'For Landlords',
+    'rental-tour': 'Rental Tour', 'rent-control': 'Rent Control', 'lease-renewal': 'Rent Renewal',
+    'n-forms': 'N Forms', 'land-transfer-tax': 'Land Transfer Tax',
+    'payment-calculator': 'Mortgage Calculator', 'closing-costs': 'Closing Costs',
+    'all-calculator': 'BUY Calculator', 'rental-calculator': 'Rental Calculator',
+    'rent-vs-buy-calculator': 'Rent vs Buy Calculator', 'refinance-calculator': 'Refinance Calculator',
+    'free-home-evaluation': 'Free Home Evaluation', apply: 'Apply',
+    terms: 'Terms of Service', privacy: 'Privacy Policy',
+    disclaimer: 'Disclaimer', accessibility: 'Accessibility', contact: 'Contact', thanks: 'Thank you',
+  },
+  zh: {
+    chinese: '中文', blog: '博客', 'past-deals': '销售记录', about: '关于我',
+    'buyer-guide': '买家指南', 'for-renters': '租客须知', 'for-landlords': '房东须知',
+    'rental-tour': '看房视频', 'rent-control': '租金管制', 'lease-renewal': '租金续约',
+    'n-forms': 'N 类表格', 'land-transfer-tax': '土地转让税',
+    'payment-calculator': '按揭计算器', 'closing-costs': '交房费用',
+    'all-calculator': 'BUY 计算器', 'rental-calculator': '租房计算器',
+    'rent-vs-buy-calculator': '租房 vs 买房计算器', 'refinance-calculator': '再融资计算器',
+    'free-home-evaluation': '免费房屋估值', apply: '申请',
+    terms: '服务条款', privacy: '隐私政策', disclaimer: '免责声明', accessibility: '无障碍声明', contact: '联系', thanks: '谢谢',
+  },
+  fr: {
+    french: 'Français', blog: 'Blog', 'past-deals': 'Historique des ventes', about: 'À propos',
+    'buyer-guide': "Guide de l'acheteur", 'for-renters': 'Pour locataires', 'for-landlords': 'Pour propriétaires',
+    'rental-tour': 'Visite locative', 'rent-control': 'Contrôle des loyers', 'lease-renewal': 'Renouvellement de loyer',
+    'n-forms': 'Formulaires N', 'land-transfer-tax': 'Droits de mutation',
+    'payment-calculator': 'Calculateur hypothécaire', 'closing-costs': 'Frais de clôture',
+    'all-calculator': 'BUY Calculateur', 'rental-calculator': 'Calculateur de location',
+    'rent-vs-buy-calculator': 'Louer ou acheter', 'refinance-calculator': 'Calculateur de refinancement',
+    'free-home-evaluation': 'Évaluation gratuite', apply: 'Demande',
+    terms: "Conditions d'utilisation", privacy: 'Politique de confidentialité', disclaimer: 'Avis de non-responsabilité', accessibility: 'Accessibilité', contact: 'Contact', thanks: 'Merci',
+  },
 };
+const _crumbLang = _segments[0] === 'chinese' ? 'zh' : _segments[0] === 'french' ? 'fr' : 'en';
+const _labelMap = { ..._labelMaps.en, ..._labelMaps[_crumbLang] };
 function _title(seg: string): string {
   if (_labelMap[seg]) return _labelMap[seg];
   return seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
-const _crumbs: {name: string, url: string}[] = [{ name: 'Home', url: 'https://www.realtorpeterlaw.com/' }];
+const _homeName = _crumbLang === 'zh' ? '首页' : _crumbLang === 'fr' ? 'Accueil' : 'Home';
+const _crumbs: {name: string, url: string}[] = [{ name: _homeName, url: 'https://www.realtorpeterlaw.com/' }];
 let _acc = '';
 for (const seg of _segments) {
   _acc += '/' + seg;
-  _crumbs.push({ name: _title(seg), url: 'https://www.realtorpeterlaw.com' + _acc });
+  _crumbs.push({ name: _title(seg), url: 'https://www.realtorpeterlaw.com' + _acc + '/' });
 }
 const _breadcrumbLd = _crumbs.length > 1 ? {
   '@context': 'https://schema.org',
@@ -69,6 +96,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f4f0" id="theme-color-meta" />
   <script is:inline>
     /* Restore saved theme choice BEFORE first paint, prevents dark-mode flash.
        If no saved choice, default = light (site's original palette). */
@@ -87,8 +115,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
        (Peter has actual tel: links for the real phone; iOS would otherwise wrap any
        10-digit sequence in tel:, creating spoofable "tap to call" targets). -->
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-  <meta name="theme-color" content="#f6f4f0" id="theme-color-meta" />
-  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -190,7 +217,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         var a = e.target.closest('a[href^="#"]');
         if (!a) return;
         var id = a.getAttribute('href').slice(1);
-        if (!id) return;
+        if (!id || !document.getElementById(id)) return; // let the browser handle unknown targets
         e.preventDefault();  // prevent the browser's instant/partial default scroll
         history.pushState(null, '', '#' + id);
         scrollToId(id);
@@ -239,20 +266,11 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
           else if (action.indexOf('beehiiv.com') >= 0)      track('form_submit_newsletter', { location: location.pathname });
           else                                              track('form_submit_other', { form: formName, location: location.pathname });
         });
-        // --- Calculator completion, fires when a verdict/output appears ---
-        // Uses MutationObserver on known calculator output nodes.
-        var calcOutputs = document.querySelectorAll('[data-output], .ac-verdict-title, .rc-verdict-title, [data-cash]');
-        if (calcOutputs.length && 'MutationObserver' in window) {
-          var fired = {};
-          var obs = new MutationObserver(function (mutations) {
-            mutations.forEach(function (m) {
-              var key = (m.target && (m.target.id || m.target.className || '')) + '';
-              if (fired[key]) return;
-              fired[key] = true;
-              track('calculator_output', { calculator: location.pathname, target: key.slice(0, 40) });
-            });
-          });
-          calcOutputs.forEach(function (n) { obs.observe(n, { childList: true, characterData: true, subtree: true }); });
+        // --- Calculator usage: one event per page view, on the first input the visitor makes ---
+        if (document.querySelector('[data-output], .ac-verdict-title, .rc-verdict-title, [data-cash]')) {
+          document.addEventListener('input', function () {
+            track('calculator_output', { calculator: location.pathname });
+          }, { once: true, passive: true });
         }
       });
     })();
@@ -274,12 +292,6 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         // Update all aria-labels on the toggle buttons
         var next = theme === 'dark' ? 'light' : 'dark';
         document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
-          var langLabels = {
-            light: btn.closest('.topbar') && btn.closest('.topbar').textContent.indexOf('中文') === -1 && btn.closest('.topbar').textContent.indexOf('EN') === -1
-              ? { light: 'Switch to light mode', dark: 'Switch to dark mode' }
-              : { light: 'Switch to light mode', dark: 'Switch to dark mode' }
-          };
-          // Simpler: language-agnostic swap based on current text
           var currentLabel = btn.getAttribute('aria-label') || '';
           if (currentLabel.indexOf('dark') >= 0 || currentLabel.indexOf('sombre') >= 0 || currentLabel.indexOf('深色') >= 0) {
             // Currently offering dark → now should offer light
@@ -311,30 +323,6 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
           });
         }
       });
-    })();
-  </script>
-  <script is:inline>
-    /* Accessibility: tie each form label to its field (calculator fields,
-       including ones built by JavaScript) so screen readers announce them. */
-    (function () {
-      var n = 0;
-      function link(root) {
-        (root || document).querySelectorAll('label:not([for])').forEach(function (l) {
-          if (l.querySelector('input,select,textarea')) return;
-          var box = l.parentElement; if (!box) return;
-          var f = box.querySelectorAll('input:not([type=hidden]),select,textarea');
-          if (f.length !== 1) return;
-          var el = f[0]; if (!el.id) el.id = 'fld-' + (++n);
-          l.htmlFor = el.id;
-        });
-      }
-      function run() { link(document); }
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
-      window.addEventListener('load', run);
-      if ('MutationObserver' in window) {
-        var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(run, 50); })
-          .observe(document.documentElement, { childList: true, subtree: true });
-      }
     })();
   </script>
 </body>

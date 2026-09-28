@@ -260,7 +260,7 @@ const hreflangAlternates = [
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
         });
-        if (noResults) noResults.hidden = (q.length === 0 || visibleCount > 0);
+        if (noResults) noResults.hidden = visibleCount > 0;
       }
       input.addEventListener('input', filter);
     })();

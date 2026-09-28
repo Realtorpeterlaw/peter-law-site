@@ -144,7 +144,7 @@ const hreflangAlternates = [
       if (!isFinite(n) || isNaN(n)) return '$0';
       return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0, minimumFractionDigits: 0 });
     }
-    function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+    function parseN(v) { return Math.max(0, parseFloat(String(v || '').replace(/[^0-9.]/g, '')) || 0); }
 
     // ============ Canadian mortgage math ============
     function periodicRate(annualRatePct, paymentsPerYear) {
@@ -175,10 +175,10 @@ const hreflangAlternates = [
       return `
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.rate}% · ${def.amort} yr</span></div>
-          <div class="mc-row"><label>Interest rate (%)</label><input type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">Interest rate (%)</label><input id="fld-${id}-rate" type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>Amortization</label>
-              <select data-input="${id}-amort">
+            <div class="mc-row"><label for="fld-${id}-amort">Amortization</label>
+              <select id="fld-${id}-amort" data-input="${id}-amort">
                 <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 yr</option>
                 <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 yr</option>
                 <option value="20" ${def.amort === 20 ? 'selected' : ''}>20 yr</option>
@@ -186,8 +186,8 @@ const hreflangAlternates = [
                 <option value="10" ${def.amort === 10 ? 'selected' : ''}>10 yr</option>
               </select>
             </div>
-            <div class="mc-row"><label>Frequency</label>
-              <select data-input="${id}-freq">
+            <div class="mc-row"><label for="fld-${id}-freq">Frequency</label>
+              <select id="fld-${id}-freq" data-input="${id}-freq">
                 <option value="12" selected>Monthly</option>
                 <option value="24">Semi-mo.</option>
                 <option value="26">Bi-weekly</option>
@@ -220,8 +220,8 @@ const hreflangAlternates = [
         const totalInt = totalInterest(balance, rate, amort, freq);
 
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
-        document.querySelector(`[data-output="${id}-change"]`).textContent = (change >= 0 ? '+' : '') + fmtCAD(change) + '/mo';
-        { const ch = document.querySelector(`[data-output="${id}-change"]`); ch.classList.toggle('is-save', change < 0); ch.classList.toggle('is-cost', change > 0); }
+        document.querySelector(`[data-output="${id}-change"]`).textContent = currentMonthly > 0 ? (change >= 0 ? '+' : '') + fmtCAD(change) + '/mo' : '\u2014';
+        { const ch = document.querySelector(`[data-output="${id}-change"]`); ch.classList.toggle('is-save', currentMonthly > 0 && change < 0); ch.classList.toggle('is-cost', currentMonthly > 0 && change > 0); }
         document.querySelector(`[data-output="${id}-int"]`).textContent = fmtCAD(totalInt);
         document.querySelector(`[data-output="${id}-monthly"]`).textContent = fmtCAD(monthly);
         document.querySelector(`[data-output="${id}-freq-label"]`).textContent = freqLabel[freq] || '/mo';
@@ -246,8 +246,7 @@ const hreflangAlternates = [
     balEl.addEventListener('input', update);
     document.getElementById('rf-current-rate').addEventListener('input', update);
     document.getElementById('rf-current-amort').addEventListener('input', update);
-    document.querySelectorAll('[data-input]').forEach(el => el.addEventListener('input', update));
-    document.querySelectorAll('[data-input] select, select[data-input]').forEach(el => el.addEventListener('change', update));
+    document.querySelectorAll('[data-input]').forEach(el => el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', update));
 
     update();
   </script>

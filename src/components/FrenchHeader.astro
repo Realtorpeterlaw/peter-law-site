@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 interface Props {
-  active?: 'rental' | 'sellers' | 'buyers' | 'blog' | 'about' | 'contact' | null;
+  active?: 'rental' | 'sellers' | 'buyers' | 'blog' | 'about' | null;
   ctaLabel?: string;
 }
 const { active = null, ctaLabel = "Réserver un appel" } = Astro.props;
@@ -13,7 +13,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
     <nav class="primary" aria-label="Navigation principale">
       <ul>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} aria-current={active === 'rental' ? 'page' : undefined} tabindex="0" aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'rental' ? ' active' : '')} aria-current={active === 'rental' ? 'page' : undefined} tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
             <span class="trigger-text">Location</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -28,7 +28,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </ul>
         </li>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'sellers' ? ' active' : '')} aria-current={active === 'sellers' ? 'page' : undefined} tabindex="0" aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'sellers' ? ' active' : '')} aria-current={active === 'sellers' ? 'page' : undefined} tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
             <span class="trigger-text">Vendeurs</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -38,7 +38,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </ul>
         </li>
         <li class="has-dropdown">
-          <span class={'dropdown-trigger' + (active === 'buyers' ? ' active' : '')} aria-current={active === 'buyers' ? 'page' : undefined} tabindex="0" aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'buyers' ? ' active' : '')} aria-current={active === 'buyers' ? 'page' : undefined} tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
             <span class="trigger-text">Acheteurs</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -162,7 +162,18 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
       if (document.body.classList.contains('mobile-menu-open')) close(); else open();
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) close();
+      if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) { close(); toggle.focus(); }
+    });
+    // Desktop dropdowns: keep aria-expanded in sync with the CSS hover/focus-within state
+    document.querySelectorAll('.has-dropdown').forEach(li => {
+      const trig = li.querySelector('.dropdown-trigger');
+      if (!trig) return;
+      const set = v => trig.setAttribute('aria-expanded', v ? 'true' : 'false');
+      li.addEventListener('mouseenter', () => set(true));
+      li.addEventListener('mouseleave', () => set(false));
+      li.addEventListener('focusin', () => set(true));
+      li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) set(false); });
+      trig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const first = li.querySelector('.dropdown-menu a'); if (first) first.focus(); } });
     });
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
     menu.querySelectorAll('.mobile-section-btn').forEach(btn => {

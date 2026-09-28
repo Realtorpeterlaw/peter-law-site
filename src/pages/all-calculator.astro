@@ -209,7 +209,7 @@ const hreflangAlternates = [
         return 0;                    // 20%+ down: no insurance
       }
       function minDownPayment(price) {
-        if (price > 1500000) return price * 0.20;
+        if (price >= 1500000) return price * 0.20;
         if (price <= 500000) return price * 0.05;
         return 500000 * 0.05 + (price - 500000) * 0.10;
       }
@@ -267,8 +267,7 @@ const hreflangAlternates = [
       inputs.forEach((id) => {
         const el = $(id);
         if (!el) return;
-        el.addEventListener('input', recompute);
-        el.addEventListener('change', recompute);
+        el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', recompute);
       });
 
       function recompute() {
@@ -304,6 +303,7 @@ const hreflangAlternates = [
         const actualDown = downFromSavings;               // what the user is actually putting down
         const ltv = price > 0 ? (price - actualDown) / price * 100 : 0;
         let premiumRate = cmhcPremiumRate(ltv);
+        if (ltv > 80 && (shortfall > 0 || price >= 1500000)) premiumRate = null; // not insurable
         if (premiumRate && amort > 25) premiumRate += 0.002; // CMHC 30-yr surcharge
         const baseLoan = Math.max(0, price - actualDown);
         const cmhcPremium = (premiumRate !== null && premiumRate > 0) ? baseLoan * premiumRate : 0;
@@ -326,7 +326,8 @@ const hreflangAlternates = [
         const legalEtc = 2500; // typical Toronto resale ballpark
 
         // ---- CASH TO CLOSE ----
-        const cashToClose = actualDown + totalLTT + legalEtc;
+        const cmhcPST = cmhcPremium * 0.08; // Ontario PST on the CMHC premium, due at closing
+        const cashToClose = actualDown + totalLTT + legalEtc + cmhcPST;
 
         // ---- STRESS TEST ----
         const stressRate = Math.max(rate + 2, 5.25);
@@ -340,7 +341,7 @@ const hreflangAlternates = [
         // Second monthly cost: HOA or maintenance if user provided; else 0 (or $150 heat estimate for pure freehold)
         const ownershipFeeMo = (isFinite(feeRaw) && feeRaw >= 0 && propType !== 'freehold') ? feeRaw : 0;
         const heatMo = propType === 'condo' ? 0 : 150; // condo maintenance often includes heat
-        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo + heatMo) / monthlyIncome * 100 : 0;
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo * 0.5 + heatMo) / monthlyIncome * 100 : 0;
 
         // ---- TOTAL INTEREST OVER LIFE OF LOAN ----
         const totalInterest = monthly * amort * 12 - totalMortgage;
@@ -353,7 +354,7 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? '(not allowed, need at least 5% more)'
+          ? (shortfall > 0 ? '(not insurable: below the minimum down payment)' : '(not insurable: 20% down required at $1.5M+)')
           : premiumRate === 0
             ? '(you have 20%+ down, no insurance needed)'
             : '(' + (premiumRate * 100).toFixed(2) + '% of loan)';
@@ -396,7 +397,7 @@ const hreflangAlternates = [
         if (income <= 0 || price <= 0) {
           vTitle = 'Type your numbers above.';
           vSub = 'The bank looks at how much of your income goes to housing. Under 32% is safe. Over 39% and the bank probably says no.';
-        } else if (premiumRate === null) {
+        } else if (premiumRate === null && shortfall <= 0) {
           vTitle = 'You need more savings for this price.';
           vSub = 'The minimum down payment for a home over $1.5M is 20% of the price. You\'re below that. Save more, or look at a lower price.';
           vClass = 'ac-verdict-red';

@@ -113,7 +113,7 @@ const nextLabel = t.next;
         carousel.addEventListener('mouseenter', stop);
         carousel.addEventListener('mouseleave', start);
         carousel.addEventListener('focusin', stop);
-        carousel.addEventListener('focusout', start);
+        carousel.addEventListener('focusout', function (e) { if (!carousel.contains(e.relatedTarget)) start(); });
         start();
       });
     }

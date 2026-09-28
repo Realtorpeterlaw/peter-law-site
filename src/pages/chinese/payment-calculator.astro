@@ -49,7 +49,7 @@ const hreflangAlternates = [
             <div class="mc-shared-fields">
               <div class="calc-field">
                 <label for="mc-price">购买价格</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="number" value="800000" min="0" step="1000" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-price" type="text" value="800000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-toronto">地点</label>
@@ -67,15 +67,15 @@ const hreflangAlternates = [
               </div>
               <div class="calc-field">
                 <label for="mc-tax">年物业税</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="number" value="5500" min="0" step="100" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="text" value="5500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-heat">每月取暖/水电</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="number" value="180" min="0" step="10" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="text" value="180" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
                 <label for="mc-condo">每月 Condo 物业费(如有)</label>
-                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="number" value="0" min="0" step="50" inputmode="decimal"></div>
+                <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="text" value="0" inputmode="decimal" autocomplete="off"></div>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@ const hreflangAlternates = [
   <ChineseFooter />
 
   <script>
-    function toNum(v) { return parseFloat(String(v == null ? '' : v).replace(/[^0-9.\-]/g, '')) || 0; }
+    function toNum(v) { return Math.max(0, parseFloat(String(v == null ? '' : v).replace(/[^0-9.]/g, '')) || 0); }
     function fmtCAD(n, dp) {
       if (dp === undefined) dp = 0;
       if (!isFinite(n) || isNaN(n)) return '$0';
@@ -167,7 +167,7 @@ const hreflangAlternates = [
       return 0;
     }
     function minDownPayment(price) {
-      if (price > 1500000) return price * 0.20;
+      if (price >= 1500000) return price * 0.20;
       if (price <= 500000) return price * 0.05;
       return 500000 * 0.05 + (price - 500000) * 0.10;
     }
@@ -226,13 +226,13 @@ const hreflangAlternates = [
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>首付金额</label><div class="input-prefix" data-prefix="$"><input type="number" data-input="${id}-down-dollar" value="" min="0" step="1000" inputmode="decimal"></div></div>
-            <div class="mc-row"><label>首付 %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
+            <div class="mc-row"><label for="fld-${id}-down-dollar">首付金额</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
+            <div class="mc-row"><label for="fld-${id}-down-pct">首付 %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label>利率(%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">利率(%)</label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>摊销期</label>
-              <select data-input="${id}-amort">
+            <div class="mc-row"><label for="fld-${id}-amort">摊销期</label>
+              <select id="fld-${id}-amort" data-input="${id}-amort">
                 <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 年</option>
                 <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 年</option>
                 <option value="20">20 年</option>
@@ -240,8 +240,8 @@ const hreflangAlternates = [
                 <option value="10">10 年</option>
               </select>
             </div>
-            <div class="mc-row"><label>还款频率</label>
-              <select data-input="${id}-freq">
+            <div class="mc-row"><label for="fld-${id}-freq">还款频率</label>
+              <select id="fld-${id}-freq" data-input="${id}-freq">
                 <option value="12" selected>每月</option>
                 <option value="24">半月</option>
                 <option value="26">双周</option>
@@ -283,19 +283,19 @@ const hreflangAlternates = [
     document.getElementById('mc-cash-scenarios').innerHTML = ['a','b','c'].map(id => buildCashCard(id)).join('');
     document.getElementById('mc-expenses-scenarios').innerHTML = ['a','b','c'].map(id => buildExpenseCard(id)).join('');
 
+    const lastEdited = {};
+
     function syncDown(id, changed) {
       const price = toNum(document.getElementById('mc-price').value);
       const dollarInput = document.querySelector(`[data-input="${id}-down-dollar"]`);
       const pctInput = document.querySelector(`[data-input="${id}-down-pct"]`);
-      if (changed === 'dollar') {
+      if (changed === 'dollar' || changed === 'pct') lastEdited[id] = changed;
+      if (changed === 'dollar' || (!changed && lastEdited[id] === 'dollar')) {
         const val = toNum(dollarInput.value);
-        pctInput.value = price > 0 ? (val / price * 100).toFixed(2) : 0;
-      } else if (changed === 'pct') {
-        const val = toNum(pctInput.value);
-        dollarInput.value = Math.round(price * val / 100);
+        pctInput.value = price > 0 ? String(Math.round(val / price * 10000) / 100) : '0';
       } else {
         const val = toNum(pctInput.value);
-        dollarInput.value = Math.round(price * val / 100);
+        dollarInput.value = Math.round(price * val / 100).toLocaleString('en-CA');
       }
     }
 
@@ -335,14 +335,16 @@ const hreflangAlternates = [
         const ltv = price > 0 ? mortgageBefore / price * 100 : 0;
         let premRate = cmhcPremiumRate(ltv);
         // CMHC: not insurable at $1.5M+ or below the minimum down payment
-        if (ltv > 80 && (price >= 1500000 || down < minDownPayment(price) - 0.5)) premRate = null;
+        let notInsurableWhy = null;
+        if (ltv > 80 && price >= 1500000) { premRate = null; notInsurableWhy = 'price'; }
+        else if (ltv > 80 && down < minDownPayment(price) - 0.5) { premRate = null; notInsurableWhy = 'down'; }
         // CMHC adds 0.20% to the premium for amortizations over 25 years
         if (premRate && amort > 25) premRate += 0.002;
         const premium = (premRate === null || premRate === 0) ? 0 : mortgageBefore * premRate;
         const totalMortgage = mortgageBefore + premium;
         const pmt = periodicPayment(totalMortgage, rate, amort, freq);
 
-        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? '不可投保:未达最低首付要求' : premium > 0 ? fmtCAD(premium) : '$0(无需购买)';
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? (notInsurableWhy === 'price' ? '不可投保:房价达 $150 万或以上' : '不可投保:未达最低首付要求') : premium > 0 ? fmtCAD(premium) : '$0(无需购买)';
         document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
         document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
@@ -379,7 +381,7 @@ const hreflangAlternates = [
 
     function renderAmortSchedule(id, results) {
       const s = results[id];
-      if (!s || s.mortgage <= 0) return;
+      if (!s || s.mortgage <= 0) { const tb = document.querySelector('#mc-amort-table tbody'); if (tb) tb.innerHTML = ''; return; }
       const r = periodicRate(s.rate, s.freq);
       const n = s.amort * s.freq;
       let balance = s.mortgage;
@@ -439,18 +441,16 @@ const hreflangAlternates = [
       wireDownSync(id);
       document.querySelectorAll(`[data-input^="${id}-"]`).forEach(el => {
         if (!el.dataset.input.endsWith('-down-dollar') && !el.dataset.input.endsWith('-down-pct')) {
-          el.addEventListener('input', update);
-          el.addEventListener('change', update);
+          el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', update);
         }
       });
     });
     ['mc-price','mc-toronto','mc-fthb','mc-tax','mc-heat','mc-condo'].forEach(id => {
       const el = document.getElementById(id);
-      el.addEventListener('input', () => {
+      el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', () => {
         if (id === 'mc-price') ['a','b','c'].forEach(s => syncDown(s));
         update();
       });
-      el.addEventListener('change', update);
     });
 
     document.querySelectorAll('.mc-amort-tab').forEach(tab => {
@@ -462,6 +462,45 @@ const hreflangAlternates = [
     });
 
     update();
+
+    // ============================================================
+    // Comma formatting for dollar inputs (Peter Sep-2026)
+    // Switch on blur to "$800,000", strip to "800000" on focus.
+    // parseFloat() in the existing update() already tolerates commas
+    // because we wrap all reads through parseFloat(el.value.replace(/,/g,''))
+    // via the helper below.
+    // ============================================================
+    (function initCommaFormat() {
+      const DOLLAR_IDS = ['mc-price', 'mc-tax', 'mc-heat', 'mc-condo'];
+      function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
+      function fmtN(n) { return n.toLocaleString('en-CA', { maximumFractionDigits: 0 }); }
+      function reformat(el) {
+        if (!el || el.readOnly) return;
+        if (el.value.trim() === '') return;
+        el.value = fmtN(parseN(el.value));
+      }
+      function strip(el) {
+        if (!el || el.readOnly) return;
+        if (el.value.trim() === '') return;
+        el.value = String(parseN(el.value));
+      }
+      function hook(el) {
+        if (!el) return;
+        reformat(el);
+        el.addEventListener('focus', () => strip(el));
+        el.addEventListener('blur',  () => reformat(el));
+      }
+      DOLLAR_IDS.forEach(id => hook(document.getElementById(id)));
+      // Per-scenario down-payment dollar inputs (built dynamically)
+      document.querySelectorAll('[data-input$="-down-dollar"]').forEach(hook);
+
+      // The original update() reads via parseFloat(el.value), which returns NaN
+      // for "800,000". Wrap parseFloat globally for these fields by re-dispatching
+      // input events after strip on programmatic value changes elsewhere is
+      // unnecessary because update() already runs on every keystroke and the
+      // display is only comma-formatted on blur.
+    })();
+
   </script>
 </BaseLayout>
 <style>

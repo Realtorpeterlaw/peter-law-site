@@ -207,7 +207,7 @@ const hreflangAlternates = [
         return 0;
       }
       function minDownPayment(price) {
-        if (price > 1500000) return price * 0.20;
+        if (price >= 1500000) return price * 0.20;
         if (price <= 500000) return price * 0.05;
         return 500000 * 0.05 + (price - 500000) * 0.10;
       }
@@ -261,8 +261,7 @@ const hreflangAlternates = [
       inputs.forEach((id) => {
         const el = $(id);
         if (!el) return;
-        el.addEventListener('input', recompute);
-        el.addEventListener('change', recompute);
+        el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', recompute);
       });
 
       function recompute() {
@@ -295,6 +294,7 @@ const hreflangAlternates = [
         const actualDown = downFromSavings;
         const ltv = price > 0 ? (price - actualDown) / price * 100 : 0;
         let premiumRate = cmhcPremiumRate(ltv);
+        if (ltv > 80 && (shortfall > 0 || price >= 1500000)) premiumRate = null; // not insurable
         if (premiumRate && amort > 25) premiumRate += 0.002; // CMHC 30-yr surcharge
         const baseLoan = Math.max(0, price - actualDown);
         const cmhcPremium = (premiumRate !== null && premiumRate > 0) ? baseLoan * premiumRate : 0;
@@ -312,7 +312,8 @@ const hreflangAlternates = [
         const totalLTT = Math.max(0, lttOnt + lttMltt - rebate);
 
         const legalEtc = 2500;
-        const cashToClose = actualDown + totalLTT + legalEtc;
+        const cmhcPST = cmhcPremium * 0.08; // Ontario PST on the CMHC premium, due at closing
+        const cashToClose = actualDown + totalLTT + legalEtc + cmhcPST;
 
         const stressRate = Math.max(rate + 2, 5.25);
         const stressPayment = monthlyPayment(totalMortgage, stressRate, amort);
@@ -321,7 +322,7 @@ const hreflangAlternates = [
         const propTaxMo = (isFinite(proptaxRaw) && proptaxRaw >= 0) ? proptaxRaw : (price * 0.007 / 12);
         const ownershipFeeMo = (isFinite(feeRaw) && feeRaw >= 0 && propType !== 'freehold') ? feeRaw : 0;
         const heatMo = propType === 'condo' ? 0 : 150;
-        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo + heatMo) / monthlyIncome * 100 : 0;
+        const gds = monthlyIncome > 0 ? (stressPayment + propTaxMo + ownershipFeeMo * 0.5 + heatMo) / monthlyIncome * 100 : 0;
 
         const totalInterest = monthly * amort * 12 - totalMortgage;
 
@@ -332,7 +333,7 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? '(non autorisé, il faut au moins 5 % de plus)'
+          ? (shortfall > 0 ? '(non assurable : sous la mise de fonds minimale)' : '(non assurable : 20 % requis à 1,5 M$ et plus)')
           : premiumRate === 0
             ? '(vous avez 20 %+ de mise de fonds, pas d\'assurance requise)'
             : '(' + (premiumRate * 100).toFixed(2) + ' % du prêt)';
@@ -373,7 +374,7 @@ const hreflangAlternates = [
         if (income <= 0 || price <= 0) {
           vTitle = 'Entrez vos chiffres ci-dessus.';
           vSub = 'La banque regarde quelle part de votre revenu va au logement. Sous 32 % est sécuritaire. Au-dessus de 39 % et la banque dit probablement non.';
-        } else if (premiumRate === null) {
+        } else if (premiumRate === null && shortfall <= 0) {
           vTitle = 'Vous avez besoin de plus d\'épargne pour ce prix.';
           vSub = 'La mise de fonds minimale pour une maison de plus de 1,5 M$ est de 20 % du prix. Vous êtes en dessous. Épargnez plus, ou visez un prix plus bas.';
           vClass = 'ac-verdict-red';

@@ -180,7 +180,7 @@ const hreflangAlternates = [
 
   <script>
     // === FORMATTING ===
-    function toNum(v) { return parseFloat(String(v == null ? '' : v).replace(/[^0-9.\-]/g, '')) || 0; }
+    function toNum(v) { return Math.max(0, parseFloat(String(v == null ? '' : v).replace(/[^0-9.]/g, '')) || 0); }
     function fmtCAD(n, dp) {
       if (dp === undefined) dp = 0;
       if (!isFinite(n) || isNaN(n)) return '$0';
@@ -209,7 +209,7 @@ const hreflangAlternates = [
       return 0;
     }
     function minDownPayment(price) {
-      if (price > 1500000) return price * 0.20;
+      if (price >= 1500000) return price * 0.20;
       if (price <= 500000) return price * 0.05;
       return 500000 * 0.05 + (price - 500000) * 0.10;
     }
@@ -271,13 +271,13 @@ const hreflangAlternates = [
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>Down payment</label><div class="input-prefix" data-prefix="$"><input type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
-            <div class="mc-row"><label>Down %</label><input type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
+            <div class="mc-row"><label for="fld-${id}-down-dollar">Down payment</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
+            <div class="mc-row"><label for="fld-${id}-down-pct">Down %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label>Interest rate (%)</label><input type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">Interest rate (%)</label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label>Amortization</label>
-              <select data-input="${id}-amort">
+            <div class="mc-row"><label for="fld-${id}-amort">Amortization</label>
+              <select id="fld-${id}-amort" data-input="${id}-amort">
                 <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 yr</option>
                 <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 yr</option>
                 <option value="20">20 yr</option>
@@ -285,8 +285,8 @@ const hreflangAlternates = [
                 <option value="10">10 yr</option>
               </select>
             </div>
-            <div class="mc-row"><label>Frequency</label>
-              <select data-input="${id}-freq">
+            <div class="mc-row"><label for="fld-${id}-freq">Frequency</label>
+              <select id="fld-${id}-freq" data-input="${id}-freq">
                 <option value="12" selected>Monthly</option>
                 <option value="24">Semi-mo.</option>
                 <option value="26">Bi-weekly</option>
@@ -329,20 +329,20 @@ const hreflangAlternates = [
     document.getElementById('mc-expenses-scenarios').innerHTML = ['a','b','c'].map(id => buildExpenseCard(id)).join('');
 
     // === SYNC down $/% inputs ===
+    const lastEdited = {};
     function syncDown(id, changed) {
       const price = toNum(document.getElementById('mc-price').value);
       const dollarInput = document.querySelector(`[data-input="${id}-down-dollar"]`);
       const pctInput = document.querySelector(`[data-input="${id}-down-pct"]`);
-      if (changed === 'dollar') {
+      if (changed === 'dollar' || changed === 'pct') lastEdited[id] = changed;
+      if (changed === 'dollar' || (!changed && lastEdited[id] === 'dollar')) {
+        // dollar amount is the source of truth: derive the percentage
         const val = toNum(dollarInput.value);
-        pctInput.value = price > 0 ? (val / price * 100).toFixed(2) : 0;
-      } else if (changed === 'pct') {
-        const val = toNum(pctInput.value);
-        dollarInput.value = Math.round(price * val / 100);
+        pctInput.value = price > 0 ? String(Math.round(val / price * 10000) / 100) : '0';
       } else {
-        // recalculate dollar from current pct (e.g. when price changes)
+        // percentage is the source of truth (also on price change): derive the dollars
         const val = toNum(pctInput.value);
-        dollarInput.value = Math.round(price * val / 100);
+        dollarInput.value = Math.round(price * val / 100).toLocaleString('en-CA');
       }
     }
 
@@ -385,14 +385,16 @@ const hreflangAlternates = [
         const ltv = price > 0 ? mortgageBefore / price * 100 : 0;
         let premRate = cmhcPremiumRate(ltv);
         // CMHC: not insurable at $1.5M+ or below the minimum down payment
-        if (ltv > 80 && (price >= 1500000 || down < minDownPayment(price) - 0.5)) premRate = null;
+        let notInsurableWhy = null;
+        if (ltv > 80 && price >= 1500000) { premRate = null; notInsurableWhy = 'price'; }
+        else if (ltv > 80 && down < minDownPayment(price) - 0.5) { premRate = null; notInsurableWhy = 'down'; }
         // CMHC adds 0.20% to the premium for amortizations over 25 years
         if (premRate && amort > 25) premRate += 0.002;
         const premium = (premRate === null || premRate === 0) ? 0 : mortgageBefore * premRate;
         const totalMortgage = mortgageBefore + premium;
         const pmt = periodicPayment(totalMortgage, rate, amort, freq);
 
-        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? 'Not insurable: minimum down payment not met' : premium > 0 ? fmtCAD(premium) : '$0 (not required)';
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? (notInsurableWhy === 'price' ? 'Not insurable: price $1.5M or more' : 'Not insurable: minimum down payment not met') : premium > 0 ? fmtCAD(premium) : '$0 (not required)';
         document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
         document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
@@ -433,7 +435,7 @@ const hreflangAlternates = [
 
     function renderAmortSchedule(id, results) {
       const s = results[id];
-      if (!s || s.mortgage <= 0) return;
+      if (!s || s.mortgage <= 0) { const tb = document.querySelector('#mc-amort-table tbody'); if (tb) tb.innerHTML = ''; return; }
       const r = periodicRate(s.rate, s.freq);
       const n = s.amort * s.freq;
       let balance = s.mortgage;
@@ -494,18 +496,16 @@ const hreflangAlternates = [
       wireDownSync(id);
       document.querySelectorAll(`[data-input^="${id}-"]`).forEach(el => {
         if (!el.dataset.input.endsWith('-down-dollar') && !el.dataset.input.endsWith('-down-pct')) {
-          el.addEventListener('input', update);
-          el.addEventListener('change', update);
+          el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', update);
         }
       });
     });
     ['mc-price','mc-toronto','mc-fthb','mc-tax','mc-heat','mc-condo'].forEach(id => {
       const el = document.getElementById(id);
-      el.addEventListener('input', () => {
+      el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', () => {
         if (id === 'mc-price') ['a','b','c'].forEach(s => syncDown(s));
         update();
       });
-      el.addEventListener('change', update);
     });
 
     document.querySelectorAll('.mc-amort-tab').forEach(tab => {
@@ -557,36 +557,6 @@ const hreflangAlternates = [
       // display is only comma-formatted on blur.
     })();
 
-    // Monkey-patch parseFloat calls in the existing update() to tolerate commas.
-    // Cleanest way: override the fetch of the values by wrapping the shared
-    // fields' getters. Simpler: intercept 'input' events on dollar inputs and
-    // normalize before update() runs. The listener below fires before the
-    // existing update() listener because we register earlier in the script? No,
-    // this file has update() registered first. Safer: wrap parseFloat on read
-    // by adding data-value normalization at input time.
-    (function patchDollarReads() {
-      const DOLLAR_IDS = ['mc-price', 'mc-tax', 'mc-heat', 'mc-condo'];
-      function patchInput(el) {
-        if (!el) return;
-        const orig = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
-        // don't monkey-patch prototype; use a listener to update a shadow property
-        el.addEventListener('input', function() {
-          // Strip commas immediately from the input so parseFloat sees a number.
-          // But not on blur/focus (those set the value programmatically).
-          const raw = el.value;
-          const cleaned = raw.replace(/[^0-9.\-]/g, '');
-          if (raw !== cleaned) {
-            // Preserve cursor position
-            const pos = el.selectionStart || 0;
-            const removed = raw.length - cleaned.length;
-            el.value = cleaned;
-            try { el.setSelectionRange(pos - removed, pos - removed); } catch (e) {}
-          }
-        }, true); // capture=true so it runs before the update() listener
-      }
-      DOLLAR_IDS.forEach(id => patchInput(document.getElementById(id)));
-      document.querySelectorAll('[data-input$="-down-dollar"]').forEach(patchInput);
-    })();
 
   </script>
 </BaseLayout>

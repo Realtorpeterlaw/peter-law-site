@@ -146,26 +146,6 @@ const labels = zh
             grid.appendChild(msg);
           }
         }
-        // Legacy applyFilter kept for backwards compat with any external caller
-        function applyFilter(filter) {
-          var visible = 0;
-          cards.forEach(function (card) {
-            var matches = card.getAttribute('data-category') === filter;
-            card.style.display = matches ? '' : 'none';
-            if (matches) visible++;
-          });
-          var emptyMsg = grid.querySelector('.sales-empty');
-          if (visible === 0) {
-            if (!emptyMsg) {
-              emptyMsg = document.createElement('div');
-              emptyMsg.className = 'sales-empty';
-              emptyMsg.textContent = grid.getAttribute('data-empty-text') || '';
-              grid.appendChild(emptyMsg);
-            }
-          } else if (emptyMsg) {
-            emptyMsg.remove();
-          }
-        }
         tabs.forEach(function (tab) {
           tab.addEventListener('click', function () {
             tabs.forEach(function (t) {
