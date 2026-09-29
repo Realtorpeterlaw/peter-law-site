@@ -13,7 +13,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="房贷计算器(加拿大版) | Peter Law"
+  title="房贷计算器（加拿大版） | Peter Law"
   description="加拿大房贷综合计算器。同时对比三种方案。内置 CMHC 保险、土地转让税、交接现金、每月开支、摊销表与压力测试。"
   bodyClass="calc-page"
   zh={true}
@@ -26,7 +26,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="eyebrow">房贷计算器</div>
       <h1>一次对比三种房贷方案。</h1>
-      <p>看清楚每月还款和利息会是多少。按照加拿大规则计算:半年复利、CMHC 等级、安省土地转让税、联邦压力测试。</p>
+      <p>看清楚每月还款和利息会是多少。按照加拿大规则计算：半年复利、CMHC 保费档次、安省土地转让税、联邦压力测试。</p>
     </div>
   </section>
 
@@ -45,7 +45,7 @@ const hreflangAlternates = [
         <div class="prose-body">
 
           <div class="mc-shared">
-            <h3>基本信息(三种方案通用)</h3>
+            <h3>基本信息（三种方案通用）</h3>
             <div class="mc-shared-fields">
               <div class="calc-field">
                 <label for="mc-price">购买价格</label>
@@ -54,15 +54,15 @@ const hreflangAlternates = [
               <div class="calc-field">
                 <label for="mc-toronto">地点</label>
                 <select id="mc-toronto">
-                  <option value="yes" selected>多伦多(适用双重 LTT)</option>
+                  <option value="yes" selected>多伦多（适用双重 LTT）</option>
                   <option value="no">安省其他地区</option>
                 </select>
               </div>
               <div class="calc-field">
-                <label for="mc-fthb">首次购房者?</label>
+                <label for="mc-fthb">首次购房者？</label>
                 <select id="mc-fthb">
                   <option value="no" selected>否</option>
-                  <option value="yes">是(适用退税)</option>
+                  <option value="yes">是（适用退税）</option>
                 </select>
               </div>
               <div class="calc-field">
@@ -74,7 +74,7 @@ const hreflangAlternates = [
                 <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="text" value="180" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
-                <label for="mc-condo">每月 Condo 物业费(如有)</label>
+                <label for="mc-condo">每月公寓物业费（如有）</label>
                 <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="text" value="0" inputmode="decimal" autocomplete="off"></div>
               </div>
             </div>
@@ -83,7 +83,7 @@ const hreflangAlternates = [
           <div class="mc-scenarios" id="mc-scenarios"></div>
 
           <div class="mc-ltt-block">
-            <h3>土地转让税(一次性,交接时支付)</h3>
+            <h3>土地转让税（一次性，交接时支付）</h3>
             <div class="mc-ltt-rows">
               <div class="row"><span>安省省级 LTT</span><strong id="mc-ltt-ont">$0</strong></div>
               <div class="row" id="mc-ltt-mltt-row"><span>多伦多市级 LTT</span><strong id="mc-ltt-mltt">$0</strong></div>
@@ -92,28 +92,59 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; margin-top: 36px; margin-bottom: 16px;">交接所需现金(各方案分别列出)</h2>
-          <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">首付 + LTT + 律师费/产权估算 + CMHC PST(如适用)。不含搬家费和验房费。</p>
+          <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; margin-top: 36px; margin-bottom: 16px;">交接所需现金（各方案分别列出）</h2>
+          <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">首付 + LTT + 律师费/产权估算 + CMHC PST（如适用）。不含搬家费和验房费。</p>
           <div class="mc-scenarios" id="mc-cash-scenarios"></div>
+
+          <!-- 房贷类型说明(可折叠) -->
+          <details class="mc-collapsible mc-explainer">
+            <summary>房贷类型说明</summary>
+            <div class="mc-collapsible-body mc-explainer-body">
+
+            <h3>常规房贷与高比例房贷</h3>
+            <p>普通的房贷叫<strong>常规房贷</strong>。当您的首付达到房价的 20% 或以上时，就属于这一类。因为贷款不超过房屋价值的 80%，您不需要购买房贷违约保险。</p>
+            <p>如果首付<em>低于</em> 20%，就是<strong>高比例房贷</strong>。您借的钱超过房价的 80%，贷款机构承担的风险更大，所以您必须购买房贷违约保险，保费通常为贷款金额的 <strong>2.8% 到 4.0%</strong>（摊销期超过 25 年再加 0.2%）。这种情况下可购买的房价也有上限。</p>
+
+            <h3>第二房贷</h3>
+            <p>如果您已经有一笔房贷但还需要更多资金，可以用房子再申请一笔<strong>第二房贷</strong>。它同样以房屋作为抵押。如果您停止还款，贷款机构可以强制出售房产。第一房贷永远优先受偿，所以第二房贷的贷款机构风险更高，这也是第二房贷利率通常<strong>更高</strong>的原因。</p>
+
+            <h3>房贷条款特点</h3>
+            <p>每家贷款机构都不一样，各自允许您定制贷款条款。签字前，以下几项值得问清楚。</p>
+
+            <h4>提前还款</h4>
+            <p><strong>提前还款</strong>权利让您可以在每月正常还款之外额外多还。如果您有奖金或收入按月波动，这一点很实用。<em>开放式</em>房贷允许您随时一次性还清，没有罚金；<em>封闭式</em>房贷则限制每年可额外偿还的金额（通常为 10% 到 20%）。额外还款直接冲减本金，所以贷款会更早还清。</p>
+
+            <h4>可转移</h4>
+            <p>如果您满意目前的利率、不想失去它，可以要求<strong>可转移</strong>条款。它允许您在搬家时把现有房贷（同样的利率、同样的条款）转到新房上。当市场利率高于您当初锁定的利率时，这一点特别有价值。</p>
+
+            <h4>可承接</h4>
+            <p>卖房时，<strong>可承接</strong>房贷意味着买家可以接手您现有的贷款。当您的利率优于当前市场利率时，这是一个很大的卖点。<strong>注意：</strong>如果买家停止还款，您仍可能被追究责任。请确保贷款机构正式批准新买家，让您完全解除责任。</p>
+
+            <h4>可扩展</h4>
+            <p><strong>可扩展</strong>房贷允许您日后在不重新申请的情况下追加贷款。新的利率会是您当前利率与当时市场利率的<em>混合</em>。如果您知道将有大额开支，例如装修、婚礼、学费或购买第二套房产，这一条款很有用。</p>
+
+            <p class="mc-explainer-cta"><em>不确定哪些条款适合您的情况？我合作的贷款经纪可以为您逐一讲解。<a href="#book">联系我</a>。</em></p>
+            </div>
+          </details>
 
           <details class="mc-collapsible">
             <summary>每月开支明细</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">月供 + 物业税 + 取暖 + Condo 物业费。各方案下完整的月度持有成本。</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">月供 + 物业税 + 取暖 + 公寓物业费。各方案下完整的月度持有成本。</p>
               <div class="mc-scenarios" id="mc-expenses-scenarios"></div>
             </div>
           </details>
 
           <details class="mc-collapsible">
-            <summary>摊销表(逐年)</summary>
+            <summary>摊销表（逐年）</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">每年支付的本金 vs 利息,以及剩余本金。选择查看哪个方案。</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">每年支付的本金 vs 利息，以及剩余本金。选择查看哪个方案。</p>
               <div class="mc-amort-tabs">
                 <button class="mc-amort-tab active" data-scenario="a" type="button">方案 A</button>
                 <button class="mc-amort-tab" data-scenario="b" type="button">方案 B</button>
                 <button class="mc-amort-tab" data-scenario="c" type="button">方案 C</button>
               </div>
-              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="表格">
                 <table class="mc-table" id="mc-amort-table">
                   <thead><tr><th scope="col">年份</th><th scope="col">本金支付</th><th scope="col">利息支付</th><th scope="col">总支付</th><th scope="col">剩余本金</th></tr></thead>
                   <tbody></tbody>
@@ -125,12 +156,12 @@ const hreflangAlternates = [
           <details class="mc-collapsible">
             <summary>利率压力测试</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">如果续约时利率上涨怎么办?以方案 A 为例,展示合同利率、+1%、+2%、+3% 下的月供。</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">如果续约时利率上涨怎么办？以方案 A 为例，展示合同利率、+1%、+2%、+3% 下的月供。</p>
               <div class="mc-stress-grid" id="mc-stress-grid"></div>
             </div>
           </details>
 
-          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。所示 CMHC 保费采用自住房标准费率(4.00% / 3.10% / 2.80%)。联邦压力测试规则取(合同利率 + 2%)和 5.25% 中较高者。实际利率与贷款审批因人而异。在做出任何承诺前,请咨询持牌贷款专业人士。</p>
+          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。所示 CMHC 保费采用自住房标准费率（4.00% / 3.10% / 2.80%）。联邦压力测试规则取（合同利率 + 2%）和 5.25% 中较高者。实际利率与贷款审批因人而异。在做出任何承诺前，请咨询持牌贷款专业人士。</p>
         </div>
       </div>
     </div>
@@ -229,7 +260,7 @@ const hreflangAlternates = [
             <div class="mc-row"><label for="fld-${id}-down-dollar">首付金额</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
             <div class="mc-row"><label for="fld-${id}-down-pct">首付 %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label for="fld-${id}-rate">利率(%)</label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">利率（%）</label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label for="fld-${id}-amort">摊销期</label>
               <select id="fld-${id}-amort" data-input="${id}-amort">
@@ -251,7 +282,7 @@ const hreflangAlternates = [
           </div>
           <div class="mc-row mc-output"><label>CMHC 保险费</label><span class="value" data-output="${id}-cmhc">$0</span></div>
           <div class="mc-row mc-output"><label>总贷款额</label><span class="value" data-output="${id}-mortgage">$0</span></div>
-          <div class="mc-row mc-payment"><label>月供</label><span class="value" data-output="${id}-pmt">$0</span><span class="freq" data-output="${id}-freqLabel"></span></div>
+          <div class="mc-row mc-payment"><label>房贷还款额</label><span class="value" data-output="${id}-pmt">$0</span><span class="freq" data-output="${id}-freqLabel"></span></div>
         </div>`;
     }
 
@@ -261,8 +292,8 @@ const hreflangAlternates = [
           <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
           <div class="mc-row mc-output"><label>首付</label><span class="value" data-cash="${id}-down">$0</span></div>
           <div class="mc-row mc-output"><label>土地转让税</label><span class="value" data-cash="${id}-ltt">$0</span></div>
-          <div class="mc-row mc-output"><label>律师费 + 产权(估算)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
-          <div class="mc-row mc-output"><label>CMHC PST(安省,对保费征收)</label><span class="value" data-cash="${id}-pst">$0</span></div>
+          <div class="mc-row mc-output"><label>律师费 + 产权（估算）</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
+          <div class="mc-row mc-output"><label>CMHC PST（安省，对保费征收）</label><span class="value" data-cash="${id}-pst">$0</span></div>
           <div class="mc-row mc-payment"><label>交接所需总现金</label><span class="value" data-cash="${id}-total">$0</span></div>
         </div>`;
     }
@@ -271,10 +302,10 @@ const hreflangAlternates = [
       return `
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3></div>
-          <div class="mc-row mc-output"><label>月供</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-output"><label>房贷（每月）</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
           <div class="mc-row mc-output"><label>物业税</label><span class="value" data-exp="${id}-tax">$0</span></div>
           <div class="mc-row mc-output"><label>取暖 / 水电</label><span class="value" data-exp="${id}-heat">$0</span></div>
-          <div class="mc-row mc-output"><label>Condo 物业费</label><span class="value" data-exp="${id}-condo">$0</span></div>
+          <div class="mc-row mc-output"><label>公寓物业费</label><span class="value" data-exp="${id}-condo">$0</span></div>
           <div class="mc-row mc-payment"><label>月度总持有成本</label><span class="value" data-exp="${id}-total">$0</span></div>
         </div>`;
     }
@@ -344,7 +375,7 @@ const hreflangAlternates = [
         const totalMortgage = mortgageBefore + premium;
         const pmt = periodicPayment(totalMortgage, rate, amort, freq);
 
-        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? (notInsurableWhy === 'price' ? '不可投保:房价达 $150 万或以上' : '不可投保:未达最低首付要求') : premium > 0 ? fmtCAD(premium) : '$0(无需购买)';
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? (notInsurableWhy === 'price' ? '不可投保：房价达 $150 万或以上' : '不可投保：未达最低首付要求') : premium > 0 ? fmtCAD(premium) : '$0（无需购买）';
         document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
         document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
@@ -504,6 +535,47 @@ const hreflangAlternates = [
   </script>
 </BaseLayout>
 <style>
+  .mc-explainer.mc-collapsible {
+    background: #fafaf7;
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+  .mc-explainer.mc-collapsible > summary {
+    font-size: 18px;
+  }
+  .mc-explainer-body {
+    padding: 4px 24px 22px;
+  }
+  .mc-explainer-body h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 18px 0 8px;
+    color: var(--ink, #1a1a1a);
+  }
+  .mc-explainer-body h3:first-child { margin-top: 6px; }
+  .mc-explainer-body h4 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 14px 0 6px;
+    color: var(--ink, #1a1a1a);
+  }
+  .mc-explainer-body p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-soft, #333);
+    margin: 0 0 10px;
+  }
+  .mc-explainer-cta {
+    margin-top: 16px !important;
+    padding-top: 12px;
+    border-top: 1px dashed #e6e2dc;
+    color: var(--ink, #1a1a1a) !important;
+  }
+  .mc-explainer-cta a { color: #b8845b; font-weight: 600; text-decoration: none; }
+  .mc-explainer-cta a:hover { text-decoration: underline; }
+
   /* --- Basics grid + select-clip fix (Peter Sep 2026, ported from EN) --- */
   .mc-row select { padding-right: 22px; }
   .mc-scenario .mc-row-pair .mc-row select { font-size: 14px; padding: 8px 6px 8px 8px; }

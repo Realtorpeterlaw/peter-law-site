@@ -15,7 +15,7 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="Calculateur de location, le loyer est-il tenable ? | Peter Law"
+  title="Calculateur de location, le loyer est-il tenable? | Peter Law"
   description="Une seule page. Entrez ce que vous gagnez, le loyer, vos dépenses. Voyez si ce loyer est dans votre zone confortable, serrée ou trop élevée."
   lang="fr"
   bodyClass="fr calc-page"
@@ -39,7 +39,7 @@ const hreflangAlternates = [
         <!-- ENTRÉES -->
         <div class="ac-inputs">
           <div class="ac-input-group">
-            <label for="rc-income">1. Combien gagnez-vous par mois ? <span class="hint">Avant impôts.</span></label>
+            <label for="rc-income">1. Combien gagnez-vous par mois? <span class="hint">Avant impôts.</span></label>
             <div class="input-prefix"><input type="number" id="rc-income" value="6500" min="0" step="100" inputmode="decimal" /></div>
           </div>
 
@@ -65,7 +65,7 @@ const hreflangAlternates = [
             <div class="input-prefix"><input type="number" id="rc-utilities" value="100" min="0" step="5" inputmode="decimal" /></div>
           </div>
 
-          <p class="rc-hint-note">*Chaque condo est différent MAIS toutes les unités d'un immeuble ont le même fournisseur de services publics.<br /><br />Certains condos ou appartements PEUVENT inclure le chauffage, l'eau, les meubles, et dans de rares cas l'Internet ou TOUS les services publics. Vérifiez avec votre agent immobilier.</p>
+          <p class="rc-hint-note">*Chaque condo est différent MAIS tous les logements d'un immeuble ont le même fournisseur de services publics.<br /><br />Certains condos ou appartements PEUVENT inclure le chauffage, l'eau, les meubles, et dans de rares cas l'Internet ou TOUS les services publics. Vérifiez auprès de votre agent immobilier.</p>
         </div>
 
         <!-- RÉSULTATS -->
@@ -74,12 +74,12 @@ const hreflangAlternates = [
           <div class="rc-meter-card">
             <div class="rc-meter-head">
               <div class="rc-meter-title">Logement en % de votre revenu</div>
-              <div class="rc-meter-pct"><span id="rc-meter-pct">0 %</span></div>
+              <div class="rc-meter-pct"><span id="rc-meter-pct">0 %</span></div>
             </div>
             <div class="rc-meter-bar" aria-hidden="true">
               <div class="rc-meter-fill" id="rc-meter-fill" style="width: 0%"></div>
-              <div class="rc-meter-tick" style="left: 30%"><span class="rc-meter-tick-label" style="left: 50%;">30 %</span></div>
-              <div class="rc-meter-tick" style="left: 40%"><span class="rc-meter-tick-label" style="left: 50%;">40 %</span></div>
+              <div class="rc-meter-tick" style="left: 30%"><span class="rc-meter-tick-label" style="left: 50%;">30 %</span></div>
+              <div class="rc-meter-tick" style="left: 40%"><span class="rc-meter-tick-label" style="left: 50%;">40 %</span></div>
             </div>
             <div class="rc-meter-tiers">
               <span class="tier-safe">Zone sûre</span>
@@ -106,7 +106,7 @@ const hreflangAlternates = [
             <div class="rc-verdict-icon" id="rc-verdict-icon" aria-hidden="true"></div>
             <div class="rc-verdict-body">
               <div class="rc-verdict-title" id="rc-verdict-title">Entrez vos chiffres ci-dessus.</div>
-              <div class="rc-verdict-sub" id="rc-verdict-sub">Sous 30 % du revenu en logement est la zone sûre. Entre 30 % et 40 % est tendu. Au-dessus de 40 % et la plupart des propriétaires refusent.</div>
+              <div class="rc-verdict-sub" id="rc-verdict-sub">Sous 30 % du revenu en logement est la zone sûre. Entre 30 % et 40 % est tendu. Au-dessus de 40 %, la plupart des propriétaires refusent.</div>
             </div>
           </div>
 
@@ -123,27 +123,27 @@ const hreflangAlternates = [
           <div class="ac-checks">
             <div class="ac-check">
               <div class="ac-check-label">Logement en % de votre revenu</div>
-              <div class="ac-check-value" id="rc-pct">0 %</div>
-              <div class="ac-check-sub">Loyer + Internet + assurance + services publics, divisé par le revenu mensuel. Sous 30 % est la zone sûre.</div>
+              <div class="ac-check-value" id="rc-pct">0 %</div>
+              <div class="ac-check-sub">Loyer + Internet + assurance + services publics, divisé par le revenu mensuel. Sous 30 % est la zone sûre.</div>
             </div>
             <div class="ac-check">
-              <div class="ac-check-label">Ligne des 30 % du revenu</div>
+              <div class="ac-check-label">Ligne des 30 % du revenu</div>
               <div class="ac-check-value" id="rc-30line">0 $/mois</div>
-              <div class="ac-check-sub">Le plafond de la zone sûre. Si votre logement mensuel total reste sous cette ligne, vous êtes confortable.</div>
+              <div class="ac-check-sub">Le plafond de la zone sûre. Si votre logement mensuel total reste sous cette ligne, vous êtes à l'aise.</div>
             </div>
             <div class="ac-check">
               <div class="ac-check-label">Loyer qui vous garde dans la zone sûre</div>
               <div class="ac-check-value" id="rc-approve">0 $</div>
-              <div class="ac-check-sub">Loyer maximum calculé automatiquement qui garde le logement à 30 % du revenu compte tenu de vos autres coûts. Une cible, pas une promesse.</div>
+              <div class="ac-check-sub">Loyer maximum calculé automatiquement qui garde le logement à 30 % du revenu compte tenu de vos autres coûts. Une cible, pas une promesse.</div>
             </div>
             <div class="ac-check">
               <div class="ac-check-label">Coussin par rapport au plafond de la zone sûre</div>
               <div class="ac-check-value" id="rc-cushion">0 $</div>
-              <div class="ac-check-sub">Nombre positif = marge à revendre ; négatif = vous dépassez la ligne des 30 % de ce montant par mois.</div>
+              <div class="ac-check-sub">Nombre positif = marge à revendre; négatif = vous dépassez la ligne des 30 % de ce montant par mois.</div>
             </div>
           </div>
 
-          <p class="calc-disclaimer">Chiffres à titre indicatif. La plupart des propriétaires torontois utilisent 30 à 33 % du revenu mensuel brut comme seuil d'abordabilité, bien que des garants, un excellent crédit, des mois de loyer d'avance ou des baux corporatifs puissent étirer cela. Les services publics varient beaucoup selon l'immeuble, demandez toujours ce qui est inclus dans le bail. C'est un outil de dépistage, pas une approbation. Discutez de votre situation avec un agent immobilier licencié avant de signer. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
+          <p class="calc-disclaimer">Chiffres à titre indicatif. La plupart des propriétaires torontois utilisent 30 à 33 % du revenu mensuel brut comme seuil d'abordabilité, bien que des garants, un excellent crédit, des mois de loyer d'avance ou des baux d'entreprise puissent assouplir ce seuil. Les services publics varient beaucoup selon l'immeuble, demandez toujours ce qui est inclus dans le bail. C'est un outil d'évaluation préliminaire, pas une approbation. Discutez de votre situation avec un agent immobilier titulaire d'un permis avant de signer. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
         </div>
       </div>
     </div>
@@ -213,12 +213,12 @@ const hreflangAlternates = [
 
         if (income <= 0 || rent <= 0) {
           vTitle = 'Entrez vos chiffres ci-dessus.';
-          vSub = 'Sous 30 % du revenu en logement est la zone sûre. Entre 30 % et 40 % est tendu. Au-dessus de 40 % et la plupart des propriétaires refusent.';
+          vSub = 'Sous 30 % du revenu en logement est la zone sûre. Entre 30 % et 40 % est tendu. Au-dessus de 40 %, la plupart des propriétaires refusent.';
           vClass = 'rc-verdict-neutral';
           vIcon = '';
         } else if (pct <= 30) {
           vTitle = 'Oui, vous pouvez payer ce loyer.';
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu, dans la zone sûre. Les propriétaires approuvent ce genre de demandes toute la journée.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu, dans la zone sûre. Les propriétaires approuvent ce genre de demandes sans hésiter.';
           vClass = 'rc-verdict-green';
           vIcon = ICON_CHECK;
         } else if (pct <= 40) {
@@ -228,12 +228,12 @@ const hreflangAlternates = [
           vIcon = ICON_WARN;
         } else if (pct < 80) {
           vTitle = 'Possible, mais parlez-en avec votre agent immobilier.';
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu : la plupart des propriétaires diront non à ce ratio. Exceptions possibles : garant, loyer d\'avance, bail corporatif, excellent crédit. Parlez à un agent immobilier licencié avant de soumettre.';
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu : la plupart des propriétaires diront non à ce ratio. Exceptions possibles : garant, loyer d\'avance, bail d\'entreprise, excellent crédit. Parlez à un agent immobilier titulaire d\'un permis avant de soumettre.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         } else {
-          vTitle = "Malheureusement, votre ratio revenu/loyer est trop élevé et ne suffira pas dans le marché actuel.";
-          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu. À ce ratio, quasiment aucun propriétaire n\'approuvera; la limite standard que la plupart des courtiers appliquent est autour de 33 à 40 %. Envisagez une unité moins chère, un cosignataire, ou augmentez votre revenu vérifiable avant de postuler.';
+          vTitle = "Malheureusement, votre ratio revenu/loyer est trop élevé et ne suffira pas sur le marché actuel.";
+          vSub = 'Le logement est à ' + pct.toFixed(1).replace('.', ',') + ' % de votre revenu. À ce ratio, quasiment aucun propriétaire n\'approuvera; la limite standard que la plupart des courtiers appliquent est autour de 33 à 40 %. Envisagez un logement moins cher, un cosignataire, ou augmentez votre revenu vérifiable avant de faire une demande.';
           vClass = 'rc-verdict-red';
           vIcon = ICON_CROSS;
         }

@@ -9,7 +9,7 @@ export const prerender = true;
 
 const publishedDate = '2026-07-24';
 const articleTitle = '安省房产税持续上涨';
-const articleDescription = '简明解读 Fraser Institute 报告:为何安省城市的房产税涨幅超过房价、家庭收入与整体经济。哪些城市最贵,哪些最低,以及对购房者、租客与业主意味着什么。';
+const articleDescription = '简明解读 Fraser Institute 报告：为何安省城市的房产税涨幅超过房价、家庭收入与整体经济。哪些城市最贵，哪些最低，以及对购房者、租客与业主意味着什么。';
 const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/ontario-property-taxes-rising';
 
 const jsonLd = {
@@ -20,14 +20,14 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
   publisher: {
     '@type': 'Organization',
-    name: 'Peter Law, 多伦多房地产',
+    name: 'Peter Law，多伦多房地产',
     logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
   },
   inLanguage: 'zh-CN',
   datePublished: publishedDate,
   dateModified: publishedDate,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: '安省房产税,多伦多房产税, Pickering 房产税, Milton 房产税, Fraser Institute 房产税报告,市政税 安省 2026, 人均房产税 安省, MPAC 评估 2016, 房产税 增长 安省',
+  keywords: '安省房产税，多伦多房产税，Pickering 房产税，Milton 房产税，Fraser Institute 房产税报告，市政税 安省 2026，人均房产税 安省，MPAC 评估 2016，房产税 增长 安省',
   citation: {
     '@type': 'CreativeWork',
     name: 'Property taxes growing quickly in Ontario municipalities',
@@ -78,8 +78,8 @@ const chart2_bottom = [
 const chart2_max = 300000;
 
 const chart3 = [
-  { label: '人均税负 增长(平均)', val: 35, color: '#c05a4a' },
-  { label: '人均评估值 增长(平均)', val: 21, color: '#9ea88d' },
+  { label: '人均税负 增长（平均）', val: 35, color: '#c05a4a' },
+  { label: '人均评估值 增长（平均）', val: 21, color: '#9ea88d' },
   { label: '安省 人口增长', val: 20, color: '#c3b28d' },
   { label: '家庭中位收入 增长', val: 14, color: '#8ba0a8' },
 ];
@@ -107,9 +107,9 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
       <div class="wrap">
         <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 安省业主 · 政策</div>
         <h1>{articleTitle}</h1>
-        <p class="article-lead">在过去十年里,安省各市的房产税涨得比房价快,比家庭收入快,也比整体经济快。本文用简单易懂的中文,把 Fraser Institute 报告的核心数据讲清楚。</p>
+        <p class="article-lead">在过去十年里，安省各市的房产税涨得比房价快，比家庭收入快，也比整体经济快。本文用简单易懂的中文，把 Fraser Institute 报告的核心数据讲清楚。</p>
         <div class="article-byline">
-          <span>作者:<a href="/chinese/about">Peter Law</a></span>
+          <span>作者：<a href="/chinese/about">Peter Law</a></span>
           <span class="dot">·</span>
           <time datetime={publishedDate}>2026 年 7 月 24 日</time>
           <span class="dot">·</span>
@@ -125,12 +125,12 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
             <h2 class="side-h">本文目录</h2>
             <ul>
               <li><a href="#quick">核心数据一览</a></li>
-              <li><a href="#what">什么是房产税?</a></li>
+              <li><a href="#what">什么是房产税？</a></li>
               <li><a href="#big">十年大局</a></li>
-              <li><a href="#chart1">图 1:哪些城市税负最高?</a></li>
-              <li><a href="#chart2">图 2:哪些城市的房产最值钱?</a></li>
+              <li><a href="#chart1">图 1:哪些城市税负最高？</a></li>
+              <li><a href="#chart2">图 2:哪些城市的房产最值钱？</a></li>
               <li><a href="#chart3">图 3:税负与其他指标的对比</a></li>
-              <li><a href="#why">为什么会这样?</a></li>
+              <li><a href="#why">为什么会这样？</a></li>
               <li><a href="#means">这对您意味着什么</a></li>
               <li><a href="#disclaimer">免责声明</a></li>
             </ul>
@@ -140,31 +140,31 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
 
             <div id="quick" class="qf-card">
               <div class="qf-row"><span class="qf-label">安省城镇数量</span><span class="qf-val">444 个市镇</span></div>
-              <div class="qf-row"><span class="qf-label">房产税总收入(2015 → 2025)</span><span class="qf-val">$190 亿 → $270 亿(+42%)</span></div>
+              <div class="qf-row"><span class="qf-label">房产税总收入（2015 → 2025）</span><span class="qf-val">$190 亿 → $270 亿（+42%）</span></div>
               <div class="qf-row"><span class="qf-label">人均评估值 10 年平均增长</span><span class="qf-val">+21%</span></div>
               <div class="qf-row"><span class="qf-label">人均房产税 10 年平均增长</span><span class="qf-val">+35%</span></div>
               <div class="qf-row"><span class="qf-label">同期家庭收入增长</span><span class="qf-val">+14%</span></div>
               <div class="qf-row"><span class="qf-label">用于计算的房价</span><span class="qf-val">仍冻结在 2016 年</span></div>
             </div>
 
-            <h2 id="what">什么是房产税?</h2>
-            <p><strong>房产税</strong>是您向所在市政府缴纳的年度税款,针对您拥有的房屋、公寓或土地。市政府用这些钱支付垃圾清运、除雪、道路维护、图书馆、公园以及部分警察和消防经费。</p>
-            <p>税单由两个数字决定:<strong>税率</strong>(市政府每年设定的百分比)与<strong>房产评估价值</strong>(assessment)。在安省,评估价值有个"怪现象",省府仍然使用您房屋<strong>2016 年的价值</strong>,已经十年未更新。这意味着最近的楼市大涨并未反映在计算基础中。</p>
+            <h2 id="what">什么是房产税？</h2>
+            <p><strong>房产税</strong>是您向所在市政府缴纳的年度税款，针对您拥有的房屋、公寓或土地。市政府用这些钱支付垃圾清运、除雪、道路维护、图书馆、公园以及部分警察和消防经费。</p>
+            <p>税单由两个数字决定：<strong>税率</strong>（市政府每年设定的百分比）与<strong>房产评估价值</strong>（assessment）。在安省，评估价值有个“怪现象”，省府仍然使用您房屋<strong>2016 年的价值</strong>，已经十年未更新。这意味着最近的楼市大涨并未反映在计算基础中。</p>
 
             <h2 id="big">十年大局</h2>
-            <p>安省共有 444 个城镇。房产税是它们最大的单一收入来源,占市政年度收入的 <strong>44.1%</strong>。过去十年,这块收入增长明显:</p>
+            <p>安省共有 444 个城镇。房产税是它们最大的单一收入来源，占市政年度收入的 <strong>44.1%</strong>。过去十年，这块收入增长明显：</p>
             <ul>
-              <li><strong>2015 年</strong>,安省城市共征收约 <strong>190 亿加元</strong>房产税。</li>
-              <li><strong>2025 年</strong>,增至约 <strong>270 亿加元</strong>。</li>
+              <li><strong>2015 年</strong>，安省城市共征收约 <strong>190 亿加元</strong>房产税。</li>
+              <li><strong>2025 年</strong>，增至约 <strong>270 亿加元</strong>。</li>
               <li>十年增长约 <strong>42%</strong>。</li>
             </ul>
-            <p>同期,安省家庭中位收入仅上涨约 14%。也就是说,税负增长速度约为收入增长的 <strong>2.5 倍</strong>。</p>
+            <p>同期，安省家庭中位收入仅上涨约 14%。也就是说，税负增长速度约为收入增长的 <strong>2.5 倍</strong>。</p>
 
             <!-- ─── 图 1 ─── -->
-            <h2 id="chart1">图 1:哪些城市税负最高?(2025)</h2>
-            <p>下表展示 2025 年各市<strong>人均缴纳的市政税</strong>。上半部分是税负最高的城市,下半部分是最低的城市。</p>
+            <h2 id="chart1">图 1:哪些城市税负最高？（2025）</h2>
+            <p>下表展示 2025 年各市<strong>人均缴纳的市政税</strong>。上半部分是税负最高的城市，下半部分是最低的城市。</p>
             <figure class="bar-chart" aria-labelledby="c1-cap">
-              <figcaption id="c1-cap">2025 年人均市政税,35 个主要安省城市中的前 6 名与后 4 名。</figcaption>
+              <figcaption id="c1-cap">2025 年人均市政税，35 个主要安省城市中的前 6 名与后 4 名。</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">人均税负 最高</div>
                 {chart1_top.map((r) => (
@@ -185,15 +185,15 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
                   </div>
                 ))}
               </div>
-              <p class="chart-note">数据来源:BMA Municipal Report 2025,经 Fraser Institute 整理。坐标最大值:$2,500。</p>
+              <p class="chart-note">数据来源：BMA Municipal Report 2025，经 Fraser Institute 整理。坐标最大值：$2,500。</p>
             </figure>
-            <p><strong>解读:</strong>如果您住在 Pickering,人均市政税约 <strong>$2,300</strong>;如果住在 Milton,仅约 <strong>$1,230</strong>,同一省内,税负相差近一倍。</p>
+            <p><strong>解读：</strong>如果您住在 Pickering，人均市政税约 <strong>$2,300</strong>;如果住在 Milton，仅约 <strong>$1,230</strong>,同一省内，税负相差近一倍。</p>
 
             <!-- ─── 图 2 ─── -->
-            <h2 id="chart2">图 2:哪些城市的房产最值钱?(2025)</h2>
-            <p>此图为<strong>各市人均房产评估价值</strong>。上半部分为房价最高的城市,下半部分为最低的城市。理论上,税基越大,税率就越能压低,因为可课税总值更多。</p>
+            <h2 id="chart2">图 2:哪些城市的房产最值钱？（2025）</h2>
+            <p>此图为<strong>各市人均房产评估价值</strong>。上半部分为房价最高的城市，下半部分为最低的城市。理论上，税基越大，税率就越能压低，因为可课税总值更多。</p>
             <figure class="bar-chart" aria-labelledby="c2-cap">
-              <figcaption id="c2-cap">2025 年人均可课税评估值,前 6 名与后 3 名。</figcaption>
+              <figcaption id="c2-cap">2025 年人均可课税评估值，前 6 名与后 3 名。</figcaption>
               <div class="bar-group">
                 <div class="bar-group-label">人均税基 最高</div>
                 {chart2_top.map((r) => (
@@ -214,15 +214,15 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
                   </div>
                 ))}
               </div>
-              <p class="chart-note">数据来源:BMA Municipal Report 2025。坐标最大值:$300,000。</p>
+              <p class="chart-note">数据来源：BMA Municipal Report 2025。坐标最大值：$300,000。</p>
             </figure>
-            <p><strong>解读:</strong>Richmond Hill 的人均税基是 Windsor 的 <strong>4 倍以上</strong>。但从图 1 可以看到,Windsor 的人均税负并非只有 Richmond Hill 的四分之一,显然还有别的因素在起作用。</p>
+            <p><strong>解读：</strong>Richmond Hill 的人均税基是 Windsor 的 <strong>4 倍以上</strong>。但从图 1 可以看到，Windsor 的人均税负并非只有 Richmond Hill 的四分之一，显然还有别的因素在起作用。</p>
 
             <!-- ─── 图 3 ─── -->
-            <h2 id="chart3">图 3:税负与其他指标对比(2015–2025)</h2>
+            <h2 id="chart3">图 3:税负与其他指标对比（2015–2025）</h2>
             <p>这是最关键的一张图。对比过去 10 年 35 个主要城市在四个方面的<strong>平均增长速度</strong>。</p>
             <figure class="bar-chart" aria-labelledby="c3-cap">
-              <figcaption id="c3-cap">2015 → 2025 十年平均增长,35 个主要安省城市。</figcaption>
+              <figcaption id="c3-cap">2015 → 2025 十年平均增长，35 个主要安省城市。</figcaption>
               <div class="bar-group">
                 {chart3.map((r) => (
                   <div class="bar-row">
@@ -232,41 +232,41 @@ function fmt(n: number): string { return n.toLocaleString('en-CA'); }
                   </div>
                 ))}
               </div>
-              <p class="chart-note">数据来源:BMA Municipal Report 2025 + Statistics Canada,由 Fraser Institute 整理。坐标最大值:+40%。</p>
+              <p class="chart-note">数据来源：BMA Municipal Report 2025 + Statistics Canada，由 Fraser Institute 整理。坐标最大值：+40%。</p>
             </figure>
-            <p><strong>解读:</strong>人均税负增长<strong>快于所有其他指标</strong>,比人口涨得快,比房产评估值涨得快,更远远快于家庭收入。</p>
-            <p>换句话说,<strong>整个"蛋糕"在变大,但每个人分担的那一块变得更大、更快。</strong></p>
+            <p><strong>解读：</strong>人均税负增长<strong>快于所有其他指标</strong>，比人口涨得快，比房产评估值涨得快，更远远快于家庭收入。</p>
+            <p>换句话说，<strong>整个“蛋糕”在变大，但每个人分担的那一块变得更大、更快。</strong></p>
 
-            <h2 id="why">为什么会这样?</h2>
-            <p>Fraser Institute 的报告给出几种可能的解释,用大白话讲:</p>
+            <h2 id="why">为什么会这样？</h2>
+            <p>Fraser Institute 的报告给出几种可能的解释，用大白话讲：</p>
             <ul>
-              <li><strong>省府拨款减少</strong>,市府只能向纳税人多收。</li>
-              <li><strong>疫情后成本普涨</strong>,修路、运营社区中心、支付消防员工资都更贵了。</li>
-              <li><strong>省府将部分项目"下放"</strong>(如卫生、社会服务),现在由市府承担。</li>
-              <li><strong>或者</strong>(报告更倾向于这一点),<strong>市府支出扩张过快,忽略了纳税人承受能力</strong>。</li>
+              <li><strong>省府拨款减少</strong>，市府只能向纳税人多收。</li>
+              <li><strong>疫情后成本普涨</strong>，修路、运营社区中心、支付消防员工资都更贵了。</li>
+              <li><strong>省府将部分项目“下放”</strong>（如卫生、社会服务），现在由市府承担。</li>
+              <li><strong>或者</strong>（报告更倾向于这一点），<strong>市府支出扩张过快，忽略了纳税人承受能力</strong>。</li>
             </ul>
-            <p>报告最后指出:这可能不是收入不足的问题,而是<strong>支出过多的问题</strong>。</p>
+            <p>报告最后指出：这可能不是收入不足的问题，而是<strong>支出过多的问题</strong>。</p>
 
             <details class="means-collapse" id="means">
               <summary>这对您意味着什么</summary>
               <div class="means-body">
                 <div class="callout">
-                  <strong>如果您已经是业主:</strong>房产税每年几乎都在涨,是真实且持续的成本。做好年度预算。若要转手购房,一定要问清楚<strong>当前年度</strong>的税单,而不是两年前的旧数据。
+                  <strong>如果您已经是业主：</strong>房产税每年几乎都在涨，是真实且持续的成本。做好年度预算。若要换房，一定要问清楚<strong>当前年度</strong>的税单，而不是两年前的旧数据。
                 </div>
                 <div class="callout">
-                  <strong>如果您正准备买房:</strong>不要只看房价。位于人均税负较高城市(如 Pickering、Whitby、Sudbury)的便宜房,每月总成本可能比税率较低城市(如 Milton、Brampton、Kitchener)的略贵房子还要高。我为客户做的每一份财务测算,都会把房产税算进去。
+                  <strong>如果您正准备买房：</strong>不要只看房价。位于人均税负较高城市（如 Pickering、Whitby、Sudbury）的便宜房，每月总成本可能比税率较低城市（如 Milton、Brampton、Kitchener）的略贵房子还要高。我为客户做的每一份财务测算，都会把房产税算进去。
                 </div>
                 <div class="callout">
-                  <strong>如果您在租房:</strong>房东可以将上涨的房产税以缓慢方式转嫁到租金上,但受安省年度租金上限约束。这是即使没有换合同,租金仍会缓慢上涨的原因之一。
+                  <strong>如果您在租房：</strong>房东可以将上涨的房产税以缓慢方式转嫁到租金上，但受安省年度租金上限约束。这是即使没有换合同，租金仍会缓慢上涨的原因之一。
                 </div>
                 <div class="callout">
-                  <strong>如果您有投票权:</strong>市政选举将于今年秋季举行。房产税是市议会最直接可动的杠杆。请问候选人:他们打算怎么处理您的税单。
+                  <strong>如果您有投票权：</strong>市政选举将于今年秋季举行。房产税是市议会最直接可动的杠杆。请问候选人：他们打算怎么处理您的税单。
                 </div>
               </div>
             </details>
 
             <h2 id="disclaimer">免责声明</h2>
-            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">本文以中文简明形式转述 Livio Di Matteo 教授(Lakehead University 经济学教授)于 2026 年 6 月 2 日在 Fraser Institute 发表的评论《Property taxes growing quickly in Ontario municipalities》。文中所有数字、百分比及城市数据均引自该报告及其所引用的 BMA Municipal Report 2025。文字表述与解读为 Peter Law 面向普通读者的中文改写,并非原文直译,不可视为原文。本文内容不构成法律、税务或财务建议。Peter Law 为持牌房地产销售代表(RECO 注册),而非税务专业人士。安省房产税率、评估规则和市政预算每年变动,做出任何决策前请以所在市政府官方网站或持牌税务顾问的信息为准。数据来源:Fraser Institute (fraserinstitute.org)、BMA Municipal Report 2025。</p>
+            <p style="font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; border-top: 1px dashed #d6d1c8; padding-top: 16px; font-style: italic;">本文以中文简明形式转述 Livio Di Matteo 教授（Lakehead University 经济学教授）于 2026 年 6 月 2 日在 Fraser Institute 发表的评论《Property taxes growing quickly in Ontario municipalities》。文中所有数字、百分比及城市数据均引自该报告及其所引用的 BMA Municipal Report 2025。文字表述与解读为 Peter Law 面向普通读者的中文改写，并非原文直译，不可视为原文。本文内容不构成法律、税务或财务建议。Peter Law 为持牌房地产销售代表（RECO 注册），而非税务专业人士。安省房产税率、评估规则和市政预算每年变动，做出任何决策前请以所在市政府官方网站或持牌税务顾问的信息为准。数据来源：Fraser Institute （fraserinstitute.org）、BMA Municipal Report 2025。</p>
 
           </div>
         </div>

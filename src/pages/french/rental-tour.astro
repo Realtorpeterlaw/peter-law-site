@@ -6,18 +6,18 @@ import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
 const TIKTOK_PROFILE = "https://www.tiktok.com/@rentwithpeter";
 const tours = [
-  { id: "7642839542482930964", title: "9 Clegg Rd", tag: "Markham Downtown · 1 bed + den" },
-  { id: "7643443700663848212", title: "Liberty Village", tag: "Downtown · utilities included" },
-  { id: "7642835431985335573", title: "Danforth · East York", tag: "$2,100/mo · 1 bedroom" },
-  { id: "7638804681673690389", title: "Move-in ready condo", tag: "Tranquil setting" },
-  { id: "7638803774139829524", title: "2-storey unit", tag: "East & west views" },
-  { id: "7638803030602779924", title: "Sizable 1 bed + den", tag: "Unobstructed view" },
-  { id: "7641439020634967317", title: "Markham condos", tag: "Boutique-style" },
-  { id: "7638802160574106900", title: "Brand-new 1 bed + den", tag: "Never lived in" },
-  { id: "7638801525833239828", title: "Waterfront condo", tag: "Lake views" },
-  { id: "7638800822398160148", title: "Junior 1BR", tag: "Waterfront · Lakeshore" },
-  { id: "7638799683430763797", title: "Yonge & Bloor", tag: "Furnished 2 bed/2 bath · Aug 1" },
-  { id: "7635749462324841748", title: "Lake Shore condo", tag: "2 bedroom" },
+  { id: "7642839542482930964", title: "9 Clegg Rd", tag: "Centre-ville de Markham · 1 chambre + bureau" },
+  { id: "7643443700663848212", title: "Liberty Village", tag: "Centre-ville · services publics inclus" },
+  { id: "7642835431985335573", title: "Danforth · East York", tag: "2 100 $/mois · 1 chambre" },
+  { id: "7638804681673690389", title: "Condo prêt à habiter", tag: "Cadre paisible" },
+  { id: "7638803774139829524", title: "Logement sur 2 étages", tag: "Vues est et ouest" },
+  { id: "7638803030602779924", title: "Grand 1 chambre + bureau", tag: "Vue dégagée" },
+  { id: "7641439020634967317", title: "Condos à Markham", tag: "Style boutique" },
+  { id: "7638802160574106900", title: "1 chambre + bureau tout neuf", tag: "Jamais habité" },
+  { id: "7638801525833239828", title: "Condo au bord de l'eau", tag: "Vue sur le lac" },
+  { id: "7638800822398160148", title: "1 chambre junior", tag: "Bord de l'eau · Lakeshore" },
+  { id: "7638799683430763797", title: "Yonge & Bloor", tag: "2 chambres/2 salles de bain meublé · 1er août" },
+  { id: "7635749462324841748", title: "Condo Lake Shore", tag: "2 chambres" },
 ];
 
 const hreflangAlternates = [
@@ -32,7 +32,7 @@ const hreflangAlternates = [
 >
   <LTopBar />
   <LHeader active="rental" />
-  <section class="page-hero"><div class="wrap"><div class="eyebrow">Visites de location</div><h1>Connaissez chaque pièce avant d'ouvrir la porte.</h1><p>Visites vidéo rapides des locations que j'ai visitées ce mois-ci. Touchez une unité pour poser une question. Nouvelles vidéos ajoutées quotidiennement sur <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a>.</p></div></section>
+  <section class="page-hero"><div class="wrap"><div class="eyebrow">Visites de location</div><h1>Connaissez chaque pièce avant d'ouvrir la porte.</h1><p>Visites vidéo rapides des locations que j'ai visitées ce mois-ci. Touchez un logement pour poser une question. Nouvelles vidéos ajoutées chaque semaine sur <a href={TIKTOK_PROFILE} target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 3px;">@rentwithpeter</a>.</p></div></section>
   <section class="major" style="padding-top:24px;"><div class="wrap"><div class="tour-grid">
     {tours.map((t) => (
       <div class="tour-card">
@@ -68,7 +68,7 @@ const hreflangAlternates = [
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('title', 'Visite locative TikTok');
       iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
-      iframe.style.cssText = 'width:100%;height:100%;border:0;';
+      iframe.style.cssText = 'width:100 %;height:100 %;border:0;';
       wrap.innerHTML = ''; wrap.appendChild(iframe);
     });
   </script>

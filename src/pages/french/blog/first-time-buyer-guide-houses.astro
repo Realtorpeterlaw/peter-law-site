@@ -29,7 +29,7 @@ const jsonLd = {
   dateModified: publishedDate,
   url: articleUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-  keywords: "premier acheteur maison Ontario, guide acheteur maison Toronto, types de maisons Ontario, détachée vs semi-détachée, maison en rangée en propriété franche, link home, bungalow, maison centenaire Ontario, maison rurale puits fosse septique, chalet bord de l'eau Ontario, CELIAPP RAP crédit premier acheteur, droits de mutation immobilière Toronto, remise TVH construction neuve Ontario, inspection de maison, frais de clôture premier acheteur",
+  keywords: "premier acheteur maison Ontario, guide acheteur maison Toronto, types de maisons Ontario, détachée vs semi-détachée, maison en rangée en propriété franche, link home, bungalow, maison centenaire Ontario, maison rurale puits fosse septique, chalet bord de l'eau Ontario, CELIAPP RAP crédit premier acheteur, droits de cession immobilière Toronto, remise TVH construction neuve Ontario, inspection de maison, frais de clôture premier acheteur",
   translationOfWork: { '@type': 'Article', '@id': enUrl },
 };
 
@@ -84,10 +84,10 @@ const houseIcons = {
     <section class="fh-stats-wrap">
       <div class="wrap">
         <div class="fh-stats-grid">
-          <div class="fh-stat"><div class="fh-stat-num">5–20%</div><div class="fh-stat-label">Fourchette de mise de fonds</div><div class="fh-stat-sub">selon le prix d'achat</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">5–20 %</div><div class="fh-stat-label">Fourchette de mise de fonds</div><div class="fh-stat-sub">selon le prix d'achat</div></div>
           <div class="fh-stat"><div class="fh-stat-num">40K$</div><div class="fh-stat-label">Plafond à vie du CELIAPP</div><div class="fh-stat-sub">8K$ par année, déductible d'impôt</div></div>
-          <div class="fh-stat"><div class="fh-stat-num">8 475 $</div><div class="fh-stat-label">Remise des droits de mutation</div><div class="fh-stat-sub">Premier acheteur Toronto (ON + Toronto)</div></div>
-          <div class="fh-stat"><div class="fh-stat-num">1–1,5%</div><div class="fh-stat-label">Entretien annuel</div><div class="fh-stat-sub">de la valeur de la maison, par année</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">8 475 $</div><div class="fh-stat-label">Remise des droits de cession immobilière</div><div class="fh-stat-sub">Premier acheteur Toronto (ON + Toronto)</div></div>
+          <div class="fh-stat"><div class="fh-stat-num">1–1,5 %</div><div class="fh-stat-label">Entretien annuel</div><div class="fh-stat-sub">de la valeur de la maison, par année</div></div>
         </div>
       </div>
     </section>
@@ -117,7 +117,7 @@ const houseIcons = {
                  PART 1, TYPES OF HOUSES
                  ============================================================ -->
             <h2 id="types">Partie 1 · Types de maisons en Ontario</h2>
-            <p>Toutes les « maisons » ne sont pas le même produit. Deux bâtiments identiques vus de la rue peuvent avoir une propriété, des coûts mensuels et un risque de revente complètement différents. Voici chaque type que vous allez rencontrer.</p>
+            <p>Toutes les « maisons » ne sont pas le même produit. Deux bâtiments identiques vus de la rue peuvent avoir un mode de propriété, des coûts mensuels et un risque de revente complètement différents. Voici chaque type que vous allez rencontrer.</p>
 
             <div class="fh-house-grid">
               <div class="fh-house-card">
@@ -128,17 +128,17 @@ const houseIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.semi} />
                 <div class="fh-house-title">Semi-détachée</div>
-                <p>Deux maisons reliées par un mur mitoyen. Habituellement 10 à 20 % moins chère qu'une détachée comparable. Renseignez-vous sur le toit, les avant-toits ou l'entrée partagés.</p>
+                <p>Deux maisons reliées par un mur mitoyen. Habituellement 10 à 20 % moins chère qu'une détachée comparable. Renseignez-vous sur le toit, les avant-toits ou l'entrée partagés.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.detached} />
-                <div class="fh-house-title">Maison « link »</div>
+                <div class="fh-house-title">Maison « link »</div>
                 <p>Semble détachée depuis la rue, mais les fondations (ou les garages) sont reliées sous le sol. Moins chère qu'une vraie détachée, <strong>vérifiez toujours le certificat de localisation</strong>.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.town} />
                 <div class="fh-house-title">Maison en rangée</div>
-                <p>Trois formules : <strong>propriété franche</strong> (terrain à vous, aucuns frais), <strong>copropriété</strong> (frais, entretien par le syndicat), ou <strong>éléments communs / POTL</strong> (terrain à vous, petits frais pour les routes partagées). Renseignez-vous sur laquelle s'applique.</p>
+                <p>Trois formules : <strong>propriété franche</strong> (terrain à vous, aucuns frais), <strong>copropriété</strong> (frais, entretien par l'association condominiale), ou <strong>éléments communs / POTL</strong> (terrain à vous, petits frais pour les routes partagées). Renseignez-vous sur laquelle s'applique.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.bungalow} />
@@ -153,7 +153,7 @@ const houseIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.multi} />
                 <div class="fh-house-title">Duplex / triplex / quadruplex</div>
-                <p>Habitez l'un, louez les autres. Est-ce légalement un duplex, ou simplement une maison avec une deuxième cuisine ? Les locataires (et leurs loyers) sont transférés avec la propriété.</p>
+                <p>Habitez l'un, louez les autres. Est-ce légalement un duplex, ou simplement une maison avec une deuxième cuisine? Les locataires (et leurs loyers) sont transférés avec la propriété.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.rural} />
@@ -163,12 +163,12 @@ const houseIcons = {
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.cottage} />
                 <div class="fh-house-title">Chalet / bord de l'eau</div>
-                <p>Règles supplémentaires de l'office de protection de la nature. Attention à la réserve de chemin de rive, à l'accès par voie d'eau seulement, et à la saisonnalité.</p>
+                <p>Règles supplémentaires de l'office de protection de la nature. Attention à la réserve routière riveraine, à l'accès par voie d'eau seulement, et à la saisonnalité.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.luxury} />
                 <div class="fh-house-title">Propriété d'exception / luxe</div>
-                <p>Plus de 1,5 M$ = 20 % de mise de fonds obligatoire, aucune assurance SCHL. Les droits de mutation municipaux de Toronto bondissent à 3 M$. Les évaluations deviennent plus difficiles.</p>
+                <p>Plus de 1,5 M$ = 20 % de mise de fonds obligatoire, aucune assurance SCHL. Les droits de cession immobilière municipaux de Toronto bondissent à 3 M$. Les évaluations deviennent plus difficiles.</p>
               </div>
               <div class="fh-house-card">
                 <div class="fh-house-icon" set:html={houseIcons.new} />
@@ -178,18 +178,18 @@ const houseIcons = {
             </div>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Autres formats : jumelé arrière, superposée, split latéral/arrière, modulaire, mobile, logement accessoire</summary>
+              <summary class="b60-section-toggle-summary">Autres formats : jumelé arrière, superposée, split latéral/arrière, modulaire, mobile, logement accessoire</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>Maison en rangée jumelée arrière :</strong> partage les murs latéraux ET le mur arrière. Pas de cour arrière. La moins chère, la plus difficile à revendre.</li>
-                  <li><strong>Maison en rangée superposée :</strong> unités empilées les unes sur les autres avec des entrées séparées. Presque toujours en copropriété. Beaucoup d'escaliers.</li>
-                  <li><strong>1,5 étage :</strong> un étage et demi avec des plafonds en pente à l'étage. Charmant, mais souvent des problèmes d'isolation et de hauteur libre.</li>
-                  <li><strong>Deux étages :</strong> la maison familiale standard. Chambres à l'étage, aires de vie au rez-de-chaussée.</li>
-                  <li><strong>Split latéral / arrière :</strong> plusieurs niveaux décalés par demi-volées d'escalier. Courant dans l'Ontario des années 1950 à 1970. Bonne séparation des espaces, des escaliers partout.</li>
-                  <li><strong>Modulaire / préfabriqué :</strong> construit en usine et assemblé sur place. Sur une fondation permanente, traité comme n'importe quelle autre maison.</li>
-                  <li><strong>Mobile / modèle de parc :</strong> souvent sur un terrain loué. Le financement est difficile. Comprenez exactement ce que vous possédez par rapport à ce que vous louez.</li>
-                  <li><strong>Studio de jardin / maison de ruelle / logement accessoire (ADU) :</strong> l'Ontario a élargi ce qui est permis, mais les règles varient selon la ville. <strong>Obtenez une confirmation écrite de la municipalité</strong> avant d'acheter en vous basant sur cette hypothèse.</li>
-                  <li><strong>Ferme d'agrément vs ferme active :</strong> les fermes d'agrément sont évaluées comme des maisons avec terrain. Les fermes actives impliquent le zonage, le drainage souterrain, les baux de locataires, et nécessitent souvent des prêteurs agricoles.</li>
+                  <li><strong>Maison en rangée jumelée arrière :</strong> partage les murs latéraux ET le mur arrière. Pas de cour arrière. La moins chère, la plus difficile à revendre.</li>
+                  <li><strong>Maison en rangée superposée :</strong> logements empilés les uns sur les autres avec des entrées séparées. Presque toujours en copropriété. Beaucoup d'escaliers.</li>
+                  <li><strong>1,5 étage :</strong> un étage et demi avec des plafonds en pente à l'étage. Charmant, mais souvent des problèmes d'isolation et de hauteur libre.</li>
+                  <li><strong>Deux étages :</strong> la maison familiale standard. Chambres à l'étage, aires de vie au rez-de-chaussée.</li>
+                  <li><strong>Split latéral / arrière :</strong> plusieurs niveaux décalés par demi-volées d'escalier. Courant dans l'Ontario des années 1950 à 1970. Bonne séparation des espaces, des escaliers partout.</li>
+                  <li><strong>Modulaire / préfabriqué :</strong> construit en usine et assemblé sur place. Sur une fondation permanente, traité comme n'importe quelle autre maison.</li>
+                  <li><strong>Mobile / modèle de parc :</strong> souvent sur un terrain loué. Le financement est difficile. Comprenez exactement ce que vous possédez par rapport à ce que vous louez.</li>
+                  <li><strong>Studio de jardin / maison de ruelle / logement accessoire (ADU) :</strong> l'Ontario a élargi ce qui est permis, mais les règles varient selon la ville. <strong>Obtenez une confirmation écrite de la municipalité</strong> avant d'acheter en vous basant sur cette hypothèse.</li>
+                  <li><strong>Ferme d'agrément vs ferme active :</strong> les fermes d'agrément sont évaluées comme des maisons avec terrain. Les fermes actives impliquent le zonage, le drainage souterrain, les baux de locataires, et nécessitent souvent des prêteurs agricoles.</li>
                 </ul>
               </div>
             </details>
@@ -202,56 +202,56 @@ const houseIcons = {
             <div class="fh-formula" role="group" aria-label="Formule du test de résistance">
               <div class="fh-formula-cell">
                 <div class="fh-formula-label">Taux contractuel</div>
-                <div class="fh-formula-value">4,5%</div>
+                <div class="fh-formula-value">4,5 %</div>
                 <div class="fh-formula-sub">exemple</div>
               </div>
               <div class="fh-formula-op">+</div>
               <div class="fh-formula-cell">
                 <div class="fh-formula-label">Marge de test de résistance</div>
-                <div class="fh-formula-value">2%</div>
+                <div class="fh-formula-value">2 %</div>
               </div>
               <div class="fh-formula-op">=</div>
               <div class="fh-formula-cell">
                 <div class="fh-formula-label">Ou plancher</div>
-                <div class="fh-formula-value">5,25%</div>
+                <div class="fh-formula-value">5,25 %</div>
               </div>
               <div class="fh-formula-op">→</div>
               <div class="fh-formula-cell fh-formula-result">
                 <div class="fh-formula-label">Admissibilité au taux le PLUS ÉLEVÉ des deux</div>
-                <div class="fh-formula-value">6,5%</div>
+                <div class="fh-formula-value">6,5 %</div>
               </div>
             </div>
 
             <h3 style="margin-top:26px;">Les ratios d'endettement</h3>
-            <p>Deux chiffres qui importent à votre prêteur :</p>
+            <p>Deux chiffres qui importent à votre prêteur :</p>
             <ul class="bullets">
-              <li><strong>ABD (Amortissement brut de la dette) :</strong> coûts de logement sous environ <strong>39 %</strong> du revenu brut.</li>
-              <li><strong>ATD (Amortissement total de la dette) :</strong> toutes les dettes sous environ <strong>44 %</strong>.</li>
+              <li><strong>ABD (Amortissement brut de la dette) :</strong> coûts de logement sous environ <strong>39 %</strong> du revenu brut.</li>
+              <li><strong>ATD (Amortissement total de la dette) :</strong> toutes les dettes sous environ <strong>44 %</strong>.</li>
             </ul>
-            <div class="callout"><strong>Vrai levier :</strong> rembourser un prêt auto ou une carte de crédit avant de faire une demande peut augmenter votre admissibilité plus qu'épargner 10 000 $ de plus pour la mise de fonds.</div>
+            <div class="callout"><strong>Vrai levier :</strong> rembourser un prêt auto ou une carte de crédit avant de faire une demande peut augmenter votre admissibilité plus qu'épargner 10 000 $ de plus pour la mise de fonds.</div>
 
             <h3 style="margin-top:26px;">Mises de fonds minimales</h3>
             <div class="fh-dp-chart" role="img" aria-label="Mise de fonds minimale selon la fourchette de prix d'achat">
               <div class="fh-dp-row">
                 <div class="fh-dp-label">Jusqu'à 500 000 $</div>
-                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 20%;"></div><span class="fh-dp-pct">5%</span></div>
+                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 20%;"></div><span class="fh-dp-pct">5 %</span></div>
                 <div class="fh-dp-example">500K$ → 25K$</div>
               </div>
               <div class="fh-dp-row">
                 <div class="fh-dp-label">500 001 $–1 499 999 $</div>
-                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 35%;"></div><span class="fh-dp-pct">5% + 10% combiné</span></div>
+                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 35%;"></div><span class="fh-dp-pct">5 % + 10 % combiné</span></div>
                 <div class="fh-dp-example">700K$ → 45K$</div>
               </div>
               <div class="fh-dp-row">
                 <div class="fh-dp-label">1 500 000 $ et plus</div>
-                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 100%;"></div><span class="fh-dp-pct">20%</span></div>
+                <div class="fh-dp-bar-wrap"><div class="fh-dp-bar" style="width: 100%;"></div><span class="fh-dp-pct">20 %</span></div>
                 <div class="fh-dp-example">1,5M$ → 300K$</div>
               </div>
             </div>
-            <p style="margin-top:12px;font-size:14px;color:var(--ink-mute);">Moins de 20 % de mise de fonds = assurance prêt hypothécaire (environ 2,8 % à 4 % du prêt, intégrée au prêt). La taxe de vente provinciale de l'Ontario (8 %) sur cette prime est due comptant le jour de la clôture.</p>
+            <p style="margin-top:12px;font-size:14px;color:var(--ink-mute);">Moins de 20 % de mise de fonds = assurance prêt hypothécaire (environ 2,8 % à 4 % du prêt, intégrée au prêt). La taxe de vente provinciale de l'Ontario (8 %) sur cette prime est due comptant le jour de la clôture.</p>
 
             <h3 style="margin-top:26px;">Coûts de remplacement majeurs</h3>
-            <p>Ce qu'on oublie : une maison engloutit du capital par grosses sommes irrégulières. Prévoyez-le.</p>
+            <p>Ce qu'on oublie : une maison engloutit du capital par grosses sommes irrégulières. Prévoyez-le.</p>
             <div class="fh-cost-chart" role="img" aria-label="Fourchettes de coûts de remplacement typiques pour les principaux systèmes de la maison">
               <div class="fh-cost-row"><span class="fh-cost-item">Toit</span><div class="fh-cost-bar-wrap"><div class="fh-cost-bar" style="width:40%;"></div></div><span class="fh-cost-range">8K$–20K$+</span></div>
               <div class="fh-cost-row"><span class="fh-cost-item">Fournaise</span><div class="fh-cost-bar-wrap"><div class="fh-cost-bar" style="width:20%;"></div></div><span class="fh-cost-range">5K$–10K$</span></div>
@@ -260,12 +260,12 @@ const houseIcons = {
               <div class="fh-cost-row"><span class="fh-cost-item">Remplacement de la fosse septique</span><div class="fh-cost-bar-wrap"><div class="fh-cost-bar fh-cost-bar-hot" style="width:90%;"></div></div><span class="fh-cost-range">20K$–45K$+</span></div>
             </div>
 
-            <p style="margin-top:14px;"><strong>Budget continu :</strong> 1 % à 1,5 % de la valeur de la maison par année en entretien. Sur une maison de 800K$, c'est <strong>8K$–12K$/année</strong>. Ce n'est pas « peut-être un jour ». Prévoyez-le chaque année.</p>
+            <p style="margin-top:14px;"><strong>Budget continu :</strong> 1 % à 1,5 % de la valeur de la maison par année en entretien. Sur une maison de 800K$, c'est <strong>8K$–12K$/année</strong>. Ce n'est pas « peut-être un jour ». Prévoyez-le chaque année.</p>
 
-            <p style="margin-top:14px;"><strong>Essayez-le en direct :</strong> entrez vos chiffres dans la <a href="/french/payment-calculator">Calculatrice hypothécaire</a> et voyez trois scénarios côte à côte.</p>
+            <p style="margin-top:14px;"><strong>Essayez-le en direct :</strong> entrez vos chiffres dans la <a href="/french/payment-calculator">Calculateur hypothécaire</a> et voyez trois scénarios côte à côte.</p>
 
             <!-- ============================================================
-                 PART 3, GOVERNMENT PROGRAMS
+                 PARTIE 3, PROGRAMMES GOUVERNEMENTAUX
                  ============================================================ -->
             <h2 id="programs" style="margin-top:48px;">Partie 3 · Programmes gouvernementaux cumulables</h2>
             <p>Les premiers acheteurs reçoivent plus d'aide que la plupart des gens ne le pensent. Les quatre programmes ci-dessous se cumulent, vous pouvez tous les utiliser.</p>
@@ -287,20 +287,20 @@ const houseIcons = {
                 <p><strong>1 500 $ de retour à l'impôt.</strong> Modeste, mais automatique, réclamez-le dans votre prochaine déclaration après la clôture.</p>
               </div>
               <div class="fh-program-card">
-                <div class="fh-program-tag">Remise des droits de mutation</div>
-                <div class="fh-program-title">Remise des droits de mutation immobilière</div>
+                <div class="fh-program-tag">Remise des droits de cession immobilière</div>
+                <div class="fh-program-title">Remise des droits de cession immobilière</div>
                 <p>Ontario jusqu'à <strong>4 000 $</strong>. Toronto ajoute <strong>4 475 $</strong>. Les acheteurs à Toronto obtiennent les deux, <strong>jusqu'à 8 475 $</strong> combinés. Vous ne devez jamais avoir été propriétaire d'une maison, où que ce soit dans le monde.</p>
               </div>
             </div>
 
             <details class="b60-section-toggle" style="margin-top:22px;">
-              <summary class="b60-section-toggle-summary">Constructions neuves seulement : remises de TVH (jusqu'à 130 000 $ combinés)</summary>
+              <summary class="b60-section-toggle-summary">Constructions neuves seulement : remises de TVH (jusqu'à 130 000 $ combinés)</summary>
               <div class="b60-section-body">
                 <p>Les maisons de revente n'ont pas de TVH. Les maisons neuves d'un constructeur, oui.</p>
                 <ul class="bullets">
-                  <li><strong>Remise fédérale pour premier acheteur :</strong> jusqu'à <strong>50 000 $</strong> sur les maisons admissibles.</li>
-                  <li><strong>Programme temporaire de l'Ontario :</strong> jusqu'à <strong>80 000 $</strong>. La période actuelle exige que la convention soit signée d'ici le <strong>31 mars 2027</strong>.</li>
-                  <li><strong>Plafond combiné :</strong> jusqu'à <strong>130 000 $</strong> sur les achats admissibles.</li>
+                  <li><strong>Remise fédérale pour premier acheteur :</strong> jusqu'à <strong>50 000 $</strong> sur les maisons admissibles.</li>
+                  <li><strong>Programme temporaire de l'Ontario :</strong> jusqu'à <strong>80 000 $</strong>. La période actuelle exige que la convention soit signée d'ici le <strong>31 mars 2027</strong>.</li>
+                  <li><strong>Plafond combiné :</strong> jusqu'à <strong>130 000 $</strong> sur les achats admissibles.</li>
                 </ul>
                 <p><strong>Confirmez avec votre avocat et votre comptable.</strong> Les règles de cumul sont complexes et les sommes en jeu sont importantes. Voir aussi <a href="/french/blog/fthb-rebate">l'analyse approfondie de la remise pour premier acheteur</a>.</p>
               </div>
@@ -316,7 +316,7 @@ const houseIcons = {
               <summary class="b60-section-toggle-summary">1. La structure, fondation, toit, eau, drainage</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>Fondation.</strong> Cherchez des fissures. <strong>Les fissures horizontales sont sérieuses</strong> : elles peuvent indiquer des murs qui s'arquent. Les petites fissures verticales sont habituellement mineures. Un résidu blanc et crayeux sur les murs du sous-sol = infiltration d'eau passée.</li>
+                  <li><strong>Fondation.</strong> Cherchez des fissures. <strong>Les fissures horizontales sont sérieuses</strong> : elles peuvent indiquer des murs qui s'arquent. Les petites fissures verticales sont habituellement mineures. Un résidu blanc et crayeux sur les murs du sous-sol = infiltration d'eau passée.</li>
                   <li><strong>Toit.</strong> Demandez son âge. Cherchez des bardeaux qui se soulèvent ou manquent, et des taches au plafond à l'intérieur.</li>
                   <li><strong>Eau.</strong> Le problème le plus coûteux dans n'importe quelle maison. Vérifiez sous chaque évier, autour de chaque fenêtre, au sous-sol, au grenier. Les odeurs de moisi comptent. Les planchers spongieux comptent.</li>
                   <li><strong>Nivellement &amp; drainage.</strong> Le sol doit s'incliner À L'OPPOSÉ de la maison. Les descentes pluviales doivent évacuer l'eau bien loin de la fondation.</li>
@@ -329,9 +329,9 @@ const houseIcons = {
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Fournaise, climatiseur, chauffe-eau.</strong> Trouvez les numéros de modèle et de série et vérifiez leur âge. Les fournaises durent 15 à 25 ans. Les chauffe-eau, 7 à 15 ans.</li>
-                  <li><strong>Signaux d'alarme électriques :</strong>
+                  <li><strong>Signaux d'alarme électriques :</strong>
                     <ul class="bullets" style="margin-top:4px;">
-                      <li><strong>Câblage à tube et à cheville</strong>, plusieurs assureurs refusent la couverture ou exigent son remplacement.</li>
+                      <li><strong>Câblage à boutons et à tubes</strong>, plusieurs assureurs refusent la couverture ou exigent son remplacement.</li>
                       <li><strong>Câblage en aluminium</strong> (milieu des années 1960 à fin des années 1970), assurable, mais exige habituellement des connecteurs certifiés et une inspection.</li>
                     </ul>
                   </li>
@@ -348,8 +348,8 @@ const houseIcons = {
                 <ul class="bullets">
                   <li><strong>Équipement loué.</strong> Les maisons ontariennes ont très souvent des <strong>chauffe-eau, fournaises, climatiseurs ou adoucisseurs d'eau loués</strong>, sous des contrats qui vous sont transférés. Certains sont longs et coûteux à résilier. Demandez ce qui est loué, obtenez le contrat, et incluez-le dans l'offre.</li>
                   <li><strong>Permis.</strong> La plupart des villes permettent de rechercher les permis de construction en ligne gratuitement. Vérifiez tout agrandissement, sous-sol fini ou terrasse. Les travaux sans permis peuvent entraîner des problèmes d'assurance et des ordres de démolition.</li>
-                  <li><strong>Certificat de localisation.</strong> Demandez-en un au vendeur. Il montre les lignes de terrain réelles, les servitudes et les empiétements.</li>
-                  <li><strong>Situations particulières à vérifier :</strong> <strong>réservoirs à mazout</strong> souterrains ou hors sol, isolant <strong>UFFI</strong>, <strong>amiante</strong> et <strong>vermiculite</strong> dans les maisons plus anciennes, et tout antécédent de plantation de cannabis (grow op).</li>
+                  <li><strong>Certificat de localisation.</strong> Demandez-en un au vendeur. Il montre les limites réelles du terrain, les servitudes et les empiétements.</li>
+                  <li><strong>Situations particulières à vérifier :</strong> <strong>réservoirs à mazout</strong> souterrains ou hors sol, isolant <strong>MIUF (UFFI)</strong>, <strong>amiante</strong> et <strong>vermiculite</strong> dans les maisons plus anciennes, et tout antécédent de plantation de cannabis (grow op).</li>
                 </ul>
               </div>
             </details>
@@ -375,7 +375,7 @@ const houseIcons = {
             <details class="b60-section-toggle">
               <summary class="b60-section-toggle-summary">Eau de puits, ne sautez jamais cette étape</summary>
               <div class="b60-section-body">
-                <p>Un simple coup d'œil au capuchon du puits <strong>n'est pas un test</strong>. Rendez votre offre conditionnelle à :</p>
+                <p>Un simple coup d'œil au capuchon du puits <strong>n'est pas un test</strong>. Rendez votre offre conditionnelle à :</p>
                 <ul class="bullets">
                   <li><strong>Un test de qualité de l'eau</strong>, au minimum coliformes totaux, E. coli et nitrates.</li>
                   <li><strong>Un test de débit</strong>, un puits qui s'assèche en août est un problème sérieux.</li>
@@ -388,7 +388,7 @@ const houseIcons = {
             <details class="b60-section-toggle">
               <summary class="b60-section-toggle-summary">Fosse septique, inspecteur distinct requis</summary>
               <div class="b60-section-body">
-                <p>Rendez votre offre conditionnelle à une <strong>inspection septique par un inspecteur septique qualifié</strong>, et non l'inspecteur en bâtiment général. Demandez :</p>
+                <p>Rendez votre offre conditionnelle à une <strong>inspection septique par un inspecteur septique qualifié</strong>, et non l'inspecteur en bâtiment général. Demandez :</p>
                 <ul class="bullets">
                   <li>L'âge du système et la date de la dernière vidange.</li>
                   <li>L'emplacement de la fosse et du lit d'épandage.</li>
@@ -402,21 +402,21 @@ const houseIcons = {
               <summary class="b60-section-toggle-summary">Poêles à bois, combustible de chauffage, accès &amp; services</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>Poêles à bois / foyers :</strong> obtenez une <strong>inspection WETT</strong>. La plupart des assureurs l'exigent.</li>
-                  <li><strong>Combustible de chauffage :</strong> le propane, le mazout et l'électricité coûtent tous plus cher que le gaz naturel. Obtenez les factures des 12 derniers mois. Les réservoirs à mazout ont des règles d'assurance et des limites d'âge.</li>
-                  <li><strong>Route :</strong> entretenue par la municipalité toute l'année, ou privée et saisonnière ? Qui déneige, et à quel coût ?</li>
-                  <li><strong>Droit de passage :</strong> traverse-t-il le terrain de quelqu'un d'autre ? Est-il enregistré au titre ?</li>
-                  <li><strong>Internet et cellulaire :</strong> vérifiez sur place, pas sur une carte de couverture.</li>
-                  <li><strong>Ordures :</strong> collecte ou dépotoir ?</li>
+                  <li><strong>Poêles à bois / foyers :</strong> obtenez une <strong>inspection WETT</strong>. La plupart des assureurs l'exigent.</li>
+                  <li><strong>Combustible de chauffage :</strong> le propane, le mazout et l'électricité coûtent tous plus cher que le gaz naturel. Obtenez les factures des 12 derniers mois. Les réservoirs à mazout ont des règles d'assurance et des limites d'âge.</li>
+                  <li><strong>Route :</strong> entretenue par la municipalité toute l'année, ou privée et saisonnière? Qui déneige, et à quel coût?</li>
+                  <li><strong>Droit de passage :</strong> traverse-t-il le terrain de quelqu'un d'autre? Est-il enregistré au titre?</li>
+                  <li><strong>Internet et cellulaire :</strong> vérifiez sur place, pas sur une carte de couverture.</li>
+                  <li><strong>Ordures :</strong> collecte ou dépotoir?</li>
                 </ul>
               </div>
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Spécifique au chalet, réserve de chemin de rive, accès par voie d'eau, assurance</summary>
+              <summary class="b60-section-toggle-summary">Spécifique au chalet, réserve routière riveraine, accès par voie d'eau, assurance</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
-                  <li><strong>Réserve de chemin de rive.</strong> Plusieurs propriétés riveraines de l'Ontario ont une bande de terrain le long de l'eau qui appartient encore à la municipalité. Si elle n'a pas été achetée et fermée, vous pourriez ne pas être propriétaire jusqu'à la ligne des hautes eaux. Votre avocat doit vérifier.</li>
+                  <li><strong>Réserve routière riveraine.</strong> Plusieurs propriétés riveraines de l'Ontario ont une bande de terrain le long de l'eau qui appartient encore à la municipalité. Si elle n'a pas été achetée et fermée, vous pourriez ne pas être propriétaire jusqu'à la ligne des hautes eaux. Votre avocat doit vérifier.</li>
                   <li><strong>Accès par voie d'eau seulement.</strong> Aucune route = financement, assurance et revente plus difficiles.</li>
                   <li><strong>Saison.</strong> Confirmez l'hivernisation et l'utilisabilité de la route ou de l'eau à l'année.</li>
                   <li><strong>Office de protection de la nature.</strong> Les quais, les hangars à bateaux, les travaux en bordure de l'eau et les agrandissements nécessitent souvent une approbation. Vérifiez que ce qui existe déjà est légal.</li>
@@ -426,11 +426,11 @@ const houseIcons = {
             </details>
 
             <details class="b60-section-toggle">
-              <summary class="b60-section-toggle-summary">Spécifique à la ferme, zonage, DSM, TVH, fermiers locataires</summary>
+              <summary class="b60-section-toggle-summary">Spécifique à la ferme, zonage, DMS, TVH, fermiers locataires</summary>
               <div class="b60-section-body">
                 <ul class="bullets">
                   <li><strong>Zonage.</strong> Confirmez avec la municipalité ce que vous pouvez réellement faire.</li>
-                  <li><strong>Distance séparatrice minimale (DSM).</strong> Régit la proximité permise entre les maisons et les bâtiments d'élevage.</li>
+                  <li><strong>Distances minimales de séparation (DMS).</strong> Régit la proximité permise entre les maisons et les bâtiments d'élevage.</li>
                   <li><strong>TVH.</strong> Les terres agricoles sont souvent assujetties à la TVH sur la portion agricole; la portion résidentielle peut ne pas l'être. Obtenez des conseils fiscaux <strong>avant</strong> de signer.</li>
                   <li><strong>Catégorie d'impôt foncier agricole.</strong> Un taux réduit est offert pour les fermes admissibles, mais vous devez en faire la demande et être admissible.</li>
                   <li><strong>Fermiers locataires / baux à parts de récolte.</strong> Ceux-ci peuvent survivre à votre achat.</li>
@@ -442,12 +442,12 @@ const houseIcons = {
             </details>
 
             <!-- ============================================================
-                 PART 6, OFFER + INSPECTION
+                 PARTIE 6, OFFRE + INSPECTION
                  ============================================================ -->
             <h2 id="offer" style="margin-top:48px;">Partie 6 · L'offre et l'inspection</h2>
 
             <div class="callout" style="border-left: 3px solid var(--ink); padding-left: 22px;">
-              <strong>Une fois que les deux parties ont signé, c'est contraignant. Il n'y a aucune période de réflexion sur une maison de revente en Ontario.</strong> Chaque contre-offre annule la précédente.
+              <strong>Une fois que les deux parties ont signé, c'est exécutoire. Il n'y a aucune période de réflexion sur une maison de revente en Ontario.</strong> Chaque contre-offre annule la précédente.
             </div>
 
             <h3 style="margin-top:22px;">Conditions à inclure dans l'offre</h3>
@@ -458,13 +458,13 @@ const houseIcons = {
               <li><strong>Inspection septique</strong> (rural).</li>
               <li><strong>Inspection WETT</strong> (poêle à bois).</li>
               <li><strong>Zonage / vérification diligente</strong> (rural, ferme, ou changement d'usage).</li>
-              <li><strong>Révision par un avocat</strong> (recommandé pour les fermes et les propriétés atypiques).</li>
+              <li><strong>Examen par un avocat</strong> (recommandé pour les fermes et les propriétés atypiques).</li>
             </ul>
             <p>Dans un marché concurrentiel, les acheteurs abandonnent parfois des conditions pour l'emporter. Comprenez exactement ce que vous abandonnez d'abord, une condition de financement non protégée qui échoue peut vous coûter tout votre dépôt.</p>
 
             <h3 style="margin-top:22px;">L'inspection</h3>
             <p><strong>Faites-en une. Choisissez votre propre inspecteur.</strong> Quelqu'un avec une formation en métier ou en construction, qui vous remet un rapport écrit. Assistez à l'inspection et faites le tour avec lui à la fin.</p>
-            <p>Les constats se répartissent habituellement en quatre catégories :</p>
+            <p>Les constats se répartissent habituellement en quatre catégories :</p>
             <ol class="bullets" style="list-style: decimal; padding-left: 20px;">
               <li>Des motifs de rupture.</li>
               <li>Des éléments qui devraient réduire le prix.</li>
@@ -480,25 +480,25 @@ const houseIcons = {
                  PART 7, CLOSING COSTS
                  ============================================================ -->
             <h2 id="closing" style="margin-top:48px;">Partie 7 · Frais de clôture</h2>
-            <p>Prévoyez <strong>1,5 % à 4 %</strong> du prix, comptant, en plus de votre mise de fonds.</p>
+            <p>Prévoyez <strong>1,5 % à 4 %</strong> du prix, comptant, en plus de votre mise de fonds.</p>
 
             <div class="fh-closing-stack">
-              <div class="fh-closing-row"><span>Droits de mutation immobilière</span><span>Doublés à Toronto</span></div>
+              <div class="fh-closing-row"><span>Droits de cession immobilière</span><span>Doublés à Toronto</span></div>
               <div class="fh-closing-row"><span>Honoraires et débours de l'avocat</span><span>~1,5K$–2,5K$</span></div>
               <div class="fh-closing-row"><span>Assurance titres</span><span>~300$–500$</span></div>
               <div class="fh-closing-row"><span>Inspection de la maison</span><span>500$–900$</span></div>
-              <div class="fh-closing-row"><span>Inspections de puits / septique / WETT</span><span>Rural : quelques centaines à 1K$+</span></div>
+              <div class="fh-closing-row"><span>Inspections de puits / septique / WETT</span><span>Rural : quelques centaines à 1K$+</span></div>
               <div class="fh-closing-row"><span>Évaluation</span><span>Si exigée par le prêteur</span></div>
-              <div class="fh-closing-row"><span>Taxe de vente provinciale sur l'assurance hypothécaire</span><span>Si moins de 20 % de mise de fonds</span></div>
+              <div class="fh-closing-row"><span>Taxe de vente provinciale sur l'assurance hypothécaire</span><span>Si moins de 20 % de mise de fonds</span></div>
               <div class="fh-closing-row"><span>Frais de déménagement</span><span>Varie</span></div>
               <div class="fh-closing-row"><span>Ajustements</span><span>Impôt foncier ou combustible payé d'avance par le vendeur</span></div>
               <div class="fh-closing-row fh-closing-row-total"><span><strong>Prévoyez aussi une réserve pour</strong></span><span>Serrures, stores, premières réparations, meubles</span></div>
             </div>
 
-            <p style="margin-top:14px;"><strong>Faites le calcul :</strong> <a href="/french/land-transfer-tax">Calculatrice des droits de mutation immobilière</a> · <a href="/french/closing-costs">Page des frais de clôture</a>.</p>
+            <p style="margin-top:14px;"><strong>Faites le calcul :</strong> <a href="/french/land-transfer-tax">Calculateur des droits de cession immobilière</a> · <a href="/french/closing-costs">Page des frais de clôture</a>.</p>
 
             <!-- ============================================================
-                 PART 8, BEFORE + AFTER CLOSING
+                 PARTIE 8, AVANT + APRÈS LA CLÔTURE
                  ============================================================ -->
             <h2 id="before-after" style="margin-top:48px;">Partie 8 · Avant &amp; après la clôture</h2>
 
@@ -518,7 +518,7 @@ const houseIcons = {
                 <ul>
                   <li>Visite finale le plus près possible de la clôture</li>
                   <li>Organiser l'assurance habitation (le prêteur exige une preuve)</li>
-                  <li>Évitez de clôturer un vendredi si possible</li>
+                  <li>Éviter de clôturer un vendredi si possible</li>
                   <li>Confirmer le montant de clôture avec votre avocat</li>
                 </ul>
               </div>
@@ -528,7 +528,7 @@ const houseIcons = {
                   <li>Changer les serrures</li>
                   <li>Repérer le robinet d'arrêt d'eau et le panneau électrique</li>
                   <li>Réclamer le crédit d'impôt de 1 500 $ pour premier acheteur à l'impôt</li>
-                  <li>Confirmer que vos remises de droits de mutation ont été appliquées</li>
+                  <li>Confirmer que vos remises de droits de cession immobilière ont été appliquées</li>
                   <li>Démarrer votre fonds d'entretien</li>
                 </ul>
               </div>
@@ -545,7 +545,7 @@ const houseIcons = {
               <li><strong>Ne pas demander quel équipement est loué.</strong> Les contrats de chauffe-eau suivent la maison.</li>
               <li><strong>Présumer qu'un appartement au sous-sol est légal.</strong> Souvent, ce n'est pas le cas.</li>
               <li><strong>Ne pas vérifier les permis</strong> pour les agrandissements et les sous-sols finis.</li>
-              <li><strong>Acheter une ferme ou une propriété riveraine sans l'avis d'un spécialiste</strong> sur la TVH, le zonage et la réserve de chemin de rive.</li>
+              <li><strong>Acheter une ferme ou une propriété riveraine sans l'avis d'un spécialiste</strong> sur la TVH, le zonage et la réserve routière riveraine.</li>
               <li><strong>Oublier les frais de clôture.</strong> Ils sont comptants, dus le jour de la clôture.</li>
               <li><strong>Modifier votre situation financière avant la clôture.</strong></li>
               <li><strong>Se précipiter.</strong> L'impatience cause toutes les autres erreurs de cette liste.</li>
@@ -588,7 +588,7 @@ const houseIcons = {
                 <ul class="fh-check">
                   <li>Condition de financement</li>
                   <li>Condition d'inspection</li>
-                  <li>Rural : qualité de l'eau du puits, débit du puits, septique, WETT, zonage</li>
+                  <li>Rural : qualité de l'eau du puits, débit du puits, septique, WETT, zonage</li>
                   <li>Garanties écrites sur l'état du puits, de la fosse septique et de l'équipement</li>
                   <li>Lire TOUTE la convention avant de signer</li>
                 </ul>
@@ -600,9 +600,9 @@ const houseIcons = {
               <div class="b60-section-body">
                 <ul class="fh-check">
                   <li>Inspection effectuée et examinée</li>
-                  <li>Suivis des spécialistes complétés</li>
+                  <li>Suivis des spécialistes effectués</li>
                   <li>Permis et certificat de localisation vérifiés</li>
-                  <li>Assurance soumissionnée et disponibilité confirmée</li>
+                  <li>Soumission d'assurance obtenue et disponibilité confirmée</li>
                   <li>L'avocat a examiné tout élément inhabituel</li>
                 </ul>
               </div>

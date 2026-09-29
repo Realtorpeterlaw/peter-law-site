@@ -14,7 +14,7 @@ const hreflangAlternates = [
 ---
 <BaseLayout
   title="Calculateur Louer ou acheter | Peter Law"
-  description="Louer ou acheter à Toronto? Comparez les paiements mensuels, l'équité à long terme et le coût de la location sur votre période de détention."
+  description="Louer ou acheter à Toronto? Comparez les paiements mensuels, la valeur nette à long terme et le coût de la location sur votre période de détention."
   lang="fr"
   bodyClass="fr calc-page"
   hreflangAlternates={hreflangAlternates}
@@ -26,7 +26,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="eyebrow">Calculateur Louer ou acheter</div>
       <h1>Louer ou acheter? Calculez ci-dessous.</h1>
-      <p>Entrez un scénario et comparez les chiffres de l'achat et de la location côte à côte. Conçu pour les règles canadiennes : composition semestrielle de l'hypothèque, paliers SCHL et particularités du contrôle des loyers en Ontario.</p>
+      <p>Entrez un scénario et comparez les chiffres de l'achat et de la location côte à côte. Conçu pour les règles canadiennes : composition semestrielle de l'hypothèque, paliers SCHL et particularités du contrôle des loyers en Ontario.</p>
     </div>
   </section>
 
@@ -38,7 +38,7 @@ const hreflangAlternates = [
           <ul>
             <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
             <li><a href="/french/payment-calculator">Calculateur hypothécaire</a></li>
-            <li><a href="/french/land-transfer-tax">Droits de mutation immobilière</a></li>
+            <li><a href="/french/land-transfer-tax">Droits de cession immobilière</a></li>
             <li><a href="/french/closing-costs">Frais de clôture</a></li>
             <li><a href="/french/rent-vs-buy-calculator"><strong>Calculateur Louer ou acheter</strong></a></li>
           </ul>
@@ -105,7 +105,7 @@ const hreflangAlternates = [
             <div class="mc-scenario">
               <div class="mc-scenario-header">
                 <h4>Si vous achetez</h4>
-                <span class="mc-scenario-tag" id="rvb-buy-tag">10,0 % de mise · 4,5 %</span>
+                <span class="mc-scenario-tag" id="rvb-buy-tag">10,0 % de mise · 4,5 %</span>
               </div>
               <div class="mc-row">
                 <label for="rvb-maint">Frais d'entretien / de condo (mensuels)</label>
@@ -143,7 +143,7 @@ const hreflangAlternates = [
             <div class="mc-scenario">
               <div class="mc-scenario-header">
                 <h4>Si vous louez</h4>
-                <span class="mc-scenario-tag" id="rvb-rent-tag">3,0 % d'augmentation annuelle</span>
+                <span class="mc-scenario-tag" id="rvb-rent-tag">3,0 % d'augmentation annuelle</span>
               </div>
               <div class="mc-row">
                 <label for="rvb-rent">Loyer mensuel</label>
@@ -160,7 +160,7 @@ const hreflangAlternates = [
 
               <div class="mc-row mc-output">
                 <label>Ligne directrice de l'Ontario (2027)</label>
-                <span class="value">1,90 %</span>
+                <span class="value">1,90 %</span>
               </div>
               <div class="mc-row mc-output">
                 <label>Assurance de locataire (mensuelle)</label>
@@ -186,11 +186,11 @@ const hreflangAlternates = [
             <div class="mc-ltt-rows">
               <div class="row"><span>Coût total de l'achat (hypothèque + taxes/assurance/entretien + clôture + vente)</span><strong id="rvb-cmp-buy">0 $</strong></div>
               <div class="row"><span>Coût total de la location (loyer + assurance de locataire)</span><strong id="rvb-cmp-rent">0 $</strong></div>
-              <div class="row"><span>Capital hypothécaire remboursé (équité accumulée)</span><strong id="rvb-cmp-principal">0 $</strong></div>
+              <div class="row"><span>Capital hypothécaire remboursé (valeur nette accumulée)</span><strong id="rvb-cmp-principal">0 $</strong></div>
               <div class="row"><span>Valeur de la propriété à la revente</span><strong id="rvb-cmp-homevalue">0 $</strong></div>
               <div class="row total"><span><strong>Différence nette (coût net Location − Achat)</strong></span><strong id="rvb-cmp-diff">0 $</strong></div>
             </div>
-            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Entrez vos chiffres ci-dessus : le calculateur se met à jour en temps réel.</div>
+            <div id="rvb-verdict" class="rvb-verdict rvb-verdict-neutral">Entrez vos chiffres ci-dessus : le calculateur se met à jour en temps réel.</div>
           </div>
 
           <!-- ============================================================
@@ -199,15 +199,15 @@ const hreflangAlternates = [
           <details class="mc-collapsible">
             <summary>Avantages à long terme de l'accession à la propriété</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Si vous vendez à l'année <span id="rvb-years-eq">5</span>, voici l'équité qu'il vous resterait après avoir remboursé le prêt et couvert les frais de vente.</p>
-              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Si vous vendez à l'année <span id="rvb-years-eq">5</span>, voici la valeur nette qu'il vous resterait après avoir remboursé le prêt et couvert les frais de vente.</p>
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Tableau">
                 <table class="mc-table">
                   <thead><tr><th scope="col">Poste</th><th scope="col" style="text-align:right;">Montant</th></tr></thead>
                   <tbody>
                     <tr><td>Valeur de la propriété à la date de revente prévue</td><td id="rvb-eq-hv" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
-                    <tr><td>Moins : mise de fonds</td><td id="rvb-eq-down" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
-                    <tr><td>Moins : solde du prêt restant</td><td id="rvb-eq-loan" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
-                    <tr><td>Moins : frais d'achat et de vente</td><td id="rvb-eq-costs" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr><td>Moins : mise de fonds</td><td id="rvb-eq-down" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr><td>Moins : solde du prêt restant</td><td id="rvb-eq-loan" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
+                    <tr><td>Moins : frais d'achat et de vente</td><td id="rvb-eq-costs" style="text-align:right;font-weight:600;color:var(--ink);">0 $</td></tr>
                     <tr style="border-top:2px solid var(--ink);"><td><strong>Gain total sur la propriété</strong></td><td id="rvb-eq-gain" style="text-align:right;font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);">0 $</td></tr>
                   </tbody>
                 </table>
@@ -222,14 +222,14 @@ const hreflangAlternates = [
             <summary>Comment les chiffres sont calculés</summary>
             <div class="mc-collapsible-body">
               <ul class="bullets">
-                <li><strong>Paiement hypothécaire :</strong> capital et intérêts seulement, selon la convention canadienne de l'intérêt composé semestriellement et non à l'avance. L'impôt foncier, l'assurance et l'entretien sont indiqués séparément.</li>
-                <li><strong>Prime SCHL :</strong> calculée automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024. La TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici.</li>
-                <li><strong>Total mensuel (achat) :</strong> paiement hypothécaire + part mensuelle de l'impôt foncier + assurance habitation + frais d'entretien/de condo.</li>
-                <li><strong>Total mensuel (location) :</strong> loyer mensuel + assurance de locataire mensuelle.</li>
-                <li><strong>Comparaison sur N années :</strong> les paiements hypothécaires demeurent stables; l'impôt foncier, l'assurance et l'entretien augmentent au taux d'inflation. Le loyer est composé annuellement selon le taux que vous entrez. L'assurance de locataire augmente au taux d'inflation.</li>
-                <li><strong>Valeur de la propriété à la revente :</strong> prix d'achat × (1 + appréciation)<sup>années</sup>.</li>
-                <li><strong>Gain total sur la propriété :</strong> valeur de la propriété − mise de fonds − solde du prêt restant − frais de clôture (achat) − frais de vente.</li>
-                <li><strong>Différence nette :</strong> coût total de la location moins le « coût net » de l'achat (total des sorties de fonds − équité accumulée). Positif = l'achat l'emporte sur cette période de détention.</li>
+                <li><strong>Paiement hypothécaire :</strong> capital et intérêts seulement, selon la convention canadienne de l'intérêt composé semestriellement et non à l'avance. L'impôt foncier, l'assurance et l'entretien sont indiqués séparément.</li>
+                <li><strong>Prime SCHL :</strong> calculée automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024. La TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici.</li>
+                <li><strong>Total mensuel (achat) :</strong> paiement hypothécaire + part mensuelle de l'impôt foncier + assurance habitation + frais d'entretien/de condo.</li>
+                <li><strong>Total mensuel (location) :</strong> loyer mensuel + assurance de locataire mensuelle.</li>
+                <li><strong>Comparaison sur N années :</strong> les paiements hypothécaires demeurent stables; l'impôt foncier, l'assurance et l'entretien augmentent au taux d'inflation. Le loyer est composé annuellement selon le taux que vous entrez. L'assurance de locataire augmente au taux d'inflation.</li>
+                <li><strong>Valeur de la propriété à la revente :</strong> prix d'achat × (1 + appréciation)<sup>années</sup>.</li>
+                <li><strong>Gain total sur la propriété :</strong> valeur de la propriété − mise de fonds − solde du prêt restant − frais de clôture (achat) − frais de vente.</li>
+                <li><strong>Différence nette :</strong> coût total de la location moins le « coût net » de l'achat (total des sorties de fonds − valeur nette accumulée). Positif = l'achat l'emporte sur cette période de détention.</li>
               </ul>
             </div>
           </details>
@@ -240,16 +240,16 @@ const hreflangAlternates = [
                ============================================================ -->
           <section class="rvb-chart-section" aria-label="Propriété vs location au fil du temps">
             <h3 class="rvb-chart-title">Propriété vs location au fil du temps</h3>
-            <p class="rvb-chart-lead">Sortie de fonds cumulée année par année. Le point de croisement des deux courbes est votre seuil de rentabilité, l'année où l'achat commence à surpasser la location en pure comptabilité. La zone dorée représente la valeur nette que vous garderiez si vous vendiez à cette année-là.</p>
-            <div class="rvb-chart-wrap" tabindex="0" role="region" aria-label="Chart">
+            <p class="rvb-chart-lead">Sortie de fonds cumulée année par année. Le point de croisement des deux courbes est votre seuil de rentabilité, l'année où l'achat commence à surpasser la location en pure comptabilité. La zone dorée représente la valeur nette que vous garderiez si vous vendiez cette année-là.</p>
+            <div class="rvb-chart-wrap" tabindex="0" role="region" aria-label="Graphique">
               <svg id="rvb-chart-svg" class="rvb-chart-svg" viewBox="0 0 720 380" role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- rendered dynamically by JS -->
               </svg>
             </div>
             <div class="rvb-chart-legend">
               <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-equity"></span>Valeur nette (conservée si vendu cette année)</span>
-              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-buy"></span>Achat (hypothèque + TIE + frais de clôture + frais de vente)</span>
-              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-rent"></span>Location (loyer + assurance contenu, cumulé)</span>
+              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-buy"></span>Achat (hypothèque + impôts/assurance/entretien + frais de clôture + frais de vente)</span>
+              <span class="rvb-chart-key"><span class="rvb-chart-swatch rvb-chart-swatch-rent"></span>Location (loyer + assurance de locataire, cumulé)</span>
             </div>
             <p class="rvb-chart-note" id="rvb-chart-note"></p>
           </section>
@@ -260,25 +260,25 @@ const hreflangAlternates = [
             <summary>Conseils et astuces, pour les locataires</summary>
             <div class="mc-collapsible-body mc-explainer-body">
 
-              <h3>Louer, ce n'est pas « jeter son argent par les fenêtres »</h3>
-              <p>Vous achetez de la flexibilité, de la mobilité et une tranquillité d'esprit face aux réparations. Cela a une valeur réelle : chiffrez-la avant de comparer avec la propriété.</p>
+              <h3>Louer, ce n'est pas « jeter son argent par les fenêtres »</h3>
+              <p>Vous achetez de la flexibilité, de la mobilité et une tranquillité d'esprit face aux réparations. Cela a une valeur réelle : chiffrez-la avant de comparer avec la propriété.</p>
 
               <h3>Connaissez votre statut de contrôle des loyers</h3>
-              <p>En Ontario, les logements dans des immeubles occupés à des fins résidentielles pour la première fois <strong>avant le 15 novembre 2018</strong> sont couverts par la ligne directrice annuelle sur l'augmentation des loyers (1,9 % pour 2027). Les immeubles plus récents peuvent être ajustés au prix du marché lors du renouvellement du bail. Posez la question avant de signer.</p>
+              <p>En Ontario, les logements dans des immeubles occupés à des fins résidentielles pour la première fois <strong>avant le 15 novembre 2018</strong> sont couverts par la ligne directrice annuelle sur l'augmentation des loyers (1,9 % pour 2027). Les immeubles plus récents peuvent être ajustés au prix du marché lors du renouvellement du bail. Posez la question avant de signer.</p>
 
               <h3>L'assurance de locataire est abordable et essentielle</h3>
               <p>Les polices pour locataires coûtent habituellement entre 20 $ et 40 $ par mois et couvrent vos biens, votre responsabilité civile personnelle et vos frais de subsistance supplémentaires si votre logement devient inhabitable. La police du propriétaire ne couvre rien de tout ça.</p>
 
               <h4>Moins de 3 ans? La location l'emporte habituellement</h4>
-              <p>Les frais de transaction (droits de mutation à l'achat, commission immobilière à la vente) sont rarement rentabilisés sur un horizon de 3 ans, à moins que le marché ne progresse fortement. Augmentez le nombre d'« Années avant la revente » ci-dessus pour voir à quel moment la tendance s'inverse.</p>
+              <p>Les frais de transaction (droits de cession immobilière à l'achat, commission immobilière à la vente) sont rarement rentabilisés sur un horizon de 3 ans, à moins que le marché ne progresse fortement. Augmentez le nombre d'« Années avant la revente » ci-dessus pour voir à quel moment la tendance s'inverse.</p>
 
               <h4>Prévoyez les coûts invisibles de l'achat</h4>
-              <p>Les droits de mutation, les honoraires juridiques, l'inspection, le déménagement et les petites réparations de la première année sont bien réels. Consultez ma page <a href="/french/closing-costs">Frais de clôture</a> et mon calculateur de <a href="/french/land-transfer-tax">droits de mutation immobilière</a>.</p>
+              <p>Les droits de cession immobilière, les honoraires juridiques, l'inspection, le déménagement et les petites réparations de la première année sont bien réels. Consultez ma page <a href="/french/closing-costs">Frais de clôture</a> et mon calculateur de <a href="/french/land-transfer-tax">droits de cession immobilière</a>.</p>
 
               <h4>Testez la résistance du taux d'intérêt</h4>
-              <p>Si le taux actuel est de 4,5 % et que votre renouvellement dans 5 ans est de 6 %, les chiffres tiennent-ils toujours? Augmentez le taux dans le calculateur et vérifiez à nouveau.</p>
+              <p>Si le taux actuel est de 4,5 % et que votre renouvellement dans 5 ans est de 6 %, les chiffres tiennent-ils toujours? Augmentez le taux dans le calculateur et vérifiez à nouveau.</p>
 
-              <h4>Gardez au moins 5 % de liquidités en plus des frais de clôture</h4>
+              <h4>Gardez au moins 5 % de liquidités en plus des frais de clôture</h4>
               <p>Les meubles, électroménagers, le déménagement, le premier mois de services publics et les petites réparations s'accumulent vite la première année. Ne mettez pas chaque dollar dans la mise de fonds.</p>
 
               <h4>Le coût d'opportunité de la mise de fonds compte</h4>
@@ -292,7 +292,7 @@ const hreflangAlternates = [
           </details>
 
           <p class="calc-disclaimer">
-            <strong>Avis.</strong> Ce calculateur est fourni à titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement et non à l'avance. Le taux SCHL est calculé automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024; la TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici. L'appréciation de la propriété, l'inflation et l'augmentation du loyer sont des hypothèses saisies par vous; les résultats réels varieront. L'impôt foncier, l'assurance habitation et l'entretien sont présumés augmenter au taux d'inflation que vous entrez. Les frais de vente sont estimés comme un pourcentage fixe du prix de vente et couvrent habituellement la commission immobilière (avec TVH), les honoraires juridiques et les ajustements. Cet outil ne modélise pas l'impôt sur le revenu, les pénalités hypothécaires pour bris de terme, l'emprunt sur marge de crédit hypothécaire (MCH), ni le coût d'opportunité d'investir votre mise de fonds autrement. Je suis un représentant commercial en immobilier inscrit, pas un courtier hypothécaire, un planificateur financier, un conseiller fiscal ou un conseiller en placement. Pour une décision de cette ampleur, veuillez consulter des professionnels qualifiés dans chacun de ces domaines.
+            <strong>Avis.</strong> Ce calculateur est fourni à titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement et non à l'avance. Le taux SCHL est calculé automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024; la TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici. L'appréciation de la propriété, l'inflation et l'augmentation du loyer sont des hypothèses saisies par vous; les résultats réels varieront. L'impôt foncier, l'assurance habitation et l'entretien sont présumés augmenter au taux d'inflation que vous entrez. Les frais de vente sont estimés comme un pourcentage fixe du prix de vente et couvrent habituellement la commission immobilière (avec TVH), les honoraires juridiques et les ajustements. Cet outil ne modélise pas l'impôt sur le revenu, les pénalités hypothécaires pour bris de terme, l'emprunt sur marge de crédit hypothécaire (MCH), ni le coût d'opportunité d'investir votre mise de fonds autrement. Je suis un représentant commercial en immobilier inscrit, pas un courtier hypothécaire, un planificateur financier, un conseiller fiscal ou un conseiller en placement. Pour une décision de cette ampleur, veuillez consulter des professionnels qualifiés dans chacun de ces domaines.
           </p>
 
         </div>
@@ -475,7 +475,7 @@ const hreflangAlternates = [
       $('rvb-rent-tag').textContent = (rentIncPct * 100).toFixed(1) + ' % d\'augmentation annuelle';
 
       // If Buying card outputs
-      $('rvb-cmhc-out').textContent = premium > 0 ? fmtCAD(premium) : '0 $ (non requis)';
+      $('rvb-cmhc-out').textContent = premium > 0 ? fmtCAD(premium) : '0 $ (non requise)';
       $('rvb-mortgage-out').textContent = fmtCAD(totalMortgage);
       $('rvb-buy-tmi-out').textContent = fmtCAD(monthlyTMI);
       $('rvb-buy-total-out').textContent = fmtCAD(monthlyMortgage + monthlyTMI);
@@ -515,9 +515,9 @@ const hreflangAlternates = [
         v.textContent = 'Sur ' + years + ' ans, l\'achat l\'emporte par environ ' + fmtCAD(diff) + ', avant de tenir compte du coût d\'opportunité de votre mise de fonds. Parlez à un courtier hypothécaire pour confirmer votre préapprobation avant de magasiner.';
       } else {
         v.classList.add('rvb-verdict-rent');
-        v.textContent = 'Sur ' + years + ' ans, la location l\'emporte par environ ' + fmtCAD(-diff) + ' en termes de liquidités pures. Cela N\'INCLUT PAS l\'équité que vous continueriez à accumuler au-delà de cette période de détention. Augmentez le nombre d\'« Années avant la revente » et recalculez.';
+        v.textContent = 'Sur ' + years + ' ans, la location l\'emporte par environ ' + fmtCAD(-diff) + ' en termes de liquidités pures. Cela N\'INCLUT PAS la valeur nette que vous continueriez à accumuler au-delà de cette période de détention. Augmentez le nombre d\'« Années avant la revente » et recalculez.';
       }
-      if (belowMin) v.textContent = 'Attention : une mise de fonds de ' + fmtCAD(enteredDown) + ' est sous le minimum légal de ' + fmtCAD(minDown) + ' pour ce prix; cette hypothèque ne serait pas assurable. Les chiffres ci-dessous supposent la mise de fonds minimale. ' + v.textContent;
+      if (belowMin) v.textContent = 'Attention : une mise de fonds de ' + fmtCAD(enteredDown) + ' est sous le minimum légal de ' + fmtCAD(minDown) + ' pour ce prix; cette hypothèque ne serait pas assurable. Les chiffres ci-dessous supposent la mise de fonds minimale. ' + v.textContent;
       buildProjection();
     }
 
@@ -582,7 +582,7 @@ const hreflangAlternates = [
         const v = (maxY / gridSteps) * i;
         const y = yAt(v);
         grid += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="rgba(120,120,120,0.18)" stroke-width="1" />';
-        grid += '<text x="' + (PL - 6) + '" y="' + (y + 4) + '" text-anchor="end" font-size="10" fill="currentColor" opacity="0.65">$' + Math.round(v / 1000) + 'K</text>';
+        grid += '<text x="' + (PL - 6) + '" y="' + (y + 4) + '" text-anchor="end" font-size="10" fill="currentColor" opacity="0.65">' + Math.round(v / 1000) + ' k$</text>';
       }
 
       // X-axis labels (year ticks)
@@ -690,7 +690,7 @@ const hreflangAlternates = [
         if (crossoverYear != null) {
           noteEl.textContent = 'Seuil atteint à l\'année ' + crossoverYear + '.';
         } else {
-          noteEl.textContent = 'Aucun seuil de rentabilité atteint pendant cette période. Prolongez « Années avant vente » ou augmentez la mise de fonds.';
+          noteEl.textContent = 'Aucun seuil de rentabilité atteint pendant cette période. Prolongez « Années avant la revente » ou augmentez la mise de fonds.';
         }
       }
     }

@@ -16,7 +16,7 @@ const hreflangAlternates = [
 ---
 <BaseLayout
   title="Calculateur ACHAT complet | Peter Law"
-  description="Une seule page pour l'achat : hypothèque mensuelle, droits de mutation, assurance SCHL, frais de clôture, liquidités à la clôture."
+  description="Une seule page pour l'achat : hypothèque mensuelle, droits de cession immobilière, assurance SCHL, frais de clôture, liquidités à la clôture."
   lang="fr"
   bodyClass="fr calc-page"
   hreflangAlternates={hreflangAlternates}
@@ -39,7 +39,7 @@ const hreflangAlternates = [
         <!-- BLOC D'ENTRÉE -->
         <div class="ac-inputs">
           <div class="ac-input-group">
-            <label for="ac-income">1. Combien gagnez-vous par année ? <span class="hint">Avant impôts.</span></label>
+            <label for="ac-income">1. Combien gagnez-vous par année? <span class="hint">Avant impôts.</span></label>
             <div class="input-prefix"><input type="number" id="ac-income" value="250000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
@@ -49,14 +49,14 @@ const hreflangAlternates = [
           </div>
 
           <div class="ac-input-group">
-            <label for="ac-savings">3. Mise de fonds <span class="hint">Idéalement 20 à 25 % du prix d'achat.</span></label>
+            <label for="ac-savings">3. Mise de fonds <span class="hint">Idéalement 20 à 25 % du prix d'achat.</span></label>
             <div class="input-prefix"><input type="number" id="ac-savings" value="100000" min="0" step="1000" inputmode="decimal" /></div>
           </div>
 
           <div class="ac-input-group ac-checkbox-group">
             <label for="ac-fthb" class="ac-checkbox">
               <input type="checkbox" id="ac-fthb" checked />
-              <span class="ac-checkbox-text">Je suis un premier acheteur <span class="hint">Vous donne droit à un remboursement des droits de mutation.</span></span>
+              <span class="ac-checkbox-text">Je suis un premier acheteur <span class="hint">Vous donne droit à un remboursement des droits de cession immobilière.</span></span>
             </label>
           </div>
 
@@ -70,7 +70,7 @@ const hreflangAlternates = [
           </div>
 
           <div class="ac-input-group" id="ac-tax-row">
-            <label for="ac-proptax">5. Taxes foncières <span class="hint">Par mois. Laissez vide pour une estimation automatique à 0,7 % du prix par année.</span></label>
+            <label for="ac-proptax">5. Taxes foncières <span class="hint">Par mois. Laissez vide pour une estimation automatique à 0,7 % du prix par année.</span></label>
             <div class="input-prefix"><input type="number" id="ac-proptax" value="" min="0" step="5" placeholder="ex. 400" inputmode="decimal" /></div>
           </div>
 
@@ -83,7 +83,7 @@ const hreflangAlternates = [
             <summary>Plus d'options (facultatif)</summary>
             <div class="ac-more-body">
               <div class="ac-input-group">
-                <label for="ac-rate">Taux hypothécaire <span class="hint">5 % est normal en 2026.</span></label>
+                <label for="ac-rate">Taux hypothécaire <span class="hint">5 % est normal en 2026.</span></label>
                 <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
@@ -91,11 +91,11 @@ const hreflangAlternates = [
                 <select id="ac-amort">
                   <option value="20">20 ans</option>
                   <option value="25" selected>25 ans</option>
-                  <option value="30">30 ans (seulement si &lt;20 % de mise de fonds et première maison)</option>
+                  <option value="30">30 ans (seulement si &lt;20 % de mise de fonds et première maison)</option>
                 </select>
               </div>
               <div class="ac-input-group">
-                <label for="ac-location">Où se trouve la propriété ?</label>
+                <label for="ac-location">Où se trouve la propriété?</label>
                 <select id="ac-location">
                   <option value="toronto" selected>Ville de Toronto</option>
                   <option value="ontario">Reste de l'Ontario</option>
@@ -116,7 +116,7 @@ const hreflangAlternates = [
             <div class="ac-headline-item">
               <div class="ac-headline-label">Liquidités nécessaires à la clôture</div>
               <div class="ac-headline-value" id="ac-cash">0 $</div>
-              <div class="ac-headline-sub" id="ac-cash-sub">Mise de fonds + droits de mutation + avocat + ajustements.</div>
+              <div class="ac-headline-sub" id="ac-cash-sub">Mise de fonds + droits de cession immobilière + avocat + ajustements.</div>
             </div>
           </div>
 
@@ -124,7 +124,7 @@ const hreflangAlternates = [
             <span class="ac-verdict-dot"></span>
             <div>
               <div class="ac-verdict-title" id="ac-verdict-title">Entrez vos chiffres ci-dessus.</div>
-              <div class="ac-verdict-sub" id="ac-verdict-sub">La banque regarde quelle part de votre revenu va au logement. Sous 32 % est sécuritaire. Au-dessus de 39 % et la banque dit probablement non.</div>
+              <div class="ac-verdict-sub" id="ac-verdict-sub">La banque regarde quelle part de votre revenu va au logement. Sous 32 % est sécuritaire. Au-dessus de 39 % et la banque dit probablement non.</div>
             </div>
           </div>
 
@@ -133,8 +133,8 @@ const hreflangAlternates = [
             <div class="ac-row"><span>Mise de fonds</span><strong id="ac-down">0 $</strong></div>
             <div class="ac-row"><span>Hypothèque totale</span><strong id="ac-mortgage">0 $</strong></div>
             <div class="ac-row"><span>Assurance SCHL / assurance prêt <em class="ac-note" id="ac-cmhc-note"></em></span><strong id="ac-cmhc">0 $</strong></div>
-            <div class="ac-row"><span>Droits de mutation immobilière de l'Ontario</span><strong id="ac-ltt-on">0 $</strong></div>
-            <div class="ac-row" id="ac-ltt-mltt-row"><span>Droits de mutation immobilière de Toronto</span><strong id="ac-ltt-mltt">0 $</strong></div>
+            <div class="ac-row"><span>Droits de cession immobilière de l'Ontario</span><strong id="ac-ltt-on">0 $</strong></div>
+            <div class="ac-row" id="ac-ltt-mltt-row"><span>Droits de cession immobilière de Toronto</span><strong id="ac-ltt-mltt">0 $</strong></div>
             <div class="ac-row" id="ac-ltt-rebate-row" style="display:none;"><span>Remboursement pour premier acheteur</span><strong id="ac-ltt-rebate">−0 $</strong></div>
             <div class="ac-row" id="ac-mo-taxrow"><span>Taxes foncières mensuelles estimées</span><strong id="ac-mo-tax">0 $</strong></div>
             <div class="ac-row" id="ac-mo-feerow" style="display:none;"><span id="ac-mo-feelbl">Frais HOA / entretien mensuels</span><strong id="ac-mo-fee">0 $</strong></div>
@@ -147,17 +147,17 @@ const hreflangAlternates = [
             <div class="ac-check">
               <div class="ac-check-label">Mise de fonds minimale pour ce prix</div>
               <div class="ac-check-value" id="ac-mindown">0 $</div>
-              <div class="ac-check-sub" id="ac-mindown-sub">Vous mettez actuellement 0 $ (0 %).</div>
+              <div class="ac-check-sub" id="ac-mindown-sub">Vous mettez actuellement 0 $ (0 %).</div>
             </div>
             <div class="ac-check">
               <div class="ac-check-label">Paiement au test de résistance</div>
               <div class="ac-check-value" id="ac-stress">0 $/mois</div>
-              <div class="ac-check-sub">La banque vous teste au plus élevé entre votre taux + 2 % ou 5,25 %. Si cela entre dans votre revenu, vous êtes approuvé.</div>
+              <div class="ac-check-sub">La banque vous teste au plus élevé entre votre taux + 2 % ou 5,25 %. Si cela entre dans votre revenu, vous êtes approuvé.</div>
             </div>
             <div class="ac-check">
               <div class="ac-check-label">Logement en % de votre revenu</div>
-              <div class="ac-check-value" id="ac-gds">0 %</div>
-              <div class="ac-check-sub">Utilise le paiement au test de résistance + taxes estimées + chauffage. Sous 32 % est la cible de la banque.</div>
+              <div class="ac-check-value" id="ac-gds">0 %</div>
+              <div class="ac-check-sub">Utilise le paiement au test de résistance + taxes estimées + chauffage. Sous 32 % est la cible de la banque.</div>
             </div>
             <div class="ac-check">
               <div class="ac-check-label">Intérêts totaux sur la durée du prêt</div>
@@ -166,7 +166,7 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">Chiffres à titre indicatif. Les hypothèques canadiennes sont composées semi-annuellement. Les primes SCHL présentées sont les tiers standards actuels (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par le propriétaire de moins de 1,5 M$. Le test de résistance fédéral utilise le plus élevé entre (votre taux + 2 %) ou 5,25 %. L'estimation des taxes foncières est de 0,7 % du prix par année (moyenne de Toronto) et le chauffage est de 150 $/mois; la banque utilise des chiffres approximatifs similaires pour le ratio ATD. Les frais juridiques + titre + ajustements par défaut de 2 500 $ sont typiques pour un achat de revente à Toronto. Les chiffres réels dépendent de votre crédit, du prêteur, de la propriété et des détails de clôture. Confirmez toujours avec un courtier hypothécaire, un avocat et un comptable avant de signer quoi que ce soit. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
+          <p class="calc-disclaimer">Chiffres à titre indicatif. Les hypothèques canadiennes sont composées semestriellement. Les primes SCHL présentées sont les paliers standards actuels (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par le propriétaire de moins de 1,5 M$. Le test de résistance fédéral utilise le plus élevé entre (votre taux + 2 %) ou 5,25 %. L'estimation des taxes foncières est de 0,7 % du prix par année (moyenne de Toronto) et le chauffage est de 150 $/mois; la banque utilise des chiffres approximatifs similaires pour le ratio ATD. Les frais juridiques + titre + ajustements par défaut de 2 500 $ sont typiques pour un achat de revente à Toronto. Les chiffres réels dépendent de votre crédit, du prêteur, de la propriété et des détails de clôture. Confirmez toujours avec un courtier hypothécaire, un avocat et un comptable avant de signer quoi que ce soit. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
         </div>
       </div>
     </div>
@@ -333,7 +333,7 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? (shortfall > 0 ? '(non assurable : sous la mise de fonds minimale)' : '(non assurable : 20 % requis à 1,5 M$ et plus)')
+          ? (shortfall > 0 ? '(non assurable : sous la mise de fonds minimale)' : '(non assurable : 20 % requis à 1,5 M$ et plus)')
           : premiumRate === 0
             ? '(vous avez 20 %+ de mise de fonds, pas d\'assurance requise)'
             : '(' + (premiumRate * 100).toFixed(2) + ' % du prêt)';
@@ -373,14 +373,14 @@ const hreflangAlternates = [
         let vClass = 'ac-verdict-neutral';
         if (income <= 0 || price <= 0) {
           vTitle = 'Entrez vos chiffres ci-dessus.';
-          vSub = 'La banque regarde quelle part de votre revenu va au logement. Sous 32 % est sécuritaire. Au-dessus de 39 % et la banque dit probablement non.';
+          vSub = 'La banque regarde quelle part de votre revenu va au logement. Sous 32 % est sécuritaire. Au-dessus de 39 % et la banque dit probablement non.';
         } else if (premiumRate === null && shortfall <= 0) {
           vTitle = 'Vous avez besoin de plus d\'épargne pour ce prix.';
-          vSub = 'La mise de fonds minimale pour une maison de plus de 1,5 M$ est de 20 % du prix. Vous êtes en dessous. Épargnez plus, ou visez un prix plus bas.';
+          vSub = 'La mise de fonds minimale pour une maison de plus de 1,5 M$ est de 20 % du prix. Vous êtes en dessous. Épargnez plus, ou visez un prix plus bas.';
           vClass = 'ac-verdict-red';
         } else if (shortfall > 0) {
           vTitle = 'Vous manquez de mise de fonds.';
-          vSub = 'Il vous faut ' + fmtCAD(minDown, 0) + ' minimum pour une maison de ' + fmtCAD(price, 0) + '. C\'est ' + fmtCAD(shortfall, 0) + ' de plus que ce que vous avez épargné. La banque n\'approuvera pas l\'hypothèque encore.';
+          vSub = 'Il vous faut ' + fmtCAD(minDown, 0) + ' minimum pour une maison de ' + fmtCAD(price, 0) + '. C\'est ' + fmtCAD(shortfall, 0) + ' de plus que ce que vous avez épargné. La banque n\'approuvera pas encore l\'hypothèque.';
           vClass = 'ac-verdict-red';
         } else if (gds > 39) {
           vTitle = 'La banque n\'approuvera probablement pas.';
@@ -388,7 +388,7 @@ const hreflangAlternates = [
           vClass = 'ac-verdict-red';
         } else if (gds > 32) {
           vTitle = 'Tendu. Faisable, mais vous le sentirez.';
-          vSub = 'À ' + gds.toFixed(1).replace('.', ',') + ' % du revenu, vous êtes sous la limite dure de la banque (39 %) mais au-dessus de la zone confortable (32 %). Vacances, épargne et sorties au restaurant seront plus serrées.';
+          vSub = 'À ' + gds.toFixed(1).replace('.', ',') + ' % du revenu, vous êtes sous la limite stricte de la banque (39 %) mais au-dessus de la zone confortable (32 %). Vacances, épargne et sorties au restaurant seront plus serrées.';
           vClass = 'ac-verdict-yellow';
         } else {
           vTitle = 'Vous pouvez vous permettre cela.';
