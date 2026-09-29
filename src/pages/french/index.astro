@@ -187,6 +187,14 @@ import RecentDeals from '../../components/RecentDeals.astro';
                   <label class="quiz-check"><input type="checkbox" name="location[]" value="Open to suggestions"> Ouvert aux suggestions</label>
                 </div>
               </div>
+              <div class="quiz-field">
+                <label for="quiz-first-name">Prénom*</label>
+                <input id="quiz-first-name" name="first_name" type="text" required autocomplete="given-name" placeholder="p. ex. Alex">
+              </div>
+              <div class="quiz-field">
+                <label for="quiz-last-name">Nom de famille*</label>
+                <input id="quiz-last-name" name="last_name" type="text" required autocomplete="family-name" placeholder="p. ex. Tremblay">
+              </div>
               <div class="quiz-field quiz-field-full">
                 <label for="quiz-email">Courriel*</label>
                 <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="votre@email.com">
