@@ -27,8 +27,12 @@ const SAFELIST_DEEP = [
   /^is-/, /^has-/, /^rc-verdict-/, /^ac-verdict-/, /^tier-/,
   /^deal-card/, /^deals-dot/, /^mc-/, /^rvb-/, /^rf-/, /^means-collapse/, /^blog-card/,
 ];
+// Attribute selectors on these attributes are kept when the rest of the selector
+// matches the page (their values are set at runtime by JavaScript, so PurgeCSS
+// cannot see them in the static HTML).
+const DYNAMIC_ATTRIBUTES = ['data-theme', 'aria-expanded', 'aria-hidden', 'aria-current', 'open', 'hidden', 'data-filter', 'data-scenario'];
 const SAFELIST_GREEDY = [
-  /^\[aria-/, /^\[data-/, /data-theme/, /^:focus-visible/, /^:hover/, /:where\(/, /:is\(/,
+  /:where\(/, /:is\(/,
 ];
 
 async function walk(dir) {
@@ -77,6 +81,7 @@ async function purgeOne(htmlPath) {
           deep: SAFELIST_DEEP,
           greedy: SAFELIST_GREEDY,
         },
+        dynamicAttributes: DYNAMIC_ATTRIBUTES,
         keyframes: false,
         fontFace: false,
         variables: false,
