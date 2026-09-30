@@ -222,11 +222,12 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
               </form>
       </div>
       <div>
-        <a href="/about" class="hero-photo-link" aria-label="About Peter Law, learn more">
-          <div class="hero-photo">
-            <img src="/photos/peter-portrait.webp" srcset="/photos/peter-portrait-480.webp 480w, /photos/peter-portrait.webp 800w" sizes="(max-width: 900px) calc(100vw - 48px), 560px" alt="Peter Law, Toronto real estate agent, on a downtown street with the CN Tower behind." width="800" height="1006" loading="eager" fetchpriority="high" decoding="async" />
-          </div>
-        </a>
+        <div class="hero-photo hero-video">
+          <video controls playsinline preload="none" poster="/videos/renting-in-toronto-7-steps-poster.webp" width="720" height="1280" aria-label="Video: Peter Law explains the 7 steps to renting in Toronto (English with Chinese captions)">
+            <source src="/videos/renting-in-toronto-7-steps.mp4" type="video/mp4" />
+            <a href="/videos/renting-in-toronto-7-steps.mp4">Video: Peter Law explains the 7 steps to renting in Toronto (English with Chinese captions)</a>
+          </video>
+        </div>
       </div>
       </div>
     </div>
@@ -312,21 +313,20 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
   .hero-headline-block .hero-h { margin: 0; }
 
   /* Make photo column match form column height, stretch instead of center align */
-  .hero-grid { align-items: stretch; }
-  .hero-photo {
-    aspect-ratio: auto;
-    height: 100%;
-    min-height: 100%;
+  .hero-grid { align-items: start; }
+  .hero-photo.hero-video {
+    aspect-ratio: 9 / 16;
+    height: auto;
+    min-height: 0;
+    background: #000;
+    box-shadow: 0 0 0 4px rgba(198, 150, 65, 0.10), 0 10px 32px -14px rgba(198, 150, 65, 0.32);
   }
-  .hero-photo-link {
-    height: 100%;
-    display: block;
-  }
+  .hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
   @media (max-width: 900px) {
     .hero { padding-bottom: 28px; padding-top: 36px; }
     .hero-headline-block { margin-bottom: 28px; }
-    .hero-photo { aspect-ratio: 4/5; height: auto; min-height: 0; }
+    .hero-photo.hero-video { aspect-ratio: 9 / 16; }
   }
   @media (max-width: 720px) {
     .boc-widget + section.major { padding-top: 40px; }
