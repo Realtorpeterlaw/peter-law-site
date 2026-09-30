@@ -1,0 +1,34 @@
+---
+/**
+ * Self-hosted video player (no third-party script, no tracking).
+ * The browser downloads only the poster until the visitor presses play
+ * (preload="none"), so the page's own load speed is unaffected.
+ */
+interface Props {
+  src: string;            // /videos/file.mp4 (H.264 + AAC, faststart)
+  poster: string;         // /videos/file-poster.webp
+  posterFallback?: string;// jpg for very old browsers
+  label?: string;         // small line above the player
+  title: string;          // accessible name for the player
+  width?: number;         // intrinsic size for aspect ratio
+  height?: number;
+  maxWidth?: number;      // CSS max width in px (default 420 for portrait video)
+}
+const { src, poster, label, title, width = 720, height = 1280, maxWidth = 420 } = Astro.props;
+---
+<figure class="video-embed" style={`max-width:${maxWidth}px`}>
+  {label && <figcaption class="video-embed-label">{label}</figcaption>}
+  <video
+    controls
+    playsinline
+    preload="none"
+    poster={poster}
+    width={width}
+    height={height}
+    aria-label={title}
+    style={`aspect-ratio:${width}/${height}`}
+  >
+    <source src={src} type="video/mp4" />
+    <a href={src}>{title}</a>
+  </video>
+</figure>
