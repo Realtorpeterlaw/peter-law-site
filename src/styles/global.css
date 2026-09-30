@@ -2768,3 +2768,8 @@ html[data-theme="dark"] .rc-meter-tiers .tier-over { color: #f08a6e; }
 html[data-theme="dark"] .fh-program-tag[style*="b8002e"] { color: #ff8a9c !important; }
 html[data-theme="dark"] .qf-card { background: var(--surface); border-color: var(--rule); }
 html[data-theme="dark"] .tou-tier-on .tou-tier-sub, html[data-theme="dark"] .tou-tier-on .tou-tier-label { color: #4a4640; opacity: 1; }
+
+/* ---- Instagram embed (InstagramEmbed.astro) ---- */
+.ig-embed { margin: 0 0 36px; max-width: 540px; }
+.ig-embed .instagram-media { margin: 0 !important; min-width: 0 !important; }
+.ig-embed-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; }
