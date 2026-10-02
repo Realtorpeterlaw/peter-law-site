@@ -392,6 +392,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
 .calc-field label { font-size: 13px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0.02em; }
 .calc-field label .hint { font-weight: 400; color: var(--ink-mute); font-size: 12px; margin-left: 4px; }
 .calc-field input, .calc-field select {
+  width: 100%; min-width: 0; box-sizing: border-box;
   font-family: inherit; font-size: 16px;
   padding: 10px 14px; border: 1px solid var(--rule);
   border-radius: 4px; background: var(--surface); color: var(--ink);
@@ -407,6 +408,7 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
   color: var(--ink-mute); font-size: 14px; pointer-events: none;
 }
 .calc-field .input-prefix input { padding-left: 28px; }
+.calc-field .input-prefix[data-prefix="%"] input { padding-left: 34px; }
 /* Generic .input-prefix / .input-suffix fallback — applies when the wrapper
    isn't nested under .calc-field or .ac-input-group (e.g. inside .mc-row).
    Lower specificity than the scoped rules above, so it does not override them. */
