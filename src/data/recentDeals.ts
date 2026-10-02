@@ -43,6 +43,19 @@ const MONTHS_FR = [
 // Add new deals here. Order doesn't matter, getDeals() sorts by date.
 export const dealsRaw: DealRaw[] = [
   {
+    date: '2026-09-30',
+    intersection_en: 'Spadina Ave & St Clair Ave W',
+    intersection_zh: 'Spadina Ave 与 St Clair Ave W',
+    intersection_fr: 'Spadina Ave et St Clair Ave W',
+    city_en: 'Toronto, Ontario',
+    city_zh: '多伦多，安省',
+    city_fr: 'Toronto, Ontario',
+    rent: '$2,200',
+    note_en: 'RECORD BREAKING: rental search secured in less than 48 hours.',
+    note_zh: '刷新纪录：不到 48 小时就完成找房并成功签约。',
+    note_fr: 'RECORD BATTU : recherche locative conclue en moins de 48 heures.',
+  },
+  {
     date: '2026-09-17',
     intersection_en: 'Spadina Ave & Fort York Blvd',
     intersection_zh: 'Spadina Ave 与 Fort York Blvd',
