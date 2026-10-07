@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-10-06';
+const articleTitle = 'Feng Shui: For Beginners';
+const articleDescription = 'A plain-English, room-by-room guide to feng shui for Toronto homes. Front door, bedroom, kitchen, the five elements, the bagua map, and the questions buyers ask most.';
+const articleUrl = 'https://www.realtorpeterlaw.com/blog/feng-shui-for-beginners';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law, Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'feng shui for beginners, feng shui Toronto, feng shui front door, feng shui bedroom bed placement, feng shui kitchen stove, five elements feng shui, bagua map, western bagua, feng shui condo Toronto, number 4 floor condo, T-junction house feng shui, poison arrow feng shui, feng shui home buying',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/feng-shui-for-beginners/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/feng-shui-for-beginners/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/feng-shui-for-beginners/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/feng-shui-for-beginners/' },
+];
+
+const elements = [
+  { key: 'wood',  glyph: '木', name: 'Wood',  color: '#2f7d4a', how: 'Plants, wooden furniture, green tones.' },
+  { key: 'fire',  glyph: '火', name: 'Fire',  color: '#c0392b', how: 'Candles, a fireplace, red or orange accents, good lighting.' },
+  { key: 'earth', glyph: '土', name: 'Earth', color: '#b07a3c', how: 'Clay pots, stone, beige and brown tones.' },
+  { key: 'metal', glyph: '金', name: 'Metal', color: '#7f8a94', how: 'Metal frames, grey and white, round shapes.' },
+  { key: 'water', glyph: '水', name: 'Water', color: '#2c5f8a', how: 'A small fountain, a mirror, blue or black accents.' },
+];
+
+const bagua = [
+  { name: 'Wealth', what: 'Plants with round leaves, a small fountain, purple or gold accents.' },
+  { name: 'Fame & Reputation', what: 'Awards, diplomas, red accents, anything you are proud of.' },
+  { name: 'Love & Relationships', what: 'Pairs of things. Two candles, two pillows, two photos.' },
+  { name: 'Family & Health', what: 'Family photos, healthy plants, green and blue.' },
+  { name: 'Centre', what: 'Keep it clear and tidy. This is the heart of the home.' },
+  { name: 'Children & Creativity', what: 'Artwork, instruments, kids\' projects, pastels and white.' },
+  { name: 'Knowledge', what: 'Books, a desk, a quiet chair, dark blue and green.' },
+  { name: 'Career', what: 'A water feature, your work goals, black and dark blue.' },
+  { name: 'Helpful People & Travel', what: 'Travel photos, contacts you value, white and grey.' },
+];
+
+const checklist = [
+  'Clear the path to your front door',
+  'Clean the windows',
+  'Check your bed placement. Can you see the door?',
+  'Close bathroom doors and put toilet lids down',
+  'Fix any dripping tap',
+  'Check that every stove burner works',
+  'Remove any dead plants',
+  'Clear the centre of your home',
+  'Check where your mirrors point',
+  'Unpack one more box',
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blog</a> · Home &amp; Living</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Feng shui is an old Chinese practice for arranging a home so it feels balanced and calm. Many people in Toronto follow it closely. Many more simply like the ideas, because they make a home nicer to live in. You do not need to believe in energy to use this guide. Most of these tips are good design on their own.</p>
+        <div class="article-byline">
+          <span>By <a href="/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>October 6, 2026</time>
+          <span class="dot">·</span>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h2 class="side-h">On this page</h2>
+            <ul>
+              <li><a href="#meaning">What feng shui actually means</a></li>
+              <li><a href="#front-door">Start here: the front door</a></li>
+              <li><a href="#bedroom">The bedroom</a></li>
+              <li><a href="#kitchen">The kitchen</a></li>
+              <li><a href="#bathroom">The bathroom</a></li>
+              <li><a href="#living-room">The living room</a></li>
+              <li><a href="#elements">The five elements</a></li>
+              <li><a href="#bagua">The bagua map</a></li>
+              <li><a href="#habits">Five habits that cover most of it</a></li>
+              <li><a href="#buyers">Things buyers often ask about</a></li>
+              <li><a href="#checklist">Your first weekend checklist</a></li>
+              <li><a href="#honest">One honest note</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+
+            <div class="callout"><strong>Who this article is for:</strong> first-time buyers and renters setting up a new place, anyone touring homes with a parent or partner who takes feng shui seriously, and anyone who wants a calmer home and does not know where to begin.</div>
+
+            <details class="b60-section-toggle" id="meaning">
+              <summary class="b60-section-toggle-summary">What feng shui actually means</summary>
+              <div class="b60-section-body">
+                <p>Feng shui (<span lang="zh-Hans">风水</span>) means "wind and water."</p>
+                <p>The idea is simple. Energy, called <strong>chi</strong> or <strong>qi</strong>, moves through your home the way air and water do. You want it to flow smoothly. You do not want it blocked, and you do not want it rushing straight through.</p>
+                <p>That is the whole concept. Everything below comes from it.</p>
+              </div>
+            </details>
+
+            <!-- ============================================================
+                 FRONT DOOR
+                 ============================================================ -->
+            <h2 id="front-door">Start here: the front door</h2>
+            <p>The front door matters most. Feng shui calls it the "mouth of chi," the place where energy enters your home.</p>
+
+            <div class="fs-dodont">
+              <div class="fs-col fs-do">
+                <h3 class="fs-col-h">Do this</h3>
+                <ul>
+                  <li>Keep the path to your door clear. Trim bushes and move anything sitting in the way.</li>
+                  <li>Make sure the door opens fully without bumping into anything.</li>
+                  <li>Keep it clean and in good repair. Fix a squeaky hinge or a loose handle.</li>
+                  <li>Add good lighting so the entry is bright at night.</li>
+                  <li>Place a healthy plant or fresh flowers near the door.</li>
+                </ul>
+              </div>
+              <div class="fs-col fs-dont">
+                <h3 class="fs-col-h">Watch out for</h3>
+                <ul>
+                  <li><strong>A front door that lines up with the back door.</strong> Energy comes in and goes straight out. Place a plant, a screen, or a rug between them to slow it down.</li>
+                  <li><strong>A mirror facing the front door.</strong> It pushes energy back outside. Hang it on a side wall instead.</li>
+                  <li><strong>A bathroom directly across from the front door.</strong> Keep that door closed.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="callout fs-tip"><strong>If you live in a condo:</strong> your suite door counts as your front door. The same rules apply.</div>
+
+            <!-- ============================================================
+                 BEDROOM
+                 ============================================================ -->
+            <h2 id="bedroom">The bedroom</h2>
+            <p>This is where you rest, so it should feel safe and calm.</p>
+
+            <div class="fs-dodont">
+              <div class="fs-col fs-do">
+                <h3 class="fs-col-h">Bed placement</h3>
+                <ul>
+                  <li>You should be able to see the bedroom door from your bed.</li>
+                  <li>Do not line the bed up directly with the door. Off to one side is better.</li>
+                  <li>Put the head of the bed against a solid wall, not a window.</li>
+                  <li>Use a solid headboard. Wood or metal both work well.</li>
+                  <li>Leave space on both sides of the bed, with a nightstand on each side.</li>
+                  <li>Avoid storing things under the bed. Energy needs room to move.</li>
+                </ul>
+              </div>
+              <div class="fs-col fs-dont">
+                <h3 class="fs-col-h">Also avoid</h3>
+                <ul>
+                  <li>Heavy art or a large frame hung above the head of the bed.</li>
+                  <li>A mirror that faces the bed directly.</li>
+                  <li>Work in the bedroom, if you can help it. No desk, no files.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ============================================================
+                 KITCHEN
+                 ============================================================ -->
+            <h2 id="kitchen">The kitchen</h2>
+            <p>In feng shui, the kitchen represents health and wealth.</p>
+            <ul class="bullets">
+              <li><strong>Keep the stove clean and working.</strong> Every burner should light.</li>
+              <li><strong>The cook should not have their back to the room.</strong> If the stove faces a wall, hang a small mirror or a metal panel so you can see behind you.</li>
+              <li><strong>Avoid placing the stove directly beside the sink.</strong> Fire and water clash. If they already sit side by side, put something wooden between them, such as a cutting board.</li>
+              <li><strong>Keep the fridge and pantry stocked.</strong> Empty shelves suggest scarcity.</li>
+              <li><strong>Fix any dripping tap.</strong> In feng shui, dripping water is money leaking away.</li>
+            </ul>
+
+            <!-- ============================================================
+                 BATHROOM
+                 ============================================================ -->
+            <h2 id="bathroom">The bathroom</h2>
+            <p>Feng shui treats bathrooms as places where energy drains away. Two easy fixes cover most of it.</p>
+
+            <ol class="fs-steps">
+              <li><span class="fs-step-num" aria-hidden="true">1</span><span>Keep the bathroom door closed.</span></li>
+              <li><span class="fs-step-num" aria-hidden="true">2</span><span>Keep the toilet lid down.</span></li>
+            </ol>
+
+            <p>Beyond that, fix leaks and keep the room clean and dry. Add a plant if there is enough light.</p>
+
+            <!-- ============================================================
+                 LIVING ROOM
+                 ============================================================ -->
+            <h2 id="living-room">The living room</h2>
+            <p>This is where people gather.</p>
+            <ul class="bullets">
+              <li><strong>Arrange seating so people can see each other.</strong> A circle or a square works better than a row.</li>
+              <li><strong>Nobody should sit with their back to the main door.</strong></li>
+              <li><strong>Leave clear paths through the room.</strong> Guests should not have to squeeze past furniture.</li>
+              <li><strong>Choose round or soft-edged tables</strong> over sharp corners pointed at the seats.</li>
+              <li><strong>Make sure the room has good light.</strong></li>
+            </ul>
+
+            <!-- ============================================================
+                 FIVE ELEMENTS
+                 ============================================================ -->
+            <h2 id="elements">The five elements</h2>
+            <p>Feng shui works with five elements: <strong>wood, fire, earth, metal, and water</strong>. The goal is balance. A room with all five feels complete. Too much of one feels off.</p>
+
+            <ul class="fs-elements" aria-label="The five elements and easy ways to add them">
+              {elements.map((el) => (
+                <li class="fs-el" style={`--el:${el.color}`}>
+                  <div class="fs-el-top">
+                    <span class="fs-el-glyph" lang="zh-Hans" aria-hidden="true">{el.glyph}</span>
+                    <span class="fs-el-name">{el.name}</span>
+                  </div>
+                  <p>{el.how}</p>
+                </li>
+              ))}
+            </ul>
+
+            <p>You do not need all five in every room. Look around and notice what is missing. If you cannot add the real thing, a picture of it works.</p>
+            <p><strong>Do not overdo one element.</strong> Too much water can feel heavy. Too much fire can feel tense.</p>
+
+            <!-- ============================================================
+                 BAGUA
+                 ============================================================ -->
+            <h2 id="bagua">The bagua map</h2>
+            <p>The bagua is an energy map that you lay over your floor plan. It divides your home into nine areas, each tied to a part of life. There are two common versions.</p>
+            <ul class="bullets">
+              <li><strong>Western bagua (easier).</strong> Line the grid up with the wall your front door is on. The door will fall in one of the bottom three squares. This is the simple version for beginners and the usual choice for condos and apartments.</li>
+              <li><strong>Classical bagua.</strong> This uses a compass reading taken at your front door. It takes more practice.</li>
+            </ul>
+            <p>Here is the western grid. The bottom row is the wall with your front door.</p>
+
+            <div class="fs-bagua-wrap">
+              <ol class="fs-bagua" aria-label="Western bagua map, nine areas">
+                {bagua.map((cell, i) => (
+                  <li class={`fs-bagua-cell${i === 4 ? ' fs-bagua-centre' : ''}`}>{cell.name}</li>
+                ))}
+              </ol>
+              <div class="fs-bagua-door"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Front door wall</div>
+            </div>
+
+            <h3>What to put where</h3>
+            <ul class="bullets fs-where">
+              {bagua.map((cell) => (
+                <li><strong>{cell.name}.</strong> {cell.what}</li>
+              ))}
+            </ul>
+            <p>Pick one or two areas to start. You do not have to do all nine.</p>
+
+            <!-- ============================================================
+                 FIVE HABITS
+                 ============================================================ -->
+            <h2 id="habits">Five habits that cover most of it</h2>
+            <p>If you do nothing else, do these.</p>
+
+            <ol class="fs-habits">
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">1</span>
+                <div><strong>Declutter.</strong> Feng shui is built on simplicity. Less stuff lets energy move freely, and it simply feels better.</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">2</span>
+                <div><strong>Clean your windows.</strong> Light is energy. Open the curtains during the day and close them at night.</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">3</span>
+                <div><strong>Fix what is broken.</strong> A dead bulb, a cracked tile, a door that sticks. Broken things weigh on a space.</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">4</span>
+                <div><strong>Add plants.</strong> Healthy, living ones. Remove dead or dying plants right away.</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">5</span>
+                <div><strong>Hang mirrors with care.</strong> A mirror should reflect light or a pleasant view. Never point one at your front door or your bed.</div>
+              </li>
+            </ol>
+
+            <!-- ============================================================
+                 BUYERS
+                 ============================================================ -->
+            <h2 id="buyers">Things buyers often ask about</h2>
+            <p>Some feng shui ideas come up when people shop for a home. You may hear these.</p>
+            <ul class="bullets">
+              <li><strong>Numbers.</strong> In Cantonese and Mandarin, the number 4 sounds like the word for "death," so some buyers avoid it. The number 8 sounds like "prosperity" and is popular. Many Toronto condo buildings skip floors with a 4 in them for this reason.</li>
+              <li><strong>T-junctions.</strong> A house at the top of a T-shaped intersection is often avoided, because energy and traffic come straight at it. There is a practical side too: headlights, noise, and the small risk of a car running the stop sign.</li>
+              <li><strong>Slope.</strong> Flat ground means stability. A gentle rise behind the home is seen as good support. Steep downhill lots are less favoured.</li>
+              <li><strong>Nearby buildings.</strong> Some buyers avoid homes right beside a hospital, a funeral home, or a cemetery.</li>
+              <li><strong>Sharp corners.</strong> A neighbouring roofline or building corner pointed straight at your front door is called a "poison arrow." A plant, a hedge, or a screen softens it.</li>
+            </ul>
+            <div class="callout fs-tip"><strong>If your home has one of these, do not panic.</strong> Most can be softened, and plenty of buyers do not follow feng shui at all.</div>
+
+            <!-- ============================================================
+                 CHECKLIST
+                 ============================================================ -->
+            <h2 id="checklist">Your first weekend checklist</h2>
+            <p>Ten small jobs. Tick them off as you go.</p>
+            <ul class="fs-checklist">
+              {checklist.map((item, i) => (
+                <li>
+                  <input type="checkbox" id={`fs-check-${i + 1}`} />
+                  <label for={`fs-check-${i + 1}`}>{item}</label>
+                </li>
+              ))}
+            </ul>
+
+            <!-- ============================================================
+                 HONEST NOTE
+                 ============================================================ -->
+            <h2 id="honest">One honest note</h2>
+            <div class="fs-honest">
+              <p>Feng shui is a tradition, not a science. There is no proof that it changes your luck, your health, or your home's value.</p>
+              <p>What it does do is push you toward a home that is clean, bright, uncluttered, and easy to move through. That is worth doing on its own.</p>
+              <p><strong>Use the parts that make sense to you. Skip the rest.</strong></p>
+            </div>
+
+            <div class="fs-disclaimer">
+              <h3>Disclaimer</h3>
+              <p>I am a licensed real estate salesperson. I am not a feng shui practitioner, interior designer, contractor, or home inspector.</p>
+              <p>This article is general information about a cultural tradition. It is not advice about the value, condition, or suitability of any property, and it does not create a client relationship.</p>
+              <p>Feng shui is a belief practice. Nothing here claims that it affects property values, resale, health, or finances.</p>
+              <p>Before making changes to your home, speak with the right professional: a contractor for anything structural, a home inspector for condition, and a certified feng shui consultant if you want a full reading of your space. If you live in a condo, check your corporation's rules before changing anything on your door, balcony, or common areas.</p>
+            </div>
+
+            <div class="seo-tags" role="group" aria-label="Keywords">
+              <h2 class="seo-tags-h">Keywords</h2>
+              <ul>
+                <li>Feng shui for beginners</li>
+                <li>Feng shui Toronto</li>
+                <li>Front door feng shui</li>
+                <li>Bedroom bed placement</li>
+                <li>Kitchen stove and sink</li>
+                <li>Five elements</li>
+                <li>Bagua map</li>
+                <li>Feng shui condo</li>
+                <li>Number 4 floors</li>
+                <li>T-junction house</li>
+                <li>Poison arrow</li>
+                <li>Home buying Ontario</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTASection heading="Shopping with feng shui in mind?" lead="If a floor number, a street layout, or a bed-to-door line matters to you or your family, tell me up front. I will screen listings for it before we ever book a showing. No pressure, no pitch." />
+  <Footer />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  /* Do / Watch-out columns */
+  .fs-dodont { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 18px 0 20px; max-width: 760px; }
+  .fs-col { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 20px; }
+  .fs-col-h { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+  .fs-col ul { list-style: none; padding: 0; margin: 0; }
+  .fs-col li { position: relative; padding: 5px 0 5px 22px; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .fs-col li strong { color: var(--ink); font-weight: 600; }
+  .fs-col li::before { position: absolute; left: 0; top: 5px; font-weight: 700; }
+  .fs-do li::before { content: "✓"; color: #1a6b32; }
+  .fs-dont li::before { content: "✕"; color: #b8002e; }
+  @media (max-width: 640px) { .fs-dodont { grid-template-columns: 1fr; } }
+
+  .fs-tip { border-left: 3px solid var(--accent); }
+
+  /* Two-step list (bathroom) */
+  .fs-steps { list-style: none; padding: 0; margin: 14px 0 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 660px; }
+  .fs-steps li { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; font-size: 15px; font-weight: 600; color: var(--ink); }
+  .fs-step-num { flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 17px; font-weight: 500; }
+  @media (max-width: 480px) { .fs-steps { grid-template-columns: 1fr; } }
+
+  /* Five elements */
+  .fs-elements { list-style: none; padding: 0; margin: 18px 0 20px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; max-width: 760px; }
+  .fs-el { background: var(--surface); border: 1px solid var(--rule); border-top: 4px solid var(--el); border-radius: 6px; padding: 14px 14px 12px; min-width: 0; }
+  .fs-el-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .fs-el-glyph { font-size: 22px; line-height: 1; color: var(--el); font-weight: 500; }
+  .fs-el-name { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--ink); }
+  .fs-el p { font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+  @media (max-width: 900px) { .fs-elements { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .fs-elements { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* Bagua 3x3 */
+  .fs-bagua-wrap { max-width: 560px; margin: 18px 0 8px; }
+  .fs-bagua { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; counter-reset: none; }
+  .fs-bagua-cell { aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px 8px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 16px; line-height: 1.25; color: var(--ink); min-width: 0; overflow-wrap: anywhere; }
+  .fs-bagua-centre { background: var(--bg-warm); border-color: var(--ink); }
+  .fs-bagua-door { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; padding: 8px; border: 1px dashed var(--ink-mute); border-radius: 6px; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+  @media (max-width: 480px) { .fs-bagua-cell { font-size: 12.5px; padding: 8px 4px; aspect-ratio: auto; min-height: 72px; } }
+
+  /* Five habits */
+  .fs-habits { list-style: none; padding: 0; margin: 16px 0 20px; max-width: 660px; }
+  .fs-habits li { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; line-height: 1.55; color: var(--ink-soft); }
+  .fs-habits li:last-child { border-bottom: 0; }
+  .fs-habits li strong { color: var(--ink); font-weight: 600; }
+  .fs-habit-num { flex: 0 0 40px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 34px; line-height: 1; color: var(--accent); font-weight: 400; letter-spacing: -0.02em; }
+
+  /* Checklist */
+  .fs-checklist { list-style: none; padding: 0; margin: 14px 0 24px; max-width: 660px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .fs-checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 16px; border-bottom: 1px solid var(--rule); }
+  .fs-checklist li:last-child { border-bottom: 0; }
+  .fs-checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--ink); cursor: pointer; flex: 0 0 18px; }
+  .fs-checklist label { font-size: 15px; line-height: 1.5; color: var(--ink); cursor: pointer; }
+  .fs-checklist input:checked + label { color: var(--ink-mute); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  /* Honest note + disclaimer */
+  .fs-honest { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 20px 24px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 16px 0 28px; }
+  .fs-honest p { margin-bottom: 10px; }
+  .fs-honest p:last-child { margin-bottom: 0; }
+  .fs-disclaimer { max-width: 660px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+  .fs-disclaimer h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 0 0 10px; font-family: inherit; }
+  .fs-disclaimer p { font-size: 13.5px; line-height: 1.6; color: var(--ink-mute); margin-bottom: 10px; }
+</style>

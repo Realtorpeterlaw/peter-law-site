@@ -1,0 +1,444 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-10-06';
+const articleTitle = '风水：入门篇';
+const articleDescription = '一篇面向多伦多住宅的通俗风水入门指南：逐个房间讲解大门、卧室、厨房、五行、八卦图，以及买家最常问的问题。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/feng-shui-for-beginners';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  inLanguage: 'zh-CN',
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law, Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: '风水入门, 多伦多风水, 大门风水, 卧室床位摆放, 厨房炉灶水槽, 五行, 八卦图, 公寓风水, 带4楼层, 丁字路口, 尖角煞, 安省买房',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/feng-shui-for-beginners/' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/feng-shui-for-beginners/' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/feng-shui-for-beginners/' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/feng-shui-for-beginners/' },
+];
+
+const elements = [
+  { key: 'wood',  glyph: '木', name: '木', color: '#2f7d4a', how: '植物、木质家具、绿色调。' },
+  { key: 'fire',  glyph: '火', name: '火', color: '#c0392b', how: '蜡烛、壁炉、红色或橙色点缀、良好的照明。' },
+  { key: 'earth', glyph: '土', name: '土', color: '#b07a3c', how: '陶罐、石材、米色和棕色调。' },
+  { key: 'metal', glyph: '金', name: '金', color: '#7f8a94', how: '金属框架、灰色与白色、圆形。' },
+  { key: 'water', glyph: '水', name: '水', color: '#2c5f8a', how: '小型喷泉、镜子、蓝色或黑色点缀。' },
+];
+
+const bagua = [
+  { name: '财富', what: '圆叶植物、小型喷泉、紫色或金色点缀。' },
+  { name: '名誉', what: '奖项、证书、红色点缀、任何让您自豪的东西。' },
+  { name: '爱情与关系', what: '成双成对的物品。两支蜡烛、两个枕头、两张照片。' },
+  { name: '家庭与健康', what: '全家福、健康的植物、绿色和蓝色。' },
+  { name: '中宫', what: '保持整洁、空旷。这是家的核心。' },
+  { name: '子女与创意', what: '艺术品、乐器、孩子的作品、粉彩色和白色。' },
+  { name: '知识', what: '书籍、书桌、一把安静的椅子、深蓝色和绿色。' },
+  { name: '事业', what: '水景、您的工作目标、黑色和深蓝色。' },
+  { name: '贵人与旅行', what: '旅行照片、您珍视的人脉、白色和灰色。' },
+];
+
+const checklist = [
+  '清理通往大门的路径',
+  '擦干净窗户',
+  '检查床的摆放：躺在床上能看到门吗？',
+  '关上卫生间门，盖上马桶盖',
+  '修好滴水的水龙头',
+  '检查每个炉头是否都能点燃',
+  '清理枯萎的植物',
+  '清空家的中心区域',
+  '检查镜子对着哪里',
+  '再拆一个搬家纸箱',
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law, 多伦多房地产博客`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 家居生活</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">风水是一门古老的中国传统，讲的是如何布置家居，让空间感觉平衡、安宁。在多伦多，很多人认真遵循风水；更多的人只是喜欢其中的理念，因为它们确实能让家更宜居。您不必相信“气”的说法也能使用这份指南。这里的大多数建议，本身就是好的设计原则。</p>
+        <div class="article-byline">
+          <span>作者 <a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 10 月 6 日</time>
+          <span class="dot">·</span>
+          <span>阅读 8 分钟</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h2 class="side-h">本页内容</h2>
+            <ul>
+              <li><a href="#meaning">风水到底是什么意思</a></li>
+              <li><a href="#front-door">从这里开始：大门</a></li>
+              <li><a href="#bedroom">卧室</a></li>
+              <li><a href="#kitchen">厨房</a></li>
+              <li><a href="#bathroom">卫生间</a></li>
+              <li><a href="#living-room">客厅</a></li>
+              <li><a href="#elements">五行</a></li>
+              <li><a href="#bagua">八卦图</a></li>
+              <li><a href="#habits">做好五件事，覆盖大部分</a></li>
+              <li><a href="#buyers">买家常问的问题</a></li>
+              <li><a href="#checklist">您的第一个周末清单</a></li>
+              <li><a href="#honest">一句实话</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+
+            <div class="callout"><strong>本文适合谁：</strong>正在布置新家的首次购房者和租客；陪着重视风水的父母或伴侣看房的人；以及想让家更安宁、却不知从何下手的人。</div>
+
+            <details class="b60-section-toggle" id="meaning">
+              <summary class="b60-section-toggle-summary">风水到底是什么意思</summary>
+              <div class="b60-section-body">
+                <p>风水，字面意思就是“风”与“水”。</p>
+                <p>道理很简单：一种被称为<strong>“气”</strong>的能量在家中流动，就像空气和水一样。您希望它流得顺畅，既不被阻挡，也不直冲而过。</p>
+                <p>这就是全部的核心概念。下面的所有内容都由此而来。</p>
+              </div>
+            </details>
+
+            <!-- ============================================================
+                 FRONT DOOR
+                 ============================================================ -->
+            <h2 id="front-door">从这里开始：大门</h2>
+            <p>大门最为重要。风水称之为“气口”，是能量进入家中的地方。</p>
+
+            <div class="fs-dodont">
+              <div class="fs-col fs-do">
+                <h3 class="fs-col-h">这样做</h3>
+                <ul>
+                  <li>保持通往大门的路径畅通。修剪灌木，移走挡路的杂物。</li>
+                  <li>确保门能完全打开，不会碰到任何东西。</li>
+                  <li>保持门的清洁与完好。修好吱吱作响的合页或松动的把手。</li>
+                  <li>加强照明，让入口在夜晚也明亮。</li>
+                  <li>在门边放一盆健康的植物或一束鲜花。</li>
+                </ul>
+              </div>
+              <div class="fs-col fs-dont">
+                <h3 class="fs-col-h">注意避免</h3>
+                <ul>
+                  <li><strong>大门与后门正对。</strong>气进来就直接出去了。在两者之间放一盆植物、一道屏风或一块地毯来减缓气流。</li>
+                  <li><strong>镜子正对大门。</strong>它会把气反射出去。改挂在侧墙上。</li>
+                  <li><strong>卫生间正对大门。</strong>请保持卫生间门关闭。</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="callout fs-tip"><strong>如果您住在公寓（condo）：</strong>您的单元门就是您的大门，适用同样的规则。</div>
+
+            <!-- ============================================================
+                 BEDROOM
+                 ============================================================ -->
+            <h2 id="bedroom">卧室</h2>
+            <p>这是您休息的地方，应该让人感到安全、平静。</p>
+
+            <div class="fs-dodont">
+              <div class="fs-col fs-do">
+                <h3 class="fs-col-h">床的摆放</h3>
+                <ul>
+                  <li>躺在床上应能看到卧室门。</li>
+                  <li>床不要正对房门，偏向一侧更好。</li>
+                  <li>床头靠实墙，不要靠窗。</li>
+                  <li>使用结实的床头板，木质或金属都可以。</li>
+                  <li>床的两侧留出空间，各放一个床头柜。</li>
+                  <li>避免在床底下堆放杂物，气需要流动的空间。</li>
+                </ul>
+              </div>
+              <div class="fs-col fs-dont">
+                <h3 class="fs-col-h">同时避免</h3>
+                <ul>
+                  <li>在床头上方挂厚重的画作或大画框。</li>
+                  <li>镜子正对床。</li>
+                  <li>在卧室里办公。尽量不放书桌，不放文件。</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ============================================================
+                 KITCHEN
+                 ============================================================ -->
+            <h2 id="kitchen">厨房</h2>
+            <p>在风水中，厨房代表健康与财富。</p>
+            <ul class="bullets">
+              <li><strong>保持炉灶清洁、运作正常。</strong>每个炉头都应能点燃。</li>
+              <li><strong>做饭的人不应背对房间。</strong>如果炉灶面朝墙壁，可以挂一面小镜子或一块金属板，让您能看到身后。</li>
+              <li><strong>避免炉灶紧挨水槽。</strong>水火相冲。如果已经并排，就在两者之间放一件木质物品，比如砧板。</li>
+              <li><strong>冰箱和储物柜保持充足。</strong>空荡荡的架子给人匮乏的感觉。</li>
+              <li><strong>修好滴水的水龙头。</strong>在风水里，滴水意味着钱财流失。</li>
+            </ul>
+
+            <!-- ============================================================
+                 BATHROOM
+                 ============================================================ -->
+            <h2 id="bathroom">卫生间</h2>
+            <p>风水认为卫生间是能量流失的地方。两个简单的办法就能解决大部分问题。</p>
+
+            <ol class="fs-steps">
+              <li><span class="fs-step-num" aria-hidden="true">1</span><span>保持卫生间门关闭。</span></li>
+              <li><span class="fs-step-num" aria-hidden="true">2</span><span>盖上马桶盖。</span></li>
+            </ol>
+
+            <p>除此之外，修好漏水处，保持房间干净、干燥。如果光线足够，放一盆植物。</p>
+
+            <!-- ============================================================
+                 LIVING ROOM
+                 ============================================================ -->
+            <h2 id="living-room">客厅</h2>
+            <p>这是家人和朋友聚会的地方。</p>
+            <ul class="bullets">
+              <li><strong>座位的安排要让人们能看到彼此。</strong>围成圆形或方形，比排成一排更好。</li>
+              <li><strong>任何人都不应背对主门而坐。</strong></li>
+              <li><strong>留出畅通的走道。</strong>客人不该在家具之间挤着走。</li>
+              <li><strong>选择圆形或边角柔和的桌子，</strong>避免尖角对着座位。</li>
+              <li><strong>确保房间光线充足。</strong></li>
+            </ul>
+
+            <!-- ============================================================
+                 FIVE ELEMENTS
+                 ============================================================ -->
+            <h2 id="elements">五行</h2>
+            <p>风水讲究五种元素：<strong>木、火、土、金、水</strong>。目标是平衡。五行俱全的房间让人感觉完整；某一种过多，就会感觉不对劲。</p>
+
+            <ul class="fs-elements" aria-label="五行及简单的添加方法">
+              {elements.map((el) => (
+                <li class="fs-el" style={`--el:${el.color}`}>
+                  <div class="fs-el-top">
+                    <span class="fs-el-glyph" aria-hidden="true">{el.glyph}</span>
+                    <span class="fs-el-name">{el.name}</span>
+                  </div>
+                  <p>{el.how}</p>
+                </li>
+              ))}
+            </ul>
+
+            <p>并非每个房间都需要五行俱全。环顾四周，看看缺了什么。如果无法摆放实物，一幅相关的图画也可以。</p>
+            <p><strong>不要让某一种元素过多。</strong>水太多会显得沉重，火太多会让人紧张。</p>
+
+            <!-- ============================================================
+                 BAGUA
+                 ============================================================ -->
+            <h2 id="bagua">八卦图</h2>
+            <p>八卦图是一张能量地图，覆盖在您的平面图上，把家分成九个区域，每个区域对应人生的一个方面。常见的有两种版本。</p>
+            <ul class="bullets">
+              <li><strong>西方八卦（较简单）。</strong>把九宫格对齐大门所在的那面墙，大门会落在最下面一排的三格之一。这是适合初学者的简易版本，也是公寓的常用选择。</li>
+              <li><strong>传统八卦。</strong>需要在大门处用罗盘测量方位，需要更多练习。</li>
+            </ul>
+            <p>下面是西方九宫格。最下面一排就是大门所在的墙。</p>
+
+            <div class="fs-bagua-wrap">
+              <ol class="fs-bagua" aria-label="西方八卦图，九个区域">
+                {bagua.map((cell, i) => (
+                  <li class={`fs-bagua-cell${i === 4 ? ' fs-bagua-centre' : ''}`}>{cell.name}</li>
+                ))}
+              </ol>
+              <div class="fs-bagua-door"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 大门所在的墙</div>
+            </div>
+
+            <h3>各区域放什么</h3>
+            <ul class="bullets fs-where">
+              {bagua.map((cell) => (
+                <li><strong>{cell.name}：</strong>{cell.what}</li>
+              ))}
+            </ul>
+            <p>先从一两个区域开始，不必九个全做。</p>
+
+            <!-- ============================================================
+                 FIVE HABITS
+                 ============================================================ -->
+            <h2 id="habits">做好五件事，就覆盖了大部分</h2>
+            <p>如果别的都不做，至少做这些。</p>
+
+            <ol class="fs-habits">
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">1</span>
+                <div><strong>断舍离。</strong>风水以简约为本。东西越少，气越通畅，住起来也确实更舒服。</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">2</span>
+                <div><strong>擦干净窗户。</strong>光就是能量。白天拉开窗帘，晚上拉上。</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">3</span>
+                <div><strong>修好坏掉的东西。</strong>坏掉的灯泡、裂开的瓷砖、卡住的门。破损的物件会拖累整个空间。</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">4</span>
+                <div><strong>添置植物。</strong>要健康、有生命力的植物。枯萎或快死的植物要马上清理。</div>
+              </li>
+              <li>
+                <span class="fs-habit-num" aria-hidden="true">5</span>
+                <div><strong>谨慎挂镜子。</strong>镜子应反射光线或美好的景致。千万不要对着大门或床。</div>
+              </li>
+            </ol>
+
+            <!-- ============================================================
+                 BUYERS
+                 ============================================================ -->
+            <h2 id="buyers">买家常问的问题</h2>
+            <p>有些风水观念在看房时经常被提起，您可能会听到这些。</p>
+            <ul class="bullets">
+              <li><strong>数字。</strong>“四”与“死”谐音，所以不少买家会避开；“八”与“发”谐音，因此很受欢迎。多伦多许多公寓楼因此跳过带 4 的楼层。</li>
+              <li><strong>丁字路口（路冲）。</strong>位于丁字路口正对面的房子常被避开，因为气和车流直冲而来。这也有现实的一面：车灯、噪音，以及汽车闯停车标志的小概率风险。</li>
+              <li><strong>坡度。</strong>平地意味着稳定。屋后有缓坡被视为有靠山。陡峭的下坡地块较不受青睐。</li>
+              <li><strong>周边建筑。</strong>有些买家会避开紧邻医院、殡仪馆或墓地的房子。</li>
+              <li><strong>尖角。</strong>邻居的屋脊或建筑物的尖角直指您的大门，称为“尖角煞”。一株植物、一道树篱或一面屏风就能化解。</li>
+            </ul>
+            <div class="callout fs-tip"><strong>如果您的家有以上情况，不必惊慌。</strong>大多数都可以化解，而且很多买家根本不讲究风水。</div>
+
+            <!-- ============================================================
+                 CHECKLIST
+                 ============================================================ -->
+            <h2 id="checklist">您的第一个周末清单</h2>
+            <p>十件小事，做完一项勾一项。</p>
+            <ul class="fs-checklist">
+              {checklist.map((item, i) => (
+                <li>
+                  <input type="checkbox" id={`fs-check-${i + 1}`} />
+                  <label for={`fs-check-${i + 1}`}>{item}</label>
+                </li>
+              ))}
+            </ul>
+
+            <!-- ============================================================
+                 HONEST NOTE
+                 ============================================================ -->
+            <h2 id="honest">一句实话</h2>
+            <div class="fs-honest">
+              <p>风水是一种传统，不是科学。没有证据表明它能改变您的运气、健康或房屋的价值。</p>
+              <p>它真正做到的，是推动您拥有一个干净、明亮、整洁、动线顺畅的家。单凭这一点，就值得去做。</p>
+              <p><strong>采纳对您有意义的部分，其余的跳过即可。</strong></p>
+            </div>
+
+            <div class="fs-disclaimer">
+              <h3>免责声明</h3>
+              <p>我是注册房地产销售代表，不是风水师、室内设计师、承包商或验房师。</p>
+              <p>本文是关于一种文化传统的一般性信息，不构成对任何房产的价值、状况或适用性的建议，也不构成客户关系。</p>
+              <p>风水是一种信仰习俗。本文不主张它会影响房产价值、转售、健康或财务。</p>
+              <p>在改动您的家之前，请咨询合适的专业人士：结构方面找承包商，房屋状况找验房师，如需对空间进行完整的风水勘察，请找有资质的风水顾问。如果您住在公寓，在改动大门、阳台或公共区域之前，请先查阅您所在公寓管理公司的规定。</p>
+            </div>
+
+            <div class="seo-tags" role="group" aria-label="关键词">
+              <h2 class="seo-tags-h">关键词</h2>
+              <ul>
+                <li>风水入门</li>
+                <li>多伦多风水</li>
+                <li>大门风水</li>
+                <li>卧室床位摆放</li>
+                <li>厨房炉灶与水槽</li>
+                <li>五行</li>
+                <li>八卦图</li>
+                <li>公寓风水</li>
+                <li>带 4 的楼层</li>
+                <li>丁字路口房屋</li>
+                <li>尖角煞</li>
+                <li>安省买房</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseCTASection heading="看房时也想顾及风水？" lead="如果楼层数字、街道格局或床与门的位置对您或家人很重要，请提前告诉我。在预约看房之前，我会先替您筛选房源。没有压力，也不推销。" />
+  <ChineseFooter />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  /* Do / Watch-out columns */
+  .fs-dodont { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 18px 0 20px; max-width: 760px; }
+  .fs-col { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 20px; }
+  .fs-col-h { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+  .fs-col ul { list-style: none; padding: 0; margin: 0; }
+  .fs-col li { position: relative; padding: 5px 0 5px 22px; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .fs-col li strong { color: var(--ink); font-weight: 600; }
+  .fs-col li::before { position: absolute; left: 0; top: 5px; font-weight: 700; }
+  .fs-do li::before { content: "✓"; color: #1a6b32; }
+  .fs-dont li::before { content: "✕"; color: #b8002e; }
+  @media (max-width: 640px) { .fs-dodont { grid-template-columns: 1fr; } }
+
+  .fs-tip { border-left: 3px solid var(--accent); }
+
+  /* Two-step list (bathroom) */
+  .fs-steps { list-style: none; padding: 0; margin: 14px 0 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 660px; }
+  .fs-steps li { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; font-size: 15px; font-weight: 600; color: var(--ink); }
+  .fs-step-num { flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 17px; font-weight: 500; }
+  @media (max-width: 480px) { .fs-steps { grid-template-columns: 1fr; } }
+
+  /* Five elements */
+  .fs-elements { list-style: none; padding: 0; margin: 18px 0 20px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; max-width: 760px; }
+  .fs-el { background: var(--surface); border: 1px solid var(--rule); border-top: 4px solid var(--el); border-radius: 6px; padding: 14px 14px 12px; min-width: 0; }
+  .fs-el-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .fs-el-glyph { font-size: 22px; line-height: 1; color: var(--el); font-weight: 500; }
+  .fs-el-name { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--ink); }
+  .fs-el p { font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+  @media (max-width: 900px) { .fs-elements { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .fs-elements { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* Bagua 3x3 */
+  .fs-bagua-wrap { max-width: 560px; margin: 18px 0 8px; }
+  .fs-bagua { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; counter-reset: none; }
+  .fs-bagua-cell { aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px 8px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 16px; line-height: 1.25; color: var(--ink); min-width: 0; overflow-wrap: anywhere; }
+  .fs-bagua-centre { background: var(--bg-warm); border-color: var(--ink); }
+  .fs-bagua-door { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; padding: 8px; border: 1px dashed var(--ink-mute); border-radius: 6px; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+  @media (max-width: 480px) { .fs-bagua-cell { font-size: 12.5px; padding: 8px 4px; aspect-ratio: auto; min-height: 72px; } }
+
+  /* Five habits */
+  .fs-habits { list-style: none; padding: 0; margin: 16px 0 20px; max-width: 660px; }
+  .fs-habits li { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; line-height: 1.55; color: var(--ink-soft); }
+  .fs-habits li:last-child { border-bottom: 0; }
+  .fs-habits li strong { color: var(--ink); font-weight: 600; }
+  .fs-habit-num { flex: 0 0 40px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 34px; line-height: 1; color: var(--accent); font-weight: 400; letter-spacing: -0.02em; }
+
+  /* Checklist */
+  .fs-checklist { list-style: none; padding: 0; margin: 14px 0 24px; max-width: 660px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .fs-checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 16px; border-bottom: 1px solid var(--rule); }
+  .fs-checklist li:last-child { border-bottom: 0; }
+  .fs-checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--ink); cursor: pointer; flex: 0 0 18px; }
+  .fs-checklist label { font-size: 15px; line-height: 1.5; color: var(--ink); cursor: pointer; }
+  .fs-checklist input:checked + label { color: var(--ink-mute); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  /* Honest note + disclaimer */
+  .fs-honest { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 20px 24px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 16px 0 28px; }
+  .fs-honest p { margin-bottom: 10px; }
+  .fs-honest p:last-child { margin-bottom: 0; }
+  .fs-disclaimer { max-width: 660px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+  .fs-disclaimer h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 0 0 10px; font-family: inherit; }
+  .fs-disclaimer p { font-size: 13.5px; line-height: 1.6; color: var(--ink-mute); margin-bottom: 10px; }
+</style>
