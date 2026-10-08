@@ -84,7 +84,7 @@ const _crumbs: {name: string, url: string}[] = [{ name: _homeName, url: 'https:/
 let _acc = '';
 for (const seg of _segments) {
   _acc += '/' + seg;
-  _crumbs.push({ name: _title(seg), url: 'https://www.realtorpeterlaw.com' + _acc + '/' });
+  _crumbs.push({ name: _title(seg), url: 'https://www.realtorpeterlaw.com' + _acc });
 }
 const _breadcrumbLd = _crumbs.length > 1 ? {
   '@context': 'https://schema.org',
@@ -121,6 +121,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href={canonical} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}

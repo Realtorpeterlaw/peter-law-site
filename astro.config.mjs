@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://www.realtorpeterlaw.com',
   output: 'static',
   adapter: vercel(),
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   build: { format: 'directory', inlineStylesheets: 'always' },
   vite: { build: { cssCodeSplit: true, assetsInlineLimit: 0 } },
   integrations: [
