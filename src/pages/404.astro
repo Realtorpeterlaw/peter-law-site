@@ -12,35 +12,44 @@ export const prerender = true;
   <TopBar />
   <Header />
 
-      <div class="wrap">
+  <section class="not-found-wrap">
+    <div class="wrap">
       <p class="nf-eyebrow">Error 404</p>
       <h1 class="nf-h">This page has moved on.</h1>
       <p class="nf-lead">The link you followed may be old, or the page was renamed. Here are a few good places to go next:</p>
 
-      <div class="nf-links">
-        <a href="/">Homepage</a>
+      <nav class="nf-links" aria-label="Suggested pages">
+        <a href="/" class="nf-primary">Homepage<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="/for-renters">For Renters</a>
         <a href="/buyer-guide">Buyer Guide</a>
         <a href="/rental-calculator">Rental Calculator</a>
         <a href="/all-calculator">Buyer Calculator</a>
         <a href="/blog">Blog</a>
         <a href="/#book">Contact Peter</a>
-      </div>
+      </nav>
 
       <p class="nf-fine">If you were expecting a specific page and can't find it, please <a href="/#book">get in touch</a>, I'll help you find what you need.</p>
     </div>
+  </section>
 
   <Footer />
 </BaseLayout>
 
 <style>
   .not-found-wrap { padding: 96px 0 128px; min-height: 60vh; display: flex; align-items: center; }
-  .nf-eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute, #6d6d6d); font-weight: 600; margin: 0 0 12px; }
-  .nf-h { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(38px, 6vw, 64px); line-height: 1.1; margin: 0 0 20px; color: var(--ink, #1a1a1a); letter-spacing: -0.015em; }
-  .nf-lead { font-size: 17px; line-height: 1.6; color: var(--ink-soft, #4a4a4a); max-width: 560px; margin: 0 0 32px; }
-  .nf-links { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-bottom: 40px; }
-  .nf-links a { font-size: 15px; padding: 10px 18px; background: #fff; border: 1px solid var(--rule, #d8d4cc); border-radius: 999px; color: var(--ink, #1a1a1a); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
-  .nf-links a:hover { background: var(--ink, #1a1a1a); color: #fff; border-color: var(--ink, #1a1a1a); }
-  .nf-fine { font-size: 14px; color: var(--ink-mute, #6d6d6d); margin: 0; }
-  .nf-fine a { color: var(--ink, #1a1a1a); text-decoration: underline; text-underline-offset: 3px; }
+  .nf-eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 0 0 12px; }
+  .nf-h { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 400; font-size: clamp(38px, 6vw, 64px); line-height: 1.1; margin: 0 0 20px; color: var(--ink); letter-spacing: -0.015em; }
+  .nf-lead { font-size: 17px; line-height: 1.6; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px; }
+  .nf-links { display: flex; flex-wrap: wrap; gap: 12px 14px; margin-bottom: 40px; }
+  .nf-links a { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; padding: 11px 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; color: var(--ink); text-decoration: none; transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s; }
+  .nf-links a:hover { border-color: var(--ink); background: var(--bg-warm); transform: translateY(-1px); }
+  .nf-links a.nf-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .nf-links a.nf-primary:hover { background: var(--ink-soft); border-color: var(--ink-soft); color: var(--bg); }
+  .nf-fine { font-size: 14px; color: var(--ink-mute); margin: 0; }
+  .nf-fine a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 640px) {
+    .not-found-wrap { padding: 56px 0 80px; }
+    .nf-links { gap: 10px; }
+    .nf-links a { font-size: 14px; padding: 10px 16px; }
+  }
 </style>
