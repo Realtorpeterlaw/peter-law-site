@@ -4,6 +4,7 @@ import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
+import FrenchRentalQuestionnaire from '../../components/FrenchRentalQuestionnaire.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-renters' },
@@ -50,52 +51,8 @@ const hreflangAlternates = [
 
           <h3 id="apply">Étape 2 : Rendre votre dossier prêt à être approuvé</h3>
           <p>Pour commencer, remplissez le formulaire ci-dessous : ces informations de base me permettent de préparer votre dossier complet plus rapidement et de savoir quels propriétaires approcher.</p>
-          <div class="calc" style="max-width: 660px;">
-            <form method="POST" action="https://formspree.io/f/xnjrzgda">
-              <div class="calc-fields">
-                <div class="calc-field calc-field-full">
-                  <label for="gs-applicants">Nom(s) du/des demandeur(s) <span class="hint">*</span></label>
-                  <input id="gs-applicants" name="applicants" type="text" required placeholder="ex. Sarah Chen, Jean Tremblay">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-email">Votre courriel <span class="hint">*</span></label>
-                  <input id="gs-email" name="email" type="email" required autocomplete="email">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-phone">Téléphone <span class="hint">(facultatif)</span></label>
-                  <input id="gs-phone" name="phone" type="tel" autocomplete="tel">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-movein">Date d'emménagement <span class="hint">*</span></label>
-                  <input id="gs-movein" name="move_in_date" type="date" required>
-                </div>
-                <div class="calc-field">
-                  <label for="gs-occupation">Profession <span class="hint">*</span></label>
-                  <input id="gs-occupation" name="occupation" type="text" required>
-                </div>
-                <div class="calc-field calc-field-full">
-                  <label for="gs-citizenship">Statut de citoyenneté <span class="hint">*</span></label>
-                  <select id="gs-citizenship" name="citizenship_status" required>
-                    <option value="">Sélectionner…</option>
-                    <option>Citoyen canadien</option>
-                    <option>Résident permanent</option>
-                    <option>Étudiant international</option>
-                    <option>Permis de travail</option>
-                    <option>Visiteur / Autre</option>
-                  </select>
-                </div>
-                <div class="hp-field" aria-hidden="true">
-                  <label for="gs-gotcha">Ne remplissez pas ceci</label>
-                  <input id="gs-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-                </div>
-                <input type="hidden" name="_subject" value="New Rental Get-Started Form">
-                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/french/contact/thanks">
-              </div>
-              <button type="submit" class="btn-primary" style="margin-top: 20px;">
-                Commencer
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </form>
+          <div style="max-width: 660px;">
+            <FrenchRentalQuestionnaire subject='New Rental Questionnaire (French · For Renters)' />
           </div>
 
           <div class="callout"><strong>Nouvel arrivant au Canada?</strong> L'absence d'historique de crédit canadien est la raison la plus fréquente pour laquelle les nouveaux arrivants sont refusés. Je vous montrerai les substituts qui fonctionnent : lettres de garant, paiement volontaire de quelques mois de loyer d'avance, attestations d'employeur, rapports de crédit internationaux, et quels propriétaires les acceptent.</div>
@@ -154,7 +111,6 @@ const hreflangAlternates = [
             <details><summary>Je n'ai pas de crédit canadien. Puis-je quand même louer à Toronto?</summary><p>Oui, mais il vous faudra des substituts : crédit international, un garant, le paiement volontaire de quelques mois de loyer d'avance, ou un propriétaire habitué à travailler avec des nouveaux arrivants. Je connais les propriétaires qui sont flexibles.</p></details>
             <details><summary>Quels quartiers couvrez-vous?</summary><p>Le cœur du centre-ville de Toronto, le secteur riverain et Harbourfront, ainsi que la RGT plus largement. Si c'est à Toronto et que ça se loue, je peux vous aider.</p></details>
             <details id="insurance"><summary>À quoi ressemblent les dépenses typiques?</summary><div><p>Fourchettes mensuelles approximatives pour une location au centre-ville de Toronto :</p><ul class="bullets"><li><strong>Services publics</strong>, 70 $ à 130 $/mois, selon l'immeuble et le fournisseur.</li><li><strong>Internet</strong>, 55 $ à 90 $/mois, selon le fournisseur. Je recommande <a href="https://refer.beanfield.com/l/PETERLAW00/" target="_blank" rel="noopener nofollow">Beanfield</a> <em>(lien de parrainage, petit crédit pour moi, vous payez le même prix)</em>.</li><li><strong>Assurance responsabilité locataire</strong>, 10 $ à 30 $/mois. Compagnies suggérées : Intact, Square One.</li><li><strong>Casier (facultatif)</strong>, 20 $ à 100 $/mois.</li><li><strong>Inscription au déménagement / ascenseur</strong>, la plupart des immeubles exigent un <strong>dépôt d'ascenseur remboursable de 500 $</strong>. Certains facturent aussi des frais d'inscription ou de réservation d'ascenseur de 100 $.</li></ul></div></details>
-            <details><summary>Y a-t-il un piège?</summary><p>Aucun. Je suis payé par le propriétaire; mon intérêt est de vous trouver un logement où vous voudrez rester. Un locataire heureux deux ans plus tard est un locataire qui me recommande à ses amis.</p></details>
           </div>
         </div>
       </div>

@@ -762,6 +762,8 @@ body.mobile-menu-open { overflow: hidden; }
 .quiz-eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 12px; }
 .quiz-heading { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 8px; color: var(--ink); }
 .quiz-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 22px; line-height: 1.5; }
+.prose-body .quiz-form .quiz-heading { margin-top: 0; font-size: 28px; }
+.prose-body .quiz-form .quiz-sub { max-width: none; }
 .quiz-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; margin-bottom: 18px; }
 .quiz-field-full { grid-column: 1 / -1; }
 .quiz-field { display: flex; flex-direction: column; gap: 4px; }

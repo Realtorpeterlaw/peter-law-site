@@ -4,6 +4,7 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+import ChineseRentalQuestionnaire from '../../components/ChineseRentalQuestionnaire.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-renters' },
@@ -50,52 +51,8 @@ const hreflangAlternates = [
 
           <h3 id="apply">第二步：准备申请材料</h3>
           <p>开始的方式很简单：填一下下面的表格，这些基本信息能让我更快为您准备完整的申请包，也能让我知道该联系哪些房东。</p>
-          <div class="calc" style="max-width: 660px;">
-            <form method="POST" action="https://formspree.io/f/xnjrzgda">
-              <div class="calc-fields">
-                <div class="calc-field calc-field-full">
-                  <label for="gs-applicants">申请人姓名 <span class="hint">*</span></label>
-                  <input id="gs-applicants" name="applicants" type="text" required placeholder="例如：陈晓琳，John Smith">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-email">电子邮箱 <span class="hint">*</span></label>
-                  <input id="gs-email" name="email" type="email" required autocomplete="email">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-phone">电话 <span class="hint">（可选）</span></label>
-                  <input id="gs-phone" name="phone" type="tel" autocomplete="tel">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-movein">预期入住日期 <span class="hint">*</span></label>
-                  <input id="gs-movein" name="move_in_date" type="date" required>
-                </div>
-                <div class="calc-field">
-                  <label for="gs-occupation">职业 <span class="hint">*</span></label>
-                  <input id="gs-occupation" name="occupation" type="text" required>
-                </div>
-                <div class="calc-field calc-field-full">
-                  <label for="gs-citizenship">身份状态 <span class="hint">*</span></label>
-                  <select id="gs-citizenship" name="citizenship_status" required>
-                    <option value="">请选择…</option>
-                    <option>加拿大公民</option>
-                    <option>永久居民</option>
-                    <option>国际留学生</option>
-                    <option>工作签证</option>
-                    <option>访客 / 其他</option>
-                  </select>
-                </div>
-                <div class="hp-field" aria-hidden="true">
-                  <label for="gs-gotcha">请勿填写</label>
-                  <input id="gs-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-                </div>
-                <input type="hidden" name="_subject" value="新租房咨询表 (中文版)">
-                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/chinese/contact/thanks">
-              </div>
-              <button type="submit" class="btn-primary" style="margin-top: 20px;">
-                提交
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </form>
+          <div style="max-width: 660px;">
+            <ChineseRentalQuestionnaire subject='新租房问卷 (中文版 · 租客页)' />
           </div>
 
           <div class="callout"><strong>新移民？</strong> 没有加拿大本地信用记录，是新移民被拒最常见的原因。我会告诉您哪些替代材料管用（担保人信、自愿预付几个月租金、雇主证明信、海外信用报告），也会告诉您哪些房东愿意接受这些材料。</div>
@@ -154,7 +111,6 @@ const hreflangAlternates = [
             <details><summary>我没有加拿大信用记录，还能在多伦多租到房吗？</summary><p>可以，但需要替代材料（海外信用报告、担保人、自愿预付几个月租金），或者找愿意接受新移民的房东。我知道哪些房东比较灵活。</p></details>
             <details><summary>您覆盖哪些区域？</summary><p>多伦多市中心核心区、湖滨与 Harbourfront，以及整个大多伦多地区。只要在多伦多可租，我都可以协助。</p></details>
             <details id="insurance"><summary>一般的月度开支大概是多少？</summary><div><p>多伦多市中心租房常见的月度开支范围：</p><ul class="bullets"><li><strong>水电煤气</strong>：每月 $70 到 $130，视大楼和供电公司而定。</li><li><strong>互联网</strong>：每月 $55 到 $90，视服务商而定。推荐 <a href="https://refer.beanfield.com/l/PETERLAW00/" target="_blank" rel="noopener nofollow">Beanfield</a> <em>（推荐链接，我会获得一点积分，您不会多付钱）</em>。</li><li><strong>租客责任保险</strong>：每月 $10 到 $30。建议公司：Intact、Square One。</li><li><strong>储物柜（可选）</strong>：每月 $20 到 $100。</li><li><strong>入住登记 / 电梯</strong>：大多数大楼需缴 <strong>$500 可退还的电梯押金</strong>。部分大楼另收 $100 登记费或电梯预约费。</li></ul></div></details>
-            <details><summary>有什么“猫腻”吗？</summary><p>没有。我的报酬由房东支付；我的动机是帮您找到一个您愿意长住的房子。两年后还满意的租客，是会把朋友介绍给我的租客。</p></details>
           </div>
         </div>
       </div>

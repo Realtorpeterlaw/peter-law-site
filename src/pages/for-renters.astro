@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+import RentalQuestionnaire from '../components/RentalQuestionnaire.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/for-renters' },
@@ -51,52 +52,8 @@ const hreflangAlternates = [
 
           <h3 id="apply">Step 2, Get approval-ready</h3>
           <p>To get started, fill the form below, these basics let me prepare your full package faster and know which landlords to approach.</p>
-          <div class="calc" style="max-width: 660px;">
-            <form method="POST" action="https://formspree.io/f/xnjrzgda">
-              <div class="calc-fields">
-                <div class="calc-field calc-field-full">
-                  <label for="gs-applicants">Name(s) of applicant(s) <span class="hint">*</span></label>
-                  <input id="gs-applicants" name="applicants" type="text" required placeholder="e.g. Sarah Chen, John Smith">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-email">Your email <span class="hint">*</span></label>
-                  <input id="gs-email" name="email" type="email" required autocomplete="email">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-phone">Phone <span class="hint">(optional)</span></label>
-                  <input id="gs-phone" name="phone" type="tel" autocomplete="tel">
-                </div>
-                <div class="calc-field">
-                  <label for="gs-movein">Move-in date <span class="hint">*</span></label>
-                  <input id="gs-movein" name="move_in_date" type="date" required>
-                </div>
-                <div class="calc-field">
-                  <label for="gs-occupation">Occupation <span class="hint">*</span></label>
-                  <input id="gs-occupation" name="occupation" type="text" required>
-                </div>
-                <div class="calc-field calc-field-full">
-                  <label for="gs-citizenship">Citizenship status <span class="hint">*</span></label>
-                  <select id="gs-citizenship" name="citizenship_status" required>
-                    <option value="">Select…</option>
-                    <option>Canadian Citizen</option>
-                    <option>Permanent Resident</option>
-                    <option>International Student</option>
-                    <option>Work Permit</option>
-                    <option>Visitor / Other</option>
-                  </select>
-                </div>
-                <div class="hp-field" aria-hidden="true">
-                  <label for="gs-gotcha">Don't fill this</label>
-                  <input id="gs-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-                </div>
-                <input type="hidden" name="_subject" value="New Rental Get-Started Form">
-                <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
-              </div>
-              <button type="submit" class="btn-primary" style="margin-top: 20px;">
-                Get started
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </form>
+          <div style="max-width: 660px;">
+            <RentalQuestionnaire subject='New Rental Questionnaire (For Renters)' />
           </div>
 
           <div class="callout"><strong>New to Canada?</strong> No Canadian credit history is the most common reason newcomers get rejected. I'll show you what substitutes work, guarantor letters, voluntarily prepaying a few months of rent, employer attestations, international credit reports, and which landlords accept them.</div>
@@ -183,7 +140,6 @@ const hreflangAlternates = [
             <details><summary>I don't have Canadian credit. Can I still rent in Toronto?</summary><p>Yes, but you'll need substitutes, international credit, a guarantor, voluntarily prepaying a few months of rent, or a landlord who's used to working with newcomers. I know which landlords are flexible.</p></details>
             <details><summary>What neighborhoods do you cover?</summary><p>Downtown Toronto core, the waterfront and harbourfront, plus the GTA more broadly. If it's in Toronto and rentable, I can help.</p></details>
             <details><summary>What are the typical expenses like?</summary><div><p>Rough monthly ranges for a downtown Toronto rental:</p><ul class="bullets"><li><strong>Utilities</strong>, $70 to $130/month, depending on the building and utility company.</li><li><strong>Internet</strong>, $55 to $90/month, depending on the provider. I recommend <a href="https://refer.beanfield.com/l/PETERLAW00/" target="_blank" rel="noopener nofollow">Beanfield</a> <em>(referral link, small credit to me, you pay the same)</em>.</li><li><strong>Tenant liability insurance</strong>, $10 to $30/month. Suggested companies: Intact, Square One.</li><li><strong>Locker (optional)</strong>, $20 to $100/month.</li><li><strong>Move-in registration / elevator</strong>, most buildings require a <strong>$500 refundable elevator deposit</strong>. Some also charge a $100 registration or elevator booking fee.</li></ul></div></details>
-            <details><summary>What's the catch?</summary><p>None. I get paid by the landlord; my incentive is finding you a place you'll stay in. A renter who's happy two years later is a renter who refers me to friends.</p></details>
           </div>
         </div>
       </div>
