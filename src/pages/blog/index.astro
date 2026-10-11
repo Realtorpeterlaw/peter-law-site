@@ -167,7 +167,7 @@ export const prerender = true;
 ---
 <BaseLayout
   title="Toronto Real Estate Blog | Peter Law"
-  description="Real talk on Toronto rentals, sales, financing, and Ontario real estate legislation. Plain-English explainers from a bilingual Toronto realtor. Updated regularly."
+  description="Real talk on Toronto rentals, sales, financing, and Ontario real estate law. Plain-English explainers from a bilingual Toronto realtor."
   bodyClass="blog-page"
   hreflangAlternates={hreflangAlternates}
 >
@@ -197,7 +197,7 @@ export const prerender = true;
       <div class="blog-list">
         {posts.map((post) => (
           <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
-            <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Read: ${post.title}`}>
+            <a href={`/blog/${post.slug}`} class="blog-card-link">
               {post.categories && post.categories.length > 0 && (
                 <span class="blog-card-dots" role="img" aria-label={`Categories: ${post.categories.map(c => c === 'rent' ? 'Rent' : 'Sales').join(', ')}`}>
                   {post.categories.map(c => (

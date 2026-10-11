@@ -362,6 +362,29 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
     })();
   </script>
   <script is:inline>
+    /* Formspree forms: submit in the background and send the visitor to this site's own
+       thank-you page (the hidden _next field) instead of Formspree's generic page.
+       If anything goes wrong, fall back to a normal submit so no message is lost. */
+    (function () {
+      if (!window.fetch || !window.FormData) return;
+      document.addEventListener('submit', function (e) {
+        var f = e.target;
+        if (!f || f.tagName !== 'FORM' || e.defaultPrevented) return;
+        var action = f.getAttribute('action') || '';
+        if (action.indexOf('formspree.io') < 0) return;
+        e.preventDefault();
+        var btn = f.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn) btn.disabled = true;
+        var nextEl = f.querySelector('input[name="_next"]');
+        var lang = location.pathname.indexOf('/chinese') === 0 ? '/chinese' : location.pathname.indexOf('/french') === 0 ? '/french' : '';
+        var next = (nextEl && nextEl.value) || (lang + '/contact/thanks');
+        fetch(action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+          .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); location.href = next; })
+          .catch(function () { if (btn) btn.disabled = false; f.submit(); });
+      });
+    })();
+  </script>
+  <script is:inline>
     /* Theme toggle: switch dark ↔ light, persist in localStorage,
        and keep the theme-color meta in sync so mobile browser chrome updates. */
     (function () {

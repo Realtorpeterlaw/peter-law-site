@@ -78,7 +78,7 @@ const hreflangAlternates = [
       <div class="blog-list">
         {posts.map((post) => (
           <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
-            <a href={`/french/blog/${post.slug}`} class="blog-card-link" aria-label={`Lire : ${post.title}`}>
+            <a href={`/french/blog/${post.slug}`} class="blog-card-link">
               {post.categories && post.categories.length > 0 && (
                 <span class="blog-card-dots" role="img" aria-label={`Catégories : ${post.categories.map(c => c === 'rent' ? 'Location' : 'Vente').join(', ')}`}>
                   {post.categories.map(c => (

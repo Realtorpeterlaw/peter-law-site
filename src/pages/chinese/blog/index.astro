@@ -193,7 +193,7 @@ const hreflangAlternates = [
       <div class="blog-list">
         {posts.map((post) => (
           <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
-            <a href={`/chinese/blog/${post.slug}`} class="blog-card-link" aria-label={`阅读:${post.title}`}>
+            <a href={`/chinese/blog/${post.slug}`} class="blog-card-link">
               {post.categories && post.categories.length > 0 && (
                 <span class="blog-card-dots" role="img" aria-label={`类别:${post.categories.map(c => c === 'rent' ? '租赁' : '买卖').join(', ')}`}>
                   {post.categories.map(c => (

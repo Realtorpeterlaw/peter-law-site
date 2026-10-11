@@ -28,7 +28,9 @@ img { max-width: 100%; height: auto; display: block; }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .topbar a { color: #d4cfc4; }
 .topbar a:hover { color: #fff; }
-.topbar-left span + span::before { content: "·"; margin: 0 10px; color: #6b6b6b; }
+.topbar-left > * + *::before { content: "·"; margin: 0 10px; color: #6b6b6b; }
+.topbar-left a { color: #d4cfc4; text-decoration: none; }
+.topbar-left a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 .topbar-right { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 3px 5px; }
 .topbar-right a { display: inline-block; padding: 1px 3px; }
 .lang-sep { color: #6b6b6b; user-select: none; padding: 0 1px; }
@@ -135,6 +137,8 @@ footer { background: var(--bg); color: var(--ink-soft); padding: 64px 0 32px; fo
 .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .foot-col a:hover { color: var(--ink); }
 .foot-brand p { margin-top: 16px; font-size: 13px; color: var(--ink-mute); }
+.foot-brand p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.foot-brand p a:hover { color: var(--ink); }
 .foot-bottom { padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--ink-mute); flex-wrap: wrap; gap: 12px; }
 .foot-bottom a { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
