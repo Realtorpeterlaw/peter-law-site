@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/ChineseTopBar.astro';
+import Header from '../../components/ChineseHeader.astro';
+import Footer from '../../components/ChineseFooter.astro';
+import CTASection from '../../components/ChineseCTASection.astro';
+import { CONFIG } from '../../lib/condo-calc.js';
+
+export const prerender = true;
+
+const BOOKING_URL = 'https://cal.com/peter-law-c5lm9q';
+const rateDate = (() => { const [y, m, d] = CONFIG.RATE_LAST_UPDATED.split('-'); return `${y} 年 ${+m} 月 ${+d} 日`; })();
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buy-condo-calc' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buy-condo-calc' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+];
+---
+<BaseLayout
+  title="BUY 公寓计算器 | 多伦多公寓月供总成本计算器 | Peter Law"
+  description="算出多伦多二手公寓每月的真实总成本：按揭、管理费、地税、水电和保险，外加交房当天需要准备的现金。"
+  bodyClass="calc-page"
+  zh={true}
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">BUY 公寓计算器</div>
+      <h1>多伦多公寓月供总成本计算器</h1>
+      <p>仅适用于二手公寓。输入四个数字，就能得到每月的全部成本，而不只是按揭月供。购房与贷款的更多信息，欢迎联系 Peter。建议咨询持牌贷款经纪。</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell cc-shell">
+
+        <!-- ============================ INPUTS ============================ -->
+        <div class="ac-inputs cc-inputs">
+          <div class="ac-input-group">
+            <label for="cc-price">购买价格</label>
+            <div class="input-prefix"><input type="number" id="cc-price" min="0" step="5000" inputmode="decimal" placeholder="例如 650000" /></div>
+          </div>
+
+          <div class="ac-input-group cc-down-group" id="cc-down-wrap" data-mode="%">
+            <label for="cc-down">首付</label>
+            <div class="cc-down-row">
+              <div class="cc-mode" role="group" aria-label="以金额或百分比输入首付">
+                <button type="button" data-down-mode="$" aria-pressed="false">$</button>
+                <button type="button" data-down-mode="%" aria-pressed="true" class="is-on">%</button>
+              </div>
+              <div class="cc-down-input"><input type="number" id="cc-down" min="0" step="0.5" inputmode="decimal" value="20" /></div>
+            </div>
+            <label for="cc-down-slider" class="visually-hidden">首付百分比滑块</label>
+            <input type="range" id="cc-down-slider" min="5" max="35" step="0.5" value="20" list="cc-ticks" />
+            <datalist id="cc-ticks"><option value="5"></option><option value="10"></option><option value="15"></option><option value="20"></option></datalist>
+            <div class="cc-slider-notes"><span id="cc-min-note"></span><span class="cc-pill" id="cc-ins-pill" aria-live="polite"></span></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label for="cc-fee">每月公寓管理费</label>
+            <div class="input-prefix"><input type="number" id="cc-fee" min="0" step="10" inputmode="decimal" placeholder="例如 650" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label for="cc-rate">按揭利率 <span class="hint">示例利率，最近更新：<span data-rate-date>{rateDate}</span>。实际利率由您的贷款机构决定。</span></label>
+            <div class="input-suffix"><input type="number" id="cc-rate" min="0" max="25" step="0.05" inputmode="decimal" /></div>
+          </div>
+
+          <details class="ac-more" id="cc-refine">
+            <summary>细化这个估算</summary>
+            <div class="ac-more-body">
+              <div class="ac-input-group">
+                <label for="cc-heat">管理费是否包含暖气和水费？</label>
+                <select id="cc-heat"><option value="yes">是</option><option value="no">否</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-hydro">管理费是否包含电费？</label>
+                <select id="cc-hydro"><option value="no">否</option><option value="yes">是</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-utilities">管理费未包含的每月水电费</label>
+                <div class="input-prefix"><input type="number" id="cc-utilities" min="0" step="10" inputmode="decimal" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-tax">年度地税 <span class="hint">默认按房价的 0.7% 预填。如有房源的实际数字，请直接填入。</span></label>
+                <div class="input-prefix"><input type="number" id="cc-tax" min="0" step="50" inputmode="decimal" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-insurance">公寓单元保险（每月）</label>
+                <div class="input-prefix"><input type="number" id="cc-insurance" min="0" step="5" inputmode="decimal" value="40" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-parking">车位</label>
+                <select id="cc-parking"><option value="owned">自有（已含在房价内）</option><option value="rented">按月租用</option><option value="none">无</option></select>
+              </div>
+              <div class="ac-input-group" id="cc-parking-cost-wrap" hidden>
+                <label for="cc-parking-cost">车位月租</label>
+                <div class="input-prefix"><input type="number" id="cc-parking-cost" min="0" step="10" inputmode="decimal" value="200" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-locker">储物柜</label>
+                <select id="cc-locker"><option value="none">无</option><option value="owned">自有（已含在房价内）</option><option value="rented">按月租用</option></select>
+              </div>
+              <div class="ac-input-group" id="cc-locker-cost-wrap" hidden>
+                <label for="cc-locker-cost">储物柜月租</label>
+                <div class="input-prefix"><input type="number" id="cc-locker-cost" min="0" step="5" inputmode="decimal" value="50" /></div>
+              </div>
+              <div class="ac-input-group ac-checkbox-group">
+                <label for="cc-fthb" class="ac-checkbox">
+                  <input type="checkbox" id="cc-fthb" />
+                  <span class="ac-checkbox-text">我是首次购房者 <span class="hint">可享受土地转让税退税，并可选择 30 年摊还期。</span></span>
+                </label>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-amort">摊还期</label>
+                <select id="cc-amort"><option value="20">20 年</option><option value="25" selected>25 年</option><option value="30">30 年</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-toronto">房产是否位于多伦多市内？</label>
+                <select id="cc-toronto"><option value="yes">是（需缴多伦多市土地转让税）</option><option value="no">否，在安省其他地区</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-income">家庭税前年收入 <span class="hint">选填。填写后显示您的住房成本比率。</span></label>
+                <div class="input-prefix"><input type="number" id="cc-income" min="0" step="1000" inputmode="decimal" placeholder="选填" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-debts">其他每月债务还款 <span class="hint">选填。车贷、学生贷款、信用卡最低还款。</span></label>
+                <div class="input-prefix"><input type="number" id="cc-debts" min="0" step="50" inputmode="decimal" placeholder="选填" /></div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- ============================ RESULTS ============================ -->
+        <div class="ac-results cc-results" aria-live="polite">
+          <div class="cc-empty" id="cc-empty">输入房价，查看您的每月成本。</div>
+          <div class="cc-errors" id="cc-errors" hidden role="alert"></div>
+
+          <div id="cc-out" hidden>
+            <div class="cc-headline">
+              <div class="ac-headline-label">您的预估每月成本</div>
+              <div class="cc-headline-value" id="cc-total" data-output>$0</div>
+              <div class="ac-headline-sub">全部包含：按揭、管理费、地税、水电和保险。精确到每月 <span id="cc-total-cents">$0.00</span>。</div>
+            </div>
+
+            <div class="cc-bar" aria-hidden="true">
+              <span class="cc-bar-seg cc-bar-pi" id="cc-bar-pi"></span><span class="cc-bar-seg cc-bar-fee" id="cc-bar-fee"></span><span class="cc-bar-seg cc-bar-tax" id="cc-bar-tax"></span><span class="cc-bar-seg cc-bar-util" id="cc-bar-util"></span><span class="cc-bar-seg cc-bar-ins" id="cc-bar-ins"></span><span class="cc-bar-seg cc-bar-park" id="cc-bar-park"></span>
+            </div>
+
+            <h2 class="ac-section-h">每月明细</h2>
+            <div class="ac-breakdown cc-breakdown">
+              <div class="ac-row"><span><i class="cc-dot cc-bar-pi"></i>按揭月供</span><strong id="cc-m-pi">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-fee"></i>公寓管理费</span><strong id="cc-m-fee">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-tax"></i>地税</span><strong id="cc-m-tax">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-util"></i>管理费未包含的水电费</span><strong id="cc-m-util">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-ins"></i>公寓保险</span><strong id="cc-m-ins">$0</strong></div>
+              <div class="ac-row" id="cc-m-park-row" hidden><span><i class="cc-dot cc-bar-park"></i>车位 / 储物柜租金</span><strong id="cc-m-park">$0</strong></div>
+              <div class="ac-row ac-row-total"><span>每月合计</span><strong id="cc-m-total">$0</strong></div>
+            </div>
+
+            <h2 class="ac-section-h">交房当天需要的一次性现金</h2>
+            <div class="ac-breakdown cc-closing">
+              <div class="ac-row"><span>首付</span><strong id="cc-c-down">$0</strong></div>
+              <div class="ac-row"><span>按揭保险费的省销售税（PST） <em class="ac-note" id="cc-c-pst-note"></em></span><strong id="cc-c-pst">$0</strong></div>
+              <div class="ac-row"><span>安省土地转让税</span><strong id="cc-c-ltt-on">$0</strong></div>
+              <div class="ac-row" id="cc-c-ltt-tor-row"><span>多伦多市土地转让税</span><strong id="cc-c-ltt-tor">$0</strong></div>
+              <div class="ac-row" id="cc-c-rebate-row" hidden><span>首次购房者退税</span><strong id="cc-c-rebate">$0</strong></div>
+              <div class="ac-row cc-row-edit"><label for="cc-legal">律师费</label><span class="input-prefix"><input type="number" id="cc-legal" min="0" step="100" inputmode="decimal" value="2000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-title">产权保险、验房、公寓状况证明</label><span class="input-prefix"><input type="number" id="cc-title" min="0" step="100" inputmode="decimal" value="1000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-adjust">费用调整</label><span class="input-prefix"><input type="number" id="cc-adjust" min="0" step="100" inputmode="decimal" value="500" /></span></div>
+              <div class="ac-row ac-row-total"><span>交房当天所需现金合计</span><strong id="cc-c-total">$0</strong></div>
+            </div>
+
+            <details class="cc-details">
+              <summary>查看详情</summary>
+              <div class="ac-checks cc-checks">
+                <div class="ac-check"><div class="ac-check-label">按揭总额（含保险费）</div><div class="ac-check-value" id="cc-d-mortgage">$0</div><div class="ac-check-sub" id="cc-d-mortgage-note"></div></div>
+                <div class="ac-check"><div class="ac-check-label">整个摊还期的利息总额</div><div class="ac-check-value" id="cc-d-interest">$0</div><div class="ac-check-sub" id="cc-d-interest-note"></div></div>
+                <div class="ac-check"><div class="ac-check-label">压力测试利率下的月供</div><div class="ac-check-value" id="cc-d-stress">$0</div><div class="ac-check-sub" id="cc-d-stress-note"></div></div>
+                <div class="ac-check cc-ratios" id="cc-d-ratios"></div>
+              </div>
+            </details>
+
+            <p class="calc-disclaimer cc-disclaimer">仅为示例估算。这不是按揭预批、报价或理财建议。所示利率为截至 <span data-rate-date>{rateDate}</span> 的示例利率，可能随时变动。实际成本因贷款机构、信用状况和房产而异。签署任何文件前，请与持牌贷款专业人士、律师和会计师核实您的数字。<br>Peter Law，销售代表，HomeLife Golconda Realty Inc., Brokerage。</p>
+
+            <!-- ============================ LEAD CAPTURE (after the answer, never before) ============================ -->
+            <div class="cc-lead">
+              <div class="cc-lead-card">
+                <h3>把这份明细发到我的邮箱</h3>
+                <p>我会把上面的数字发到您的邮箱；如果您愿意，也会附上几套符合这些数字的公寓。</p>
+                <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
+                  <div class="cc-lead-fields">
+                    <div><label for="cc-lead-name">姓名</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
+                    <div><label for="cc-lead-email">邮箱</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                  </div>
+                  <input type="hidden" name="_subject" value="BUY 公寓计算器明细请求 (中文版)" />
+                  <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/chinese/contact/thanks" />
+                  <input type="hidden" name="purchase_price" id="cc-lead-price" value="" />
+                  <input type="hidden" name="all_in_monthly" id="cc-lead-total" value="" />
+                  <input type="hidden" name="breakdown" id="cc-lead-summary" value="" />
+                  <div class="hp-field" aria-hidden="true"><label for="cc-gotcha">请勿填写</label><input id="cc-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
+                  <div class="cc-lead-actions">
+                    <button type="submit" class="btn-primary">发送明细</button>
+                    <button type="button" class="btn-warm" id="cc-print">保存为 PDF</button>
+                  </div>
+                </form>
+              </div>
+              <div class="cc-lead-card">
+                <h3>与 Peter 预约 15 分钟通话</h3>
+                <p>带上这些数字，我们聊聊您看中的楼盘实际能做到什么程度。没有压力。</p>
+                <a href={BOOKING_URL} class="btn-primary" target="_blank" rel="noopener">预约通话</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SEO TEXT ============================ -->
+  <section class="major" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="prose-body cc-prose">
+        <h2>这个计算器包含什么</h2>
+        <p>大多数按揭计算器只算到按揭月供。但在多伦多买公寓，这个数字只是账单的一部分。这个计算器加上了每月管理费、地税、管理费未包含的水电费、公寓保险，以及租用的车位或储物柜，所以顶部那个数字就是每月真正从您账户流出的金额。</p>
+        <p>按揭本身按加拿大的方式计算：半年复利、联邦规定的最低首付、首付低于 20% 时的违约保险费（含 30 年摊还期附加费），以及该保险费 8% 的安省销售税。这笔税在交房当天以现金支付，不计入按揭。交房现金板块还列出安省土地转让税、公寓位于多伦多市内时的市政土地转让税，以及两项税的首次购房者退税。</p>
+        <p>在“细化这个估算”中填入家庭收入，还能看到您的住房成本比率，以及贷款机构通常参考的数值。工具只显示比率，不做结论：决定权在您的贷款机构。如果是独立屋或联排屋，或想同时比较几个价位，请使用完整版 <a href="/chinese/all-calculator">BUY 计算器</a>。如果这是您的第一套公寓，<a href="/chinese/blog/first-time-buyer-guide-condos">首次购房指南：公寓篇</a>会带您了解状况证明、储备基金，以及出价前该问的问题。</p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="想用真实房源核对这些数字？" lead="把您在看的楼盘或社区发给我。15 分钟内，我会告诉您那里的管理费、税费和交房费用实际是什么样。" />
+  <Footer />
+
+  <script>
+    import { initCondoCalc } from '../../lib/condo-calc-ui.js';
+    initCondoCalc({
+      locale: 'en-CA',
+      formatDate: (iso) => { const [y, m, d] = iso.split('-'); return `${y} 年 ${+m} 月 ${+d} 日`; },
+      perMonth: '/月',
+      minNote: (min, p) => `此房价的最低首付：${min}（${p}）`,
+      pillNotInsurable: '低于法定最低首付',
+      pillNone: '无需按揭保险（首付 20% 以上）',
+      pillPremium: (rate, amt) => `按揭保险：保费 ${rate}（${amt}）`,
+      errMinDown: (price, min, short, rule) => `${price} 的房产，最低首付为 ${min}` + (rule === 'CAP' ? '（20%：房价达到或超过 $1,500,000 时无法购买按揭保险）' : rule === 'FIVE' ? '（5%）' : '（前 $500,000 的 5%，加上其余部分的 10%）') + `。您还差 ${short}。`,
+      errDownOverPrice: '首付不能高于购买价格。',
+      errAmort30: '首付低于 20% 的投保按揭，只有首次购房者才能选择 30 年摊还期。请改为 25 年、首付 20%，或在适用时勾选“我是首次购房者”。',
+      errAmortOver30: '二手公寓的摊还期不能超过 30 年。',
+      errRate: '请输入高于 0% 的按揭利率。',
+      pstNote: (rate, prem) => `${rate} 保费（${prem}）的 8%，现金支付`,
+      pstNone: '无：首付 20% 以上',
+      mortgageNote: (base, prem) => `借款 ${base} + 计入贷款的保费 ${prem}`,
+      mortgageNoteNone: '无保险费（首付 20% 以上）。',
+      interestNote: (yrs, rate) => `按 ${rate} 利率、${yrs} 年摊还期计算，假设利率不变且不提前还款。`,
+      stressNote: (rate, actual) => `贷款机构按 ${rate}（您的利率 +2% 与 5.25% 中的较高者）审批。您的实际月供为 ${actual}。`,
+      gdsText: (gds, guide) => `您的住房成本占税前收入的 <strong>${gds}</strong>（GDS）。贷款机构通常希望不超过 ${guide}。`,
+      tdsText: (tds, guide) => `加上其他债务后为 <strong>${tds}</strong>（TDS）。贷款机构通常希望不超过 ${guide}。`,
+      ratioNote: '决定权在您的贷款机构。这只是估算。',
+      ratioEmpty: '在“细化这个估算”中填入家庭收入，即可查看您的住房成本比率。',
+      summary: (r, money, pct) => [
+        `房价 ${money(r.inputs.price, 0)}，首付 ${money(r.inputs.down, 0)}（${pct(r.inputs.downPct, 1)}），利率 ${pct(r.inputs.ratePct)}，${r.inputs.amort} 年`,
+        `按揭 ${money(r.monthly.pAndI)} + 管理费 ${money(r.monthly.condoFee)} + 地税 ${money(r.monthly.propertyTax)} + 水电 ${money(r.monthly.utilities)} + 保险 ${money(r.monthly.insurance)} + 车位/储物柜 ${money(r.monthly.parkingRent + r.monthly.lockerRent)} = 每月 ${money(r.monthly.total)}`,
+        `交房：首付 ${money(r.closing.down)} + 保费 PST ${money(r.closing.premiumPST)} + 土地转让税 ${money(r.closing.ltt.total)} + 律师/产权/调整 ${money(r.closing.legal + r.closing.titleEtc + r.closing.adjustments)} = ${money(r.closing.total)}`,
+        `压力测试 ${pct(r.mortgage.stressRate)} = 每月 ${money(r.mortgage.stressPayment)}` + (r.ratios ? `；GDS ${pct(r.ratios.gds, 0)}，TDS ${pct(r.ratios.tds, 0)}` : ''),
+      ].join(' | '),
+    });
+  </script>
+</BaseLayout>
+
+<style is:global>
+  /* BUY Condo Calc. page styles (shared by EN / ZH / FR) */
+  .cc-shell [hidden] { display: none !important; }
+  .cc-down-row { display: flex; gap: 8px; align-items: stretch; }
+  .cc-mode { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; flex: 0 0 auto; }
+  .cc-mode button { font: inherit; font-weight: 600; font-size: 14px; padding: 0 14px; background: var(--surface); color: var(--ink-soft); border: 0; cursor: pointer; min-width: 44px; }
+  .cc-mode button + button { border-left: 1px solid var(--rule); }
+  .cc-mode button.is-on { background: var(--ink); color: var(--bg); }
+  .cc-mode button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .cc-down-input { position: relative; flex: 1; }
+  .cc-down-input input { width: 100%; }
+  #cc-down-wrap[data-mode="$"] .cc-down-input::before { content: '$'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 14px; pointer-events: none; }
+  #cc-down-wrap[data-mode="$"] .cc-down-input input { padding-left: 28px; }
+  #cc-down-wrap[data-mode="%"] .cc-down-input::after { content: '%'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 14px; pointer-events: none; }
+  #cc-down-slider { width: 100%; margin: 10px 0 4px; accent-color: var(--ink); cursor: pointer; }
+  #cc-down-slider:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  .cc-slider-notes { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--ink-mute); }
+  .cc-pill { display: inline-block; align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); min-height: 1.4em; }
+  .cc-pill:empty { display: none; }
+  .cc-pill[data-state="good"] { background: #eef6ee; border-color: #cfe0cf; color: #1f5a23; }
+  .cc-pill[data-state="warn"] { background: #fbf6ea; border-color: #ead9a8; color: #6b5110; }
+  .cc-pill[data-state="bad"] { background: #fbeeee; border-color: #e6c3c3; color: #8a1f2b; }
+  html[data-theme="dark"] .cc-pill[data-state="good"] { background: #142013; border-color: #2a4a2a; color: #b7e0b9; }
+  html[data-theme="dark"] .cc-pill[data-state="warn"] { background: #2a2211; border-color: #5a4a1e; color: #f0d48a; }
+  html[data-theme="dark"] .cc-pill[data-state="bad"] { background: #2a1416; border-color: #5a2a2e; color: #f1b3b9; }
+  .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .cc-empty { background: var(--bg-warm); border: 1px dashed var(--rule); border-radius: 6px; padding: 40px 24px; text-align: center; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 22px; color: var(--ink-soft); }
+  .cc-errors { background: #fbeeee; border: 1px solid #e6c3c3; border-left: 4px solid #b8002e; border-radius: 6px; padding: 16px 20px; color: var(--ink); font-size: 15px; line-height: 1.55; }
+  .cc-errors ul { margin: 0; padding-left: 20px; } .cc-errors li + li { margin-top: 8px; }
+  html[data-theme="dark"] .cc-errors { background: #2a1416; border-color: #5a2a2e; }
+  .cc-headline { background: var(--ink); color: var(--bg); border-radius: 8px; padding: 26px 28px; }
+  .cc-headline .ac-headline-label { color: var(--bg); opacity: .75; }
+  .cc-headline-value { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: clamp(40px, 7vw, 60px); line-height: 1.05; letter-spacing: -0.02em; }
+  .cc-headline .ac-headline-sub { color: var(--bg); opacity: .8; margin-top: 10px; }
+  .cc-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--bg-warm); margin: 16px 0 4px; }
+  .cc-bar-seg { display: block; height: 100%; transition: width .25s ease; }
+  .cc-bar-pi { background: #1a1a1a; } .cc-bar-fee { background: #c69641; } .cc-bar-tax { background: #2c5f8a; } .cc-bar-util { background: #7f8a94; } .cc-bar-ins { background: #2f7d4a; } .cc-bar-park { background: #b07a3c; }
+  html[data-theme="dark"] .cc-bar-pi { background: #f4f0e8; }
+  .cc-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+  .cc-results .ac-section-h { margin-top: 10px; }
+  .cc-closing { background: var(--bg-warm); }
+  .cc-row-edit label { font-size: inherit; color: inherit; }
+  .cc-row-edit .input-prefix { position: relative; display: inline-block; width: 130px; }
+  .cc-row-edit .input-prefix::before { content: '$'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 13px; pointer-events: none; }
+  .cc-row-edit input { width: 100%; font: inherit; font-size: 14px; font-weight: 600; text-align: right; padding: 6px 10px 6px 24px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .cc-row-edit input:focus { outline: none; border-color: var(--ink); }
+  .cc-details { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  .cc-details summary { cursor: pointer; padding: 14px 18px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 18px; color: var(--ink); list-style: none; display: flex; justify-content: space-between; }
+  .cc-details summary::-webkit-details-marker { display: none; }
+  .cc-details summary::after { content: '+'; color: var(--ink-mute); }
+  .cc-details[open] summary::after { content: '−'; }
+  .cc-details .ac-checks { padding: 0 18px 18px; }
+  .cc-ratios p { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; line-height: 1.5; }
+  .cc-ratios p strong { color: var(--ink); }
+  .cc-ratio-note { font-style: italic; color: var(--ink-mute) !important; }
+  .cc-disclaimer { margin-top: 6px; }
+  .cc-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .cc-lead-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; }
+  .cc-lead-card h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; margin: 0 0 6px; color: var(--ink); }
+  .cc-lead-card p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; line-height: 1.5; }
+  .cc-lead-card > .btn-primary { align-self: flex-start; margin-top: auto; }
+  .cc-lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .cc-lead-fields label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px; }
+  .cc-lead-fields input { width: 100%; font: inherit; font-size: 16px; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .cc-lead-fields input:focus { outline: none; border-color: var(--ink); }
+  .cc-lead-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cc-prose { max-width: 760px; }
+  @media (max-width: 900px) {
+    .cc-shell { grid-template-columns: 1fr; }
+    .cc-lead { grid-template-columns: 1fr; }
+    .cc-lead-fields { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .cc-headline { padding: 20px 18px; }
+    .cc-row-edit { flex-wrap: wrap; gap: 6px; }
+    .cc-row-edit .input-prefix { width: 120px; }
+  }
+  @media print {
+    .cc-inputs, .cc-lead, .cc-empty { display: none !important; }
+    .cc-shell { display: block; }
+    .cc-headline { background: #fff !important; color: #000 !important; border: 1px solid #000; }
+    .cc-headline .ac-headline-label, .cc-headline .ac-headline-sub { color: #000 !important; opacity: 1; }
+    .cc-details { display: block; } .cc-details[open] summary::after, .cc-details summary::after { content: ''; }
+  }
+</style>

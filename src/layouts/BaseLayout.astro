@@ -44,7 +44,7 @@ const _labelMaps: Record<string, Record<string, string>> = {
     'rental-tour': 'Rental Tour', 'rent-control': 'Rent Control', 'lease-renewal': 'Rent Renewal',
     'n-forms': 'N Forms', 'land-transfer-tax': 'Land Transfer Tax',
     'payment-calculator': 'Mortgage Calculator', 'closing-costs': 'Closing Costs',
-    'all-calculator': 'BUY Calculator', 'rental-calculator': 'Rental Calculator',
+    'all-calculator': 'BUY Calculator', 'buy-condo-calc': 'BUY Condo Calc.', 'rental-calculator': 'Rental Calculator',
     'rent-vs-buy-calculator': 'Rent vs Buy Calculator', 'refinance-calculator': 'Refinance Calculator',
     'free-home-evaluation': 'Free Home Evaluation', apply: 'Apply',
     terms: 'Terms of Service', privacy: 'Privacy Policy',
@@ -56,7 +56,7 @@ const _labelMaps: Record<string, Record<string, string>> = {
     'rental-tour': '看房视频', 'rent-control': '租金管制', 'lease-renewal': '租金续约',
     'n-forms': 'N 类表格', 'land-transfer-tax': '土地转让税',
     'payment-calculator': '按揭计算器', 'closing-costs': '交房费用',
-    'all-calculator': 'BUY 计算器', 'rental-calculator': '租房计算器',
+    'all-calculator': 'BUY 计算器', 'buy-condo-calc': 'BUY 公寓计算器', 'rental-calculator': '租房计算器',
     'rent-vs-buy-calculator': '租房 vs 买房计算器', 'refinance-calculator': '再融资计算器',
     'free-home-evaluation': '免费房屋估值', apply: '申请',
     terms: '服务条款', privacy: '隐私政策', disclaimer: '免责声明', accessibility: '无障碍声明', contact: '联系', thanks: '谢谢',
@@ -67,7 +67,7 @@ const _labelMaps: Record<string, Record<string, string>> = {
     'rental-tour': 'Visite locative', 'rent-control': 'Contrôle des loyers', 'lease-renewal': 'Renouvellement de loyer',
     'n-forms': 'Formulaires N', 'land-transfer-tax': 'Droits de cession immobilière',
     'payment-calculator': 'Calculateur hypothécaire', 'closing-costs': 'Frais de clôture',
-    'all-calculator': 'BUY Calculateur', 'rental-calculator': 'Calculateur de location',
+    'all-calculator': 'BUY Calculateur', 'buy-condo-calc': 'BUY Condo Calc.', 'rental-calculator': 'Calculateur de location',
     'rent-vs-buy-calculator': 'Louer ou acheter', 'refinance-calculator': 'Calculateur de refinancement',
     'free-home-evaluation': 'Évaluation gratuite', apply: 'Demande',
     terms: "Conditions d'utilisation", privacy: 'Politique de confidentialité', disclaimer: 'Avis de non-responsabilité', accessibility: 'Accessibilité', contact: 'Contact', thanks: 'Merci',
@@ -305,7 +305,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         // --- Calculators: one "used" event on first input, one "result" event
         //     with the verdict colour after the visitor stops typing (no numbers sent) ---
         var slug = path.replace(/\/$/, '').split('/').pop() || 'home';
-        var calcName = ({ 'all-calculator': 'buy', 'payment-calculator': 'mortgage', 'rental-calculator': 'rental', 'rent-vs-buy-calculator': 'rent-vs-buy', 'refinance-calculator': 'refinance', 'land-transfer-tax': 'land-transfer-tax', 'rent-control': 'rent-control' })[slug] || slug;
+        var calcName = ({ 'all-calculator': 'buy', 'buy-condo-calc': 'condo', 'payment-calculator': 'mortgage', 'rental-calculator': 'rental', 'rent-vs-buy-calculator': 'rent-vs-buy', 'refinance-calculator': 'refinance', 'land-transfer-tax': 'land-transfer-tax', 'rent-control': 'rent-control' })[slug] || slug;
         var verdictEl = document.querySelector('#ac-verdict, #rc-verdict, #rvb-verdict');
         if (document.querySelector('[data-output], .ac-verdict-title, .rc-verdict-title, [data-cash]')) {
           var resultTimer = null;

@@ -1,0 +1,360 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+import { CONFIG } from '../lib/condo-calc.js';
+
+export const prerender = true;
+
+const BOOKING_URL = 'https://cal.com/peter-law-c5lm9q';
+const rateDate = new Date(CONFIG.RATE_LAST_UPDATED + 'T12:00:00Z').toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buy-condo-calc' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buy-condo-calc' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+];
+---
+<BaseLayout
+  title="BUY Condo Calc. | Toronto Condo Monthly Cost Calculator | Peter Law"
+  description="See what a Toronto resale condo really costs per month, all in: mortgage, condo fees, property tax, utilities and insurance, plus the cash you need on closing day."
+  bodyClass="calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">BUY Condo Calc.</div>
+      <h1>Toronto Condo Monthly Cost Calculator</h1>
+      <p>Resale condos only. Four numbers give you the all-in monthly cost, not just the mortgage payment. Contact Peter for further information on purchasing and financing. Talking to a mortgage broker is recommended.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell cc-shell">
+
+        <!-- ============================ INPUTS ============================ -->
+        <div class="ac-inputs cc-inputs">
+          <div class="ac-input-group">
+            <label for="cc-price">Purchase price</label>
+            <div class="input-prefix"><input type="number" id="cc-price" min="0" step="5000" inputmode="decimal" placeholder="e.g. 650000" /></div>
+          </div>
+
+          <div class="ac-input-group cc-down-group" id="cc-down-wrap" data-mode="%">
+            <label for="cc-down">Down payment</label>
+            <div class="cc-down-row">
+              <div class="cc-mode" role="group" aria-label="Enter the down payment in dollars or percent">
+                <button type="button" data-down-mode="$" aria-pressed="false">$</button>
+                <button type="button" data-down-mode="%" aria-pressed="true" class="is-on">%</button>
+              </div>
+              <div class="cc-down-input"><input type="number" id="cc-down" min="0" step="0.5" inputmode="decimal" value="20" /></div>
+            </div>
+            <label for="cc-down-slider" class="visually-hidden">Down payment percentage slider</label>
+            <input type="range" id="cc-down-slider" min="5" max="35" step="0.5" value="20" list="cc-ticks" />
+            <datalist id="cc-ticks"><option value="5"></option><option value="10"></option><option value="15"></option><option value="20"></option></datalist>
+            <div class="cc-slider-notes"><span id="cc-min-note"></span><span class="cc-pill" id="cc-ins-pill" aria-live="polite"></span></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label for="cc-fee">Monthly condo maintenance fee</label>
+            <div class="input-prefix"><input type="number" id="cc-fee" min="0" step="10" inputmode="decimal" placeholder="e.g. 650" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label for="cc-rate">Mortgage rate <span class="hint">Illustrative rate, last updated <span data-rate-date>{rateDate}</span>. Your lender sets your real rate.</span></label>
+            <div class="input-suffix"><input type="number" id="cc-rate" min="0" max="25" step="0.05" inputmode="decimal" /></div>
+          </div>
+
+          <details class="ac-more" id="cc-refine">
+            <summary>Refine this estimate</summary>
+            <div class="ac-more-body">
+              <div class="ac-input-group">
+                <label for="cc-heat">Does the fee include heat and water?</label>
+                <select id="cc-heat"><option value="yes">Yes</option><option value="no">No</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-hydro">Does the fee include hydro?</label>
+                <select id="cc-hydro"><option value="no">No</option><option value="yes">Yes</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-utilities">Monthly utilities not covered by the fee</label>
+                <div class="input-prefix"><input type="number" id="cc-utilities" min="0" step="10" inputmode="decimal" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-tax">Annual property tax <span class="hint">Pre-filled at 0.7% of the price. Use the listing's figure if you have it.</span></label>
+                <div class="input-prefix"><input type="number" id="cc-tax" min="0" step="50" inputmode="decimal" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-insurance">Condo unit insurance (monthly)</label>
+                <div class="input-prefix"><input type="number" id="cc-insurance" min="0" step="5" inputmode="decimal" value="40" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-parking">Parking</label>
+                <select id="cc-parking"><option value="owned">Owned (included in the price)</option><option value="rented">Rented monthly</option><option value="none">None</option></select>
+              </div>
+              <div class="ac-input-group" id="cc-parking-cost-wrap" hidden>
+                <label for="cc-parking-cost">Parking monthly cost</label>
+                <div class="input-prefix"><input type="number" id="cc-parking-cost" min="0" step="10" inputmode="decimal" value="200" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-locker">Locker</label>
+                <select id="cc-locker"><option value="none">None</option><option value="owned">Owned (included in the price)</option><option value="rented">Rented monthly</option></select>
+              </div>
+              <div class="ac-input-group" id="cc-locker-cost-wrap" hidden>
+                <label for="cc-locker-cost">Locker monthly cost</label>
+                <div class="input-prefix"><input type="number" id="cc-locker-cost" min="0" step="5" inputmode="decimal" value="50" /></div>
+              </div>
+              <div class="ac-input-group ac-checkbox-group">
+                <label for="cc-fthb" class="ac-checkbox">
+                  <input type="checkbox" id="cc-fthb" />
+                  <span class="ac-checkbox-text">I'm a first-time buyer <span class="hint">Unlocks the land transfer tax rebates and a 30-year amortization.</span></span>
+                </label>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-amort">Amortization</label>
+                <select id="cc-amort"><option value="20">20 years</option><option value="25" selected>25 years</option><option value="30">30 years</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-toronto">Property inside the City of Toronto?</label>
+                <select id="cc-toronto"><option value="yes">Yes (Toronto land transfer tax applies)</option><option value="no">No, elsewhere in Ontario</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-income">Gross household income (annual) <span class="hint">Optional. Shows your housing-cost ratios.</span></label>
+                <div class="input-prefix"><input type="number" id="cc-income" min="0" step="1000" inputmode="decimal" placeholder="optional" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-debts">Other monthly debt payments <span class="hint">Optional. Car loan, student loan, credit card minimums.</span></label>
+                <div class="input-prefix"><input type="number" id="cc-debts" min="0" step="50" inputmode="decimal" placeholder="optional" /></div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- ============================ RESULTS ============================ -->
+        <div class="ac-results cc-results" aria-live="polite">
+          <div class="cc-empty" id="cc-empty">Enter a price to see your monthly cost.</div>
+          <div class="cc-errors" id="cc-errors" hidden role="alert"></div>
+
+          <div id="cc-out" hidden>
+            <div class="cc-headline">
+              <div class="ac-headline-label">Your estimated monthly cost</div>
+              <div class="cc-headline-value" id="cc-total" data-output>$0</div>
+              <div class="ac-headline-sub">All in: mortgage, condo fee, property tax, utilities and insurance. Exactly <span id="cc-total-cents">$0.00</span> a month.</div>
+            </div>
+
+            <div class="cc-bar" aria-hidden="true">
+              <span class="cc-bar-seg cc-bar-pi" id="cc-bar-pi"></span><span class="cc-bar-seg cc-bar-fee" id="cc-bar-fee"></span><span class="cc-bar-seg cc-bar-tax" id="cc-bar-tax"></span><span class="cc-bar-seg cc-bar-util" id="cc-bar-util"></span><span class="cc-bar-seg cc-bar-ins" id="cc-bar-ins"></span><span class="cc-bar-seg cc-bar-park" id="cc-bar-park"></span>
+            </div>
+
+            <h2 class="ac-section-h">Monthly breakdown</h2>
+            <div class="ac-breakdown cc-breakdown">
+              <div class="ac-row"><span><i class="cc-dot cc-bar-pi"></i>Mortgage payment</span><strong id="cc-m-pi">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-fee"></i>Condo maintenance fee</span><strong id="cc-m-fee">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-tax"></i>Property tax</span><strong id="cc-m-tax">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-util"></i>Utilities not covered by the fee</span><strong id="cc-m-util">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-ins"></i>Condo insurance</span><strong id="cc-m-ins">$0</strong></div>
+              <div class="ac-row" id="cc-m-park-row" hidden><span><i class="cc-dot cc-bar-park"></i>Parking / locker rental</span><strong id="cc-m-park">$0</strong></div>
+              <div class="ac-row ac-row-total"><span>Total monthly</span><strong id="cc-m-total">$0</strong></div>
+            </div>
+
+            <h2 class="ac-section-h">One-time cash needed on closing day</h2>
+            <div class="ac-breakdown cc-closing">
+              <div class="ac-row"><span>Down payment</span><strong id="cc-c-down">$0</strong></div>
+              <div class="ac-row"><span>PST on the mortgage insurance premium <em class="ac-note" id="cc-c-pst-note"></em></span><strong id="cc-c-pst">$0</strong></div>
+              <div class="ac-row"><span>Ontario land transfer tax</span><strong id="cc-c-ltt-on">$0</strong></div>
+              <div class="ac-row" id="cc-c-ltt-tor-row"><span>Toronto land transfer tax</span><strong id="cc-c-ltt-tor">$0</strong></div>
+              <div class="ac-row" id="cc-c-rebate-row" hidden><span>First-time buyer rebates</span><strong id="cc-c-rebate">$0</strong></div>
+              <div class="ac-row cc-row-edit"><label for="cc-legal">Legal fees</label><span class="input-prefix"><input type="number" id="cc-legal" min="0" step="100" inputmode="decimal" value="2000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-title">Title insurance, home inspection, status certificate</label><span class="input-prefix"><input type="number" id="cc-title" min="0" step="100" inputmode="decimal" value="1000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-adjust">Adjustments</label><span class="input-prefix"><input type="number" id="cc-adjust" min="0" step="100" inputmode="decimal" value="500" /></span></div>
+              <div class="ac-row ac-row-total"><span>Total cash needed on closing day</span><strong id="cc-c-total">$0</strong></div>
+            </div>
+
+            <details class="cc-details">
+              <summary>See the details</summary>
+              <div class="ac-checks cc-checks">
+                <div class="ac-check"><div class="ac-check-label">Total mortgage, including the insurance premium</div><div class="ac-check-value" id="cc-d-mortgage">$0</div><div class="ac-check-sub" id="cc-d-mortgage-note"></div></div>
+                <div class="ac-check"><div class="ac-check-label">Total interest over the full amortization</div><div class="ac-check-value" id="cc-d-interest">$0</div><div class="ac-check-sub" id="cc-d-interest-note"></div></div>
+                <div class="ac-check"><div class="ac-check-label">Payment at the stress-tested rate</div><div class="ac-check-value" id="cc-d-stress">$0</div><div class="ac-check-sub" id="cc-d-stress-note"></div></div>
+                <div class="ac-check cc-ratios" id="cc-d-ratios"></div>
+              </div>
+            </details>
+
+            <p class="calc-disclaimer cc-disclaimer">Estimates only, for illustration. This is not a mortgage pre-approval, a quote, or financial advice. Rates shown are illustrative as of <span data-rate-date>{rateDate}</span> and are subject to change. Actual costs vary by lender, credit profile and property. Confirm your numbers with a licensed mortgage professional, a lawyer and an accountant before signing anything.<br>Peter Law, Sales Representative, HomeLife Golconda Realty Inc., Brokerage.</p>
+
+            <!-- ============================ LEAD CAPTURE (after the answer, never before) ============================ -->
+            <div class="cc-lead">
+              <div class="cc-lead-card">
+                <h3>Email me this breakdown</h3>
+                <p>I'll send the numbers above to your inbox and, if you like, a few condos that fit them.</p>
+                <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
+                  <div class="cc-lead-fields">
+                    <div><label for="cc-lead-name">Name</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
+                    <div><label for="cc-lead-email">Email</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                  </div>
+                  <input type="hidden" name="_subject" value="BUY Condo Calc. breakdown request" />
+                  <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks" />
+                  <input type="hidden" name="purchase_price" id="cc-lead-price" value="" />
+                  <input type="hidden" name="all_in_monthly" id="cc-lead-total" value="" />
+                  <input type="hidden" name="breakdown" id="cc-lead-summary" value="" />
+                  <div class="hp-field" aria-hidden="true"><label for="cc-gotcha">Don't fill this</label><input id="cc-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
+                  <div class="cc-lead-actions">
+                    <button type="submit" class="btn-primary">Send me the breakdown</button>
+                    <button type="button" class="btn-warm" id="cc-print">Save as PDF</button>
+                  </div>
+                </form>
+              </div>
+              <div class="cc-lead-card">
+                <h3>Book a 15-minute call with Peter</h3>
+                <p>Bring these numbers. We'll talk through what's realistic for the buildings you like, no pressure.</p>
+                <a href={BOOKING_URL} class="btn-primary" target="_blank" rel="noopener">Book a call</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SEO TEXT ============================ -->
+  <section class="major" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="prose-body cc-prose">
+        <h2>What this calculator includes</h2>
+        <p>Most mortgage calculators stop at the mortgage payment. In a Toronto condo that number is only part of the bill. This calculator adds the monthly maintenance fee, property tax, the utilities the fee does not cover, condo insurance and any rented parking or locker, so the headline figure is what actually leaves your account each month.</p>
+        <p>The mortgage itself is worked out the Canadian way: semi-annual compounding, the federal minimum down payment for the price, the default-insurance premium when the down payment is under 20% (including the 30-year surcharge), and the 8% Ontario PST on that premium, which is paid in cash on closing day rather than added to the mortgage. The closing block also shows the Ontario land transfer tax, the Toronto municipal land transfer tax when the condo is inside the city, and the first-time buyer rebates on both.</p>
+        <p>Enter your household income under "Refine this estimate" and you will also see your housing-cost ratios next to the figures lenders typically look for. The tool shows the ratios, not a verdict: your lender makes that call. For houses and townhouses, or to compare several price points at once, use the full <a href="/all-calculator">BUY Calculator</a>. If this is your first condo, the <a href="/blog/first-time-buyer-guide-condos">First-Time Condo Buyer's Guide</a> walks through status certificates, reserve funds and the questions to ask before you offer.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Want these numbers checked against real listings?" lead="Send me the building or neighbourhood you're looking at. In 15 minutes I'll tell you what the fees, taxes and closing costs really look like there." />
+  <Footer />
+
+  <script>
+    import { initCondoCalc } from '../lib/condo-calc-ui.js';
+    initCondoCalc({
+      locale: 'en-CA',
+      formatDate: (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
+      perMonth: '/mo',
+      minNote: (min, p) => `Minimum for this price: ${min} (${p})`,
+      pillNotInsurable: 'Below the legal minimum',
+      pillNone: 'No mortgage insurance needed (20%+ down)',
+      pillPremium: (rate, amt) => `Mortgage insurance: ${rate} premium (${amt})`,
+      errMinDown: (price, min, short, rule) => `The minimum down payment on a ${price} purchase is ${min}` + (rule === 'CAP' ? ' (20%: no mortgage insurance is available at or above $1,500,000)' : rule === 'FIVE' ? ' (5%)' : ' (5% of the first $500,000 plus 10% of the rest)') + `. You are ${short} short.`,
+      errDownOverPrice: 'The down payment cannot be more than the purchase price.',
+      errAmort30: 'A 30-year amortization on an insured mortgage (under 20% down) is only available to first-time buyers. Choose 25 years, put 20% down, or tick "first-time buyer" if that applies to you.',
+      errAmortOver30: 'Amortizations longer than 30 years are not available on a resale condo.',
+      errRate: 'Enter a mortgage rate above 0%.',
+      pstNote: (rate, prem) => `8% of the ${rate} premium (${prem}), paid in cash`,
+      pstNone: 'none: 20% or more down',
+      mortgageNote: (base, prem) => `${base} borrowed + ${prem} insurance premium added to the loan`,
+      mortgageNoteNone: 'No insurance premium (20% or more down).',
+      interestNote: (yrs, rate) => `Over ${yrs} years at ${rate}, if the rate never changed and you never paid extra.`,
+      stressNote: (rate, actual) => `Lenders qualify you at ${rate} (the greater of your rate + 2% or 5.25%). Your actual payment is ${actual}.`,
+      gdsText: (gds, guide) => `Your housing costs work out to <strong>${gds}</strong> of gross income (GDS). Lenders typically look for ${guide} or less.`,
+      tdsText: (tds, guide) => `With your other debts included, that is <strong>${tds}</strong> (TDS). Lenders typically look for ${guide} or less.`,
+      ratioNote: 'Your lender makes the decision. This is an estimate.',
+      ratioEmpty: 'Enter your household income under "Refine this estimate" to see your housing-cost ratios.',
+      summary: (r, money, pct) => [
+        `Price ${money(r.inputs.price, 0)}, down ${money(r.inputs.down, 0)} (${pct(r.inputs.downPct, 1)}), rate ${pct(r.inputs.ratePct)}, ${r.inputs.amort} yrs`,
+        `Mortgage ${money(r.monthly.pAndI)} + condo fee ${money(r.monthly.condoFee)} + tax ${money(r.monthly.propertyTax)} + utilities ${money(r.monthly.utilities)} + insurance ${money(r.monthly.insurance)} + parking/locker ${money(r.monthly.parkingRent + r.monthly.lockerRent)} = ${money(r.monthly.total)}/mo`,
+        `Closing: down ${money(r.closing.down)} + PST on premium ${money(r.closing.premiumPST)} + LTT ${money(r.closing.ltt.total)} + legal/title/adjustments ${money(r.closing.legal + r.closing.titleEtc + r.closing.adjustments)} = ${money(r.closing.total)}`,
+        `Stress test ${pct(r.mortgage.stressRate)} = ${money(r.mortgage.stressPayment)}/mo` + (r.ratios ? `; GDS ${pct(r.ratios.gds, 0)}, TDS ${pct(r.ratios.tds, 0)}` : ''),
+      ].join(' | '),
+    });
+  </script>
+</BaseLayout>
+
+<style is:global>
+  /* BUY Condo Calc. page styles (shared by EN / ZH / FR) */
+  .cc-shell [hidden] { display: none !important; }
+  .cc-down-row { display: flex; gap: 8px; align-items: stretch; }
+  .cc-mode { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; flex: 0 0 auto; }
+  .cc-mode button { font: inherit; font-weight: 600; font-size: 14px; padding: 0 14px; background: var(--surface); color: var(--ink-soft); border: 0; cursor: pointer; min-width: 44px; }
+  .cc-mode button + button { border-left: 1px solid var(--rule); }
+  .cc-mode button.is-on { background: var(--ink); color: var(--bg); }
+  .cc-mode button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .cc-down-input { position: relative; flex: 1; }
+  .cc-down-input input { width: 100%; }
+  #cc-down-wrap[data-mode="$"] .cc-down-input::before { content: '$'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 14px; pointer-events: none; }
+  #cc-down-wrap[data-mode="$"] .cc-down-input input { padding-left: 28px; }
+  #cc-down-wrap[data-mode="%"] .cc-down-input::after { content: '%'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 14px; pointer-events: none; }
+  #cc-down-slider { width: 100%; margin: 10px 0 4px; accent-color: var(--ink); cursor: pointer; }
+  #cc-down-slider:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  .cc-slider-notes { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--ink-mute); }
+  .cc-pill { display: inline-block; align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); min-height: 1.4em; }
+  .cc-pill:empty { display: none; }
+  .cc-pill[data-state="good"] { background: #eef6ee; border-color: #cfe0cf; color: #1f5a23; }
+  .cc-pill[data-state="warn"] { background: #fbf6ea; border-color: #ead9a8; color: #6b5110; }
+  .cc-pill[data-state="bad"] { background: #fbeeee; border-color: #e6c3c3; color: #8a1f2b; }
+  html[data-theme="dark"] .cc-pill[data-state="good"] { background: #142013; border-color: #2a4a2a; color: #b7e0b9; }
+  html[data-theme="dark"] .cc-pill[data-state="warn"] { background: #2a2211; border-color: #5a4a1e; color: #f0d48a; }
+  html[data-theme="dark"] .cc-pill[data-state="bad"] { background: #2a1416; border-color: #5a2a2e; color: #f1b3b9; }
+  .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .cc-empty { background: var(--bg-warm); border: 1px dashed var(--rule); border-radius: 6px; padding: 40px 24px; text-align: center; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 22px; color: var(--ink-soft); }
+  .cc-errors { background: #fbeeee; border: 1px solid #e6c3c3; border-left: 4px solid #b8002e; border-radius: 6px; padding: 16px 20px; color: var(--ink); font-size: 15px; line-height: 1.55; }
+  .cc-errors ul { margin: 0; padding-left: 20px; } .cc-errors li + li { margin-top: 8px; }
+  html[data-theme="dark"] .cc-errors { background: #2a1416; border-color: #5a2a2e; }
+  .cc-headline { background: var(--ink); color: var(--bg); border-radius: 8px; padding: 26px 28px; }
+  .cc-headline .ac-headline-label { color: var(--bg); opacity: .75; }
+  .cc-headline-value { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: clamp(40px, 7vw, 60px); line-height: 1.05; letter-spacing: -0.02em; }
+  .cc-headline .ac-headline-sub { color: var(--bg); opacity: .8; margin-top: 10px; }
+  .cc-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--bg-warm); margin: 16px 0 4px; }
+  .cc-bar-seg { display: block; height: 100%; transition: width .25s ease; }
+  .cc-bar-pi { background: #1a1a1a; } .cc-bar-fee { background: #c69641; } .cc-bar-tax { background: #2c5f8a; } .cc-bar-util { background: #7f8a94; } .cc-bar-ins { background: #2f7d4a; } .cc-bar-park { background: #b07a3c; }
+  html[data-theme="dark"] .cc-bar-pi { background: #f4f0e8; }
+  .cc-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+  .cc-results .ac-section-h { margin-top: 10px; }
+  .cc-closing { background: var(--bg-warm); }
+  .cc-row-edit label { font-size: inherit; color: inherit; }
+  .cc-row-edit .input-prefix { position: relative; display: inline-block; width: 130px; }
+  .cc-row-edit .input-prefix::before { content: '$'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 13px; pointer-events: none; }
+  .cc-row-edit input { width: 100%; font: inherit; font-size: 14px; font-weight: 600; text-align: right; padding: 6px 10px 6px 24px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .cc-row-edit input:focus { outline: none; border-color: var(--ink); }
+  .cc-details { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  .cc-details summary { cursor: pointer; padding: 14px 18px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 18px; color: var(--ink); list-style: none; display: flex; justify-content: space-between; }
+  .cc-details summary::-webkit-details-marker { display: none; }
+  .cc-details summary::after { content: '+'; color: var(--ink-mute); }
+  .cc-details[open] summary::after { content: '−'; }
+  .cc-details .ac-checks { padding: 0 18px 18px; }
+  .cc-ratios p { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; line-height: 1.5; }
+  .cc-ratios p strong { color: var(--ink); }
+  .cc-ratio-note { font-style: italic; color: var(--ink-mute) !important; }
+  .cc-disclaimer { margin-top: 6px; }
+  .cc-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .cc-lead-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; }
+  .cc-lead-card h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; margin: 0 0 6px; color: var(--ink); }
+  .cc-lead-card p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; line-height: 1.5; }
+  .cc-lead-card > .btn-primary { align-self: flex-start; margin-top: auto; }
+  .cc-lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .cc-lead-fields label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px; }
+  .cc-lead-fields input { width: 100%; font: inherit; font-size: 16px; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .cc-lead-fields input:focus { outline: none; border-color: var(--ink); }
+  .cc-lead-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cc-prose { max-width: 760px; }
+  @media (max-width: 900px) {
+    .cc-shell { grid-template-columns: 1fr; }
+    .cc-lead { grid-template-columns: 1fr; }
+    .cc-lead-fields { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .cc-headline { padding: 20px 18px; }
+    .cc-row-edit { flex-wrap: wrap; gap: 6px; }
+    .cc-row-edit .input-prefix { width: 120px; }
+  }
+  @media print {
+    .cc-inputs, .cc-lead, .cc-empty { display: none !important; }
+    .cc-shell { display: block; }
+    .cc-headline { background: #fff !important; color: #000 !important; border: 1px solid #000; }
+    .cc-headline .ac-headline-label, .cc-headline .ac-headline-sub { color: #000 !important; opacity: 1; }
+    .cc-details { display: block; } .cc-details[open] summary::after, .cc-details summary::after { content: ''; }
+  }
+</style>

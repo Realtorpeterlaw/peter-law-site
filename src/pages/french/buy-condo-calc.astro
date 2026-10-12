@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/FrenchTopBar.astro';
+import Header from '../../components/FrenchHeader.astro';
+import Footer from '../../components/FrenchFooter.astro';
+import CTASection from '../../components/FrenchCTASection.astro';
+import { CONFIG } from '../../lib/condo-calc.js';
+
+export const prerender = true;
+
+const BOOKING_URL = 'https://cal.com/peter-law-c5lm9q';
+const rateDate = new Date(CONFIG.RATE_LAST_UPDATED + 'T12:00:00Z').toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buy-condo-calc' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buy-condo-calc' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+];
+---
+<BaseLayout
+  title="BUY Condo Calc. | Calculateur du coût mensuel d'un condo à Toronto | Peter Law"
+  description="Le vrai coût mensuel d'un condo de revente à Toronto, tout compris : hypothèque, frais de condo, taxes foncières, services publics et assurance, plus l'argent requis le jour de la clôture."
+  lang="fr"
+  bodyClass="fr calc-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="buyers" />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">BUY Condo Calc.</div>
+      <h1>Calculateur du coût mensuel d'un condo à Toronto</h1>
+      <p>Condos de revente seulement. Quatre chiffres suffisent pour obtenir le coût mensuel tout compris, pas seulement le paiement hypothécaire. Contactez Peter pour plus d'information sur l'achat et le financement. Parler à un courtier hypothécaire est recommandé.</p>
+    </div>
+  </section>
+
+  <section class="major" style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="ac-shell cc-shell">
+
+        <!-- ============================ INPUTS ============================ -->
+        <div class="ac-inputs cc-inputs">
+          <div class="ac-input-group">
+            <label for="cc-price">Prix d'achat</label>
+            <div class="input-prefix"><input type="number" id="cc-price" min="0" step="5000" inputmode="decimal" placeholder="p. ex. 650000" /></div>
+          </div>
+
+          <div class="ac-input-group cc-down-group" id="cc-down-wrap" data-mode="%">
+            <label for="cc-down">Mise de fonds</label>
+            <div class="cc-down-row">
+              <div class="cc-mode" role="group" aria-label="Entrer la mise de fonds en dollars ou en pourcentage">
+                <button type="button" data-down-mode="$" aria-pressed="false">$</button>
+                <button type="button" data-down-mode="%" aria-pressed="true" class="is-on">%</button>
+              </div>
+              <div class="cc-down-input"><input type="number" id="cc-down" min="0" step="0.5" inputmode="decimal" value="20" /></div>
+            </div>
+            <label for="cc-down-slider" class="visually-hidden">Curseur du pourcentage de mise de fonds</label>
+            <input type="range" id="cc-down-slider" min="5" max="35" step="0.5" value="20" list="cc-ticks" />
+            <datalist id="cc-ticks"><option value="5"></option><option value="10"></option><option value="15"></option><option value="20"></option></datalist>
+            <div class="cc-slider-notes"><span id="cc-min-note"></span><span class="cc-pill" id="cc-ins-pill" aria-live="polite"></span></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label for="cc-fee">Frais de condo mensuels</label>
+            <div class="input-prefix"><input type="number" id="cc-fee" min="0" step="10" inputmode="decimal" placeholder="p. ex. 650" /></div>
+          </div>
+
+          <div class="ac-input-group">
+            <label for="cc-rate">Taux hypothécaire <span class="hint">Taux à titre indicatif, mis à jour le <span data-rate-date>{rateDate}</span>. Votre prêteur fixe votre vrai taux.</span></label>
+            <div class="input-suffix"><input type="number" id="cc-rate" min="0" max="25" step="0.05" inputmode="decimal" /></div>
+          </div>
+
+          <details class="ac-more" id="cc-refine">
+            <summary>Préciser cette estimation</summary>
+            <div class="ac-more-body">
+              <div class="ac-input-group">
+                <label for="cc-heat">Les frais incluent-ils le chauffage et l'eau?</label>
+                <select id="cc-heat"><option value="yes">Oui</option><option value="no">Non</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-hydro">Les frais incluent-ils l'électricité?</label>
+                <select id="cc-hydro"><option value="no">Non</option><option value="yes">Oui</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-utilities">Services publics mensuels non couverts par les frais</label>
+                <div class="input-prefix"><input type="number" id="cc-utilities" min="0" step="10" inputmode="decimal" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-tax">Taxes foncières annuelles <span class="hint">Préremplies à 0,7 % du prix. Utilisez le chiffre de l'inscription si vous l'avez.</span></label>
+                <div class="input-prefix"><input type="number" id="cc-tax" min="0" step="50" inputmode="decimal" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-insurance">Assurance de l'unité (mensuelle)</label>
+                <div class="input-prefix"><input type="number" id="cc-insurance" min="0" step="5" inputmode="decimal" value="40" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-parking">Stationnement</label>
+                <select id="cc-parking"><option value="owned">Inclus dans le prix</option><option value="rented">Loué au mois</option><option value="none">Aucun</option></select>
+              </div>
+              <div class="ac-input-group" id="cc-parking-cost-wrap" hidden>
+                <label for="cc-parking-cost">Coût mensuel du stationnement</label>
+                <div class="input-prefix"><input type="number" id="cc-parking-cost" min="0" step="10" inputmode="decimal" value="200" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-locker">Casier</label>
+                <select id="cc-locker"><option value="none">Aucun</option><option value="owned">Inclus dans le prix</option><option value="rented">Loué au mois</option></select>
+              </div>
+              <div class="ac-input-group" id="cc-locker-cost-wrap" hidden>
+                <label for="cc-locker-cost">Coût mensuel du casier</label>
+                <div class="input-prefix"><input type="number" id="cc-locker-cost" min="0" step="5" inputmode="decimal" value="50" /></div>
+              </div>
+              <div class="ac-input-group ac-checkbox-group">
+                <label for="cc-fthb" class="ac-checkbox">
+                  <input type="checkbox" id="cc-fthb" />
+                  <span class="ac-checkbox-text">Je suis un premier acheteur <span class="hint">Donne droit aux remboursements des droits de cession et à un amortissement de 30 ans.</span></span>
+                </label>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-amort">Amortissement</label>
+                <select id="cc-amort"><option value="20">20 ans</option><option value="25" selected>25 ans</option><option value="30">30 ans</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-toronto">Propriété située dans la ville de Toronto?</label>
+                <select id="cc-toronto"><option value="yes">Oui (droits de cession de Toronto applicables)</option><option value="no">Non, ailleurs en Ontario</option></select>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-income">Revenu brut du ménage (annuel) <span class="hint">Facultatif. Affiche vos ratios de coûts d'habitation.</span></label>
+                <div class="input-prefix"><input type="number" id="cc-income" min="0" step="1000" inputmode="decimal" placeholder="facultatif" /></div>
+              </div>
+              <div class="ac-input-group">
+                <label for="cc-debts">Autres paiements de dettes mensuels <span class="hint">Facultatif. Prêt auto, prêt étudiant, minimums de cartes de crédit.</span></label>
+                <div class="input-prefix"><input type="number" id="cc-debts" min="0" step="50" inputmode="decimal" placeholder="facultatif" /></div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- ============================ RESULTS ============================ -->
+        <div class="ac-results cc-results" aria-live="polite">
+          <div class="cc-empty" id="cc-empty">Entrez un prix pour voir votre coût mensuel.</div>
+          <div class="cc-errors" id="cc-errors" hidden role="alert"></div>
+
+          <div id="cc-out" hidden>
+            <div class="cc-headline">
+              <div class="ac-headline-label">Votre coût mensuel estimé</div>
+              <div class="cc-headline-value" id="cc-total" data-output>$0</div>
+              <div class="ac-headline-sub">Tout compris : hypothèque, frais de condo, taxes foncières, services publics et assurance. Exactement <span id="cc-total-cents">0,00 $</span> par mois.</div>
+            </div>
+
+            <div class="cc-bar" aria-hidden="true">
+              <span class="cc-bar-seg cc-bar-pi" id="cc-bar-pi"></span><span class="cc-bar-seg cc-bar-fee" id="cc-bar-fee"></span><span class="cc-bar-seg cc-bar-tax" id="cc-bar-tax"></span><span class="cc-bar-seg cc-bar-util" id="cc-bar-util"></span><span class="cc-bar-seg cc-bar-ins" id="cc-bar-ins"></span><span class="cc-bar-seg cc-bar-park" id="cc-bar-park"></span>
+            </div>
+
+            <h2 class="ac-section-h">Détail mensuel</h2>
+            <div class="ac-breakdown cc-breakdown">
+              <div class="ac-row"><span><i class="cc-dot cc-bar-pi"></i>Paiement hypothécaire</span><strong id="cc-m-pi">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-fee"></i>Frais de condo</span><strong id="cc-m-fee">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-tax"></i>Taxes foncières</span><strong id="cc-m-tax">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-util"></i>Services publics non couverts par les frais</span><strong id="cc-m-util">$0</strong></div>
+              <div class="ac-row"><span><i class="cc-dot cc-bar-ins"></i>Assurance condo</span><strong id="cc-m-ins">$0</strong></div>
+              <div class="ac-row" id="cc-m-park-row" hidden><span><i class="cc-dot cc-bar-park"></i>Location stationnement / casier</span><strong id="cc-m-park">$0</strong></div>
+              <div class="ac-row ac-row-total"><span>Total mensuel</span><strong id="cc-m-total">$0</strong></div>
+            </div>
+
+            <h2 class="ac-section-h">Argent comptant requis le jour de la clôture</h2>
+            <div class="ac-breakdown cc-closing">
+              <div class="ac-row"><span>Mise de fonds</span><strong id="cc-c-down">$0</strong></div>
+              <div class="ac-row"><span>TVP sur la prime d'assurance hypothécaire <em class="ac-note" id="cc-c-pst-note"></em></span><strong id="cc-c-pst">$0</strong></div>
+              <div class="ac-row"><span>Droits de cession immobilière de l'Ontario</span><strong id="cc-c-ltt-on">$0</strong></div>
+              <div class="ac-row" id="cc-c-ltt-tor-row"><span>Droits de cession immobilière de Toronto</span><strong id="cc-c-ltt-tor">$0</strong></div>
+              <div class="ac-row" id="cc-c-rebate-row" hidden><span>Remboursements premier acheteur</span><strong id="cc-c-rebate">$0</strong></div>
+              <div class="ac-row cc-row-edit"><label for="cc-legal">Frais juridiques</label><span class="input-prefix"><input type="number" id="cc-legal" min="0" step="100" inputmode="decimal" value="2000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-title">Assurance titres, inspection, certificat d'état</label><span class="input-prefix"><input type="number" id="cc-title" min="0" step="100" inputmode="decimal" value="1000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-adjust">Ajustements</label><span class="input-prefix"><input type="number" id="cc-adjust" min="0" step="100" inputmode="decimal" value="500" /></span></div>
+              <div class="ac-row ac-row-total"><span>Total requis le jour de la clôture</span><strong id="cc-c-total">$0</strong></div>
+            </div>
+
+            <details class="cc-details">
+              <summary>Voir les détails</summary>
+              <div class="ac-checks cc-checks">
+                <div class="ac-check"><div class="ac-check-label">Hypothèque totale, prime d'assurance incluse</div><div class="ac-check-value" id="cc-d-mortgage">$0</div><div class="ac-check-sub" id="cc-d-mortgage-note"></div></div>
+                <div class="ac-check"><div class="ac-check-label">Intérêts totaux sur l'amortissement complet</div><div class="ac-check-value" id="cc-d-interest">$0</div><div class="ac-check-sub" id="cc-d-interest-note"></div></div>
+                <div class="ac-check"><div class="ac-check-label">Paiement au taux du test de résistance</div><div class="ac-check-value" id="cc-d-stress">$0</div><div class="ac-check-sub" id="cc-d-stress-note"></div></div>
+                <div class="ac-check cc-ratios" id="cc-d-ratios"></div>
+              </div>
+            </details>
+
+            <p class="calc-disclaimer cc-disclaimer">Estimations seulement, à titre indicatif. Ceci n'est ni une préapprobation hypothécaire, ni une soumission, ni un conseil financier. Les taux affichés sont indicatifs en date du <span data-rate-date>{rateDate}</span> et peuvent changer. Les coûts réels varient selon le prêteur, le profil de crédit et la propriété. Confirmez vos chiffres avec un professionnel hypothécaire agréé, un avocat et un comptable avant de signer quoi que ce soit.<br>Peter Law, Représentant commercial, HomeLife Golconda Realty Inc., Brokerage.</p>
+
+            <!-- ============================ LEAD CAPTURE (after the answer, never before) ============================ -->
+            <div class="cc-lead">
+              <div class="cc-lead-card">
+                <h3>Recevoir ce détail par courriel</h3>
+                <p>Je vous envoie les chiffres ci-dessus et, si vous le souhaitez, quelques condos qui y correspondent.</p>
+                <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
+                  <div class="cc-lead-fields">
+                    <div><label for="cc-lead-name">Nom</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
+                    <div><label for="cc-lead-email">Courriel</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                  </div>
+                  <input type="hidden" name="_subject" value="BUY Condo Calc. breakdown request (French)" />
+                  <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/french/contact/thanks" />
+                  <input type="hidden" name="purchase_price" id="cc-lead-price" value="" />
+                  <input type="hidden" name="all_in_monthly" id="cc-lead-total" value="" />
+                  <input type="hidden" name="breakdown" id="cc-lead-summary" value="" />
+                  <div class="hp-field" aria-hidden="true"><label for="cc-gotcha">Ne pas remplir</label><input id="cc-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
+                  <div class="cc-lead-actions">
+                    <button type="submit" class="btn-primary">Envoyer le détail</button>
+                    <button type="button" class="btn-warm" id="cc-print">Enregistrer en PDF</button>
+                  </div>
+                </form>
+              </div>
+              <div class="cc-lead-card">
+                <h3>Réserver un appel de 15 minutes avec Peter</h3>
+                <p>Apportez ces chiffres. On regarde ensemble ce qui est réaliste pour les immeubles qui vous plaisent, sans pression.</p>
+                <a href={BOOKING_URL} class="btn-primary" target="_blank" rel="noopener">Réserver un appel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SEO TEXT ============================ -->
+  <section class="major" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="prose-body cc-prose">
+        <h2>Ce que ce calculateur inclut</h2>
+        <p>La plupart des calculateurs hypothécaires s'arrêtent au paiement hypothécaire. Dans un condo à Toronto, ce chiffre n'est qu'une partie de la facture. Ce calculateur ajoute les frais de condo mensuels, les taxes foncières, les services publics que les frais ne couvrent pas, l'assurance condo et tout stationnement ou casier loué, pour que le chiffre en tête soit ce qui sort vraiment de votre compte chaque mois.</p>
+        <p>L'hypothèque elle-même est calculée à la canadienne : composition semestrielle, mise de fonds minimale fédérale selon le prix, prime d'assurance prêt hypothécaire lorsque la mise de fonds est inférieure à 20 % (surcharge de 30 ans incluse), et TVP ontarienne de 8 % sur cette prime, payée comptant le jour de la clôture plutôt qu'ajoutée à l'hypothèque. Le bloc de clôture montre aussi les droits de cession immobilière de l'Ontario, ceux de la ville de Toronto lorsque le condo est dans la ville, et les remboursements pour premier acheteur sur les deux.</p>
+        <p>Entrez le revenu de votre ménage sous « Préciser cette estimation » et vous verrez aussi vos ratios de coûts d'habitation à côté des chiffres que les prêteurs regardent habituellement. L'outil montre les ratios, pas un verdict : c'est votre prêteur qui décide. Pour les maisons et maisons en rangée, ou pour comparer plusieurs prix à la fois, utilisez le <a href="/french/all-calculator">BUY Calculateur</a> complet. Si c'est votre premier condo, le <a href="/french/blog/first-time-buyer-guide-condos">Guide d'achat CONDO première fois</a> passe en revue le certificat d'état, le fonds de réserve et les questions à poser avant d'offrir.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Vous voulez vérifier ces chiffres sur de vraies inscriptions?" lead="Envoyez-moi l'immeuble ou le quartier que vous regardez. En 15 minutes, je vous dis à quoi ressemblent vraiment les frais, les taxes et les coûts de clôture là-bas." />
+  <Footer />
+
+  <script>
+    import { initCondoCalc } from '../../lib/condo-calc-ui.js';
+    initCondoCalc({
+      locale: 'fr-CA',
+      formatDate: (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
+      perMonth: '/mois',
+      minNote: (min, p) => `Minimum pour ce prix : ${min} (${p})`,
+      pillNotInsurable: 'Sous le minimum légal',
+      pillNone: 'Aucune assurance hypothécaire requise (20 % et plus)',
+      pillPremium: (rate, amt) => `Assurance hypothécaire : prime de ${rate} (${amt})`,
+      errMinDown: (price, min, short, rule) => `La mise de fonds minimale pour un achat de ${price} est de ${min}` + (rule === 'CAP' ? ' (20 % : aucune assurance hypothécaire n\'est offerte à partir de 1 500 000 $)' : rule === 'FIVE' ? ' (5 %)' : ' (5 % des premiers 500 000 $ plus 10 % du reste)') + `. Il vous manque ${short}.`,
+      errDownOverPrice: 'La mise de fonds ne peut pas dépasser le prix d\'achat.',
+      errAmort30: 'Un amortissement de 30 ans sur une hypothèque assurée (moins de 20 % de mise de fonds) est réservé aux premiers acheteurs. Choisissez 25 ans, mettez 20 % de mise de fonds, ou cochez « premier acheteur » si cela s\'applique à vous.',
+      errAmortOver30: 'Les amortissements de plus de 30 ans ne sont pas offerts pour un condo de revente.',
+      errRate: 'Entrez un taux hypothécaire supérieur à 0 %.',
+      pstNote: (rate, prem) => `8 % de la prime de ${rate} (${prem}), payée comptant`,
+      pstNone: 'aucune : 20 % ou plus de mise de fonds',
+      mortgageNote: (base, prem) => `${base} empruntés + prime d\'assurance de ${prem} ajoutée au prêt`,
+      mortgageNoteNone: 'Aucune prime d\'assurance (20 % ou plus de mise de fonds).',
+      interestNote: (yrs, rate) => `Sur ${yrs} ans à ${rate}, si le taux ne changeait jamais et sans paiement supplémentaire.`,
+      stressNote: (rate, actual) => `Les prêteurs vous qualifient à ${rate} (le plus élevé de votre taux + 2 % ou 5,25 %). Votre paiement réel est de ${actual}.`,
+      gdsText: (gds, guide) => `Vos coûts d\'habitation représentent <strong>${gds}</strong> de votre revenu brut (ABD). Les prêteurs visent généralement ${guide} ou moins.`,
+      tdsText: (tds, guide) => `En incluant vos autres dettes, c\'est <strong>${tds}</strong> (ATD). Les prêteurs visent généralement ${guide} ou moins.`,
+      ratioNote: 'C\'est votre prêteur qui décide. Ceci est une estimation.',
+      ratioEmpty: 'Entrez le revenu de votre ménage sous « Préciser cette estimation » pour voir vos ratios de coûts d\'habitation.',
+      summary: (r, money, pct) => [
+        `Prix ${money(r.inputs.price, 0)}, mise de fonds ${money(r.inputs.down, 0)} (${pct(r.inputs.downPct, 1)}), taux ${pct(r.inputs.ratePct)}, ${r.inputs.amort} ans`,
+        `Hypothèque ${money(r.monthly.pAndI)} + frais de condo ${money(r.monthly.condoFee)} + taxes ${money(r.monthly.propertyTax)} + services ${money(r.monthly.utilities)} + assurance ${money(r.monthly.insurance)} + stationnement/casier ${money(r.monthly.parkingRent + r.monthly.lockerRent)} = ${money(r.monthly.total)}/mois`,
+        `Clôture : mise de fonds ${money(r.closing.down)} + TVP sur la prime ${money(r.closing.premiumPST)} + droits de cession ${money(r.closing.ltt.total)} + juridique/titres/ajustements ${money(r.closing.legal + r.closing.titleEtc + r.closing.adjustments)} = ${money(r.closing.total)}`,
+        `Test de résistance ${pct(r.mortgage.stressRate)} = ${money(r.mortgage.stressPayment)}/mois` + (r.ratios ? `; ABD ${pct(r.ratios.gds, 0)}, ATD ${pct(r.ratios.tds, 0)}` : ''),
+      ].join(' | '),
+    });
+  </script>
+</BaseLayout>
+
+<style is:global>
+  /* BUY Condo Calc. page styles (shared by EN / ZH / FR) */
+  .cc-shell [hidden] { display: none !important; }
+  .cc-down-row { display: flex; gap: 8px; align-items: stretch; }
+  .cc-mode { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; flex: 0 0 auto; }
+  .cc-mode button { font: inherit; font-weight: 600; font-size: 14px; padding: 0 14px; background: var(--surface); color: var(--ink-soft); border: 0; cursor: pointer; min-width: 44px; }
+  .cc-mode button + button { border-left: 1px solid var(--rule); }
+  .cc-mode button.is-on { background: var(--ink); color: var(--bg); }
+  .cc-mode button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .cc-down-input { position: relative; flex: 1; }
+  .cc-down-input input { width: 100%; }
+  #cc-down-wrap[data-mode="$"] .cc-down-input::before { content: '$'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 14px; pointer-events: none; }
+  #cc-down-wrap[data-mode="$"] .cc-down-input input { padding-left: 28px; }
+  #cc-down-wrap[data-mode="%"] .cc-down-input::after { content: '%'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 14px; pointer-events: none; }
+  #cc-down-slider { width: 100%; margin: 10px 0 4px; accent-color: var(--ink); cursor: pointer; }
+  #cc-down-slider:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  .cc-slider-notes { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--ink-mute); }
+  .cc-pill { display: inline-block; align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); min-height: 1.4em; }
+  .cc-pill:empty { display: none; }
+  .cc-pill[data-state="good"] { background: #eef6ee; border-color: #cfe0cf; color: #1f5a23; }
+  .cc-pill[data-state="warn"] { background: #fbf6ea; border-color: #ead9a8; color: #6b5110; }
+  .cc-pill[data-state="bad"] { background: #fbeeee; border-color: #e6c3c3; color: #8a1f2b; }
+  html[data-theme="dark"] .cc-pill[data-state="good"] { background: #142013; border-color: #2a4a2a; color: #b7e0b9; }
+  html[data-theme="dark"] .cc-pill[data-state="warn"] { background: #2a2211; border-color: #5a4a1e; color: #f0d48a; }
+  html[data-theme="dark"] .cc-pill[data-state="bad"] { background: #2a1416; border-color: #5a2a2e; color: #f1b3b9; }
+  .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .cc-empty { background: var(--bg-warm); border: 1px dashed var(--rule); border-radius: 6px; padding: 40px 24px; text-align: center; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 22px; color: var(--ink-soft); }
+  .cc-errors { background: #fbeeee; border: 1px solid #e6c3c3; border-left: 4px solid #b8002e; border-radius: 6px; padding: 16px 20px; color: var(--ink); font-size: 15px; line-height: 1.55; }
+  .cc-errors ul { margin: 0; padding-left: 20px; } .cc-errors li + li { margin-top: 8px; }
+  html[data-theme="dark"] .cc-errors { background: #2a1416; border-color: #5a2a2e; }
+  .cc-headline { background: var(--ink); color: var(--bg); border-radius: 8px; padding: 26px 28px; }
+  .cc-headline .ac-headline-label { color: var(--bg); opacity: .75; }
+  .cc-headline-value { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: clamp(40px, 7vw, 60px); line-height: 1.05; letter-spacing: -0.02em; }
+  .cc-headline .ac-headline-sub { color: var(--bg); opacity: .8; margin-top: 10px; }
+  .cc-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--bg-warm); margin: 16px 0 4px; }
+  .cc-bar-seg { display: block; height: 100%; transition: width .25s ease; }
+  .cc-bar-pi { background: #1a1a1a; } .cc-bar-fee { background: #c69641; } .cc-bar-tax { background: #2c5f8a; } .cc-bar-util { background: #7f8a94; } .cc-bar-ins { background: #2f7d4a; } .cc-bar-park { background: #b07a3c; }
+  html[data-theme="dark"] .cc-bar-pi { background: #f4f0e8; }
+  .cc-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+  .cc-results .ac-section-h { margin-top: 10px; }
+  .cc-closing { background: var(--bg-warm); }
+  .cc-row-edit label { font-size: inherit; color: inherit; }
+  .cc-row-edit .input-prefix { position: relative; display: inline-block; width: 130px; }
+  .cc-row-edit .input-prefix::before { content: '$'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-size: 13px; pointer-events: none; }
+  .cc-row-edit input { width: 100%; font: inherit; font-size: 14px; font-weight: 600; text-align: right; padding: 6px 10px 6px 24px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .cc-row-edit input:focus { outline: none; border-color: var(--ink); }
+  .cc-details { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  .cc-details summary { cursor: pointer; padding: 14px 18px; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 18px; color: var(--ink); list-style: none; display: flex; justify-content: space-between; }
+  .cc-details summary::-webkit-details-marker { display: none; }
+  .cc-details summary::after { content: '+'; color: var(--ink-mute); }
+  .cc-details[open] summary::after { content: '−'; }
+  .cc-details .ac-checks { padding: 0 18px 18px; }
+  .cc-ratios p { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; line-height: 1.5; }
+  .cc-ratios p strong { color: var(--ink); }
+  .cc-ratio-note { font-style: italic; color: var(--ink-mute) !important; }
+  .cc-disclaimer { margin-top: 6px; }
+  .cc-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .cc-lead-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; }
+  .cc-lead-card h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; margin: 0 0 6px; color: var(--ink); }
+  .cc-lead-card p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; line-height: 1.5; }
+  .cc-lead-card > .btn-primary { align-self: flex-start; margin-top: auto; }
+  .cc-lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .cc-lead-fields label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px; }
+  .cc-lead-fields input { width: 100%; font: inherit; font-size: 16px; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
+  .cc-lead-fields input:focus { outline: none; border-color: var(--ink); }
+  .cc-lead-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cc-prose { max-width: 760px; }
+  @media (max-width: 900px) {
+    .cc-shell { grid-template-columns: 1fr; }
+    .cc-lead { grid-template-columns: 1fr; }
+    .cc-lead-fields { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .cc-headline { padding: 20px 18px; }
+    .cc-row-edit { flex-wrap: wrap; gap: 6px; }
+    .cc-row-edit .input-prefix { width: 120px; }
+  }
+  @media print {
+    .cc-inputs, .cc-lead, .cc-empty { display: none !important; }
+    .cc-shell { display: block; }
+    .cc-headline { background: #fff !important; color: #000 !important; border: 1px solid #000; }
+    .cc-headline .ac-headline-label, .cc-headline .ac-headline-sub { color: #000 !important; opacity: 1; }
+    .cc-details { display: block; } .cc-details[open] summary::after, .cc-details summary::after { content: ''; }
+  }
+</style>
