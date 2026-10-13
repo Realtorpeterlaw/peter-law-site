@@ -8,7 +8,6 @@ import { CONFIG } from '../../lib/condo-calc.js';
 
 export const prerender = true;
 
-const BOOKING_URL = 'https://cal.com/peter-law-c5lm9q';
 const rateDate = new Date(CONFIG.RATE_LAST_UPDATED + 'T12:00:00Z').toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 const hreflangAlternates = [
@@ -192,29 +191,25 @@ const hreflangAlternates = [
             <!-- ============================ LEAD CAPTURE (after the answer, never before) ============================ -->
             <div class="cc-lead">
               <div class="cc-lead-card">
-                <h3>Recevoir ce détail par courriel</h3>
-                <p>Je vous envoie les chiffres ci-dessus et, si vous le souhaitez, quelques condos qui y correspondent.</p>
+                <h3>Recevoir une estimation par courriel</h3>
+                <p>Je vous envoie par courriel un rapport de calcul simple.</p>
                 <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
                   <div class="cc-lead-fields">
+                    <div class="cc-lead-full"><label for="cc-lead-address">Adresse de l'immeuble</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="p. ex. 55 Mercer St, Toronto" /></div>
+                    <div><label for="cc-lead-unit">Unité no</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="p. ex. 1204" /></div>
                     <div><label for="cc-lead-name">Nom</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
-                    <div><label for="cc-lead-email">Courriel</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                    <div class="cc-lead-full"><label for="cc-lead-email">Courriel</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
                   </div>
-                  <input type="hidden" name="_subject" value="BUY Condo Calc. breakdown request (French)" />
+                  <input type="hidden" name="_subject" value="BUY Condo Calc. estimate request (French)" />
                   <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/french/contact/thanks" />
                   <input type="hidden" name="purchase_price" id="cc-lead-price" value="" />
                   <input type="hidden" name="all_in_monthly" id="cc-lead-total" value="" />
                   <input type="hidden" name="breakdown" id="cc-lead-summary" value="" />
                   <div class="hp-field" aria-hidden="true"><label for="cc-gotcha">Ne pas remplir</label><input id="cc-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
                   <div class="cc-lead-actions">
-                    <button type="submit" class="btn-primary">Envoyer le détail</button>
-                    <button type="button" class="btn-warm" id="cc-print">Enregistrer en PDF</button>
+                    <button type="submit" class="btn-primary">M'ENVOYER le détail par courriel</button>
                   </div>
                 </form>
-              </div>
-              <div class="cc-lead-card">
-                <h3>Réserver un appel de 15 minutes avec Peter</h3>
-                <p>Apportez ces chiffres. On regarde ensemble ce qui est réaliste pour les immeubles qui vous plaisent, sans pression.</p>
-                <a href={BOOKING_URL} class="btn-primary" target="_blank" rel="noopener">Réserver un appel</a>
               </div>
             </div>
           </div>

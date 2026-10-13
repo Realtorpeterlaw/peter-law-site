@@ -8,7 +8,6 @@ import { CONFIG } from '../lib/condo-calc.js';
 
 export const prerender = true;
 
-const BOOKING_URL = 'https://cal.com/peter-law-c5lm9q';
 const rateDate = new Date(CONFIG.RATE_LAST_UPDATED + 'T12:00:00Z').toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 const hreflangAlternates = [
@@ -191,29 +190,25 @@ const hreflangAlternates = [
             <!-- ============================ LEAD CAPTURE (after the answer, never before) ============================ -->
             <div class="cc-lead">
               <div class="cc-lead-card">
-                <h3>Email me this breakdown</h3>
-                <p>I'll send the numbers above to your inbox and, if you like, a few condos that fit them.</p>
+                <h3>Email me an estimate price</h3>
+                <p>I'll email you a simple calculated report.</p>
                 <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
                   <div class="cc-lead-fields">
+                    <div class="cc-lead-full"><label for="cc-lead-address">Building address</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="e.g. 55 Mercer St, Toronto" /></div>
+                    <div><label for="cc-lead-unit">Unit #</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="e.g. 1204" /></div>
                     <div><label for="cc-lead-name">Name</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
-                    <div><label for="cc-lead-email">Email</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                    <div class="cc-lead-full"><label for="cc-lead-email">Email</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
                   </div>
-                  <input type="hidden" name="_subject" value="BUY Condo Calc. breakdown request" />
+                  <input type="hidden" name="_subject" value="BUY Condo Calc. estimate request" />
                   <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks" />
                   <input type="hidden" name="purchase_price" id="cc-lead-price" value="" />
                   <input type="hidden" name="all_in_monthly" id="cc-lead-total" value="" />
                   <input type="hidden" name="breakdown" id="cc-lead-summary" value="" />
                   <div class="hp-field" aria-hidden="true"><label for="cc-gotcha">Don't fill this</label><input id="cc-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
                   <div class="cc-lead-actions">
-                    <button type="submit" class="btn-primary">Send me the breakdown</button>
-                    <button type="button" class="btn-warm" id="cc-print">Save as PDF</button>
+                    <button type="submit" class="btn-primary">EMAIL me the breakdown</button>
                   </div>
                 </form>
-              </div>
-              <div class="cc-lead-card">
-                <h3>Book a 15-minute call with Peter</h3>
-                <p>Bring these numbers. We'll talk through what's realistic for the buildings you like, no pressure.</p>
-                <a href={BOOKING_URL} class="btn-primary" target="_blank" rel="noopener">Book a call</a>
               </div>
             </div>
           </div>
@@ -329,12 +324,13 @@ const hreflangAlternates = [
   .cc-ratios p strong { color: var(--ink); }
   .cc-ratio-note { font-style: italic; color: var(--ink-mute) !important; }
   .cc-disclaimer { margin-top: 6px; }
-  .cc-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .cc-lead { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 8px; }
   .cc-lead-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; }
   .cc-lead-card h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; margin: 0 0 6px; color: var(--ink); }
   .cc-lead-card p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; line-height: 1.5; }
   .cc-lead-card > .btn-primary { align-self: flex-start; margin-top: auto; }
   .cc-lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .cc-lead-full { grid-column: 1 / -1; }
   .cc-lead-fields label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px; }
   .cc-lead-fields input { width: 100%; font: inherit; font-size: 16px; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); }
   .cc-lead-fields input:focus { outline: none; border-color: var(--ink); }
@@ -342,7 +338,6 @@ const hreflangAlternates = [
   .cc-prose { max-width: 760px; }
   @media (max-width: 900px) {
     .cc-shell { grid-template-columns: 1fr; }
-    .cc-lead { grid-template-columns: 1fr; }
     .cc-lead-fields { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {

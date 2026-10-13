@@ -8,7 +8,6 @@ import { CONFIG } from '../../lib/condo-calc.js';
 
 export const prerender = true;
 
-const BOOKING_URL = 'https://cal.com/peter-law-c5lm9q';
 const rateDate = (() => { const [y, m, d] = CONFIG.RATE_LAST_UPDATED.split('-'); return `${y} 年 ${+m} 月 ${+d} 日`; })();
 
 const hreflangAlternates = [
@@ -192,29 +191,25 @@ const hreflangAlternates = [
             <!-- ============================ LEAD CAPTURE (after the answer, never before) ============================ -->
             <div class="cc-lead">
               <div class="cc-lead-card">
-                <h3>把这份明细发到我的邮箱</h3>
-                <p>我会把上面的数字发到您的邮箱；如果您愿意，也会附上几套符合这些数字的公寓。</p>
+                <h3>把预估价格发到我的邮箱</h3>
+                <p>我会发给您一份简单的计算报告。</p>
                 <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
                   <div class="cc-lead-fields">
+                    <div class="cc-lead-full"><label for="cc-lead-address">楼盘地址</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="例如 55 Mercer St, Toronto" /></div>
+                    <div><label for="cc-lead-unit">单元号</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="例如 1204" /></div>
                     <div><label for="cc-lead-name">姓名</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
-                    <div><label for="cc-lead-email">邮箱</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                    <div class="cc-lead-full"><label for="cc-lead-email">邮箱</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
                   </div>
-                  <input type="hidden" name="_subject" value="BUY 公寓计算器明细请求 (中文版)" />
+                  <input type="hidden" name="_subject" value="BUY 公寓计算器估价请求 (中文版)" />
                   <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/chinese/contact/thanks" />
                   <input type="hidden" name="purchase_price" id="cc-lead-price" value="" />
                   <input type="hidden" name="all_in_monthly" id="cc-lead-total" value="" />
                   <input type="hidden" name="breakdown" id="cc-lead-summary" value="" />
                   <div class="hp-field" aria-hidden="true"><label for="cc-gotcha">请勿填写</label><input id="cc-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
                   <div class="cc-lead-actions">
-                    <button type="submit" class="btn-primary">发送明细</button>
-                    <button type="button" class="btn-warm" id="cc-print">保存为 PDF</button>
+                    <button type="submit" class="btn-primary">把明细发到我的邮箱</button>
                   </div>
                 </form>
-              </div>
-              <div class="cc-lead-card">
-                <h3>与 Peter 预约 15 分钟通话</h3>
-                <p>带上这些数字，我们聊聊您看中的楼盘实际能做到什么程度。没有压力。</p>
-                <a href={BOOKING_URL} class="btn-primary" target="_blank" rel="noopener">预约通话</a>
               </div>
             </div>
           </div>
