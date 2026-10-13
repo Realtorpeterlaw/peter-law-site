@@ -43,7 +43,7 @@ const hreflangAlternates = [
         <div class="ac-inputs cc-inputs">
           <div class="ac-input-group">
             <label for="cc-price">购买价格</label>
-            <div class="input-prefix"><input type="number" id="cc-price" min="0" step="5000" inputmode="decimal" placeholder="例如 650000" /></div>
+            <div class="input-prefix"><input type="text" id="cc-price" inputmode="decimal" placeholder="例如 650,000.00" /></div>
           </div>
 
           <div class="ac-input-group cc-down-group" id="cc-down-wrap" data-mode="%">
@@ -53,7 +53,7 @@ const hreflangAlternates = [
                 <button type="button" data-down-mode="$" aria-pressed="false">$</button>
                 <button type="button" data-down-mode="%" aria-pressed="true" class="is-on">%</button>
               </div>
-              <div class="cc-down-input"><input type="number" id="cc-down" min="0" step="0.5" inputmode="decimal" value="20" /></div>
+              <div class="cc-down-input"><input type="text" id="cc-down" inputmode="decimal" value="20" /></div>
             </div>
             <label for="cc-down-slider" class="visually-hidden">首付百分比滑块</label>
             <input type="range" id="cc-down-slider" min="5" max="35" step="0.5" value="20" list="cc-ticks" />
@@ -63,7 +63,18 @@ const hreflangAlternates = [
 
           <div class="ac-input-group">
             <label for="cc-fee">每月公寓管理费</label>
-            <div class="input-prefix"><input type="number" id="cc-fee" min="0" step="10" inputmode="decimal" placeholder="例如 650" /></div>
+            <div class="input-prefix"><input type="text" id="cc-fee" inputmode="decimal" placeholder="例如 650.00" /></div>
+          </div>
+
+          <div class="ac-input-group ac-checkbox-group cc-sqft-toggle">
+            <label for="cc-sqft-on" class="ac-checkbox">
+              <input type="checkbox" id="cc-sqft-on" />
+              <span class="ac-checkbox-text">填写面积 <span class="hint">选填。显示每平方英尺的价格和管理费。</span></span>
+            </label>
+          </div>
+          <div class="ac-input-group" id="cc-sqft-wrap" hidden>
+            <label for="cc-sqft">面积（平方英尺）</label>
+            <input type="text" id="cc-sqft" inputmode="numeric" placeholder="例如 720" />
           </div>
 
           <div class="ac-input-group">
@@ -84,15 +95,15 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group">
                 <label for="cc-utilities">管理费未包含的每月水电费</label>
-                <div class="input-prefix"><input type="number" id="cc-utilities" min="0" step="10" inputmode="decimal" /></div>
+                <div class="input-prefix"><input type="text" id="cc-utilities" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-tax">年度地税 <span class="hint">默认按房价的 0.7% 预填。如有房源的实际数字，请直接填入。</span></label>
-                <div class="input-prefix"><input type="number" id="cc-tax" min="0" step="50" inputmode="decimal" /></div>
+                <div class="input-prefix"><input type="text" id="cc-tax" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-insurance">公寓单元保险（每月）</label>
-                <div class="input-prefix"><input type="number" id="cc-insurance" min="0" step="5" inputmode="decimal" value="40" /></div>
+                <div class="input-prefix"><input type="text" id="cc-insurance" inputmode="decimal" data-default="40" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-parking">车位</label>
@@ -100,7 +111,7 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group" id="cc-parking-cost-wrap" hidden>
                 <label for="cc-parking-cost">车位月租</label>
-                <div class="input-prefix"><input type="number" id="cc-parking-cost" min="0" step="10" inputmode="decimal" value="200" /></div>
+                <div class="input-prefix"><input type="text" id="cc-parking-cost" inputmode="decimal" data-default="200" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-locker">储物柜</label>
@@ -108,7 +119,7 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group" id="cc-locker-cost-wrap" hidden>
                 <label for="cc-locker-cost">储物柜月租</label>
-                <div class="input-prefix"><input type="number" id="cc-locker-cost" min="0" step="5" inputmode="decimal" value="50" /></div>
+                <div class="input-prefix"><input type="text" id="cc-locker-cost" inputmode="decimal" data-default="50" /></div>
               </div>
               <div class="ac-input-group ac-checkbox-group">
                 <label for="cc-fthb" class="ac-checkbox">
@@ -126,11 +137,11 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group">
                 <label for="cc-income">家庭税前年收入 <span class="hint">选填。填写后显示您的住房成本比率。</span></label>
-                <div class="input-prefix"><input type="number" id="cc-income" min="0" step="1000" inputmode="decimal" placeholder="选填" /></div>
+                <div class="input-prefix"><input type="text" id="cc-income" inputmode="decimal" placeholder="选填" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-debts">其他每月债务还款 <span class="hint">选填。车贷、学生贷款、信用卡最低还款。</span></label>
-                <div class="input-prefix"><input type="number" id="cc-debts" min="0" step="50" inputmode="decimal" placeholder="选填" /></div>
+                <div class="input-prefix"><input type="text" id="cc-debts" inputmode="decimal" placeholder="选填" /></div>
               </div>
             </div>
           </details>
@@ -152,6 +163,15 @@ const hreflangAlternates = [
               <span class="cc-bar-seg cc-bar-pi" id="cc-bar-pi"></span><span class="cc-bar-seg cc-bar-fee" id="cc-bar-fee"></span><span class="cc-bar-seg cc-bar-tax" id="cc-bar-tax"></span><span class="cc-bar-seg cc-bar-util" id="cc-bar-util"></span><span class="cc-bar-seg cc-bar-ins" id="cc-bar-ins"></span><span class="cc-bar-seg cc-bar-park" id="cc-bar-park"></span>
             </div>
 
+            <div class="cc-sqft" id="cc-sqft-out" hidden>
+              <div class="cc-sqft-h">每平方英尺</div>
+              <div class="cc-sqft-grid">
+                <div class="cc-sqft-item"><span class="cc-sqft-label">每平方英尺价格</span><strong id="cc-sqft-price">$0</strong></div>
+                <div class="cc-sqft-item"><span class="cc-sqft-label">每平方英尺管理费</span><strong><span id="cc-sqft-fee">$0</span> <small>每月</small></strong></div>
+              </div>
+              <div class="cc-sqft-note">方便比较不同面积的单元。</div>
+            </div>
+
             <h2 class="ac-section-h">每月明细</h2>
             <div class="ac-breakdown cc-breakdown">
               <div class="ac-row"><span><i class="cc-dot cc-bar-pi"></i>按揭月供</span><strong id="cc-m-pi">$0</strong></div>
@@ -170,9 +190,9 @@ const hreflangAlternates = [
               <div class="ac-row"><span>安省土地转让税</span><strong id="cc-c-ltt-on">$0</strong></div>
               <div class="ac-row" id="cc-c-ltt-tor-row"><span>多伦多市土地转让税</span><strong id="cc-c-ltt-tor">$0</strong></div>
               <div class="ac-row" id="cc-c-rebate-row" hidden><span>首次购房者退税</span><strong id="cc-c-rebate">$0</strong></div>
-              <div class="ac-row cc-row-edit"><label for="cc-legal">律师费</label><span class="input-prefix"><input type="number" id="cc-legal" min="0" step="100" inputmode="decimal" value="2000" /></span></div>
-              <div class="ac-row cc-row-edit"><label for="cc-title">产权保险、验房、公寓状况证明</label><span class="input-prefix"><input type="number" id="cc-title" min="0" step="100" inputmode="decimal" value="1000" /></span></div>
-              <div class="ac-row cc-row-edit"><label for="cc-adjust">费用调整</label><span class="input-prefix"><input type="number" id="cc-adjust" min="0" step="100" inputmode="decimal" value="500" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-legal">律师费</label><span class="input-prefix"><input type="text" id="cc-legal" inputmode="decimal" data-default="2000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-title">产权保险、验房、公寓状况证明</label><span class="input-prefix"><input type="text" id="cc-title" inputmode="decimal" data-default="1000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-adjust">费用调整</label><span class="input-prefix"><input type="text" id="cc-adjust" inputmode="decimal" data-default="500" /></span></div>
               <div class="ac-row ac-row-total"><span>交房当天所需现金合计</span><strong id="cc-c-total">$0</strong></div>
             </div>
 
@@ -195,10 +215,10 @@ const hreflangAlternates = [
                 <p>我会发给您一份简单的计算报告。</p>
                 <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
                   <div class="cc-lead-fields">
-                    <div class="cc-lead-full"><label for="cc-lead-address">楼盘地址</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="例如 55 Mercer St, Toronto" /></div>
-                    <div><label for="cc-lead-unit">单元号</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="例如 1204" /></div>
-                    <div><label for="cc-lead-name">姓名</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
-                    <div class="cc-lead-full"><label for="cc-lead-email">邮箱</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                    <div class="cc-lead-address"><label for="cc-lead-address">楼盘地址</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="例如 55 Mercer St, Toronto" /></div>
+                    <div class="cc-lead-unit"><label for="cc-lead-unit">单元号</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="例如 1204" /></div>
+                    <div class="cc-lead-name"><label for="cc-lead-name">姓名</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
+                    <div class="cc-lead-email"><label for="cc-lead-email">邮箱</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
                   </div>
                   <input type="hidden" name="_subject" value="BUY 公寓计算器估价请求 (中文版)" />
                   <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/chinese/contact/thanks" />
@@ -258,6 +278,7 @@ const hreflangAlternates = [
       tdsText: (tds, guide) => `加上其他债务后为 <strong>${tds}</strong>（TDS）。贷款机构通常希望不超过 ${guide}。`,
       ratioNote: '决定权在您的贷款机构。这只是估算。',
       ratioEmpty: '在“细化这个估算”中填入家庭收入，即可查看您的住房成本比率。',
+      sqftSummary: (sf, p, fee) => `${sf} 平方英尺：每平方英尺 ${p}，管理费每平方英尺每月 ${fee}`,
       summary: (r, money, pct) => [
         `房价 ${money(r.inputs.price, 0)}，首付 ${money(r.inputs.down, 0)}（${pct(r.inputs.downPct, 1)}），利率 ${pct(r.inputs.ratePct)}，${r.inputs.amort} 年`,
         `按揭 ${money(r.monthly.pAndI)} + 管理费 ${money(r.monthly.condoFee)} + 地税 ${money(r.monthly.propertyTax)} + 水电 ${money(r.monthly.utilities)} + 保险 ${money(r.monthly.insurance)} + 车位/储物柜 ${money(r.monthly.parkingRent + r.monthly.lockerRent)} = 每月 ${money(r.monthly.total)}`,

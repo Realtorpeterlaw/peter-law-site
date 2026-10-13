@@ -43,7 +43,7 @@ const hreflangAlternates = [
         <div class="ac-inputs cc-inputs">
           <div class="ac-input-group">
             <label for="cc-price">Prix d'achat</label>
-            <div class="input-prefix"><input type="number" id="cc-price" min="0" step="5000" inputmode="decimal" placeholder="p. ex. 650000" /></div>
+            <div class="input-prefix"><input type="text" id="cc-price" inputmode="decimal" placeholder="p. ex. 650 000,00" /></div>
           </div>
 
           <div class="ac-input-group cc-down-group" id="cc-down-wrap" data-mode="%">
@@ -53,7 +53,7 @@ const hreflangAlternates = [
                 <button type="button" data-down-mode="$" aria-pressed="false">$</button>
                 <button type="button" data-down-mode="%" aria-pressed="true" class="is-on">%</button>
               </div>
-              <div class="cc-down-input"><input type="number" id="cc-down" min="0" step="0.5" inputmode="decimal" value="20" /></div>
+              <div class="cc-down-input"><input type="text" id="cc-down" inputmode="decimal" value="20" /></div>
             </div>
             <label for="cc-down-slider" class="visually-hidden">Curseur du pourcentage de mise de fonds</label>
             <input type="range" id="cc-down-slider" min="5" max="35" step="0.5" value="20" list="cc-ticks" />
@@ -63,7 +63,18 @@ const hreflangAlternates = [
 
           <div class="ac-input-group">
             <label for="cc-fee">Frais de condo mensuels</label>
-            <div class="input-prefix"><input type="number" id="cc-fee" min="0" step="10" inputmode="decimal" placeholder="p. ex. 650" /></div>
+            <div class="input-prefix"><input type="text" id="cc-fee" inputmode="decimal" placeholder="p. ex. 650,00" /></div>
+          </div>
+
+          <div class="ac-input-group ac-checkbox-group cc-sqft-toggle">
+            <label for="cc-sqft-on" class="ac-checkbox">
+              <input type="checkbox" id="cc-sqft-on" />
+              <span class="ac-checkbox-text">Ajouter la superficie <span class="hint">Facultatif. Affiche le prix et les frais par pied carré.</span></span>
+            </label>
+          </div>
+          <div class="ac-input-group" id="cc-sqft-wrap" hidden>
+            <label for="cc-sqft">Pieds carrés</label>
+            <input type="text" id="cc-sqft" inputmode="numeric" placeholder="p. ex. 720" />
           </div>
 
           <div class="ac-input-group">
@@ -84,15 +95,15 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group">
                 <label for="cc-utilities">Services publics mensuels non couverts par les frais</label>
-                <div class="input-prefix"><input type="number" id="cc-utilities" min="0" step="10" inputmode="decimal" /></div>
+                <div class="input-prefix"><input type="text" id="cc-utilities" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-tax">Taxes foncières annuelles <span class="hint">Préremplies à 0,7 % du prix. Utilisez le chiffre de l'inscription si vous l'avez.</span></label>
-                <div class="input-prefix"><input type="number" id="cc-tax" min="0" step="50" inputmode="decimal" /></div>
+                <div class="input-prefix"><input type="text" id="cc-tax" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-insurance">Assurance de l'unité (mensuelle)</label>
-                <div class="input-prefix"><input type="number" id="cc-insurance" min="0" step="5" inputmode="decimal" value="40" /></div>
+                <div class="input-prefix"><input type="text" id="cc-insurance" inputmode="decimal" data-default="40" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-parking">Stationnement</label>
@@ -100,7 +111,7 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group" id="cc-parking-cost-wrap" hidden>
                 <label for="cc-parking-cost">Coût mensuel du stationnement</label>
-                <div class="input-prefix"><input type="number" id="cc-parking-cost" min="0" step="10" inputmode="decimal" value="200" /></div>
+                <div class="input-prefix"><input type="text" id="cc-parking-cost" inputmode="decimal" data-default="200" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-locker">Casier</label>
@@ -108,7 +119,7 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group" id="cc-locker-cost-wrap" hidden>
                 <label for="cc-locker-cost">Coût mensuel du casier</label>
-                <div class="input-prefix"><input type="number" id="cc-locker-cost" min="0" step="5" inputmode="decimal" value="50" /></div>
+                <div class="input-prefix"><input type="text" id="cc-locker-cost" inputmode="decimal" data-default="50" /></div>
               </div>
               <div class="ac-input-group ac-checkbox-group">
                 <label for="cc-fthb" class="ac-checkbox">
@@ -126,11 +137,11 @@ const hreflangAlternates = [
               </div>
               <div class="ac-input-group">
                 <label for="cc-income">Revenu brut du ménage (annuel) <span class="hint">Facultatif. Affiche vos ratios de coûts d'habitation.</span></label>
-                <div class="input-prefix"><input type="number" id="cc-income" min="0" step="1000" inputmode="decimal" placeholder="facultatif" /></div>
+                <div class="input-prefix"><input type="text" id="cc-income" inputmode="decimal" placeholder="facultatif" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="cc-debts">Autres paiements de dettes mensuels <span class="hint">Facultatif. Prêt auto, prêt étudiant, minimums de cartes de crédit.</span></label>
-                <div class="input-prefix"><input type="number" id="cc-debts" min="0" step="50" inputmode="decimal" placeholder="facultatif" /></div>
+                <div class="input-prefix"><input type="text" id="cc-debts" inputmode="decimal" placeholder="facultatif" /></div>
               </div>
             </div>
           </details>
@@ -152,6 +163,15 @@ const hreflangAlternates = [
               <span class="cc-bar-seg cc-bar-pi" id="cc-bar-pi"></span><span class="cc-bar-seg cc-bar-fee" id="cc-bar-fee"></span><span class="cc-bar-seg cc-bar-tax" id="cc-bar-tax"></span><span class="cc-bar-seg cc-bar-util" id="cc-bar-util"></span><span class="cc-bar-seg cc-bar-ins" id="cc-bar-ins"></span><span class="cc-bar-seg cc-bar-park" id="cc-bar-park"></span>
             </div>
 
+            <div class="cc-sqft" id="cc-sqft-out" hidden>
+              <div class="cc-sqft-h">Par pied carré</div>
+              <div class="cc-sqft-grid">
+                <div class="cc-sqft-item"><span class="cc-sqft-label">Prix par pi²</span><strong id="cc-sqft-price">$0</strong></div>
+                <div class="cc-sqft-item"><span class="cc-sqft-label">Frais de condo par pi²</span><strong><span id="cc-sqft-fee">$0</span> <small>par mois</small></strong></div>
+              </div>
+              <div class="cc-sqft-note">Pratique pour comparer des unités de tailles différentes.</div>
+            </div>
+
             <h2 class="ac-section-h">Détail mensuel</h2>
             <div class="ac-breakdown cc-breakdown">
               <div class="ac-row"><span><i class="cc-dot cc-bar-pi"></i>Paiement hypothécaire</span><strong id="cc-m-pi">$0</strong></div>
@@ -170,9 +190,9 @@ const hreflangAlternates = [
               <div class="ac-row"><span>Droits de cession immobilière de l'Ontario</span><strong id="cc-c-ltt-on">$0</strong></div>
               <div class="ac-row" id="cc-c-ltt-tor-row"><span>Droits de cession immobilière de Toronto</span><strong id="cc-c-ltt-tor">$0</strong></div>
               <div class="ac-row" id="cc-c-rebate-row" hidden><span>Remboursements premier acheteur</span><strong id="cc-c-rebate">$0</strong></div>
-              <div class="ac-row cc-row-edit"><label for="cc-legal">Frais juridiques</label><span class="input-prefix"><input type="number" id="cc-legal" min="0" step="100" inputmode="decimal" value="2000" /></span></div>
-              <div class="ac-row cc-row-edit"><label for="cc-title">Assurance titres, inspection, certificat d'état</label><span class="input-prefix"><input type="number" id="cc-title" min="0" step="100" inputmode="decimal" value="1000" /></span></div>
-              <div class="ac-row cc-row-edit"><label for="cc-adjust">Ajustements</label><span class="input-prefix"><input type="number" id="cc-adjust" min="0" step="100" inputmode="decimal" value="500" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-legal">Frais juridiques</label><span class="input-prefix"><input type="text" id="cc-legal" inputmode="decimal" data-default="2000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-title">Assurance titres, inspection, certificat d'état</label><span class="input-prefix"><input type="text" id="cc-title" inputmode="decimal" data-default="1000" /></span></div>
+              <div class="ac-row cc-row-edit"><label for="cc-adjust">Ajustements</label><span class="input-prefix"><input type="text" id="cc-adjust" inputmode="decimal" data-default="500" /></span></div>
               <div class="ac-row ac-row-total"><span>Total requis le jour de la clôture</span><strong id="cc-c-total">$0</strong></div>
             </div>
 
@@ -195,10 +215,10 @@ const hreflangAlternates = [
                 <p>Je vous envoie par courriel un rapport de calcul simple.</p>
                 <form method="POST" action="https://formspree.io/f/xnjrzgda" class="cc-lead-form">
                   <div class="cc-lead-fields">
-                    <div class="cc-lead-full"><label for="cc-lead-address">Adresse de l'immeuble</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="p. ex. 55 Mercer St, Toronto" /></div>
-                    <div><label for="cc-lead-unit">Unité no</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="p. ex. 1204" /></div>
-                    <div><label for="cc-lead-name">Nom</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
-                    <div class="cc-lead-full"><label for="cc-lead-email">Courriel</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
+                    <div class="cc-lead-address"><label for="cc-lead-address">Adresse de l'immeuble</label><input id="cc-lead-address" name="building_address" type="text" required autocomplete="street-address" placeholder="p. ex. 55 Mercer St, Toronto" /></div>
+                    <div class="cc-lead-unit"><label for="cc-lead-unit">Unité no</label><input id="cc-lead-unit" name="unit_number" type="text" inputmode="numeric" placeholder="p. ex. 1204" /></div>
+                    <div class="cc-lead-name"><label for="cc-lead-name">Nom</label><input id="cc-lead-name" name="name" type="text" required autocomplete="name" /></div>
+                    <div class="cc-lead-email"><label for="cc-lead-email">Courriel</label><input id="cc-lead-email" name="email" type="email" required autocomplete="email" /></div>
                   </div>
                   <input type="hidden" name="_subject" value="BUY Condo Calc. estimate request (French)" />
                   <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/french/contact/thanks" />
@@ -258,6 +278,7 @@ const hreflangAlternates = [
       tdsText: (tds, guide) => `En incluant vos autres dettes, c\'est <strong>${tds}</strong> (ATD). Les prêteurs visent généralement ${guide} ou moins.`,
       ratioNote: 'C\'est votre prêteur qui décide. Ceci est une estimation.',
       ratioEmpty: 'Entrez le revenu de votre ménage sous « Préciser cette estimation » pour voir vos ratios de coûts d\'habitation.',
+      sqftSummary: (sf, p, fee) => `${sf} pi² : ${p}/pi², frais ${fee}/pi² par mois`,
       summary: (r, money, pct) => [
         `Prix ${money(r.inputs.price, 0)}, mise de fonds ${money(r.inputs.down, 0)} (${pct(r.inputs.downPct, 1)}), taux ${pct(r.inputs.ratePct)}, ${r.inputs.amort} ans`,
         `Hypothèque ${money(r.monthly.pAndI)} + frais de condo ${money(r.monthly.condoFee)} + taxes ${money(r.monthly.propertyTax)} + services ${money(r.monthly.utilities)} + assurance ${money(r.monthly.insurance)} + stationnement/casier ${money(r.monthly.parkingRent + r.monthly.lockerRent)} = ${money(r.monthly.total)}/mois`,

@@ -10,18 +10,47 @@ export function initCondoCalc(T) {
   const locale = T.locale || 'en-CA';
   const money = (n, dp = 2) => (Number.isFinite(n) ? n : 0).toLocaleString(locale, { style: 'currency', currency: 'CAD', minimumFractionDigits: dp, maximumFractionDigits: dp });
   const pct = (n, dp = 2) => (Number.isFinite(n) ? n : 0).toLocaleString(locale, { minimumFractionDigits: dp, maximumFractionDigits: dp }) + (locale === 'fr-CA' ? ' %' : '%');
-  const num = (el) => { const v = parseFloat(String(el.value).replace(/[^0-9.\-]/g, '')); return Number.isFinite(v) && v > 0 ? v : 0; };
+  let downMode = '%';               // '$' or '%'
+  // ---- money inputs: typed as text so they can show "1,000,000.00" (or "1 000 000,00" in French) ----
+  const fr = locale === 'fr-CA';
+  const GROUP = fr ? '\u00a0' : ',';      // thousands separator
+  const DEC = fr ? ',' : '.';             // decimal separator
+  function parseMoney(str) {
+    let t = String(str ?? '').replace(/[\s\u00a0\u202f$]/g, '');
+    if (fr) { t = t.replace(/,/g, '.'); const i = t.lastIndexOf('.'); if (i > -1) t = t.slice(0, i).replace(/\./g, '') + '.' + t.slice(i + 1); }  // French: spaces group, '.' or ',' is the decimal
+    else t = t.replace(/,/g, '');
+    const v = parseFloat(t.replace(/[^0-9.\-]/g, ''));
+    return Number.isFinite(v) && v > 0 ? v : 0;
+  }
+  const fmtMoneyInput = (v) => (v > 0 ? v.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '');
+  // Group the integer part while the visitor types, keeping the caret in place. Decimals are added on blur.
+  function liveGroup(el) {
+    const raw = el.value; if (!raw) return;
+    const fromEnd = raw.length - (el.selectionStart ?? raw.length);
+    let t = raw.replace(/[^\d.,]/g, '');
+    let intPart = t, decPart = null;
+    const i = fr ? Math.max(t.lastIndexOf(','), t.lastIndexOf('.')) : t.indexOf('.');
+    if (i > -1) { intPart = t.slice(0, i); decPart = t.slice(i + 1).replace(/[.,]/g, '').slice(0, 2); }
+    intPart = intPart.replace(/[.,]/g, '').replace(/^0+(?=\d)/, '');
+    const grouped = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, GROUP);
+    const out = decPart === null ? grouped : grouped + DEC + decPart;
+    if (out !== raw) { el.value = out; const pos = Math.max(0, out.length - fromEnd); try { el.setSelectionRange(pos, pos); } catch (e) {} }
+  }
+  const MONEY_IDS = ['cc-price', 'cc-fee', 'cc-utilities', 'cc-tax', 'cc-insurance', 'cc-parking-cost', 'cc-locker-cost', 'cc-income', 'cc-debts', 'cc-legal', 'cc-title', 'cc-adjust'];
+  const isMoney = (el) => MONEY_IDS.includes(el.id) || (el.id === 'cc-down' && downMode === '$');
+  const mb = (el) => (String(el.value).trim() === '' ? '' : parseMoney(el.value)); // money-or-blank, parsed in the page's locale before it reaches the math
+  const num = (el) => isMoney(el) ? parseMoney(el.value) : (() => { const v = parseFloat(String(el.value).replace(/[^0-9.\-]/g, '')); return Number.isFinite(v) && v > 0 ? v : 0; })();
 
   // ---- elements ----
   const price = $('cc-price'), down = $('cc-down'), slider = $('cc-down-slider'), fee = $('cc-fee'), rate = $('cc-rate');
   const modeBtns = document.querySelectorAll('[data-down-mode]');
+  const sqftOn = $('cc-sqft-on'), sqft = $('cc-sqft');
   const refine = {
     heat: $('cc-heat'), hydro: $('cc-hydro'), utilities: $('cc-utilities'), tax: $('cc-tax'), insurance: $('cc-insurance'),
     parking: $('cc-parking'), parkingCost: $('cc-parking-cost'), locker: $('cc-locker'), lockerCost: $('cc-locker-cost'),
     fthb: $('cc-fthb'), amort: $('cc-amort'), toronto: $('cc-toronto'), income: $('cc-income'), debts: $('cc-debts'),
     legal: $('cc-legal'), titleEtc: $('cc-title'), adjustments: $('cc-adjust'),
   };
-  let downMode = '%';               // '$' or '%'
   let userEditedUtilities = false, userEditedTax = false;
   rate.value = CONFIG.DEFAULT_RATE_PCT.toFixed(2);
   document.querySelectorAll('[data-rate-date]').forEach((el) => { el.textContent = T.formatDate(CONFIG.RATE_LAST_UPDATED); });
@@ -38,7 +67,7 @@ export function initCondoCalc(T) {
     modeBtns.forEach((b) => { const on = b.dataset.downMode === mode; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
     $('cc-down-wrap').dataset.mode = mode;
     down.step = mode === '%' ? '0.5' : '1000';
-    if (p > 0) down.value = mode === '%' ? (current / p * 100).toFixed(1).replace(/\.0$/, '') : Math.round(current);
+    if (p > 0) down.value = mode === '%' ? (current / p * 100).toFixed(1).replace(/\.0$/, '') : fmtMoneyInput(Math.round(current));
     recompute();
   }
   modeBtns.forEach((b) => b.addEventListener('click', () => setDownMode(b.dataset.downMode)));
@@ -54,7 +83,7 @@ export function initCondoCalc(T) {
     for (const tier of [5, 10, 15, 20]) if (Math.abs(v - tier) <= 0.75) v = tier;  // snap at the premium tiers
     slider.value = String(v);
     const p = num(price);
-    down.value = downMode === '%' ? String(v) : String(Math.round(p * v / 100));
+    down.value = downMode === '%' ? String(v) : fmtMoneyInput(Math.round(p * v / 100));
     recompute(true);
   });
 
@@ -67,8 +96,8 @@ export function initCondoCalc(T) {
     return CONFIG.UTILITIES_DEFAULT;
   }
   function refreshDefaults() {
-    if (!userEditedUtilities) refine.utilities.value = suggestedUtilities();
-    if (!userEditedTax) { const p = num(price); refine.tax.value = p > 0 ? Math.round(p * CONFIG.PROPERTY_TAX_RATE) : ''; }
+    if (!userEditedUtilities) refine.utilities.value = fmtMoneyInput(suggestedUtilities());
+    if (!userEditedTax) { const p = num(price); refine.tax.value = p > 0 ? fmtMoneyInput(Math.round(p * CONFIG.PROPERTY_TAX_RATE)) : ''; }
     $('cc-parking-cost-wrap').hidden = refine.parking.value !== 'rented';
     $('cc-locker-cost-wrap').hidden = refine.locker.value !== 'rented';
   }
@@ -91,10 +120,10 @@ export function initCondoCalc(T) {
     const r = calculate({
       price: p, downPayment: downDollars(), ratePct: num(rate), amortYears: num(refine.amort),
       firstTimeBuyer: refine.fthb.checked, insideToronto: refine.toronto.value === 'yes', condoFee: num(fee),
-      feeIncludesHeat: refine.heat.value !== 'no', utilitiesMonthly: refine.utilities.value, propertyTaxAnnual: refine.tax.value,
-      insuranceMonthly: refine.insurance.value, parking: refine.parking.value, parkingMonthly: refine.parkingCost.value,
-      locker: refine.locker.value, lockerMonthly: refine.lockerCost.value, grossAnnualIncome: refine.income.value,
-      otherDebtsMonthly: refine.debts.value, legal: refine.legal.value, titleEtc: refine.titleEtc.value, adjustments: refine.adjustments.value,
+      feeIncludesHeat: refine.heat.value !== 'no', utilitiesMonthly: mb(refine.utilities), propertyTaxAnnual: mb(refine.tax),
+      insuranceMonthly: mb(refine.insurance), parking: refine.parking.value, parkingMonthly: mb(refine.parkingCost),
+      locker: refine.locker.value, lockerMonthly: mb(refine.lockerCost), grossAnnualIncome: mb(refine.income),
+      otherDebtsMonthly: mb(refine.debts), legal: mb(refine.legal), titleEtc: mb(refine.titleEtc), adjustments: mb(refine.adjustments),
     });
 
     // insurance pill under the slider
@@ -127,6 +156,12 @@ export function initCondoCalc(T) {
     const parts = [['pi', r.monthly.pAndI], ['fee', r.monthly.condoFee], ['tax', r.monthly.propertyTax], ['util', r.monthly.utilities], ['ins', r.monthly.insurance], ['park', rows['cc-m-park']]];
     parts.forEach(([k, v]) => { const seg = $('cc-bar-' + k); if (seg) seg.style.width = (r.monthly.total > 0 ? v / r.monthly.total * 100 : 0) + '%'; });
 
+    // per square foot (optional)
+    const sf = sqftOn.checked ? parseFloat(sqft.value) : 0;
+    const sqOut = $('cc-sqft-out');
+    if (sf > 0) { sqOut.hidden = false; $('cc-sqft-price').textContent = money(r.inputs.price / sf, 0); $('cc-sqft-fee').textContent = money(r.monthly.condoFee / sf); }
+    else sqOut.hidden = true;
+
     // closing day
     $('cc-c-down').textContent = money(r.closing.down);
     $('cc-c-pst').textContent = money(r.closing.premiumPST);
@@ -152,12 +187,20 @@ export function initCondoCalc(T) {
     } else { ratioBox.innerHTML = '<p class="cc-ratio-note">' + T.ratioEmpty + '</p>'; }
 
     // lead-capture hidden fields (numbers only, no personal data)
-    const summary = T.summary(r, money, pct);
+    const summary = T.summary(r, money, pct) + (sf > 0 ? ` | ${T.sqftSummary(Math.round(sf), money(r.inputs.price / sf, 0), money(r.monthly.condoFee / sf))}` : '');
     $('cc-lead-summary').value = summary;
     $('cc-lead-price').value = money(r.inputs.price, 0);
     $('cc-lead-total').value = money(r.monthly.total);
   }
 
+  // seed the static defaults in formatted form, then wire live grouping (while typing) and full formatting (on blur)
+  document.querySelectorAll('[data-default]').forEach((el) => { if (!el.value) el.value = fmtMoneyInput(parseFloat(el.dataset.default)); });
+  MONEY_IDS.map((id) => $(id)).concat([down]).forEach((el) => {
+    el.addEventListener('input', () => { if (isMoney(el)) liveGroup(el); });
+    el.addEventListener('blur', () => { if (isMoney(el)) { const v = parseMoney(el.value); el.value = v > 0 ? fmtMoneyInput(v) : ''; } });
+  });
+  sqftOn.addEventListener('change', () => { $('cc-sqft-wrap').hidden = !sqftOn.checked; if (sqftOn.checked) sqft.focus(); recompute(); });
+  sqft.addEventListener('input', () => { sqft.value = sqft.value.replace(/[^\d]/g, ''); recompute(); });
   [price, down, fee, rate].forEach((el) => el.addEventListener('input', () => recompute()));
   Object.values(refine).forEach((el) => el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', () => recompute()));
   down.addEventListener('input', () => { /* keep slider in step with typed values */ const p = num(price); if (p > 0) slider.value = String(Math.min(35, Math.max(parseFloat(slider.min) || 5, downDollars() / p * 100))); });
