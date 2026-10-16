@@ -33,6 +33,20 @@ export const prerender = true;
   </section>
 
   <script is:inline>
+    /* Smart recovery: if the missing URL is only a capitalisation / "index.html" / trailing-slash
+       variant of a real page, send the visitor there instead of leaving them on this page.
+       Runs one HEAD request against the normalised path; does nothing when it cannot find a match. */
+    (function () {
+      var p = location.pathname;
+      var c = p.replace(/\/{2,}/g, '/').replace(/\/index(\.html?)?$/i, '/').replace(/\.html?$/i, '').toLowerCase();
+      if (c.length > 1) c = c.replace(/\/$/, '');
+      if (c === p || c === '' || c === '/404') return;
+      fetch(c, { method: 'HEAD', cache: 'no-store', redirect: 'follow' })
+        .then(function (r) { if (r.ok) location.replace(c + location.search + location.hash); })
+        .catch(function () {});
+    })();
+  </script>
+  <script is:inline>
     /* Localize the 404 page when the missing URL was under /chinese or /french */
     (function () {
       var p = location.pathname;
