@@ -4,7 +4,7 @@ import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
 import LFooter from '../../components/FrenchFooter.astro';
 import LCTA from '../../components/FrenchCTASection.astro';
-import PropertySales from '../../components/PropertySales.astro';
+import RentalHistory from '../../components/RentalHistory.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
 const hreflangAlternates = [
@@ -15,8 +15,8 @@ const hreflangAlternates = [
 ];
 ---
 <BaseLayout
-  title="Historique des ventes, Peter Law Immobilier Toronto"
-  description="Un registre des locations et ventes récentes conclues par Peter Law dans la région du Grand Toronto."
+  title="Historique des locations, Peter Law Immobilier Toronto"
+  description="Un registre des locations récentes conclues par Peter Law dans la région du Grand Toronto, par mois, intersection et loyer mensuel."
   lang="fr"
   bodyClass="fr"
   hreflangAlternates={hreflangAlternates}
@@ -27,9 +27,9 @@ const hreflangAlternates = [
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow"><a href="/french/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>À propos</a> · Historique des ventes</div>
-        <h1 class="hero-h">Historique des ventes</h1>
-        <p class="sale-history-lead">L'historique inclut la représentation de propriétaires, d'acheteurs, de locataires, ou dans certains cas, une combinaison.</p>
+        <div class="eyebrow"><a href="/french/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>À propos</a> · Historique des locations</div>
+        <h1 class="hero-h">Historique des locations</h1>
+        <p class="sale-history-lead">Chaque location ci-dessous a été conclue par Peter, pour le locataire ou pour le propriétaire. Les emplacements sont indiqués par intersection pour protéger la vie privée des clients.</p>
         <figure class="past-deals-awards">
           <picture>
             <source srcset="/photos/awards-trophies.webp" type="image/webp" />
@@ -62,11 +62,11 @@ const hreflangAlternates = [
     </div>
   </section>
 
-  <PropertySales />
+  <RentalHistory lang="fr" />
 
   <section class="sale-history-disc-below-wrap">
     <div class="wrap">
-      <p class="sale-history-disc-below"><em>Les prix, adresses et rôles de représentation reflètent l'information à jour au moment de chaque transaction, provenant des dossiers publics MLS® / TRREB et/ou partagés avec le consentement du client. Les identités des clients restent confidentielles. Les résultats passés ne garantissent pas les résultats futurs. Voir l'<a href="/french/disclaimer#past-deals">Avis de non-responsabilité</a>.</em></p>
+      <p class="sale-history-disc-below"><em>Les loyers, emplacements et rôles de représentation reflètent l'information à jour au moment de chaque bail. Les emplacements sont donnés par intersection principale et l'identité des clients reste confidentielle. Les résultats passés ne garantissent pas les résultats futurs. Voir l'<a href="/french/disclaimer#past-deals">avis de non-responsabilité</a> pour les détails.</em></p>
     </div>
   </section>
 

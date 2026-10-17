@@ -4,7 +4,7 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
-import PropertySales from '../../components/PropertySales.astro';
+import RentalHistory from '../../components/RentalHistory.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
 const hreflangAlternates = [
@@ -14,7 +14,7 @@ const hreflangAlternates = [
   { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/past-deals' },
 ];
 ---
-<BaseLayout title="销售记录：Peter Law 多伦多房地产" description="Peter Law 在大多伦多地区近期完成的租赁与购房交易记录。" zh={true}
+<BaseLayout title="租赁记录：Peter Law 多伦多房地产" description="Peter Law 在大多伦多地区近期完成的租赁记录，按月份、路口和月租金列出。" zh={true}
   hreflangAlternates={hreflangAlternates}
 >
   <ChineseTopBar />
@@ -23,9 +23,9 @@ const hreflangAlternates = [
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow"><a href="/chinese/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>关于</a> · 销售记录</div>
-        <h1 class="hero-h">销售记录</h1>
-        <p class="sale-history-lead">销售记录包含代表业主、买家、租客，或在某些情况下多方兼具的交易。</p>
+        <div class="eyebrow"><a href="/chinese/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>关于</a> · 租赁记录</div>
+        <h1 class="hero-h">租赁记录</h1>
+        <p class="sale-history-lead">以下每一笔租赁都由 Peter 完成，代表租客或房东一方。为保护客户隐私，地点以主要路口显示。</p>
         <figure class="past-deals-awards">
           <picture>
             <source srcset="/photos/awards-trophies.webp" type="image/webp" />
@@ -59,11 +59,11 @@ const hreflangAlternates = [
   </section>
 
 
-  <PropertySales zh={true} />
+  <RentalHistory lang="zh" />
 
   <section class="sale-history-disc-below-wrap">
     <div class="wrap">
-      <p class="sale-history-disc-below"><em>所示价格、地址与代表角色为交易当时的记录，数据来源于公开 MLS® / TRREB 记录或经客户同意后公布。客户身份严格保密。过往业绩不构成未来结果的保证。完整说明见<a href="/chinese/disclaimer#past-deals">免责声明</a>。</em></p>
+      <p class="sale-history-disc-below"><em>所示租金、地点与代表角色为签约当时的记录。地点以主要路口显示，客户身份严格保密。过往业绩不构成未来结果的保证。完整说明见<a href="/chinese/disclaimer#past-deals">免责声明</a>。</em></p>
     </div>
   </section>
 
