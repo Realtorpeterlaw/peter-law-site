@@ -4,7 +4,7 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
-import RentalHistory from '../../components/RentalHistory.astro';
+import RentalListings from '../../components/RentalListings.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
 const hreflangAlternates = [
@@ -25,7 +25,7 @@ const hreflangAlternates = [
       <div>
         <div class="eyebrow"><a href="/chinese/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>关于</a> · 租赁记录</div>
         <h1 class="hero-h">租赁记录</h1>
-        <p class="sale-history-lead">以下每一笔租赁都由 Peter 完成，代表租客或房东一方。为保护客户隐私，地点以主要路口显示。</p>
+        <p class="sale-history-lead">由 Peter 完成的租赁记录，代表租客或房东一方。新的租赁完成后将陆续在此发布，客户身份严格保密。</p>
         <figure class="past-deals-awards">
           <picture>
             <source srcset="/photos/awards-trophies.webp" type="image/webp" />
@@ -59,7 +59,7 @@ const hreflangAlternates = [
   </section>
 
 
-  <RentalHistory lang="zh" />
+  <RentalListings lang="zh" />
 
   <section class="sale-history-disc-below-wrap">
     <div class="wrap">

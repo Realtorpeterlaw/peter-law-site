@@ -4,7 +4,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
-import RentalHistory from '../components/RentalHistory.astro';
+import RentalListings from '../components/RentalListings.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 
 const hreflangAlternates = [
@@ -23,9 +23,9 @@ const hreflangAlternates = [
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow"><a href="/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>About</a> · Past Deals</div>
+        <div class="eyebrow"><a href="/about" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>About</a> · Rental History</div>
         <h1 class="hero-h">Rental History</h1>
-        <p class="sale-history-lead">Every rental below was closed by Peter, representing either the renter or the landlord. Locations are shown by intersection to protect client privacy.</p>
+        <p class="sale-history-lead">Rentals closed by Peter, representing either the renter or the landlord. New listings are posted here as they close, with client identities kept confidential.</p>
         <figure class="past-deals-awards">
           <picture>
             <source srcset="/photos/awards-trophies.webp" type="image/webp" />
@@ -59,7 +59,7 @@ const hreflangAlternates = [
   </section>
 
 
-  <RentalHistory lang="en" />
+  <RentalListings lang="en" />
 
   <section class="sale-history-disc-below-wrap">
     <div class="wrap">

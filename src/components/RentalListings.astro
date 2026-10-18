@@ -1,0 +1,318 @@
+---
+import { rentalListings } from '../data/rentalListings';
+
+type Lang = 'en' | 'zh' | 'fr';
+export interface Props { lang?: Lang; }
+const { lang = 'en' } = Astro.props as Props;
+
+const LABELS: Record<Lang, Record<string, string>> = {
+  en: {
+    categoryAria: 'Listing category',
+    rentalTab: 'Rental',
+    roleAria: 'Filter by representation',
+    allSub: 'All',
+    landlordSub: 'Landlord',
+    tenantSub: 'Renter',
+    perMonth: '/ month',
+    viewDetails: 'View details →',
+    bedroom: 'Bedroom',
+    bathroom: 'Bathroom',
+    parking: 'Parking',
+    moreSoon: 'More details coming soon.',
+    status: 'Leased',
+    repLandlord: 'Represented Landlord',
+    repTenant: 'Represented Renter',
+    emptyState: 'No listings posted yet. New rentals will appear here as they close.',
+  },
+  zh: {
+    categoryAria: '记录类别',
+    rentalTab: '租赁',
+    roleAria: '按代表方筛选',
+    allSub: '全部',
+    landlordSub: '房东',
+    tenantSub: '租客',
+    perMonth: '/ 月',
+    viewDetails: '查看详情 →',
+    bedroom: '卧室',
+    bathroom: '浴室',
+    parking: '车位',
+    moreSoon: '更多详情即将更新。',
+    status: '已出租',
+    repLandlord: '代表房东方',
+    repTenant: '代表租客方',
+    emptyState: '暂无发布的记录。新的租赁完成后将陆续在此展示。',
+  },
+  fr: {
+    categoryAria: 'Catégorie',
+    rentalTab: 'Location',
+    roleAria: 'Filtrer par représentation',
+    allSub: 'Tout',
+    landlordSub: 'Propriétaire',
+    tenantSub: 'Locataire',
+    perMonth: '/ mois',
+    viewDetails: 'Voir les détails →',
+    bedroom: 'Chambre',
+    bathroom: 'Salle de bain',
+    parking: 'Stationnement',
+    moreSoon: 'Plus de détails à venir.',
+    status: 'Loué',
+    repLandlord: 'Représente le propriétaire',
+    repTenant: 'Représente le locataire',
+    emptyState: 'Aucune inscription publiée pour le moment. Les nouvelles locations apparaîtront ici au fur et à mesure.',
+  },
+};
+const L = LABELS[lang];
+const pick = (en: string, zh: string, fr: string) => (lang === 'zh' ? zh : lang === 'fr' ? fr : en);
+const MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MONTHS_FR = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function fmtDate(d?: string): string {
+  if (!d) return '';
+  const [y, m] = d.split('-');
+  const i = parseInt(m, 10) - 1;
+  if (Number.isNaN(i) || i < 0 || i > 11) return '';
+  if (lang === 'zh') return `${y} 年 ${i + 1} 月`;
+  if (lang === 'fr') return `${MONTHS_FR[i]} ${y}`;
+  return `${MONTHS_EN[i]} ${y}`;
+}
+---
+<section class="rental-listings">
+  <div class="wrap">
+    <div class="rl-filter" role="tablist" aria-label={L.categoryAria}>
+      <button type="button" class="rl-filter-tab is-active" role="tab" aria-selected="true">{L.rentalTab}</button>
+    </div>
+    <div class="rl-subfilter" role="tablist" aria-label={L.roleAria}>
+      <button type="button" class="rl-subfilter-tab is-active" data-subfilter="all" role="tab" aria-selected="true">{L.allSub}</button>
+      <button type="button" class="rl-subfilter-tab" data-subfilter="landlord" role="tab" aria-selected="false">{L.landlordSub}</button>
+      <button type="button" class="rl-subfilter-tab" data-subfilter="tenant" role="tab" aria-selected="false">{L.tenantSub}</button>
+    </div>
+    <div class="rl-grid" data-empty-text={L.emptyState}>
+      {rentalListings.map((p) => {
+        const name = pick(p.propertyName_en, p.propertyName_zh, p.propertyName_fr);
+        const address = pick(p.address_en, p.address_zh, p.address_fr);
+        const status = pick(p.status_en ?? L.status, p.status_zh ?? L.status, p.status_fr ?? L.status);
+        const rep = p.role === 'landlord' ? L.repLandlord : L.repTenant;
+        const details = pick(p.details_en ?? '', p.details_zh ?? '', p.details_fr ?? '');
+        const when = fmtDate(p.date);
+        return (
+          <article class="rl-card" data-role={p.role}>
+            <div class="rl-card-photo">
+              <picture>
+                <source srcset={p.photo.replace(/\.jpe?g$/i, '.webp')} type="image/webp" />
+                <img src={p.photo} alt={`${name}, ${address}`} width="600" height="450" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+            <div class="rl-card-info">
+              <div class="rl-status-group">
+                <div class="rl-status">{status}</div>
+                <div class="rl-rep">{rep}</div>
+                {when && <div class="rl-date">{when}</div>}
+              </div>
+              <div class="rl-price">{p.rent} <span class="rl-period">{L.perMonth}</span></div>
+              <div class="rl-name">{name}</div>
+              <div class="rl-address">{address}</div>
+              <div class="rl-features">
+                <span>{p.bedrooms} {L.bedroom}</span><span class="dot"> · </span><span>{p.bathrooms} {L.bathroom}</span>
+                {typeof p.parking === 'number' && p.parking > 0 && (<><span class="dot"> · </span><span>{p.parking} {L.parking}</span></>)}
+              </div>
+              <details class="rl-details">
+                <summary class="rl-details-summary">{L.viewDetails}</summary>
+                <div class="rl-details-body">
+                  {details ? <p>{details}</p> : <p class="rl-details-empty">{L.moreSoon}</p>}
+                </div>
+              </details>
+            </div>
+          </article>
+        );
+      })}
+      {rentalListings.length === 0 && <div class="rl-empty">{L.emptyState}</div>}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    function init() {
+      document.querySelectorAll('.rental-listings').forEach(function (section) {
+        var subTabs = section.querySelectorAll('.rl-subfilter-tab');
+        var cards = section.querySelectorAll('.rl-card');
+        var grid = section.querySelector('.rl-grid');
+        var currentRole = 'all';
+        function applyFilters() {
+          var visible = 0;
+          cards.forEach(function (card) {
+            var role = card.getAttribute('data-role') || '';
+            var show = currentRole === 'all' || role === currentRole;
+            card.hidden = !show;
+            if (show) visible++;
+          });
+          var empty = grid.querySelector('.rl-empty');
+          if (visible === 0) {
+            if (!empty) {
+              empty = document.createElement('div');
+              empty.className = 'rl-empty';
+              empty.textContent = grid.getAttribute('data-empty-text') || '';
+              grid.appendChild(empty);
+            }
+          } else if (empty) {
+            empty.remove();
+          }
+        }
+        subTabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            subTabs.forEach(function (b) {
+              b.classList.remove('is-active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-selected', 'true');
+            currentRole = btn.getAttribute('data-subfilter');
+            applyFilters();
+          });
+        });
+        applyFilters();
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+</script>
+
+<style>
+  .rental-listings { padding: 24px 0 16px; }
+  .rental-listings [hidden] { display: none !important; }
+
+  .rl-filter {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .rl-filter-tab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 12px 0;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--ink-mute);
+    cursor: default;
+    letter-spacing: 0.02em;
+    margin-bottom: -1px;
+  }
+  .rl-filter-tab.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+    font-weight: 600;
+  }
+
+  .rl-subfilter {
+    display: flex;
+    gap: 8px;
+    margin: -12px 0 24px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .rl-subfilter-tab {
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--ink-mute);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .rl-subfilter-tab:hover { color: var(--ink); border-color: var(--ink-mute); }
+  .rl-subfilter-tab.is-active {
+    color: var(--surface);
+    background: var(--ink);
+    border-color: var(--ink);
+    font-weight: 500;
+  }
+  .rl-subfilter-tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  /* Vertical list: ~5 cards tall, then scrolls inside the panel. */
+  .rl-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-height: calc(5 * 220px + 4 * 20px + 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
+  }
+  .rl-grid::-webkit-scrollbar { width: 8px; }
+  .rl-grid::-webkit-scrollbar-track { background: transparent; }
+  .rl-grid::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 999px; border: 2px solid transparent; background-clip: padding-box; }
+  .rl-grid::-webkit-scrollbar-thumb:hover { background: var(--ink-mute); background-clip: padding-box; }
+
+  .rl-card {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    align-items: center;
+  }
+  .rl-card-photo { aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: var(--bg-warm); }
+  .rl-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .rl-card-info { display: flex; flex-direction: column; position: relative; padding-right: 150px; }
+  .rl-status-group { position: absolute; top: 0; right: 0; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .rl-status { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-mute); font-weight: 600; }
+  .rl-rep { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.01em; font-style: italic; }
+  .rl-date { font-size: 11px; color: var(--ink-mute); letter-spacing: 0.04em; }
+
+  .rl-price { font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.1; }
+  .rl-period { font-size: 14px; font-weight: 400; color: var(--ink-mute); letter-spacing: 0; }
+  .rl-name { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 20px; color: var(--ink); margin-top: 2px; }
+  .rl-address { font-size: 13px; color: var(--ink-mute); margin-top: 2px; }
+  .rl-features { font-size: 14px; color: var(--ink-soft); margin-top: 10px; }
+  .rl-features .dot { color: var(--ink-mute); margin: 0 2px; }
+
+  .rl-details { margin-top: 12px; align-self: stretch; }
+  .rl-details-summary {
+    cursor: pointer; list-style: none; font-size: 14px; color: var(--ink);
+    text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+    display: inline-block; transition: color 0.15s;
+  }
+  .rl-details-summary::-webkit-details-marker { display: none; }
+  .rl-details-summary::marker { content: ''; }
+  .rl-details-summary:hover, .rl-details[open] .rl-details-summary { color: var(--ink-soft); }
+  .rl-details-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+  .rl-details-body p { margin: 0; }
+  .rl-details-empty { color: var(--ink-mute); font-style: italic; }
+
+  .rl-empty {
+    text-align: center;
+    padding: 56px 24px;
+    color: var(--ink-mute);
+    font-size: 15px;
+    line-height: 1.5;
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 720px) {
+    .rl-grid { max-height: 85vh; padding-right: 6px; }
+  }
+  @media (max-width: 640px) {
+    .rl-card { grid-template-columns: 1fr; padding: 18px; gap: 20px; }
+    .rl-card-info { padding-right: 0; }
+    .rl-status-group { position: static; align-items: flex-start; text-align: left; margin-bottom: 8px; }
+    .rl-card-photo { max-height: 240px; }
+    .rl-price { font-size: 24px; }
+    .rl-name { font-size: 18px; }
+  }
+  @media (max-width: 480px) {
+    .rl-subfilter { margin-top: -8px; margin-bottom: 20px; }
+    .rl-subfilter-tab { padding: 5px 12px; font-size: 12.5px; }
+  }
+</style>
