@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/FrenchTopBar.astro';
+import Header from '../../../components/FrenchHeader.astro';
+import Footer from '../../../components/FrenchFooter.astro';
+import LCTA from '../../../components/FrenchCTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-10-25';
+const articleTitle = 'Déductibilité des intérêts : Folio de l’impôt sur le revenu S3-F6-C1';
+const articleDescription = 'Peut-on déduire les intérêts hypothécaires d’un immeuble locatif ? Guide en langage simple pour les propriétaires-bailleurs de l’Ontario sur le folio S3-F6-C1 de l’ARC : la règle de l’utilisation des fonds, intérêts et capital, l’argent mélangé et les registres qui protègent la déduction.';
+const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/interest-deductibility';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  inLanguage: 'fr-CA',
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law, Immobilier Toronto',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'déductibilité des intérêts, folio S3-F6-C1, intérêts hypothécaires immeuble locatif Canada, déduire intérêts hypothécaires location Ontario, T776 revenus de location, utilisation des fonds empruntés ARC, refinancement immeuble locatif impôt, déductions propriétaire-bailleur Toronto',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/interest-deductibility' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/interest-deductibility' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/interest-deductibility' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/interest-deductibility' },
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Propriétaires-bailleurs · Fiscalité</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">Puis-je déduire les intérêts hypothécaires de mon immeuble locatif ? Un guide en langage simple pour les propriétaires-bailleurs de l’Ontario.</p>
+        <div class="article-byline">
+          <span>Par <a href="/french/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>25 octobre 2026</time>
+          <span class="dot">·</span>
+          <span>5 min de lecture</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h2 class="side-h">Sur cette page</h2>
+            <ul>
+              <li><a href="#short-answer">La réponse courte</a></li>
+              <li><a href="#interest-only">Les intérêts seulement</a></li>
+              <li><a href="#the-rule">La seule règle qui compte</a></li>
+              <li><a href="#examples">Trois exemples</a></li>
+              <li><a href="#losing-money">Vous perdez de l’argent ?</a></li>
+              <li><a href="#separate">Gardez l’argent séparé</a></li>
+              <li><a href="#costly-mistake">L’erreur la plus coûteuse</a></li>
+              <li><a href="#other-interest">Quels autres intérêts ?</a></li>
+              <li><a href="#if-you-sell">Et si vous vendez ?</a></li>
+              <li><a href="#checklist">Liste de vérification</a></li>
+              <li><a href="#disclaimer">Avis de non-responsabilité</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p class="id-updated">Dernière mise à jour : octobre 2026</p>
+
+            <p>La plupart des propriétaires-bailleurs savent qu’ils peuvent déduire les intérêts hypothécaires. Beaucoup moins connaissent la règle derrière cette déduction. Et c’est cette règle qui décide si vous la gardez ou si vous la perdez.</p>
+            <p>Ce guide l’explique en termes simples.</p>
+
+            <h2 id="short-answer">La réponse courte</h2>
+            <div class="callout"><strong>Oui. Vous pouvez généralement déduire les intérêts sur l’argent emprunté pour acheter un immeuble locatif.</strong></div>
+            <p>Deux points à bien comprendre :</p>
+            <ul class="bullets">
+              <li>Vous déduisez <strong>les intérêts seulement</strong>. Jamais le capital.</li>
+              <li>La déduction se fait contre vos <strong>revenus de location</strong>, sur le <a href="https://www.canada.ca/fr/agence-revenu/services/formulaires-publications/formulaires/t776.html" target="_blank" rel="noopener">formulaire T776</a>.</li>
+            </ul>
+            <p>Il s’agit d’une règle fiscale fédérale, pas d’une règle ontarienne. Elle vient de la <em>Loi de l’impôt sur le revenu</em>. L’Agence du revenu du Canada explique sa position dans un document appelé <a href="https://www.canada.ca/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-3-property-investments-savings-plans/series-3-property-investments-savings-plan-folio-6-interest/income-tax-folio-s3-f6-c1-interest-deductibility.html" target="_blank" rel="noopener"><strong>Folio de l’impôt sur le revenu S3-F6-C1, Déductibilité des intérêts</strong></a> (page de l’ARC en anglais).</p>
+
+            <h2 id="interest-only">Les intérêts seulement. Pas le paiement au complet.</h2>
+            <p>Votre paiement hypothécaire comporte deux parties.</p>
+            <div class="id-split">
+              <div class="id-split-col">
+                <h3>Le capital</h3>
+                <p>Rembourse ce que vous devez. Ce <strong>n’est pas une dépense</strong>. Vous vous payez vous-même.</p>
+              </div>
+              <div class="id-split-col id-split-yes">
+                <h3>Les intérêts</h3>
+                <p>Ce que la banque vous facture. C’est une dépense, et elle est <strong>déductible</strong>.</p>
+              </div>
+            </div>
+            <p>Dans les premières années d’une hypothèque, la majeure partie de votre paiement est constituée d’intérêts. C’est pourquoi cette déduction est généralement la plus importante d’un propriétaire-bailleur.</p>
+            <p>Votre prêteur vous envoie un relevé annuel indiquant le montant d’intérêts payés. Utilisez ce chiffre.</p>
+
+            <h2 id="the-rule">La seule règle qui compte</h2>
+            <p>Voici ce que les gens comprennent mal.</p>
+            <div class="id-rule">
+              <p><strong>L’ARC regarde ce que vous avez fait avec l’argent emprunté. Pas ce qui garantit le prêt.</strong></p>
+              <p>Relisez cette phrase. L’immeuble qui sert de garantie ne décide de rien. C’est l’utilisation de l’argent qui compte.</p>
+            </div>
+
+            <h2 id="examples">Trois exemples</h2>
+            <div class="id-examples">
+              <div class="id-example id-ex-yes">
+                <div class="id-example-tag">Exemple 1 · Ça fonctionne</div>
+                <p>Sarah est propriétaire de sa résidence. Elle obtient une marge de crédit de 200 000 $ garantie par sa maison. Elle utilise la totalité pour acheter un condo locatif.</p>
+                <p class="id-example-verdict"><strong>Les intérêts sont déductibles.</strong> Le prêt est garanti par sa maison, mais l’argent a servi à acheter un immeuble qui produit un revenu. C’est l’utilisation qui compte.</p>
+              </div>
+              <div class="id-example id-ex-no">
+                <div class="id-example-tag">Exemple 2 · Ça ne fonctionne pas</div>
+                <p>Mike possède un condo locatif. Il le refinance et en retire 50 000 $. Il utilise l’argent pour rénover sa propre cuisine.</p>
+                <p class="id-example-verdict"><strong>Les intérêts sur ces 50 000 $ ne sont pas déductibles.</strong> Le prêt est garanti par le logement locatif, mais l’argent a servi à un usage personnel.</p>
+              </div>
+              <div class="id-example id-ex-messy">
+                <div class="id-example-tag">Exemple 3 · Ça se complique</div>
+                <p>Priya emprunte 100 000 $. Elle dépose la somme dans son compte bancaire courant, qui contient déjà 20 000 $. Au cours des mois suivants, elle paie la toiture du logement locatif, des vacances en famille et une voiture.</p>
+                <p class="id-example-verdict"><strong>Elle risque de perdre une partie ou la totalité de la déduction.</strong> Une fois l’argent emprunté mélangé à l’argent personnel, elle ne peut plus prouver quels dollars sont allés où. L’ARC ne fera pas le tri à sa place.</p>
+              </div>
+            </div>
+
+            <h2 id="losing-money">Vous perdez de l’argent sur le logement ? La déduction reste.</h2>
+            <p>Cela surprend beaucoup de propriétaires.</p>
+            <p>Disons que votre condo se loue 2 200 $ par mois. L’hypothèque, les frais de copropriété, les taxes et l’assurance totalisent 2 600 $. Vous perdez 400 $ par mois.</p>
+            <div class="callout"><strong>Vous pouvez quand même déduire les intérêts.</strong></div>
+            <p>La règle demande si vous vous attendez à tirer un <strong>revenu brut</strong> de l’immeuble. Brut signifie le total des loyers perçus, avant les dépenses. Elle ne demande pas si l’immeuble est rentable.</p>
+            <p>Tant que vous louez à un loyer conforme au marché, les intérêts restent déductibles.</p>
+
+            <h2 id="separate">Gardez l’argent séparé</h2>
+            <p>C’est la façon la plus courante de perdre cette déduction.</p>
+            <div class="id-dodont">
+              <div class="id-col id-do">
+                <h3 class="id-col-h">À faire</h3>
+                <ul>
+                  <li>Ouvrir un compte bancaire distinct pour l’immeuble locatif</li>
+                  <li>Envoyer l’argent emprunté directement là où il doit aller</li>
+                  <li>Conserver les documents du prêt, les relevés bancaires et les documents de clôture</li>
+                  <li>Conserver des registres montrant à quoi chaque prêt a servi</li>
+                </ul>
+              </div>
+              <div class="id-col id-dont">
+                <h3 class="id-col-h">À ne pas faire</h3>
+                <ul>
+                  <li>Déposer l’argent emprunté dans votre compte chèques de tous les jours</li>
+                  <li>Payer les factures personnelles et celles du logement locatif à partir du même compte</li>
+                  <li>Présumer que vous vous en souviendrez plus tard</li>
+                </ul>
+              </div>
+            </div>
+            <p>Si l’ARC pose des questions, vous devez montrer un chemin clair entre le prêt et le logement locatif. Ce chemin s’appelle la <strong>traçabilité</strong>. Une fois rompu, il est très difficile à reconstituer.</p>
+
+            <h2 id="costly-mistake">L’erreur qui coûte le plus cher</h2>
+            <p>Retirer la valeur nette d’un immeuble locatif et la dépenser pour soi.</p>
+            <p>Les gens le font tout le temps. Ils refinancent le logement locatif pour financer une rénovation de leur résidence, une voiture, un mariage ou des frais de scolarité. Ça semble correct, puisque le logement locatif reste un logement locatif.</p>
+            <p><strong>Ce n’est pas correct.</strong> Cette portion des intérêts cesse d’être déductible. S’il s’agit d’une seule hypothèque, vous devez désormais répartir les intérêts entre la partie déductible et la partie personnelle, chaque année, pour toujours.</p>
+            <div class="id-honest">
+              <p>Si vous avez besoin d’argent pour des raisons personnelles, parlez à un comptable <strong>avant</strong> d’emprunter. Il existe souvent de meilleures façons de structurer le tout.</p>
+            </div>
+
+            <h2 id="other-interest">Sur quoi d’autre pouvez-vous déduire des intérêts ?</h2>
+            <p>En général, sur l’argent emprunté pour l’exploitation du logement locatif. Par exemple :</p>
+            <ul class="bullets">
+              <li>Les réparations et l’entretien du logement locatif</li>
+              <li>Les améliorations apportées au logement locatif</li>
+              <li>Les frais d’exploitation du logement locatif</li>
+            </ul>
+            <p>La même règle s’applique. L’argent doit réellement aller au logement locatif, et vous devez pouvoir le prouver.</p>
+
+            <h2 id="if-you-sell">Et si vous vendez ?</h2>
+            <p>Si vous vendez le logement locatif et que la vente ne couvre pas l’hypothèque, vous pourriez encore déduire les intérêts sur la dette restante.</p>
+            <p>Cela découle d’une règle distincte de la <em>Loi de l’impôt sur le revenu</em>, parfois appelée la <strong>règle de la perte de source</strong> (loss of source rule).</p>
+            <p>Elle ne s’applique pas automatiquement. Demandez à votre comptable.</p>
+
+            <h2 id="checklist">Liste de vérification</h2>
+            <ul class="id-checklist">
+              <li><input type="checkbox" id="idc1" /><label for="idc1">Utiliser le relevé annuel d’intérêts de votre prêteur</label></li>
+              <li><input type="checkbox" id="idc2" /><label for="idc2">Déduire les intérêts seulement, jamais le capital</label></li>
+              <li><input type="checkbox" id="idc3" /><label for="idc3">Garder un compte bancaire distinct pour le logement locatif</label></li>
+              <li><input type="checkbox" id="idc4" /><label for="idc4">Pouvoir montrer à quoi chaque prêt a servi</label></li>
+              <li><input type="checkbox" id="idc5" /><label for="idc5">Ne jamais mélanger l’argent emprunté et l’argent personnel</label></li>
+              <li><input type="checkbox" id="idc6" /><label for="idc6">Parler à un comptable <strong>avant</strong> de refinancer, pas après</label></li>
+              <li><input type="checkbox" id="idc7" /><label for="idc7">Conserver les registres pendant au moins six ans</label></li>
+            </ul>
+
+            <h2 id="remember">La seule chose à retenir</h2>
+            <div class="id-rule">
+              <p><strong>Ce n’est pas l’immeuble qui garantit le prêt qui compte. C’est ce que vous avez fait de l’argent.</strong></p>
+            </div>
+            <p>Faites cela correctement, gardez des registres propres, et la déduction est simple. Faites-le mal, et c’est coûteux à corriger.</p>
+
+            <div class="id-disclaimer" id="disclaimer">
+              <h3>Avis de non-responsabilité</h3>
+              <p>Cet article est de l’information générale, pas un conseil fiscal, juridique ou comptable. Peter Law est représentant immobilier inscrit auprès de HomeLife Golconda Realty Inc., Brokerage, et non comptable ni fiscaliste.</p>
+              <p>Les règles fiscales changent et chaque situation est différente. Les exemples ci-dessus sont simplifiés et ne couvrent pas tous les cas. Avant d’emprunter, de refinancer, de restructurer une dette ou de produire une déclaration, consultez un comptable professionnel agréé (CPA) ou un avocat fiscaliste qui pourra examiner votre situation.</p>
+              <p>Les sources qui font autorité sont la <em>Loi de l’impôt sur le revenu</em> et le Folio de l’impôt sur le revenu S3-F6-C1 de l’Agence du revenu du Canada, <em>Déductibilité des intérêts</em>. En cas de divergence entre cet article et ces sources, les sources prévalent. L’information était à jour en octobre 2026 et peut avoir changé depuis.</p>
+            </div>
+
+            <div class="seo-tags" role="group" aria-label="Mots-clés">
+              <h2 class="seo-tags-h">Mots-clés</h2>
+              <ul>
+                <li>Déductibilité des intérêts</li>
+                <li>Folio de l’impôt sur le revenu S3-F6-C1</li>
+                <li>Intérêts hypothécaires immeuble locatif Canada</li>
+                <li>Déduire intérêts hypothécaires location Ontario</li>
+                <li>T776 revenus de location</li>
+                <li>Utilisation des fonds empruntés ARC</li>
+                <li>Refinancement immeuble locatif impôt</li>
+                <li>Déductions propriétaire-bailleur Toronto</li>
+                <li>Règle de la perte de source</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <LCTA heading="Vous possédez un logement locatif, ou vous y pensez ?" lead="Je peux vous montrer ce qu’un logement locatif à Toronto rapporte vraiment, et vous mettre en contact avec des comptables en qui j’ai confiance avant que vous empruntiez. Appel de quinze minutes, sans argumentaire de vente." />
+  <Footer />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  .id-updated { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 18px; }
+
+  .id-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 18px; max-width: 700px; }
+  .id-split-col { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; }
+  .id-split-col h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 18px; margin: 0 0 6px; color: var(--ink); }
+  .id-split-col p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
+  .id-split-yes { border-left: 3px solid var(--accent); }
+
+  .id-rule { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 18px 22px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 14px 0 24px; }
+  .id-rule p { margin: 0 0 8px; }
+  .id-rule p:last-child { margin-bottom: 0; }
+  .id-rule p strong { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; line-height: 1.35; color: var(--ink); }
+
+  .id-examples { display: grid; gap: 14px; margin: 16px 0 22px; max-width: 760px; }
+  .id-example { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px 14px; border-left-width: 4px; }
+  .id-example p { margin: 0 0 8px; font-size: 15px; line-height: 1.55; }
+  .id-example p:last-child { margin-bottom: 0; }
+  .id-example-tag { font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+  .id-ex-yes { border-left-color: #1a6b32; }
+  .id-ex-yes .id-example-tag { color: #1a6b32; }
+  .id-ex-no { border-left-color: #b8002e; }
+  .id-ex-no .id-example-tag { color: #b8002e; }
+  .id-ex-messy { border-left-color: #b26a00; }
+  .id-ex-messy .id-example-tag { color: #8a5200; }
+  .id-example-verdict { color: var(--ink-soft); }
+
+  .id-dodont { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 18px; max-width: 760px; }
+  .id-col { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 20px; }
+  .id-col-h { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+  .id-col ul { list-style: none; padding: 0; margin: 0; }
+  .id-col li { position: relative; padding: 5px 0 5px 22px; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .id-col li::before { position: absolute; left: 0; top: 5px; font-weight: 700; }
+  .id-do li::before { content: "✓"; color: #1a6b32; }
+  .id-dont li::before { content: "✕"; color: #b8002e; }
+
+  .id-honest { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 16px 20px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 14px 0 24px; }
+  .id-honest p { margin: 0; }
+
+  .id-checklist { list-style: none; padding: 0; margin: 14px 0 24px; max-width: 660px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .id-checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 16px; border-bottom: 1px solid var(--rule); }
+  .id-checklist li:last-child { border-bottom: 0; }
+  .id-checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--ink); cursor: pointer; flex: 0 0 18px; }
+  .id-checklist label { font-size: 15px; line-height: 1.5; color: var(--ink); cursor: pointer; }
+  .id-checklist input:checked + label { color: var(--ink-mute); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  .id-disclaimer { max-width: 660px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+  .id-disclaimer h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 0 0 10px; font-family: inherit; }
+  .id-disclaimer p { font-size: 13.5px; line-height: 1.6; color: var(--ink-mute); margin-bottom: 10px; }
+
+  @media (max-width: 640px) {
+    .id-split, .id-dodont { grid-template-columns: 1fr; }
+  }
+  :global(html[data-theme="dark"]) .id-ex-yes { border-left-color: #5fbf7f; }
+  :global(html[data-theme="dark"]) .id-ex-yes .id-example-tag,
+  :global(html[data-theme="dark"]) .id-do li::before { color: #5fbf7f; }
+  :global(html[data-theme="dark"]) .id-ex-no { border-left-color: #ff7a94; }
+  :global(html[data-theme="dark"]) .id-ex-no .id-example-tag,
+  :global(html[data-theme="dark"]) .id-dont li::before { color: #ff7a94; }
+  :global(html[data-theme="dark"]) .id-ex-messy { border-left-color: #e6ad4f; }
+  :global(html[data-theme="dark"]) .id-ex-messy .id-example-tag { color: #e6ad4f; }
+</style>

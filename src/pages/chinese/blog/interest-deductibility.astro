@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChineseTopBar from '../../../components/ChineseTopBar.astro';
+import ChineseHeader from '../../../components/ChineseHeader.astro';
+import ChineseFooter from '../../../components/ChineseFooter.astro';
+import ChineseCTASection from '../../../components/ChineseCTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-10-25';
+const articleTitle = '利息抵扣：所得税指南 S3-F6-C1';
+const articleDescription = '出租房的房贷利息可以抵税吗？为安省房东准备的通俗指南，解读加拿大税务局所得税指南 S3-F6-C1：看资金用途、只抵利息不抵本金、混用资金的风险，以及保住抵扣所需的记录。';
+const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/interest-deductibility';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  inLanguage: 'zh-CN',
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law 多伦多房地产',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: '利息抵扣, 所得税指南 S3-F6-C1, 出租房房贷利息抵税, 安省房东报税, T776 租金收入, 借款用途 CRA, 出租房再融资税务, 多伦多房东税务',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/interest-deductibility' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/interest-deductibility' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/interest-deductibility' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/interest-deductibility' },
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law`}
+  description={articleDescription}
+  bodyClass="guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <ChineseTopBar />
+  <ChineseHeader active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/chinese/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>博客</a> · 房东 · 税务</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">出租房的房贷利息可以抵税吗？为安省房东准备的通俗指南。</p>
+        <div class="article-byline">
+          <span>作者 <a href="/chinese/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2026 年 10 月 25 日</time>
+          <span class="dot">·</span>
+          <span>阅读 5 分钟</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h2 class="side-h">本页内容</h2>
+            <ul>
+              <li><a href="#short-answer">简短回答</a></li>
+              <li><a href="#interest-only">只抵利息</a></li>
+              <li><a href="#the-rule">唯一重要的规则</a></li>
+              <li><a href="#examples">三个例子</a></li>
+              <li><a href="#losing-money">出租房亏钱也能抵扣？</a></li>
+              <li><a href="#separate">资金要分开</a></li>
+              <li><a href="#costly-mistake">代价最大的错误</a></li>
+              <li><a href="#other-interest">还有哪些利息可抵</a></li>
+              <li><a href="#if-you-sell">如果卖掉了呢？</a></li>
+              <li><a href="#checklist">快速清单</a></li>
+              <li><a href="#disclaimer">免责声明</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p class="id-updated">最后更新：2026 年 10 月</p>
+
+            <p>大多数房东都知道房贷利息可以抵税，但很少有人知道背后的规则。而正是这条规则，决定了您能保住这项抵扣，还是失去它。</p>
+            <p>这篇指南用大白话把它讲清楚。</p>
+
+            <h2 id="short-answer">简短回答</h2>
+            <div class="callout"><strong>可以。为购买出租房而借款所产生的利息，通常可以抵扣。</strong></div>
+            <p>有两点需要明确：</p>
+            <ul class="bullets">
+              <li>只能抵扣<strong>利息</strong>，本金永远不行。</li>
+              <li>抵扣是从您的<strong>租金收入</strong>中扣除，填在 <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t776.html" target="_blank" rel="noopener">T776 表格</a>上。</li>
+            </ul>
+            <p>这是联邦税法，不是安省的规定，依据是《所得税法》。加拿大税务局（CRA）在一份名为<a href="https://www.canada.ca/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-3-property-investments-savings-plans/series-3-property-investments-savings-plan-folio-6-interest/income-tax-folio-s3-f6-c1-interest-deductibility.html" target="_blank" rel="noopener"><strong>所得税指南 S3-F6-C1《利息抵扣》</strong></a>的文件中说明了其立场。</p>
+
+            <h2 id="interest-only">只抵利息，不是整笔月供。</h2>
+            <p>您的房贷月供分为两部分。</p>
+            <div class="id-split">
+              <div class="id-split-col">
+                <h3>本金</h3>
+                <p>用来偿还欠款。这<strong>不是开支</strong>，相当于把钱付给自己。</p>
+              </div>
+              <div class="id-split-col id-split-yes">
+                <h3>利息</h3>
+                <p>银行向您收取的费用。这是开支，<strong>可以抵扣</strong>。</p>
+              </div>
+            </div>
+            <p>房贷头几年，月供的大部分都是利息。所以这项抵扣通常是房东最大的一笔可抵开支。</p>
+            <p>贷款机构每年会寄给您一份年度对账单，上面列明当年支付的利息。用那个数字。</p>
+
+            <h2 id="the-rule">唯一重要的规则</h2>
+            <p>这正是很多人弄错的地方。</p>
+            <div class="id-rule">
+              <p><strong>CRA 看的是借来的钱用在了哪里，而不是用什么做的抵押。</strong></p>
+              <p>请再读一遍。作为抵押的房产决定不了任何事，钱的用途才是关键。</p>
+            </div>
+
+            <h2 id="examples">三个例子</h2>
+            <div class="id-examples">
+              <div class="id-example id-ex-yes">
+                <div class="id-example-tag">例子 1 · 可以抵扣</div>
+                <p>Sarah 有自住房。她以自住房做抵押申请了 20 万加元的信用额度，并把这笔钱全部用于购买一套出租公寓。</p>
+                <p class="id-example-verdict"><strong>这笔利息可以抵扣。</strong>贷款虽然以她的自住房做抵押，但钱买的是产生收入的房产。关键看用途。</p>
+              </div>
+              <div class="id-example id-ex-no">
+                <div class="id-example-tag">例子 2 · 不能抵扣</div>
+                <p>Mike 有一套出租公寓。他把这套公寓再融资，套出 5 万加元，用来翻新自己家的厨房。</p>
+                <p class="id-example-verdict"><strong>这 5 万加元对应的利息不能抵扣。</strong>贷款以出租房做抵押，但钱用在了个人用途上。</p>
+              </div>
+              <div class="id-example id-ex-messy">
+                <div class="id-example-tag">例子 3 · 变得说不清</div>
+                <p>Priya 借了 10 万加元，存进了她日常使用的银行账户，账户里原本已有 2 万加元。接下来几个月，她从这个账户支付了出租房的屋顶更换、一次家庭度假和一辆车。</p>
+                <p class="id-example-verdict"><strong>她可能失去部分甚至全部抵扣。</strong>借来的钱一旦和个人资金混在一起，就无法证明哪一笔钱花在了哪里。CRA 不会替她理清。</p>
+              </div>
+            </div>
+
+            <h2 id="losing-money">出租房亏钱？利息照样可以抵扣。</h2>
+            <p>这一点让很多业主感到意外。</p>
+            <p>假设您的公寓月租 2,200 加元，而房贷、管理费、地税和保险加起来是 2,600 加元，每月亏 400 加元。</p>
+            <div class="callout"><strong>利息仍然可以抵扣。</strong></div>
+            <p>规则问的是您是否预期从该房产获得<strong>总收入</strong>。总收入指扣除开支前收到的全部租金，而不是问房产是否盈利。</p>
+            <p>只要您以合理的市场租金出租，利息就一直可以抵扣。</p>
+
+            <h2 id="separate">资金要分开</h2>
+            <p>这是房东失去这项抵扣最常见的方式。</p>
+            <div class="id-dodont">
+              <div class="id-col id-do">
+                <h3 class="id-col-h">应该这样做</h3>
+                <ul>
+                  <li>为出租房单独开一个银行账户</li>
+                  <li>借来的钱直接划到它要去的地方</li>
+                  <li>保留贷款文件、银行对账单和交房文件</li>
+                  <li>保留能说明每笔贷款用途的记录</li>
+                </ul>
+              </div>
+              <div class="id-col id-dont">
+                <h3 class="id-col-h">不要这样做</h3>
+                <ul>
+                  <li>把借来的钱存进日常支票账户</li>
+                  <li>用同一个账户支付个人账单和出租房账单</li>
+                  <li>以为以后自己还能记得</li>
+                </ul>
+              </div>
+            </div>
+            <p>如果 CRA 问起，您需要展示从贷款到出租房的一条清晰路径，这条路径叫做<strong>资金追踪</strong>。一旦断了，就很难重建。</p>
+
+            <h2 id="costly-mistake">代价最大的错误</h2>
+            <p>把出租房的净值套出来，花在自己身上。</p>
+            <p>这种事天天都在发生：把出租房再融资，用来装修自住房、买车、办婚礼或交学费。感觉没问题，因为出租房还是在出租。</p>
+            <p><strong>其实有问题。</strong>那部分利息从此不能再抵扣。如果是同一笔房贷，您从此每年都必须把利息拆分成可抵扣部分和个人部分，年年如此。</p>
+            <div class="id-honest">
+              <p>如果因个人原因需要用钱，请在借款<strong>之前</strong>先咨询会计师。通常有更好的安排方式。</p>
+            </div>
+
+            <h2 id="other-interest">还有哪些利息可以抵扣？</h2>
+            <p>一般来说，为出租业务借款所产生的利息都可以，例如：</p>
+            <ul class="bullets">
+              <li>出租房的维修与保养</li>
+              <li>出租房的改善工程</li>
+              <li>出租房的运营开支</li>
+            </ul>
+            <p>规则相同：钱必须实际用在出租房上，而且您要能证明这一点。</p>
+
+            <h2 id="if-you-sell">如果卖掉了呢？</h2>
+            <p>如果您卖掉出租房，但售价不足以还清房贷，剩余债务的利息也许仍然可以抵扣。</p>
+            <p>这来自《所得税法》中另一条规定，有时被称为<strong>收入来源消失规则</strong>（loss of source rule）。</p>
+            <p>它不会自动适用。请咨询您的会计师。</p>
+
+            <h2 id="checklist">快速清单</h2>
+            <ul class="id-checklist">
+              <li><input type="checkbox" id="idc1" /><label for="idc1">使用贷款机构提供的年度利息对账单</label></li>
+              <li><input type="checkbox" id="idc2" /><label for="idc2">只抵扣利息，绝不抵扣本金</label></li>
+              <li><input type="checkbox" id="idc3" /><label for="idc3">为出租房保留一个单独的银行账户</label></li>
+              <li><input type="checkbox" id="idc4" /><label for="idc4">能说明每一笔贷款的用途</label></li>
+              <li><input type="checkbox" id="idc5" /><label for="idc5">绝不把借款和个人资金混在一起</label></li>
+              <li><input type="checkbox" id="idc6" /><label for="idc6">再融资<strong>之前</strong>先咨询会计师，而不是之后</label></li>
+              <li><input type="checkbox" id="idc7" /><label for="idc7">记录至少保存六年</label></li>
+            </ul>
+
+            <h2 id="remember">只需记住一件事</h2>
+            <div class="id-rule">
+              <p><strong>关键不在于用哪套房产做抵押，而在于钱花在了什么地方。</strong></p>
+            </div>
+            <p>把这点做对、记录保持清晰，抵扣就很简单；做错了，纠正起来代价高昂。</p>
+
+            <div class="id-disclaimer" id="disclaimer">
+              <h3>免责声明</h3>
+              <p>本文仅为一般性信息，不构成税务、法律或会计意见。Peter Law 是 HomeLife Golconda Realty Inc., Brokerage 的注册房地产销售代表，并非会计师或税务专业人士。</p>
+              <p>税务规则会变化，每个人的情况也各不相同。上文的例子经过简化，并未涵盖所有情形。在借款、再融资、调整债务结构或报税之前，请咨询能审阅您具体情况的特许专业会计师（CPA）或税务律师。</p>
+              <p>权威依据为《所得税法》及加拿大税务局所得税指南 S3-F6-C1《利息抵扣》（Interest Deductibility）。如本文与上述来源有出入，以来源为准。本文信息截至 2026 年 10 月，此后可能已有变化。</p>
+            </div>
+
+            <div class="seo-tags" role="group" aria-label="关键词">
+              <h2 class="seo-tags-h">关键词</h2>
+              <ul>
+                <li>利息抵扣</li>
+                <li>所得税指南 S3-F6-C1</li>
+                <li>出租房房贷利息抵税</li>
+                <li>安省房东报税</li>
+                <li>T776 租金收入</li>
+                <li>借款用途 CRA</li>
+                <li>出租房再融资税务</li>
+                <li>多伦多房东税务</li>
+                <li>收入来源消失规则</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <ChineseCTASection heading="已经有出租房，或正在考虑买一套？" lead="我可以帮您算清一套多伦多出租房的真实收益，并在您借款之前介绍我信任的会计师。15 分钟通话，不推销。" />
+  <ChineseFooter />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  .id-updated { font-size: 12.5px; letter-spacing: 0.08em; color: var(--ink-mute); margin-bottom: 18px; }
+
+  .id-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 18px; max-width: 700px; }
+  .id-split-col { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; }
+  .id-split-col h3 { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 18px; margin: 0 0 6px; color: var(--ink); }
+  .id-split-col p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+  .id-split-yes { border-left: 3px solid var(--accent); }
+
+  .id-rule { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 18px 22px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 14px 0 24px; }
+  .id-rule p { margin: 0 0 8px; }
+  .id-rule p:last-child { margin-bottom: 0; }
+  .id-rule p strong { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; line-height: 1.45; color: var(--ink); }
+
+  .id-examples { display: grid; gap: 14px; margin: 16px 0 22px; max-width: 760px; }
+  .id-example { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px 14px; border-left-width: 4px; }
+  .id-example p { margin: 0 0 8px; font-size: 15px; line-height: 1.65; }
+  .id-example p:last-child { margin-bottom: 0; }
+  .id-example-tag { font-size: 12px; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 8px; }
+  .id-ex-yes { border-left-color: #1a6b32; }
+  .id-ex-yes .id-example-tag { color: #1a6b32; }
+  .id-ex-no { border-left-color: #b8002e; }
+  .id-ex-no .id-example-tag { color: #b8002e; }
+  .id-ex-messy { border-left-color: #b26a00; }
+  .id-ex-messy .id-example-tag { color: #8a5200; }
+  .id-example-verdict { color: var(--ink-soft); }
+
+  .id-dodont { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 18px; max-width: 760px; }
+  .id-col { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 20px; }
+  .id-col-h { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+  .id-col ul { list-style: none; padding: 0; margin: 0; }
+  .id-col li { position: relative; padding: 5px 0 5px 22px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+  .id-col li::before { position: absolute; left: 0; top: 5px; font-weight: 700; }
+  .id-do li::before { content: "✓"; color: #1a6b32; }
+  .id-dont li::before { content: "✕"; color: #b8002e; }
+
+  .id-honest { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 16px 20px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 14px 0 24px; }
+  .id-honest p { margin: 0; }
+
+  .id-checklist { list-style: none; padding: 0; margin: 14px 0 24px; max-width: 660px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .id-checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 16px; border-bottom: 1px solid var(--rule); }
+  .id-checklist li:last-child { border-bottom: 0; }
+  .id-checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--ink); cursor: pointer; flex: 0 0 18px; }
+  .id-checklist label { font-size: 15px; line-height: 1.6; color: var(--ink); cursor: pointer; }
+  .id-checklist input:checked + label { color: var(--ink-mute); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  .id-disclaimer { max-width: 660px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+  .id-disclaimer h3 { font-size: 12px; letter-spacing: 0.18em; color: var(--ink-mute); font-weight: 600; margin: 0 0 10px; font-family: inherit; }
+  .id-disclaimer p { font-size: 13.5px; line-height: 1.7; color: var(--ink-mute); margin-bottom: 10px; }
+
+  @media (max-width: 640px) {
+    .id-split, .id-dodont { grid-template-columns: 1fr; }
+  }
+  :global(html[data-theme="dark"]) .id-ex-yes { border-left-color: #5fbf7f; }
+  :global(html[data-theme="dark"]) .id-ex-yes .id-example-tag,
+  :global(html[data-theme="dark"]) .id-do li::before { color: #5fbf7f; }
+  :global(html[data-theme="dark"]) .id-ex-no { border-left-color: #ff7a94; }
+  :global(html[data-theme="dark"]) .id-ex-no .id-example-tag,
+  :global(html[data-theme="dark"]) .id-dont li::before { color: #ff7a94; }
+  :global(html[data-theme="dark"]) .id-ex-messy { border-left-color: #e6ad4f; }
+  :global(html[data-theme="dark"]) .id-ex-messy .id-example-tag { color: #e6ad4f; }
+</style>
