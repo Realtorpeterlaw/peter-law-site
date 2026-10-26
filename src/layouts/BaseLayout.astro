@@ -401,6 +401,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         // Update all aria-labels on the toggle buttons
         var next = theme === 'dark' ? 'light' : 'dark';
         document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+          btn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false'); // role="switch" state (Fix #11)
           var currentLabel = btn.getAttribute('aria-label') || '';
           if (currentLabel.indexOf('dark') >= 0 || currentLabel.indexOf('sombre') >= 0 || currentLabel.indexOf('深色') >= 0) {
             // Currently offering dark → now should offer light
@@ -423,6 +424,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
         });
         // Sync toggle aria-label to current state on load
         var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) { btn.setAttribute('aria-checked', current === 'dark' ? 'true' : 'false'); });
         if (current === 'dark') {
           document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
             var current = btn.getAttribute('aria-label') || '';

@@ -243,6 +243,8 @@ body.zh .serif, body.zh h1, body.zh h2, body.zh h3 { font-family: 'Fraunces', 'P
   transform: translateY(0);
   transition: opacity 0.15s, visibility 0s, transform 0.15s;
 }
+/* Fix #11: Escape closes an open dropdown even while it is still hovered / focused */
+.has-dropdown.is-closed .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none; }
 .dropdown-menu li { margin: 0; }
 .dropdown-menu a {
   display: block;
