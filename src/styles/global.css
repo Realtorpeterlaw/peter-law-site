@@ -1656,7 +1656,7 @@ html[data-theme="dark"] {
 
   /* Print header + footer: page URL + date on every page */
   body::before {
-    content: "realtorpeterlaw.com  ·  Peter Law, Sales Representative, HomeLife Golconda Realty Inc., Brokerage";
+    content: "realtorpeterlaw.com  ·  Peter Law, Broker, HomeLife Golconda Realty Inc., Brokerage";
     display: block; font-size: 8pt; color: #666; border-bottom: 1px solid #ccc;
     padding-bottom: 4pt; margin-bottom: 12pt;
   }
