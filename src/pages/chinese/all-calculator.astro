@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
@@ -166,7 +167,7 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">数字仅供参考。加拿大按揭为半年复利。CMHC 保费采用当前标准档（4.00% / 3.10% / 2.80%），适用于 150 万元以下自住房。联邦压力测试采用（您的利率 + 2%）或 5.25%（取较高者）。地税按房价 0.7% / 年估算（多伦多平均），取暖费按 $150 / 月估算，与银行计算 GDS 比率所用的粗略数值相近。律师 + 产权 + 调整项默认 $2,500，适合多伦多二手房。真实数字取决于您的信用、贷款方、物业与成交细节。签署任何文件前，请务必与按揭经纪、律师和税务师确认。完整说明见<a href="/chinese/disclaimer#calculators">免责声明</a>。</p>
+          <p class="calc-disclaimer">数字仅供参考。加拿大按揭为半年复利。CMHC 保费采用当前标准档（4.00% / 3.10% / 2.80%），适用于 150 万元以下自住房。联邦压力测试采用（您的利率 + 2%）或 5.25%（取较高者）。地税按房价 0.7% / 年估算（多伦多平均），取暖费按 $150 / 月估算，与银行计算 GDS 比率所用的粗略数值相近。律师 + 产权 + 调整项默认 $2,500，适合多伦多二手房。真实数字取决于您的信用、贷款方、物业与成交细节。签署任何文件前，请务必与按揭经纪、律师和税务师确认。完整说明见<a href="/chinese/disclaimer#calculators">免责声明</a>。 页面预填的利率仅为示例，截至 {RATE_DEFAULTS_AS_OF.zh}；实际利率以您的贷款机构为准。</p>
         </div>
       </div>
     </div>

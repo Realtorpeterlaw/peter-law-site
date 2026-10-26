@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
@@ -161,7 +162,7 @@ const hreflangAlternates = [
             </div>
           </details>
 
-          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。所示 CMHC 保费采用自住房标准费率（4.00% / 3.10% / 2.80%）。联邦压力测试规则取（合同利率 + 2%）和 5.25% 中较高者。实际利率与贷款审批因人而异。在做出任何承诺前，请咨询持牌贷款专业人士。</p>
+          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。所示 CMHC 保费采用自住房标准费率（4.00% / 3.10% / 2.80%）。联邦压力测试规则取（合同利率 + 2%）和 5.25% 中较高者。实际利率与贷款审批因人而异。在做出任何承诺前，请咨询持牌贷款专业人士。 页面预填的利率仅为示例，截至 {RATE_DEFAULTS_AS_OF.zh}；实际利率以您的贷款机构为准。</p>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
@@ -129,7 +130,7 @@ const hreflangAlternates = [
             </div>
           </details>
 
-          <p class="calc-disclaimer">À titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement. Les taux réels, les pénalités (trois mois d'intérêts ou IRD) et les approbations des prêteurs varient. Ce calculateur ne modélise pas votre pénalité de rupture, vos frais juridiques, le coût d'évaluation ni les changements d'assurance SCHL. Consultez un professionnel hypothécaire agréé avant de refinancer.</p>
+          <p class="calc-disclaimer">À titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement. Les taux réels, les pénalités (trois mois d'intérêts ou IRD) et les approbations des prêteurs varient. Ce calculateur ne modélise pas votre pénalité de rupture, vos frais juridiques, le coût d'évaluation ni les changements d'assurance SCHL. Consultez un professionnel hypothécaire agréé avant de refinancer. Les taux d’intérêt par défaut sont indicatifs en date du {RATE_DEFAULTS_AS_OF.fr}; votre prêteur fixe votre taux réel.</p>
 
         </div>
       </div>

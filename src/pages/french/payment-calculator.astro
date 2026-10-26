@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
@@ -169,7 +170,7 @@ const hreflangAlternates = [
             </div>
           </details>
 
-          <p class="calc-disclaimer">À titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement. Les primes SCHL indiquées correspondent aux taux standards (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par leur propriétaire. La règle fédérale du test de résistance utilise le plus élevé entre (taux contractuel + 2 %) ou 5,25 %. Les taux réels et les approbations des prêteurs varient. Consultez un professionnel hypothécaire agréé avant de vous engager.</p>
+          <p class="calc-disclaimer">À titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement. Les primes SCHL indiquées correspondent aux taux standards (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par leur propriétaire. La règle fédérale du test de résistance utilise le plus élevé entre (taux contractuel + 2 %) ou 5,25 %. Les taux réels et les approbations des prêteurs varient. Consultez un professionnel hypothécaire agréé avant de vous engager. Les taux d’intérêt par défaut sont indicatifs en date du {RATE_DEFAULTS_AS_OF.fr}; votre prêteur fixe votre taux réel.</p>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
@@ -166,7 +167,7 @@ const hreflangAlternates = [
             </div>
           </div>
 
-          <p class="calc-disclaimer">Chiffres à titre indicatif. Les hypothèques canadiennes sont composées semestriellement. Les primes SCHL présentées sont les paliers standards actuels (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par le propriétaire de moins de 1,5 M$. Le test de résistance fédéral utilise le plus élevé entre (votre taux + 2 %) ou 5,25 %. L'estimation des taxes foncières est de 0,7 % du prix par année (moyenne de Toronto) et le chauffage est de 150 $/mois; la banque utilise des chiffres approximatifs similaires pour le ratio ATD. Les frais juridiques + titre + ajustements par défaut de 2 500 $ sont typiques pour un achat de revente à Toronto. Les chiffres réels dépendent de votre crédit, du prêteur, de la propriété et des détails de clôture. Confirmez toujours avec un courtier hypothécaire, un avocat et un comptable avant de signer quoi que ce soit. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet.</p>
+          <p class="calc-disclaimer">Chiffres à titre indicatif. Les hypothèques canadiennes sont composées semestriellement. Les primes SCHL présentées sont les paliers standards actuels (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par le propriétaire de moins de 1,5 M$. Le test de résistance fédéral utilise le plus élevé entre (votre taux + 2 %) ou 5,25 %. L'estimation des taxes foncières est de 0,7 % du prix par année (moyenne de Toronto) et le chauffage est de 150 $/mois; la banque utilise des chiffres approximatifs similaires pour le ratio ATD. Les frais juridiques + titre + ajustements par défaut de 2 500 $ sont typiques pour un achat de revente à Toronto. Les chiffres réels dépendent de votre crédit, du prêteur, de la propriété et des détails de clôture. Confirmez toujours avec un courtier hypothécaire, un avocat et un comptable avant de signer quoi que ce soit. Voir l'<a href="/french/disclaimer#calculators">Avis de non-responsabilité</a> pour le détail complet. Les taux d’intérêt par défaut sont indicatifs en date du {RATE_DEFAULTS_AS_OF.fr}; votre prêteur fixe votre taux réel.</p>
         </div>
       </div>
     </div>

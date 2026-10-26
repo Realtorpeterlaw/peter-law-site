@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
@@ -293,7 +294,7 @@ const hreflangAlternates = [
 
           <p class="calc-disclaimer">
             <strong>免责声明。</strong>本计算器仅供参考。加拿大房贷按半年复利、不提前计息的方式计算。CMHC 费率根据您的贷款价值比自动算出，采用 CMHC 2024 年 12 月 15 日生效的费率表；安省对保费另收的 8% PST 在交接时支付，本工具未计入。房屋增值、通胀与租金涨幅均为您输入的假设值，实际结果会有所不同。物业税、房屋保险与维护费均假设按您输入的通胀率增长。卖房成本按房屋售价的固定百分比估算，通常涵盖地产佣金（含 HST）、律师费与调整款项。本工具未对所得税、提前解约的贷款违约金、HELOC 借款，或将首付另作投资的机会成本进行建模。我是持牌房地产销售代表，不是房贷经纪、理财规划师、税务顾问或投资顾问。对于这样重大的决定，请就上述各领域咨询合格的专业人士。
-          </p>
+           页面预填的利率仅为示例，截至 {RATE_DEFAULTS_AS_OF.zh}；实际利率以您的贷款机构为准。</p>
 
         </div>
       </div>
