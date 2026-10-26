@@ -333,7 +333,7 @@ const hreflangAlternates = [
         $('ac-mortgage').textContent = fmtCAD(totalMortgage, 0);
         $('ac-cmhc').textContent = fmtCAD(cmhcPremium, 0);
         $('ac-cmhc-note').textContent = premiumRate === null
-          ? (shortfall > 0 ? '(non assurable : sous la mise de fonds minimale)' : '(non assurable : 20 % requis à 1,5 M$ et plus)')
+          ? (shortfall > 0 ? '(non assurable : la mise de fonds minimale pour ce prix est de ' + fmtCAD(minDown, 0) + ' — augmentez la mise de fonds ou réduisez le prix)' : '(non assurable : 20 % requis à 1,5 M$ et plus)')
           : premiumRate === 0
             ? '(vous avez 20 %+ de mise de fonds, pas d\'assurance requise)'
             : '(' + (premiumRate * 100).toFixed(2) + ' % du prêt)';
@@ -367,6 +367,10 @@ const hreflangAlternates = [
         $('ac-stress').textContent = fmtCAD(stressPayment, 0) + '/mois';
         $('ac-gds').textContent = gds.toFixed(1).replace('.', ',') + ' %';
         $('ac-interest').textContent = fmtCAD(totalInterest, 0);
+        // Fix #17: no payment figures for a deal that cannot close as entered (below minimum down / over the insured cap)
+        if (premiumRate === null) {
+          ['ac-monthly', 'ac-mortgage', 'ac-cmhc', 'ac-stress', 'ac-interest'].forEach(function (id) { var el = $(id); if (el) el.textContent = '—'; });
+        }
 
         let vTitle = '';
         let vSub = '';
