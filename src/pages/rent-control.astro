@@ -94,6 +94,16 @@ const hreflangAlternates = [
                   </div>
                 </div>
                 <div class="rcc-field">
+                  <label for="rcc-year">Increase takes effect in</label>
+                  <div class="rcc-input-prefix rcc-select-wrap">
+                    <select id="rcc-year" aria-describedby="rcc-h">
+                      <option value="2.1">2026 (guideline 2.1%)</option>
+                      <option value="1.9">2027 (guideline 1.9%)</option>
+                      <option value="custom">Custom %</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="rcc-field">
                   <label for="rcc-pct">Provincial guideline %</label>
                   <div class="rcc-input-prefix">
                     <input id="rcc-pct" type="number" min="0" max="25" step="0.1" value="2.1" inputmode="decimal" />
@@ -147,6 +157,8 @@ const hreflangAlternates = [
   .rcc-input-prefix input { border: 0; padding: 12px 8px; background: transparent; flex: 1; min-width: 0; font-size: 16px; font-family: inherit; color: var(--ink, #1a1a1a); font-variant-numeric: tabular-nums; outline: none; -moz-appearance: textfield; }
   .rcc-input-prefix input::-webkit-outer-spin-button, .rcc-input-prefix input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
   .rcc-suffix { font-size: 12.5px; letter-spacing: 0.01em; }
+  .rcc-select-wrap select { border: 0; padding: 12px 8px 12px 0; background: transparent; flex: 1; min-width: 0; font-size: 16px; font-family: inherit; color: var(--ink, #1a1a1a); outline: none; }
+  .rcc-select-wrap:focus-within { border-color: var(--ink, #1a1a1a); }
   .rcc-outputs { display: grid; gap: 12px; }
   .rcc-out-card { padding: 14px 18px; background: #fff; border: 1px solid var(--rule, #d8d4cc); border-radius: 8px; }
   .rcc-out-primary { border-color: var(--accent, #b8845b); background: linear-gradient(180deg, #fdfaf3 0%, #fff 60%); }
@@ -181,6 +193,12 @@ const hreflangAlternates = [
     }
     rent.addEventListener('input', compute);
     pct.addEventListener('input', compute);
+    // Year selector (Fix #12): pick the guideline for the year the increase takes effect
+    var year = document.getElementById('rcc-year');
+    if (year) {
+      year.addEventListener('change', function () { if (year.value !== 'custom') { pct.value = year.value; compute(); } else { pct.focus(); } });
+      pct.addEventListener('input', function () { var v = parseFloat(pct.value); year.value = (v === 2.1) ? '2.1' : (v === 1.9) ? '1.9' : 'custom'; });
+    }
     compute();
   })();
 </script>
