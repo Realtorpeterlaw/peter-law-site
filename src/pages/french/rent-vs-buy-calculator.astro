@@ -418,24 +418,24 @@ const hreflangAlternates = [
     }
 
     function calc() {
-      const price = num('price');
-      let down = num('down');
+      const price = Math.max(0, num('price'));
+      let down = Math.max(0, num('down'));
       const minDown = price >= 1500000 ? price * 0.20 : (price <= 500000 ? price * 0.05 : 25000 + (price - 500000) * 0.10);
       const enteredDown = down;
       const belowMin = price > 0 && down < minDown - 0.5;
       if (belowMin) down = minDown;
       const amort = Math.max(1, num('amort'));
       const rateAnnual = Math.min(30, Math.max(0, num('rate')));
-      const closing = num('closing');
-      const maint = num('maint');
-      const tax = num('tax');
-      const hoi = num('hoi');
+      const closing = Math.max(0, num('closing'));
+      const maint = Math.max(0, num('maint'));
+      const tax = Math.max(0, num('tax'));
+      const hoi = Math.max(0, num('hoi'));
       const apprPct = Math.min(30, Math.max(-30, num('appr'))) / 100;
       const years = Math.min(40, Math.max(1, Math.round(num('years'))));
       const sellPct = Math.min(20, Math.max(0, num('sellcost'))) / 100;
       const inflPct = Math.min(30, Math.max(-30, num('infl'))) / 100;
-      const rent = num('rent');
-      const contentIns = num('content-ins');
+      const rent = Math.max(0, num('rent'));
+      const contentIns = Math.max(0, num('content-ins'));
       const rentIncPct = Math.min(30, Math.max(-30, num('rentinc'))) / 100;
 
       const baseLoan = Math.max(0, price - down);
@@ -519,6 +519,7 @@ const hreflangAlternates = [
         v.textContent = 'Sur ' + years + ' ans, la location l\'emporte par environ ' + fmtCAD(-diff) + ' en termes de liquidités pures. Cela N\'INCLUT PAS la valeur nette que vous continueriez à accumuler au-delà de cette période de détention. Augmentez le nombre d\'« Années avant la revente » et recalculez.';
       }
       if (belowMin) v.textContent = 'Attention : une mise de fonds de ' + fmtCAD(enteredDown) + ' est sous le minimum légal de ' + fmtCAD(minDown) + ' pour ce prix; cette hypothèque ne serait pas assurable. Les chiffres ci-dessous supposent la mise de fonds minimale. ' + v.textContent;
+      if (price <= 0 || rent <= 0) v.textContent = 'Entrez un prix d’achat et un loyer mensuel supérieurs à 0 $ pour comparer.'; // Fix #17
       buildProjection();
     }
 

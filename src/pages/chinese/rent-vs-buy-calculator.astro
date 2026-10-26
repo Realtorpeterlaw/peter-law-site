@@ -418,24 +418,24 @@ const hreflangAlternates = [
     }
 
     function calc() {
-      const price = num('price');
-      let down = num('down');
+      const price = Math.max(0, num('price'));
+      let down = Math.max(0, num('down'));
       const minDown = price >= 1500000 ? price * 0.20 : (price <= 500000 ? price * 0.05 : 25000 + (price - 500000) * 0.10);
       const enteredDown = down;
       const belowMin = price > 0 && down < minDown - 0.5;
       if (belowMin) down = minDown;
       const amort = Math.max(1, num('amort'));
       const rateAnnual = Math.min(30, Math.max(0, num('rate')));
-      const closing = num('closing');
-      const maint = num('maint');
-      const tax = num('tax');
-      const hoi = num('hoi');
+      const closing = Math.max(0, num('closing'));
+      const maint = Math.max(0, num('maint'));
+      const tax = Math.max(0, num('tax'));
+      const hoi = Math.max(0, num('hoi'));
       const apprPct = Math.min(30, Math.max(-30, num('appr'))) / 100;
       const years = Math.min(40, Math.max(1, Math.round(num('years'))));
       const sellPct = Math.min(20, Math.max(0, num('sellcost'))) / 100;
       const inflPct = Math.min(30, Math.max(-30, num('infl'))) / 100;
-      const rent = num('rent');
-      const contentIns = num('content-ins');
+      const rent = Math.max(0, num('rent'));
+      const contentIns = Math.max(0, num('content-ins'));
       const rentIncPct = Math.min(30, Math.max(-30, num('rentinc'))) / 100;
 
       const baseLoan = Math.max(0, price - down);
@@ -519,6 +519,7 @@ const hreflangAlternates = [
         v.textContent = '在 ' + years + ' 年内，单纯从现金角度看，租房大约领先 ' + fmtCAD(-diff) + '。这还不包括如果继续持有房产、您本可以继续积累的净值。请把“卖出前的年数”调大，再重新计算。';
       }
       if (belowMin) v.textContent = '注意：' + fmtCAD(enteredDown) + ' 的首付低于此房价的法定最低首付 ' + fmtCAD(minDown) + ',该房贷无法投保。以下数字假设您至少支付最低首付。' + v.textContent;
+      if (price <= 0 || rent <= 0) v.textContent = '请输入大于 $0 的购房价格和月租金后再比较。'; // Fix #17
       buildProjection();
     }
 
