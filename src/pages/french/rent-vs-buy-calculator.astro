@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
@@ -293,7 +294,7 @@ const hreflangAlternates = [
 
           <p class="calc-disclaimer">
             <strong>Avis.</strong> Ce calculateur est fourni à titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement et non à l'avance. Le taux SCHL est calculé automatiquement à partir de votre ratio prêt-valeur selon le barème de la SCHL du 15 décembre 2024; la TVP de 8 % de l'Ontario sur la prime est payée à la clôture et n'est pas modélisée ici. L'appréciation de la propriété, l'inflation et l'augmentation du loyer sont des hypothèses saisies par vous; les résultats réels varieront. L'impôt foncier, l'assurance habitation et l'entretien sont présumés augmenter au taux d'inflation que vous entrez. Les frais de vente sont estimés comme un pourcentage fixe du prix de vente et couvrent habituellement la commission immobilière (avec TVH), les honoraires juridiques et les ajustements. Cet outil ne modélise pas l'impôt sur le revenu, les pénalités hypothécaires pour bris de terme, l'emprunt sur marge de crédit hypothécaire (MCH), ni le coût d'opportunité d'investir votre mise de fonds autrement. Je suis un courtier immobilier inscrit, pas un courtier hypothécaire, un planificateur financier, un conseiller fiscal ou un conseiller en placement. Pour une décision de cette ampleur, veuillez consulter des professionnels qualifiés dans chacun de ces domaines.
-          </p>
+           Les taux d’intérêt par défaut sont indicatifs en date du {RATE_DEFAULTS_AS_OF.fr}; votre prêteur fixe votre taux réel.</p>
 
         </div>
       </div>

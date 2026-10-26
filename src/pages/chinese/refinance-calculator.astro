@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
@@ -129,7 +130,7 @@ const hreflangAlternates = [
             </div>
           </details>
 
-          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。实际利率、罚金（三个月利息或 IRD）与贷款审批因人而异。本计算器不包含您的违约金、律师费、评估费或 CMHC 保险变化。在进行再融资前，请咨询持牌贷款专业人士。</p>
+          <p class="calc-disclaimer">仅供参考。加拿大房贷为半年复利。实际利率、罚金（三个月利息或 IRD）与贷款审批因人而异。本计算器不包含您的违约金、律师费、评估费或 CMHC 保险变化。在进行再融资前，请咨询持牌贷款专业人士。 页面预填的利率仅为示例，截至 {RATE_DEFAULTS_AS_OF.zh}；实际利率以您的贷款机构为准。</p>
 
         </div>
       </div>

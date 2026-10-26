@@ -1,4 +1,5 @@
 ---
+import { RATE_DEFAULTS_AS_OF } from '../lib/site-dates';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
@@ -292,7 +293,7 @@ const hreflangAlternates = [
 
           <p class="calc-disclaimer">
             <strong>Disclaimer.</strong> This calculator is for illustrative purposes only. Canadian mortgages compound semi-annually not in advance. CMHC rate is auto-derived from your loan-to-value using CMHC's Dec 15, 2024 schedule; Ontario 8% PST on the premium is paid at closing and isn't modeled here. Home appreciation, inflation, and rent-increase assumptions are inputs, actual outcomes vary. Property tax, homeowners insurance, and maintenance are assumed to grow at the inflation rate you enter. Selling costs are estimated as a flat percentage of the sale price and typically cover real estate commission (with HST), legal fees, and adjustments. This tool doesn't model income tax, mortgage penalties for breaking a term, HELOC borrowing, or the opportunity cost of investing your down payment differently. I am a licensed real estate Broker, not a mortgage broker, financial planner, tax advisor, or investment advisor. For a decision this large, please consult qualified professionals in each of those fields.
-          </p>
+           Default interest rates shown are illustrative as of {RATE_DEFAULTS_AS_OF.en}; your lender sets your actual rate.</p>
 
         </div>
       </div>
