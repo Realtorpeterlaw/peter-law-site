@@ -434,6 +434,301 @@
       "source": "/french/contact",
       "destination": "/french#book",
       "permanent": true
+    },
+    {
+      "source": "/rent-renewal",
+      "destination": "/lease-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/rent-renewal",
+      "destination": "/chinese/lease-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/french/rent-renewal",
+      "destination": "/french/lease-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/condo-calculator",
+      "destination": "/buy-condo-calc",
+      "permanent": true
+    },
+    {
+      "source": "/toronto-condo-monthly-cost-calculator",
+      "destination": "/buy-condo-calc",
+      "permanent": true
+    },
+    {
+      "source": "/buy-condo-calculator",
+      "destination": "/buy-condo-calc",
+      "permanent": true
+    },
+    {
+      "source": "/condo-calc",
+      "destination": "/buy-condo-calc",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/accessibility-statement",
+      "destination": "/accessibility",
+      "permanent": true
+    },
+    {
+      "source": "/sales-history",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/sold",
+      "destination": "/past-deals",
+      "permanent": true
+    },
+    {
+      "source": "/renters",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/rental",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/rent",
+      "destination": "/for-renters",
+      "permanent": true
+    },
+    {
+      "source": "/landlords",
+      "destination": "/for-landlords",
+      "permanent": true
+    },
+    {
+      "source": "/buy",
+      "destination": "/buyer-guide",
+      "permanent": true
+    },
+    {
+      "source": "/buyers",
+      "destination": "/buyer-guide",
+      "permanent": true
+    },
+    {
+      "source": "/sell",
+      "destination": "/free-home-evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/sellers",
+      "destination": "/free-home-evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/tour",
+      "destination": "/rental-tour",
+      "permanent": true
+    },
+    {
+      "source": "/video",
+      "destination": "/rental-tour",
+      "permanent": true
+    },
+    {
+      "source": "/videos",
+      "destination": "/rental-tour",
+      "permanent": true
+    },
+    {
+      "source": "/lease",
+      "destination": "/lease-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/leases",
+      "destination": "/lease-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/forms",
+      "destination": "/n-forms",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "destination": "/#book",
+      "permanent": true
+    },
+    {
+      "source": "/booking",
+      "destination": "/#book",
+      "permanent": true
+    },
+    {
+      "source": "/search",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/zh-Hans",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/zh-hans",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/zh-CN",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/zh-cn",
+      "destination": "/chinese",
+      "permanent": true
+    },
+    {
+      "source": "/fr-ca",
+      "destination": "/french",
+      "permanent": true
+    },
+    {
+      "source": "/fr-CA",
+      "destination": "/french",
+      "permanent": true
+    },
+    {
+      "source": "/en-ca",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en-CA",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/korean",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/spanish",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/russian",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.htm",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/atom.xml",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feed",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/rss",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/apple-touch-icon-precomposed.png",
+      "destination": "/apple-touch-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/apple-touch-icon-120x120.png",
+      "destination": "/apple-touch-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/apple-touch-icon-152x152.png",
+      "destination": "/apple-touch-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/apple-touch-icon-180x180.png",
+      "destination": "/apple-touch-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/favicon.png",
+      "destination": "/favicon.ico",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(heloc|bill-60-ontario|foreign-buyer-ban|ontario-property-taxes-rising|reverse-mortgage|feng-shui-for-beginners|first-time-buyer-guide-houses|time-of-use-tou|rhsp|oesp|hcra-illegal-building|vacant-home-tax|first-time-buyer-guide-condos|fhsa|rent-vs-buy|fthb-rebate)",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/:slug(heloc|bill-60-ontario|foreign-buyer-ban|ontario-property-taxes-rising|reverse-mortgage|feng-shui-for-beginners|first-time-buyer-guide-houses|time-of-use-tou|rhsp|oesp|hcra-illegal-building|vacant-home-tax|first-time-buyer-guide-condos|fhsa|rent-vs-buy|fthb-rebate)",
+      "destination": "/chinese/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/french/:slug(heloc|bill-60-ontario|foreign-buyer-ban|ontario-property-taxes-rising|reverse-mortgage|feng-shui-for-beginners|first-time-buyer-guide-houses|time-of-use-tou|rhsp|oesp|hcra-illegal-building|vacant-home-tax|first-time-buyer-guide-condos|fhsa|rent-vs-buy|fthb-rebate)",
+      "destination": "/french/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/:page([a-z0-9-]+).html",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(chinese|french)/:page([a-z0-9-]+).html",
+      "destination": "/:lang/:page",
+      "permanent": true
     }
   ]
 }
