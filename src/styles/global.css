@@ -2779,3 +2779,13 @@ html[data-theme="dark"] .rc-meter-tiers .tier-over { color: #f08a6e; }
 html[data-theme="dark"] .fh-program-tag[style*="b8002e"] { color: #ff8a9c !important; }
 html[data-theme="dark"] .qf-card { background: var(--surface); border-color: var(--rule); }
 html[data-theme="dark"] .tou-tier-on .tou-tier-sub, html[data-theme="dark"] .tou-tier-on .tou-tier-label { color: #4a4640; opacity: 1; }
+
+/* Fix #6 (WCAG 2.4.7): native checkboxes/radios and range sliders get a visible keyboard focus ring.
+   The form-field :focus rules above remove the outline and change the border colour instead, which
+   does not render on native checkboxes. */
+body input[type="checkbox"]:focus-visible,
+body input[type="radio"]:focus-visible,
+body input[type="range"]:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
