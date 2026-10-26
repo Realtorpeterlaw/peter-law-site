@@ -55,10 +55,10 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
         <li><a href="/french/blog" class={active === 'blog' ? 'active' : ''} aria-current={active === 'blog' ? 'page' : undefined}>Blog</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li class="has-dropdown">
-          <a href="/french/about" class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} aria-current={active === 'about' ? 'page' : undefined} aria-haspopup="true">
+          <span class={'dropdown-trigger' + (active === 'about' ? ' active' : '')} aria-current={active === 'about' ? 'page' : undefined} tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
             <span class="trigger-text">À propos</span>
             <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          </span>
           <ul class="dropdown-menu">
             <li><a href="/french/about">À propos de moi</a></li>
             <li><a href="/french/past-deals">Historique des locations</a></li>
@@ -176,6 +176,13 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
       li.addEventListener('focusin', () => set(true));
       li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) set(false); });
       trig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const first = li.querySelector('.dropdown-menu a'); if (first) first.focus(); } });
+      // Escape closes an open desktop dropdown and returns focus to its trigger (Fix #11)
+      li.addEventListener('keydown', e => {
+        if (e.key !== 'Escape') return;
+        li.classList.add('is-closed'); set(false); trig.focus();
+        const reopen = () => { li.classList.remove('is-closed'); li.removeEventListener('mouseleave', reopen); li.removeEventListener('focusout', reopen); };
+        li.addEventListener('mouseleave', reopen); li.addEventListener('focusout', reopen);
+      });
     });
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
     menu.querySelectorAll('.mobile-section-btn').forEach(btn => {
