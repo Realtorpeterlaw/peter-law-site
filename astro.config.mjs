@@ -19,7 +19,7 @@ export default defineConfig({
           french: 'fr-CA',
         },
       },
-      filter: (page) => !page.includes('/contact/thanks'),
+      filter: (page) => !page.includes('/contact/thanks') && !/\/apply\/?$/.test(page),
     }),
   ],
 });
