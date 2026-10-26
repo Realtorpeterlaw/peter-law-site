@@ -400,6 +400,30 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
     })();
   </script>
   <script is:inline>
+    /* Newsletter forms (Fix #10): post to beehiiv in a hidden iframe so the visitor stays on this page,
+       then show an inline confirmation in the page's language. Without JavaScript the form still posts normally. */
+    (function () {
+      var lang = location.pathname.indexOf('/chinese') === 0 ? 'zh' : location.pathname.indexOf('/french') === 0 ? 'fr' : 'en';
+      var msg = { en: 'Thanks! Check your inbox (and spam folder) for a confirmation email.', zh: '感谢订阅！请查看邮箱（含垃圾邮件文件夹）中的确认邮件。', fr: 'Merci! Vérifiez votre boîte de réception (et vos pourriels) pour le courriel de confirmation.' }[lang];
+      document.addEventListener('submit', function (e) {
+        var f = e.target;
+        if (!f || f.tagName !== 'FORM' || e.defaultPrevented) return;
+        var action = f.getAttribute('action') || '';
+        if (action.indexOf('beehiiv.com') < 0) return;
+        if (!f.checkValidity || !f.checkValidity()) return;
+        var sink = document.getElementById('nl-sink');
+        if (!sink) { sink = document.createElement('iframe'); sink.id = 'nl-sink'; sink.name = 'nl-sink'; sink.setAttribute('aria-hidden', 'true'); sink.tabIndex = -1; sink.style.cssText = 'position:absolute;width:0;height:0;border:0;opacity:0;pointer-events:none;'; document.body.appendChild(sink); }
+        f.setAttribute('target', 'nl-sink');
+        var btn = f.querySelector('button[type="submit"], input[type="submit"]'); if (btn) btn.disabled = true;
+        setTimeout(function () {
+          var note = document.createElement('p'); note.className = 'newsletter-done'; note.setAttribute('role', 'status'); note.textContent = msg;
+          f.parentNode.insertBefore(note, f.nextSibling); f.hidden = true; note.focus && note.setAttribute('tabindex', '-1'); note.focus();
+        }, 300);
+        // let the native submit proceed into the iframe
+      });
+    })();
+  </script>
+  <script is:inline>
     /* Formspree forms: submit in the background and send the visitor to this site's own
        thank-you page (the hidden _next field) instead of Formspree's generic page.
        If anything goes wrong, fall back to a normal submit so no message is lost. */
