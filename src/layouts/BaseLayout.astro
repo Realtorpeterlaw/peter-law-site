@@ -29,7 +29,12 @@ const {
 // If lang prop is provided (e.g. 'fr' from French pages), upgrade to 'fr-CA'.
 // If zh flag set, use 'zh-CN'. Otherwise default to 'en-CA'.
 const _langMap: Record<string, string> = { en: 'en-CA', fr: 'fr-CA', zh: 'zh-CN' };
-const htmlLang = _langMap[langProp || (zh ? 'zh' : 'en')] || langProp || 'en-CA';
+// Fallback: infer the locale from the URL prefix (/chinese, /french) when a page forgets to pass lang/zh.
+const _pathLang = Astro.url.pathname.startsWith('/chinese') ? 'zh' : Astro.url.pathname.startsWith('/french') ? 'fr' : 'en';
+const _effLang = langProp || (zh ? 'zh' : _pathLang);
+const htmlLang = _langMap[_effLang] || langProp || 'en-CA';
+const _isZh = zh || _effLang === 'zh';
+const _isFr = _effLang === 'fr';
 const htmlDir = dirProp || 'ltr';
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 
@@ -183,7 +188,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   )}
   <slot name="head" />
 </head>
-<body class={bodyClass + (zh ? ' zh' : '')}>
+<body class={(bodyClass + (_isZh && !/\bzh\b/.test(bodyClass) ? ' zh' : '') + (_isFr && !/\bfr\b/.test(bodyClass) ? ' fr' : '')).trim()}>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <slot />
   <Analytics />
