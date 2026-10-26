@@ -184,7 +184,7 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
   <slot name="head" />
 </head>
 <body class={bodyClass + (zh ? ' zh' : '')}>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">{_crumbLang === 'zh' ? '跳至主要内容' : _crumbLang === 'fr' ? 'Aller au contenu principal' : 'Skip to main content'}</a>
   <slot />
   <Analytics />
   <SpeedInsights />
