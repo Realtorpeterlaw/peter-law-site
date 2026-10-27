@@ -91,9 +91,13 @@ const { id = 'rental-questionnaire', subject = 'New Quick Rental Survey' } = Ast
               <label for="quiz-last-name">Last name*</label>
               <input id="quiz-last-name" name="last_name" type="text" required autocomplete="family-name" placeholder="e.g. Chan">
             </div>
-            <div class="quiz-field quiz-field-full">
+            <div class="quiz-field">
               <label for="quiz-email">Email*</label>
               <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="your@email.com">
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-phone">Cell number*</label>
+              <input id="quiz-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="e.g. 647 888 8472" pattern="[0-9+\(\)\-\s.]{10,20}" title="10 digits, e.g. 647 888 8472">
             </div>
           </div>
           <div class="hp-field" aria-hidden="true">
