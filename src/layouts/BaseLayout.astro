@@ -367,39 +367,6 @@ const _breadcrumbLd = _crumbs.length > 1 ? {
     })();
   </script>
   <script is:inline>
-    /* Language switcher (Fix #7): point the top-bar, mobile-menu and footer language links at the
-       equivalent page in the other locale, using this page's own hreflang alternates. Falls back to
-       the locale homepage when no alternate exists (404, thank-you pages). Progressive enhancement:
-       the static hrefs stay valid without JavaScript. */
-    (function () {
-      function ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
-      ready(function () {
-        var alts = {};
-        var links = document.querySelectorAll('link[rel="alternate"][hreflang]');
-        for (var i = 0; i < links.length; i++) {
-          var hl = (links[i].getAttribute('hreflang') || '').toLowerCase();
-          var href = links[i].getAttribute('href') || '';
-          try { href = new URL(href, location.href).pathname; } catch (_) {}
-          if (hl.indexOf('zh') === 0) alts.zh = href;
-          else if (hl.indexOf('fr') === 0) alts.fr = href;
-          else if (hl.indexOf('en') === 0) alts.en = href;
-        }
-        if (!alts.zh && !alts.fr && !alts.en) return;
-        var map = { '/': 'en', '/chinese': 'zh', '/french': 'fr' };
-        var sel = '.topbar a[href="/"], .topbar a[href="/chinese"], .topbar a[href="/french"], a.mobile-lang, footer a[href="/"], footer a[href="/chinese"], footer a[href="/french"]';
-        var as = document.querySelectorAll(sel);
-        for (var j = 0; j < as.length; j++) {
-          var raw = as[j].getAttribute('href') || '';
-          var to = map[raw.replace(/\/$/, '') || '/'];
-          if (!to || !alts[to]) continue;
-          if (as[j].closest('footer') && !as[j].closest('.footer-langs, [data-lang-links]') && !/^(中文|Français|English|EN|FR)$/.test(as[j].textContent.trim())) continue;
-          as[j].setAttribute('href', alts[to]);
-          as[j].setAttribute('hreflang', to === 'zh' ? 'zh-CN' : to === 'fr' ? 'fr-CA' : 'en-CA');
-        }
-      });
-    })();
-  </script>
-  <script is:inline>
     /* Newsletter forms (Fix #10): post to beehiiv in a hidden iframe so the visitor stays on this page,
        then show an inline confirmation in the page's language. Without JavaScript the form still posts normally. */
     (function () {
