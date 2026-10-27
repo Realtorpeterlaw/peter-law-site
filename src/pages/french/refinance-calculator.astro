@@ -1,5 +1,5 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-rates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
@@ -141,6 +141,8 @@ const hreflangAlternates = [
   <FrenchFooter />
 
   <script>
+    import { SITE_RATES } from '../../lib/site-rates';
+    const DEF = SITE_RATES.DEFAULT_RATE_PCT;
     // ============ Number formatting ============
     function fmtCAD(n) {
       if (!isFinite(n) || isNaN(n)) return '$0';
@@ -167,9 +169,9 @@ const hreflangAlternates = [
 
     // ============ Default 3 scenarios ============
     const defaults = {
-      a: { rate: 4.5, amort: 25, freq: 12 },
-      b: { rate: 4.75, amort: 20, freq: 12 },
-      c: { rate: 5.0, amort: 15, freq: 12 },
+      a: { rate: DEF, amort: 25, freq: 12 },
+      b: { rate: +(DEF + 0.25).toFixed(2), amort: 20, freq: 12 },
+      c: { rate: +(DEF + 0.5).toFixed(2), amort: 15, freq: 12 },
     };
     const freqLabel = { 12: '/mois', 24: '/demi-mois', 26: '/2 sem.', 52: '/sem.' };
 
@@ -177,7 +179,7 @@ const hreflangAlternates = [
       return `
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.rate} % · ${def.amort} ans</span></div>
-          <div class="mc-row"><label for="fld-${id}-rate">Taux d'intérêt (%)</label><input id="fld-${id}-rate" type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">Taux d'intérêt (%) <span class="hint">${SITE_RATES.HINT.fr}</span></label><input id="fld-${id}-rate" type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label for="fld-${id}-amort">Amortissement</label>
               <select id="fld-${id}-amort" data-input="${id}-amort">

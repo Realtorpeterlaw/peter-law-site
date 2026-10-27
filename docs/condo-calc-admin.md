@@ -2,17 +2,21 @@
 
 Page: https://www.realtorpeterlaw.com/buy-condo-calc (also /chinese/buy-condo-calc and /french/buy-condo-calc)
 
-## Where the rate lives
+## Where the rate lives (all calculators)
 
-File: `src/lib/condo-calc.js`, top of the file, inside `CONFIG`:
+File: `src/lib/site-rates.js`. One number and one date feed every calculator on the site:
+BUY Condo Calc., Mortgage Calculator, BUY Calculator, Refinance Calculator (scenarios A/B/C are the
+default, +0.25 and +0.50) and Rent vs Buy, in English, Chinese and French.
 
 ```js
-DEFAULT_RATE_PCT: 4.50,          // illustrative 5-year fixed, insured
-RATE_LAST_UPDATED: '2026-10-12', // printed on the page next to the rate
+DEFAULT_RATE_PCT: 4.50,   // illustrative 5-year fixed, insured
+AS_OF: { iso: '2026-10-27', en: 'October 27, 2026', zh: '2026 年 10 月 27 日', fr: '27 octobre 2026' },
+HINT:  { en: '...', zh: '...', fr: '...' },   // the sentence shown under each rate field; update the date inside it too
 ```
 
-Change those two lines only. The rate field, the "illustrative as of ..." text and the disclaimer all read from them.
-Nothing else in the calculator contains a rate. Commit and push; Vercel rebuilds in about a minute.
+Change the rate, the four `AS_OF` strings and the three `HINT` dates together. The rate fields, the
+"as of" hints and the calculator disclaimers all read from this file. Nothing else contains a rate.
+Commit and push; Vercel rebuilds in about a minute.
 
 ## How often to check
 

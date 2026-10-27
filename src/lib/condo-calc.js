@@ -15,13 +15,14 @@
  *     (CMHC page unreachable from the build sandbox on 2026-10-12; tiers match the site's existing BUY Calculator
  *     and every current industry table; re-check at cmhc-nchc.ca when the rate constant is next updated)
  */
+import { SITE_RATES } from './site-rates.js';
 
 // ======================================================================
 // CONFIG, the only place a market number lives. Change these, nothing else.
 // ======================================================================
 export const CONFIG = {
-  DEFAULT_RATE_PCT: 4.50,          // illustrative 5-year fixed, insured. Shown on screen with the date below.
-  RATE_LAST_UPDATED: '2026-10-12', // printed next to the rate as "illustrative as of ..."
+  DEFAULT_RATE_PCT: SITE_RATES.DEFAULT_RATE_PCT, // shared with every other calculator, see site-rates.js
+  RATE_LAST_UPDATED: SITE_RATES.AS_OF.iso,      // printed next to the rate as "illustrative as of ..."
   RULES_VERIFIED: '2026-10-12',    // date the tax/insurance rules above were checked
 
   // Defaults for the "Refine this estimate" fields

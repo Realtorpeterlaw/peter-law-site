@@ -1,5 +1,5 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
+import { SITE_RATES, RATE_DEFAULTS_AS_OF } from '../../lib/site-rates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LTopBar from '../../components/FrenchTopBar.astro';
 import LHeader from '../../components/FrenchHeader.astro';
@@ -75,8 +75,8 @@ const hreflangAlternates = [
                 </select>
               </div>
               <div class="calc-field">
-                <label for="rvb-rate">Taux d'intérêt (%)</label>
-                <input id="rvb-rate" type="number" value="4.5" min="0" max="25" step="0.05" inputmode="decimal">
+                <label for="rvb-rate">Taux d'intérêt (%) <span class="hint">{SITE_RATES.HINT.fr}</span></label>
+                <input id="rvb-rate" type="number" value={SITE_RATES.DEFAULT_RATE_PCT} min="0" max="25" step="0.05" inputmode="decimal">
               </div>
               <div class="calc-field">
                 <label for="rvb-appr">Appréciation de la propriété (%/an)</label>
