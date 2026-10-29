@@ -1,4 +1,6 @@
 ---
+import { localeLinks, HREFLANG, LANG_ATTR } from '../lib/locale-links';
+const _L = localeLinks(Astro.url.pathname);
 import Logo from './Logo.astro';
 interface Props {
   active?: 'rental' | 'sellers' | 'buyers' | 'blog' | 'about' | null;
@@ -134,8 +136,8 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </ul>
         </li>
         <li class="mobile-divider" aria-hidden="true"></li>
-        <li><a href="/chinese" class="mobile-link mobile-lang">中文 · Chinese</a></li>
-        <li><a href="/french" class="mobile-link mobile-lang">FR · Français</a></li>
+        <li><a href={_L.zh} hreflang={HREFLANG.zh} class="mobile-link mobile-lang"><span lang="zh-CN">简体中文</span> · Chinese</a></li>
+        <li><a href={_L.fr} hreflang={HREFLANG.fr} class="mobile-link mobile-lang">FR · <span lang="fr">Français</span></a></li>
       </ul>
       <a href={BOOKING_URL} class="btn-primary mobile-cta">
         Book a viewing call

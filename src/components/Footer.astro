@@ -1,4 +1,6 @@
 ---
+import { localeLinks, HREFLANG, LANG_ATTR } from '../lib/locale-links';
+const _L = localeLinks(Astro.url.pathname);
 import Logo from './Logo.astro';
 const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
 const REALTOR_CA = "https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-215-markham-ontario-l3r0m3";
@@ -47,8 +49,8 @@ const REALTOR_CA = "https://www.realtor.ca/agent/2071856/peter-law-3601-hwy-7-21
         <ul>
           <li><a href="/free-home-evaluation">Free Home Evaluation</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/chinese">中文</a></li>
-          <li><a href="/french">Français</a></li>
+          <li><a href={_L.zh} hreflang={HREFLANG.zh} lang="zh-CN">简体中文</a></li>
+          <li><a href={_L.fr} hreflang={HREFLANG.fr} lang="fr">Français</a></li>
           <li><a href={BOOKING_URL}>Book a call</a></li>
         </ul>
       </div>
