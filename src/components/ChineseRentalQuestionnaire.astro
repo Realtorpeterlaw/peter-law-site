@@ -91,9 +91,13 @@ const { id = 'rental-questionnaire', subject = '新租房问卷 (中文版)' } =
               <label for="quiz-last-name">姓氏*</label>
               <input id="quiz-last-name" name="last_name" type="text" required autocomplete="family-name" placeholder="例如：陈">
             </div>
-            <div class="quiz-field quiz-field-full">
+            <div class="quiz-field">
               <label for="quiz-email">电子邮件*</label>
               <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="您的邮箱@example.com">
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-phone">手机号码*</label>
+              <input id="quiz-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="例如：647 888 8472" pattern="[0-9+\(\)\-\s.]{10,20}" title="请输入 10 位数字，例如 647 888 8472">
             </div>
           </div>
           <div class="hp-field" aria-hidden="true">

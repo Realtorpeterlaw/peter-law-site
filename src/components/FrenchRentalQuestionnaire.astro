@@ -87,9 +87,13 @@ const { id = 'rental-questionnaire', subject = 'New Rental Questionnaire (French
       <label for="quiz-last-name">Nom de famille*</label>
       <input id="quiz-last-name" name="last_name" type="text" required autocomplete="family-name" placeholder="p. ex. Chan">
     </div>
-    <div class="quiz-field quiz-field-full">
+    <div class="quiz-field">
       <label for="quiz-email">Courriel*</label>
       <input id="quiz-email" name="email" type="email" required autocomplete="email" placeholder="votre@email.com">
+    </div>
+    <div class="quiz-field">
+      <label for="quiz-phone">Numéro de cellulaire*</label>
+      <input id="quiz-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="p. ex. 647 888 8472" pattern="[0-9+\(\)\-\s.]{10,20}" title="10 chiffres, p. ex. 647 888 8472">
     </div>
   </div>
   <div class="hp-field" aria-hidden="true">
