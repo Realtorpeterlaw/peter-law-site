@@ -37,6 +37,7 @@ const hreflangAlternates = [
           <h2 class="side-h">Sur cette page</h2>
           <ul>
             <li><a href="#ready">Préparer votre financement</a></li>
+            <li><a href="#cost-of-ownership">Le coût réel de la propriété</a></li>
             <li><a href="#search">Chercher intelligemment</a></li>
             <li><a href="#offer">Faire une offre</a></li>
             <li><a href="#conditions">La période des conditions</a></li>
@@ -56,6 +57,57 @@ const hreflangAlternates = [
             <li><strong>Un avocat en immobilier choisi</strong>, trouvez-le avant de faire une offre, pas après.</li>
           </ul>
           <div class="callout"><strong>Combien pouvez-vous vous permettre?</strong> Utilisez le calculateur d'abordabilité pour voir le maximum qu'un prêteur approuvera selon vos revenus et vos dettes. Ensuite, parlez à un courtier hypothécaire, l'approbation réelle diffère souvent de 5 à 15 % par rapport au calculateur.</div>
+
+          <details class="b60-section-toggle piti" id="cost-of-ownership">
+            <summary class="b60-section-toggle-summary">Le coût réel de la propriété</summary>
+            <div class="b60-section-body">
+              <p class="piti-lead">Votre paiement mensuel ne se limite pas au prêt. Voici ce que veulent dire les lettres <strong>PITI</strong>, et pourquoi elles comptent avant d’acheter.</p>
+              <div class="callout piti-callout">Beaucoup de premiers acheteurs regardent le prix d’une maison et pensent à un seul chiffre : l’hypothèque. Mais chaque mois, vous payez en réalité <strong>quatre</strong> choses regroupées en une. Ensemble, elles forment <strong>PITI</strong>.</div>
+
+              <h3>Ce que veut dire PITI</h3>
+              <p>PITI est simplement un moyen facile de retenir les quatre parties d’un paiement mensuel de logement. Voici chaque lettre :</p>
+              <ul class="piti-letters">
+                <li><span class="piti-letter" aria-hidden="true">P</span><div><strong>Principal (capital)</strong><p>La part qui rembourse l’argent emprunté. Elle réduit lentement ce que vous devez sur la maison.</p></div></li>
+                <li><span class="piti-letter" aria-hidden="true">I</span><div><strong>Intérêts</strong><p>Les frais que la banque facture pour vous prêter l’argent. Au début, c’est souvent la plus grosse part.</p></div></li>
+                <li><span class="piti-letter" aria-hidden="true">T</span><div><strong>Taxes</strong><p>L’impôt foncier que vous payez à la ville chaque année, généralement réparti en montants mensuels.</p></div></li>
+                <li><span class="piti-letter" aria-hidden="true">I</span><div><strong>Insurance (assurance)</strong><p>L’assurance habitation qui protège la maison. Les prêteurs l’exigent avant de vous accorder un prêt.</p></div></li>
+              </ul>
+
+              <h3>À quoi ça ressemble</h3>
+              <p>Voici un <em>exemple</em> de paiement mensuel de 3 000 $, réparti en quatre parties. (Chiffres d’exemple seulement : votre répartition réelle dépend de la maison et du taux.)</p>
+              <div class="piti-example">
+                <svg class="piti-donut" viewBox="0 0 42 42" role="img" aria-label="Exemple de paiement mensuel de 3 000 $ : intérêts 1 500 $, capital 900 $, taxes 450 $, assurance 150 $">
+                  <circle class="piti-ring" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" />
+                  <circle class="piti-seg piti-seg-interest" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="50 50" stroke-dashoffset="25" />
+                  <circle class="piti-seg piti-seg-principal" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="30 70" stroke-dashoffset="-25" />
+                  <circle class="piti-seg piti-seg-taxes" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="15 85" stroke-dashoffset="-55" />
+                  <circle class="piti-seg piti-seg-insurance" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="5 95" stroke-dashoffset="-70" />
+                  <text x="21" y="20.2" text-anchor="middle" class="piti-donut-amount">3 000 $</text>
+                  <text x="21" y="24.6" text-anchor="middle" class="piti-donut-sub">par mois</text>
+                </svg>
+                <table class="piti-table">
+                  <tbody>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-interest"></span>Intérêts</th><td>1 500 $</td></tr>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-principal"></span>Capital</th><td>900 $</td></tr>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-taxes"></span>Taxes</th><td>450 $</td></tr>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-insurance"></span>Assurance</th><td>150 $</td></tr>
+                    <tr class="piti-total"><th scope="row">Paiement total</th><td>3 000 $</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="piti-note">À noter : seule une partie de votre paiement rembourse vraiment la maison. Le reste est le coût d’emprunter et de posséder.</p>
+
+              <h3>Le retour à la réalité</h3>
+              <p>PITI explique pourquoi une maison coûte plus cher chaque mois que ce que le calculateur hypothécaire montre au départ. Et en Ontario, il y a souvent un cinquième coût que PITI laisse de côté :</p>
+              <ul class="bullets">
+                <li><strong>Les frais de condo.</strong> Si vous achetez un condo, les frais d’entretien mensuels s’ajoutent au PITI, parfois 500 $ ou plus.</li>
+                <li><strong>Les taxes et les taux changent.</strong> L’impôt foncier peut augmenter, et au renouvellement de votre hypothèque, le taux d’intérêt peut être plus haut ou plus bas.</li>
+                <li><strong>L’entretien vous appartient désormais.</strong> Une fournaise ou un toit brisé n’est plus le problème du propriétaire. Les propriétaires avisés mettent un peu d’argent de côté chaque mois pour les réparations.</li>
+              </ul>
+              <p>Rien de tout cela ne veut dire qu’acheter est une mauvaise idée. Cela veut dire y aller les yeux ouverts : connaître le chiffre mensuel complet, pas seulement le prêt, c’est ce qui permet d’acheter en confiance. Le <a href="/french/buy-condo-calc">BUY Condo Calc.</a> et le <a href="/french/payment-calculator">calculateur hypothécaire</a> montrent les quatre parties pour une inscription réelle.</p>
+              <p class="piti-legal">Information générale à des fins d’apprentissage, pas un conseil financier ou hypothécaire. Votre paiement réel dépend du prix, de la mise de fonds, du taux d’intérêt et de l’emplacement. Confirmez toujours les chiffres avec un professionnel hypothécaire agréé avant de décider.</p>
+            </div>
+          </details>
 
                     <details class="b60-section-toggle" id="search">
             <summary class="b60-section-toggle-summary">Chercher intelligemment</summary>
@@ -153,3 +205,37 @@ const hreflangAlternates = [
   <FrenchCTASection heading="Vous songez à acheter?" lead="Un appel de 15 minutes pour discuter de votre situation, ce que vous pouvez vous permettre, ce qui est réaliste dans votre gamme de prix, quels quartiers ont du sens. Aucun engagement." />
   <FrenchFooter />
 </BaseLayout>
+
+<style>
+  /* Cost of Home Ownership (PITI) section */
+  .piti-lead { font-size: 17px; color: var(--ink-soft); margin-bottom: 14px; }
+  .piti-callout { border-left: 3px solid var(--accent); }
+  .piti-letters { list-style: none; padding: 0; margin: 14px 0 22px; display: grid; gap: 10px; }
+  .piti-letters li { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; padding: 14px 18px 14px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+  .piti-letter { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 30px; line-height: 1; color: var(--ink); text-align: center; padding-top: 2px; }
+  .piti-letters strong { display: block; font-size: 16px; color: var(--ink); margin-bottom: 4px; }
+  .piti-letters p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+  .piti-example { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: center; padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; margin: 16px 0 10px; }
+  .piti-donut { width: 180px; height: 180px; transform: rotate(-90deg); }
+  .piti-ring { stroke: var(--bg-warm); }
+  .piti-seg-interest { stroke: var(--accent); color: var(--accent); }
+  .piti-seg-principal { stroke: var(--ink); color: var(--ink); }
+  .piti-seg-taxes { stroke: #8a9a8f; color: #8a9a8f; }
+  .piti-seg-insurance { stroke: #c9b99a; color: #c9b99a; }
+  .piti-donut text { transform: rotate(90deg); transform-origin: 21px 21px; fill: var(--ink); }
+  .piti-donut-amount { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 5.2px; }
+  .piti-donut-sub { font-size: 2.6px; fill: var(--ink-mute) !important; letter-spacing: 0.05em; }
+  .piti-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .piti-table th, .piti-table td { padding: 10px 4px; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; color: var(--ink-soft); }
+  .piti-table td { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .piti-table .piti-total th, .piti-table .piti-total td { border-bottom: 0; font-weight: 600; color: var(--ink); }
+  .piti-dot { display: inline-block; width: 10px; height: 10px; border-radius: 999px; background: currentColor; margin-right: 8px; vertical-align: 1px; }
+  .piti-note { font-size: 13.5px; color: var(--ink-mute); margin: 0 0 20px; }
+  .piti-legal { font-size: 12.5px; color: var(--ink-mute); line-height: 1.55; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  @media (max-width: 640px) {
+    .piti-example { grid-template-columns: 1fr; justify-items: center; }
+    .piti-table { width: 100%; }
+    .piti-letters li { grid-template-columns: 40px 1fr; }
+    .piti-letter { font-size: 26px; }
+  }
+</style>

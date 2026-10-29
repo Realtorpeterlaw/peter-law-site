@@ -37,6 +37,7 @@ const hreflangAlternates = [
           <h2 class="side-h">本页内容</h2>
           <ul>
             <li><a href="#ready">提前准备好贷款</a></li>
+            <li><a href="#cost-of-ownership">持有房屋的真实成本</a></li>
             <li><a href="#search">聪明地搜寻</a></li>
             <li><a href="#offer">报 Offer</a></li>
             <li><a href="#conditions">条件期</a></li>
@@ -56,6 +57,57 @@ const hreflangAlternates = [
             <li><strong>提前选定一位房地产律师</strong>：在报 Offer 之前就联系好，而不是之后。</li>
           </ul>
           <div class="callout"><strong>您能负担多少？</strong> 使用可负担能力计算器，看看根据您的收入和负债，贷款方最多能批给您多少。然后再找一位贷款经纪谈一谈：实际批准的额度，通常会和计算器有 5% 到 15% 的出入。</div>
+
+          <details class="b60-section-toggle piti" id="cost-of-ownership">
+            <summary class="b60-section-toggle-summary">持有房屋的真实成本</summary>
+            <div class="b60-section-body">
+              <p class="piti-lead">每月要付的，不只是房贷本身。下面解释 <strong>PITI</strong> 四个字母各代表什么，以及买房前为什么要先弄清楚。</p>
+              <div class="callout piti-callout">很多首次买家看到房价，只会想到一个数字：房贷。但实际上，您每个月付的是<strong>四</strong>项费用合在一起的总额。它们合起来就是 <strong>PITI</strong>。</div>
+
+              <h3>PITI 是什么</h3>
+              <p>PITI 只是一个方便记忆的说法，代表每月住房支出的四个组成部分。四个字母分别是：</p>
+              <ul class="piti-letters">
+                <li><span class="piti-letter" aria-hidden="true">P</span><div><strong>本金（Principal）</strong><p>用来偿还所借款项的部分。它会慢慢减少您在这套房子上的欠款。</p></div></li>
+                <li><span class="piti-letter" aria-hidden="true">I</span><div><strong>利息（Interest）</strong><p>银行借钱给您所收取的费用。在还款初期，这往往是最大的一块。</p></div></li>
+                <li><span class="piti-letter" aria-hidden="true">T</span><div><strong>地税（Taxes）</strong><p>每年向市政府缴纳的房产税，通常按月分摊。</p></div></li>
+                <li><span class="piti-letter" aria-hidden="true">I</span><div><strong>保险（Insurance）</strong><p>保护房屋的房屋保险。贷款方在放款前会要求您先购买。</p></div></li>
+              </ul>
+
+              <h3>实际是什么样子</h3>
+              <p>下面是一个<em>示例</em>：每月 $3,000 的供款，拆成四个部分。（仅为示例数字：您的实际构成取决于房子和利率。）</p>
+              <div class="piti-example">
+                <svg class="piti-donut" viewBox="0 0 42 42" role="img" aria-label="示例：每月 $3,000 供款，利息 $1,500、本金 $900、地税 $450、保险 $150">
+                  <circle class="piti-ring" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" />
+                  <circle class="piti-seg piti-seg-interest" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="50 50" stroke-dashoffset="25" />
+                  <circle class="piti-seg piti-seg-principal" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="30 70" stroke-dashoffset="-25" />
+                  <circle class="piti-seg piti-seg-taxes" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="15 85" stroke-dashoffset="-55" />
+                  <circle class="piti-seg piti-seg-insurance" cx="21" cy="21" r="15.915" fill="none" stroke-width="6" stroke-dasharray="5 95" stroke-dashoffset="-70" />
+                  <text x="21" y="20.2" text-anchor="middle" class="piti-donut-amount">$3,000</text>
+                  <text x="21" y="24.6" text-anchor="middle" class="piti-donut-sub">每月</text>
+                </svg>
+                <table class="piti-table">
+                  <tbody>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-interest"></span>利息</th><td>$1,500</td></tr>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-principal"></span>本金</th><td>$900</td></tr>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-taxes"></span>地税</th><td>$450</td></tr>
+                    <tr><th scope="row"><span class="piti-dot piti-seg-insurance"></span>保险</th><td>$150</td></tr>
+                    <tr class="piti-total"><th scope="row">每月合计</th><td>$3,000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="piti-note">请注意：您每月付的钱里，只有一部分真正在还房子的本金，其余是借款和持有的成本。</p>
+
+              <h3>现实提醒</h3>
+              <p>这就是为什么一套房子每月的真实开销，总比房贷计算器最初显示的要多。而在安省，常常还有一项 PITI 没包括的第五笔费用：</p>
+              <ul class="bullets">
+                <li><strong>公寓管理费。</strong>如果买的是公寓，每月的管理费要加在 PITI 之上，有时 $500 甚至更多。</li>
+                <li><strong>地税和利率会变。</strong>房产税可能上涨；房贷续约时，利率也可能更高或更低。</li>
+                <li><strong>维修从此是您自己的事。</strong>暖炉或屋顶坏了，不再是房东的问题。精明的业主会每月存一点钱备作维修。</li>
+              </ul>
+              <p>这并不是说买房不好。而是说，要睁大眼睛进场：清楚每月的完整数字，而不只是房贷，这样买房才买得安心。<a href="/chinese/buy-condo-calc">BUY 公寓计算器</a>和<a href="/chinese/payment-calculator">房贷计算器</a>可以为真实房源算出这四个部分。</p>
+              <p class="piti-legal">本节仅为一般性信息，不构成财务或房贷建议。您的实际月供取决于房价、首付、利率和地点。做决定前，请向持牌贷款专业人士核实数字。</p>
+            </div>
+          </details>
 
                     <details class="b60-section-toggle" id="search">
             <summary class="b60-section-toggle-summary">聪明地搜寻</summary>
@@ -153,3 +205,37 @@ const hreflangAlternates = [
   <ChineseCTASection heading="在考虑买房?" lead="15 分钟通话,我们聊聊您的情况:您能负担多少、您的预算范围里什么是现实的、哪些地区适合您。没有任何承诺。" />
   <ChineseFooter />
 </BaseLayout>
+
+<style>
+  /* Cost of Home Ownership (PITI) section */
+  .piti-lead { font-size: 17px; color: var(--ink-soft); margin-bottom: 14px; }
+  .piti-callout { border-left: 3px solid var(--accent); }
+  .piti-letters { list-style: none; padding: 0; margin: 14px 0 22px; display: grid; gap: 10px; }
+  .piti-letters li { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; padding: 14px 18px 14px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; }
+  .piti-letter { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 30px; line-height: 1; color: var(--ink); text-align: center; padding-top: 2px; }
+  .piti-letters strong { display: block; font-size: 16px; color: var(--ink); margin-bottom: 4px; }
+  .piti-letters p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+  .piti-example { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: center; padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; margin: 16px 0 10px; }
+  .piti-donut { width: 180px; height: 180px; transform: rotate(-90deg); }
+  .piti-ring { stroke: var(--bg-warm); }
+  .piti-seg-interest { stroke: var(--accent); color: var(--accent); }
+  .piti-seg-principal { stroke: var(--ink); color: var(--ink); }
+  .piti-seg-taxes { stroke: #8a9a8f; color: #8a9a8f; }
+  .piti-seg-insurance { stroke: #c9b99a; color: #c9b99a; }
+  .piti-donut text { transform: rotate(90deg); transform-origin: 21px 21px; fill: var(--ink); }
+  .piti-donut-amount { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-size: 5.2px; }
+  .piti-donut-sub { font-size: 2.6px; fill: var(--ink-mute) !important; letter-spacing: 0.05em; }
+  .piti-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .piti-table th, .piti-table td { padding: 10px 4px; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; color: var(--ink-soft); }
+  .piti-table td { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .piti-table .piti-total th, .piti-table .piti-total td { border-bottom: 0; font-weight: 600; color: var(--ink); }
+  .piti-dot { display: inline-block; width: 10px; height: 10px; border-radius: 999px; background: currentColor; margin-right: 8px; vertical-align: 1px; }
+  .piti-note { font-size: 13.5px; color: var(--ink-mute); margin: 0 0 20px; }
+  .piti-legal { font-size: 12.5px; color: var(--ink-mute); line-height: 1.55; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  @media (max-width: 640px) {
+    .piti-example { grid-template-columns: 1fr; justify-items: center; }
+    .piti-table { width: 100%; }
+    .piti-letters li { grid-template-columns: 40px 1fr; }
+    .piti-letter { font-size: 26px; }
+  }
+</style>
