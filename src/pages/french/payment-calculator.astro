@@ -1,5 +1,5 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-rates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
@@ -180,6 +180,7 @@ const hreflangAlternates = [
   <FrenchFooter />
 
   <script>
+    import { SITE_RATES } from '../../lib/site-rates';
     // === FORMATTING ===
     function toNum(v) { v = String(v == null ? '' : v).replace(/[\s\u00a0\u202f]/g, '').replace(/,(\d{1,2})$/, '.$1'); return Math.max(0, parseFloat(v.replace(/[^0-9.]/g, '')) || 0); }
     function fmtCAD(n, dp) {
@@ -260,9 +261,9 @@ const hreflangAlternates = [
 
     // === DEFAULT SCENARIOS ===
     const defaults = {
-      a: { downPct: 7.5, rate: 5.0, amort: 25, freq: 12, label: 'A, 7,5 % de mise' },
-      b: { downPct: 10, rate: 5.0, amort: 25, freq: 12, label: 'B, 10 % de mise' },
-      c: { downPct: 20, rate: 5.0, amort: 25, freq: 12, label: 'C, 20 % de mise' },
+      a: { downPct: 7.5, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'A, 7,5 % de mise' },
+      b: { downPct: 10, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'B, 10 % de mise' },
+      c: { downPct: 20, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'C, 20 % de mise' },
     };
     const freqLabel = { 12: '/mois', 24: '/demi-mois', 26: '/2 sem.', 52: '/sem.' };
 
@@ -275,7 +276,7 @@ const hreflangAlternates = [
             <div class="mc-row"><label for="fld-${id}-down-dollar">Mise de fonds</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
             <div class="mc-row"><label for="fld-${id}-down-pct">Mise %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label for="fld-${id}-rate">Taux d'intérêt (%)</label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">Taux d'intérêt (%) <span class="hint">${SITE_RATES.HINT.fr}</span></label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label for="fld-${id}-amort">Amortissement</label>
               <select id="fld-${id}-amort" data-input="${id}-amort">

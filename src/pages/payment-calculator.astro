@@ -1,5 +1,5 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../lib/site-dates';
+import { RATE_DEFAULTS_AS_OF } from '../lib/site-rates';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
@@ -180,6 +180,7 @@ const hreflangAlternates = [
   <Footer />
 
   <script>
+    import { SITE_RATES } from '../lib/site-rates';
     // === FORMATTING ===
     function toNum(v) { return Math.max(0, parseFloat(String(v == null ? '' : v).replace(/[^0-9.]/g, '')) || 0); }
     function fmtCAD(n, dp) {
@@ -260,9 +261,9 @@ const hreflangAlternates = [
 
     // === DEFAULT SCENARIOS ===
     const defaults = {
-      a: { downPct: 7.5, rate: 5.0, amort: 25, freq: 12, label: 'A, 7.5% down' },
-      b: { downPct: 10, rate: 5.0, amort: 25, freq: 12, label: 'B, 10% down' },
-      c: { downPct: 20, rate: 5.0, amort: 25, freq: 12, label: 'C, 20% down' },
+      a: { downPct: 7.5, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'A, 7.5% down' },
+      b: { downPct: 10, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'B, 10% down' },
+      c: { downPct: 20, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'C, 20% down' },
     };
     const freqLabel = { 12: '/mo', 24: '/semi-mo', 26: '/bi-wk', 52: '/wk' };
 
@@ -275,7 +276,7 @@ const hreflangAlternates = [
             <div class="mc-row"><label for="fld-${id}-down-dollar">Down payment</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
             <div class="mc-row"><label for="fld-${id}-down-pct">Down %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label for="fld-${id}-rate">Interest rate (%)</label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">Interest rate (%) <span class="hint">${SITE_RATES.HINT.en}</span></label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label for="fld-${id}-amort">Amortization</label>
               <select id="fld-${id}-amort" data-input="${id}-amort">

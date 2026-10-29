@@ -1,5 +1,5 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../../lib/site-dates';
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-rates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
@@ -141,6 +141,8 @@ const hreflangAlternates = [
   <ChineseFooter />
 
   <script>
+    import { SITE_RATES } from '../../lib/site-rates';
+    const DEF = SITE_RATES.DEFAULT_RATE_PCT;
     // ============ Number formatting ============
     function fmtCAD(n) {
       if (!isFinite(n) || isNaN(n)) return '$0';
@@ -167,9 +169,9 @@ const hreflangAlternates = [
 
     // ============ Default 3 scenarios ============
     const defaults = {
-      a: { rate: 4.5, amort: 25, freq: 12 },
-      b: { rate: 4.75, amort: 20, freq: 12 },
-      c: { rate: 5.0, amort: 15, freq: 12 },
+      a: { rate: DEF, amort: 25, freq: 12 },
+      b: { rate: +(DEF + 0.25).toFixed(2), amort: 20, freq: 12 },
+      c: { rate: +(DEF + 0.5).toFixed(2), amort: 15, freq: 12 },
     };
     const freqLabel = { 12: '/月', 24: '/半月', 26: '/双周', 52: '/周' };
 
@@ -177,7 +179,7 @@ const hreflangAlternates = [
       return `
         <div class="mc-scenario" data-scenario="${id}">
           <div class="mc-scenario-header"><h3>方案 ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.rate}% · ${def.amort} 年</span></div>
-          <div class="mc-row"><label for="fld-${id}-rate">利率（%）</label><input id="fld-${id}-rate" type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">利率（%） <span class="hint">${SITE_RATES.HINT.zh}</span></label><input id="fld-${id}-rate" type="text" data-input="${id}-rate" value="${def.rate}" inputmode="decimal" autocomplete="off"></div>
           <div class="mc-row-pair">
             <div class="mc-row"><label for="fld-${id}-amort">摊销期</label>
               <select id="fld-${id}-amort" data-input="${id}-amort">

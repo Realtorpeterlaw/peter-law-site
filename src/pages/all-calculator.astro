@@ -1,5 +1,5 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../lib/site-dates';
+import { SITE_RATES, RATE_DEFAULTS_AS_OF } from '../lib/site-rates';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
@@ -83,8 +83,8 @@ const hreflangAlternates = [
             <summary>More settings (optional)</summary>
             <div class="ac-more-body">
               <div class="ac-input-group">
-                <label for="ac-rate">Mortgage rate <span class="hint">5% is normal in 2026.</span></label>
-                <div class="input-suffix"><input type="number" id="ac-rate" value="5.0" min="0" step="0.05" inputmode="decimal" /></div>
+                <label for="ac-rate">Mortgage rate <span class="hint">{SITE_RATES.HINT.en}</span></label>
+                <div class="input-suffix"><input type="number" id="ac-rate" value={SITE_RATES.DEFAULT_RATE_PCT.toFixed(2)} min="0" step="0.05" inputmode="decimal" /></div>
               </div>
               <div class="ac-input-group">
                 <label for="ac-amort">Amortization <span class="hint">How many years to pay it off. Most people pick 25.</span></label>
