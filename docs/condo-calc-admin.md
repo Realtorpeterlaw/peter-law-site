@@ -20,7 +20,7 @@ Commit and push; Vercel rebuilds in about a minute.
 
 ## How often to check
 
-Monthly, and after every Bank of Canada announcement date (next: October 28, 2026, then December 9, 2026).
+Monthly, and after every Bank of Canada announcement date (next: December 9, 2026, then January 27, 2027 with the Monetary Policy Report).
 Fixed rates follow bond yields rather than the policy rate, so check an insured 5-year fixed rate table
 (e.g. Ratehub or nesto) and round to the nearest 0.05%.
 
