@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
+import BuyerQuestionnaire from '../components/BuyerQuestionnaire.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buyer-guide' },
@@ -43,6 +44,7 @@ const hreflangAlternates = [
             <li><a href="#closing">Closing day</a></li>
             <li><a href="#after">After you move in</a></li>
             <li><a href="#mistakes">Common mistakes</a></li>
+            <li><a href="#buyer-questionnaire">Buyer questionnaire</a></li>
           </ul>
         </aside>
         <div class="prose-body">
@@ -194,6 +196,11 @@ const hreflangAlternates = [
             <p><strong>Going firm without understanding the consequences.</strong> No-conditions offers can win bidding wars but if your financing falls through, you lose your deposit and may be sued for the seller's loss.</p>
             </div>
           </details>
+
+          <p class="bq-lead">Ready to start? Tell me what you are looking for, House or Condo, and I will come to our first call with numbers, neighbourhoods and listings that fit.</p>
+          <div style="max-width: 720px;">
+            <BuyerQuestionnaire lang="en" />
+          </div>
 
 <p class="legal-note">This guide is informational, not financial or legal advice. Talk to a licensed mortgage professional, real estate lawyer, and an experienced realtor before making decisions specific to your situation.</p>
         </div>

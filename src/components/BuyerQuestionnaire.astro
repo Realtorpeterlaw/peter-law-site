@@ -1,0 +1,361 @@
+---
+// Buyer questionnaire: one box, two tabs (House / Condo), each tab its own form.
+// Used on /buyer-guide, /chinese/buyer-guide, /french/buyer-guide.
+// Without JavaScript both forms render one under the other (each with its own title);
+// with JavaScript the tabs appear and only the selected form is shown.
+//
+// HOW TO EDIT OPTIONS: change the arrays in `T` below (budgets, bedrooms, house types, …).
+interface Props { lang?: 'en' | 'zh' | 'fr'; id?: string; }
+const { lang = 'en', id = 'buyer-questionnaire' } = Astro.props;
+
+const NB = ' ';
+const T = {
+  en: {
+    eyebrow: 'Buyer Questionnaire',
+    heading: 'What are you looking to buy?',
+    sub: 'Pick House or Condo, fill in the basics, and I will come to our first call prepared.',
+    tablist: 'Property type',
+    house: 'House', condo: 'Condo',
+    select: 'Select…',
+    budget: 'Budget*',
+    houseBudgets: ['Under $800,000', '$800,000 – $1,000,000', '$1,000,000 – $1,250,000', '$1,250,000 – $1,500,000', '$1,500,000 – $2,000,000', '$2,000,000+'],
+    condoBudgets: ['Under $500,000', '$500,000 – $650,000', '$650,000 – $800,000', '$800,000 – $1,000,000', '$1,000,000 – $1,500,000', '$1,500,000+'],
+    bedrooms: 'Bedrooms*',
+    houseBeds: ['2', '3', '4', '5+'],
+    condoBeds: ['Studio', '1 BR', '1 BR + Den', '2 BR', '2 BR + Den', '3+ BR'],
+    bathrooms: 'Bathrooms*',
+    houseBaths: ['1', '1.5', '2', '2.5', '3', '3.5', '4+'],
+    condoBaths: ['1', '1.5', '2', '2.5', '3+'],
+    parking: 'Parking*',
+    houseParking: ['Not needed', '1 spot', '2 spots', '3+ spots'],
+    condoParking: ['Not needed', '1 spot', '2 spots'],
+    residency: 'Residency status*',
+    residencyOptions: ['Canadian citizen or permanent resident', 'Foreign buyer (non-resident)'],
+    residencyHint: 'Non-residents: see the',
+    residencyLink: 'foreign buyer ban guide',
+    residencyHref: '/blog/foreign-buyer-ban',
+    area: 'Area of location*',
+    areaPlaceholder: 'e.g. Markham, North York, Leslieville',
+    houseType: 'Type of house*',
+    multi: '(select all that apply)',
+    houseTypes: ['Detached', 'Semi-detached', 'Townhouse (freehold)', 'Townhouse (condo)', 'Bungalow', 'Duplex or multiplex', 'Open to suggestions'],
+    exposure: 'Exposure*',
+    exposures: ['North', 'South', 'East', 'West', 'No preference'],
+    moveIn: 'Move-in date*',
+    firstName: 'First name*', firstPh: 'e.g. Jacky',
+    lastName: 'Last name*', lastPh: 'e.g. Chan',
+    email: 'Email*', emailPh: 'your@email.com',
+    phone: 'Cell number*', phonePh: 'e.g. 647 888 8472', phoneTitle: '10 digits, e.g. 647 888 8472',
+    gotcha: "Don't fill this",
+    submit: "Let's get started",
+    error: 'Please select at least one option.',
+    subjectHouse: 'New Buyer Questionnaire — House',
+    subjectCondo: 'New Buyer Questionnaire — Condo',
+    next: 'https://www.realtorpeterlaw.com/contact/thanks',
+    typeHouse: 'House', typeCondo: 'Condo',
+  },
+  zh: {
+    eyebrow: '买房问卷',
+    heading: '您想买什么样的房子？',
+    sub: '选择独立屋或公寓，填写基本信息，我会带着准备好的方案参加我们的第一次通话。',
+    tablist: '房产类型',
+    house: '独立屋', condo: '公寓',
+    select: '请选择…',
+    budget: '预算*',
+    houseBudgets: ['$800,000 以下', '$800,000 – $1,000,000', '$1,000,000 – $1,250,000', '$1,250,000 – $1,500,000', '$1,500,000 – $2,000,000', '$2,000,000 以上'],
+    condoBudgets: ['$500,000 以下', '$500,000 – $650,000', '$650,000 – $800,000', '$800,000 – $1,000,000', '$1,000,000 – $1,500,000', '$1,500,000 以上'],
+    bedrooms: '卧室*',
+    houseBeds: ['2 室', '3 室', '4 室', '5 室及以上'],
+    condoBeds: ['开间', '1 室', '1 室 + 书房', '2 室', '2 室 + 书房', '3 室及以上'],
+    bathrooms: '卫生间*',
+    houseBaths: ['1', '1.5', '2', '2.5', '3', '3.5', '4 及以上'],
+    condoBaths: ['1', '1.5', '2', '2.5', '3 及以上'],
+    parking: '车位*',
+    houseParking: ['不需要', '1 个', '2 个', '3 个及以上'],
+    condoParking: ['不需要', '1 个', '2 个'],
+    residency: '身份状况*',
+    residencyOptions: ['加拿大公民或永久居民', '海外买家（非居民）'],
+    residencyHint: '非居民请先阅读',
+    residencyLink: '《外国买家禁令》指南',
+    residencyHref: '/chinese/blog/foreign-buyer-ban',
+    area: '意向区域*',
+    areaPlaceholder: '例如：万锦、北约克、Leslieville',
+    houseType: '房屋类型*',
+    multi: '（可多选）',
+    houseTypes: ['独立屋', '半独立屋', '镇屋（永久产权）', '镇屋（公寓产权）', '平房', '双拼或多单元', '欢迎推荐'],
+    exposure: '朝向*',
+    exposures: ['北', '南', '东', '西', '无偏好'],
+    moveIn: '入住日期*',
+    firstName: '名字*', firstPh: '例如：Jacky',
+    lastName: '姓氏*', lastPh: '例如：陈',
+    email: '电子邮件*', emailPh: '您的邮箱@example.com',
+    phone: '手机号码*', phonePh: '例如：647 888 8472', phoneTitle: '请输入 10 位数字，例如 647 888 8472',
+    gotcha: '请勿填写',
+    submit: '马上开始',
+    error: '请至少选择一项。',
+    subjectHouse: '新买房问卷 (中文版) — 独立屋 / House',
+    subjectCondo: '新买房问卷 (中文版) — 公寓 / Condo',
+    next: 'https://www.realtorpeterlaw.com/chinese/contact/thanks',
+    typeHouse: 'House (独立屋)', typeCondo: 'Condo (公寓)',
+  },
+  fr: {
+    eyebrow: 'Questionnaire acheteur',
+    heading: `Que cherchez-vous à acheter${NB}?`,
+    sub: 'Choisissez Maison ou Condo, remplissez l’essentiel, et j’arriverai préparé à notre premier appel.',
+    tablist: 'Type de propriété',
+    house: 'Maison', condo: 'Condo',
+    select: 'Choisir…',
+    budget: 'Budget*',
+    houseBudgets: [`Moins de 800${NB}000${NB}$`, `800${NB}000${NB}$ – 1${NB}000${NB}000${NB}$`, `1${NB}000${NB}000${NB}$ – 1${NB}250${NB}000${NB}$`, `1${NB}250${NB}000${NB}$ – 1${NB}500${NB}000${NB}$`, `1${NB}500${NB}000${NB}$ – 2${NB}000${NB}000${NB}$`, `2${NB}000${NB}000${NB}$ et plus`],
+    condoBudgets: [`Moins de 500${NB}000${NB}$`, `500${NB}000${NB}$ – 650${NB}000${NB}$`, `650${NB}000${NB}$ – 800${NB}000${NB}$`, `800${NB}000${NB}$ – 1${NB}000${NB}000${NB}$`, `1${NB}000${NB}000${NB}$ – 1${NB}500${NB}000${NB}$`, `1${NB}500${NB}000${NB}$ et plus`],
+    bedrooms: 'Chambres*',
+    houseBeds: ['2', '3', '4', '5 et plus'],
+    condoBeds: ['Studio', '1 ch.', '1 ch. + bureau', '2 ch.', '2 ch. + bureau', '3 ch. et plus'],
+    bathrooms: 'Salles de bain*',
+    houseBaths: ['1', '1,5', '2', '2,5', '3', '3,5', '4 et plus'],
+    condoBaths: ['1', '1,5', '2', '2,5', '3 et plus'],
+    parking: 'Stationnement*',
+    houseParking: ['Pas nécessaire', '1 place', '2 places', '3 places et plus'],
+    condoParking: ['Pas nécessaire', '1 place', '2 places'],
+    residency: 'Statut de résidence*',
+    residencyOptions: ['Citoyen canadien ou résident permanent', 'Acheteur étranger (non-résident)'],
+    residencyHint: `Non-résidents${NB}: consultez le`,
+    residencyLink: 'guide sur l’interdiction d’achat aux non-Canadiens',
+    residencyHref: '/french/blog/foreign-buyer-ban',
+    area: 'Secteur recherché*',
+    areaPlaceholder: 'p. ex. Markham, North York, Leslieville',
+    houseType: 'Type de maison*',
+    multi: '(plusieurs choix possibles)',
+    houseTypes: ['Détachée', 'Jumelée', 'Maison en rangée (pleine propriété)', 'Maison en rangée (copropriété)', 'Bungalow', 'Duplex ou multiplex', 'Ouvert aux suggestions'],
+    exposure: 'Exposition*',
+    exposures: ['Nord', 'Sud', 'Est', 'Ouest', 'Sans préférence'],
+    moveIn: 'Date d’emménagement*',
+    firstName: 'Prénom*', firstPh: 'p. ex. Jacky',
+    lastName: 'Nom de famille*', lastPh: 'p. ex. Chan',
+    email: 'Courriel*', emailPh: 'votre@email.com',
+    phone: 'Numéro de cellulaire*', phonePh: 'p. ex. 647 888 8472', phoneTitle: '10 chiffres, p. ex. 647 888 8472',
+    gotcha: 'Ne pas remplir',
+    submit: 'Commencer',
+    error: 'Veuillez sélectionner au moins une option.',
+    subjectHouse: 'New Buyer Questionnaire (French) — House',
+    subjectCondo: 'New Buyer Questionnaire (French) — Condo',
+    next: 'https://www.realtorpeterlaw.com/french/contact/thanks',
+    typeHouse: 'House (Maison)', typeCondo: 'Condo',
+  },
+}[lang];
+
+const panels = [
+  { key: 'house', label: T.house, subject: T.subjectHouse, type: T.typeHouse, budgets: T.houseBudgets, beds: T.houseBeds, baths: T.houseBaths, parking: T.houseParking },
+  { key: 'condo', label: T.condo, subject: T.subjectCondo, type: T.typeCondo, budgets: T.condoBudgets, beds: T.condoBeds, baths: T.condoBaths, parking: T.condoParking },
+];
+---
+<div class="quiz-form bq" id={id} style="scroll-margin-top:100px">
+  <div class="quiz-eyebrow">{T.eyebrow}</div>
+  <h2 class="quiz-heading">{T.heading}</h2>
+  <p class="quiz-sub">{T.sub}</p>
+
+  <div class="bq-tabs" role="tablist" aria-label={T.tablist}>
+    {panels.map((p, i) => (
+      <button type="button" class="bq-tab" role="tab" id={`${id}-tab-${p.key}`} aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`${id}-${p.key}`} tabindex={i === 0 ? 0 : -1} data-hash={`#${id}-${p.key}`}>{p.label}</button>
+    ))}
+  </div>
+
+  {panels.map((p) => {
+    const f = (name) => `${id}-${p.key}-${name}`;
+    return (
+      <div id={`${id}-${p.key}`} class="bq-panel" role="tabpanel" aria-labelledby={`${id}-tab-${p.key}`}>
+      <form class="bq-form" method="POST" action="https://formspree.io/f/xnjrzgda">
+        <h3 class="bq-panel-title">{p.label}</h3>
+        <div class="quiz-fields">
+          <div class="quiz-field">
+            <label for={f('budget')}>{T.budget}</label>
+            <select id={f('budget')} name="budget" required>
+              <option value="">{T.select}</option>
+              {p.budgets.map((o) => <option>{o}</option>)}
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for={f('beds')}>{T.bedrooms}</label>
+            <select id={f('beds')} name="bedrooms" required>
+              <option value="">{T.select}</option>
+              {p.beds.map((o) => <option>{o}</option>)}
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for={f('baths')}>{T.bathrooms}</label>
+            <select id={f('baths')} name="bathrooms" required>
+              <option value="">{T.select}</option>
+              {p.baths.map((o) => <option>{o}</option>)}
+            </select>
+          </div>
+          <div class="quiz-field">
+            <label for={f('parking')}>{T.parking}</label>
+            <select id={f('parking')} name="parking" required>
+              <option value="">{T.select}</option>
+              {p.parking.map((o) => <option>{o}</option>)}
+            </select>
+          </div>
+          <div class="quiz-field quiz-field-full">
+            <label for={f('residency')}>{T.residency}</label>
+            <select id={f('residency')} name="residency_status" required>
+              <option value="">{T.select}</option>
+              {T.residencyOptions.map((o) => <option>{o}</option>)}
+            </select>
+            <span class="quiz-hint bq-note">{T.residencyHint} <a href={T.residencyHref}>{T.residencyLink}</a>.</span>
+          </div>
+          <div class="quiz-field">
+            <label for={f('area')}>{T.area}</label>
+            <input id={f('area')} name="area" type="text" required placeholder={T.areaPlaceholder} autocomplete="off">
+          </div>
+          <div class="quiz-field">
+            <label for={f('movein')}>{T.moveIn}</label>
+            <input id={f('movein')} name="move_in_date" type="date" required>
+          </div>
+
+          {p.key === 'house' ? (
+            <div class="quiz-field quiz-field-full">
+              <label>{T.houseType} <span class="quiz-hint">{T.multi}</span></label>
+              <div class="quiz-checkboxes" data-checkbox-group="house_type" data-required>
+                {T.houseTypes.map((o) => (
+                  <label class="quiz-check"><input type="checkbox" name="house_type[]" value={o}> {o}</label>
+                ))}
+              </div>
+              <p class="bq-error" role="alert" hidden>{T.error}</p>
+            </div>
+          ) : (
+            <div class="quiz-field quiz-field-full">
+              <label>{T.exposure} <span class="quiz-hint">{T.multi}</span></label>
+              <div class="quiz-checkboxes bq-exposure" data-checkbox-group="exposure" data-required>
+                {T.exposures.map((o) => (
+                  <label class="quiz-check"><input type="checkbox" name="exposure[]" value={o}> {o}</label>
+                ))}
+              </div>
+              <p class="bq-error" role="alert" hidden>{T.error}</p>
+            </div>
+          )}
+
+          <div class="quiz-field">
+            <label for={f('first')}>{T.firstName}</label>
+            <input id={f('first')} name="first_name" type="text" required autocomplete="given-name" placeholder={T.firstPh}>
+          </div>
+          <div class="quiz-field">
+            <label for={f('last')}>{T.lastName}</label>
+            <input id={f('last')} name="last_name" type="text" required autocomplete="family-name" placeholder={T.lastPh}>
+          </div>
+          <div class="quiz-field">
+            <label for={f('email')}>{T.email}</label>
+            <input id={f('email')} name="email" type="email" required autocomplete="email" placeholder={T.emailPh}>
+          </div>
+          <div class="quiz-field">
+            <label for={f('phone')}>{T.phone}</label>
+            <input id={f('phone')} name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder={T.phonePh} pattern="[0-9+\(\)\-\s.]{10,20}" title={T.phoneTitle}>
+          </div>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for={f('gotcha')}>{T.gotcha}</label>
+          <input id={f('gotcha')} name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="property_type" value={p.type}>
+        <input type="hidden" name="_subject" value={p.subject}>
+        <input type="hidden" name="_next" value={T.next}>
+        <button type="submit" class="btn-primary quiz-cta">
+          {T.submit}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  /* Tabs are hidden until JavaScript adds .is-enhanced (an is- class survives the CSS purge); without JS both forms show stacked. */
+  .bq-tabs { display: none; gap: 6px; margin: 2px 0 22px; border-bottom: 1px solid var(--rule); }
+  .bq.is-enhanced .bq-tabs { display: flex; }
+  .bq-tab { font: inherit; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; padding: 11px 22px; margin-bottom: -1px; background: transparent; border: 1px solid transparent; border-bottom: 0; border-radius: 6px 6px 0 0; color: var(--ink-soft); cursor: pointer; }
+  .bq-tab:hover { color: var(--ink); }
+  .bq-tab[aria-selected="true"] { background: var(--surface); border-color: var(--rule); color: var(--ink); box-shadow: 0 1px 0 var(--surface); }
+  .bq-tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  .bq-form { display: flex; flex-direction: column; }
+  .bq-panel + .bq-panel { margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .bq.is-enhanced .bq-panel + .bq-panel { margin-top: 0; padding-top: 0; border-top: 0; }
+  .bq.is-enhanced .bq-panel[hidden] { display: none; }
+  .bq-note { display: block; margin-top: 4px; margin-left: 0; }
+  .bq-panel-title { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 22px; margin: 0 0 14px; color: var(--ink); }
+  .bq.is-enhanced .bq-panel-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .bq-exposure { grid-template-columns: repeat(5, auto); justify-content: start; gap: 8px 22px; }
+  .bq-error { margin: 6px 0 0; font-size: 13px; color: #b8002e; }
+  .bq-error[hidden] { display: none; }
+  .quiz-hint a { color: inherit; text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .bq-exposure { grid-template-columns: 1fr 1fr; }
+    .bq-tab { padding: 10px 14px; font-size: 13px; }
+  }
+  :global(html[data-theme="dark"]) .bq-error { color: #ff7a94; }
+</style>
+
+<script>
+  document.querySelectorAll('.bq').forEach(function (root) {
+    root.classList.add('is-enhanced');
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls') || ''); });
+
+    function select(i, focus) {
+      tabs.forEach(function (t, j) {
+        var on = j === i;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        if (panels[j]) panels[j].hidden = !on;
+      });
+      if (focus) tabs[i].focus();
+    }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(i, false); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length, j = i;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % n;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + n) % n;
+        else if (e.key === 'Home') j = 0;
+        else if (e.key === 'End') j = n - 1;
+        else return;
+        e.preventDefault();
+        select(j, true);
+      });
+    });
+
+    // Deep link: /buyer-guide#buyer-questionnaire-condo opens the Condo tab.
+    var start = 0;
+    tabs.forEach(function (t, i) { if (location.hash && t.getAttribute('data-hash') === location.hash) start = i; });
+    select(start, false);
+
+    // "Select all that apply" groups must have at least one box ticked.
+    root.querySelectorAll('form').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        var ok = true;
+        form.querySelectorAll('[data-checkbox-group][data-required]').forEach(function (g) {
+          var any = g.querySelector('input[type="checkbox"]:checked');
+          var err = g.parentElement && g.parentElement.querySelector('.bq-error');
+          if (!any) {
+            if (ok) { var first = g.querySelector('input'); if (first) first.focus(); }
+            ok = false;
+            if (err) err.hidden = false;
+          } else if (err) {
+            err.hidden = true;
+          }
+        });
+        if (!ok) e.preventDefault();
+      });
+      form.querySelectorAll('[data-checkbox-group] input').forEach(function (cb) {
+        cb.addEventListener('change', function () {
+          var g = cb.closest('[data-checkbox-group]');
+          var err = g && g.parentElement && g.parentElement.querySelector('.bq-error');
+          if (err && g.querySelector('input:checked')) err.hidden = true;
+        });
+      });
+    });
+  });
+</script>
