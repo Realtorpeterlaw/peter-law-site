@@ -4,6 +4,7 @@ import ChineseTopBar from '../../components/ChineseTopBar.astro';
 import ChineseHeader from '../../components/ChineseHeader.astro';
 import ChineseFooter from '../../components/ChineseFooter.astro';
 import ChineseCTASection from '../../components/ChineseCTASection.astro';
+import BuyerQuestionnaire from '../../components/BuyerQuestionnaire.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buyer-guide' },
@@ -44,6 +45,7 @@ const hreflangAlternates = [
             <li><a href="#closing">交接日</a></li>
             <li><a href="#after">入住之后</a></li>
             <li><a href="#mistakes">常见错误</a></li>
+            <li><a href="#buyer-questionnaire">买房问卷</a></li>
           </ul>
         </aside>
         <div class="prose-body">
@@ -195,6 +197,11 @@ const hreflangAlternates = [
             <p><strong>不了解后果就走“无条件”。</strong> 无条件 Offer 能赢竞价，但如果贷款最终批不下来，您会失去定金，还可能被卖家起诉赔偿损失。</p>
             </div>
           </details>
+
+          <p class="bq-lead">准备好开始了吗？告诉我您想找的是独立屋还是公寓，我会带着匹配的数字、社区和房源参加我们的第一次通话。</p>
+          <div style="max-width: 720px;">
+            <BuyerQuestionnaire lang="zh" />
+          </div>
 
 <p class="legal-note">本指南仅供参考，不构成财务或法律意见。在做与您具体情况相关的决策之前，请咨询持牌贷款专业人士、房地产律师，以及有经验的房地产经纪。</p>
         </div>

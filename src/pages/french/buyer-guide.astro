@@ -4,6 +4,7 @@ import FrenchTopBar from '../../components/FrenchTopBar.astro';
 import FrenchHeader from '../../components/FrenchHeader.astro';
 import FrenchFooter from '../../components/FrenchFooter.astro';
 import FrenchCTASection from '../../components/FrenchCTASection.astro';
+import BuyerQuestionnaire from '../../components/BuyerQuestionnaire.astro';
 
 const hreflangAlternates = [
   { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buyer-guide' },
@@ -44,6 +45,7 @@ const hreflangAlternates = [
             <li><a href="#closing">Jour de la clôture</a></li>
             <li><a href="#after">Après votre emménagement</a></li>
             <li><a href="#mistakes">Erreurs courantes</a></li>
+            <li><a href="#buyer-questionnaire">Questionnaire acheteur</a></li>
           </ul>
         </aside>
         <div class="prose-body">
@@ -195,6 +197,11 @@ const hreflangAlternates = [
             <p><strong>Présenter une offre ferme sans en comprendre les conséquences.</strong> Les offres sans condition peuvent gagner les enchères, mais si votre financement échoue, vous perdez votre dépôt et vous pouvez être poursuivi pour la perte du vendeur.</p>
             </div>
           </details>
+
+          <p class="bq-lead">Prêt à commencer ? Dites-moi ce que vous cherchez, maison ou condo, et j’arriverai à notre premier appel avec des chiffres, des quartiers et des inscriptions qui conviennent.</p>
+          <div style="max-width: 720px;">
+            <BuyerQuestionnaire lang="fr" />
+          </div>
 
 <p class="legal-note">Ce guide est informatif, il ne constitue pas un conseil financier ou juridique. Parlez à un professionnel hypothécaire agréé, à un avocat en immobilier et à un courtier expérimenté avant de prendre des décisions propres à votre situation.</p>
         </div>
