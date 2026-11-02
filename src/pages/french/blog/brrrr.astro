@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopBar from '../../../components/FrenchTopBar.astro';
+import Header from '../../../components/FrenchHeader.astro';
+import Footer from '../../../components/FrenchFooter.astro';
+import LCTA from '../../../components/FrenchCTASection.astro';
+
+export const prerender = true;
+
+const publishedDate = '2026-11-02';
+const articleTitle = 'BRRRR : qu’est-ce que c’est ?';
+const articleDescription = 'La méthode BRRRR expliquée simplement : acheter, rénover, louer, refinancer, répéter. Comment certains investisseurs réutilisent la même somme pour acheter un logement locatif après l’autre, un exemple chiffré, les pièges, et comment la stratégie doit être adaptée aux règles de prêt, au contrôle des loyers et aux droits de cession immobilière de l’Ontario.';
+const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/brrrr';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  inLanguage: 'fr-CA',
+  author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/french/about' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peter Law, Toronto Real Estate',
+    logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/photos/peter-cn-tower.jpg', width: 1500, height: 1887 },
+  },
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: 'méthode BRRRR, BRRRR Ontario, BRRRR Toronto, acheter rénover louer refinancer répéter, investissement immobilier Ontario, refinancement immeuble locatif 80 %, contrôle des loyers Ontario investisseurs, logement supplémentaire Ontario, droits de cession immobilière investisseur',
+};
+
+const hreflangAlternates = [
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/blog/brrrr' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/blog/brrrr' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/blog/brrrr' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/blog/brrrr' },
+];
+
+const steps = [
+  { letter: 'B', key: 'Acheter', en: 'Buy', title: 'Acheter une maison bon marché à rafraîchir', text: 'Vous cherchez une propriété qui coûte moins cher parce qu’elle a besoin de travaux, pas parce qu’elle est mal située. Acheter bas est l’étape la plus importante.' },
+  { letter: 'R', key: 'Rénover', en: 'Rehab', title: 'La remettre en état', text: 'Vous réparez et modernisez : cuisine, salle de bain, planchers. De bonnes rénovations donnent à la maison une valeur supérieure à ce que vous avez payé, et c’est la clé de tout le plan.' },
+  { letter: 'R', key: 'Louer', en: 'Rent', title: 'La louer à un locataire', text: 'Vous trouvez un locataire qui emménage et paie un loyer chaque mois. Ce loyer doit couvrir vos coûts, et la banque aime voir un vrai locataire avant l’étape suivante.' },
+  { letter: 'R', key: 'Refinancer', en: 'Refinance', title: 'Obtenir un nouveau prêt sur la valeur plus élevée', text: 'Comme la maison vaut maintenant plus, vous demandez à la banque une nouvelle hypothèque fondée sur cette valeur plus élevée. Cela vous permet de récupérer la plus grande partie de votre mise de départ.' },
+  { letter: 'R', key: 'Répéter', en: 'Repeat', title: 'Tout recommencer', text: 'Vous prenez l’argent récupéré et achetez la prochaine maison à rénover. Même argent, propriété suivante.' },
+];
+---
+<BaseLayout
+  title={`${articleTitle} | Peter Law`}
+  description={articleDescription}
+  lang="fr"
+  bodyClass="fr guide-page article-page"
+  hreflangAlternates={hreflangAlternates}
+>
+  <TopBar />
+  <Header active="blog" />
+
+  <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow"><a href="/french/blog" class="back-link"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:5px;" aria-hidden="true"><path d="M13 7H1M6 12L1 7l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Blogue</a> · Investissement immobilier · Lecture rapide</div>
+        <h1>{articleTitle}</h1>
+        <p class="article-lead">La méthode BRRRR, expliquée simplement. Comment certains investisseurs utilisent la même somme d’argent pour acheter un logement locatif après l’autre. Cinq étapes, un seul mot.</p>
+        <div class="article-byline">
+          <span>Par <a href="/french/about">Peter Law</a></span>
+          <span class="dot">·</span>
+          <time datetime={publishedDate}>2 novembre 2026</time>
+          <span class="dot">·</span>
+          <span>6 min de lecture</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="major" style="padding-top:32px;">
+      <div class="wrap">
+        <div class="prose-grid">
+          <aside class="prose-side">
+            <h2 class="side-h">Sur cette page</h2>
+            <ul>
+              <li><a href="#the-idea">L’idée</a></li>
+              <li><a href="#five-steps">Les cinq étapes</a></li>
+              <li><a href="#example">Un exemple simple</a></li>
+              <li><a href="#the-catch">Le piège</a></li>
+              <li><a href="#ontario">BRRRR en Ontario</a></li>
+              <li><a href="#disclaimer">Avis de non-responsabilité</a></li>
+            </ul>
+          </aside>
+
+          <div class="prose-body">
+            <p class="br-updated">Dernière mise à jour : novembre 2026</p>
+
+            <h2 id="the-idea">L’idée</h2>
+            <div class="br-intro">
+              <p>Imaginez que vous ayez 100 $ pour ouvrir un stand de limonade. Normalement, une fois dépensés, ils sont partis. Mais si vous pouviez récupérer ces mêmes 100 $ et les utiliser pour ouvrir un <strong>deuxième</strong> stand ? C’est toute l’idée derrière <strong>BRRRR</strong>.</p>
+            </div>
+
+            <h2 id="five-steps">Les cinq étapes</h2>
+            <p>BRRRR désigne cinq actions à faire dans l’ordre, puis à répéter :</p>
+            <ol class="br-letters" aria-label="Les cinq étapes BRRRR">
+              {steps.map((s) => (
+                <li><span class="br-letter">{s.letter}</span><span class="br-letter-label">{s.key}<small>{s.en}</small></span></li>
+              ))}
+            </ol>
+            <p class="br-repeat"><span aria-hidden="true">↻</span> Puis vous recommencez à « Acheter » — avec votre argent de retour dans vos poches.</p>
+
+            <div class="br-steps">
+              {steps.map((s) => (
+                <div class="br-step">
+                  <div class="br-step-key">{s.key}</div>
+                  <div>
+                    <h3>{s.title}</h3>
+                    <p>{s.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h2 id="example">Un exemple simple</h2>
+            <div class="br-example">
+              <ul>
+                <li>Vous achetez une maison à rénover et y mettez <strong>175 000 $</strong> de votre propre argent (mise de fonds plus travaux).</li>
+                <li>Une fois rénovée, la maison vaut beaucoup plus qu’avant.</li>
+                <li>Vous refinancez, et le nouveau prêt de la banque vous permet de récupérer <strong>la plus grande partie de ces 175 000 $</strong>.</li>
+                <li>Vous possédez maintenant un logement locatif qui rapporte chaque mois — et vous avez retrouvé vos liquidités pour acheter le suivant.</li>
+              </ul>
+            </div>
+            <p>C’est la magie que recherchent les investisseurs : une seule somme d’argent qui bâtit plusieurs propriétés, au lieu d’être immobilisée dans une seule.</p>
+
+            <h2 id="the-catch">Le piège — lisez bien ceci</h2>
+            <p>BRRRR semble facile, mais cela ne fonctionne que lorsque les chiffres s’alignent. Voici ce qui tourne mal :</p>
+            <ul class="br-catch">
+              <li><strong>La valeur doit être assez élevée.</strong> Si la maison ne vaut pas autant que vous l’espériez, la banque ne vous rendra pas votre argent — et il reste coincé dans la propriété.</li>
+              <li><strong>Les travaux coûtent souvent plus que prévu.</strong> Dépasser le budget de rénovation gruge vite votre profit.</li>
+              <li><strong>Les taux d’intérêt peuvent changer.</strong> Vous refinancez aux taux en vigueur à ce moment-là — s’ils sont plus élevés, vos coûts mensuels grimpent.</li>
+              <li><strong>En Ontario,</strong> les banques ne prêtent généralement que jusqu’à environ 80 % de la valeur de la maison, et les règles de location protègent les locataires — le calcul est donc plus serré que la version américaine que vous voyez en ligne.</li>
+            </ul>
+            <p>BRRRR est une façon réelle et puissante de bâtir un patrimoine. Mais elle récompense la planification rigoureuse et punit les vœux pieux. La meilleure question à poser à toute transaction est simple : <em>« Que se passe-t-il si la maison vaut moins que je l’espérais et que les taux sont plus élevés ? »</em> Si ça fonctionne encore, c’est une bonne affaire.</p>
+
+            <h2 id="ontario">Adapter BRRRR aux normes de l’Ontario</h2>
+            <p>Le manuel BRRRR a été écrit pour le marché américain. Il fonctionne ici aussi, mais un investisseur ontarien doit l’ajuster à quatre endroits avant que les chiffres veuillent dire quelque chose.</p>
+            <p><strong>Le refinancement est plafonné à 80 %.</strong> Les prêteurs sous réglementation fédérale refinancent une hypothèque conventionnelle jusqu’à 80 % de la valeur d’évaluation au maximum, et l’évaluation est commandée par le prêteur, pas par vous. Planifiez la transaction autour du chiffre qu’un évaluateur prudent donnera, pas de celui que vous espérez, et attendez-vous à ce qu’au moins 20 % de la nouvelle valeur reste immobilisé dans la propriété. Vous devez aussi vous qualifier au taux du test de résistance (le plus élevé entre votre taux contractuel plus 2 % et 5,25 %), et la plupart des prêteurs ne comptent qu’une partie du loyer dans vos revenus.</p>
+            <p><strong>Le loyer suit la <em>Loi sur la location à usage d’habitation</em>.</strong> Un logement occupé pour la première fois avant le 15 novembre 2018 est lié au taux légal d’augmentation des loyers dès qu’un locataire est en place (2,1 % pour 2026, 1,9 % pour 2027). Un logement nouvellement créé, comme un appartement de sous-sol légal, est exempté du taux légal, mais chaque logement est limité à une augmentation par période de 12 mois, avec un préavis écrit de 90 jours. Rénover autour d’un locataire en place est strictement encadré, si bien que la plupart des BRRRR ontariens rénovent d’abord une propriété vacante et la louent ensuite. Si votre plan dépend du départ d’un locataire existant, consultez un avocat avant d’acheter, pas après.</p>
+            <p><strong>La « rénovation » consiste souvent à ajouter un logement.</strong> L’Ontario autorise maintenant de plein droit jusqu’à trois logements sur la plupart des terrains résidentiels urbains ; un appartement de sous-sol ou un pavillon de jardin avec permis peut donc augmenter à la fois la valeur d’évaluation et le loyer en une seule étape. Le mot qui compte est <em>avec permis</em> : les évaluateurs et les prêteurs dévalorisent un logement sans permis, et la ville peut en ordonner la fermeture.</p>
+            <p><strong>Les frais de clôture et l’impôt pèsent plus lourd ici.</strong> Chaque achat paie les droits de cession immobilière de l’Ontario, et une propriété située à Toronto paie en plus les droits municipaux, sans remboursement pour premier acheteur dans le cas d’un investisseur. Les intérêts sur l’argent refinancé ne sont déductibles que si cet argent va dans le prochain logement locatif, pas dans vos poches ; notre guide sur la <a href="/french/blog/interest-deductibility">déductibilité des intérêts</a> explique la règle de l’utilisation des fonds.</p>
+            <div class="br-rule">
+              <p><strong>La règle de base en Ontario :</strong> calculez la transaction à 80 % d’une évaluation prudente, au taux d’aujourd’hui plus deux points, et avec les règles ontariennes de location. Si elle vous rend encore la plus grande partie de votre argent, c’est un vrai BRRRR ontarien. Si elle ne fonctionne qu’à 90 % et avec le loyer de l’an prochain, ce n’en est pas un.</p>
+            </div>
+
+            <div class="br-disclaimer" id="disclaimer">
+              <h3>Avis de non-responsabilité</h3>
+              <p>Cet article est une information générale à des fins d’apprentissage, et non un conseil financier, hypothécaire, fiscal ou en placement. Peter Law est courtier immobilier agréé chez HomeLife Golconda Realty Inc., Brokerage, et non courtier hypothécaire, comptable ou avocat.</p>
+              <p>Les règles de prêt, les taux d’intérêt, les taux légaux d’augmentation des loyers et les lois fiscales changent, et l’exemple ci-dessus est une illustration simplifiée. Confirmez toujours les chiffres auprès d’un professionnel hypothécaire agréé et de vos propres conseillers avant toute décision de placement. Information à jour en novembre 2026 ; elle peut avoir changé depuis.</p>
+            </div>
+
+            <div class="seo-tags" role="group" aria-label="Mots-clés">
+              <h2 class="seo-tags-h">Mots-clés</h2>
+              <ul>
+                <li>Méthode BRRRR</li>
+                <li>BRRRR Ontario</li>
+                <li>BRRRR Toronto</li>
+                <li>Acheter, rénover, louer, refinancer, répéter</li>
+                <li>Investissement immobilier Ontario</li>
+                <li>Refinancement immeuble locatif 80 %</li>
+                <li>Contrôle des loyers Ontario investisseurs</li>
+                <li>Logement supplémentaire Ontario</li>
+                <li>Droits de cession immobilière investisseur</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <LCTA heading="Envie d’investir à Toronto ?" lead="J’aide les acheteurs à comprendre les vrais chiffres derrière une propriété avant de s’engager — sans pression, juste des réponses franches. Un appel de quinze minutes, sans argumentaire." />
+  <Footer />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  .br-updated { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 18px; }
+
+  /* Intro callout */
+  .br-intro { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 18px 22px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 14px 0 24px; }
+  .br-intro p { margin: 0; font-size: 16px; line-height: 1.6; }
+
+  /* Letter strip */
+  .br-letters { list-style: none; padding: 18px 12px; margin: 16px 0 10px; max-width: 700px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+  .br-letters li { text-align: center; }
+  .br-letter { display: block; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 600; font-size: 34px; line-height: 1; color: var(--ink); }
+  .br-letter-label { display: block; margin-top: 8px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); }
+  .br-letter-label small { display: block; margin-top: 2px; font-size: 9.5px; letter-spacing: 0.08em; font-weight: 500; color: var(--ink-mute); }
+  .br-repeat { font-size: 13.5px; color: var(--ink-mute); text-align: center; max-width: 700px; margin: 0 0 22px; }
+
+  /* Step cards */
+  .br-step { display: grid; grid-template-columns: 104px 1fr; gap: 14px; align-items: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px 14px; }
+  .br-steps { display: grid; gap: 12px; margin: 0 0 22px; max-width: 760px; }
+  .br-step-key { font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 600; font-size: 17px; color: var(--ink); padding-top: 2px; }
+  .br-step h3 { font-family: inherit; font-weight: 600; font-size: 16px; margin: 0 0 6px; color: var(--ink-soft); }
+  .br-step p { margin: 0; font-size: 15px; line-height: 1.55; }
+
+  /* Example box */
+  .br-example { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px 22px; max-width: 700px; margin: 14px 0 18px; }
+  .br-example ul { margin: 0; padding-left: 20px; }
+  .br-example li { font-size: 15.5px; line-height: 1.6; margin-bottom: 8px; color: var(--ink-soft); }
+  .br-example li:last-child { margin-bottom: 0; }
+  .br-example strong { color: var(--ink); }
+
+  /* The catch */
+  .br-catch { list-style: none; padding: 0; margin: 14px 0 18px; max-width: 700px; }
+  .br-catch li { position: relative; padding: 6px 0 6px 28px; font-size: 15.5px; line-height: 1.6; }
+  .br-catch li::before { content: "!"; position: absolute; left: 4px; top: 6px; font-weight: 700; color: #b8002e; }
+
+  /* Ontario rule */
+  .br-rule { background: var(--bg-warm); border-left: 3px solid var(--ink); padding: 18px 22px; border-radius: 0 4px 4px 0; max-width: 660px; margin: 18px 0 24px; }
+  .br-rule p { margin: 0; font-size: 15.5px; line-height: 1.6; }
+
+  /* Disclaimer */
+  .br-disclaimer { max-width: 660px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+  .br-disclaimer h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 0 0 10px; font-family: inherit; }
+  .br-disclaimer p { font-size: 13.5px; line-height: 1.6; color: var(--ink-mute); margin-bottom: 10px; }
+
+  @media (max-width: 640px) {
+    .br-letters { gap: 4px; padding: 14px 6px; }
+    .br-letter { font-size: 26px; }
+    .br-letter-label { font-size: 9px; letter-spacing: 0.04em; }
+    .br-letter-label small { font-size: 8px; letter-spacing: 0.02em; }
+    .br-step { grid-template-columns: 1fr; gap: 6px; }
+  }
+  :global(html[data-theme="dark"]) .br-catch li::before { color: #ff7a94; }
+</style>
