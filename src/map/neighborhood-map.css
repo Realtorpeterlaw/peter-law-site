@@ -715,8 +715,11 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
    the map repainting about 30% of a phone CPU even while nobody touched it. */
 .glow-run{stroke:#ff9d00;stroke-opacity:.42;fill:none;stroke-dasharray:26 150;animation:glowRun 3.2s linear 4,glowFade .8s ease-out 12s forwards}
 @keyframes glowFade{to{stroke-opacity:0}}
+/* selection glow: pulses twice when it appears (about 1.4 s), then holds still */
+.sel-glow-halo,.sel-glow-ring{animation:selPulse .7s ease-in-out 2}
+@keyframes selPulse{50%{stroke-opacity:.12}}
 @keyframes glowRun{from{stroke-dashoffset:176}to{stroke-dashoffset:0}}
-@media (prefers-reduced-motion:reduce){.glow-run{animation:none;display:none}}
+@media (prefers-reduced-motion:reduce){.glow-run{animation:none;display:none}.sel-glow-halo,.sel-glow-ring{animation:none}}
 .gl{background:none;border:0;font-weight:800;font-size:11px;color:#7a4b00;white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 5px #fff}
 .shop{background:none;border:0;cursor:pointer}.shop svg{display:block;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #fff)}
 .zpop .leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 3px 16px rgba(0,0,0,.25)}
@@ -790,6 +793,8 @@ ul.condos li{border:1px solid var(--line);border-radius:9px;padding:7px 10px 7px
 ul.condos li::before{content:"\1F4CD";position:absolute;left:9px;top:8px;font-size:16px}
 ul.condos li.nopin{cursor:default}ul.condos li.nopin::before{content:"";}
 ul.condos li.hot,ul.condos li:hover:not(.nopin){background:#fff3d6;border-color:#e2a33a}
+/* the condo chosen on the map: a soft, still glow so it is easy to spot in the list */
+ul.condos li.picked{background:#fff3d6;border-color:#e2a33a;box-shadow:0 0 0 3px rgba(255,180,0,.28),0 0 16px rgba(255,180,0,.55)}
 ul.condos li div+div{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line)}
 .sort{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mute);margin:-2px 0 9px}
 .sort select{font:inherit;font-size:13px;color:var(--ink);padding:4px 6px;border:1px solid #c5ccd4;border-radius:7px;background:#fff;flex:1;min-width:0}

@@ -15,7 +15,7 @@ if(small.matches)$("layers").open=false;
 const map=L.map("map",{zoomSnap:.5,minZoom:7,maxZoom:18,maxBounds:[[42.3,-82.4],[45.7,-76.3]],zoomControl:false});
 L.control.zoom({position:"bottomright"}).addTo(map);
 map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;map.createPane("pUni").style.zIndex=630;map.createPane("pShop").style.zIndex=620;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
+["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pShop").style.zIndex=620;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
 const cityBounds=L.geoJSON(DIST).getBounds();
 map.fitBounds(cityBounds,{padding:[10,10]});
 
@@ -73,7 +73,7 @@ const regLayer=L.layerGroup(),regLabels=L.layerGroup(),regPoly={};
 Object.keys(REGIONS).forEach(n=>{const r=REGIONS[n],name=n==="Grey"?"Grey County":n;
   const p=L.polygon(r.p,{pane:"pReg",color:"#1c5fa8",weight:2.4,dashArray:"7 4 2 4",fillColor:"#1c5fa8",fillOpacity:.04});
   p.bindTooltip(name,{sticky:true,className:"tt",direction:"top"});
-  p.on({mouseover:()=>p.setStyle({fillOpacity:.16,weight:3.4}),mouseout:()=>p.setStyle({fillOpacity:.04,weight:2.4}),click:()=>map.flyToBounds(p.getBounds(),{padding:[30,30],duration:.6})});
+  p.on({mouseover:()=>p.setStyle({fillOpacity:.16,weight:3.4}),mouseout:()=>p.setStyle({fillOpacity:.04,weight:2.4}),click:()=>{glowShape([p.getLatLngs()]);map.flyToBounds(p.getBounds(),{padding:[30,30],duration:.6})}});
   regPoly[name.toLowerCase()]=p;regLayer.addLayer(p);
   regLabels.addLayer(L.marker(r.c,{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"rl",html:name,iconSize:[200,18]})}))});
 regLabels.addLayer(L.marker(cityBounds.getCenter(),{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"rl city",html:"Toronto",iconSize:[200,18]})}));
@@ -90,7 +90,7 @@ $("jump").querySelectorAll("button").forEach(b=>{const j=JUMPS[+b.dataset.k];VIE
 function markView(btn){VIEWS.forEach(v=>{v[0].classList.toggle("on",v[0]===btn);v[0].setAttribute("aria-pressed",v[0]===btn)})}
 function syncView(){const z=map.getZoom(),c=map.latLngToContainerPoint(map.getCenter());let hit=null;
   VIEWS.forEach(v=>{const t=v[1]();if(!hit&&Math.abs(t[1]-z)<.01&&map.latLngToContainerPoint(t[0]).distanceTo(c)<6)hit=v[0]});markView(hit)}
-VIEWS.forEach(v=>v[0].onclick=()=>{const t=v[1]();markView(v[0]);map.flyTo(t[0],t[1],{duration:.7});if(small.matches&&v[0].parentNode.id==="jump")$("layers").open=false});
+VIEWS.forEach(v=>v[0].onclick=()=>{const t=v[1]();markView(v[0]);if(v[0].id==="v-all"){if(!sel)glowClear()}else glowPoint(t[0]);map.flyTo(t[0],t[1],{duration:.7});if(small.matches&&v[0].parentNode.id==="jump")$("layers").open=false});
 map.on("moveend",syncView);
 /* condo pins: PINS[district][i] lines up with DISTRICTS[district].condos[i] */
 const pinOf={};let hotPin=null;
@@ -107,7 +107,7 @@ let stick=false;
 map.getContainer().addEventListener("mouseleave",()=>{if(!stick)hot(null)});
 function hot(id,i,pan,keep){
   if(hotPin){const e=hotPin.getElement();if(e)e.classList.remove("hot");hotPin.setZIndexOffset(0);hotPin.closeTooltip();hotPin=null}
-  document.querySelectorAll("ul.condos li.hot").forEach(l=>l.classList.remove("hot"));
+  document.querySelectorAll("ul.condos li.hot,ul.condos li.picked").forEach(l=>l.classList.remove("hot","picked"));
   stick=!!keep;if(id==null)return;
   if(keep&&id===sel)nearby(id,i);
   const m=pinOf[id+"|"+i];if(!m||!map.hasLayer(condoLayer))return;
@@ -115,8 +115,14 @@ function hot(id,i,pan,keep){
   if(pan){const ll=m.getLatLng(),pad=small.matches?L.latLngBounds(map.containerPointToLatLng([20,60]),map.containerPointToLatLng([innerWidth-20,innerHeight*.36])):L.latLngBounds(map.containerPointToLatLng([400,60]),map.containerPointToLatLng([map.getSize().x-340,map.getSize().y-40]));
     if(!pad.contains(ll)){const off=small.matches?[0,map.getSize().y*.22]:[-190,0];map.panTo(map.unproject(map.project(ll).add(off)),{animate:true,duration:.35})}
     m.openTooltip()}
-  if(id===sel){const li=document.querySelector('ul.condos li[data-i="'+i+'"]');if(li){li.classList.add("hot");if(!pan)li.scrollIntoView({block:"nearest"})}}
+  if(id===sel){const li=document.querySelector('ul.condos li[data-i="'+i+'"]');if(li){li.classList.add("hot");if(keep)li.classList.add("picked");if(!pan)panelScrollTo(li,keep)}}
 }
+/* Scroll only the side panel (never the page around the map): a clicked condo is brought to the middle of the
+   list, a hovered one just into view. */
+function panelScrollTo(li,center){const sc=$("pbody");if(!sc)return;const a=sc.getBoundingClientRect(),b=li.getBoundingClientRect();let top;
+  if(center)top=sc.scrollTop+(b.top-a.top)-(a.height-b.height)/2;
+  else if(b.top<a.top)top=sc.scrollTop+(b.top-a.top)-8;else if(b.bottom>a.bottom)top=sc.scrollTop+(b.bottom-a.bottom)+8;else return;
+  sc.scrollTop=Math.max(0,top)}   /* instant: a smooth scroll was cut short when the Nearby section redrew */
 function restyle(){distLayer.setStyle(f=>dStyle(f.properties.d));commLayer.setStyle(cStyle);
   const c=map.getContainer(),z=map.getZoom(),wide=z<9.5;c.classList.toggle("z-far",z<11);c.classList.toggle("z-near",z>=13);c.classList.toggle("z-reg",z<8);c.classList.toggle("wide",wide);
   (showReg&&z<11.5)?regLabels.addTo(map):map.removeLayer(regLabels);
@@ -132,9 +138,20 @@ $("l-sub").onchange=restyle;
 $("l-base").onchange=e=>{tilesOk=tilesBad=0;setBase(e.target.checked)};
 base.addTo(map);
 
+/* Selection glow: whatever was just chosen (a district, a community, a region, or a place from the quick buttons)
+   gets a soft gold halo. One static outline that pulses twice when it appears, then stays still: no ongoing redraws. */
+const selGlow=L.layerGroup().addTo(map);
+function glowClear(){selGlow.clearLayers()}
+function glowShape(shapes){glowClear();
+  shapes.forEach(latlngs=>[["sel-glow-halo",16,.38],["sel-glow-core",4,.95]].forEach(k=>selGlow.addLayer(L.polygon(latlngs,{pane:"pHalo",interactive:false,fill:false,color:"#ffb400",weight:k[1],opacity:k[2],lineJoin:"round",className:k[0]}))))}
+function glowPoint(ll){glowClear();
+  selGlow.addLayer(L.circleMarker(ll,{pane:"pRing",interactive:false,radius:24,color:"#ffb400",weight:5,opacity:.95,fillColor:"#ffb400",fillOpacity:.16,className:"sel-glow-ring"}))}
+function glowLayersOf(group,match){const ll=[];group.eachLayer(l=>{if(match(l.feature.properties))ll.push(l.getLatLngs())});return ll}
+
 /* panel */
 function pick(id,comm,fly){
   sel=id;selComm=comm||null;restyle();
+  {const ll=comm?glowLayersOf(commLayer,p=>p.d===id&&p.n===comm):glowLayersOf(distLayer,p=>p.d===id);if(ll.length)glowShape(ll)}
   const d=DISTRICTS[id],spots=d.spots.map(s=>s.split("|")),condos=d.condos.map(s=>s.split(";").map(x=>x.split("|"))),nb=condos.reduce((a,c)=>a+c.length,0);
   const comms=COMM.features.filter(f=>f.properties.d===id).map(f=>f.properties);
   let h='<div class="head"><div class="badge" style="background:'+COL[id[0]][1]+'">'+id+'</div><div><h2>'+esc(d.name)+'</h2></div></div>';
@@ -199,7 +216,10 @@ function nbGroups(id,i){   /* -> [[count,[[name,min],...]] x3, complete?] */
     return g.map(l=>{const best={};l.forEach(x=>{const k=x[0].toLowerCase();if(!best[k]||x[2]<best[k][2])best[k]=x});const u=Object.values(best).sort((a,b)=>a[2]-b[2]);return[u.length,u]}).concat([true])}
   const row=(NEARBY.c[id]||[])[i];if(!row)return null;
   return row.map(g=>[g[0],g[1].map(x=>[NEARBY.n[x[0]],x[1]]).filter(x=>x[0].length>1&&!NB_SKIP.test(x[0]))]).concat([false])}
-function nearby(id,i){
+/* Redrawing Nearby (above the list) changes its height; keep the chosen condo where it is on screen. */
+function nearby(id,i){const pk=document.querySelector("ul.condos li.picked"),sc=$("pbody"),y0=pk?pk.getBoundingClientRect().top:0;
+  nearbyDraw(id,i);if(pk&&pk.isConnected&&sc)sc.scrollTop+=pk.getBoundingClientRect().top-y0}
+function nearbyDraw(id,i){
   const el=$("nearby");if(!el||sel!==id||!(PINS[id]||[])[i])return;nbShown=[id,i];plLoad(id,i);const st=(PL[id+"|"+i]||{}).s;
   const open={};el.querySelectorAll(".nbg").forEach(d=>{open[d.dataset.k]=d.open});const G=nbGroups(id,i);
   const c=DISTRICTS[id].condos[i].split(";")[0].split("|")[0],p=PINS[id][i];
@@ -231,7 +251,7 @@ function fillCondos(id){
     li.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();li.click()}});
     li.addEventListener("click",()=>{const same=stick&&hotPin===pinOf[id+"|"+i];hot(null);if(!same)hot(id,i,true,true)})});
 }
-function unpick(){hot(null);$("panel").classList.remove("open");sel=selComm=null;restyle()}
+function unpick(){hot(null);glowClear();$("panel").classList.remove("open");sel=selComm=null;restyle()}
 $("close").onclick=()=>{unpick();map.getContainer().focus({preventScroll:true})};
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("panel").classList.contains("open")&&!e.defaultPrevented){unpick();map.getContainer().focus({preventScroll:true})}});
 map.on("click",()=>{if(stick)hot(null)});
@@ -246,9 +266,9 @@ let lastFind=["",0];
 function find(){const q=$("find").value.trim().toLowerCase();if(!q)return;if(q===lastFind[0]&&Date.now()-lastFind[1]<600)return;lastFind=[q,Date.now()];
   let hit=names[q]||names[q.replace(/^([cew])(\d)$/,(m,a,b)=>a+"0"+b)];
   const rp=regPoly[q]||regPoly[q.replace(/ (region|county)$/,"")]||(q==="grey"&&regPoly["grey county"]);
-  if(rp&&!names[q]){map.flyToBounds(rp.getBounds(),{padding:[30,30],duration:.6});return}
+  if(rp&&!names[q]){glowShape([rp.getLatLngs()]);map.flyToBounds(rp.getBounds(),{padding:[30,30],duration:.6});return}
   if(!hit){const k=Object.keys(names).find(k=>k.startsWith(q))||Object.keys(names).find(k=>k.includes(q));hit=k&&names[k]}
-  if(!hit){const rk=Object.keys(regPoly).find(k=>k.startsWith(q));if(rk){map.flyToBounds(regPoly[rk].getBounds(),{padding:[30,30],duration:.6});return}}
+  if(!hit){const rk=Object.keys(regPoly).find(k=>k.startsWith(q));if(rk){glowShape([regPoly[rk].getLatLngs()]);map.flyToBounds(regPoly[rk].getBounds(),{padding:[30,30],duration:.6});return}}
   if(!hit){note('Nothing found for "'+$("find").value+'". Try a district code like C01 or a neighbourhood name.');return}
   if(hit[1])setComm(true);pick(hit[0],hit[1],true);if(small.matches)$("layers").open=false}
 $("find").addEventListener("change",find);$("find").addEventListener("keydown",e=>{if(e.key==="Enter")find()});
