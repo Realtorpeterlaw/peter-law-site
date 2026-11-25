@@ -103,6 +103,8 @@ Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DIS
   pinOf[id+"|"+i]=m;condoLayer.addLayer(m)}));
 condoLayer.addTo(map);
 let stick=false;
+/* safety net: a hover label never outlives the pointer leaving the map */
+map.getContainer().addEventListener("mouseleave",()=>{if(!stick)hot(null)});
 function hot(id,i,pan,keep){
   if(hotPin){const e=hotPin.getElement();if(e)e.classList.remove("hot");hotPin.setZIndexOffset(0);hotPin.closeTooltip();hotPin=null}
   document.querySelectorAll("ul.condos li.hot").forEach(l=>l.classList.remove("hot"));
