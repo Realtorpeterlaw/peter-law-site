@@ -103,8 +103,18 @@ Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DIS
   pinOf[id+"|"+i]=m;condoLayer.addLayer(m)}));
 condoLayer.addTo(map);
 let stick=false;
-/* safety net: a hover label never outlives the pointer leaving the map */
-map.getContainer().addEventListener("mouseleave",()=>{if(!stick)hot(null)});
+/* Hover labels (districts, communities, condos, groceries, stations, campuses): at most one on screen at a time,
+   and never left behind. Browsers sometimes skip the "mouse left" signal (fast moves, page scrolling under a
+   still pointer, zooming), which left labels stranded on the map; these checks close them regardless. */
+let openTip=null;
+const tipEl=t=>{const s=t&&t._source;return s&&(s._path||s._icon)};
+const tipClose=()=>{const t=openTip;openTip=null;if(t&&t._source)t._source.closeTooltip()};
+map.on("tooltipopen",e=>{if(openTip&&openTip!==e.tooltip)tipClose();openTip=e.tooltip});
+map.on("tooltipclose",e=>{if(openTip===e.tooltip)openTip=null});
+map.getContainer().addEventListener("mousemove",ev=>{if(!openTip)return;const el=tipEl(openTip);if(el&&!el.contains(ev.target))tipClose()},{passive:true});
+map.getContainer().addEventListener("mouseleave",()=>{if(!stick)hot(null);tipClose()});
+map.on("zoomstart",()=>{if(!stick)tipClose()});
+document.addEventListener("visibilitychange",()=>{if(document.hidden)tipClose()});
 function hot(id,i,pan,keep){
   if(hotPin){const e=hotPin.getElement();if(e)e.classList.remove("hot");hotPin.setZIndexOffset(0);hotPin.closeTooltip();hotPin=null}
   document.querySelectorAll("ul.condos li.hot,ul.condos li.picked").forEach(l=>l.classList.remove("hot","picked"));
