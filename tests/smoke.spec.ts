@@ -117,7 +117,7 @@ test('Neighborhood is in the header and its page embeds the map', async ({ page 
   await page.goto('/');
   await expect(page.locator('nav.primary a[href="/neighborhood"]')).toHaveText('Neighborhood');
   await page.goto('/neighborhood');
-  await expect(page.locator('h1')).toContainText(/Neighborhood Map/i);
+  await expect(page.locator('h1')).toContainText(/Condo Map/i);
   await expect(page.locator('iframe#nb-map')).toHaveAttribute('src', '/neighborhood-map');
 });
 

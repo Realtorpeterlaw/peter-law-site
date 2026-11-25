@@ -34,8 +34,11 @@ const jsonLd = {
   <section class="page-hero nb-hero">
     <div class="wrap">
       <div class="eyebrow">Neighborhood · Toronto districts</div>
-      <h1>Toronto Neighborhood Map</h1>
-      <p>Toronto's residential real estate districts, from W01 in the west to E11 in the east. Tap a district to see its neighbourhoods, condominiums, schools, subway stations and local highlights.</p>
+      <h1>Toronto's Condo Map</h1>
+      <ul class="nb-legend" aria-label="Map legend">
+        <li><svg class="nb-legend-pin" width="16" height="22" viewBox="0 0 16 22" aria-hidden="true"><path d="M8 0.8C4.1 0.8 1 3.9 1 7.8c0 5.2 7 13.4 7 13.4s7-8.2 7-13.4C15 3.9 11.9 0.8 8 0.8z" fill="#e0245e" stroke="#9f1239" stroke-width="1"/><circle cx="8" cy="7.8" r="2.6" fill="#fff"/></svg>Red pin = Condo</li>
+        <li><span class="nb-legend-dots" aria-hidden="true"><i style="background:#f2b600"></i><i style="background:#1a9a50"></i><i style="background:#a3238e"></i></span>Dots = Subway Station</li>
+      </ul>
     </div>
   </section>
 
@@ -57,6 +60,11 @@ const jsonLd = {
 
 <style>
   .nb-hero { padding-bottom: 28px; }
+  .nb-legend { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 17px; color: var(--ink-soft); }
+  .nb-legend li { display: inline-flex; align-items: center; gap: 10px; }
+  .nb-legend-pin { flex: none; }
+  .nb-legend-dots { display: inline-flex; gap: 4px; }
+  .nb-legend-dots i { display: block; width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); }
   .nb-map-section { padding: 0 0 8px; }
   .nb-frame { position: relative; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #cfe3ee; box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.35); }
   .nb-frame iframe { display: block; width: 100%; height: min(78vh, 820px); min-height: 520px; border: 0; }
