@@ -4,28 +4,15 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
-import { DISTRICTS, SCHOOLS, UNIS } from '../map/neighborhood-data.js';
+import { DISTRICTS, SCHOOLS } from '../map/neighborhood-data.js';
 
 export const prerender = true;
 
-// The district guide below is generated from the same data as the map, so the two always agree.
-const TYPE: Record<string, string> = { park: 'Parks & outdoors', shop: 'Shopping', culture: 'Arts & culture', food: 'Food & drink', sport: 'Sport & recreation', landmark: 'Landmark' };
-const REGIONS = [
-  { key: 'C', title: 'Central Toronto (C)' },
-  { key: 'E', title: 'East Toronto (E)' },
-  { key: 'W', title: 'West Toronto (W)' },
-];
-type District = { name: string; hoods: string; condos: string[]; spots: string[] };
-const all = Object.entries(DISTRICTS as Record<string, District>).map(([id, d]) => ({
-  id,
-  name: d.name,
-  hoods: d.hoods.split(' · '),
-  buildings: d.condos.reduce((n, s) => n + s.split(';').length, 0),
-  spots: d.spots.map((s) => { const [name, type, line] = s.split('|'); return { name, type: TYPE[type] || type, line }; }),
-}));
-const totalBuildings = all.reduce((n, d) => n + d.buildings, 0);
+// Figures for the page description come from the map's own data, so they always match the map.
+type District = { condos: string[] };
+const districts = Object.values(DISTRICTS as Record<string, District>);
+const totalBuildings = districts.reduce((n, d) => n + d.condos.reduce((m, c) => m + c.split(';').length, 0), 0);
 const totalSchools = Object.values(SCHOOLS as Record<string, unknown[]>).reduce((n, l) => n + l.length, 0);
-const totalCampuses = (UNIS as unknown[]).length;
 
 const title = 'Toronto Neighborhood Map: Districts, Condos & Schools | Peter Law';
 const description = `Interactive map of Toronto's real estate districts, W01 to E11: neighbourhoods, ${totalBuildings} condominium buildings, ${totalSchools} schools, subway stations, groceries and local highlights for each district.`;
@@ -62,118 +49,11 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="major nb-body">
-    <div class="wrap">
-      <div class="prose-grid">
-        <aside class="prose-side">
-          <h2 class="side-h">On this page</h2>
-          <ul>
-            <li><a href="#about-map">About the map</a></li>
-            <li><a href="#how-to">How to use it</a></li>
-            <li><a href="#district-guide">District guide</a></li>
-            <li><a href="#also-on-map">What else is on the map</a></li>
-            <li><a href="#please-read">Please read</a></li>
-            <li><a href="#sources">Data sources</a></li>
-          </ul>
-        </aside>
-
-        <div class="prose-body">
-          <h2 id="about-map">About the map</h2>
-          <p>The interactive map covers Toronto's residential real estate districts, the W, C and E codes used across the city, from W01 in the west to E11 in the east. For every district it shows the neighbourhoods inside it, the apartment-style condominiums, the schools, the subway stations, nearby grocery stores and universities, and a short list of local highlights.</p>
-          <p>Across the city the map shows <strong>{totalBuildings} condominium buildings</strong> in {all.length} districts, with schools from the City of Toronto's open data and a street background from OpenStreetMap. It does not show live listings.</p>
-
-          <h2 id="how-to">How to use it</h2>
-          <ul class="bullets">
-            <li><strong>Hover or tap a district</strong> to open its panel with neighbourhoods, condos, schools and highlights.</li>
-            <li><strong>Point at a condo in the list</strong> and its pin grows on the map. Click it to keep it selected and see the cafés, restaurants and bars within a five-minute walk.</li>
-            <li><strong>Click any icon</strong> (a condo pin, grocery cart, campus cap or subway station) to zoom straight in and browse the area.</li>
-            <li><strong>Search</strong> by district code (C08), neighbourhood (Leslieville) or region (Peel).</li>
-          </ul>
-
-          <h2 id="district-guide">District guide</h2>
-          <p>One entry per district: its neighbourhoods, how many condominium buildings are mapped, and five local highlights. Use “Show on the map” to jump to a district.</p>
-
-          {REGIONS.map((r) => (
-            <details class="b60-section-toggle nb-region" id={`region-${r.key.toLowerCase()}`}>
-              <summary class="b60-section-toggle-summary">{r.title}</summary>
-              <div class="nb-districts">
-                {all.filter((d) => d.id[0] === r.key).map((d) => (
-                  <article class="nb-district" id={`district-${d.id.toLowerCase()}`}>
-                    <header class="nb-d-head">
-                      <span class={`nb-badge nb-badge-${r.key.toLowerCase()}`}>{d.id}</span>
-                      <h3>{d.name}</h3>
-                    </header>
-                    <p class="nb-d-hoods"><strong>Neighbourhoods:</strong> {d.hoods.join(', ')}</p>
-                    <p class="nb-d-count"><strong>Condominiums mapped:</strong> {d.buildings === 0 ? 'none yet (mostly houses and townhomes)' : `${d.buildings} building${d.buildings === 1 ? '' : 's'}`}</p>
-                    <ul class="nb-d-spots">
-                      {d.spots.map((s) => (
-                        <li><strong>{s.name}</strong> <span class="nb-d-type">{s.type}</span> {s.line}</li>
-                      ))}
-                    </ul>
-                    <a class="nb-view" href={`/neighborhood-map#${d.id}`} data-district={d.id}>Show {d.id} on the map</a>
-                  </article>
-                ))}
-              </div>
-            </details>
-          ))}
-
-          <h2 id="also-on-map">What else is on the map</h2>
-          <h3>Schools</h3>
-          <p>{totalSchools} schools from the City of Toronto's open data, grouped by board (Public / TDSB, Catholic / TCDSB, French-language). These are the schools located in each district, not the school a particular home is assigned to. Assignment depends on the address, so confirm with the school board.</p>
-          <h3>Subway stations</h3>
-          <p>Stations on Lines 1, 2 and 4, colour-coded. Positions are approximate. Line 5 Eglinton and Line 6 Finch West are not on the map yet.</p>
-          <h3>Grocery stores</h3>
-          <p>Cart icons on supermarkets across the city (No Frills, Metro, Loblaws, Food Basics, FreshCo, Farm Boy, T&amp;T, H Mart and many independents), plus every Costco and Whole Foods in the wider area. Shown once you zoom in.</p>
-          <h3>Universities &amp; colleges</h3>
-          <p>Graduation-cap icons on {totalCampuses} campuses, including U of T, Toronto Metropolitan, York, OCAD, George Brown, Seneca, Humber and Centennial.</p>
-          <h3>Nearby places</h3>
-          <p>For any condominium, the cafés, restaurants and bars within a five-minute walk, drawn from OpenStreetMap.</p>
-          <h3>Surrounding regions</h3>
-          <p>Peel, York, Durham, Halton, Hamilton and the other regions around Toronto are outlined for context.</p>
-
-          <div class="callout nb-important" id="please-read">
-            <h2>Important: please read before relying on the map</h2>
-            <p><strong>This map is a general guide, not advice.</strong> Confirm every detail independently before making a decision, including district and community boundaries, condominium names and addresses, and school listings. Schools shown are those located in the district; the school a home is assigned to depends on its address, so confirm with the school board. Walking times are estimates. The buildings shown are a sample and are not live listings. This is not an official real estate board map, and no guarantee is given that the information is accurate, complete or current.</p>
-            <p><strong>Feedback.</strong> If a building is missing or a detail looks wrong, please let me know at <a href="mailto:Admin@RealtorPeterLaw.com?subject=Neighborhood%20map%20feedback">Admin@RealtorPeterLaw.com</a> or <a href="tel:+16478888472">647-888-8472</a>.</p>
-          </div>
-
-          <h2 id="sources">Data sources &amp; credits</h2>
-          <ul class="bullets nb-sources">
-            <li>District and community boundaries, and school locations: contains information licensed under the <a href="https://open.toronto.ca/open-data-license/" rel="noopener">Open Government Licence – Toronto</a> (City of Toronto Open Data).</li>
-            <li>Regional boundaries: adapted from Statistics Canada, 2021 Census – Boundary files (census divisions). This does not constitute an endorsement by Statistics Canada.</li>
-            <li>Street map and nearby places: © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</li>
-            <li>Map software: <a href="https://leafletjs.com" rel="noopener">Leaflet</a> (BSD-2-Clause).</li>
-          </ul>
-          <p class="legal-note">Peter Law, Broker, HomeLife Golconda Realty Inc., Brokerage. This page is general information, not advice.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <CTASection heading="Looking at a particular neighbourhood?" lead="Tell me which districts you are weighing and I will walk you through the buildings, prices and trade-offs in each. Fifteen-minute call, no pitch." />
   <Footer />
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 </BaseLayout>
-
-<script>
-  // "Show on the map": open the district inside the map above instead of leaving the page.
-  const frame = document.getElementById('nb-map') as HTMLIFrameElement | null;
-  document.querySelectorAll<HTMLAnchorElement>('a.nb-view[data-district]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const win = frame?.contentWindow;
-      if (!frame || !win || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-      e.preventDefault();
-      const id = a.dataset.district || '';
-      try {
-        if (win.location.hash === '#' + id) win.dispatchEvent(new HashChangeEvent('hashchange'));
-        else win.location.hash = id;
-      } catch { window.location.href = a.href; return; }
-      frame.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
-      frame.focus({ preventScroll: true });
-    });
-  });
-</script>
 
 <style>
   .nb-hero { padding-bottom: 28px; }
@@ -182,32 +62,10 @@ const jsonLd = {
   .nb-frame iframe { display: block; width: 100%; height: min(78vh, 820px); min-height: 520px; border: 0; }
   .nb-map-links { margin: 12px 2px 0; font-size: 14px; color: var(--ink-soft); }
   .nb-map-links a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
-  .nb-body { padding-top: 56px; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-  .nb-region .nb-districts { display: grid; gap: 14px; padding: 18px 20px 22px; border-top: 1px solid var(--rule); }
-  .nb-district { border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px 14px; background: var(--bg); scroll-margin-top: 140px; }
-  .nb-d-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  .nb-d-head h3 { margin: 0; font-family: 'Fraunces', 'Fraunces Fallback', Georgia, serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: var(--ink); }
-  .nb-badge { flex: none; min-width: 46px; height: 30px; padding: 0 8px; border-radius: 7px; color: #fff; font-weight: 700; font-size: 14px; display: inline-grid; place-items: center; letter-spacing: 0.02em; }
-  .nb-badge-c { background: #2a56b0; }
-  .nb-badge-e { background: #167a72; }
-  .nb-badge-w { background: #a26a0f; }
-  .nb-d-hoods, .nb-d-count { margin: 0 0 6px; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
-  .nb-d-spots { list-style: none; padding: 0; margin: 10px 0 12px; display: grid; gap: 6px; }
-  .nb-d-spots li { font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
-  .nb-d-spots strong { color: var(--ink); }
-  .nb-d-type { display: inline-block; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); margin: 0 4px; }
-  .nb-view { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-  .nb-view:hover { text-decoration-thickness: 2px; }
-  .nb-important h2 { font-size: 20px; margin: 0 0 10px; }
-  .nb-important p:last-child { margin-bottom: 0; }
 
   @media (max-width: 720px) {
     .nb-frame { border-radius: 8px; }
     .nb-frame iframe { height: 72vh; min-height: 440px; }
-    .nb-region .nb-districts { padding: 14px 12px 16px; }
-    .nb-district { padding: 14px 14px 12px; }
   }
-  :global(html[data-theme="dark"]) .nb-badge-w { background: #b97d16; }
 </style>

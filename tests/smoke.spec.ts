@@ -119,7 +119,6 @@ test('Neighborhood is in the header and its page embeds the map', async ({ page 
   await page.goto('/neighborhood');
   await expect(page.locator('h1')).toContainText(/Neighborhood Map/i);
   await expect(page.locator('iframe#nb-map')).toHaveAttribute('src', '/neighborhood-map');
-  await expect(page.locator('.nb-district')).toHaveCount(35);
 });
 
 test('Neighborhood map opens a district from a #code link', async ({ page }) => {
