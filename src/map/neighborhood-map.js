@@ -98,21 +98,27 @@ function syncView(){const z=map.getZoom(),c=map.latLngToContainerPoint(map.getCe
 VIEWS.forEach(v=>v[0].onclick=()=>{const t=v[1]();markView(v[0]);if(v[0].id==="v-all"){if(!sel)glowClear()}else glowPoint(t[0]);map.flyTo(t[0],t[1],{duration:.7});if(small.matches&&v[0].parentNode.id==="jump")$("layers").open=false});
 map.on("moveend",syncView);
 /* condo pins: PINS[district][i] lines up with DISTRICTS[district].condos[i] */
+/* building type sets the pin colour: pre-construction (grey), loft (purple), condo (red).
+   An entry is pre-construction when marked "|pre", a loft when marked "|loft" or named "... Loft(s)". */
+const kindOf=cs=>cs.some(c=>c[2]==="pre")?"pre":cs.some(c=>c[2]==="loft"||/\blofts?\b/i.test(c[0]))?"loft":"condo";
+const KIND={pre:"Pre-construction",loft:"Loft",condo:"Condo"},showKind={pre:true,condo:true,loft:true};
+const preWhen=x=>x&&x[3]?" \u00b7 "+x[3]:"";
 const pinOf={};let hotPin=null;
 const condoLayer=L.layerGroup();
 Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DISTRICTS[id].condos[i].split(";").map(x=>x.split("|"));
-  const m=L.marker([p[0],p[1]],{pane:"pCondo",keyboard:false,icon:L.divIcon({className:"pin",html:"<span></span>",iconSize:[18,18],iconAnchor:[9,17],tooltipAnchor:[0,-17]})});
-  const w=walkTo(p);m.bindTooltip((cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{className:"tt",direction:"top"});
+  const m=L.marker([p[0],p[1]],{pane:"pCondo",keyboard:false,icon:L.divIcon({className:"pin pin-"+kindOf(cs),html:"<span></span>",iconSize:[18,18],iconAnchor:[9,17],tooltipAnchor:[0,-17]})});
+  const w=walkTo(p);m.bindTooltip((cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction"+esc(preWhen(cs.find(c=>c[2]==="pre")))+"</i>":kindOf(cs)==="loft"?"<br><i>Loft</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{className:"tt",direction:"top"});
   m.on("click",()=>{if(sel!==id)pick(id,null);hot(id,i,false,true);m.closeTooltip();zoomPop(m.getLatLng())});
   m.on("mouseover",()=>hot(id,i,false,false));m.on("mouseout",()=>{if(!stick)hot(null)});
-  pinOf[id+"|"+i]=m}));
+  m._k=kindOf(cs);pinOf[id+"|"+i]=m}));
 const condoMarkers=Object.values(pinOf);
 condoLayer.addTo(map);
 /* Keep on the page only the markers in (or just around) the visible area. With all ~1,300 pins, carts and
    labels on the page at once, every pan and zoom had to move and repaint each one. */
-function cull(group,list,keep){if(!map.hasLayer(group))return;const b=map.getBounds().pad(.3);
-  for(const m of list){const inb=b.contains(m.getLatLng());if(inb){if(!group.hasLayer(m))group.addLayer(m)}else if(group.hasLayer(m)&&m!==keep)group.removeLayer(m)}}
-function cullAll(){cull(condoLayer,condoMarkers,hotPin);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
+function cull(group,list,keep,ok){if(!map.hasLayer(group))return;const b=map.getBounds().pad(.3);
+  for(const m of list){const inb=b.contains(m.getLatLng())&&(!ok||ok(m));if(inb){if(!group.hasLayer(m))group.addLayer(m)}else if(group.hasLayer(m)&&m!==keep)group.removeLayer(m)}}
+const kindOk=m=>showKind[m._k];
+function cullAll(){cull(condoLayer,condoMarkers,hotPin,kindOk);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
 map.on("moveend",cullAll);cullAll();
 let stick=false;
 /* Hover labels (districts, communities, condos, groceries, stations, campuses): at most one on screen at a time,
@@ -152,11 +158,11 @@ function restyle(){distLayer.setStyle(f=>dStyle(f.properties.d));commLayer.setSt
   if(z>=12.5){shopLayer.addTo(map);cull(shopLayer,shopMarkers)}else map.removeLayer(shopLayer);
   glowLayer.eachLayer(l=>{const c=l.options.className;l.setStyle({weight:c==="glow-halo"?(z<10?6:z<12?11:z<14?15:20):(z<10?2:z<12?3:z<14?4.5:6)})});
   if(showComm&&z>=13.5){cLabels.addTo(map);cull(cLabels,cLabelMarkers)}else map.removeLayer(cLabels);
-  subLayer.eachLayer(m=>m.setRadius(z<11?3:z<13?5:7));($("l-sub").checked&&!wide)?subLayer.addTo(map):map.removeLayer(subLayer)}
+  subLayer.eachLayer(m=>m.setRadius(z<11?3:z<13?5:7));!wide?subLayer.addTo(map):map.removeLayer(subLayer)}
 map.on("zoomend",restyle);
 function setComm(on){showComm=true;commLayer.addTo(map);restyle()}
 $("l-dist").onchange=e=>{e.target.checked?(distLayer.addTo(map),dLabels.addTo(map)):(map.removeLayer(distLayer),map.removeLayer(dLabels))};
-$("l-sub").onchange=restyle;
+["pre","condo","loft"].forEach(k=>{$("l-"+k).onchange=e=>{showKind[k]=e.target.checked;cullAll()}});
 $("l-base").onchange=e=>{tilesOk=tilesBad=0;setBase(e.target.checked)};
 base.addTo(map);
 
@@ -257,10 +263,10 @@ function nearbyDraw(id,i){
 }
 /* condominium list: sorted view of DISTRICTS[id].condos; data-i keeps the original index so pins still line up */
 let csort="az",cfilter="";
-const PRE='<u class="pre">Pre-construction</u>';
+const PRE=x=>'<u class="pre">Pre-construction'+esc(preWhen(x))+'</u>';
 /* a building with several addresses under one name is written once; true twins keep both names */
-function cHtml(c){const pre=c.some(x=>x[2]==="pre")?" "+PRE:"";
-  return c.every(x=>x[0]===c[0][0])?'<div>'+esc(c[0][0])+pre+'<small>'+c.map(x=>esc(x[1])).join(" \u00b7 ")+'</small></div>':c.map(x=>'<div>'+esc(x[0])+(x[2]==="pre"?" "+PRE:"")+'<small>'+esc(x[1])+'</small></div>').join("")}
+function cHtml(c){const pre=c.some(x=>x[2]==="pre")?" "+PRE(c.find(x=>x[2]==="pre")):"";
+  return c.every(x=>x[0]===c[0][0])?'<div>'+esc(c[0][0])+pre+'<small>'+c.map(x=>esc(x[1])).join(" \u00b7 ")+'</small></div>':c.map(x=>'<div>'+esc(x[0])+(x[2]==="pre"?" "+PRE(x):"")+'<small>'+esc(x[1])+'</small></div>').join("")}
 /* While the list is scrolling, rows sliding under a still pointer must not each move the map and open a
    label (that made scrolling the list stutter). A row reacts only once the pointer rests on it. */
 let listScrolling=false,listScrollT=0,listHoverT=0;
@@ -270,7 +276,7 @@ function fillCondos(id){
   const az=(a,b)=>a.key.localeCompare(b.key,"en",{numeric:true});
   const f=cfilter.trim().toLowerCase(),all=rows.length;if(f)for(let k=rows.length-1;k>=0;k--){if(!rows[k].c.some(x=>(x[0]+" "+x[1]).toLowerCase().includes(f)))rows.splice(k,1)}
   rows.sort(csort==="za"?(a,b)=>az(b,a):csort==="walk"?(a,b)=>(a.w?a.w.min:99)-(b.w?b.w.min:99)||az(a,b):az);
-  $("clist").innerHTML=(f?'<p class="none cf">'+rows.length+' of '+all+' match</p>':'')+'<ul class="condos">'+rows.map(r=>'<li data-i="'+r.i+'"'+(r.p?' tabindex="0"':' class="nopin"')+'>'+cHtml(r.c)+(r.p?(r.p[2]?'':'<small><em>approximate spot</em></small>'):'<small><em>not on the map yet</em></small>')+(r.w?'<small class="wk">'+esc(walkTxt(r.w))+'</small>':(csort==="walk"?'<small class="nw">'+(r.p&&r.p[2]?'No subway within a 10 minute walk':'Walking time not available')+'</small>':''))+'</li>').join("")+'</ul>';
+  $("clist").innerHTML=(f?'<p class="none cf">'+rows.length+' of '+all+' match</p>':'')+'<ul class="condos">'+rows.map(r=>'<li data-i="'+r.i+'"'+' class="k-'+kindOf(r.c)+(r.p?'" tabindex="0"':' nopin"')+'>'+cHtml(r.c)+(r.p?(r.p[2]?'':'<small><em>approximate spot</em></small>'):'<small><em>not on the map yet</em></small>')+(r.w?'<small class="wk">'+esc(walkTxt(r.w))+'</small>':(csort==="walk"?'<small class="nw">'+(r.p&&r.p[2]?'No subway within a 10 minute walk':'Walking time not available')+'</small>':''))+'</li>').join("")+'</ul>';
   $("clist").querySelectorAll("li:not(.nopin)").forEach(li=>{const i=+li.dataset.i;
     li.addEventListener("mouseenter",()=>{clearTimeout(listHoverT);if(stick||listScrolling)return;listHoverT=setTimeout(()=>{if(!stick&&!listScrolling)hot(id,i,true,false)},110)});li.addEventListener("mouseleave",()=>{clearTimeout(listHoverT);if(!stick)hot(null)});
     li.addEventListener("focus",()=>hot(id,i,true,false));
@@ -294,7 +300,7 @@ const places={},placeOpts=[];
 (function(){const add=(name,lab,t)=>{let v=name,k=v.toLowerCase();if(places[k]&&!(places[k].t==="c"&&t.t==="c"&&places[k].id===t.id&&places[k].i===t.i)){v=name+" ("+t.id+")";k=v.toLowerCase();if(places[k])return}
     if(places[k])return;places[k]=t;placeOpts.push([v,lab])};
   Object.keys(DISTRICTS).forEach(id=>{const d=DISTRICTS[id];
-    d.condos.forEach((c,i)=>c.split(";").forEach(x=>add(x.split("|")[0],"Condo · "+id,{t:"c",id,i})));
+    d.condos.forEach((c,i)=>c.split(";").forEach(x=>add(x.split("|")[0],KIND[kindOf([x.split("|")])]+" · "+id,{t:"c",id,i})));
     (SCHOOLS[id]||[]).forEach(sc=>add(sc[0],"School · "+id,{t:"s",id,n:sc[0]}));
     d.spots.forEach(sp=>{const a=sp.split("|");if(a[1]==="park")add(a[0],"Park · "+id,{t:"p",id,n:a[0]})})});
   MALLS.forEach(m=>add(m[0],"Shopping centre",{t:"m",ll:[m[1],m[2]]}));
