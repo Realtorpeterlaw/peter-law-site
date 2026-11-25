@@ -727,8 +727,10 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 .zp b{display:block;font-size:14px;margin-right:14px}.zp span{display:block;color:#5d6976;font-size:12.5px;margin-top:2px}
 .zp button{display:block;width:100%;margin-top:9px;font:inherit;font-weight:700;font-size:13px;color:#fff;background:#16202b;border:0;border-radius:8px;padding:7px 10px;cursor:pointer}
 .uni{background:none;border:0;cursor:pointer}.uni svg{display:block}
+.mall{background:none;border:0;cursor:pointer}.mall svg{display:block}
+.z-far .mall svg{width:20px;height:20px;margin:2px}
 .z-far .uni svg{width:20px;height:20px;margin:3px}
-.wide .pin,.wide .dl,.wide .cl,.wide .uni,.wide .shop{display:none}
+.wide .pin,.wide .dl,.wide .cl,.wide .uni,.wide .shop,.wide .mall{display:none}
 .rl.city{display:none}.wide .rl.city{display:block;color:#16202b}
 /* The pin grows on hover, but only its original 18px box reacts to the mouse: otherwise the enlarged pin kept
    catching the pointer, so its label stayed up after the visitor had moved away. */

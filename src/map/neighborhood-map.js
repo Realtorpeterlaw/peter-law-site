@@ -2,7 +2,7 @@
 /* Toronto Neighbourhood Map: behaviour. Data lives in ./neighborhood-data.js.
    Built from the "Beta2" map of 24 Nov 2026. */
 import L from "leaflet";
-import {DISTRICTS,AGENT,DIST,COMM,DLABEL,STATIONS,PINS,REGIONS,STREETS,NEARBY,UNIS,GROCERY,SCHOOLS} from "./neighborhood-data.js";
+import {DISTRICTS,AGENT,DIST,COMM,DLABEL,STATIONS,PINS,REGIONS,STREETS,NEARBY,UNIS,GROCERY,SCHOOLS,MALLS} from "./neighborhood-data.js";
 
 const TYPE={park:"Parks & outdoors",shop:"Shopping",culture:"Arts & culture",food:"Food & drink",sport:"Sport & recreation",landmark:"Landmark"};
 const COL={W:["#e2a33a","#b97d16"],C:["#4b7fe3","#2a56b0"],E:["#31a59c","#167a72"]};
@@ -15,7 +15,7 @@ if(small.matches)$("layers").open=false;
 const map=L.map("map",{zoomSnap:.5,minZoom:7,maxZoom:18,maxBounds:[[42.3,-82.4],[45.7,-76.3]],zoomControl:false});
 L.control.zoom({position:"bottomright"}).addTo(map);
 map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pShop").style.zIndex=620;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
+["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pMall").style.zIndex=635;map.createPane("pShop").style.zIndex=620;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
 const cityBounds=L.geoJSON(DIST).getBounds();
 map.fitBounds(cityBounds,{padding:[10,10]});
 
@@ -70,6 +70,9 @@ const shopLayer=L.layerGroup();
 /* universities and colleges */
 const CAP='<svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" stroke="#16202b" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="11.6" stroke="none" fill-opacity=".85"/><path d="M12 4.2 2.2 9l9.8 4.8L21.8 9z"/><path d="M6.2 11.2v4.6c0 1.6 2.6 2.9 5.8 2.9s5.8-1.3 5.8-2.9v-4.6" fill="none"/><path d="M3.4 9.9v4.9"/><rect x="2.5" y="14.8" width="1.8" height="2.6" rx=".6"/></svg>';
 const uniLayer=L.layerGroup(UNIS.map(u=>L.marker([u[1],u[2]],{pane:"pUni",keyboard:false,icon:L.divIcon({className:"uni",html:CAP,iconSize:[26,26],iconAnchor:[13,13],tooltipAnchor:[0,-12]})}).bindTooltip(u[0],{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
+/* shopping centres: two shopping bags, grey on a white circle (no CSS filter, so it stays cheap to draw) */
+const BAGS='<svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="11.6" fill="#fff" fill-opacity=".9" stroke="#16202b" stroke-width=".8"/><path d="M5.2 9.4h7.6l.7 9.1H4.5z" fill="#5d6976" stroke="#16202b" stroke-width="1" stroke-linejoin="round"/><path d="M7 9.4V8a2 2 0 0 1 4 0v1.4" fill="none" stroke="#16202b" stroke-width="1.2" stroke-linecap="round"/><path d="M11.4 11.6h7.3l.7 7.6h-8.7z" fill="#c3cad3" stroke="#16202b" stroke-width="1" stroke-linejoin="round"/><path d="M13.3 11.6v-1.1a1.75 1.75 0 0 1 3.5 0v1.1" fill="none" stroke="#16202b" stroke-width="1.2" stroke-linecap="round"/></svg>';
+const mallLayer=L.layerGroup(MALLS.map(m=>L.marker([m[1],m[2]],{pane:"pMall",keyboard:false,icon:L.divIcon({className:"mall",html:BAGS,iconSize:[24,24],iconAnchor:[12,12],tooltipAnchor:[0,-12]})}).bindTooltip(esc(m[0]),{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
 /* surrounding regions */
 const regLayer=L.layerGroup(),regLabels=L.layerGroup(),regPoly={};
 Object.keys(REGIONS).forEach(n=>{const r=REGIONS[n],name=n==="Grey"?"Grey County":n;
@@ -293,7 +296,8 @@ const places={},placeOpts=[];
   Object.keys(DISTRICTS).forEach(id=>{const d=DISTRICTS[id];
     d.condos.forEach((c,i)=>c.split(";").forEach(x=>add(x.split("|")[0],"Condo · "+id,{t:"c",id,i})));
     (SCHOOLS[id]||[]).forEach(sc=>add(sc[0],"School · "+id,{t:"s",id,n:sc[0]}));
-    d.spots.forEach(sp=>{const a=sp.split("|");if(a[1]==="park")add(a[0],"Park · "+id,{t:"p",id,n:a[0]})})})})();
+    d.spots.forEach(sp=>{const a=sp.split("|");if(a[1]==="park")add(a[0],"Park · "+id,{t:"p",id,n:a[0]})})});
+  MALLS.forEach(m=>add(m[0],"Shopping centre",{t:"m",ll:[m[1],m[2]]}))})();
 /* the long list goes into the search suggestions the first time the box is used, not while the map loads */
 let placesListed=false;
 function listPlaces(){if(placesListed)return;placesListed=true;
@@ -302,7 +306,8 @@ $("find").addEventListener("focus",listPlaces,{once:true});
 /* open what was found: a condo zooms to its pin and is centred in the list; a school or park opens its
    district with that entry shown and glowing */
 function goPlace(t){
-  if(t.t==="c"){pick(t.id,null,false);const p=(PINS[t.id]||[])[t.i];if(p){glowPoint([p[0],p[1]]);map.flyTo([p[0],p[1]],Math.max(map.getZoom(),16),{duration:.7})}hot(t.id,t.i,false,true)}
+  if(t.t==="m"){glowPoint(t.ll);map.flyTo(t.ll,16,{duration:.7})}
+  else if(t.t==="c"){pick(t.id,null,false);const p=(PINS[t.id]||[])[t.i];if(p){glowPoint([p[0],p[1]]);map.flyTo([p[0],p[1]],Math.max(map.getZoom(),16),{duration:.7})}hot(t.id,t.i,false,true)}
   else{pick(t.id,null,true);const sec=t.t==="s"?$("pbody").querySelector("details.sch"):[...$("pbody").querySelectorAll("details.sch")][1];
     if(sec){sec.open=true;const hit=[...sec.querySelectorAll(t.t==="s"?".chips span":".spot")].find(e=>(t.t==="s"?e.childNodes[0].textContent.trim():e.querySelector("b").textContent)===t.n);
       if(hit){hit.classList.add("found");panelScrollTo(hit,true)}}}
