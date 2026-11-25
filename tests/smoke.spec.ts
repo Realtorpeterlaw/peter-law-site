@@ -111,3 +111,19 @@ test('homepage has canonical + og tags', async ({ page }) => {
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /https:\/\/www\.realtorpeterlaw\.com/);
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /peter-cn-tower\.jpg/);
 });
+
+// ─── NEIGHBORHOOD MAP ──────────────────────────────────────
+test('Neighborhood is in the header and its page embeds the map', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('nav.primary a[href="/neighborhood"]')).toHaveText('Neighborhood');
+  await page.goto('/neighborhood');
+  await expect(page.locator('h1')).toContainText(/Neighborhood Map/i);
+  await expect(page.locator('iframe#nb-map')).toHaveAttribute('src', '/neighborhood-map');
+  await expect(page.locator('.nb-district')).toHaveCount(35);
+});
+
+test('Neighborhood map opens a district from a #code link', async ({ page }) => {
+  await page.goto('/neighborhood-map#C08');
+  await expect(page.locator('#panel.open .badge')).toHaveText('C08');
+  await expect(page.locator('ul.condos li').first()).toBeVisible();
+});

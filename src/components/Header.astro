@@ -3,7 +3,7 @@ import { localeLinks, HREFLANG, LANG_ATTR } from '../lib/locale-links';
 const _L = localeLinks(Astro.url.pathname);
 import Logo from './Logo.astro';
 interface Props {
-  active?: 'rental' | 'sellers' | 'buyers' | 'blog' | 'about' | null;
+  active?: 'rental' | 'sellers' | 'buyers' | 'neighborhood' | 'blog' | 'about' | null;
   ctaLabel?: string;
 }
 const { active = null, ctaLabel = "Book a viewing call" } = Astro.props;
@@ -54,6 +54,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
             <li><a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a></li>
           </ul>
         </li>
+        <li><a href="/neighborhood" class={active === 'neighborhood' ? 'active' : ''} aria-current={active === 'neighborhood' ? 'page' : undefined}>Neighborhood</a></li>
         <li><a href="/blog" class={active === 'blog' ? 'active' : ''} aria-current={active === 'blog' ? 'page' : undefined}>Blog</a></li>
         <li class="nav-separator" aria-hidden="true"></li>
         <li class="has-dropdown">
@@ -123,6 +124,7 @@ const BOOKING_URL = "https://cal.com/peter-law-c5lm9q";
           </ul>
         </li>
         <li class="mobile-divider" aria-hidden="true"></li>
+        <li><a href="/neighborhood" class="mobile-link">Neighborhood</a></li>
         <li><a href="/blog" class="mobile-link">Blog</a></li>
         <li class="mobile-divider" aria-hidden="true"></li>
         <li class="mobile-section">

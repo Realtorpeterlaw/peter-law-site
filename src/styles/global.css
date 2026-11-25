@@ -49,6 +49,8 @@ nav.primary a:hover, nav.primary a.active { color: var(--ink); text-decoration: 
 .head-cta { background: var(--ink); color: var(--bg); padding: 10px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; transition: background 0.15s; white-space: nowrap; }
 .head-cta:hover { background: #000; }
 @media (max-width: 900px) { nav.primary { display: none; } }
+/* Six top-level items: tighten the spacing on narrow desktops so the header never overflows (901–1080px). */
+@media (min-width: 901px) and (max-width: 1080px) { nav.primary ul { gap: 20px; } }
 
 .btn-primary { background: var(--ink); color: var(--bg); padding: 16px 28px; border-radius: 4px; font-size: 15px; font-weight: 500; transition: background 0.15s; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; }
 .btn-primary:hover { background: #000; }

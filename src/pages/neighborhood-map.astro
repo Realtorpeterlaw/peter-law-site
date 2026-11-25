@@ -1,0 +1,45 @@
+---
+// The interactive map as its own small document. /neighborhood shows it in a frame;
+// opened directly (full screen) it gets a slim title bar with a way back to the site.
+// Not indexed: search engines get /neighborhood, which carries the same information as text.
+import mapCss from '../map/neighborhood-map.css?url';
+export const prerender = true;
+---
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toronto Neighbourhood Map | Peter Law</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#16202b">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://tile.openstreetmap.org">
+<script is:inline>if (window.top === window) document.documentElement.className += ' standalone';</script>
+<link rel="stylesheet" href={mapCss}>
+</head>
+<body>
+<div class="top"><b>Toronto Neighbourhood Map</b><a href="/neighborhood"><span aria-hidden="true">&larr; </span>Back<span class="top-long"> to RealtorPeterLaw.com</span></a></div>
+<div class="stage">
+  <div id="map" role="region" aria-label="Map of Toronto real estate districts"></div>
+  <details class="layers" id="layers" open>
+    <summary><span class="lt-open">CLICK HERE to minimize</span><span class="lt-closed">CLICK HERE to expand</span></summary>
+    <div class="lbody">
+      <label><input type="checkbox" id="l-dist" checked><span>Districts</span></label>
+      <label><input type="checkbox" id="l-sub" checked><span>Subway Stations<small>Yellow = Line 1, Green = Line 2,<br>Purple = Line 4. Lines 5 and 6 are not shown yet.</small></span></label>
+      <label><input type="checkbox" id="l-base" checked><span>Street background</span></label>
+      <div class="views"><button type="button" id="v-all">ZOOM out</button></div>
+      <div class="views jump" id="jump"></div>
+      <div class="find"><label for="find" class="find-label">Find a district, community or region</label>
+        <input id="find" list="names" placeholder="e.g. C08, Leslieville or Peel" autocomplete="off"><datalist id="names"></datalist></div>
+    </div>
+  </details>
+  <div class="note" id="note" role="status"></div>
+  <aside class="panel" id="panel" aria-live="polite" aria-label="District details"><button type="button" class="x" id="close" aria-label="Close">&times;</button><div class="scroll" id="pbody"></div><div class="cta" id="cta"></div></aside>
+</div>
+<script>
+  import '../map/neighborhood-map.js';
+</script>
+</body>
+</html>

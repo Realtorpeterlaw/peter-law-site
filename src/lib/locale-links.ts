@@ -4,6 +4,8 @@
 export type Locale = 'en' | 'zh' | 'fr';
 
 const PREFIX: Record<Locale, string> = { en: '', zh: '/chinese', fr: '/french' };
+// English-only pages (no Chinese or French version yet): the switcher sends those visitors to the locale homepage.
+const EN_ONLY = new Set(['/neighborhood', '/neighborhood-map']);
 export const HREFLANG: Record<Locale, string> = { en: 'en-CA', zh: 'zh-CN', fr: 'fr-CA' };
 export const LANG_ATTR: Record<Locale, string> = { en: 'en', zh: 'zh-CN', fr: 'fr' };
 
@@ -19,7 +21,8 @@ export function localeLinks(pathname: string): Record<Locale, string> {
   let base = pathname.replace(/\/+$/, '');
   if (current !== 'en') base = base.slice(PREFIX[current].length);
   if (base === '/404' || base === '/404.html') base = '';
+  const enOnly = EN_ONLY.has(base);
   const out = {} as Record<Locale, string>;
-  (Object.keys(PREFIX) as Locale[]).forEach((l) => { out[l] = (PREFIX[l] + base) || '/'; });
+  (Object.keys(PREFIX) as Locale[]).forEach((l) => { out[l] = (PREFIX[l] + (enOnly && l !== 'en' ? '' : base)) || '/'; });
   return out;
 }
