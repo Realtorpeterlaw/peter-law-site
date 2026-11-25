@@ -689,7 +689,6 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 .lbody{padding:10px 12px 12px}
 .lbody label{display:flex;gap:8px;align-items:flex-start;padding:4px 0;font-size:14px;cursor:pointer}
 .lbody .sw{display:inline-block;width:11px;height:11px;margin:0 7px 0 1px;box-sizing:border-box;border:1.5px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg) translate(-1px,1px);box-shadow:-1px 1px 2px rgba(0,0,0,.35);vertical-align:-1px}.lbody .sw-pre{background:#aab1ba}.lbody .sw-condo{background:#e0245e}.lbody .sw-loft{background:#7b3fbf}
-.lbody .lnote{margin:2px 0 4px 25px;color:var(--mute);font-size:11.5px;line-height:1.3}
 .lbody label small{display:block;color:var(--mute);font-size:11.5px;line-height:1.3}
 .lbody input[type=checkbox]{width:17px;height:17px;margin:2px 0 0;flex:none}
 .views{display:flex;gap:6px;margin-top:8px}

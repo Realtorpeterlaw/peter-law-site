@@ -101,7 +101,7 @@ map.on("moveend",syncView);
 /* building type sets the pin colour: pre-construction (grey), loft (purple), condo (red).
    An entry is pre-construction when marked "|pre", a loft when marked "|loft" or named "... Loft(s)". */
 const kindOf=cs=>cs.some(c=>c[2]==="pre")?"pre":cs.some(c=>c[2]==="loft"||/\blofts?\b/i.test(c[0]))?"loft":"condo";
-const KIND={pre:"Pre-construction",loft:"Loft",condo:"Condo"},showKind={pre:true,condo:true,loft:true};
+const KIND={pre:"Pre-construction",loft:"Loft",condo:"Condo"},showKind={pre:$("l-pre").checked,condo:$("l-condo").checked,loft:$("l-loft").checked};
 const preWhen=x=>x&&x[3]?" \u00b7 "+x[3]:"";
 const pinOf={};let hotPin=null;
 const condoLayer=L.layerGroup();
