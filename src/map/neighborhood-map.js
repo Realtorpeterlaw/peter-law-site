@@ -272,14 +272,38 @@ COMM.features.forEach(f=>{const p=f.properties,key=p.n.toLowerCase();if(names[ke
 const EXTRA={"leslieville":["E01","South Riverdale"],"liberty village":["C01","Niagara"],"king west":["C01","Niagara"],"cityplace":["C01","Waterfront Communities-The Island"],"yorkville":["C02","Annex"],"distillery district":["C08","Waterfront Communities-The Island"],"st. lawrence":["C08","Waterfront Communities-The Island"],"the junction":["W02","Junction Area"],"humber bay shores":["W06","Mimico (includes Humber Bay Shores)"],"north york centre":["C14","Willowdale East"],"scarborough town centre":["E09","Bendale"],"davisville":["C10","Mount Pleasant West"],"entertainment district":["C01","Waterfront Communities-The Island"],"chinatown":["C01","Kensington-Chinatown"],"greektown":["E03","Playter Estates-Danforth"]};
 Object.assign(names,EXTRA);
 $("names").innerHTML=Object.keys(DISTRICTS).map(k=>'<option value="'+k+'">').join("")+Object.keys(names).filter(k=>names[k][1]).sort().map(k=>'<option value="'+esc(k.replace(/\b[a-z]/g,m=>m.toUpperCase()))+'">').join("")+Object.keys(regPoly).map(k=>'<option value="'+esc(k.replace(/\b[a-z]/g,m=>m.toUpperCase()))+'">').join("");
+/* Places in the search box: every condominium, school and park. Each name points to its district;
+   condos also to their pin. Names used in more than one district get the district code added. */
+const places={},placeOpts=[];
+(function(){const add=(name,lab,t)=>{let v=name,k=v.toLowerCase();if(places[k]&&!(places[k].t==="c"&&t.t==="c"&&places[k].id===t.id&&places[k].i===t.i)){v=name+" ("+t.id+")";k=v.toLowerCase();if(places[k])return}
+    if(places[k])return;places[k]=t;placeOpts.push([v,lab])};
+  Object.keys(DISTRICTS).forEach(id=>{const d=DISTRICTS[id];
+    d.condos.forEach((c,i)=>c.split(";").forEach(x=>add(x.split("|")[0],"Condo · "+id,{t:"c",id,i})));
+    (SCHOOLS[id]||[]).forEach(sc=>add(sc[0],"School · "+id,{t:"s",id,n:sc[0]}));
+    d.spots.forEach(sp=>{const a=sp.split("|");if(a[1]==="park")add(a[0],"Park · "+id,{t:"p",id,n:a[0]})})})})();
+/* the long list goes into the search suggestions the first time the box is used, not while the map loads */
+let placesListed=false;
+function listPlaces(){if(placesListed)return;placesListed=true;
+  $("names").insertAdjacentHTML("beforeend",placeOpts.sort((a,b)=>a[0].localeCompare(b[0],"en")).map(o=>'<option value="'+esc(o[0])+'" label="'+esc(o[1])+'">').join(""))}
+$("find").addEventListener("focus",listPlaces,{once:true});
+/* open what was found: a condo zooms to its pin and is centred in the list; a school or park opens its
+   district with that entry shown and glowing */
+function goPlace(t){
+  if(t.t==="c"){pick(t.id,null,false);const p=(PINS[t.id]||[])[t.i];if(p){glowPoint([p[0],p[1]]);map.flyTo([p[0],p[1]],Math.max(map.getZoom(),16),{duration:.7})}hot(t.id,t.i,false,true)}
+  else{pick(t.id,null,true);const sec=t.t==="s"?$("pbody").querySelector("details.sch"):[...$("pbody").querySelectorAll("details.sch")][1];
+    if(sec){sec.open=true;const hit=[...sec.querySelectorAll(t.t==="s"?".chips span":".spot")].find(e=>(t.t==="s"?e.childNodes[0].textContent.trim():e.querySelector("b").textContent)===t.n);
+      if(hit){hit.classList.add("found");panelScrollTo(hit,true)}}}
+  if(small.matches)$("layers").open=false}
 let lastFind=["",0];
 function find(){const q=$("find").value.trim().toLowerCase();if(!q)return;if(q===lastFind[0]&&Date.now()-lastFind[1]<600)return;lastFind=[q,Date.now()];
   let hit=names[q]||names[q.replace(/^([cew])(\d)$/,(m,a,b)=>a+"0"+b)];
   const rp=regPoly[q]||regPoly[q.replace(/ (region|county)$/,"")]||(q==="grey"&&regPoly["grey county"]);
   if(rp&&!names[q]){glowShape([rp.getLatLngs()]);map.flyToBounds(rp.getBounds(),{padding:[30,30],duration:.6});return}
+  if(!hit&&places[q]){goPlace(places[q]);return}
   if(!hit){const k=Object.keys(names).find(k=>k.startsWith(q))||Object.keys(names).find(k=>k.includes(q));hit=k&&names[k]}
   if(!hit){const rk=Object.keys(regPoly).find(k=>k.startsWith(q));if(rk){glowShape([regPoly[rk].getLatLngs()]);map.flyToBounds(regPoly[rk].getBounds(),{padding:[30,30],duration:.6});return}}
-  if(!hit){note('Nothing found for "'+$("find").value+'". Try a district code like C01 or a neighbourhood name.');return}
+  if(!hit&&q.length>=3){const pk=Object.keys(places).find(k=>k.startsWith(q))||Object.keys(places).find(k=>k.includes(q));if(pk){goPlace(places[pk]);return}}
+  if(!hit){note('Nothing found for "'+$("find").value+'". Try a district code like C01, a neighbourhood, a condo, a school or a park.');return}
   if(hit[1])setComm(true);pick(hit[0],hit[1],true);if(small.matches)$("layers").open=false}
 $("find").addEventListener("change",find);$("find").addEventListener("keydown",e=>{if(e.key==="Enter")find()});
 setComm(true);syncView();
