@@ -1,0 +1,4576 @@
+# Nearby cafes, restaurants and bars from OpenStreetMap (ODbL), collected 2026-11-25. lat/lon = (value + base) / 1e5, base 4360000 / -7940000; kind 0 cafe, 1 restaurant, 2 bar
+5777~32~1~Burger King
+5370~902~1~McDonald's
+5002~905~0~Nord Lyon Cafe
+5240~-627~0~Tim Hortons
+5209~-619~1~McDonald's
+4347~832~0~Tim Hortons
+4535~1054~0~Starbucks
+5900~616~2~Smith Social House
+6451~-1466~1~Mary Brown's
+7446~1126~1~Subway
+6814~239~0~Tim Hortons
+7060~991~0~Starbucks
+6522~-1142~1~Pizza Pizza
+6751~-1462~0~Emily Rose Cafe
+6465~1583~0~Tim Hortons
+5549~1438~1~Subway
+5766~-247~2~Free Times Cafe
+4332~-2378~1~Pizza Pizza
+5817~39~0~Tim Hortons
+7666~-1136~1~Pizza Nova
+6918~261~2~Duke of York
+6332~-250~1~Prime Doner Shwarma
+6335~-251~1~Cora Pizza
+5567~-989~1~Harry's Charbroiled
+5256~-1226~1~California Sandwiches
+6114~1671~0~Tim Hortons
+4821~44~1~Drom Taberna
+4507~188~1~Four Brothers Pizza
+6743~-97~2~The Fortunate Fox
+5194~-4802~2~The Commoner
+4097~-3530~1~Pizza Pizza
+5703~-5283~1~McDonald's
+5674~2010~0~Tim Hortons
+6300~-126~0~Cafe AC
+6080~1568~2~Pogue Mahone Irish Pub
+6550~-6396~0~Deco
+8096~11611~1~Pizza Pizza
+5617~1636~1~Red Lobster
+3959~1653~1~Subway
+3866~1385~1~Mamma Pizza
+8600~8786~2~Edie's Place
+5248~1937~2~Duke of Richmond
+4838~2644~0~Mofer Coffee Front St
+4927~2178~0~Starbucks
+8908~10302~1~Pizza Nova
+8825~9951~0~Tim Hortons
+6190~1692~1~Pizza Pizza
+6220~1641~1~McDonald's
+6506~1555~0~Good Earth Coffeehouse
+6445~1548~1~McDonald's
+6880~1401~1~Toro Toro
+6884~1400~1~McDonald's
+5950~906~0~Tim Hortons
+6356~2940~1~Pisac Peruvian Bistro
+6348~2769~1~Chew Chew's Diner
+5645~2188~1~Subway
+4960~674~2~The Black Bull
+5019~982~2~Queen Street Warehouse
+5054~1153~2~The Rex Jazz & Blues Bar
+5063~1875~1~South Street Burger
+5158~2271~2~Batch
+5057~2273~0~Lettieri
+4950~2311~0~Tim Hortons
+5039~2835~2~Chatime
+5022~2761~1~Biagio Ristorante
+4907~2581~1~Subway
+4938~2901~1~Pizza Pizza
+4796~2387~0~Tim Hortons
+4781~2396~1~Quiznos
+4890~2467~1~P.J. O'Brien Restaurant
+4999~2542~1~Quesada
+5024~2397~1~Mercatto Restaurant
+5069~2331~1~BLD Restaurant
+5085~2156~1~McDonald's
+5138~2103~1~Kinton Ramon
+5144~2100~0~Tim Hortons
+5152~2092~1~Sunset Grill
+5542~1965~1~Popeyes
+5479~1992~1~Burger King
+5527~1469~1~Kyoto House Japanese Restaurant
+5515~1418~1~Gyubee Japanese Grill
+5486~1381~1~Hemispheres Restaurant Bistro
+6795~3009~1~Pizza Pizza
+6693~3683~1~Park Snacks
+6436~-59~1~Bibimbap
+10487~-570~1~Pizza Hut
+5438~2102~1~Fran's Restaurant
+5452~2098~2~Martini Bar
+5462~2381~1~Subway
+7135~1935~0~Starbucks
+7129~1938~1~Subway
+6523~-1011~2~Paupers Pub
+6512~-1063~1~Big Way Hot Pot
+6672~-418~0~Tim Hortons
+6335~-177~0~Second Cup
+6209~-633~1~Matha Roti
+6258~-494~1~Akai
+6376~-205~2~Booster Juice
+17834~5642~1~McDonald's
+17831~5690~1~New York Fries
+17815~5694~1~Teriyaki Experience
+17842~5655~1~KFC
+6953~281~2~Bedford Academy
+6952~268~1~Trattoria Fieramosca
+6922~279~1~Opus Restaurant
+7217~2302~0~Tim Hortons
+7180~2151~1~McDonald's
+7162~2164~2~Booster Juice
+6713~-63~1~Gyubee Japanese Grill
+6756~1114~1~Subway
+6813~1139~0~Starbucks
+9085~11151~1~Burger King
+17845~5664~1~Jimmy the Greek
+17840~5648~1~Szechuan Express
+8623~8884~0~Coffee Time
+6963~9755~2~The Stone Lion
+6649~10271~1~Kew Gardens Snack Bar
+6901~1061~0~Tim Hortons
+6463~30~1~Robarts Library Cafeteria
+6210~-116~1~New College Cafeteria
+6256~120~0~Second Cup
+6056~695~1~Medical Sciences Cafeteria
+5910~879~1~OPG building cafeteria
+6566~292~1~The Buttery
+6367~548~1~The Arbor Room
+5926~308~0~Second Cup
+6640~107~0~Second Cup
+11891~-5610~1~Red Lobster
+4613~209~1~nutbar
+4714~356~1~Avenue Open Kitchen & Deli
+4703~-418~1~Köz Bingöl
+4579~-75~1~Campechano Taqueria
+5942~1503~1~Pizza Pizza
+5959~1497~2~Incha
+6033~2302~1~Pita Land
+5834~2775~1~Sector 17
+6449~1937~2~O'Gradys
+6458~1972~2~The Churchmouse: A Firkin Pub
+6479~1961~1~Garage
+6537~1907~1~Ginger
+6541~1938~1~Country Style/Yogen Früz
+6559~1928~1~Hero Certified Burgers
+4461~1187~0~Second Cup
+5258~133~0~Coffee Time
+10069~-11755~1~Pizza Pizza
+7736~-10592~1~Jadranka Cafe & Pastries
+5377~131~1~Dumpling House Restaurant
+5764~38~1~Popeyes
+5755~41~1~Pizza Nova
+5626~94~1~Sizzler Kabab
+5603~105~2~Grossman's Tavern
+5507~144~1~Hao's Bistro
+4770~374~1~Kupfert & Kim - Spadina
+4506~829~1~Pizza Rustica Restaurant & Bar
+4531~1035~1~Grill & Wrap
+4423~1151~1~Boston Pizza
+4485~1458~1~Scaddabush
+5881~552~1~Fat Bastard Burrito
+6436~3184~1~Maya Bay
+8834~9824~1~Sultan Shawarma & Falafel
+4799~947~1~Hooters
+6971~2406~1~Gabby's
+5843~2867~0~True Love Cafe
+5318~3116~0~Tim Hortons
+5188~3168~0~The Black Canary Espresso Bar
+5013~3041~1~Subway
+4952~2965~1~McDonald's
+4904~2810~2~Paddington's Pump
+4883~2765~1~A&W
+4871~2729~0~Au Pain Doré Bakery
+4789~2556~1~CC Lounge and Whiskey Bar
+4717~2323~1~Ceci Bar
+4655~2232~2~The Bottom Line
+4619~1994~0~Starbucks
+12250~16487~1~Gus Tacos
+9574~-4920~1~Lezzet 12 Shawarma
+9575~-4914~0~Tim Hortons
+8550~8713~1~Pizza Pizza
+16988~2438~1~Pizza Pizza
+6415~-1631~1~Kinton Ramen
+6417~-1624~1~Korea House
+6431~-1622~2~Pour Boy
+6425~-1580~2~Real Fruit Bubble Tea
+6430~-1557~1~Hodo Kwaja
+6440~-1513~2~Cé La Vi
+6454~-1451~1~Mapo Gamjatang
+6456~-1439~1~Korean Village Restaurant
+6463~-1406~1~Kimsoonrye Soonsal Chicken
+6469~-1380~1~Yupdduk
+6478~-1337~1~Namaste Indian Cuisine
+6482~-1321~0~Snakes & Lattes
+6495~-1260~1~Arisu
+13455~5628~1~Jack Astor's
+6757~-38~1~Bar Mercurio
+6715~-231~1~Masters
+6518~-1157~1~Pizzeria Forno
+5253~1964~1~Queen’s Cross Food Hall
+5309~2445~1~McDonald's
+16873~1355~1~South Street Burger
+16245~-1145~1~Pizza Pizza
+16913~1340~0~Starbucks
+16918~1597~0~Lettieri
+6050~1633~0~Tim Hortons
+6078~1612~1~KFC
+6046~1685~1~Richtree Market Restaurants
+4692~2134~1~Burger King
+4719~2184~1~Forest Hill Farmhouse
+4704~2186~0~Pigeon Coffee
+7132~1503~1~Hudson's Bay Centre Food Court
+6084~-32~1~Harvest Noon Cafe
+6072~-29~2~G.S.U. Pub
+6549~1280~1~Pizza Nova
+6474~1243~1~Rolltation
+6595~1265~1~Sol Pizza
+6498~1061~0~Kelly's Cafe
+6462~1250~0~Tim Hortons
+4750~1367~2~Elephant & Castle
+4789~1542~0~Tim Hortons
+7091~1314~1~Jack Astor's
+6932~1380~1~Pizzaiolo
+10635~197~0~Tim Hortons
+10557~215~1~Popeyes
+10765~166~1~Pizza Pizza
+10705~248~1~McDonald's
+5247~179~1~Dairy Queen/Orange Julius
+4060~782~1~Dairy Queen
+4241~1707~2~Hoops Sports Bar & Grill
+4495~1725~1~Kelly's Landing
+7130~1513~1~Manchu Wok
+7138~1511~1~A&W
+5677~1920~1~Teriyaki Experience
+5658~1946~1~Milestones
+6793~3080~1~Cranberries Restaurant
+6561~3166~1~Subway
+5253~1984~0~Second Cup
+5298~2242~0~Second Cup
+5283~2149~2~Booster Juice
+5233~2173~0~Starbucks
+5656~1951~0~Starbucks
+5750~1842~1~Yonge Street Warehouse
+5833~1806~1~Congee Queen
+5874~1789~1~Pastable
+5855~1742~1~Market Garden Food Emporium & Terrace
+6004~1774~1~BarBurrito
+6039~1760~1~Amato Gyro
+6083~1730~1~Popeyes
+7158~-6749~1~Swiss Chalet
+7141~-6745~1~Harvey's
+4904~404~1~A&W
+4905~410~2~Horseshoe Tavern
+4922~654~1~Peter Pan Bistro
+4940~2223~1~Hero Certified Burgers
+8418~8101~1~Our Spot
+6535~-1145~0~Jjin Toast
+16273~-9137~1~Pizza Nova
+17988~-1634~0~Starbucks
+5589~1167~1~Thaï Express
+7665~-1154~0~Tim Hortons
+4719~2066~1~Ki
+4774~2298~1~The Joneses
+4844~2486~2~east thirty-six
+4857~2540~1~Sukho Thai
+4882~2631~1~Hothouse Restaurant & Bar
+4847~2668~2~The Berczy Tavern
+4975~2869~1~The Corner Place
+5112~2803~1~Bombay Palace Haute Indian Cuisine
+5373~2631~1~Yeti Kitchen
+5681~2374~1~Philthy Philly's
+5677~2355~1~Kabul Express Authentic Afghan Grill
+5632~2151~1~Burrito Boyz
+5660~1959~1~Jack Astor's
+5654~1954~1~Spring Sushi
+3222~-14375~1~Armenian Bistro
+3212~-14417~1~Swiss Chalet
+3963~-13747~0~Starbucks
+4974~1273~0~Tim Hortons
+3838~-13879~0~Tim Hortons
+8543~8479~1~Carter's Ice Cream
+4039~946~1~St. Louis Bar & Grill
+3905~1352~1~Pizzaiolo
+3912~1390~1~Swiss Chalet
+3917~1414~1~Golden Egg Restaurant
+3873~1419~1~Shoeless Joe's
+3946~1503~1~Wild Wing
+3995~1862~1~Popeyes
+4001~1902~0~Starbucks
+3989~1833~1~Pizza Pizza
+3957~1969~1~I Love Churros
+18049~-1545~1~Tehranto Persian Cuisine
+17000~13964~0~Tim Hortons
+17514~14318~1~Manchu Wok
+17533~14310~1~Subway
+4885~-4988~1~Lebanon Express
+1996~-12490~1~Swiss Chalet
+17652~16978~1~Pizza Nova
+17150~14709~1~Subway
+17518~14292~1~TASTE MRKT
+12707~7281~0~Tim Hortons
+16829~-1289~0~Starbucks
+18078~-1551~0~Tim Hortons
+6459~16~0~Starbucks
+6467~20~1~Mexican Tortillas Burritos
+5461~-188~1~Legenda
+4923~-5000~0~Fantail
+4186~-1211~2~King Rustic Kitchen & Bar
+18377~14673~0~Starbucks
+10129~-5242~0~Tim Hortons
+13699~-3734~1~Pizza Pizza
+18719~-1761~0~Coffee Time
+5041~4160~2~Mill St Brew Pub
+4976~4088~0~Balzac's Coffee
+4106~1340~1~The Rec Room
+4224~1666~1~Pita & Grill
+4232~1654~1~Panago
+4219~1638~0~Aroma Espresso Bar
+4240~1690~1~Subway
+13630~5608~1~Paramount Fine Foods
+13407~5442~1~Anejo
+13402~5523~1~Joey
+13480~5555~1~The Good Son
+13464~5377~1~Pizza Pizza
+13595~5583~0~Starbucks Reserve
+13425~5502~1~Rock'n Deli
+13595~5268~1~Congee Queen
+14708~20045~1~Guildwood Sandwich Shoppe
+14699~20000~1~Pizza Nova
+17532~14292~1~KFC
+6560~-6944~1~Chiang Mai
+5139~2338~0~Timothy's
+5203~2189~1~Subway
+5550~1962~1~3 Brewers
+5087~-3963~0~Tim Hortons
+12802~-271~1~Pizza Nova
+5669~1944~1~Subway
+5690~1943~1~California Thai
+5665~1925~1~Harvey's
+5656~1929~1~Pumpernickel's
+10947~129~0~Tim Hortons
+11103~93~0~Starbucks
+5413~1490~1~The Chestnut Tree
+5167~1785~0~Tim Hortons
+5296~293~0~Tim Hortons
+4338~-2349~1~Sushi Momo
+4326~-2402~1~Subway
+4604~-915~2~817 Sports Bar & Grill
+4924~-2138~1~Subway
+4699~-560~1~Pizzaiolo
+4448~80~1~Mademoiselle
+4495~309~1~Rodney's Oyster House
+4700~-437~0~Tim Hortons
+17009~2524~1~SunShine Spot
+4585~-4871~0~Sava Crepes & Coffee
+6746~1462~1~Miss Fu in ChengDu
+5600~-245~1~Big Fat Burrito
+5624~-254~1~Wanda's Pie in the Sky
+5618~-285~1~The Cottage Cheese
+5421~-18~0~Moonbean
+5431~-173~2~The Embassy
+7149~1506~1~Thaï Express
+10691~309~1~Evviva
+10713~278~1~Shake Shack
+10701~363~2~Fox and Firkin
+10690~345~1~Pho Anh Vu
+10785~625~1~Copacabana
+10813~747~1~Pita Lite
+10787~795~1~Popeyes
+8808~-1272~1~Subway
+7101~1743~0~Tim Hortons
+7179~2136~1~Maja Indian Cuisine
+7236~2233~1~Subway
+5891~4977~2~Eastbound Brewing Company
+5905~5027~1~Pizza Nova
+12274~16435~1~Dairy Queen
+14517~-663~1~Subway
+14765~-689~1~Swiss Chalet
+12871~-1840~0~Starbucks
+13020~-1859~1~Harvey's
+13145~-1950~1~Subway
+4903~1623~0~Bready
+6105~1720~1~Lebanon Express
+4881~1481~1~Cafe Landwer
+5469~-5931~1~Subway
+5485~-5188~1~Pizza Nova
+8359~10019~0~Fade In: Cafe
+8922~10359~1~Shirley Restaurant
+5038~1068~1~Korean Grill House
+5076~837~0~Thor Espresso
+5064~1180~1~Planta Queen
+4515~1611~2~The Loose Moose Tap & Grill
+4520~1628~1~Jack Astor's
+4566~1708~0~Mos Mos
+8917~12195~0~The Quarry Café
+4162~2243~0~Mos Mos
+16881~-1422~1~Trio 3
+7199~1215~1~Yorkville Crepes
+6779~1441~1~Shinyi Dumplings
+10624~1091~1~Pizza Pizza
+16300~10835~1~Subway
+16324~10899~2~Kornerstone
+10706~92~1~Sushi Shop
+10696~123~1~California Thai
+10701~120~1~Bourbon St. Grill
+10704~119~1~Pita Land
+10707~118~1~A&W
+10710~117~1~Jerk King
+10714~116~1~Jimmy the Greek
+10716~107~1~Subway
+10710~96~1~Bagel Shop
+10709~87~1~Mr. Pretzels
+17530~14257~1~McDonald's
+10712~264~1~Chef of India
+7096~1515~0~Le Gourmand Café
+4572~1766~1~Benihana
+4636~1690~2~Humble Donkey Lounge
+4622~1693~1~Bardi's Steak House
+4830~2225~1~Subway
+5464~990~1~Aaha
+5452~1102~0~Tim Hortons
+5454~1113~1~Mr. Sub
+5472~1050~0~Café Plenty
+6572~-788~1~Monkey Sushi Restaurant
+6571~-795~1~Souvlaki Place
+6562~-815~0~Simit-Chi
+6552~-825~2~Annex Billiard Club
+6556~-845~1~Mezcalero
+6575~-762~1~Future Bistro
+6574~-772~1~Brown Donkatsu
+6573~-781~0~M Chá Bar
+6590~-664~1~Myeongdong
+6588~-671~1~Indian Desire
+6643~-563~1~Wild Wing
+6641~-428~1~Majestic Shawarma
+6640~-437~1~Daily Dumpling
+6553~-875~1~Crafty Coyote
+6551~-882~1~EAT BKK
+6549~-889~1~Peace Resturant
+6546~-906~1~Gully
+6542~-918~1~Sushi on Bloor
+6507~-1080~1~Insomnia
+6505~-1098~1~Fancy Induced Burger
+6520~-1027~1~Shelby's
+6521~-1020~1~Kibo Sushi
+6929~1343~1~Korean Grill House
+6893~1356~1~Bingz
+6946~1337~1~Mogouyan Hand Pulled Noodle
+6949~1337~1~Oklahoma Brugers
+6856~1411~1~Da.si.mar Shawarma
+6762~1415~1~Monga Fried Chicken
+6710~1435~1~A BBQ House
+6680~1447~1~Sansotei Ramen
+6677~1448~2~CoCo Fresh Tea & Juice
+6673~1451~1~Shamshiri Restaurant
+6730~1427~1~Hey I Am Yogost
+6738~1425~1~The Diner's Corner
+7209~1416~1~El Gourmet
+7231~1280~1~Kiro Sushi
+6343~2742~1~Madras Curry
+5944~-2056~0~Olivia's Garden Cafe
+6025~-1541~0~Sam James Coffee Bar
+6055~-1509~1~Bike Joint
+3675~282~1~Maguro House
+4172~1307~1~le Grill
+6697~1197~2~The Foxes Den
+6792~1101~0~Aroma Espresso Bar
+6765~1163~1~Sushi on bay
+10620~1047~0~Timothy's
+7036~1164~0~Tim Hortons
+6097~1664~0~Treats
+7100~1758~1~Sushi Shop
+5329~1799~0~Mieluna Cafe
+5509~-5930~1~Pizzaville
+5461~-5975~1~Wings Up!
+5470~-5924~0~Cosette
+5581~1903~0~Second Cup
+6521~179~0~Second Cup
+7005~1090~0~Second Cup
+7017~1119~0~Holt Renfrew cafe
+7057~1365~0~Starbucks
+7016~1154~0~Starbucks
+6840~356~2~Proof
+6111~1718~2~Tiger Sugar
+6135~1898~1~Subway
+5331~1955~0~Starbucks
+5695~1940~1~Curry & Co.
+6467~1356~0~City Bakery & Cafe
+4876~907~0~Timothy's
+4860~905~1~Burger King
+4869~916~1~Pizza Pizza
+4866~908~1~New York Fries
+4881~896~2~Vivid
+7052~1723~1~Tahini's
+4846~2591~2~The Flatiron
+5112~2002~0~Tim Hortons
+4970~2126~0~Tim Hortons
+10713~122~0~Aroma Espresso Bar
+4292~2250~0~Second Cup
+6123~1742~1~Rolltation
+5563~1300~1~Druxy's Famous Deli
+5170~1681~1~Chip trucks
+4802~987~1~Pizzaiolo
+4620~796~0~Starbucks
+4762~812~1~Pita Pit
+4896~952~2~The Ballroom
+18388~10745~1~Pizza Pizza
+18363~10702~1~Burger King
+18868~16420~1~Golden Griddle
+4624~2117~1~Bagel Stop
+4623~1629~1~Subway
+5694~1919~1~Opa! Souvlaki of Greece
+7030~1475~1~Freshii
+6814~3107~1~Rashnaa
+7127~1487~0~Tim Hortons
+5679~1906~1~Chipotle
+5648~1840~0~Tim Hortons
+6521~1548~1~The Halal Guys
+4709~1734~1~Toronto-Dominion Centre Food Hall
+4716~1706~1~Eat Canteen
+19261~16118~1~Markham Station
+6790~1548~0~Treats
+5093~3076~1~The Chef's House
+5616~672~1~J&G Fried Chicken
+5116~1619~1~Shopsy's
+4785~1395~1~Cultures
+4999~1428~1~Ruth's Chris Steak House
+4846~1196~1~Burrito Boys
+4852~1226~1~Smoke's Poutinerie
+5302~-6841~1~360 Cooking Studio
+4189~-646~2~The Old York Bar and Grill
+8328~-1855~0~Bakery Garden Café
+7088~1545~0~Starbucks
+4364~1870~2~Booster Juice
+4368~1887~1~Pumpernickel’s
+4738~-370~1~Bangkok Queen Thai Street Food
+13489~5514~2~Teamendous
+13423~5462~1~Town Square
+6659~-578~1~Burrito Bandidos
+5874~1565~1~Panago
+16981~2735~0~Starbucks
+7096~1168~2~The Pilot
+6510~1916~1~The Cherie Bistro
+10572~212~1~The Keg
+6944~1462~1~Camros Organic Eatery
+6296~-327~1~Dreyfus
+6291~-349~0~Almond Butterfly
+13559~5240~1~Subway
+10797~698~2~The Harp Tavern
+5715~2642~1~MJ Curry Kitchen & Shawarma
+5815~2877~1~The Hunger Spot
+5655~2421~1~Kathy's Corner
+4556~633~1~Libra Lounge
+4692~1123~1~Dunn's Famous
+4640~1007~1~Pancho y Emiliano
+4637~865~1~King Street Social Kitchen Bar
+4640~1525~1~The Daily Plate
+4562~1356~0~Starbucks
+4599~1518~1~Lite Bite
+4536~851~1~Oasis Rooftop Lounge
+4572~1033~1~Milagro Cantina Mexicana
+2657~-10242~1~Pizza Pizza
+6100~1599~1~Freshii
+4771~356~1~Freshii
+4822~1088~2~Rock 'N' Horse Saloon
+4828~1111~2~Bar 244
+4802~997~2~Melrose on Adelaide
+6142~1632~1~W Burger Bar
+6134~1597~1~Fran's Restaurant
+6124~1379~1~Tosto
+5529~1522~0~Starbucks
+4979~1797~0~Pret A Manger
+5240~2024~1~Hot dog stand
+5104~1740~1~Shopsy's
+5031~1529~1~Estiatorio Volos
+5005~1485~1~Tundra Restaurant and Bar
+5558~787~1~Lazy Shack
+5349~1148~1~Druxy's Famous Deli
+5428~894~1~Pizzaiolo
+5016~1074~1~Subway
+2716~-7693~1~Eden Trattoria
+4570~2125~1~Druxy's Famous Deli
+4653~1046~1~Hot dog stand
+4836~1452~1~Freshii
+5035~2020~2~Jugo Juice
+4962~2047~1~Ninki Japanese Cuisine
+5027~2021~0~Second Cup
+4928~2058~1~Mio RistoBar
+4105~2195~1~Piazza Manna Restaurant & Bar
+4196~2414~1~Oyshi Sushi
+4168~2412~1~My Roti Place / My Dosa Place
+5012~1896~1~Turf Lounge
+5019~1893~1~Mercatto Restaurant
+5086~1866~1~Bluestone Grill & Bar
+5025~1570~1~Little Anthony's
+5094~1821~1~Subway
+6212~163~1~Spring Rolls
+5443~1899~1~Trattoria Mercatto
+4615~1289~1~Subway
+4641~1266~1~Jimmy the Greek
+4620~1285~1~Manchu Wok
+4609~1293~1~Pumpernickel's
+5019~1086~1~Touhenboku Ramen
+7039~-1344~0~Chaveta Coffee
+6624~-653~1~Blanco Cantina
+6959~-1336~1~El Pocho Antojitos Bar
+6315~-2198~1~Banjara Indian Cuisine
+7495~1147~1~El Tenedor Restaurant Bar
+6626~-643~1~Freshii
+4893~-2044~2~Bar Libretto
+4962~-2308~2~Hanmoto
+4571~-1073~1~Smoque N' Bones
+10978~146~1~Sip Wine Bar
+6871~6264~2~CoCo Fresh Tea & Juice
+6099~5902~1~Masa Deli
+7001~9918~1~Tiarré's Brunch & Bistro
+6869~9320~1~Ichiban Sushi
+6858~6078~0~Tim Hortons
+6797~5950~1~Pizza Pide
+6003~3399~0~Tim Hortons
+5726~-456~1~Lebanese Garden
+5993~839~0~18feet
+10053~-5194~1~California Sandwiches
+8528~8452~1~Pizza Nova
+6739~79~0~L'Espresso Bar Mercurio
+5905~868~1~Subway
+5901~872~1~Manchu Wok
+5899~880~1~The Poke Box
+4666~999~1~O&B Canteen
+19805~8209~1~Pizza Pizza
+4043~900~1~Mi Ne Sushi Japanese Restaurant
+4131~-1479~0~Starbucks
+3903~-2758~1~Wendy's
+4409~-565~1~Beast Pizza
+3990~-1960~0~Starbucks
+4844~2655~2~C'est What?
+3797~-2124~1~Liberty Village Market & Café
+16164~-922~1~Dum Pukht
+16180~-826~0~Slow Bite
+3828~-13887~1~Wendy's
+6310~354~0~Diabolos Coffee Bar
+6863~701~1~Dynasty Chinese Cuisine
+6154~1988~2~Mick E. Fynns
+6153~1828~1~The Original Hot Chicken
+6887~1138~0~Starbucks
+16855~-1240~1~Wendy's
+6963~519~1~Morton's Grille
+7117~591~1~Hero Certified Burgers
+10737~393~1~Kinton Ramen
+10739~1044~1~Pizzaiolo
+10751~982~1~Tzatziki
+10752~1040~1~Souvlaki Express
+6858~1075~1~New Yorker Deli
+5003~1079~1~Rudy
+4996~1082~1~Shah’s Halal Food
+5012~2934~1~Cora
+5506~1984~1~Paramount Middle Eastern Cuisine and Bakery
+10688~295~1~Pizzaiolo
+10698~351~1~Swiss Chalet
+10685~283~1~A&W
+6816~1267~1~Blue Claw Lobster Shack
+5819~976~0~Tim Hortons
+5809~890~1~Druxy's Famous Deli
+10363~212~1~Mia Brunch Bar
+10337~275~0~Sisters Café
+10104~306~1~Amico Eatery
+10822~160~1~Chipotle
+10914~133~1~Banh Mi Boys Sandwich Shop
+10973~123~1~Jollibee
+5567~1541~1~Hana Don
+5576~1581~1~You Don Ya
+5596~1897~2~Tanghulu Tanghulu
+5275~1974~2~Freshly Squeezed
+5310~1970~1~Kernels Popcorn
+6146~-941~1~Krispy Kreme
+5603~1675~1~Feta & Olives
+6995~671~1~Shogun Japanese Restaurant & Sushi Bar
+7350~1173~1~Crown & Dragon Restaurant
+8593~660~1~Capocaccia
+7250~1212~1~Fat Lamb Kouzina Homemade Greek Food
+7438~1195~1~Happy Burger
+7828~976~1~Pantry
+7852~1005~2~The Quail
+7890~951~1~Carens Rosedale
+8170~835~0~Boxcar Social
+7329~1174~1~BiBab Express Sushi & Rolls
+7233~1254~1~Burrito Boyz
+7237~1252~1~Lee Chen Asian Bistro
+16290~-1163~1~Armando's Authentic Italian Cuisine
+16419~-1128~2~HY Lounge
+16485~-1227~1~Moxie's
+16855~-1496~0~Centre Cafe
+16839~-1431~1~Villa Fruit
+16845~-1411~1~La Prep
+16848~-1397~0~Second Cup
+16854~-1366~1~Cafe Palma
+16555~-1226~0~Tim Hortons
+16450~-1209~1~Pizza Hut Express
+16441~-1203~1~Sushi One
+16281~-1159~1~Tandoori House Indian Cuisine
+16251~-1146~1~Lee Namjang Korean Restaurant
+4733~1731~1~Pumpernickel's
+4734~1708~1~IQ Food Co.
+4727~1702~1~Sultan’s Mediterranean Grill
+4704~1711~1~Jimmy the Greek
+4720~1705~1~KoHa Pacific Kitchen
+4698~1711~1~Wat-Ah Jerk
+7049~1322~0~The Grind
+6880~1157~1~Scaccia Simply Italian
+7014~1057~1~Pangaea
+6404~1335~1~Subway
+6464~1342~1~Ali Baba's
+6495~1512~1~Slay Fruits
+6554~1536~2~Machi machi
+6903~1389~1~Naan Kabob
+6910~1387~1~Ginger Vietnamese Cuisine
+6896~1392~1~all@ne
+6465~1504~1~Sushi Garden
+4590~1276~0~Tim Hortons
+4587~1259~2~Booster Juice
+4602~1267~1~Harvest Green
+4620~1237~1~Urban Appetite
+4594~1317~1~Soup Nutsy
+4622~1235~0~Au Pain Doré
+4819~1697~0~Neo Coffee Bar
+6848~1324~1~GBF Gourmet Burger Co.
+6812~1228~1~Sushi Club
+6813~1279~1~Okonomi House
+6847~1314~1~Exotic Tandoori
+7050~1138~1~Teriyaki Experience
+7040~1108~1~Shawarma Falafel Kebab
+7038~1087~1~Roasty Jack Cafe
+7048~1052~1~Club House
+7226~1258~1~Mamma's Pizza
+7543~1140~0~Spring Cafe Bistro
+7424~172~1~MIMI Chinese
+5782~42~1~GoGrill
+16849~1472~2~ELXR Juice Lab
+10755~168~1~Rolltation
+16863~1367~2~DavidsTea
+16853~1371~1~Il Fornello
+16844~1364~1~Thaï Express Elite
+16836~1367~1~Goa Kitchen
+16845~1375~1~Pearl Bayview
+8817~-1237~0~Cafe Landwer
+8880~-1254~0~Second Cup
+8897~-1302~0~Starbucks
+10193~246~1~Lola Sushi
+6855~1463~1~Constantine
+7164~1683~1~La Prep
+6924~1740~1~O Noir
+4960~819~1~Sushi Time
+4992~860~1~Holy Cow Steakhouse
+4948~891~2~The Friar and Firkin
+4925~892~1~The Sandwich Table
+4809~985~2~Town Crier Pub The Halfway Beer House
+4638~991~1~Hey Lucy's Wood Oven Pizza
+4459~1287~0~Tim Hortons
+4447~1298~1~Pumpernickel's
+4449~1307~1~Mr Souvlaki
+4477~1317~1~Amaya Express
+4469~1344~1~Green Curry Viet Thai Cuisine
+4458~1346~1~McDonald's
+4457~1336~1~Tebouli Middle Eastern Cuisine
+4455~1331~1~Manchu Wok
+4453~1327~1~Freshwest Grill
+4451~1315~1~Bourbon St. Grill
+4475~1342~1~Umi Sushi Express
+4446~1289~1~Piazza Manna
+4492~1367~2~Freshly Squeezed
+4794~1561~1~Tacos De Princesa
+4853~1785~1~Greenleafs
+4688~2113~1~Pumpernickel's
+4834~2096~0~Second Cup
+4977~2164~1~Pizzaiolo
+5121~2104~1~Mado
+4855~2533~2~Pravda Vodka House
+6865~1197~0~Elizabeth Kay
+7047~1039~1~Miznon
+10384~208~1~Ramyun Korean Snack Bar
+10091~308~1~Tabülè
+7569~-370~1~Martino Pizza & Asian Kitchen
+5890~592~1~Meet You
+5888~584~0~Second Cup
+5886~576~1~Lala Spicy Lab
+5883~561~1~Dear Saigon
+5538~1967~1~Asian Bowl
+6009~1772~2~Baroness Bubble Tea
+6306~1587~1~555 Boat Noodles
+6642~1252~1~Petit Potato
+5653~1720~1~St. Louis Bar & Grill
+5665~1635~1~Sushi Monkey
+5752~1588~1~KAKA All You Can Eat
+5853~1479~1~Bom Bibimbap
+6058~1535~1~Tandori Indian Cuisine
+6044~1529~0~Country Style
+6061~1553~1~Cultures
+4896~565~1~Famous BBQ Express
+4783~26~1~Java House
+6103~1258~1~The Sandwich Delight
+6712~-70~2~Chatime
+4715~1882~1~Michel's Baguette
+4783~1977~1~La Prep
+5380~2030~1~Ritz Caribbean Food
+4588~1884~0~York's Deli & Bakery
+10373~209~1~Juicy Dumpling
+17120~-1310~1~Evivva Restaurant Breakfast & Lunch
+6561~1283~1~Tokyo Sushi
+6642~1499~1~Sushi Kiwami
+5138~1710~1~Quesada
+5560~1505~1~Bapo Korean Cuisine
+6875~519~1~Pico
+5305~160~1~King's Noodle Restaurant
+5594~49~1~Krispy Kreme
+6998~1020~1~Sandwich Box
+7026~1000~1~Cafe Iris
+7062~991~1~Freshii
+7105~917~1~Dynasty Chinese Cuisine  (Last Straw Distillery)
+8889~-1261~1~What A Bagel!
+8893~-1263~1~Edo-Ko
+4793~2576~0~Café Moroc
+4793~2564~1~Fresh Kitchen + Juice Bar
+4798~2574~1~The Sultan's Tent
+7222~412~1~Zin Restaurant
+6045~1578~1~Druxy's
+6040~1589~0~Timothy's
+4147~2480~1~Alexandros
+5689~1012~0~Timothy's
+6064~1581~1~Subway
+4936~1756~1~Reds
+4348~1962~1~Aria
+4943~2276~2~Beer Bistro
+4897~2255~1~Villa Madina
+5512~1388~1~Nene Chicken
+5488~1279~1~Ali Baba's
+5476~1283~1~Wah Too Seafood Restaurant
+18943~-1721~1~Pizza Hut Express
+8860~-1235~1~The Village Chill
+8251~-1986~1~Thai Noodle
+8290~-2073~1~Albert's Real Jamaican Foods
+4666~2503~1~The Keg
+4691~2560~1~The Old Spaghetti Factory
+4705~2591~2~Scotland Yard
+6008~1253~1~Mercatto
+6569~-914~1~Sushi Coulture
+6415~1993~1~Pizzaiolo
+6430~1554~2~Charles Tea
+5179~1871~1~Bannock Canadian Comfort Food
+5992~2128~1~Pizza maru
+5989~2112~1~Katsuya
+6297~2042~2~Hair of the Dog
+6389~2003~1~Express Pizza
+6500~1953~0~Starbucks
+4730~1296~1~Empire Supper Club
+4737~1329~1~Oniwa Sushi
+4737~1336~1~Lee Chen Asian Bistro
+5866~4987~2~The West Cork
+11252~850~1~The Homeway
+4258~2002~2~Real Sports Bar & Grill
+4967~2375~1~Big Smoke Burger
+3867~1000~1~Porticello Restaurant
+5033~1923~1~Katana on Bay
+11336~3~1~Sorn Thai Restaurant
+4858~2547~1~The Resevoir Lounge
+4847~2499~1~Uncle Tony's
+4846~2494~2~Power Up Game Bar
+5667~1616~1~Rex's
+5140~2062~1~Yulla Sushi Asian Cuisine
+4349~2409~1~Subway
+4341~2412~1~Kibo Sushi House
+4328~2417~1~Mama Lee's Korean Kitchen
+7739~1049~2~House of Tea
+4884~3128~1~Bellissimo
+7105~1598~1~Sunset Grill
+7104~1609~1~Mad Radish
+7105~1614~1~Yuzuki
+4936~1981~0~Aroma Espresso Bar
+11302~56~1~Melani - Modern Greek
+14708~-766~1~Auberge du Pommier Restaurant
+5178~2197~1~Portico
+4993~2515~1~Freshii
+4987~2487~1~St. Louis Bar & Grill
+5035~2392~1~Carisma
+4964~2362~1~Swaagat
+4955~2336~1~Pita Lite Shawarma
+6154~-906~1~Bampot
+19885~8130~1~Burger King
+8369~755~1~Popular Chinese Diner
+8359~759~1~Domino's
+5222~-4801~0~Blue Bird Bar
+6318~1372~1~Sweetpepper
+5897~1520~1~Subway
+7761~1004~0~The Alaska
+7765~1001~1~The Rebel House
+7468~1117~1~Rollstar Sushi
+7451~1123~1~Tao Tea Leaf
+8647~639~1~Sunny Morning
+8633~645~1~Boccone Deli & Pizza Bar
+7199~1472~1~Pizza Hut Express
+7033~1738~2~The Bishop and the Belcher
+6657~2365~1~Subway
+6664~2395~0~Red Rocket Coffee
+4380~895~1~Food Emporium
+4307~815~1~Pizza Nova
+4645~1016~0~Second Cup
+5528~1338~1~Bloom
+5770~1830~1~Salad King
+14622~-906~0~Tim Hortons
+8260~801~1~Wylie's
+10127~261~1~Echo Sushi
+10216~242~1~Mariachi's Mexican Cuisine
+10797~1027~2~Granite Brewery
+10722~324~1~Fit For Life
+10790~662~1~Bindaz Biryani’s
+10793~678~1~Rudy
+10794~684~1~99 Sushi
+10828~839~2~Sweet Shady Shack
+10717~996~1~Smoke Show BBQ & Brew
+10663~1072~1~Bolan Thai Cuisine
+4003~588~2~Fox and Fiddle
+4101~640~1~Liberty Shawarma
+7838~972~0~Mit Far Art Cafe Gallery
+8408~789~1~Brownes Bistro
+10267~292~1~Zezafoun
+6459~-242~1~Bhoj Indian Cuisine
+6319~-244~1~Pig Out BBQ
+7571~-363~1~Chilliy Pepper Tacos
+10222~241~1~Kadak Vibrant Indian Cuisine
+10152~295~1~Namil Korean Food
+10157~294~1~Little Sister Indonesian Food Bar
+10211~284~1~Hokkaido Ramen Satouka
+5482~1254~1~University Food Court
+5483~1260~1~Rolltation
+5486~1271~2~Cha Miao²
+5494~1307~1~Hong Shing Chinese Restaurant
+5496~1319~0~Uslurp Noodle
+5497~1323~1~Bigbelly Greek Street Food
+5498~1329~1~Mom's Pan Fried Bun
+5501~1345~1~Indian Biriyani House
+5506~1367~1~VegeDelight Restaurant
+5504~1357~1~Gyugyuya
+5505~1363~1~Evergreen Thai Restaurant
+5522~1474~1~Yueh Tung Restaurant
+5587~1814~1~Joey
+10065~313~1~Pasta Pantry
+12811~-1817~1~La Bamboche
+10741~96~1~Pickle Barrel
+4617~2026~1~Harvey's
+6866~257~0~Starbucks
+4757~2398~1~Fran's Restaurant
+4761~808~1~Ravi Soup
+4819~1076~1~Fat Bastard Burrito
+4443~1461~1~Azure Restaurant & Bar
+4958~1348~1~Green Box
+4203~2157~1~Harbour Sixty Steakhouse
+6064~-51~1~VEDA
+5614~40~1~New Ho King
+8557~8472~0~Circus Coffee House
+4985~2594~2~Score on King
+5049~2385~0~Young Cafe
+5026~2360~1~Mr. Sushi
+5034~2356~1~TSB 2000
+5041~2355~1~Omg! It's Yogurt
+5047~2385~1~Don Alfonso 1890
+5090~2291~1~Sansotei Ramen
+5094~2310~1~Pumpernickel's
+3970~-13750~1~Donatelli’s Pizzeria
+3974~-13753~1~Pho House
+7121~1491~1~Salad Days
+5676~1954~1~Bubble Tease
+5662~1947~0~Bagel Stop
+5675~1936~0~Timothy's
+5656~1937~2~Jugo Juice
+5518~1975~1~Khazana
+4327~59~2~Bar Wellington
+4779~2389~1~BiBab Express Sushi N Rolls
+4746~2374~1~Biff's
+10815~756~1~Panago
+4761~438~2~Wide Open
+6222~2315~0~Tim Hortons
+4524~-12326~0~Tim Hortons
+7376~-6272~1~Pizza Pan
+4825~355~0~Le Gourmand
+5098~-5068~1~Konia Kitchen & Bar
+5070~-5058~1~CKB
+5099~-5101~2~The Local
+5123~-5079~1~Darna
+15796~-968~1~Pizza Nova
+4892~2478~2~Pat Quinn Lounge
+4896~2500~1~Woods
+4901~2521~1~Chadani
+5077~2416~1~Nami Japanese Restaurant
+5121~2436~0~Treats
+5387~3892~0~Morning Glory
+10595~1058~0~Starbucks
+5128~1088~1~Ema-Tei Authentic Japanese Food
+6067~5863~0~Mercury Espresso
+4861~2696~2~Duke's Refresher
+17358~11714~1~Sunset Grill
+10835~876~1~Joanne's Deli
+10099~307~0~Rachel's Coffee House
+17146~14730~1~St Andrews Fish & Chips
+10910~134~1~The Mars Diner
+16181~-1131~1~McDonald's
+7151~1487~1~Subway
+7158~1498~1~Villa Madina
+4236~2268~1~Bar Butcher
+4264~2256~2~The Fox
+11143~83~1~Kibo Sushi + Izakaya
+11345~43~1~Impact Kitchen
+11148~83~1~good bite Restaurant
+2466~-10821~0~Starbucks
+2445~-10941~0~Tim Hortons
+7164~1281~0~Coffee Balzac's Roasters
+2245~-12122~1~Burrito Boyz
+2230~-12194~1~North of Brooklyn Pizzeria
+2110~-12306~1~Mandarin
+7255~1210~1~Randy’s Roti & Doubles
+2577~-10437~1~Hi-Na
+2603~-10326~1~Bua Thai
+2625~-10235~1~Pizza Nova
+2598~-10351~1~Il Bunji
+2596~-10356~1~The Queensway Bistro
+2581~-10424~1~Corazon Agave Mexican Cuisine
+2594~-10363~1~Posticino Ristorante
+4963~828~1~Chipotle
+4340~3393~1~IRENE Restaurant
+5510~1479~1~Japango
+2585~-10403~1~Pastucci's
+2109~-8318~1~Fresh Pizza Plus
+2232~-12187~1~Viva Sub
+2238~-12155~0~Europa Caffe
+2233~-12179~1~Paparikoo Shawarma
+5065~314~0~Dark Horse Espresso Bar
+5106~302~1~La Taqueria
+3918~1436~1~Indian Roti House
+10708~402~0~Formocha Bubble Tea House
+10704~383~1~Affrien Infian Restaurant
+1513~-15739~1~Via Allegro Ristorante
+3540~-6615~1~Al Pa Cones
+10858~146~2~The Rose and Crown
+10979~118~1~Gino's Pizza
+17528~6949~1~Umami House
+2517~-10876~1~Don Chon
+2532~-10807~1~Shawarma Grill Xpress
+2527~-10833~1~Dino's Wood Fire Pizza
+2522~-10851~1~Momo2Go Himalayan Kitchen
+2508~-10916~2~Galway Arms
+2446~-11193~0~Cavallino Sports Cafe
+2500~-10950~1~The Blue House Cucina
+2490~-10994~1~Kaji Japanese Cuisine
+2433~-11243~1~Best Portuguese Chicken
+2442~-11206~1~Ragu Scratch Pasta
+2243~-12136~1~Scottybons Caribbean Grill
+2289~-11955~0~Buno Giorno Caffe & Panini
+2276~-11991~1~Souvlaki Place
+2173~-12459~1~Queensway Fish and Chips
+2166~-12493~0~Plaza Cafe
+2146~-12541~1~Cantonese Gourmet Chinese Food
+3876~1972~0~Tim Hortons
+2096~-12451~1~Spoon & Fork
+5017~3181~1~On the Rocks
+12420~-5395~0~% Arabica
+12494~-5398~0~Marry Me Mochi
+4389~1213~0~Second Cup
+4981~3946~1~The Fermenting Cellar
+5699~1899~1~Five Guys
+4684~1998~0~Tim Hortons
+10602~-253~0~Café Dinah E.
+12402~-5388~1~Joey
+6779~1488~2~The Artful Dodger
+4731~2107~1~Impact
+5192~-7350~0~Tim Hortons
+4773~482~0~Dark Horse Espresso Bar
+10524~227~1~PI CO. Pizza Bar
+8629~8914~0~Tim Hortons
+11375~-3~1~Sushi Shop
+5100~1718~1~Quinn's
+4697~1143~1~Shoeless Joe's
+5069~4076~1~El Catrin
+4989~4005~2~IZUMI Brewery - Ontario Spring Water Sake
+4857~1257~1~The Burger's Priest
+6465~167~1~Exchange Cafe
+7522~-588~0~Ezra's Pound
+5439~839~2~Village Idiot Pub
+3930~1509~1~Ice Creamonology
+3595~-14083~1~Taste of Thailand Cuisine
+5148~2049~1~Richmond Station
+6495~3192~1~Rayah
+7432~1120~0~Coffee Lunar
+6638~-583~1~Sushi Maido
+6664~-458~1~Zaad
+6630~-618~1~St. Louis Bar & Grill
+6419~-1497~1~Grillies
+6636~-590~1~So Famous
+6628~-627~1~Vietnam Lovely Noodle
+4110~-3483~1~The Momo House
+4490~-12170~1~Gojima Japanese Restaurant
+4495~-12149~1~Pizzaiolo
+4472~-12241~1~Pizza Pizza
+4498~-12130~2~The Squire and Firkin
+4484~-12192~1~Sushi Run
+4463~-12275~1~Vintage Thai
+4496~-12141~1~Kenzo
+5167~-7452~1~Souvlaki Hut
+14454~-618~1~Druxys
+14475~-587~1~Thaï Express
+14484~-626~0~Tim Hortons
+14476~-603~1~Chicken Quarter
+5463~3580~1~241 Pizza
+5898~4956~1~Prohibition Gastrohouse
+6619~-684~1~Fresh Kitchen + Juice Bar
+4795~1610~0~Sam James Coffee Bar
+7999~942~1~Bar Centrale
+5552~-1296~1~BellyBuster
+17319~-1410~1~Kim's Table
+11374~3495~0~Tim Hortons
+5383~2167~0~Tim Hortons
+4947~1367~1~Momofuku
+5015~-1735~0~Morning Parade Coffee Bar
+6553~1431~2~Bar Volo
+11081~97~1~Osmow's
+11063~102~1~Twilight Cafe
+5724~1586~1~Eggsmart
+3605~-14072~1~Kebab 49
+5725~1851~1~Dave's Hot Chicken
+16159~-1153~1~Taco Bell
+15918~-1078~1~Hero Certified Burgers
+18187~-1554~1~Hot Dog Stand
+5873~1893~1~Cafeteria
+6167~1365~1~Nando's
+4944~2932~1~Big Pita
+16829~-1430~1~California Thai
+965~-14726~0~Mijanéaux
+6021~2236~1~Bocconcini Pizza and Wings
+6006~2183~1~Som Tum Jinda
+4926~1830~0~Starbucks
+7051~1541~0~Presse Café
+5581~2094~1~Jazz Bistro
+6168~1907~2~Thirty Bar and Lounge
+6063~720~0~Starbucks
+6066~756~1~Food court seating
+6957~530~1~Annona Restaurant
+7110~899~1~Dynasty Chinese Cuisine
+7085~901~2~Salutè Piano & Wine Bar
+7105~890~1~Trattoria Nervosa
+7115~923~1~Utsav Indian Cuisine
+7075~903~1~Vaticano Ristorante
+7096~895~0~Zaza Espresso Bar
+6156~1312~0~Tim Hortons
+5821~1807~1~McDonald's
+4874~306~1~Banh Mi Boys
+4845~2798~1~Market Street Catch
+6543~-344~1~Pita Land
+5507~31~1~Hot Beans
+5654~1941~2~Shark Club Sports Bar Grill
+4786~2662~1~Amano Trattoria
+6525~-1239~1~Pizzaville
+17213~6777~0~Sunny Coffee Shop
+17302~6692~1~Lara's Restaurant
+16716~3157~1~IKEA Restaurant
+18678~-1776~1~Taksim Doner
+18669~-1773~1~Alborz Restaurant
+18931~-1714~0~Tim Hortons
+18899~-1830~1~Ajuker Fried Chicken
+4539~386~1~Vinny
+4554~359~1~Patria
+11018~3723~1~Sunset Grill
+11040~3818~1~South Street Burger
+11053~3890~0~Starbucks
+4982~-3696~2~Wallflower
+4973~-3536~2~The Bad Angel
+4969~-3513~2~Pinot Grouchio's
+4230~1646~1~Taco Del Mar
+4994~-3400~1~Bairrada Churrasqueira Grillhouse Express
+4963~-3456~1~Lula Lounge
+4997~-3534~2~Baby G
+4968~-3482~1~Pinata Tacos
+4968~-3475~1~Four Aces Snack Bar
+4952~-3153~0~Four Stars Café
+15892~-999~1~Eggsmart
+3867~-1945~0~Balzac's Coffee
+3897~-1766~1~Nodo Liberty
+3904~-1747~0~Aroma Espresso Bar
+3916~-1736~1~Panago
+3844~-1723~2~Brazen Head
+3927~-1432~0~Hello Coffee
+5241~2708~0~Fahrenheit Coffee
+9602~-4798~1~Blue Nile Bar & Grill
+9650~-4724~1~Church's Chicken
+8224~-2382~1~JABS
+7079~-7311~1~Halibut House
+8339~-1861~1~Pizza Del Arte
+4335~2414~1~Mr. Pizza
+4609~-2317~1~Pizzeria Badiali
+4713~-2392~1~Julie's Restaurant & Bar
+4818~1597~1~Earls
+4667~342~1~Craft Kitchen
+4562~654~1~Thai Princess
+4817~419~1~Fusaro's Kitchen
+4423~-59~1~WVRST
+4191~-1169~1~Pizza Nova
+18747~-1716~1~Ave Seoul Restaurant
+17741~-1520~1~Kayagum
+7446~330~1~Cantine Bistro + Bar
+7436~334~1~Osteria Giulia
+7378~406~0~Seven Grains Expresso Bar
+7378~355~1~Dyne
+6034~-1495~1~Le Petit Chef
+6557~-6892~1~Carmelitas
+6558~-6938~1~North of Bombay
+4165~2404~0~Tim Hortons
+4824~2149~1~Jump
+4978~3550~0~St. Lawrence Cafe
+6246~6574~1~La Paella
+6184~6239~1~Slowhand Sourdough Pizza
+6177~6259~1~Soy Boys
+5127~3232~1~Subway
+6065~5855~1~Ramona's Kitchen
+5736~-10~1~Subway
+4519~429~0~SOMA chocolatemaker
+5748~1002~0~Second Cup
+5847~1128~0~Starbucks
+5741~956~0~On the Way Café
+6504~1694~2~Fox and Fiddle
+5769~966~0~Tim Hortons
+5604~2161~1~PomAnar Grill & Juicery
+5659~1921~0~Tim Hortons
+5667~1936~1~Yoyo's Yogurt Cafe / Poptopia
+6280~-278~1~Kokoro Japanese Sushi House
+6161~-865~1~Pizza Nova
+6206~-647~1~Blondie's Pizza
+6214~-612~0~Pedaal
+6152~-920~1~La Diperie
+6169~-832~1~Pizza Gigi
+6263~-355~1~Magic Noodle
+4556~1302~2~Ritz Bar
+4637~1524~1~Moxie's
+5627~2245~1~Hokkaido Ramen Santouka
+6337~1280~0~Second Cup
+5999~470~1~Veda
+5764~1190~1~Blue Fig Middleterranean Restaurant
+5757~1192~1~Soup it Up
+5754~1196~0~Tim Hortons
+4740~366~1~Pi Co.
+6852~1331~1~7 West
+5396~-199~2~Burdock Brewery
+5432~-209~1~Hungary Thai
+5513~54~0~Sadie's Juice Bar
+5468~826~2~Sin & Redemption
+5679~-311~1~Toritos Tapas Bar
+5514~-352~1~Valentina
+4583~-1143~0~Nadège Patisserie
+5705~1831~1~Almadina Bistro
+18113~-1601~0~Tim Hortons
+5539~1676~0~Tim Hortons
+13410~-3301~0~Starbucks
+5026~1503~1~Rosalinda
+4825~2645~2~D. W. Alexander
+5221~1606~1~Hero Certified Burgers
+5517~1626~0~Aroma Espresso Bar
+5546~1572~1~Top Hot Pot
+5545~1555~1~Denny's
+4954~3406~1~Shawarma House
+4960~3407~1~Miyaki Sushi
+4964~3403~1~Pizza Nova
+4953~3434~1~Subway
+8079~11707~0~Tim Hortons
+3715~-25~1~Subway
+5699~-596~1~Beyond Banh Mi
+6954~-8223~1~Miss Pho Express
+6890~-8334~1~Las San Sivar
+5003~-3952~1~Acute Pizzeria
+4974~-2971~2~The Loveless Cafe
+7341~-7274~1~Victory's Kitchen
+5206~-4762~1~Café Phố Nhỏ
+18074~-1625~2~Booster Juice
+18072~-1680~1~Fit for Life sandwich bar
+18043~-1653~1~Piazza Manna
+18079~-1674~1~Pumpernickel's
+18081~-1659~1~Soly's Grille
+18014~-1646~0~Timothy's
+5082~1100~1~Atomy
+6902~1490~1~Tokyo Kitchen
+18942~14240~1~Subway
+18362~14699~1~Mr. Sub
+18691~14220~0~Tim Hortons
+6493~-1097~1~George's Deli & B.B.Q.
+5212~-246~1~Greens Vegetarian Restaurant
+5343~363~2~Ten Ren's Tea
+5611~761~1~Seoul Gamjatang
+18334~-1682~1~JungSooNae
+5695~-615~1~Domino's
+5698~-603~0~Thindi
+5704~-570~2~Cloak and Dagger
+5710~-537~1~The Hogtown Vegan
+5719~-496~1~Tagpugan
+5721~-486~1~Pho Ha Noi
+5732~-425~1~Sue Fung's Dimsum Canteen
+5756~-320~0~Second Cup
+5730~-264~1~Nora
+5764~-262~0~found
+5768~-238~1~Taste Bender
+5770~-232~0~Cups
+5772~-221~1~old.k
+5782~-173~1~Fresca Pizza & Pasta
+5784~-166~2~FreePlay
+5659~2016~1~Jack Astor's
+5885~1785~1~Ikkousha Ramen
+5881~1786~0~Cotti Coffee
+5787~63~1~Shawarma Max
+4257~2432~1~Firkin on Harbour
+5624~930~1~Bread & Bowl
+5377~927~1~Thai Bright
+5369~929~1~Pho 369
+5482~1057~1~Yo Döner
+5395~915~1~The Fresh Italian Eatery
+5356~951~2~Black Mill Tea
+5382~925~1~Tasty Chinese Food
+5368~919~1~Karine's
+5373~928~1~Jaffna Street Food
+5341~930~1~Wafflian
+5355~925~1~Manpuku
+5348~944~1~Popeyes
+5367~908~0~Coffee Exchange
+5369~915~1~La Sani Grill
+5381~912~1~Sushi Cafe Bon Gung
+5376~917~2~Fruiteao
+5380~897~1~Village by the Grange
+5375~907~1~The Bowl Korean Food
+5376~898~1~Kezy Döner
+6586~-827~0~Cong
+5331~1811~1~eggspectation
+5333~1859~1~hot dog stand
+8289~-1860~1~Harvey's
+8292~-1849~1~Osmow's
+8276~-2116~0~Tim Hortons
+5613~769~1~St. Louis Bar & Grill
+19186~15043~0~Tim Hortons
+6551~-6480~1~A&W
+6067~1524~0~Second Cup
+7377~-6267~1~Pita & Grill
+11051~3619~2~The Leaside Pub
+2451~-10856~1~DQ
+12133~2340~1~Extreme Pita
+12141~2347~1~On the Go
+12127~2342~1~Pizza Pizza
+12138~2355~0~Second Cup
+12138~2340~1~Swiss Chalet
+4976~2879~1~bgood
+13967~-3420~1~Paese
+8256~-1999~1~Pizza Pizza
+7553~-1039~1~La Dolce Vita
+7563~-1046~1~Subway
+7568~-1051~0~Treats
+4553~-1133~1~Noce Restaurant & Bar
+4388~-1934~0~Tim Hortons
+4094~-3430~1~Daol Korean Restaurant
+6538~1509~1~Souliouse
+2089~-11498~0~Tim Hortons
+3959~154~0~Tim Hortons
+17408~5964~1~Tekka Sushi
+4716~-13049~1~Pizza Depot
+11517~-4716~1~Yummy Tummy Bar & Grill
+17383~5967~1~Iqbal Kebab
+17380~5936~1~Subway
+6769~747~1~Ned's Cafe
+4496~1672~1~Chipotle
+4491~1656~0~Starbucks
+7165~2117~1~Banh Mi
+4829~2805~0~Balzac's Coffee
+4871~2786~1~Anejo
+6027~3386~1~Gorkha Palace
+5995~3732~1~Cafe Zuzu
+16877~-1192~0~Second Cup
+6848~1413~1~Twilight Cafe
+5115~2107~0~Dineen Coffee
+10474~-575~1~The Burger Shack
+6143~1923~1~Pita Way
+5044~1859~1~Sweet Lulu
+4017~674~0~Starbucks
+4986~2921~1~Popeyes
+4296~1764~1~iQ Food Co.
+5835~10~1~Smoke's Poutinerie
+4817~980~2~The Office Pub
+5097~3090~1~Patrician Grill
+4984~1705~1~Hy's Steakhouse
+4777~2949~0~Tim Hortons
+4843~268~1~Chibap
+11199~76~2~The Right Wing Sports Pub
+11250~90~1~Ariete e Toro
+5873~4890~1~Pizza Pizza
+4684~2545~2~The Tilted Kilt
+4695~2571~2~Amsterdam Bicycle Club
+4398~1066~0~Starbucks
+13489~5615~1~Chick-fil-A
+5177~2718~1~Triple A Bar
+4591~-4873~1~The Friendly Thai
+5405~124~1~Taste of China Seafood Restaurant
+5700~4~1~A Sezchuan Restaurant
+5655~21~1~Hungking
+5567~-229~1~The Burgernator/Kensington Market
+5667~-272~0~Cafe Pamenar
+5441~-212~1~Pancho y Emiliano
+5589~-249~0~Rick's Cafe
+4784~1129~1~Pai Downtown
+4635~986~1~Kit Kat Italian Bar & Grill
+4038~2173~1~Church's Chicken
+4268~1615~1~SOCO Kitchen + Bar
+4850~2976~1~Farm’r
+5457~-132~0~Jimmy's Coffee
+4526~-21~0~Jimmy's Coffee
+5848~1444~0~Jimmy's Coffee
+6727~2675~1~Mr. Jerk
+17498~5373~0~Tim Hortons
+4843~1503~1~Pizzeria Libretto
+5544~66~1~Rol San
+4869~267~1~My Roti Place
+18343~14709~1~Cora
+18356~14703~1~Teriyaki Experience
+4698~491~0~Tim Hortons
+4544~203~1~Jacobs & Co. Steakhouse
+4512~388~1~MARBL
+5571~1560~2~M Chá Bar
+4498~1243~1~7 Wonders Fine Foods
+4544~1223~1~Sunset Grill
+5817~2731~1~George's Pizza
+4289~1730~1~TAVERNA mercatto
+4288~1606~2~Char No. 5 Whisky Bar
+4269~1632~1~SOCO TO GO
+5177~3454~0~Rooster Coffee House
+11632~-4688~0~Tim Hortons
+7118~2484~1~Chae's Chester Fried Chicken Express
+7115~2506~1~Mahal Kita Restaurant
+7216~2293~1~Pita Land
+7234~2215~1~Fat Bastard Burrito
+7232~2206~1~Pizzaiolo
+7138~2172~1~Caribbean Taste
+17626~16564~1~Haka legend
+17602~16480~1~Popeyes
+17619~16474~1~Burger factory
+17633~16469~0~brand=Chatime
+17620~16598~0~Coffee Culture
+17631~16579~1~So Into Cupcakes
+6826~1818~0~Church Street Espresso
+19202~14899~1~Babu Catering
+4790~2627~1~The Place
+4796~2624~0~Tim Hortons
+4978~2888~2~The Jason George
+4464~397~1~Brassaii
+4433~379~2~SPiN
+5430~907~1~The Katsu & Salmon
+5060~4213~1~Cluny
+5063~4244~2~Old Flame Brewing Company
+5664~4380~0~Tim Hortons
+5356~3905~1~Gilead Café + Wine Bar
+3998~327~1~Hunters Landing
+5901~1666~1~Duke's Refresher + Bar
+4818~508~1~Cheffry's Bistro
+4775~450~1~CJ's Lunchbox
+4561~642~2~Bar Hop
+4489~1398~0~Starbucks
+4718~456~1~Pizzaiolo
+5096~-3944~1~Papa John's
+4154~1669~1~Evviva
+5256~-3311~1~Tavoos Restaurant
+5118~-4030~2~Euro Sports Bar & Cafe
+5050~-4034~1~Subway
+2685~-10108~1~Hoailuong Vietnam Restaurant
+2717~-10019~1~Mr. Sub
+2524~-10837~1~Bun-Mi
+2697~-10054~1~The Mad Stacker
+2492~-10984~1~Papa John's
+2399~-11404~1~Rocco's Pizza & Pasta
+2313~-8281~0~Starbucks
+14686~19091~2~Stone Cottage Pub
+4713~461~1~Yuzuki Fish Market
+4796~-4952~1~Barque Smokehouse
+4871~-4980~1~Pizzeria Defina
+5824~6096~1~Gales Snack bar
+3234~-14546~0~Tim Hortons
+3623~-457~0~Parisco Cafe
+4314~-202~1~Hibachi Teppanyaki & Bar
+5464~-5961~2~The Mugshot Tavern
+2419~-8436~0~Avenue Cafe + Bistro
+5273~2282~1~Druxy's Famous Deli
+4327~1709~1~Thaï Express
+4316~1714~1~Buster's Sea Cove
+4324~1694~0~Starbucks
+4292~1714~1~Sushi Shop
+9097~10996~1~Redhot Bangladeshi Restaurant
+9089~10951~1~Padma Restaurant
+5237~2478~1~Makilala
+5162~2510~1~Gyu-Kaku
+5094~1633~0~M Square Coffee Co.
+5144~1714~1~Noodle King
+4131~2172~1~A&W
+4136~2181~1~Shanghai 360
+3991~285~1~Fort York Tavern
+3997~1873~1~Blaze Burger
+3760~671~0~Music Garden Cafe
+3975~1734~1~Shatter Abbas
+3993~1853~1~CSK
+6689~3078~2~Alice's Place
+3852~1746~1~Lakeside Local Bar & Grill
+4119~2173~1~Fast Fresh
+4130~2165~1~Jimmy the Greek
+4133~2176~1~Kupfert & Kim
+4123~2185~0~Tim Hortons
+4117~2188~1~Villa Madina
+4114~2175~1~freshwest grill
+4125~2154~0~Starbucks
+4109~2177~1~Subway
+4110~2190~1~Szechuan Express
+4105~2180~1~piazza manna
+6773~5678~1~The Real Jerk
+4894~1648~1~Food Exchange
+4719~1577~0~Tim Hortons
+4736~1580~1~Modern Wok
+4695~2146~1~Thai Island
+5766~1891~0~Starbucks
+4686~2104~1~Subway
+5146~1732~1~Hero Certified Burgers
+5147~1739~1~Teppanyaki Grill
+5141~1708~1~Mr. Souvlaki
+4813~2143~0~Mos Mos
+6772~416~0~b espresso bar
+5223~2037~0~Starbucks
+4422~-39~1~Lee Restaurant
+4425~-30~1~Lou Dawgs
+4427~-17~2~Ruby Soho
+4440~41~1~Big Smoke Burger
+4439~35~1~Public Gardens
+4444~61~1~Alpha’s Shawarma
+4442~51~2~2 Cats Cocktail Lounge
+5054~1635~1~Bagel & Co.
+5038~1640~2~DavidsTea
+5034~1678~1~FreshWest Grill
+5040~1674~1~Indian Briyani House
+5033~1672~1~Piazza Manna
+4965~1658~0~Starbucks
+5032~1664~0~Tim Hortons
+5043~1653~1~Chefs Hall
+6670~1423~1~Ethiopian House Restaurant
+5694~4084~2~Los Gyros
+4449~1093~1~South Street Burger
+13428~5636~1~Rosie’s Burgers
+13520~5605~1~Chipotle
+6123~6152~0~Pilot Coffee Roasters
+5555~1858~1~Urban Eatery
+6528~3179~0~Jet Fuel Coffee
+5798~4696~1~il ponte
+13468~5451~0~Danish Pastry House
+13370~5547~2~Bier Markt
+13360~5510~1~Nomé Izakaya
+13667~5520~1~Eataly
+6546~-793~1~The Green Room
+4567~1117~1~Harvest Green
+3941~-2072~2~The Craft Brasserie & Bar
+4805~424~2~Wings & Beer Sports Bar
+6515~-6429~1~Carnival
+4693~-1742~0~Two Penny Café
+2657~-7716~1~Firkin on the Bay
+2640~-7719~0~BB Cafe
+5630~34~1~Canton Chili
+2707~-7711~0~Gravity Pizza Cafe
+8136~-1743~1~Urban Fare Catering & Food Shop
+5856~1491~0~Tim Hortons
+4871~288~1~Popeyes
+5138~1752~0~la prep(closed)
+5045~1671~1~Shanghai 360
+5142~1723~1~Shops at Sheraton Food Court
+4750~1738~2~Jugo Juice
+4731~1897~1~Noodles
+4740~1902~0~Starbucks
+4698~1740~1~Thai Island
+4998~2405~1~Pizzaiolo
+4617~1274~1~Metro Concourse
+4438~1684~0~Balzac's Coffee
+4798~1802~0~Tim Hortons
+4325~1673~0~Tim Hortons
+4303~1719~1~South Financial Core Food Court
+4309~1717~1~Z-teca Gourmet Burritos
+9436~12415~1~Swiss Chalet
+9448~12303~1~Dairy Queen
+4671~1994~1~The Eatery
+4802~2102~1~Commerce Court
+4095~2183~0~Aroma Espresso Bar
+3834~1938~1~Pearl Harbourfront Chinese
+3833~1944~1~Mr Souvlaki
+3833~1939~1~Edo Japan
+4318~1667~1~Freshii
+3824~1935~1~Pie Bar
+7084~-7313~1~Tahini’s
+7071~-7308~1~Mary Brown's
+4766~2953~1~Pizza Hut Express
+17852~16791~1~Scarborough Buffet
+2455~-11153~1~Sushi 2 Go
+2377~-11120~1~The Pie Commission
+944~-14906~1~Lika Bar
+993~-14925~1~Mazeed Shawarma & Chicken
+3791~-1896~0~Tim Hortons
+8896~10248~1~Popeyes
+8876~10254~1~Mr. Tasty's Restaurant
+5465~-53~1~The Dirty Bird
+5504~-233~1~Eative
+5465~-97~1~Mare Pizzeria
+5528~-245~1~Dolce Gelato
+6351~1586~2~Taning Lemon Tea
+6425~1555~1~Taqueria El Pastorictio
+6411~1594~1~Church's Chicken
+6450~472~0~Acacia Cafe
+6343~1589~1~Mars Village Eatery
+6347~1588~1~Diyijia
+4809~-15~1~BarChef
+4949~792~1~Carlotta Bar
+5265~121~1~Pho Pasteur
+6498~1920~1~Si Lom Thai Bistro
+4378~970~1~Vagabondo Restobar
+10713~91~1~Freshii
+5088~-5098~1~Proper
+6295~2523~1~Kata Sushi
+6428~1991~2~Woody's
+10231~-12311~1~Eggsmart
+9981~-11696~1~Caribbean Queen Jerk
+10057~-11806~1~P&M Restaurant
+10173~-12148~1~Sun Crisp Fish & Chips
+4762~1143~2~Grace O'Malley's
+17408~14620~1~St. Louis Bar & Grill
+6393~3103~2~Stout Irish Pub
+6394~3112~2~Zero Cocktail Bar
+6351~2932~1~Zakkushi on Carlton
+6399~3135~1~Mikaku Udon Bar
+5986~1187~0~Tim Hortons
+12101~-21419~1~Biryani King
+12105~-21385~1~Da House Of Jerk
+12105~-21375~1~Popular Pizza & Wings
+12078~-21450~1~Sweet Mahal
+12071~-21320~1~Al-Meezan's Spicy Grill
+12086~-21317~0~Country Style
+12085~-21324~1~Mr. Sub
+4952~-3992~1~Bairradino Rotisserie & Grill
+6959~2001~0~Rooster Coffee House
+6315~-2186~1~Madras Masala
+7093~10333~1~Gabby's
+7025~10025~0~Tim Hortons
+7038~10091~1~Hero Certified Burgers
+5160~-406~0~Petit Nuage
+5199~-481~1~Nom Nom Nom Poutine
+4774~1067~2~Rock N' Horse
+6832~3067~1~BBQ Chicken Factory
+6775~3042~1~Tender Trap
+6739~3091~1~L'avenue on Parliament
+6717~3111~0~Tim Hortons
+6748~3136~1~F'Amelia
+6586~3183~1~Kinyo
+6457~3176~1~Johnny G's Cafe
+6473~1931~1~Loaded Pierogi
+6478~1928~1~Pizza Nova
+6584~1920~1~Pizza Pizza
+4612~-2334~0~Yo Adrian
+4925~-2192~2~Get Well
+6867~993~0~Dessert Lady Cafe & Bakery
+5516~137~1~Sang's Great Seafood Restaurant
+5585~109~1~Flaming Noodles
+5588~107~1~Bank Bao
+4861~242~2~Cameron House
+5030~1134~0~HotBlack Coffee
+4265~1910~0~Starbucks
+5789~2372~0~Page One Café
+19265~16021~1~Subway
+11188~73~0~de Mello Palheta
+3979~1997~1~BeaverTails
+19516~15966~1~Harvey's
+11714~-5629~1~Swiss Chalet
+11724~-5630~0~Tim Hortons
+11644~-5484~1~Subway
+5662~-304~2~Supermarket
+19349~16185~0~Tim Hortons
+5735~1664~2~The Queen and Beaver Public House
+5554~-1150~2~Contrada
+5609~752~1~Dakshin Flavours
+5628~704~1~Margarita's Mexican Fiesta
+4931~1064~2~The Fifth Gastropub
+5581~-5567~1~Dokkaebi Japanese Restaurant
+4913~1079~1~The Fifth Grill & Terrace
+5570~1544~1~Don Don Izakaya
+4953~-2403~1~La Chingada
+5294~-156~2~The Boat
+5406~-196~1~Pizzeria Via Mercanti
+5212~-753~2~Hard Luck
+5214~-746~1~Carolina
+5220~-716~1~Dundas Shawarma
+6410~3181~1~Thai Room
+4598~1026~1~A&W
+6312~3267~1~Wing Machine
+4751~722~1~Carver
+18377~10660~0~Tim Hortons
+6967~-1315~1~Grapefruit Moon
+6043~5774~0~Purple Penguin Cafe
+3868~1367~0~Tim Hortons
+5067~2965~2~Lima Charlie's
+5068~2973~1~Petit Dejeuner
+5080~3021~1~Butter Chicken Roti
+4470~1853~0~Tim Hortons
+4429~1912~0~McCafé
+4624~1023~1~Aroma Fine Indian Cuisine
+7268~1138~1~Caffe Di Portici
+5231~-7164~1~Pizza Hut Express
+14661~19966~0~Tim Hortons
+1292~-15646~1~Joey
+1291~-15580~0~Starbucks
+1339~-15799~0~Starbucks
+5282~-118~2~Handlebar
+12945~-1827~0~Fusion Artz Cafe
+4441~-12361~1~Hyderabad Spices South Indian Cuisine
+3168~-225~1~National Yacht Club Restaurant
+6691~5456~0~Hailed Coffee
+4912~-12866~1~Mai Bistro
+17170~6904~1~Lunch Break
+17307~6763~0~Beiruti Grand Café
+17445~6915~2~Willie Stouts Pub and Grill
+5168~-5129~1~Pik Thai
+5033~-5045~1~Pizzaiolo
+5821~2743~1~Pussa Injera and Takeout
+4400~-315~1~McDonald's
+4394~-338~1~Orchard Kitchen
+16274~-1153~1~Kenzo
+3847~1750~0~Boxcar Social
+6654~10302~1~Beaches n' Cream
+3831~1986~2~The Goodman Pub and Kitchen
+4996~1662~1~3 Brewers
+4993~2020~2~Speakeasy21
+5706~-555~0~Voodoo Child Cafe
+5455~-77~1~Seven Lives Tacos
+14451~-644~0~Starbucks
+3743~-32~0~Tim Hortons
+13753~-3491~1~JollyTops
+13756~-3475~1~SALU SALO FILIPINO FOOD & GROCERIES
+5199~-699~1~Subway
+5372~-5128~1~Ali Baba's
+5383~-5148~0~Jimmy's Coffee
+5342~3771~1~Reyna
+5400~3921~1~King Deli-Cafe
+7023~812~1~Sushi Inn Japanese Restaurant
+7029~837~0~Carole's Cheesecake Café
+7062~878~1~Yamato
+7039~891~1~sassafraz
+10066~-11744~1~Weston Station
+10058~-11719~1~Poons
+10096~-11865~0~Perfect Blend
+5590~1601~1~Unholy Donuts
+3846~-1904~1~Local Public Eatery
+3840~-1768~1~Osmow’s Shawarma
+3780~-2437~1~School
+7002~722~1~Hemingway's Restaurant and Bar
+3907~159~1~Roywoods
+4889~669~2~Bar Hop Brewco
+4498~334~1~Nook
+5297~2852~0~George Street Diner
+7712~1063~1~Black Camel
+5134~-5083~1~Sunrise Grill & Crepe
+7505~-13~1~Le Paradis
+7050~629~2~Cibo Wine Bar
+7065~707~1~Amber Restaurant And Bar
+11855~-5617~1~Krystos Modern Greek Cuisine
+18686~14137~1~The Roti Hut
+4114~1674~1~Lucky Clover
+6435~-1534~1~Mama Chef
+3231~-14386~1~Lonzo’s
+3227~-14402~1~Pizzaville
+9788~-3913~0~Coffee Time
+5459~2133~0~Starbucks
+5462~2135~1~Subway
+6977~815~0~Sorry Coffee Co.
+6967~792~0~Starbucks
+6968~667~0~Nespresso
+6988~867~1~Kupfert and Kim
+7137~897~1~70 Down Yorkville
+7155~897~2~revitasize
+6385~-1654~2~Chatime
+6408~-1669~0~Tobbi
+7021~789~1~Jacques Bistro du Parc
+4577~-81~0~Forget Me Not Cafe
+4308~-2496~2~Death and Taxes
+4343~-2319~1~Poutini’s House of Poutine
+4341~-2331~1~Queen Star Restaurant
+4341~-2336~1~Fat Bastard Burrito
+4349~-2290~2~The Dog & Bear Pub
+19882~8162~1~Mr. Congee Chinese Cuisine
+4375~-2164~1~Butter Chicken Roti
+4414~-1969~0~Cafe Neon
+4694~-470~1~Kenzo Ramen
+6536~-6133~1~Honest Weigth
+4584~-1015~1~Subway
+4601~-1038~1~Pizzaiolo
+4576~-1052~2~Done Right Inn
+5938~1026~0~Starbucks
+5914~1034~0~Aroma Espresso Bar
+8439~10256~0~The Bothy
+4577~-1048~2~H Bar
+7117~1520~2~Booster Juice
+7112~1529~1~The Bagel Stop
+4537~-1239~0~White Squirrel Coffee Shop
+4522~-1434~1~Oyster Boy
+4511~-1489~1~Le Swan
+4101~-3515~1~Skyline Restaurant
+4085~-3596~1~Ali's West Indian Roti Shop
+7128~792~1~Chabrol
+5366~136~1~Bánh Mì Nguyên Hương
+5363~137~1~Shi Miao Dao Yunnan Rice Noodle
+5389~129~1~Ajisen Ramen Japanese Noodle
+5607~604~0~Alfies
+5830~12~1~Jerk King
+6232~218~1~Mama's Best
+17813~-1543~2~Chatime
+17857~-1494~1~Pho Vietnamese Delight
+17957~-1582~0~Cafe N One
+17931~-1576~2~Twister Karaoke
+17777~-1475~1~Oh! Bar
+4688~-410~2~The Paddock Traven
+4721~-453~1~Alpha's Shawarma
+4373~-425~0~Tim Hortons
+4370~-447~1~Pizza Hut
+6060~-1489~1~Y not Italian!
+17730~-1459~2~Gong Cha
+15925~-1072~1~EAT BKK Thai Kitchen
+16049~-1103~0~Tim Hortons
+16044~-975~1~Kinka Izakaya
+16015~-1093~2~Presotea
+6556~-975~1~Top Gun Burger
+6559~-963~1~Tenon Vegan Sushi
+6560~-957~1~Japan Sushi
+6575~-884~0~Slanted Door
+6581~-855~1~Victory Cafe
+6593~-798~1~El Furniture Warehouse
+7221~-1430~1~KOS Cafe and Restaurant
+7333~-1423~1~Vesta Lunch
+5635~-296~1~Otto's Berlin Döner
+4656~585~1~Kibo Sushi House
+4718~597~1~Tutti Matti
+4732~671~1~Parcae
+5023~1108~1~Little India
+5503~1353~1~Sansotei Ramen
+4013~276~1~The Morning After
+6670~-1203~1~Smart & Morris Jamaican Takeout
+4159~-3120~1~Nuna
+4869~396~0~Tim Hortons
+3920~-2555~0~Louie Coffee
+5317~-28~2~Last Temptation
+4514~264~1~Cibo
+4554~461~1~The Carbon Snack Bar
+4726~1855~1~Canoe Restaurant & Bar
+5142~296~2~Icha Tea
+4960~-2533~2~The Dock Ellis
+4459~-1884~0~Jimmy's Coffee
+5017~3938~0~Cacao 79 distillery
+4466~-13291~1~Thai Room Grand
+4444~-13310~0~Galata Turkish Café
+12161~16384~1~Big Boys Burgers
+12218~16457~1~Moon Light Chinese Food
+12237~16476~1~Vindaloo
+5508~-5939~1~Sushi Place
+6449~1971~0~FUEL+
+4098~2481~1~Mizzen - Westin Harbour Castle
+4262~-2781~0~Starbucks
+4621~-834~1~Nana's green curry
+5829~1803~2~Bar+ Karaoke Lounge
+4352~839~1~Pizza Pizza
+4054~875~1~Mr. Greek
+4466~1825~0~Starbucks
+5485~1265~1~Maki Mart
+5595~1600~1~Roywoods
+5573~2083~1~Senator Restaurant
+7580~-355~0~Tim Hortons
+5504~-356~1~Burritoz Bowlz
+5544~-1334~2~Peacock
+8158~-1831~1~Booyah
+4732~2646~2~Goose Island Brewhouse
+4059~-14214~1~Milano's Pizza
+4155~-13784~1~Domino's
+4154~-13791~1~Chinese Food Gallery
+5135~3577~0~Starbucks
+4128~-13847~1~Kanu Bar & Grill
+4125~-13860~1~Divine Food
+4120~-13923~1~Haroo Korean Restaurant
+4554~1385~1~The Shore Club
+10927~129~1~Grazie Ristorante
+4645~-713~1~Harlem Underground
+7128~913~1~Flo's
+5425~-206~1~King's Café
+5202~2204~1~La Bettola Di Terroni
+5249~2743~1~Mystic Muffin
+5068~4037~1~Archeo Trattoria
+4854~2793~1~Bindia Indian Bistro
+4609~1743~0~Tim Hortons
+4909~865~1~Fusaro's Italian Kitchen
+6535~-6556~1~Playa Cabana Cantina
+6530~-6610~1~Clandestina Mexican Bar & Grill
+4639~634~1~Khao San Road
+4097~1483~1~Steam Whistle Brewing
+5533~2101~1~The Senator Restaurant
+5920~1032~1~FLOCK rotisserie + greens
+4739~-252~0~Early Bird
+4749~958~2~The Fox & Fiddle
+6212~3324~1~Hakka N' Jerk
+6279~3246~2~Wing House & Sports Bar
+6285~3237~2~The Golden Pigeon Beerhall
+6309~3268~2~Super Bargain
+6306~3234~1~Chennai Masala Cafe
+6407~3162~1~China Gourmet
+5446~105~1~Phở Hưng
+7166~2154~1~Nijo Sushi
+5339~439~1~Dim Sum King
+4791~-106~1~I Love Sushi
+4781~-158~2~Tequila Bookworm
+4751~-309~1~Roti Mahal
+4793~-93~1~Comma
+4792~-99~1~La Palette
+4749~-319~1~Pat's Homestyle Jamaican Restaurant
+4807~-30~1~Saku
+4788~-123~1~DeMen Bistro
+5552~1452~1~New Treasure Restaurant
+6598~-775~1~Scotty Bons
+4958~-3321~0~Run and Gun Coffee
+3772~751~1~Subway
+4766~953~1~FiGO
+5016~902~1~Oh My Gyro!
+19124~15138~1~Domino's
+4634~-4332~0~I Deal Coffee
+4015~-2002~1~Mildred’s Temple Kitchen
+5036~4024~2~Spirt of York Distillery Co.
+5622~-5371~1~Hoyra
+18393~10766~1~Congee Queen
+5634~-5314~2~Toronto Style
+12839~-1827~1~Rosie Eatery
+12822~-1821~1~Tutto Pronto
+12905~-1812~1~Safari Bar and Grill
+12912~-1814~1~Avenue Seafood
+12918~-1816~1~Nawab Express On Avenue
+13162~-1885~1~Kibo Sushi
+13158~-1906~1~Freshii
+6537~-1154~2~CODA
+4918~-12861~1~Sorsi E Morsi Trattoria
+4452~-13301~1~Miss Natalie’s Tropical Cuisine
+4510~-13257~1~John's Fish 'n' Chips
+4514~-13253~1~Toji Sushi
+4523~-13244~1~Ikkoi Sushi & Ramen
+4547~-13213~2~Mama Rosa Restaurant & Bar
+4494~160~2~Belfast Love Public House
+3886~-1993~2~Left Field Brewery
+18092~15266~1~Shi lai shi wang
+11039~3807~1~Subway
+11016~3716~1~KFC
+6985~-8309~1~Dizzy Dingo Bar and Grill
+6965~-8302~2~Mua Bui Karaoke
+6939~-8289~1~Sicily Pizza
+6946~-8249~1~Bigger’s Restaurant
+3383~261~0~Aroma Espresso Bar
+6914~-8191~1~The Palms Jerk & Grill
+6975~-8067~0~The Stockyards Grind
+7002~-7814~1~Bairrada Churrasqueira
+5651~-668~2~Toby's Pub and Eatery
+8639~9093~1~Atto Sushi
+8632~8935~1~Friday Burger Company
+8074~11676~1~Fresh Burrito
+8072~11665~1~Papa John's
+13426~5624~2~Real Fruit Bubble Tea
+10690~124~1~KFC
+4401~-148~1~Lavelle
+4374~-285~2~Wheatsheaf Tavern
+4372~-306~1~Wild Wing
+4372~-297~1~Wang Lang
+4428~-22~2~Locals Only
+4972~3398~1~Cluck Clucks Chicken
+13299~-5164~1~A&W
+4941~1792~2~Duke of Westminster
+4438~-1841~1~Frankie's Diner
+16805~2921~2~Sharetea
+16796~2905~0~Toffee Shop
+6594~-790~1~Fuwa Fuwa Japanese Pancakes
+4393~-180~1~Oretta
+4406~-122~0~Starbucks
+4411~-96~1~My Meatball Place
+4388~-369~1~Hero Certified Burgers
+4358~-517~1~Sizzler Kabab
+4359~-509~1~Bamboo Buddha
+5208~201~2~Kung Fu Tea
+5557~120~1~Fortune-King Hotpot
+4548~-1915~1~Pho Tien Thanh
+5040~194~1~Maker Pizza
+4681~-1962~1~Golden Turtle
+6383~-1664~0~Snowday
+4476~-1662~1~Ceniza
+4757~-271~2~Bovine Sex Club
+4761~-253~1~Osteria Du
+4697~-565~0~Cafe Nuna
+4379~-2145~2~Bar Fancy
+15843~-978~1~Yin Ji Chang Fen
+15842~-1047~0~Tim Hortons
+15792~-1039~1~Spicy & Delicious
+15800~-1044~1~Pho OK
+15788~-1044~1~4AM Bar & Lounge
+6458~-1323~0~Isabella's Mochi Donut
+6493~-1271~1~Kimchi House
+6462~-1305~1~Hancook Cheese Dakgalbi
+6464~-1297~1~Her Chef
+11314~4792~2~Pluck Tea Inc
+5676~-708~0~Manic Coffee
+4139~2255~1~Miku
+4702~-427~1~International Food Garden
+6485~1674~1~The Spice Village
+4626~-808~1~Banu
+4958~1542~1~Alo Bar
+5435~-177~1~Gus Tacos
+5510~-234~1~Eative Film Cafe
+5505~-207~0~Krepesz Cafe & Bar
+5450~-155~1~ugly delicious
+4991~3868~0~Arvo Coffee
+5614~-5410~0~Outpost Coffee Roasters Ltd
+6566~-923~2~Kensington Natural Bakery & Cafe
+6432~-1439~0~Ave Maria Latin Cafe
+6144~5996~1~Mean Bao
+6439~5873~0~Fruitful Market
+5680~-687~1~Little Jerry
+5674~-719~1~Istanbul Shawarma
+5645~-696~1~Ramen Isshin
+4814~129~1~The Grand
+8617~9001~1~Budapest Hungarian Restaurant
+8776~9548~0~Press Books Coffee Vinyl
+4972~-3025~1~Sukhothai
+6548~-6241~1~The Roux
+6549~-6286~0~Cool Hand of a Girl
+6864~474~1~McDonald's
+8059~11492~1~No Bull Burgers
+5576~781~0~Jimmy's Coffee
+5505~-251~2~Ronnie's Local 069
+4897~-2046~1~Salt Wine Bar
+4583~-1960~1~Union
+6141~6089~1~Eastside Social
+6183~6387~0~Kidaultland Cafe
+6863~9284~1~Sauvignon Bistro
+6874~9477~1~Delina Restaurant
+7032~10074~1~Amo's
+5879~4925~2~Aura
+5957~5273~1~Kismet
+6054~5708~1~EAT BKK
+4368~-2198~2~Bar Piquette
+4366~-2203~1~Jamil's Chaat House
+4873~298~1~Stacked
+4849~182~1~Bagels on Fire
+4853~202~1~Pokito
+4823~54~1~Raku
+4689~-606~1~Lisa Marie
+4688~-612~1~La Hacienda Restaurant
+6276~1654~1~Seoul Gamjatang
+11170~82~0~La Bohème Café Patisserie
+2258~-8252~1~Sunset Grill
+2286~-8329~1~Panago
+11048~104~1~Haida Sandwich
+4383~319~1~Le Sélect Bistro
+6446~1259~1~Freshii
+8221~-2400~1~Sea Witch Fish and Chips
+4744~383~1~What a Bagel
+5173~-5131~2~Loons Restaurant & Pub
+5054~-5052~0~Reunion Coffee Roasters
+4928~-5002~1~Dil Se Indian Restaurant & Bar
+4087~-3460~0~Capital Espresso
+5085~2116~1~Sud Forno
+5021~2185~2~Craft Beer Market
+4879~-4984~1~Arbequina
+4764~-4938~0~Sunnyside Provisions
+4752~-4934~0~Affect Coffee
+4614~-4880~1~The Ace
+4128~-3387~2~Boba Tea
+4441~-1834~2~Lipstick & Dynamite
+4875~312~2~Gong Cha
+4876~317~1~Gyuki
+1005~-15311~0~Tim Hortons
+17414~-1344~0~Tim Hortons
+17662~-1402~1~Sansotei Ramen
+17660~-1414~1~VIPS Sushi
+17659~-1418~1~Authentic Japanese Food
+17657~-1427~1~Pizza Shab
+17656~-1431~1~Sang-Ji Fried Bao
+17653~-1439~1~North Stars Bar and Grill
+4419~1915~2~Booster Juice
+17905~-1484~0~Tim Hortons
+5039~4125~1~Pure Spirits
+5354~-41~0~Fika Cafe
+5541~-266~0~Hibiscus Vegan Cafe
+6045~2085~1~Kinka Izakaya
+4582~726~0~Calli Love
+4351~163~2~Cherry's High Dive
+4561~2~2~UNIUN
+5083~-5095~1~The Royal BBQ Grill
+4780~-4943~1~Sushi on Roncy
+17144~-1318~1~Ajisen Ramen
+17138~-1317~1~Subway
+17032~-1294~0~A Corner Cafe
+16926~-1230~2~Ten Ren's Tea
+16912~-1251~1~Morals Village
+5061~2045~1~Mean Bao
+10687~101~0~Tim Hortons
+10683~103~0~Starbucks
+5698~-675~1~Aunties& uncles
+8537~8663~2~Firkin on Danforth
+6535~-5001~0~Hale Coffee
+6620~-4986~1~Enoteca Rossio
+7030~552~1~Sorelle and Co.
+7014~927~1~BBQ Express
+4332~1737~1~Olly Fresco's
+17628~-1438~1~Pastel Creperie
+17618~-1435~1~Pizza Nova
+10763~538~0~BlackWolf Coffee
+5569~1858~1~A&W
+5531~1850~1~Bourbon St. Grill
+5544~1865~1~Crepe Delicious
+5706~1960~1~Harvey's
+5534~1841~1~KFC
+5505~1870~1~Jimmy the Greek
+5564~1831~1~New York Fries
+5571~1869~1~Ruby Thai Kitchen
+5309~1966~1~Subway
+17957~-1521~1~Pizza Nova
+17947~-1592~2~Shout Karaoke
+17952~-1583~1~SSAM Toronto Korean BBQ & Grill
+17942~-1577~1~Nak Won Korean Restaurant
+17936~-1576~1~Dear Saigon
+17934~-1590~1~Cafe Princess
+17900~-1554~1~Pojangmacha Food Cart
+5776~2085~0~Balzac's Coffee
+5859~1599~1~Bb 33 Bistro & Brasserie
+5662~1627~1~GB Hand-Pulled Noodles
+5698~1899~0~Black Canary
+5654~1759~2~Booster Juice
+5258~2091~2~Booster Juice
+6068~1615~1~The Way of Noodles
+5705~1969~1~Caribbean Queen
+6237~1631~1~Souper Hot Pot & Tea
+6138~1904~1~Beleaf
+5691~1900~2~Presotea
+5733~1654~1~Donatello
+4846~274~2~Chatime
+5021~1095~1~The Bombay
+5041~1087~1~Queen Mother Cafe
+5010~938~1~Naan Kabob
+5590~-1128~0~Little Pebbles Cafe
+5575~-1198~2~Bangarang
+5583~-992~2~Bar Raval
+4816~499~1~Burro Burrito
+5537~-1373~1~Café Diplomatico
+5739~1673~1~Adega
+5779~1722~1~Bangkok Garden
+5638~1703~1~Fresh Start Bakery & Cafe
+5359~2044~2~Firkin on Yonge
+5540~-1355~2~La Bartola
+5626~-959~1~Alice
+5205~-665~1~Falafel
+17855~-1495~1~Vietnamese Delight
+17849~-1497~2~Yonge Billiard Club
+17847~-1496~1~Lim Ga Ne Korean Restaurant
+17844~-1495~1~Hot-Star Fried Chicken
+17841~-1494~1~Ling BBQ
+17843~-1481~2~N Dolphin Karaoke
+17835~-1491~0~Cafe Bene
+5571~-1221~1~Duff's Famous Wings
+5797~1854~1~Firefly Burger
+5582~-1172~0~Cafe Belém
+5587~-973~1~La Carnita
+6141~1916~1~Gurume Sushi
+5208~-774~1~Suya City Express
+5578~-1184~1~Bear Steak
+5551~-1303~2~Mrs Robinson
+5653~-846~2~Campechano
+5623~-972~1~Odd Burger
+5598~-934~0~Snakes & Lattes
+5536~-1859~0~Sicilian Sidewalk Café
+5551~-1329~2~The Orbit Room
+5552~-1155~1~Susies
+17784~-1479~1~MeNami
+17768~-1476~1~Tasty Hut
+17762~-1475~1~Yu Szechuan Cuisine
+17747~-1470~1~Mabu Station
+17739~-1468~1~Magic Noodle
+17733~-1467~1~Korean Chinese Restaurant
+17728~-1466~2~Gong Cha
+17713~-1462~1~Buk Chang Dong Soon Tofu Korean Restaurant
+17706~-1462~1~Angus Pho House
+17701~-1459~1~Pine House Cafe
+17695~-1457~1~Wing Machine
+5207~-649~1~ami-no
+5201~-678~2~Montauk Bar
+5228~-672~0~Cha Thai Cafe
+5542~-1350~1~Utopia
+5609~-1138~2~Village Juicery
+5531~-1282~1~Weldon Park
+4276~-2659~1~Liliana
+5100~1859~1~The Gabardine
+17831~-1491~1~Jin's Mi-Fen
+4860~237~1~Domino's
+6418~1982~1~Kintaro Izakaya
+6450~1970~1~Indian Roti House
+6391~1994~1~Kawa Sushi
+17528~5244~0~Tim Hortons
+6442~1974~1~North of Brooklyn Pizzeria
+6507~1950~2~Pegasus Bar
+6509~1948~1~Sambucas On Church
+6583~1888~1~Amor Fusion Doner & Kebab
+4641~-732~2~The Dog's Bollocks
+5598~695~1~Light café
+5600~704~1~Omai Restaurant
+5601~710~1~Valens
+5317~335~1~Rosewood Asian cuisine
+6537~4759~1~A&W
+6353~3251~1~241 Pizza
+4979~1179~1~JaBistro
+4531~-1266~1~Agora
+5532~70~1~Yeah Yeah Thai
+5193~-350~1~Buddha's Vegan Restaurant
+16020~-1094~1~Golden Rice Noodle
+2394~-11417~1~Allwyn's Bakery
+4207~-3000~0~Rustic Cosmo Cafe
+4165~-3061~2~Rhino
+4141~-3204~1~Hanoi Restaurant
+4141~-3323~1~Daymi
+4099~-3526~1~Al Jood
+4048~-3659~1~Subway
+4048~739~1~Chin Chin Street Side Kitchen
+4004~358~0~Bobo Tea & Juice
+4175~-205~1~Domino's
+4202~-1136~1~Grandma Loves You
+4197~-1159~1~Ali Baba's
+4155~-2213~1~Levetto
+6472~3167~1~Souvlaki Express
+6357~3209~1~House on Parliament
+6180~3099~0~Agak Agak Kopitiam
+5512~1978~1~Kanpai Snack Bar
+6564~3165~1~Kibo Sushi House
+6586~3183~1~Kingyo
+6243~3294~1~New Town Restaurant
+5561~1514~1~Brown Donkatsu
+12550~-262~0~Tim Hortons
+3826~1950~0~The Fix
+3803~1684~1~The Slip
+4903~-2048~1~La Banane
+4681~-648~1~A&W
+4664~-735~1~Soufi's
+12829~-1824~1~The Bagel House
+13505~5611~1~Pi Co.
+13441~5350~0~Demetres
+13367~5390~0~Tim Hortons
+13384~5486~1~Taylor's Landing
+13348~5518~1~Mantra by Host
+13452~5486~1~Mado
+4429~-173~2~Hello Nori
+4481~89~1~The Keg
+4843~1181~1~Copacabana
+13487~5461~2~Booster Juice
+5238~2370~1~Hawthorne Food & Drink
+5180~2080~1~Leña
+5130~3557~1~The Burger's Priest
+5978~5363~1~Tabule
+6042~5651~2~The Castle on Queen
+4494~123~1~Wilbur Mexicana
+5368~-151~1~Egg Bae
+5355~-146~1~Arepazo
+5384~-159~1~Fresco's Fish & Chips
+6324~-246~1~bbq chicken
+4915~461~2~CoCo Fresh Tea & Juice
+5318~346~1~Yummy Yummy Dumplings
+17913~-1741~1~Cheers Chicken & Beers
+17914~-1735~0~Rosey J Cafe
+17919~-1718~2~CoCo Fresh Tea & Juice
+17918~-1726~1~Huh Ga Ne
+17924~-1695~1~Subway
+17355~14407~2~Gong Cha
+16865~1357~0~Aroma Espresso Bar
+5035~4119~0~Arena Coffee Bar
+10579~-354~1~Boom Breakfast & Co
+5046~1113~2~Daily Press Juicery
+4326~-2396~1~KingSlice
+3906~-2536~1~Caffino
+6047~2139~1~A&W
+17363~-1429~1~Don't Yell At Me
+17297~-1407~1~DakGoGi
+17290~-1405~1~555 Boat Noodles
+7453~-5924~1~Sabor Brazil
+7398~-6017~1~King's Delight
+3819~-1750~1~Kibo Sushi
+3887~-1643~1~Maurya East Indian Roti
+3917~-1581~1~'Ono Poké Bar
+4891~-12834~1~Fire Wing’s Bar & Grill
+4283~-13454~0~La Strada
+4390~-13358~2~St.James's Gate
+4418~-13342~1~Pizza Hut
+4422~-13339~1~Chodang Soontofu
+4845~-12877~1~Kibo Sushi
+4841~-12881~1~Subway
+4850~-12873~1~Pizzeria Via Napoli
+7452~-5772~0~Lido Caffe
+4352~-2274~1~Good Son
+4339~-2340~1~The Burger's Priest
+4497~-2821~0~Fix
+4276~-2737~1~Lao Thai
+4283~-2626~1~Convenience
+4290~-2585~0~Hams Art Market Souk & Cafe
+4292~-2577~1~Pastalia
+4293~-2570~1~Nunu
+4297~-2551~1~Pizzaiolo
+4299~-2542~1~Nuit Social
+4300~-2536~1~IKUNE by Après Wine Bar
+4305~-2509~0~Major Treat Coffee
+4854~401~1~Aloette
+4850~406~1~Alo
+3894~-2799~1~Habibi Shawarma
+3896~-2793~2~Rebecca's Lounge
+3897~-2786~1~Samosa Boulevard
+3898~-2780~1~Phở Asia 21
+3533~-13230~1~Dino’s Wood Burning Pizza
+4404~-2020~2~Wallen
+4402~-2029~1~Entice
+4362~-2226~2~Church
+4520~-1440~2~Mother
+4493~-1578~0~Mercat del Carmen
+4492~-1584~1~Carmen
+4490~-1591~1~Jules Bistro
+4488~-1604~1~AMA
+4486~-1618~1~Chadon Beni
+4456~-1882~2~Sweaty Betty's
+4438~-1848~1~Montgomery's
+4437~-1856~1~Jal Jood
+5419~-38~1~rasta pasta
+4746~1183~1~Byblos Downtown
+6552~-6528~1~The Alpine
+7447~333~1~EVOO
+4579~-1958~1~Nabe Hana
+4587~-1960~1~Tanto
+4600~-1964~1~Mamakas
+4614~-1969~1~Bar Koukla
+4618~-1970~1~Odd Seoul
+4659~-1984~2~Baby Huey
+4677~-1991~1~Central
+4728~-2009~2~Reposado
+4717~-2005~1~Cote de Boeuf
+4851~-2060~1~Season Six
+4841~-2056~1~Superpoint
+4836~-2054~1~Monkey Sushi
+4866~-2066~1~Papi & Rosita
+4875~-2070~2~Man of Kent
+4892~-2077~1~Manita
+4901~-2081~2~La Porte
+4909~-2084~2~The Painted Lady
+4918~-2088~1~The Grow Op
+4924~-2108~2~Communist's Daughter
+4923~-2093~1~The Haifa Room
+4924~-2146~1~Paris Paris
+4925~-2176~2~Camp 4
+4926~-2196~1~North of Brooklyn Pizzeria
+4926~-2205~2~The Red Light
+4927~-2243~1~Veghed Fresh Bar
+4928~-2260~1~Brasileirissimo Steak House
+4928~-2275~1~Churrasqueira do Sardinha
+4950~-2302~2~Churchill
+4947~-2165~1~Soso Food Club
+4970~-2071~2~Delta Sports Bar
+4973~-2072~2~Mickey Limbo's
+4908~-2051~2~Bar Roma Toronto
+4884~-2041~1~Fallen Feather
+4862~-2032~1~Foxley
+4663~-1956~0~Pilot Coffee Roasters
+4630~-1944~1~Böhmer
+4555~-1917~2~Don't Tell
+4467~-1889~1~Grill Dudes
+5051~2881~0~Velvet Lane Cakes
+5338~2467~1~T.C.J. Restaurant
+5259~2464~1~Wild Wing
+5220~2481~2~Lighthouse Shisha Lounge
+5247~2513~1~Domino's
+5232~2440~2~McVeigh's
+5095~1812~1~Maezo
+5092~1798~1~Flock Rotisserie & Greens
+5005~1541~0~Goldstruck
+4753~1638~1~Modus Ristorante
+4751~2043~2~Walrus Pub & Beer Hall
+6996~641~1~Alobar
+4531~-1270~1~Matty’s Patty’s
+4535~-1256~0~The Library Coffee
+4552~-1173~1~Hooky's Fish n Chips
+4585~-1010~1~Banh Mi T.O.
+4609~-890~1~Squirly's
+4606~-906~1~Thai Elephant
+4595~-962~0~Dlish Cupcakes
+4960~-1997~2~Bunda Lounge
+4958~-2009~2~Roxton Public House
+4956~-2021~1~Mild Afro Lounge
+4997~-1817~0~Sonndr
+4523~-12017~2~The Bull Pub & Grill
+4519~-12036~1~Toast on Bloor
+4516~-12051~1~Bonimi Restaurant
+4515~-12059~1~Roti Palace of India
+3280~-14436~1~Mekong River
+3623~-13957~0~Java Joe's
+4789~-12930~1~Insadong
+1068~-15816~1~Honestly Good Chicken Fingers
+1136~-15731~1~Au Pain Doré
+1152~-15688~1~Danish Pastry House
+1142~-15590~1~Mrs. Fields
+1250~-15792~0~% Arabica
+1190~-15853~0~Second Cup
+1135~-15759~2~DavidsTea
+1155~-15600~1~Kernels Popcorn
+1157~-15595~1~Mr. Pretzels
+1324~-15838~1~Edo Japan
+1331~-15838~1~Bourbon St. Grill
+1338~-15839~1~Chipotle
+5434~-5209~1~Pizza Del Arte
+5370~-5123~1~Delhi Boyz
+5084~-5063~1~Restaurant Stop
+5013~-5035~1~Hakka Wok Hei
+4983~-5024~2~Inter Steer Tavern
+4917~-4998~2~Round the Horn
+4829~-4964~2~The Dizzy
+4743~-4930~0~Super Bowls
+4606~-4877~1~Aris Place
+6834~1745~0~Piedmont Coffee Bar
+6633~-603~1~Kenzo Ramen
+6595~-784~1~Burger's Priest
+6611~-722~1~The Chulo
+6533~-1089~1~The Fry
+6534~-1083~1~The Jerk King
+6535~-1077~1~Tonkatsu
+6544~-1027~1~A&W
+6446~-1377~1~Chungchun
+6487~-1298~1~Sammie's
+6417~-1616~1~What A Shawarma
+4850~189~1~Ramen x Remix
+6590~-815~1~Pizzaiolo
+10238~-12292~1~Nettebello
+10093~-11938~0~God Bless Canada
+10082~-11812~0~Mati's Coffee
+10060~-11723~1~Pizza Alps
+10040~-11756~1~Zeal Burgers
+9986~-11568~1~Ali Baba's
+9979~-11552~1~Weston BBQ Restaurant
+9938~-11363~1~Celebrity Chef
+9902~-11346~1~Made's Kitchen
+5617~-5392~1~Chérie Cherry Restaurante Bakery
+5619~-5386~1~Bawara Indian and Hakka Cuisine
+5629~-5339~1~Machino Donuts
+5595~-5499~1~KingSlice
+5368~-4507~1~Terroni Sterling
+3645~-579~1~Fort York Pizzeria
+3910~187~1~Scooped by demetres
+3910~178~1~Sansotei Ramen
+3895~104~1~Roses New York
+3981~-2022~1~Barcelona Tavern
+6429~-1563~1~Daldongnae
+6572~-901~1~Nang Saigon
+6627~-637~1~Belly Buster
+12510~-5466~2~Village Juicery
+12451~-5519~1~Cafe Landwer
+6415~-1517~1~Jin Dal Lae
+6418~-1505~1~The Biryani Walla
+6427~-1468~2~NUTTEA
+6430~-1455~0~Dessert Fox
+6439~-1408~2~The Alley
+9549~-12063~1~Parma Pizza
+9542~-12055~1~Gardenia House
+4622~-827~1~Milagro
+4642~-698~1~Karahi Boys
+4644~-688~2~The Raq
+4654~-676~0~Jimmy's Coffee
+4668~-602~1~Bloomer's
+4690~-494~1~The Kettle Modern Indian Canadian Food
+4725~-435~1~Naija Jollof
+4727~-302~0~Strange Love
+4702~-548~1~Zakkushi
+4685~-629~1~Ramen Misoya
+4668~-713~0~Tokyo Smoke
+4629~-902~0~Sud Forno
+4627~-915~1~Terroni
+4611~-993~2~Greenhouse Juice Co.
+4607~-1011~1~Canis
+4599~-1049~1~Sukoi Desserts
+4600~-1048~2~Loftea
+6540~-947~1~Bombay Roti
+5068~3085~0~Neo Coffee Bar
+6404~-1572~0~Crestfallen
+6403~-1577~1~Imonay Korean Restaurant
+6405~-1565~1~Sunrise House
+6407~-1558~1~Damda
+6347~5872~0~Shirley's First Break
+6449~5870~1~Subway
+6455~5829~1~Garden Bar & Bodega
+17683~-1443~1~Zhangliang
+17690~-1445~1~Meet You
+5271~-635~1~Popeyes
+5155~-587~0~Bailey's Cafe
+5150~-586~2~Bathurst Local
+4739~-365~1~Burger Factory
+4679~-359~1~Atelier Pasta
+5463~-713~1~Mr. Greek
+6526~1898~0~Second Cup
+6751~3088~0~Absolute Bakery & Cafe
+5715~-4785~0~Martin Coffee
+5718~-4777~1~Thai Nyyom
+5722~-4758~1~Kibo
+4462~1903~1~McDonald's
+4471~1897~1~WVRST
+5465~-5949~1~Pizza Pizza
+5301~-6847~1~Usagi Sushi
+5319~-6765~0~Lafayette Cafe
+5420~-6319~1~Vivo
+5425~-6278~0~Hannah's Cafe Bakery
+5462~-5969~1~Lunch Box
+4709~-1696~0~Found Coffee Bellwoods
+5124~-7462~1~Delights of China
+5336~-5214~1~Musoshin Ramen
+5412~-5204~0~AM Coffee Studio
+5253~-4873~2~Thirsty and Miserable
+5235~-4832~0~Found Coffee Shop
+7407~-6131~1~Banh Cuon Pho Ga
+7410~-6119~1~Pho Xua
+7391~-5970~0~Hounslow's House
+4295~-673~1~Koh Samui Thai Kitchen + Bar
+4289~-848~1~MorsoMe
+4291~-842~0~Wallace Espresso
+4200~-1143~0~The Coffee
+4198~-1151~1~My Roti Place
+4297~-664~0~Simit & Chai
+4348~-559~0~Shy Coffee Co.
+4364~-482~1~Freshslice Pizza
+4360~-503~1~Ichiban Sushi
+4366~-468~1~Donna Fernanda Ristorante & Pizzeria
+4232~-1129~1~Thai Room
+2312~-8377~1~Freshii
+2597~-7727~1~Krazy Roll
+4911~438~1~Poulet Rouge
+4915~456~1~Mogouyan Hand Pulled Noodle
+5044~1098~1~Niuda
+8829~9967~1~Subway
+5020~991~1~Alpha’s Shawarma
+6193~6431~0~Remarkable Bean
+6198~6458~1~Fangio Trattoria
+6214~6524~1~Wingzilla
+6215~6530~1~Domino's
+6219~6545~1~Hanoi 3 Seasons
+4716~398~0~Mini Bar
+4583~733~1~Underground Garage
+4489~799~1~Sen5es
+5027~1123~1~Ikkousha Ramen
+5017~1079~1~Aristos
+4954~797~0~Wonder Pet Cafe
+2301~-11901~2~Yun Cha Tea
+2325~-11744~0~D Spot Dessert Cafe
+4824~1076~1~Urawa
+4828~1089~2~The Porch
+4824~1097~2~Dublin Calling
+4839~1167~1~Yuzu No Hana
+4834~971~0~Dark Horse Espresso Bar
+4806~1012~2~Parlour
+5037~1167~1~Azkadenya Mezza Diner
+5042~1193~1~4Ever Sushi
+5043~1202~2~Real Fruit Bubble Tea
+5044~1211~0~Starbucks
+4825~183~1~Burrito Boyz
+4846~277~1~Saffron Spice Kitchen
+4842~263~1~Pizza Karachi
+4832~227~1~Vero Italian Sandwich Co.
+4769~-96~1~Bar Altura
+4869~272~1~Allwyn's
+4870~279~1~Kinton Ramen
+4855~214~1~Shelby's
+4857~222~1~to-ne Sushi
+4859~230~1~Yukimi
+4803~-50~1~Wendy's
+4804~-41~1~The Well Bar Restaurant
+4759~-263~1~The Dime Roadhouse
+8867~9973~1~Su-Good Chinese Restaurant
+4933~2566~1~Pi Co.
+4939~896~0~Tim Hortons
+5022~1102~1~Ikkousha Ramen
+4708~-659~1~North of Brooklyn Pizzeria
+5039~2389~0~Sam James Coffee Bar
+3692~336~1~Iruka Sushi
+2316~-11089~1~Golden Lion Restaurant
+4174~-3162~1~Craig's Cookies
+4181~-3125~1~Mary Brown's
+4184~-3115~1~Armonia Pasta Bar
+4185~-3108~1~Guu Izakaya
+4175~-3156~1~Kaminari
+5151~288~1~R&D
+5231~253~1~3rd Mom Hot Pot
+5239~250~1~Homemade Ramen
+5379~191~1~Chat Bar
+5383~189~1~Swatow Restaurant
+4735~-245~1~Osmow's
+4741~-240~1~Ramen Isshin
+6529~-6871~1~Pho Huong
+6521~-6866~2~Famous Last Words
+6517~-6864~1~Junction Grill
+6534~-6798~1~Isaan Der
+6554~-6634~1~Tumi Dumpling House
+6553~-6559~1~My House
+6552~-6491~1~Pi Co.
+6534~-6501~1~D&Y Japanese Cuisine
+6534~-6508~1~Kyma Mediterranean Grill
+6529~-6515~2~The Hole in the Wall
+6530~-6601~1~Subway
+6531~-6644~1~Momotaro Sushi
+6572~-6485~0~Roi's Cream
+6600~-6454~2~The Draft Room
+6609~-6457~1~Taste Seduction
+6552~-6427~1~Acapulco
+6531~-6435~1~Chica's Chicken
+6531~-6353~2~Shoxs
+6541~-6153~1~Momo Mojo
+4104~-3503~1~Mother India
+4116~-3446~1~Shambhala Kitchen
+4130~-3379~0~Larry's Place
+4135~-3350~2~T.O. Lounge
+4179~-3022~1~Alexander Falafel
+4178~-3027~2~Motel Bar
+4177~-3032~2~Danu
+4539~-12159~1~A&W
+4539~240~1~Citizen
+4525~454~1~Miss Likklemore’s
+4640~197~1~Impact
+4778~463~1~Mamma's Pizza
+5767~1568~0~Mos Mos
+5595~1666~1~Uncle Tetsu's Japanese Cheesecake
+5724~-464~0~Ohiru
+5709~-541~1~Zafoon Middle Eastern Restaurant
+5674~-714~1~El Rancho
+5671~-732~1~Midnight Market
+5679~-692~1~Pomegranate
+5679~-697~1~Sheherzade
+5677~-703~1~Hacienda
+5534~-1729~1~Bellona
+5537~-1762~0~Tsu Chi
+2646~-10137~2~Luckys' Cafe Bar
+6215~2255~1~Golden Diner Family Restaurant
+5492~-204~1~Jumbo Empanadas
+5709~1~2~Red Lounge
+5128~3241~1~Tacorrito
+5125~3224~1~Nari Sushi
+5109~3152~1~Ardo
+5045~2862~1~Bar Ardo
+13225~-1908~0~Tim Hortons
+4056~784~2~Orange Julius
+4899~2263~1~Thaï Express
+4890~2257~1~Tutti Frutti
+5871~1777~2~CoCo Fresh Tea & Juice
+5191~3530~1~Pumpernickel's
+4712~2279~0~Tim Hortons
+4987~2926~2~Booster Juice
+5014~3048~1~Fuzen
+5100~3210~1~Khao Hakka Restaurant;Khao Hakka
+4209~-170~2~Booster Juice
+12292~-5604~0~Tim Hortons
+12160~-5670~1~Katz's Deli
+12120~-5588~1~Original Döner
+12115~-5586~1~Mainsha Restaurant
+4823~2372~0~Aroma Espresso Bar
+4815~2325~1~Cantina Mercatto
+12084~-5670~1~Pizza Nova
+12074~-5669~1~The Burger's Priest
+12066~-5579~1~Yu Ki
+12017~-5642~1~Demetres
+11984~-5737~1~Noodle King
+11987~-5654~1~Cali Mexican Grill
+11974~-5736~1~Orfus Wrap & Grill
+11972~-5798~1~Seoul King
+11945~-5792~1~Uncle Tetsu
+11874~-5775~1~Royal Korean Cuisine
+11839~-5735~1~Pho Viet House
+11908~-5718~1~Shoeless Joe's
+11864~-5608~0~Cafe + Dufferin Variety
+11860~-5539~1~Lucky Dragon
+11735~-5507~1~Mirra's Place
+11661~-5488~1~Willy's Jerk
+10106~-5203~1~Taste of Shawarma
+10098~-5145~1~Toronto Pho
+9844~-5156~1~Yum Yum Restaurant
+9825~-5152~1~Ocean Grill Restaurant
+9820~-5151~1~Express Thai Cuisine
+9815~-5150~1~Delicious Empanadas
+9695~-5108~1~Tonkin
+9614~-4890~1~Toronto Latino
+9618~-4872~1~Minia’s Takeout and Catering
+9592~-4825~1~Subway
+9656~-4689~1~Sheryl's: Authentic Caribbean Cuisine
+9608~-4696~1~High Life Restaurant
+9609~-4689~2~Jane's Bar & Grill
+9711~-4290~1~Pizza Pizza
+9669~-4659~1~Rincon de la Boca
+9670~-4653~1~Kingpin Wings
+9677~-4622~1~Tia Flor Restaurant
+9684~-4589~1~Roti King
+9666~-4507~1~Wing Machine
+9671~-4479~1~Sankofa Lounge
+9701~-4487~1~Sake Sushi
+9689~-4243~1~One Stop Restaurant
+9309~-4088~2~The Greens
+8254~-2023~1~Pita & Hummus
+8057~-1744~1~Kiyo Japanese Cuisine
+8043~-1739~0~Queen Bean Coffee Roasters
+7986~-1716~1~Craque de Creme Cafe
+7348~-1487~0~Tim Hortons
+7298~-1414~1~Detroit Pizzeria
+7289~-1411~1~Rapido
+7174~-1398~1~Gordo Ex
+6941~-1306~1~Napolitan Pizzeria
+6911~-1294~1~Miya Bhai
+6907~-1292~1~Domino's
+5447~-706~1~6ixty Wings
+5455~-709~1~Firehouse Subs
+5324~-662~1~Simple Burger
+6476~-1089~1~Panago
+6488~-1095~1~Aki Donburi
+6458~-1082~0~Mallo
+4866~-437~1~Japanese Restaurant
+4202~-218~0~Central Cafe
+4037~741~1~Fat Bastard Burrito
+4055~760~0~Boba Boy
+17845~5680~1~Taco Bell
+17842~5682~1~Villa Madina
+17828~5664~1~CF Fairview Mall Food Court
+17824~5695~1~Yoi Ramen Eatery
+17828~5693~1~Sushi Shop
+17839~5684~1~Shanghai 360
+17835~5687~1~Bourbon St. Grill
+17813~5689~1~Good Karma
+17811~5684~1~Pi Co.
+17807~5667~0~Starbucks
+19899~8128~1~Subway
+19894~8136~0~Tim Hortons
+19852~8147~1~Yamamoto Japanese Cuisine
+19816~8173~1~Pho Quinn
+19882~8124~1~Jasmine Chinese Food
+18372~10711~1~Subway
+18437~10702~1~Asian Fusion
+5894~4995~1~The Civic
+5914~4991~1~The Broadview Bistro+Bar
+5902~4993~2~The Rooftop
+5942~5205~1~The Comrade
+17614~14116~2~Refuel Juicery
+17650~14172~1~Cinnabon
+17648~14166~1~Mr. Pretzels
+17601~14127~1~Kernels Popcorn
+17676~14177~2~Booster Juice
+17535~14250~2~Chatime
+17526~14267~1~Cultures
+17528~14276~2~Real Fruit Bubble Tea
+17534~14301~1~Taco Bell
+17504~14322~1~Bourbon St. Grill
+17508~14320~1~New York Fries
+17519~14317~1~Biryani
+17522~14315~1~Poulet Rouge
+17499~14319~1~Caribbean Queen
+17498~14313~1~Hakka 6ix
+17496~14307~1~Jimmy the Greek
+17495~14301~1~Villa Madina
+17494~14293~1~Mymy Chicken
+17492~14285~1~Thaï Express
+17509~14263~1~Shanghai 360
+17504~14265~1~A&W
+17498~14267~1~Chipotle
+17634~14124~2~DavidsTea
+17658~14109~0~Tim Hortons
+17678~14150~1~Mac's Sushi
+17671~14152~2~Ten Ren's Tea
+17681~14164~2~Jugo Juice
+17650~14249~0~Starbucks
+17605~14295~1~Moxie's
+17610~14282~2~The Alley
+17549~14255~1~Love Me Sweet
+17545~14246~1~Le Dolci
+17492~14299~1~Kwan Dim Sum
+17513~14327~0~Tim Hortons
+17522~14324~2~Freshly Squeezed
+14302~18338~0~Starbucks
+14352~18470~1~Sunrise
+14395~18226~1~Premium Sweets
+14398~18239~1~Star
+14400~18245~2~Happyland
+14404~18258~1~Little Bavaria Restaurant
+14427~18306~1~Bilal Pizza
+14422~18283~1~Time West Indian
+14373~18115~1~The Wing Spot
+17580~16942~1~Atithi Pure Veg
+17596~16776~0~Tim Hortons
+17359~-1427~1~Bao House
+17265~-1345~1~43° N BBQ Bar
+17260~-1338~1~Yang's Braised Chicken Rice
+17250~-1334~1~Yunshang Rice Noodle
+10690~129~1~Taco Bell
+7021~1481~0~Crema Coffee Co.
+6076~1612~1~Taco Bell
+13021~-1852~1~Swiss Chalet
+5036~2053~1~Su&Bu
+5052~2048~2~Revitasize
+5717~2149~1~Chachu's
+5727~1887~1~Vegan Bear
+5509~1382~1~Bao House
+4279~1888~1~e11even
+16233~-1079~1~Blaze Pizza
+16248~-1084~1~Five Guys
+16256~-1089~1~Omni Palace
+16266~-1092~1~Basil Box
+16286~-1085~0~Paris Baguette
+16825~-1233~1~Petit Potato
+4396~-882~1~UFO Restaurant
+16228~-989~2~Real Fruit Bubble Tea
+16216~-979~0~Tim Hortons
+16261~-1024~0~Second Cup
+16300~-1033~1~Kitchen Club
+16323~-1040~1~Jimmy the Greek
+16325~-1032~1~Furama Dim Sum
+16237~-1021~1~Sushi-Q
+16308~-1046~1~Freshii
+16326~-1025~1~Wikki Hut
+16321~-1015~1~A&W
+16316~-1014~1~Potapia
+16306~-1010~1~Thaï Express
+16311~-1012~1~Popeyes
+16301~-1008~1~Butter Chick
+16295~-1007~1~Teriyaki Experience
+16289~-1005~1~Villa Madina
+5214~197~1~Mom's Pan Fried Bun
+6510~4769~1~Supreme Taste
+6317~4848~0~Lady Marmalade
+6258~4874~1~Bolzano
+6096~5887~1~My Roti Place Xprss
+6052~5700~1~Juzz Sushi
+6050~5693~2~The Roy
+5920~5110~1~Burrito Queen
+5915~5089~1~Issander
+5904~5043~2~Urban House
+5974~5350~0~Jimmy's Coffee
+5965~5310~2~Chez Nous
+5954~5264~1~Lacarnita
+5971~5335~0~Tim Hortons
+5906~5158~1~Slayer Burger
+5903~5036~1~Liberty Shawarma
+5862~4967~1~Happy Burger
+5880~4931~1~Riverside Burgers
+5844~4754~0~Dark Horse Espresso Bar
+4423~-15960~0~Starbucks
+5712~57~1~Mother's Dumplings
+10779~91~2~Booster Juice
+10737~77~2~Fresh Tea Shop
+10762~123~0~Starbucks
+5435~1934~1~Danish Pastry House
+5362~1997~0~Starbucks
+5359~1929~0~Starbucks
+5314~1953~1~Mrs. Fields
+5305~1973~1~Auntie Anne's
+5282~1964~1~Freshii
+5277~1966~1~Sushi-Q
+5295~1977~2~Refuel Juicery
+5348~2007~1~Milestones
+5510~1882~0~Starbucks
+5564~1874~2~Jugo Juice
+5607~1885~1~The Bagel Stop
+5541~1919~1~Sbarro
+5548~1918~1~Szechuan Express
+5553~1918~1~Heal
+5559~1916~1~Akashiro
+5574~1868~1~Shanghai 360
+5567~1849~0~Tim Hortons
+5565~1839~1~Subway
+5556~1826~1~Amaya Express
+5549~1828~1~Villa Madina
+5541~1830~1~Poulet Rouge
+5527~1861~1~Bingz Crispy Burger
+5500~1871~1~Koryo Korean BBQ
+5493~1873~1~Thaï Express
+5484~1877~1~McDonald's
+5477~1879~2~Gong Cha
+5549~1855~1~Sushi Q
+5543~1857~1~Sansotei Ramen
+5550~1864~1~Osmow's
+5519~1903~2~DavidsTea
+5575~1896~2~Real Fruit Bubble Tea
+5574~1903~1~Kernels Popcorn
+4779~1726~1~The Bagel Stop
+4783~1714~1~Freshii
+4786~1704~0~Aroma Espresso Bar
+4770~1690~0~Treats
+4776~1683~1~Cultures
+4771~1678~1~Ho Ga
+5440~72~1~Saigon Lotus
+5439~66~1~Ka Chi
+6548~-6274~1~Ondak
+4216~2546~1~Freshii
+6956~1376~1~Chick-fil-A
+7126~1711~1~PI CO.
+5712~2436~1~Bowl
+6177~2090~1~Ajisen Ramens
+4910~2812~0~Luba's Gourmet Coffee & Tea
+6507~-6352~2~Shoxs Sports Saloon
+16072~-9927~0~Tim Hortons
+4961~-2657~1~Imanishi
+5284~103~1~Wok Theory
+5178~-775~1~Stelvio
+4964~-2736~0~Full of Beans
+17327~14051~0~Tim Hortons
+4994~-3426~2~Amigos Da Dundas Sports Bar
+4983~-3308~2~Bar 24
+4972~-3056~1~Antler Kitchen & Bar
+4973~-3002~2~Midfield Wine Bar
+4972~-2956~1~Hawk & Chick
+4972~-2950~1~Hem Social
+4971~-2943~1~New Sunrise Grill
+4971~-2924~2~Kitten & The Bear
+4971~-2936~0~Birdbite Coffee
+4950~-2313~1~Gia
+4674~-1961~1~PapI Chulo's
+6979~-8308~0~Starving Artist
+4966~1882~1~Cactus Club Cafe
+5682~-698~2~Bistro 422
+5153~-3836~0~Tapioca Toronto
+5234~-3420~0~Brockton Haunt
+5238~-3398~0~Archi Element
+5257~-3307~1~Lebanon Express
+5271~-3237~0~Black Cat Espresso Bar
+4793~-2035~1~The Shozan Room
+4529~1026~1~Quesada
+4530~1030~1~JZ's Pizza
+8079~11432~1~Somun Superstar
+5265~157~1~Juicy Dumpling
+5454~-79~1~Seven Lives Tacos Y Mariscos
+5787~2203~2~The Met Campus Pub
+5428~901~1~Lili Kitchen
+6244~-462~1~Her Father's Cider Bar + Kitchen
+6816~6018~1~Maple Leaf Tavern
+2568~-7741~1~La Vecchia
+2514~-7767~1~Metanoia
+4855~1808~1~Kupfert & Kim
+5565~1529~2~Chatime
+5570~1556~1~HolmPei Cafe Bistro
+5575~1572~2~Fifylan
+5352~982~1~Top Bistro
+4625~925~1~La Fenice
+4270~2366~1~Butcher Chef
+4189~2110~1~South Street Burger
+10694~353~1~Harvey's
+6547~1211~0~Second Cup
+6967~1125~1~Eataly Toronto
+5665~1361~1~The Host
+4013~-2357~1~McDonald's
+3358~-1237~0~Starbucks
+4575~-4866~1~Souvlike
+5009~-5032~2~Bacan
+5057~-5030~1~Gold Standard
+4584~1871~2~Piper's Pub
+4558~1797~1~Library Bar
+4590~1850~1~REIGN
+4584~1835~2~Clockwork
+4854~1762~1~Forno Cultura
+4928~1924~0~Pilot Coffee Roasters
+3911~1385~1~Harvey's
+5531~-4535~0~Ethica coffee roasters
+5993~3870~0~Tim Hortons
+5988~3872~1~Subway
+5167~217~1~Bún Saigon
+5172~211~1~Xe Lua
+5176~214~1~Chongqing Liuyishou Hotpot
+5463~101~1~Fudao Noodle House
+4160~-3113~1~Molkagtez Mexican Cuisine
+5458~1854~0~Trinity Square Cafe
+4036~-3598~1~Loga's Corner
+4198~2035~1~Nonna Francesca's Ristorante
+4165~2077~1~Kinka Izakaya
+4168~2084~1~Kinton Ramen
+4631~956~1~Gabby's
+4633~975~1~Thai Room Grand
+4635~982~2~N'Awlins
+4640~996~1~Kinoya
+10051~315~1~Khau Gully
+8165~-2507~0~Cocoa Latte
+13293~-5214~1~Pür & Simple
+4197~-655~1~Edulis
+8033~11209~1~Sandy's Cuisine
+8061~11253~2~Feathers
+8037~11248~1~Hing Fa Chinese Cuisine
+8070~11300~1~Subway
+8085~11294~0~Savoury Grounds Coffee Co.
+8072~11338~1~Gabby's
+8718~12850~2~Jessies
+8723~12856~2~The Kingston Social
+8751~12840~1~Pizza Rustico
+8850~12986~1~Jatujak
+8856~12995~1~Barkhouse Grill
+8073~11345~0~The Porch Light
+8080~11440~1~The Real Jerk
+8054~11443~1~Tropical Thai Cuisine
+8087~11501~0~Starbucks
+8088~11529~2~The Green Dragon
+8089~11537~1~Bowl of Karma
+8097~11634~1~Big Boy's Burrito
+8240~12049~0~Tony & Claudia's
+8947~13191~2~Buster's
+8968~13227~2~Cheers
+8977~13243~1~Spice King Reataurant
+13689~-3769~1~Bagel World
+13677~-3861~1~The 5th Taste Sushi Restaurant
+13679~-3847~1~LaPaz Batchoy
+13653~-3682~1~Marcelina's Filipino Cuisine and Karaoke Bar
+13646~-3727~0~Chat One
+13649~-3710~1~Wilson's Haus of Lechon
+13597~-4232~1~Heaven's Grill
+13317~-5098~0~Starbucks
+13335~-5103~1~Freshii
+13321~-5089~1~Vivo Pizza & Pasta
+13720~-3654~1~Sampaguita Village
+13714~-3599~1~Subway
+13748~-3503~1~Republika RestoBar and Grill
+13785~-3453~1~Atin Ito
+13797~-3455~1~Pizza Cafe
+13843~-3454~1~Popeyes
+13849~-3456~1~Food Trip
+13868~-3398~0~Aroma Espresso Bar
+14339~-8658~1~Champion Döner
+14383~-8672~1~Ellias Restaurant & Bar
+9782~-3949~1~Jer's Restaurant
+9747~-4114~1~Rap's
+9743~-4134~1~Hot Pot
+9721~-4240~1~Randy's
+9728~-4204~1~The Entertainment Kitchen
+7372~-6292~1~King's Palace
+7404~-6141~1~Tropical Venue
+7421~-6066~1~Huong Viet Restaurant
+7448~-5946~2~Marinho Sports Bar
+6432~-1443~2~Kung Fu Tea
+6413~-1530~0~Ninetails Coffee Bar
+6462~-1303~0~Rustle & Still
+6561~-755~1~The lab
+6551~-749~1~Raffaella
+7470~-5860~1~Marina’s Casa da Comida
+7473~-5849~1~Sabors Tradicionais
+7474~-5841~1~Unique Cafe Restaurant
+7485~-5786~1~El Rancherito
+7491~-5756~1~Flor do Ave
+7496~-5732~1~Samba
+7442~-5820~2~Da Silva Sports Bar & Grill
+6267~-342~1~Bar Eugenie
+6157~-891~1~Fantasy Kitchen
+8181~-2422~1~Chinese Dumplings
+8222~-2394~1~The Company We Keep
+8210~-2255~0~Fleur de Jour
+8251~-2049~1~Raahi Kitchen & bar
+8248~-2062~1~Tacos Moras
+8247~-2069~1~Ba-On Filipino Takeout
+8282~-1889~2~Wychwood Pub
+5274~-11~1~El Rey
+5297~-21~1~Tibetan Village
+8025~898~1~Sorrel
+8001~953~1~Terroni
+8217~815~1~Impact Kitchen
+8262~765~1~Kibo Sushi
+8172~880~1~Sash
+7863~963~1~Avant Goût
+7875~958~1~Quanto Basta
+8570~668~1~Barnsteiner's
+5086~2450~1~Terroni
+10328~258~1~Samba
+10321~260~1~Social Llama
+10313~261~1~Maki Mart
+10307~262~0~Bean Wise
+10302~263~0~Togo Coffee
+4200~-3242~1~BB's
+6678~1483~1~Dal Moro’s Fresh Pasta To Go
+6673~1436~0~Caphelia Cafe
+10876~711~2~Yonge & Eligible Café Lounge Bar
+8362~758~1~Taline
+5474~-52~1~San Casme
+5484~-88~1~Tacos 101
+6752~1470~0~Zagmachi
+6770~1445~1~O Bong
+6691~1478~1~Broken Rice
+6591~1484~0~The Peachy
+6367~1578~1~Bone Soup Malatang
+6159~1661~1~Edo Japan
+6339~1591~1~Darvish Persian Cuisine
+6226~1636~1~Flaming Kitchen
+6231~1634~1~Four Four South Village
+6242~1628~1~Domino's
+5981~1782~1~Lucky Donkatsu
+6063~4022~1~Liberty Pizza
+6070~4056~0~Le Beau
+6038~3935~1~Wendy's
+5695~2574~0~Tim Hortons
+5465~-165~1~The Suya Spot
+11190~874~0~L’Amour Cafe and Pastry
+6942~1338~1~Rolltation
+11023~107~1~La Vecchia
+11029~107~1~Banh Mi Journey
+11038~104~1~BBQ Chicken & Pub
+10907~134~1~Ajismen Ramen
+11324~48~1~Louie’s Classico Pizza
+19266~16030~1~Fat Bastard Burrito
+19251~16047~1~Ai Sushi
+19573~16826~1~Veerar
+19572~16819~1~Popular Pizza
+19254~16066~1~Sunrise
+19257~16077~1~KFC
+19505~15905~1~Popeyes
+19508~15921~1~Naan Kabob
+19520~15982~1~Chopstick House
+19522~15989~1~Osmow's
+5588~649~0~Carbonic Coffee
+6278~-405~1~rasa
+6289~-354~1~Boardroom Cafe
+6302~-290~1~piano piano
+10710~202~1~The Burger's Priest
+6108~2128~1~Alexandros
+6106~2123~1~Assembli Custom-Made Salads & Pizzas
+4856~1247~1~Chaska
+4591~95~1~COPS
+5225~-689~0~Milky’s
+5511~-336~0~I deal coffee
+5211~2239~1~Bob's Bulgogi
+13284~-5209~1~Jollibee
+6627~1472~1~Super Chicken
+6640~1467~1~Fat Bastard Burrito
+6630~1471~1~Gyou Ramen
+6623~1473~2~Chatime
+6564~1498~2~Molly Tea
+6514~1517~1~Mabu Generation
+6523~1515~2~Kung Fu Tea
+4902~1287~1~Subway
+5388~-28~0~Tibet Cafe
+5380~-51~0~Lola
+5394~-58~1~Fong on Foods
+5317~9~2~The Oud & the Fuzz
+5764~-91~1~Mi'hito Sushi Laboratory
+5766~-86~1~Awesome
+5764~-97~1~Baroness
+4674~2590~1~Cafe Nicole
+7489~1153~1~WeYonge
+7469~1166~1~Robot Boil House
+7474~1164~1~Monkey Sushi
+7477~1163~2~uTea
+5676~2470~1~Laziz Curry Kitchen
+5674~2461~1~Grillies
+5819~2737~1~George’s BBQ and Delicatessen
+5683~2381~1~Gyukatsu Kyoto Katsuguyu
+5677~2481~1~Pita Land
+5873~3028~1~Umi’s Kitchen
+5748~2550~0~Starbucks
+5799~2895~1~Akhigbe Nigerian Caterers
+5881~3174~1~Ju Sushi & Bar
+4121~-3439~1~Popeyes
+5125~1001~0~Tuck Shop Provisions
+5646~2544~0~ToGo Coffee
+6169~2053~1~Pi Co
+6109~2140~0~Bulldog Coffee
+6124~1844~0~Goldstruck Coffee
+6011~1415~0~Neo Coffee Bar
+5894~1617~0~Hailed Coffee
+5903~1517~0~Black Wolf Coffee
+8318~773~1~Umami Poke
+4786~-2053~1~Bobbie Sue's Mac and Cheese
+6032~5740~0~Starbucks
+18484~10893~1~McDonald's
+7196~2213~0~Aroma Espresso Bar
+6130~1940~1~The Lexington
+17941~-1828~1~Yupdduk Finch
+5247~-3345~1~Ten
+6292~-342~0~YGO Lab
+11151~3575~1~Kintako
+7075~10274~1~Isabella's Boutique Restaurant
+17093~6837~0~Aroma Espresso Bar
+17084~6842~1~Sozo Japanese Cuisine
+17075~6846~1~Eggstatic
+17061~6851~1~Yan Yu Chinese Dining
+17048~6856~1~Hotpot 9
+17026~6772~1~Satay Sate
+17037~6754~1~Burger Park
+17089~6807~1~Gyu-Kaku Japanese BBQ
+17083~6776~1~Burrito Boyz
+17092~6823~1~Primo Veal
+17086~6790~1~ZenQ Taiwanese Restaurant
+18896~-1829~1~The Fry
+18949~-1820~1~Torch Sushi
+18969~-1832~1~Daldongnae
+18998~-1853~1~Katsuya
+5745~1845~1~Jollibee
+10182~227~1~Forest Hill Farmhouse
+5730~1640~1~Konjiki Ramen (Downtown)
+10463~-622~1~Ghost Kitchens
+17944~-1799~2~Palgong Tea
+7702~218~0~Bell Tower Coffee + Community
+7491~-764~1~Krispy Kreme
+7478~-836~1~Roti Cuisine of India
+10187~248~1~Dave’s Hot Chicken
+4694~-69~0~Fahrenheit Coffee
+13518~-380~0~Starbucks
+16306~-1035~1~A&W
+6195~2006~0~Starbucks
+4821~418~1~Birria Balam
+11338~3~0~Himalaya Coffee House
+11273~15~2~The Hut - Smoothie And Juice Bar
+16930~-1375~0~Aroma Espresso Bar
+8840~-1316~1~Banfi
+8300~-1783~1~A&W
+6525~4761~1~O'Somae
+5231~191~1~Bao
+4426~-1759~0~Mofer Coffee
+2366~-11567~0~Tim Hortons
+4184~-13667~1~The Portuguese Chicken House
+5475~2382~1~A&W
+4769~-104~1~Rosie’s Burger
+5715~-342~1~Osmow's
+17517~14304~1~Jollibee
+17509~14269~1~Chick-fil-A
+4814~485~2~Watson's
+4479~-12203~1~Burrito Boyz
+6474~4786~1~Completo
+5643~-262~0~The Arch Café
+4180~-3263~0~Sam James Coffee Bar
+4686~2550~1~Shoeless Joe's
+16996~-1340~1~Boston Pizza
+5647~-687~1~Quetzal
+5653~-658~1~Onnki Donburi
+5586~-982~1~Dai Lo
+5582~110~2~CoCo Fresh Tea & Juice
+5596~-1098~2~District
+5845~-55~0~10 Dean
+5617~40~1~Thai Country Kitchen
+5500~-8~1~The Lobster Roll
+5499~-12~0~Little Pebbles
+5511~-205~1~Pizzaria Da Mario
+5639~29~1~Song Tea
+5691~-315~1~Mango Like Desserts
+5726~-11~1~Simmer Huang
+5514~38~1~La Fermenteria
+6632~-606~2~Palgong Tea
+4206~-2883~1~Matt's Burger Lab
+4205~-2890~0~Bom Dia
+7231~2194~1~Popeyes
+5618~1771~1~Moon Palace
+4936~2179~1~Mad Radish
+4940~2176~1~Chipotle
+4454~1092~1~La Diperie
+6682~1832~1~Storm Crow Manor
+16628~-1246~1~Cafe Landwer
+16595~-1239~1~Chipotle
+17810~-1485~1~Gol’s Lanzhou Noodle
+16296~-1155~1~The Fry - Sheppard
+4090~-175~2~Bean + Pearl
+4099~-178~0~Milky's Cloud Room
+4544~-12177~1~Thaï Express
+8728~9267~0~East Toronto Coffee Co.
+3427~-14147~1~Blooming Batter
+3385~-14179~1~Shawarma Royale
+5368~496~1~Yunshang Rice Noodle
+5923~1689~0~world cafe
+6535~-6520~0~Botham's
+6554~-6653~0~Full Stop
+17643~16523~1~Dspot
+5327~2514~2~The Carbon Bar
+4570~3508~1~Pizzaville
+4564~3529~1~Popeyes
+7110~1205~1~Kathmandu Restaurant
+6803~672~1~Clay
+6377~1570~1~The Fry
+6992~1580~1~Onki Donburi
+5489~-228~2~Poetry Jazz Cafe
+6215~6420~1~Pasaj
+7383~-1173~1~Fat Pasha
+7355~-1191~1~Chadwick's Craft Kitchen & Bar
+7397~-1180~1~Schmaltz Appetizing
+4107~1885~0~Tim Hortons
+4723~-4397~0~I Deal On the Park
+10360~252~1~Oretta
+4619~1580~2~Beertown
+10722~480~1~Fresh
+10732~518~0~Starbucks
+6175~1652~1~Hoops Sports Bar & Grill
+4189~-13649~2~Chatime
+4370~1156~1~The pint
+16419~-1199~1~Mapo Gamjatang
+5265~148~1~Canteen
+6495~4738~1~Sushi Bar
+6536~4722~1~Boba Boy
+5584~3530~1~Figs Breakfast & Lunch
+4926~496~1~Chick-fil-A
+4708~-3364~0~Imanishi Sando Bar
+4959~-3329~1~Lia’s
+3431~-1368~1~OVG Pizza
+3414~-1431~1~Lake Shore Grill
+3464~-1240~1~Midway Grill
+3447~-1301~0~Wandering Bean Coffee
+3865~1446~0~Café Locale
+3867~-28~0~Aroma Espresso Bar
+5201~-484~1~Kanto by Tita Flips
+5203~-489~1~Suzume
+5204~-492~1~Thai Street Food
+5209~-503~1~Original Taste
+5210~-506~1~little Banh Mi
+5207~-498~1~Gushi Japanese Street Food
+5205~-495~1~Ethiopian
+5125~2795~0~Cafe Oro di Napoli
+5348~-563~1~The Bagel Stop
+5348~-579~2~Booster Juice
+5335~-564~1~Wing Machine
+5342~-560~1~Edo Japan
+5384~-486~0~Second Cup
+5318~-586~0~Tim Hortons
+5334~-569~1~Gino's Pizza
+5350~-571~1~Mix it up!
+5342~-610~1~Druxy's Famous Deli
+5349~-574~1~Mr. Sub
+5333~-573~1~Asian Gourmet
+5529~-260~1~Ozzy's Burgers Toronto
+5178~-439~1~Stuffed
+4046~2473~1~Stefra’s Snack Bar
+3733~-13110~0~The Sweet Gallery Cafe
+6469~-6405~2~See-Scape
+3389~-14185~2~Gong Cha
+4484~-12198~1~Spring China House
+5738~46~1~Qin's Garden
+2715~-7744~1~Ono Poké Bar
+6974~9787~0~Starbucks
+6935~9627~1~Pizza Nova
+7082~10291~1~6ix Pizza
+7050~10087~2~Captain Jack
+6938~9768~1~Gus Tacos
+7027~10033~1~A&W
+6928~9552~2~Breakwall BBQ & Smokehouse
+6531~-6624~2~Junction Underground
+5046~1002~1~Salad King
+5856~439~0~Starbucks
+5693~1897~2~Presotea
+8086~11730~1~Pattylicious
+3756~-7453~0~Cheese Boutique Cafe
+6540~-840~0~Wildhearts Cafe
+6942~1417~1~Suski Biryani House
+6142~6103~2~Wei's Bar & Variety
+7067~1595~1~Chipotle
+6789~1102~1~imPerfect Fresh Eats
+6542~1281~1~Super Chicken
+5603~1668~1~Chasha Express
+5632~1658~1~Fusia Asian Kitchen
+5633~1667~1~Popeyes
+5630~1649~1~My Sushi
+10863~145~1~Pai Northern Thai Kitchen
+6165~1250~1~Thaï Express
+6414~1593~1~Egg Club
+4528~-57~1~Little Sister
+3912~-1106~1~Forest Hill Farmhouse
+3922~-1036~0~Starbucks
+4636~-749~1~Tibet Kitchen
+18374~14679~1~Freshii
+18371~14685~1~Thai Room
+7204~1225~0~Tim Hortons
+15933~-1076~1~Burrito Boyz
+15937~-1078~1~Super Chicken
+7022~1219~0~A-ok Cafe
+1169~-15745~0~A-ok Cafe
+4867~1097~2~Golf Club
+2358~-8049~2~Holo Tea & Cafe
+3833~-1611~1~eb Breakfast Co.
+5035~1611~1~Assembly Chef's Hall
+6023~1411~1~Deer Garden
+12105~6768~1~Cornerside Cafe
+18128~-1564~1~Zui Beer Bar
+18135~-1565~1~Burrito Place
+4456~1991~1~Foodie Aisle
+4439~1833~1~Pizza Pizza
+4415~1894~1~Shanghai 360
+4668~1145~1~Minami
+10000~-11791~1~Durdur Grill
+8038~11281~2~Lighthouse
+6972~9941~1~Ristorante La Sala
+6968~9887~1~Pizzaville
+12441~-5731~1~Hamov Shawarma & Grill
+6818~5912~1~Nganda
+7045~10141~1~Wild Oregano
+6931~9600~1~The Burger's Priest
+6981~9841~1~Tiflisi
+6311~222~0~Café Reznikoff
+6673~5268~1~Batifole
+6668~5244~1~Bep Viet
+6289~197~1~Ideal Catering (Brown Food Truck)
+5400~2872~0~Moss Park Espresso
+4904~2534~1~Piano Piano
+4491~-41~1~VELA
+4941~2576~0~Third Wave Coffee Inc.
+4606~-903~2~Three Monks and a Duck
+6522~-5312~1~Columbian Street Food
+5561~-1116~0~Liu Loqum Atelier
+4521~258~1~Myth
+5425~749~0~Evana Cafe & Lounge
+4594~-966~1~Chez Paul
+10615~202~0~Starbucks
+6558~-5262~1~Gus Tacos
+4431~1296~1~Don Juan's Food Truck
+6469~-1511~1~Thay Bar
+10710~416~1~Monkey Sushi
+16096~-1230~0~Java Joe’s
+5523~1450~1~Kimchi Korea House
+6991~9881~1~Oyabong Sushi
+5699~-5238~1~Leni Poki
+4258~1294~1~360 Restaurant
+6703~1373~1~Avelo
+5504~13~1~Eat Nabati
+5510~7~1~Lana's Kitchen
+4794~-130~1~Il Vegano
+4521~3569~1~Mavericks Burger Co
+5513~22~1~Veggie D'Light
+5128~2475~0~Versus
+7034~863~2~Kung Fu Tea
+6453~1973~1~Soy Boys
+10144~296~1~Freshslice Pizza
+5500~1396~1~King Fries
+5526~1460~1~Tsujiri
+5569~784~1~Krispy Kreme
+6765~479~1~Druxy's ROM Cafe
+5610~1160~1~Chipotle
+5445~1228~0~Starbucks
+5417~1238~1~Jersey Mike’s Subs
+4745~1350~1~Charlotte's Room
+5433~917~0~The Library Specialty Coffee
+5435~923~1~Gallery Sushi
+5438~937~1~Subway
+7057~10306~1~Bikkuri Japanese Resturaunt
+7073~10376~1~Hajime Japanese Resturaunt
+10790~662~1~Chowrasta Indian Cuisine
+10823~690~2~Redpath Juicery
+5767~1527~1~The Bagel Shop
+5705~1509~1~Matagali Indian & Thai Cuisine
+10848~106~1~Star King
+10853~104~2~CoCo Fresh Tea & Juice
+4711~957~1~Sweet Jesus
+4724~952~1~Burgers N Fries Forever
+4549~1996~0~% Arabica
+4680~1039~0~Starbucks
+4688~1031~2~Bar 404
+4517~-2992~0~Rooms Coffee
+17576~14370~1~Uncle Tetsu’s Japanese Cheesecake
+17415~11744~1~Dosa Boyz / Hakka Boyz
+6269~2049~1~AFURI Ramen + Dumpling
+4514~1119~0~Bevy@The Combine
+4608~856~0~Pigeon Café & Bar
+4197~-765~0~Patco Cafe
+6150~4271~0~Bevy
+3853~-2044~1~Impact
+5401~-158~1~Rikki Tikki
+10245~299~1~Padaria
+10880~90~1~Aloette Go
+6948~9688~1~Island Blend
+5682~-679~1~The Green Room
+5812~208~1~Tahini's
+5813~214~1~Self Ramen Bar
+5814~220~1~Terima
+5126~-4032~1~Town Wings
+5519~-5233~1~The Fry
+5914~5197~1~Blessed Love
+6422~1948~2~Crews & Tangos
+7478~-5815~0~Aunty Em's Deli & Coffee
+17386~14251~2~CoCo Fresh Tea & Juice
+5468~-193~1~Lekker
+5437~-45~0~Sleepy Pete's
+5482~-96~1~Leaf Doner
+4324~-681~0~Fungo Cafe
+4431~-154~1~Lapinou
+6517~-5273~1~Koji Sushi
+6519~-5262~1~Domino's
+4793~2354~1~Greenbox
+7465~-5661~1~Távora
+7058~1719~0~Hale Coffee
+6902~-8388~2~Comic Tea
+6585~624~0~Terima Coffee + Pantry Bar
+5630~91~1~Anh Dao
+4438~26~1~The Burger's Priest
+4597~1586~1~Dough Box
+5137~-5117~0~Tim Hortons
+6967~-4852~0~Balzac’s
+4877~429~1~New York City Sliders
+4879~-12844~1~Thai Jalearn
+1188~-15552~0~Nespresso
+1138~-15560~2~Real Fruit Bubble Tea
+1507~-15607~1~Pokeworks
+1509~-15600~1~Playa Bowls
+7083~790~0~Summer's
+4474~2046~0~Nespresso
+4234~334~0~Quantum Coffee
+4372~843~1~Fat Bastard Burrito
+4815~2236~2~Mossop’s Social House
+4298~547~0~De Mello Coffee at The Well
+5295~251~2~Royaltea
+5294~247~2~Higher
+5188~-7363~1~Harvey's
+5188~-7358~1~New York Fries
+4496~-13266~1~Resurrection Restaurant + Bar
+5812~1427~0~Cotti Coffee
+5955~1688~2~The Alley
+7095~1025~1~Miznon
+4300~-2750~1~Island Foods
+7031~1450~1~Cate Landwer
+6703~791~0~Caffiends
+4895~1562~1~LOCAL Public Eatery Adelaide
+4251~1755~0~Starbucks
+4974~882~0~Mizzica Cafe
+4263~-2587~0~Tim Hortons
+9813~-3963~1~DoughBox Wood Fired Pizza & Pasta
+10844~934~1~Shawarma Royale
+10749~438~1~Istanbul Kebab House
+10371~249~1~Sansotei Ramen
+10147~295~2~Gong Cha
+4081~-3426~2~Simpl Things
+6072~357~0~Second Cup
+8096~11603~1~Heffy's Fried Chicken
+4627~2107~0~The Brick Room Coffee
+4620~2101~1~Chotto Matte
+11058~100~1~Sushi Rock
+4163~-3085~2~Tilt Arcade Bar
+4590~3498~0~Café Le Neuf
+4440~3306~0~Lazy Barista
+4440~3180~0~Mofer Coffee
+4501~3579~2~Gong Cha
+5576~3568~1~Royal Karahi
+6146~6011~0~Maha’s Cafe
+5909~5060~1~Pizzaiolo
+5569~3536~1~Kish's Roti & Doubles
+4466~1877~1~Union Chicken
+5788~2168~0~Oakham Cafe
+5451~163~1~Isaan Der
+5260~2100~1~Salus
+6032~5725~1~A&W
+6581~-5017~1~Defina Wood Fired
+6049~5807~1~Maestro's
+6000~473~1~Hard Hat Cafe
+6870~6131~1~Little Caesars
+4739~1321~1~Lobster Burger Bar
+5579~606~1~Pho Le Vietnamese Noodle Soup
+5594~674~1~Taisho Japanese Grill
+5599~701~1~Japanese Yakitori Izakaya
+5581~612~1~Yuugi Izakaya
+5603~716~0~Rooms Coffee
+5582~631~1~Yunnan Noodle Shack
+5588~655~1~Koh Lipe
+5609~631~1~Smoque N' Bones
+5471~155~1~Mr. Fish
+5582~618~1~Dahu Hotpot
+5594~676~1~Charidise
+5614~661~1~Mexhico
+5607~742~0~Butter & Blue
+5585~643~2~Khem Thai Pulled Yea
+5581~625~1~Larb Muang
+5593~670~1~Petite Lune
+5467~159~1~August 8 Dim Sum + Sushi
+5622~689~1~Street Grill Bar
+5584~636~2~The Sweet Spot
+5706~59~1~Kung Fu Duck
+5753~-17~2~El Mocambo Tavern
+5454~104~1~Chaoshan Beef Hotpot
+5741~-12~0~Honeymoon Dessert
+5681~69~1~Kokumi Mini Hot Pot
+5659~79~0~Han Bingo
+5561~118~1~California Beef Noodle King
+5553~122~1~Tastys Chicken & Donuts
+5651~81~0~XOXO Tea
+5510~139~2~Cha Tra Mue
+5638~87~1~Spice & Aroma
+5634~89~0~Yogo Yugurt
+5579~111~1~Yin Ji Chang Fen
+5548~124~1~Daldongnae
+5626~35~1~Xiaobiandan
+5742~-12~1~ChiChop x norigo
+5546~129~0~Project Seoul
+5673~51~1~Tasty's Restaurant & Catering
+5556~59~2~Shuyi Tealicious
+5625~35~1~Chongqing Chicken Hot Pot
+5730~49~1~Korean Grillhouse
+5687~69~1~A1 Stone Pot
+5696~65~1~Crimson Teas
+5566~57~0~Ninetails Coffee
+4362~-2059~0~Out Of This World Café
+6148~6134~1~Ocha's
+3824~-13715~0~imPerfect Fresh Café
+4617~1557~0~Tim Hortons
+6243~3264~1~Gushi Japanese Street Food
+2420~-7811~2~Kung Fu Tea
+2297~-7887~1~Huevos Gourmet
+2327~-7872~0~Zen Cafe+
+2334~-7869~2~Oakberry Açai
+2670~-7727~2~Casa Boho
+5157~-7500~1~Beach Hill Smokehouse Texas BBQ
+7027~10038~1~Sunset Grill
+7027~10043~1~Fat Bastard Burrito
+5749~3462~1~The Lair
+5136~2531~0~Tim Hortons
+5108~2083~1~Chop Hop
+5220~1611~1~Hero Certified Burgers
+4378~-2943~1~Mercato
+10753~169~2~Function Bar
+10722~323~0~Tim Hortons
+10131~260~1~Madame Saigon
+13339~-5104~1~Osmow's
+6694~1194~2~Firkin on Bay Street
+6956~9830~1~Mira Mira Diner
+8564~8770~1~Sandy's Resturaunt
+6949~9799~2~The Wolfe Tone Irish Pub
+6544~4777~0~Issho Bakery
+4245~2528~0~Espresso House
+5320~376~2~Enjoy the Tea
+5301~382~2~Chicha San Chen
+5648~1919~1~Shake Shack
+8883~-1235~2~Greenhouse Juice Co.
+4366~2935~0~Dark Horse Espresso Bar
+6426~1981~2~Flash on Church
+8298~-1794~1~Popeyes
+3740~-2468~1~Kinton Ramen
+3816~-1768~1~Chiang Mai Thai Kitchen & Bar
+8262~-2188~0~The Grind
+6931~9731~1~The Gull
+6937~9758~2~Beaches Brewing Co.
+7048~10153~1~Freshii
+7028~10053~0~Ion Coffee
+4673~77~1~Waterworks Food Hall
+5728~1632~1~bb.q Chicken
+10181~-11477~0~The Rosemount Café
+8833~-1242~1~Mashu Mashu
+8805~-1271~1~Wilsetti
+8256~-2219~0~XO Bisous
+5059~4017~2~SpiritHouse Toronto
+5070~4147~0~The Sweet Escape
+5057~4130~1~El Catrin Destileria
+18741~-1716~1~Gui Gui
+3845~-1685~1~Liberty Soho
+4622~1277~1~Koha Pacific Kitchen
+4850~648~1~Ricarda's
+3755~-2288~0~Breadflour
+10047~-11681~0~El Almacen
+4455~1939~1~Bingz
+4427~1903~1~Sushi Shop
+4421~1905~1~Paramount
+4411~1843~1~Sansotei Ramen
+4407~1859~1~Taco Bell
+4419~1841~1~Thaï Express
+4454~1930~2~Freshly Squeezed
+4410~1874~1~Roywoods
+17066~-1303~2~ITS TEA
+17071~-1305~1~Good Taste Casserole Rice
+17076~-1306~1~Daldongnae Korean BBQ
+5029~1129~1~Chick Queen
+6688~5445~1~El Hijo de Tizoc
+3867~-2092~0~Arvo
+5800~1853~1~Pita and Hummus
+10984~117~0~De Mello Coffee
+8409~9944~1~Beach Hill Smokehouse
+4995~-3507~1~Le Baratin
+4996~-3514~2~Mama’s
+12199~16432~1~No. 1 Jerk
+12100~16337~1~Wild Wing
+12118~16356~1~Double Double Pizza & Chicken
+12111~16348~1~Super Choy
+8859~-1239~1~Sushi Lovers
+12450~-5527~1~TORA
+4191~2612~1~NBA Courtside Restaurant
+8235~-2139~2~Heal Wellness
+5341~3041~1~Bad Egg
+8828~-1276~2~Village Juicery
+5436~824~2~DZO
+5362~953~1~Eats Manilla
+5350~956~1~Nai Nai
+5351~927~0~Ka-Nom
+4590~613~1~Chipotle
+4461~1~1~Añejo
+4454~-61~2~King Taps
+17374~-1371~1~Kim’s A La Cart
+16697~-1202~1~Konjiki Ramen
+8173~834~2~The Sober Market
+6867~748~1~Amal (Toronto)
+6863~1433~1~Sang-Ji Fried Bao
+4605~833~1~Tahini's
+4594~793~1~Abrielle
+4557~938~1~Nobu
+4614~207~1~Nutbar
+7128~2340~1~Maison Selby
+6742~3056~1~Momo Ghar
+5496~3456~0~Buvette Pacey
+4456~849~1~Annalakshmi
+8490~8280~1~Bhojan Ghar
+5761~1767~1~B-Town Pizza
+4722~1517~0~Brandor Coffee
+3699~354~1~Blomboon Restaurant & Bar
+3772~58~2~Gong Cha
+5369~487~1~Asian Legend
+8909~-1269~0~Le Petit Pain
+4771~1013~0~Columbus Café & Co
+7070~10244~1~Osmow's
+4957~-2497~2~Bar Mordecai
+6126~4130~0~Tim Hortons
+5642~2309~1~Krispy Kreme
+5618~2317~1~Tahini's
+5633~2312~1~Odd Burger
+3946~-2034~2~The Lounge
+3961~-1911~1~Pico
+4179~-156~1~Kettlemans Bagel
+16347~-9939~1~Irie Flavour
+6551~-6399~1~Mangiare Italian Family Dining
+2995~-7674~1~Vos Restaurante Argentino Steakhouse
+4688~-12552~1~Rolly Polly Cow
+18992~-1847~1~Pizzamaru
+16258~-1149~1~Pizzamaru
+5770~2376~1~Charcoal Kebab House
+5650~2221~1~Egg Club
+5717~2155~1~Delhi Momos
+6988~9990~1~Pizzeria No. 900 Beaches
+9440~12421~1~Harvey's
+4435~15~2~Chamberlains Pony Bar
+4443~57~1~Tut's
+6947~9682~1~Heal
+6944~9671~1~Poke Eats
+5368~498~1~Yang's Braised Chicken Rice
+6521~-5251~1~Souvlaki Emporium
+6518~-5268~1~Thai Lime
+6568~-6394~1~BOOM Breakfast & Co. Junction
+3977~-2021~1~Chipotle
+6653~-573~1~Ghazale
+4859~932~1~Runway 06
+6286~-375~1~Maven Toronto
+5978~-67~0~Cafe 059
+6316~191~1~Dining Car
+6205~173~1~Ramen Ya
+6550~1504~0~Bloom Cafe
+6099~3992~1~Popeyes
+5952~3379~1~East Coast Donair
+6083~-67~0~Second Cup
+4527~3051~0~Tim Hortons
+4441~3001~0~Starbucks
+4830~1710~0~Michel’s Bakery Café
+4474~1984~1~Egg Club
+12501~-5505~0~Starbucks
+12488~-5505~1~Jardin Noir
+12504~-5492~1~Konjiki Ramen
+12495~-5466~1~Delsyees
+4226~1374~0~Ripley's Café
+5727~1295~1~Teriyaki Experience
+5727~1320~1~Subway
+5753~1301~0~Starbucks
+4709~16~2~Sobr Market Richmond
+5001~3614~0~Berkeley Cafe
+12860~7067~1~Bibab Express
+16431~-1114~1~Chungchun
+13873~-3406~1~Top Silog
+5173~-7298~0~High Park Espresso
+7434~-954~0~First and Last Coffee Shop
+7415~-1088~0~Typist Studios and Coffee
+5815~225~1~Cosmic Pizza
+5788~70~1~Taco Bell
+2303~-10744~1~Costco Food Court
+5755~1622~1~Pumpernickel's
+5759~1639~1~Punjabi Chaap Corner
+5758~1753~1~Elm Street Italian Deli
+5770~1804~0~Cộng Cà Phê
+5741~1683~1~Flipper's
+4042~1924~1~Shawarma West
+4056~1920~1~Dil Se Dil Tak
+6913~1160~1~Mar’aa Yorkville
+3532~-14039~1~Dairy Queen
+3575~-13816~0~Second Cup
+5499~-290~0~Harmony Cafe
+7503~-686~1~Subway
+7508~-674~1~The Backyard Smokehouse
+7508~-661~0~Wey Cup
+1506~-15612~1~Jimmy John’s
+8258~-2223~0~XO Bisous
+5500~1335~1~麻小辣砂锅米线
+5522~1109~0~Avenue Cafe & Bistro
+10847~944~1~Churrasco Villa
+10989~115~2~Tiger Sugar
+10996~114~1~Dacasto Gourmet
+10976~119~1~Wing Machine
+10176~289~2~Açai Brazil
+10055~314~1~Cowboy’s Grill
+5579~626~1~Tiger Den
+5693~65~1~Jian Bing Club
+6879~1350~1~Pearl Yorkville Chinese Cuisine
+6616~1257~1~Petit Potato
+5199~-704~1~chop chop
+5159~-415~1~Migustoes
+6610~1438~0~Nabulu Coffee
+6517~1389~1~ramen RAIJIN
+6812~1220~1~Sushi Umi
+6575~1432~1~Lao Lao Bar
+6575~1404~0~Togo cafe
+6567~1308~1~Holychoco Toronto
+6339~1634~2~Heytea
+6399~1559~1~BOKU (Yonge St.)
+6451~1445~2~Cha Payom
+6436~-62~1~The Gables
+6436~-58~1~Toroast
+6435~-63~1~Guksu
+6435~-64~1~Burger Lab
+6883~1120~1~Earls
+6980~822~2~Nut Bar
+6900~1391~1~bb.q Chicken
+3867~1328~1~I Love Churros
+4465~2048~1~Shake Shack
+4535~-12271~2~Real Fruit Bubble Tea
+4535~-12280~1~Freshii
+4645~1549~1~Moxie's
+4825~1687~1~The Great Canadian Bagel
+7140~2852~0~KAVA COFFE HOUSE
+4588~758~1~Wendy's
+4281~-724~1~Greedy Goose Kitchen + Bar
+4575~696~0~Tim Hortons
+6429~-1102~0~Spirited
+5219~-7218~1~Bravo! Peruvian Kitchen
+5192~-7341~1~Dickey’s Barbecue Pit
+4797~1599~1~Nosh & Go
+4786~1567~1~Bento Sushi
+4182~-2864~0~My Tea Bar
+4676~1980~0~Starbucks
+4512~1894~0~Pilot Coffee Roasters
+4774~1452~0~Dineen Coffee
+4842~1750~1~Calii Love
+4734~1319~1~Coffee Oysters Champagne
+4733~1308~1~Oklahoma Burgers
+1255~-15524~1~Fresh Kitchen + Juice Bar
+4928~-12852~1~4894 Dundas Food Pickup Uber Eats DoorDash Skip
+5508~-5935~2~Ichi Cha Bubble Tea
+4753~2183~1~Las Muns
+4740~2186~1~Zen Kyoto Sushi & Fish Market
+4717~2175~1~Dave’s Hot Chicken
+4706~2155~2~Greenhouse
+4696~2151~1~Jimmy the Greek
+4688~2119~1~Paramount
+4784~1556~1~Rolltation
+4800~2075~0~Mos Mos Coffee
+4781~2083~1~Chop Hop
+4774~2093~1~Pantry
+4683~2098~1~Colaba
+4667~2089~1~Kupfert & Kim
+4668~2101~1~Tiger’s Cup Nap
+4500~1867~1~Amano
+4520~1948~0~Isabella’s Donuts
+4425~2066~0~Tim Hortons
+4521~1923~2~Greenhouse
+11235~3550~1~Pho Lady
+4289~2246~1~Pita Pit
+3999~2044~0~Ivy Coffee Shop
+4464~1986~1~Jersey Mike's Subs
+4465~1999~1~#DESI
+4467~2015~1~Hazukido
+4109~2234~1~Miku
+3827~1952~1~Joe Bird
+4455~1995~1~Wetzel's Pretzels
+4156~-3127~0~Chloe Cafe
+4336~-617~1~Rchive Fashion Club
+4399~30~1~Maxime’s
+4424~-47~1~Earls
+4489~302~2~Barö
+4412~23~1~6ixdonutz
+4467~49~1~Greta
+6334~-191~1~Grad Room
+3822~-1721~1~Thindi
+4693~1591~0~Mofer Coffee
+4749~1576~1~Marcello’s
+4743~1578~1~Fast Fresh Foods
+4740~1579~1~Mr. Souvlaki
+4703~1661~1~Hello Nori
+4843~1775~2~King Taps
+4638~2158~1~Chotto
+4831~1715~1~Black + Blue
+4461~2027~1~Azul Sabor A Mexico
+4458~2017~1~Manotas
+4452~1987~2~The Alley
+4441~1985~1~Venezalana!
+4430~1991~1~Egg Club
+4431~2000~1~Sugar Daddy
+4431~2011~1~Chocollata
+4423~2014~1~Patties
+4434~2034~1~Mean Bao
+4425~2036~1~Tuts
+4416~2039~1~Blondies Pizza
+4445~2030~1~Mighty Bird
+17535~14177~1~Patties Express
+9359~12313~0~The Cozy Bean
+4742~-1984~0~Sam James
+4736~-1983~1~Saigon Snacks
+5489~-343~1~KOS restaurant
+7515~-633~1~Casa Mezcal
+7565~-273~0~Haute Coffee
+7601~-121~1~Playa Cabana
+4917~2115~1~Joey
+4894~2167~0~Daily Ritual Cafe
+4962~2209~1~Convivium Dining Community
+18987~-1831~0~Coffee Lunar
+7003~9937~1~What a Bagel
+4571~-12102~1~Pumpernickel’s
+4561~-12192~1~Bibab Express
+4561~-12160~1~Subway
+4567~-12149~1~Ali Baba's
+4568~-12120~1~Captain Azza
+6195~3050~1~Vietbites
+6415~1983~2~Black Eagle
+6779~-4243~0~Tim Hortons
+6292~-344~1~Aifam Sandwich Shop
+9593~12394~1~Premium Sweets
+9591~12386~2~Si Bubble Tea
+9548~12363~1~Dhaka Kebab Naan
+9389~12252~1~Adda
+9394~12250~1~Pitha Ghor & Sweets
+9403~12248~1~Sedaghat Restaurant
+9437~12462~1~Lobongo
+9442~12483~1~Madinah
+9450~12527~1~BD Fusion
+9150~11200~1~Radhuni Pizza & Grill
+9125~11046~1~Dhaka Kebab
+8925~10371~1~Mehman Restaurant
+8939~10288~1~Vegan I Thali
+8931~10254~1~Bistro Camino
+8889~10251~0~Rehoboth Cafe
+8881~10254~1~Kera Restaurant
+8909~10160~1~KC Authentic Caribbean Cuisine
+8887~10059~2~Jem Bar
+8886~10053~1~Al-Mani Grill & Biryani
+8875~10007~1~Len Duckworth Fish&Chips
+8871~9989~1~Grillies
+8868~9980~2~Eva's Bar & Restaurant
+8854~9917~2~Great Fruit Bubble Tea
+8849~9894~1~Baital Muqadas Halal Pizza & Wings
+8733~9367~1~Golden Pizza
+8725~9329~1~Fusion Kitchen
+8719~9299~2~G Lounge
+8714~9274~1~La Familigia on the Danforth
+8718~9291~1~Burger Hill
+8653~9017~2~Tequila Sunset Bar
+8651~9009~0~Cafe Juventus
+4826~1692~1~Marquin
+4731~1719~1~Fast Fresh Foods
+4735~1738~0~Vereda Central
+4732~1724~1~Hometown Road
+4709~1709~1~Freshwest
+4284~380~0~Mado Café & Bakery
+8605~8955~0~Poured Coffee
+8587~8879~1~Gyoko Sushi
+8619~8870~0~Qahwah Cafe & Lounge
+8562~8613~1~Hirut
+8560~8605~0~Zav Coffee Shop & Gallery
+8559~8598~2~Kilt & Harp Pub
+8544~8685~1~Thairoom
+8508~8511~0~Cafe Cocoro
+8543~8526~0~Quattro Amici Cafe
+8526~8445~2~The Groove Bar & Grill
+8512~8381~0~Seb's Cappuccino
+8503~8338~1~The Samosarie
+8488~8272~2~Tipsy Moose Pub
+8449~8237~0~Fresh Art Studio & Cafe
+8465~8161~1~Cumin
+8459~8133~1~Happy Day's
+8455~8118~2~Local 1794
+8454~8111~1~Trecce
+7110~-7324~1~A&W
+7052~-6653~1~Junction Food Co.
+6943~-8264~1~Tan Dinh Quan Vietnamese Cuisine
+6639~-1189~2~PreGame
+4226~332~1~National
+4753~-393~1~416 Snack Bar
+4268~687~0~The Coffee
+4342~808~1~Domino's
+7475~290~1~Avenue Diner
+6761~-1625~0~Tiny’s General Store
+5004~914~1~German Doner Kebab
+5081~1224~1~Green Box
+6946~9791~2~Imigrante
+12557~-259~1~Freshii
+6992~655~1~Pala 148
+3917~1433~2~Bubble Baby
+3870~1494~1~Queens Harbour
+5159~3370~1~Tahini's
+5287~3389~2~Banknote Bar Corktown
+6747~3089~1~Shalom
+6743~3091~1~Poopathy Mess
+6720~3063~1~Butter Chicken Factory
+6742~3052~1~Falacha Fusion
+6693~3077~1~Luis Hernandez Restaurant
+6579~3163~1~Church's Chicken
+6533~3176~1~Salt & Tobacco
+6466~3170~1~Phosome
+6493~3154~0~Playground Cafe
+6343~3216~1~Saigon Pai
+6357~3251~0~La Gloria
+6257~3290~1~Blondies Pizza
+6246~3293~1~Urban Thai
+6165~3292~1~Hakka Bistro
+6239~3240~0~Epos Coffee
+11434~4005~0~Charmaine Sweets
+5835~3428~1~Wehliye Restaurant
+5813~3437~1~Halal Noor Pizza & Chicken
+5715~3476~1~Wanaag Restaurant
+5740~3466~1~Hyderabad Express
+5744~3465~1~Masala Guys
+5679~3524~1~Captain Cookes Fish & Chips
+5673~3527~1~Peking Express
+5549~3445~1~Domino's
+5580~3592~1~Habibz Corner
+5584~3609~1~King Solomon and Queen of Sheba
+5585~3615~1~Princess Kitchen
+5592~3614~2~Dejavu Lounge
+5588~3624~1~The Heritage Cafe & Kitchen
+5589~3627~2~The Decoy Bar
+5590~3632~1~Wood 900 Grill + Bar
+5182~3484~1~Kinton Ramen
+5161~3378~1~Firehouse Subs
+5040~2200~0~Hale Coffee
+6028~5709~1~Osmow's
+6030~5718~1~Freshii
+4967~2329~1~OJA
+4711~59~1~Lee Restaurant
+6017~2222~0~18 Feet
+17013~2557~1~Shatter Abbas
+17011~2545~1~Kourosh Fresh Bread & Sandwiches
+4169~2189~1~Casa 73
+4152~2245~2~Booster Juice
+4085~2474~1~Don Alfonso 1890
+4112~2376~2~Chartroom
+5307~316~1~BIWON Korean Restaurant
+6644~5744~1~Maker Pizza
+18340~11356~1~Kabob Guys
+6522~-5245~1~Taqueria Vegana
+6515~-5285~2~Gaivota Sports Bar
+5108~2011~1~Sorry I’ve Got Plants
+5118~2007~1~Zen Kyoto
+5097~2015~1~Pumpernickel’s
+17562~7493~1~Paramount Fine Foods
+17559~7476~1~Buk Chang Dong Soon Tofu
+17548~7422~1~Chuck E. Cheese
+17560~6913~1~Aladdin Shawarma House
+17561~6906~0~Jasmine Sweets
+17574~6907~0~Aashro Cafe
+5239~-7118~1~Greelz on Bloor
+4596~-1066~0~The Roasted Nut
+19889~8144~1~Pita Lite
+19811~8177~1~Nantha
+19845~8175~1~Fisherman Lobster King
+19893~8126~2~Presotea
+19892~8141~1~Popeyes
+5323~152~1~McDonald's
+4456~1946~1~Harvest Clean Eats
+6540~-948~1~Zabardast Biryanis
+6635~-469~1~WooJoo Bunsik
+6715~-43~0~Alternity
+4951~2099~1~Mr. Mango
+4948~2092~1~The Dapper Doughnut Cafe
+6944~1424~1~The Salad House
+6131~4153~1~Tahini's
+6706~5533~1~East End Vine
+5502~4521~2~Lisbon Hotel
+6971~1997~1~Papa John's
+5664~2418~1~Curry Kitchen plus  Falafel
+5690~2533~0~Avenue Cafe
+6030~2280~1~Fat Bastard Burrito
+6008~2188~1~Kiyomio
+6006~2179~1~Crying Tiger
+5982~2068~1~Slider Byte
+5162~3181~1~Food 88
+5378~3097~1~Subway
+5386~3094~1~Le Diperie
+5384~3095~2~Jugo Juice
+5397~3089~1~The Burrito Bros / The Burger Bros
+5484~3148~1~The New Buffallo Restaurant
+5585~3618~1~Dejavu
+5607~3710~0~Roozamoon Cafe
+6834~1419~0~Tim Hortons
+6795~1434~1~Kothur Indian Cuisine
+6793~1434~1~Xihe Peking Duck
+6785~1438~1~Popeyes
+6373~1618~1~HI Bowl
+6362~1624~1~Firehouse Subs
+6346~1630~1~Japadog
+6308~1644~1~Me-Va-Me
+6525~1546~1~Hoki Bowl
+6533~1543~1~GunGun Rice Noodle
+6537~1542~2~Gong Cha
+6563~1532~1~Pho Anh Vu
+3081~-7507~0~Pauls Coffee
+6485~5878~0~The Raspberry Cafe
+6159~1856~1~Sanuki Udon
+6286~4864~0~Silhouette Cafe
+6501~4773~1~Wok & Roast Chinese BBq
+6391~-1626~1~Kevin's Taiyaki
+5930~5278~0~Queen Garden Cafe
+5983~5302~0~Amber Kitchen and Coffee
+5878~4916~1~Ali Baba's
+5868~4880~1~White Lily Dinner
+5884~5166~1~COPS
+5910~5177~0~Isle of Coffee
+5916~5206~1~Royal Baithak
+5887~5069~1~Delhiites
+5893~5093~1~Subway
+5895~5107~1~Real Greek Gyros
+5894~5101~1~Est
+4770~437~1~Mary Brown's
+5852~4020~1~Kibo Sushi
+5509~2421~0~Mast Coffee
+5130~2098~2~Bar Filo
+4969~2167~1~Lucie
+6722~1431~2~Hero Tea
+6610~1464~1~Beach Hill Smokehouse
+6541~1508~1~Bao House
+6509~1521~2~ChaHalo
+6520~1516~1~Chungchun
+6439~1550~1~Woojoo Bunsik
+6434~1552~1~Mr Tonkasu
+6315~1599~1~Hi Hoi Tod
+6312~1599~0~Kati
+6310~1593~1~The Gluay
+7005~1708~1~A&W
+6995~1713~1~Madras Curry
+6754~1476~1~The Nutition Bar
+6475~1506~1~Fish Buy Buy
+6038~1761~1~Indian Studio Kitchen
+6096~1724~1~Hero Dumpling
+5803~1852~1~Shelby's Legendary Shawarma
+5821~1845~1~Daldongnae Korean BBQ
+6130~1863~1~Le Lert
+6146~1940~1~B Boyz
+6167~2034~1~Wingstop
+6170~2046~1~Guac Mexi Grill
+6184~2108~1~J-Mart
+4813~981~2~Saint+Johns Tavern
+3974~238~0~Sip Smile Repeat
+5915~3993~1~Freddy's Greek
+5619~4300~1~Impact Kitchen
+5769~1869~1~Ali Baba's Pita & Hummus
+4877~2844~0~St. Lawrence Juicebar
+4343~382~0~L'avenue
+4409~2227~1~Aloette
+16306~-9144~1~Koz Kapadokya
+6784~1507~1~Ehwa Restaurant
+6538~4721~1~Chicken Plus
+6520~4733~1~Vital-Life Vegan Rastarant
+6516~4735~2~Apollo
+6511~4737~1~Oji Seichi
+5586~3560~1~Poutine House
+5849~1460~1~Wow! Shushi Bar
+5813~1432~1~Dongrami
+5824~1547~1~Cafe 85°
+5872~1781~1~Chun Chung Rice Hotdog
+5873~1786~1~Osmow's
+5857~1793~1~Thai on Yonge
+5850~1799~1~Shawarma Royal
+5849~1800~0~Pinocho
+5684~1732~2~9 Sips Tea Shoppe
+5568~1548~1~Mo Gou Yan Hand Filled Noodle
+5845~441~0~Bloom Cafe
+5396~-159~1~Knockout Chicken
+5493~1313~0~JuJu Cafe
+5636~2550~1~J-San Sushi Bar
+5783~2306~1~Pizza Shab
+5404~3053~1~FAMO Sandwhich Creations
+6124~6131~1~Leslie's Sandwhich Room
+6228~6482~1~Goods & Provisions
+6223~6461~1~B & B Fish and Chips
+6224~6466~2~Mini Bar
+6196~6234~0~The Doughnut Factory
+6130~6044~1~Ricky + Oliver
+5794~113~1~Panera Bread
+14316~-8654~0~Tim Hortons
+14336~-8657~1~Pizza Hut
+6708~5540~1~Wynona
+6246~6519~1~Dave's Hot Chicken
+6878~6290~2~Poor Romeo
+6650~2539~1~Sarvi Indian Cuisine
+6045~1359~0~Pronto Cafe
+5560~-227~1~Birria Catrina
+5799~4844~1~Wendy's
+6052~5823~0~Nutbar
+5817~5023~0~ALK
+13376~-8342~1~Kasap Doner
+5485~1990~1~Alpha’s Shawarma
+5734~1884~1~Burrito Boyz
+5736~1891~1~Choco Churros
+5739~1902~1~Kordog
+5338~348~1~Good Bro Catering
+5320~375~1~More than Noodles Authentic Chinese Food & B.B.Q.
+6960~2000~1~Rooster Coffee House
+7202~2311~1~Seoul Food
+4242~-2687~0~Highly Likely
+12146~-5685~0~Starbucks
+12498~-5513~1~Yu Seafood
+7004~730~1~Dimmi Bar & Trattoria
+6220~1679~0~Daon Cafe
+7023~1063~0~Tim Hortons
+16705~-1201~1~Pho Anh Vu
+17646~-1511~1~Hui Lau Shan
+17642~-1502~1~My Sushi
+17747~-1521~1~Misato Sushi
+17291~-1350~1~Pho Dac Biet
+16609~-1242~1~Pizzeria Libretto
+16416~-1199~1~Mr. Greek
+16412~-1199~1~Pita Lite
+16300~-1156~1~Ehwa
+5150~994~1~Yakiniku Legend
+4713~1901~0~Pret A Manger
+5268~173~1~Tung Tung Dan Quen King
+5325~407~1~New Hong Fatt BBQ Restaurant
+4122~-13869~1~Greek Freak
+18344~11378~1~Jakylynne's Catering and Take-out
+7110~-6462~0~Subtext Coffee Roasters
+6917~-6391~0~Stereo Coffee Roasters
+3999~-2320~0~Starbucks
+4505~548~0~Neo Coffee Bar
+4314~-2466~0~The Drake Café
+17474~6953~1~Shawarma Royale
+17675~5369~1~Bingz
+17623~-1501~1~Bowl Bowl
+16247~-1146~1~Daldongnae
+5325~278~1~House of Gourmet
+4833~-2053~2~Bar Bowie
+5585~-982~2~LoPan Bar
+4721~-1978~0~Rooms Coffee
+4542~-1459~0~Ratelier
+5437~-4418~0~Coffee By Joy
+5185~-4777~0~High Notes Coffee + Vinyl
+5562~-932~0~Boxcar Social Laneway
+5554~2055~0~Twilight Cafe
+16269~10914~1~MexiTaco Cantina
+18693~14164~1~Island Spice  Flava
+5649~-270~2~Trinity Common
+6129~1863~0~Plearn Cafe
+4160~1946~0~Dark Horse Espresso Bar
+6597~1911~0~Understory
+10757~500~1~Kiva’s Bagel Bar
+10712~261~1~Kim’s Noodle
+10709~216~1~Salus Fresh Foods
+5450~892~0~Matcha Matcha
+18345~11382~1~Biryani Bar
+5348~519~1~Chengdu Street Food
+11013~3711~1~Mad Radish
+6484~-5889~0~Tim Hortons
+3921~-1584~2~Ton Ton Matcha
+4716~-480~1~G-Express
+4947~1644~0~Columbus Cafe & Co
+5094~2153~1~Subway
+5090~2153~1~Mamma’s Pizza
+4640~2113~1~Pinkberry
+4644~2111~1~The Poké Box
+18361~11195~1~Pho Vietnamese Cuisine
+18248~11257~1~Domino's
+17152~14828~0~Tim Hortons
+4920~1885~0~Starbucks
+4991~-3436~2~Black Dice Cafe
+4980~-3616~2~Swan Dive
+10417~258~0~Hale Coffee
+18317~14721~1~Teriyaki Experience
+18300~14719~1~Mr. Sub
+9610~-4901~1~Mexology Bistro & Bar
+9605~-4919~1~Veracruz Mexican Food
+9621~-4851~1~Taste of Manila Cuisine
+9738~-4306~1~Souperlicious
+9727~-4346~1~La Bochinche
+9747~-4262~0~Tim Hortons
+9750~-4242~1~Delicious Jamaican Cuisine & Coffee
+9759~-4198~1~Bienvenido A Casa
+9722~-4381~1~Massawa Restaurant
+9775~-4130~1~Culture Café
+6530~-6628~1~Chien Tam
+6534~-6560~1~Nodo
+6558~-6899~1~Tino’s
+6558~-6905~1~Kanto by Tita Flips
+5632~2261~1~KFC
+5635~2273~1~Taco Bell
+11047~115~1~Craft Smokehouse
+11047~116~1~Benny’s Barbeque
+10707~207~0~The Coffee
+10718~196~1~Moru Japanese Katsu
+10852~104~1~Caribbean Bistro
+10849~105~1~Que Burria! Taqueria
+10859~104~1~Cong Caphe
+11155~80~1~Spotato
+6269~444~0~The Owlery Café
+5518~1426~0~Cafe Forêt
+16218~-915~1~Denny's
+16174~-887~1~Jokbal Night Market Korean Restaurant
+16253~-1146~1~Nome Izakaya
+16260~-1147~1~KRAY
+16258~-1148~1~Kajiken
+16264~-1148~1~DENJ
+16271~-1149~2~The Frog
+16285~-1153~1~Modu Three Brothers
+16290~-1154~1~Han Ba Tang
+16370~-1126~2~Kung Fu Tea
+16387~-1130~1~SOUPER Hot Pot & Tea
+16399~-1133~1~Sushi Moto
+16415~-1137~1~Grillies
+16364~-1125~1~Nene Chicken
+16376~-1128~1~Nakwon Kisa
+16448~-1026~1~Sun Chinese Cuisine
+16451~-1010~1~3rd Mom Spicy Hot Pot
+16447~-1031~0~Inside
+16435~-1078~1~Gimbap Shop
+16441~-1056~1~hay sushi
+6111~621~2~CHICHA San Chen
+3753~15~1~McDonald's
+8729~4453~1~Z&Z European Grill & Deli
+17257~-1340~1~Yungshang Rice Noodles
+5488~-54~1~Heartbreak Chef
+5503~24~1~Tako Yaki 6ix
+5505~33~1~Taco Loco
+5504~28~1~Veggie D'Light
+4493~117~1~Shake Shack
+12772~-269~1~Shawarma Royale
+12686~-244~0~Brewing Brokers
+4561~-12200~1~Coco Spoon
+5347~4428~1~Sukho Thai
+6377~-1176~1~Pizzeria Badiali
+7257~1207~0~Café Rosarium
+7178~1225~1~Greenhouse
+7777~1044~1~Mineral
+5317~242~1~Yue Lai Buffet
+5330~308~1~Magical Taste of China
+5327~290~1~Zhang Liang Spicy Hotpot
+5466~-240~0~Marry Me Mochi
+7503~1148~0~Spark Shop & Coffee
+5354~428~1~Matsutei Sukiyaki
+4459~119~1~eggslut
+4980~-3263~2~Cash Only Bar
+15929~-1074~0~Another Land Coffee
+3839~-1771~1~WingsUp!
+3804~-1823~1~The Islands Caribbean Cookshop
+3798~-1851~1~Sundays Pasta Lab
+3801~-1833~1~Pizzaville
+3832~-1906~0~Merci Mon Ami
+3815~-1776~2~Chatime
+3800~-1842~1~Aloette
+5563~786~1~Burger Bloc
+5629~1156~1~Firehouse Subs
+5595~1163~1~Sushi Man
+5635~1191~1~Freshslice Pizza
+5688~1601~1~Brick House Waffle
+11207~-5396~1~COPS
+5204~-3437~1~Phoenix Restaurant
+5147~-3856~0~Nicola Cafés
+5215~-3380~2~Maria’s Sports Bar
+5242~-3369~1~El Mitote By Sinaloa Factory
+5226~-3330~1~Le’s Sandwich Banh Mi Viet Nam
+6646~2180~1~A&W
+5281~3342~1~Hawa Beirut Restaurant & Lounge
+5262~3300~2~Kung Fu Tea
+4986~-3346~1~Good Fork
+4983~-3739~1~Floret
+4982~-3774~0~Cygnet Coffee
+4983~-3782~1~Pasta Forever
+4979~-3621~1~Kingston Patty
+4969~-3502~1~Pho Phuong Fine Vietnamese Cuisine
+17301~-1407~1~Chat Bar
+17324~-1411~1~The Poke Box
+17338~-1420~1~Lee Yakiniku
+9097~10999~1~Kabaria
+4684~2007~1~Z-Teca
+4678~2009~1~Wat-Ah Jerk
+4673~2012~1~Sultan’s
+4668~2011~1~Wendy's
+4664~2013~1~Szechuan Express
+4678~1988~0~Mos Mos
+8536~8654~2~Sobr Market
+4071~-3550~2~The Silver Dollar Room
+5326~285~1~Fushun Stone Pot
+5330~303~1~Hey Noodles
+5332~316~1~Good Brothers BBQ
+5353~421~1~Qing Shu Hot Pot
+5355~433~1~Mix2 Grill & Hot Pot
+5357~446~1~Four Season Cafe & Bistro
+5360~460~1~Fu-Panda Fast Hot Pot
+5368~494~1~Ka Chi
+16420~-1137~1~Grill Gate
+2463~-11110~1~Wok Boyz Asian Food
+2165~-12274~1~Shawarma Royale
+4998~-3902~1~Viaggio
+2237~-12162~1~Mike's
+4531~-65~1~Chubby's Jamaican Kitchen
+4940~-2837~0~Hiya Scone & Coffee
+4940~-2791~1~Mi Lou
+4929~-2482~2~Tochal
+4932~-2453~1~Stefano’s
+5266~137~1~Juicy Dumpling
+4958~-2566~1~Eno-Teca Sociale
+4963~-2699~2~Mahjong Bar
+4972~-3101~1~Tony & Nick's Place
+4979~-3251~1~fifteen twelve
+4994~-3473~1~Slow South Pizza
+5338~350~2~Big Trouble
+5334~319~1~Hong Kong Bistro Cafe
+5329~303~1~Good Brother All-Day Breakfast
+5356~433~1~Xiaojungan Hotpot
+5234~-139~1~Honour Snack Bar
+5275~63~1~Kim Vietnamese Restaurant
+5280~86~1~Bánh mì Ba Le 2
+5282~92~1~KL Kitchen Seafood Cuisine
+2218~-11965~0~Starbucks
+5428~758~0~Mersivity
+5400~923~1~All Spice Jerk Express
+5430~912~1~Patchmon’s Thai Desserts
+5485~1485~2~Chicha San Chen
+5476~1488~0~Hailed Coffee
+5472~1489~1~Poke Guys
+5565~1914~1~Chick-fil-A
+4940~-2775~1~E. L. Ruddy
+4936~-2647~0~Nossa Casa Sports Cafe
+10766~548~1~La Carnita
+10849~952~0~Second Cup
+6406~-1234~2~Book Bar
+4627~-1973~1~Soos
+4667~-1988~2~Chicha San Chen
+4662~-1985~2~Small Talk
+5616~1872~1~Gourmet Hot Dogs & Sausages
+5149~-6656~0~Black Oak Cafe
+6072~1614~1~Pita Lite
+6033~1599~1~z-teca
+6088~1687~2~Real Fruit Bubble Tea
+6853~2496~1~Freshslice Pizza
+6687~2523~1~Domino's Pizza
+6084~1610~1~BHKRoll
+6044~1645~0~Starbucks
+4698~-2001~1~Jelly King
+4417~2220~0~Second Cup
+6106~1657~1~Sushi on the Run
+6105~1660~1~The Bagel Stop
+4506~369~1~Paris Texas
+7035~1165~1~Marry Me Mochi
+5415~1926~0~Marry Me Mochi
+3427~-1971~0~Marry Me Mochi
+3790~1526~1~Amsterdam Brew House
+16984~2936~1~McDonald's
+14077~-569~1~Miller Tavern
+4764~4661~1~The Keating Channel Pub & Grill
+16377~10789~1~Pizza Hut
+1572~-15613~1~McDonald's
+1463~-15583~1~Earls
+2223~-12249~1~K&B Sushi
+2487~-10751~1~Harvey's
+17495~6611~1~Captain's Catch
+16382~10881~1~Burger King
+16296~10800~1~Taco Bell
+8827~9721~1~KFC
+7084~-6717~0~Tim Hortons
+7223~-6793~1~McDonald's
+5733~1905~1~World Food Market
+10152~236~1~St. Louis Bar & Grill
+6050~2373~1~Harvey's
+11377~3485~1~Sushi by K
+14418~18402~0~Tim Hortons
+13748~5613~0~Tim Hortons
+6658~1591~1~Bumpkin's
+10991~3645~1~Local Public Eatery
+6681~2212~1~The Keg - Steakhouse + Bar - Mansion
+6453~2285~1~The Blake House
+5761~1786~1~Barberian's Steakhouse and Tavern
+6723~2088~1~The Grand Hive Honey's Bistro and Bar
+4882~327~1~McDonald's
+17483~6568~0~Tim Hortons
+8423~4291~1~Dairy Queen
+17762~14574~1~Scaddabush
+4963~572~1~Soluna
+4948~504~1~Rivoli
+4877~2591~1~The Works
+17703~13814~1~Canyon Creek
+4916~2460~1~Tom Jones Steakhouse
+11421~-5640~1~Burger King
+4914~-2297~1~KFC
+3930~-13785~1~Apache Burgers
+6848~5970~1~McDonald's
+7062~723~1~Kasamoto
+3518~-14163~1~Burger King
+4998~1599~1~The Keg
+17329~-1420~1~The OWL of Minerva
+17283~-1409~1~HeyNoodles
+17323~-1421~1~Sugar Marmalade
+17993~16754~0~Tim Hortons
+3641~-14030~1~Souvlaki Hut
+3617~-14057~1~Popeyes
+6471~4519~0~Tim Hortons
+6173~6174~2~Avling Bewery
+4328~-1211~2~Pennies
+5347~-5149~0~Starbucks
+2600~-10285~1~Acme Burger Company
+5530~-5870~0~Tim Hortons
+11533~-5532~1~Harvey's
+10117~-11875~1~Popeyes
+16434~10886~0~Tim Hortons
+6787~-347~2~Madison Pub
+12462~14653~1~McDonald's
+1461~-15837~1~Red Lobster
+6705~-4626~0~Coffee Time
+4713~1854~1~Bymark
+4911~-2234~2~The Garrison
+4958~-2034~1~The Lakeview Restaurant
+17570~13723~1~Boston Pizza
+5249~-4959~2~Bandit Brewery
+5708~4285~1~Fusilli Ristorante
+12255~-5621~1~Popeyes
+7752~-703~1~Louf Toronto
+4286~-2643~1~The Beaver Cafe
+4812~434~1~Fresh
+5046~1074~1~Ginger
+6257~-364~1~Parquet
+6038~2097~1~Kinton Ramen
+4787~-2043~0~I Deal Coffee
+4517~-1500~1~Fresh
+5801~4031~0~Sumach Espresso
+4981~-3724~1~Domino's
+5240~-3414~1~Pho Linh
+5154~-5154~0~Coffee & All That Jazz
+17354~-1364~1~Mr Fish
+17346~-1361~1~Upper East Food Club
+17338~-1359~1~Meet Fresh
+17333~-1358~1~Midori Ramen
+17320~-1355~1~St. Louis Bar & Grill
+17282~-1344~1~Cheese Garden
+17083~-1297~1~Wako Sushi
+17053~-1284~1~Pho 88
+17044~-1291~1~Qing Shu Spicy Hot Pot
+16980~-1273~1~Kinton Ramen
+16992~-1275~1~Shawarma Max
+17000~-1275~1~Izakaya Tokyo Grill
+4550~-11835~1~Harry's Steak House
+3940~-2127~1~Naomi Sandwich & Gourmet Food
+3951~-2131~1~Burger Drops
+3961~-2135~1~Paris Steak
+3966~-2137~1~Insieme
+3972~-2139~1~In Japan
+3977~-2141~1~Fat Bastard Burrito
+3982~-2143~2~Booster Juice
+3998~-2149~1~Tahini’s
+3951~-2182~1~Thai Barn Na
+3957~-2184~1~Liberty Eats
+3968~-2188~1~Sk Cookks
+3988~-2196~1~Egg Club
+2489~-10796~1~Elijah's Automatic Flame Broiled
+7776~-10614~1~New Orleans Seafood & Steakhouse
+16642~-1171~1~The Keg
+17803~14453~1~Milestones
+4708~-3364~0~McCormick Park Cafe
+5624~-743~2~Sneaky Dee's
+4726~-257~1~The Food Alley
+11846~-5528~1~Mary Brown's
+17746~14575~1~Jack Astor's
+4961~-2437~0~Tim Hortons
+4703~-2018~1~Bellwoods Brewery
+12581~-1744~1~A&W
+6992~9829~1~Limon
+6277~-437~2~Harbord House
+7052~704~1~The Oxley
+13683~-3430~0~Tim Hortons
+5383~1151~2~Duke of Cornwall
+7700~308~1~Govinda's
+3998~-1889~1~Harvey's
+3935~-1124~1~Wendy's
+4057~-366~2~Belgian Moon Brewery
+4052~-13830~1~Canadiana Restaurant and Banquet Hall
+3800~13~0~Starbucks
+4364~-1168~0~Woolshed Coffee
+17846~5585~0~Tim Hortons
+17842~5572~2~Real Fruit Bubble Tea
+17826~5577~2~Freshly Squeezed
+17832~5547~1~Popeyes
+17718~5494~1~St. Louis Bar & Grill
+17743~5516~2~Booster Juice
+17746~5537~1~Mac's Sushi
+17743~5540~2~Ten Ren's Tea Time
+17738~5541~2~Machi machi
+17741~5555~1~Hana Don Japanese Cuisine and Bar
+17747~5513~1~Kernels
+17754~5529~1~Cinnabon
+17761~5666~1~Moxie's
+17759~5605~1~Heart Sushi
+6080~1630~1~College Park Food Court

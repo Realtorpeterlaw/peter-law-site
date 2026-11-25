@@ -177,7 +177,7 @@ function glowPoint(ll){glowClear();
 function glowLayersOf(group,match){const ll=[];group.eachLayer(l=>{if(match(l.feature.properties))ll.push(l.getLatLngs())});return ll}
 
 /* panel */
-function pick(id,comm,fly){
+function pick(id,comm,fly){plStatic().catch(()=>{});
   sel=id;selComm=comm||null;restyle();
   {const ll=comm?glowLayersOf(commLayer,p=>p.d===id&&p.n===comm):glowLayersOf(distLayer,p=>p.d===id);if(ll.length)glowShape(ll)}
   const d=DISTRICTS[id],spots=d.spots.map(s=>s.split("|")),condos=d.condos.map(s=>s.split(";").map(x=>x.split("|"))),nb=condos.reduce((a,c)=>a+c.length,0);
@@ -233,10 +233,17 @@ function plFetch(p){return new Promise((res,rej)=>{let k=-1,done=false,pending=0
       .then(tx=>{if(/^\s*</.test(tx))throw new Error("not a data reply");clearTimeout(t);finish(true,plParse(tx))})
       .catch(()=>{if(done)return;pending--;clearTimeout(t);move();if(!pending&&k>=PL_URLS.length)finish(false,new Error("unavailable"))})};
   next();setTimeout(()=>finish(false,new Error("timeout")),30000)})}
+/* Nearby places normally come from a file on this site (public/map/places.txt, collected from OpenStreetMap),
+   so they show at once and never wait on an outside server. Only if that file cannot be read does the
+   live OpenStreetMap lookup above run instead. */
+let plAll=null;
+function plStatic(){return plAll||(plAll=fetch("/map/places.txt").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(tx=>{const l=[];
+  tx.split("\n").forEach(row=>{if(!row||row[0]==="#")return;const a=row.split("~");if(a.length<4)return;const la=(+a[0]+4360000)/1e5,lo=(+a[1]-7940000)/1e5,k=+a[2],n=a.slice(3).join("~");
+    if(isFinite(la)&&isFinite(lo)&&k>=0&&k<3&&n.length>1)l.push([n,k,la,lo])});if(!l.length)throw new Error("empty");return l}).catch(e=>{plAll=null;throw e}))}
 /* starts a lookup once per condominium; after a failure only the "Try again" button (force) starts another */
 function plLoad(id,i,force){const key=id+"|"+i,p=(PINS[id]||[])[i];if(!p||(PL[key]&&!(force&&PL[key].s==="failed")))return;
   PL[key]={s:"loading"};
-  plFetch(p).then(l=>{PL[key]={s:"ok",l}},()=>{PL[key]={s:"failed"}}).then(()=>{if(nbShown&&nbShown[0]===id&&nbShown[1]===i&&sel===id)nearby(id,i)})}
+  plStatic().then(all=>all.filter(x=>Math.abs(x[2]-p[0])<=PL_BOX[0]&&Math.abs(x[3]-p[1])<=PL_BOX[1]),()=>plFetch(p)).then(l=>{PL[key]={s:"ok",l}},()=>{PL[key]={s:"failed"}}).then(()=>{if(nbShown&&nbShown[0]===id&&nbShown[1]===i&&sel===id)nearby(id,i)})}
 function nbGroups(id,i){   /* -> [[count,[[name,min],...]] x3, complete?] */
   const p=PINS[id][i],got=PL[id+"|"+i];
   if(got&&got.s==="ok"){const g=[[],[],[]],seen={};
@@ -258,7 +265,7 @@ function nearbyDraw(id,i){
   $("nbcount").innerHTML=total+' \u00b7 <em>show</em>';
   $("nbsum").textContent="Near "+c+": "+(total?row.map((g,k)=>g[0]?g[0]+" "+(g[0]===1&&k===1?"restaurant":NB_GROUPS[k].toLowerCase()):"").filter(Boolean).join(" \u00b7 "):"nothing mapped within a 5 minute walk");
   $("nbbody").innerHTML='<p class="nbfor">Within a 5 minute walk of <b>'+esc(c)+'</b>'+(p[2]?'':' (approximate location, so times are rough)')+'</p>'+(total?row.map((g,k)=>{if(!g[0])return"";const more=g[0]-g[1].length;
-    return '<details class="sg nbg nb-'+NB_CLS[k]+'"'+(open[k]?" open":"")+' data-k="'+k+'"><summary><b><i></i>'+NB_GROUPS[k]+' \u00b7 '+g[0]+' <em>show</em></b></summary><ul class="nb">'+g[1].map(x=>'<li><span>'+esc(x[0])+'</span><em>'+x[1]+' min</em></li>').join("")+'</ul>'+(more>0?'<p class="none">'+(st==="loading"?'Nearest shown. Loading the other '+more+'\u2026':'Nearest shown. '+more+' more within 5 minutes. <button type="button" class="retry" id="plretry'+k+'">Show all</button>')+'</p>':'')+'</details>'}).join(""):'<p class="none">Nothing mapped within a 5 minute walk.</p>')+'<p class="none nbsrc">Estimated walking times. Places from OpenStreetMap; some may be missing, closed or renamed.</p>';
+    return '<details class="sg nbg nb-'+NB_CLS[k]+'"'+(open[k]?" open":"")+' data-k="'+k+'"><summary><b><i></i>'+NB_GROUPS[k]+' \u00b7 '+g[0]+' <em>show</em></b></summary><ul class="nb">'+g[1].map(x=>'<li><span>'+esc(x[0])+'</span><em>'+x[1]+' min</em></li>').join("")+'</ul>'+(more>0?'<p class="none">'+(st==="loading"?'Nearest shown. Loading the other '+more+'\u2026':'Nearest shown. '+more+' more within 5 minutes. <button type="button" class="retry" id="plretry'+k+'">Show all</button>')+'</p>':'')+'</details>'}).join(""):'<p class="none">Nothing mapped within a 5 minute walk.</p>')+'<p class="none nbsrc">Estimated walking times. Places from OpenStreetMap (November 2026); some may be missing, closed or renamed.</p>';
   el.querySelectorAll('[id^="plretry"]').forEach(b=>b.onclick=()=>{plLoad(id,i,true);nearby(id,i)});
 }
 /* condominium list: sorted view of DISTRICTS[id].condos; data-i keeps the original index so pins still line up */
