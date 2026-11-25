@@ -285,7 +285,7 @@ map.on("click",()=>{if(stick)hot(null)});
 /* search */
 const names={};Object.keys(DISTRICTS).forEach(k=>names[k.toLowerCase()]=[k,null]);
 COMM.features.forEach(f=>{const p=f.properties,key=p.n.toLowerCase();if(names[key])p.dup=1;else names[key]=[p.d,p.n]});
-const EXTRA={"leslieville":["E01","South Riverdale"],"liberty village":["C01","Niagara"],"king west":["C01","Niagara"],"cityplace":["C01","Waterfront Communities-The Island"],"yorkville":["C02","Annex"],"distillery district":["C08","Waterfront Communities-The Island"],"st. lawrence":["C08","Waterfront Communities-The Island"],"the junction":["W02","Junction Area"],"humber bay shores":["W06","Mimico (includes Humber Bay Shores)"],"north york centre":["C14","Willowdale East"],"scarborough town centre":["E09","Bendale"],"davisville":["C10","Mount Pleasant West"],"entertainment district":["C01","Waterfront Communities-The Island"],"chinatown":["C01","Kensington-Chinatown"],"greektown":["E03","Playter Estates-Danforth"]};
+const EXTRA={"leslieville":["E01","South Riverdale"],"liberty village":["C01","Niagara"],"king west":["C01","Niagara"],"cityplace":["C01","Waterfront Communities-The Island"],"yorkville":["C02","Annex"],"distillery district":["C08","Waterfront Communities-The Island"],"st. lawrence":["C08","Waterfront Communities-The Island"],"the junction":["W02","Junction Area"],"humber bay shores":["W06","Mimico (includes Humber Bay Shores)"],"north york centre":["C14","Willowdale East"],"scarborough town centre":["E09","Bendale"],"davisville":["C10","Mount Pleasant West"],"entertainment district":["C01","Waterfront Communities-The Island"],"chinatown":["C01","Kensington-Chinatown"],"greektown":["E03","Playter Estates-Danforth"],"koreatown":["C01","Palmerston-Little Italy"],"korea town":["C01","Palmerston-Little Italy"]};
 Object.assign(names,EXTRA);
 $("names").innerHTML=Object.keys(DISTRICTS).map(k=>'<option value="'+k+'">').join("")+Object.keys(names).filter(k=>names[k][1]).sort().map(k=>'<option value="'+esc(k.replace(/\b[a-z]/g,m=>m.toUpperCase()))+'">').join("")+Object.keys(regPoly).map(k=>'<option value="'+esc(k.replace(/\b[a-z]/g,m=>m.toUpperCase()))+'">').join("");
 /* Places in the search box: every condominium, school and park. Each name points to its district;
@@ -297,7 +297,9 @@ const places={},placeOpts=[];
     d.condos.forEach((c,i)=>c.split(";").forEach(x=>add(x.split("|")[0],"Condo · "+id,{t:"c",id,i})));
     (SCHOOLS[id]||[]).forEach(sc=>add(sc[0],"School · "+id,{t:"s",id,n:sc[0]}));
     d.spots.forEach(sp=>{const a=sp.split("|");if(a[1]==="park")add(a[0],"Park · "+id,{t:"p",id,n:a[0]})})});
-  MALLS.forEach(m=>add(m[0],"Shopping centre",{t:"m",ll:[m[1],m[2]]}))})();
+  MALLS.forEach(m=>add(m[0],"Shopping centre",{t:"m",ll:[m[1],m[2]]}));
+  /* everyday short names people type */
+  const al={"candy loft":"candy factory lofts","candy lofts":"candy factory lofts"};Object.keys(al).forEach(k=>{if(places[al[k]]&&!places[k])places[k]=places[al[k]]})})();
 /* the long list goes into the search suggestions the first time the box is used, not while the map loads */
 let placesListed=false;
 function listPlaces(){if(placesListed)return;placesListed=true;
