@@ -45,10 +45,13 @@ const jsonLd = {
   <section class="nb-map-section" aria-labelledby="nb-map-h">
     <div class="wrap">
       <h2 id="nb-map-h" class="visually-hidden">Interactive map</h2>
+      <a class="btn-primary nb-fullscreen" href="/neighborhood-map">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Open the map full screen
+      </a>
       <div class="nb-frame">
         <iframe id="nb-map" src="/neighborhood-map" title="Interactive map of Toronto real estate districts" loading="eager"></iframe>
       </div>
-      <p class="nb-map-links"><a href="/neighborhood-map">Open the map full screen</a><span aria-hidden="true"> · </span>Hover or tap a district to open it. Click a condo to see what is within a five-minute walk.</p>
     </div>
   </section>
 
@@ -68,8 +71,7 @@ const jsonLd = {
   .nb-map-section { padding: 0 0 8px; }
   .nb-frame { position: relative; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #cfe3ee; box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.35); }
   .nb-frame iframe { display: block; width: 100%; height: min(78vh, 820px); min-height: 520px; border: 0; }
-  .nb-map-links { margin: 12px 2px 0; font-size: 14px; color: var(--ink-soft); }
-  .nb-map-links a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+  .nb-fullscreen { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 16px; font-weight: 700; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   @media (max-width: 720px) {
