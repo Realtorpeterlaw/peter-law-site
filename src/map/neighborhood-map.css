@@ -721,23 +721,26 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 @keyframes glowRun{from{stroke-dashoffset:176}to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.glow-run{animation:none;display:none}.sel-glow-halo,.sel-glow-ring{animation:none}}
 .gl{background:none;border:0;font-weight:800;font-size:11px;color:#7a4b00;white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 5px #fff}
-.shop{background:none;border:0;cursor:pointer}.shop svg{display:block;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #fff)}
+.shop{background:none;border:0;cursor:pointer}.shop svg{display:block}
 .zpop .leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 3px 16px rgba(0,0,0,.25)}
 .zpop .leaflet-popup-content{margin:11px 14px 12px;font:13px/1.35 "Segoe UI",system-ui,sans-serif}
 .zp b{display:block;font-size:14px;margin-right:14px}.zp span{display:block;color:#5d6976;font-size:12.5px;margin-top:2px}
 .zp button{display:block;width:100%;margin-top:9px;font:inherit;font-weight:700;font-size:13px;color:#fff;background:#16202b;border:0;border-radius:8px;padding:7px 10px;cursor:pointer}
-.uni{background:none;border:0;cursor:pointer}.uni svg{display:block;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.uni{background:none;border:0;cursor:pointer}.uni svg{display:block}
 .z-far .uni svg{width:20px;height:20px;margin:3px}
 .wide .pin,.wide .dl,.wide .cl,.wide .uni,.wide .shop{display:none}
 .rl.city{display:none}.wide .rl.city{display:block;color:#16202b}
 /* The pin grows on hover, but only its original 18px box reacts to the mouse: otherwise the enlarged pin kept
    catching the pointer, so its label stayed up after the visitor had moved away. */
 .pin{background:none;border:0;cursor:pointer}
-.pin span{display:block;font-size:15px;line-height:18px;text-align:center;transform-origin:50% 92%;transition:transform .12s;filter:drop-shadow(0 1px 1px rgba(0,0,0,.45));pointer-events:none}
-.z-far .pin span{font-size:12px}
+/* red map pin drawn with CSS (a turned rounded square with a white dot): no emoji font and no filter, so
+   hundreds of pins stay cheap to draw while the map moves */
+.pin span{position:absolute;left:3px;top:0;width:12px;height:12px;box-sizing:border-box;background:#e0245e;border:1.5px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);transform-origin:0 100%;box-shadow:-1px 1px 2px rgba(0,0,0,.35);transition:transform .12s;pointer-events:none}
+.pin span::after{content:"";position:absolute;left:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}
+.z-far .pin span{width:10px;height:10px;left:4px;top:2px}.z-far .pin span::after{left:2px;top:2px}
 .cfind{width:100%;box-sizing:border-box;margin:8px 0 2px;padding:7px 9px;border:1px solid #cfd6de;border-radius:8px;font:inherit;font-size:13px}
 u.pre{text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff3d6;color:#8a5a00;border-radius:4px;padding:1px 5px;white-space:nowrap}
-.pin.hot span{transform:scale(2.4);opacity:1;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+.pin.hot span{transform:rotate(-45deg) scale(2.2);box-shadow:-1px 1px 3px rgba(0,0,0,.5),0 0 0 1px #fff}
 .leaflet-tooltip.tt{font-weight:700;border-radius:7px;padding:3px 8px}
 .panel{position:absolute;z-index:1100;top:10px;left:10px;bottom:10px;width:370px;max-width:calc(100% - 20px);background:#fff;border-radius:14px;box-shadow:0 4px 22px rgba(0,0,0,.22);display:none;flex-direction:column;overflow:hidden}
 .panel.open{display:flex}
@@ -790,8 +793,8 @@ ul.nb em{font-style:normal;color:#1a7f5a;font-weight:600;white-space:nowrap;font
 .t-park{--t:#2f8f4e}.t-shop{--t:#b25a9a}.t-culture{--t:#7a5cd6}.t-food{--t:#d2632b}.t-sport{--t:#1f86b8}.t-landmark{--t:#b08a12}
 ul.condos{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 ul.condos li{border:1px solid var(--line);border-radius:9px;padding:7px 10px 7px 34px;font-size:13.5px;font-weight:600;line-height:1.25;position:relative;cursor:pointer}
-ul.condos li::before{content:"\1F4CD";position:absolute;left:9px;top:8px;font-size:16px}
-ul.condos li.nopin{cursor:default}ul.condos li.nopin::before{content:"";}
+ul.condos li::before{content:"";position:absolute;left:11px;top:10px;width:12px;height:12px;box-sizing:border-box;background:#fff;border:3.5px solid #e0245e;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+ul.condos li.nopin{cursor:default}ul.condos li.nopin::before{display:none}
 ul.condos li.hot,ul.condos li:hover:not(.nopin){background:#fff3d6;border-color:#e2a33a}
 /* the condo chosen on the map: a soft, still glow so it is easy to spot in the list */
 /* a school or park found with the search box */

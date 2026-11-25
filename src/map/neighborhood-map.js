@@ -49,7 +49,8 @@ const commLayer=L.geoJSON(COMM,{pane:"pComm",style:cStyle,onEachFeature:(f,l)=>{
   l.on({mouseover:()=>l.setStyle({weight:2.5,color:"#16202b"}),mouseout:()=>commLayer.resetStyle(l),click:()=>{const p=f.properties;if(sel===p.d&&(selComm===null||selComm===p.n))unpick();else pick(p.d,p.n)}});}});
 function cStyle(f){const p=f.properties,on=p.n===selComm&&p.d===sel;return{color:on?"#16202b":"#5d6976",weight:on?2.6:.9,dashArray:on?null:"3 3",fillColor:walk?walkCol(p.near.d):"#fff",fillOpacity:walk?.62:(on?.25:.01)}}
 const dLabels=L.layerGroup(Object.keys(DLABEL).map(k=>L.marker(DLABEL[k].slice(0,2),{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"dl",html:DLABEL[k][2]||k,iconSize:[60,20]})}))).addTo(map);
-const cLabels=L.layerGroup(COMM.features.filter(f=>!f.properties.dup).map(f=>L.marker(f.properties.c,{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"cl",html:esc(f.properties.n),iconSize:[110,14]})})));
+const cLabelMarkers=COMM.features.filter(f=>!f.properties.dup).map(f=>L.marker(f.properties.c,{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"cl",html:esc(f.properties.n),iconSize:[110,14]})}));
+const cLabels=L.layerGroup();
 const subLayer=L.layerGroup(STATIONS.map(s=>L.circleMarker([s[1],s[2]],{pane:"pSub",radius:5,color:"#fff",weight:1.5,fillColor:LINE[s[3]],fillOpacity:1,bubblingMouseEvents:false}).bindTooltip(s[0]+" station",{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
 /* Yonge St and Bloor St: glowing main streets (halo that pulses, bright core, light that travels along the street) */
 const glowLayer=L.layerGroup(),glowLabels=L.layerGroup();
@@ -62,11 +63,12 @@ glowLayer.addTo(map);
 /* click any icon: zoom straight in to browse the area around it (no card). Already close: just centre on it */
 function zoomPop(ll){ll=L.latLng(ll);map.closePopup();map.flyTo(ll,Math.max(map.getZoom(),16.5),{duration:.7})}
 /* grocery stores */
-const CART='<svg viewBox="0 0 24 24" width="20" height="20"><path d="M2.2 3.4h3.1l2.3 10.2h10.3l2-7.4H6.2" fill="#fff" stroke="#16202b" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.6 9.3h10.2M12.9 6.4v7M9.3 6.4l.9 7M16.6 6.4l-.6 7" stroke="#16202b" stroke-width="1.1" fill="none"/><circle cx="9.3" cy="18.6" r="1.9" fill="#16202b"/><circle cx="16.6" cy="18.6" r="1.9" fill="#16202b"/></svg>';
-const shopLayer=L.layerGroup(GROCERY.map(g=>{const m=L.marker([g[1],g[2]],{pane:"pShop",keyboard:false,icon:L.divIcon({className:"shop",html:CART,iconSize:[20,20],iconAnchor:[10,10],tooltipAnchor:[0,-10]})});
-  m.bindTooltip(g[0],{className:"tt",direction:"top"});m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m}));
+const CART='<svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12.5" r="11.5" fill="#fff" fill-opacity=".85"/><path d="M2.2 3.4h3.1l2.3 10.2h10.3l2-7.4H6.2" fill="#fff" stroke="#16202b" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.6 9.3h10.2M12.9 6.4v7M9.3 6.4l.9 7M16.6 6.4l-.6 7" stroke="#16202b" stroke-width="1.1" fill="none"/><circle cx="9.3" cy="18.6" r="1.9" fill="#16202b"/><circle cx="16.6" cy="18.6" r="1.9" fill="#16202b"/></svg>';
+const shopMarkers=GROCERY.map(g=>{const m=L.marker([g[1],g[2]],{pane:"pShop",keyboard:false,icon:L.divIcon({className:"shop",html:CART,iconSize:[20,20],iconAnchor:[10,10],tooltipAnchor:[0,-10]})});
+  m.bindTooltip(g[0],{className:"tt",direction:"top"});m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m});
+const shopLayer=L.layerGroup();
 /* universities and colleges */
-const CAP='<svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" stroke="#16202b" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 4.2 2.2 9l9.8 4.8L21.8 9z"/><path d="M6.2 11.2v4.6c0 1.6 2.6 2.9 5.8 2.9s5.8-1.3 5.8-2.9v-4.6" fill="none"/><path d="M3.4 9.9v4.9"/><rect x="2.5" y="14.8" width="1.8" height="2.6" rx=".6"/></svg>';
+const CAP='<svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" stroke="#16202b" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="11.6" stroke="none" fill-opacity=".85"/><path d="M12 4.2 2.2 9l9.8 4.8L21.8 9z"/><path d="M6.2 11.2v4.6c0 1.6 2.6 2.9 5.8 2.9s5.8-1.3 5.8-2.9v-4.6" fill="none"/><path d="M3.4 9.9v4.9"/><rect x="2.5" y="14.8" width="1.8" height="2.6" rx=".6"/></svg>';
 const uniLayer=L.layerGroup(UNIS.map(u=>L.marker([u[1],u[2]],{pane:"pUni",keyboard:false,icon:L.divIcon({className:"uni",html:CAP,iconSize:[26,26],iconAnchor:[13,13],tooltipAnchor:[0,-12]})}).bindTooltip(u[0],{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
 /* surrounding regions */
 const regLayer=L.layerGroup(),regLabels=L.layerGroup(),regPoly={};
@@ -96,12 +98,19 @@ map.on("moveend",syncView);
 const pinOf={};let hotPin=null;
 const condoLayer=L.layerGroup();
 Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DISTRICTS[id].condos[i].split(";").map(x=>x.split("|"));
-  const m=L.marker([p[0],p[1]],{pane:"pCondo",keyboard:false,icon:L.divIcon({className:"pin",html:"<span>\u{1F4CD}</span>",iconSize:[18,18],iconAnchor:[9,17],tooltipAnchor:[0,-17]})});
+  const m=L.marker([p[0],p[1]],{pane:"pCondo",keyboard:false,icon:L.divIcon({className:"pin",html:"<span></span>",iconSize:[18,18],iconAnchor:[9,17],tooltipAnchor:[0,-17]})});
   const w=walkTo(p);m.bindTooltip((cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{className:"tt",direction:"top"});
   m.on("click",()=>{if(sel!==id)pick(id,null);hot(id,i,false,true);m.closeTooltip();zoomPop(m.getLatLng())});
   m.on("mouseover",()=>hot(id,i,false,false));m.on("mouseout",()=>{if(!stick)hot(null)});
-  pinOf[id+"|"+i]=m;condoLayer.addLayer(m)}));
+  pinOf[id+"|"+i]=m}));
+const condoMarkers=Object.values(pinOf);
 condoLayer.addTo(map);
+/* Keep on the page only the markers in (or just around) the visible area. With all ~1,300 pins, carts and
+   labels on the page at once, every pan and zoom had to move and repaint each one. */
+function cull(group,list,keep){if(!map.hasLayer(group))return;const b=map.getBounds().pad(.3);
+  for(const m of list){const inb=b.contains(m.getLatLng());if(inb){if(!group.hasLayer(m))group.addLayer(m)}else if(group.hasLayer(m)&&m!==keep)group.removeLayer(m)}}
+function cullAll(){cull(condoLayer,condoMarkers,hotPin);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
+map.on("moveend",cullAll);cullAll();
 let stick=false;
 /* Hover labels (districts, communities, condos, groceries, stations, campuses): at most one on screen at a time,
    and never left behind. Browsers sometimes skip the "mouse left" signal (fast moves, page scrolling under a
@@ -120,7 +129,7 @@ function hot(id,i,pan,keep){
   document.querySelectorAll("ul.condos li.hot,ul.condos li.picked").forEach(l=>l.classList.remove("hot","picked"));
   stick=!!keep;if(id==null)return;
   if(keep&&id===sel)nearby(id,i);
-  const m=pinOf[id+"|"+i];if(!m||!map.hasLayer(condoLayer))return;
+  const m=pinOf[id+"|"+i];if(!m||!map.hasLayer(condoLayer))return;if(!condoLayer.hasLayer(m))condoLayer.addLayer(m);
   hotPin=m;m.setZIndexOffset(5000);const e=m.getElement();if(e)e.classList.add("hot");
   if(pan){const ll=m.getLatLng(),pad=small.matches?L.latLngBounds(map.containerPointToLatLng([20,60]),map.containerPointToLatLng([innerWidth-20,innerHeight*.36])):L.latLngBounds(map.containerPointToLatLng([400,60]),map.containerPointToLatLng([map.getSize().x-340,map.getSize().y-40]));
     if(!pad.contains(ll)){const off=small.matches?[0,map.getSize().y*.22]:[-190,0];map.panTo(map.unproject(map.project(ll).add(off)),{animate:true,duration:.35})}
@@ -137,9 +146,9 @@ function restyle(){distLayer.setStyle(f=>dStyle(f.properties.d));commLayer.setSt
   const c=map.getContainer(),z=map.getZoom(),wide=z<9.5;c.classList.toggle("z-far",z<11);c.classList.toggle("z-near",z>=13);c.classList.toggle("z-reg",z<8);c.classList.toggle("wide",wide);
   (showReg&&z<11.5)?regLabels.addTo(map):map.removeLayer(regLabels);
   (z>=12.5)?glowLabels.addTo(map):map.removeLayer(glowLabels);
-  (z>=12.5)?shopLayer.addTo(map):map.removeLayer(shopLayer);
+  if(z>=12.5){shopLayer.addTo(map);cull(shopLayer,shopMarkers)}else map.removeLayer(shopLayer);
   glowLayer.eachLayer(l=>{const c=l.options.className;l.setStyle({weight:c==="glow-halo"?(z<10?6:z<12?11:z<14?15:20):(z<10?2:z<12?3:z<14?4.5:6)})});
-  (showComm&&z>=13.5)?cLabels.addTo(map):map.removeLayer(cLabels);
+  if(showComm&&z>=13.5){cLabels.addTo(map);cull(cLabels,cLabelMarkers)}else map.removeLayer(cLabels);
   subLayer.eachLayer(m=>m.setRadius(z<11?3:z<13?5:7));($("l-sub").checked&&!wide)?subLayer.addTo(map):map.removeLayer(subLayer)}
 map.on("zoomend",restyle);
 function setComm(on){showComm=true;commLayer.addTo(map);restyle()}
@@ -249,6 +258,10 @@ const PRE='<u class="pre">Pre-construction</u>';
 /* a building with several addresses under one name is written once; true twins keep both names */
 function cHtml(c){const pre=c.some(x=>x[2]==="pre")?" "+PRE:"";
   return c.every(x=>x[0]===c[0][0])?'<div>'+esc(c[0][0])+pre+'<small>'+c.map(x=>esc(x[1])).join(" \u00b7 ")+'</small></div>':c.map(x=>'<div>'+esc(x[0])+(x[2]==="pre"?" "+PRE:"")+'<small>'+esc(x[1])+'</small></div>').join("")}
+/* While the list is scrolling, rows sliding under a still pointer must not each move the map and open a
+   label (that made scrolling the list stutter). A row reacts only once the pointer rests on it. */
+let listScrolling=false,listScrollT=0,listHoverT=0;
+$("pbody").addEventListener("scroll",()=>{listScrolling=true;clearTimeout(listScrollT);clearTimeout(listHoverT);listScrollT=setTimeout(()=>{listScrolling=false},180)},{passive:true});
 function fillCondos(id){
   const rows=DISTRICTS[id].condos.map((s,i)=>{const c=s.split(";").map(x=>x.split("|")),p=(PINS[id]||[])[i];return{i,c,p,w:walkTo(p),key:c[0][0].replace(/^the\s+/i,"").toLowerCase()}});
   const az=(a,b)=>a.key.localeCompare(b.key,"en",{numeric:true});
@@ -256,7 +269,7 @@ function fillCondos(id){
   rows.sort(csort==="za"?(a,b)=>az(b,a):csort==="walk"?(a,b)=>(a.w?a.w.min:99)-(b.w?b.w.min:99)||az(a,b):az);
   $("clist").innerHTML=(f?'<p class="none cf">'+rows.length+' of '+all+' match</p>':'')+'<ul class="condos">'+rows.map(r=>'<li data-i="'+r.i+'"'+(r.p?' tabindex="0"':' class="nopin"')+'>'+cHtml(r.c)+(r.p?(r.p[2]?'':'<small><em>approximate spot</em></small>'):'<small><em>not on the map yet</em></small>')+(r.w?'<small class="wk">'+esc(walkTxt(r.w))+'</small>':(csort==="walk"?'<small class="nw">'+(r.p&&r.p[2]?'No subway within a 10 minute walk':'Walking time not available')+'</small>':''))+'</li>').join("")+'</ul>';
   $("clist").querySelectorAll("li:not(.nopin)").forEach(li=>{const i=+li.dataset.i;
-    li.addEventListener("mouseenter",()=>{if(!stick)hot(id,i,true,false)});li.addEventListener("mouseleave",()=>{if(!stick)hot(null)});
+    li.addEventListener("mouseenter",()=>{clearTimeout(listHoverT);if(stick||listScrolling)return;listHoverT=setTimeout(()=>{if(!stick&&!listScrolling)hot(id,i,true,false)},110)});li.addEventListener("mouseleave",()=>{clearTimeout(listHoverT);if(!stick)hot(null)});
     li.addEventListener("focus",()=>hot(id,i,true,false));
     li.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();li.click()}});
     li.addEventListener("click",()=>{const same=stick&&hotPin===pinOf[id+"|"+i];hot(null);if(!same)hot(id,i,true,true)})});
