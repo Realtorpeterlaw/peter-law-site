@@ -66,66 +66,223 @@ const hreflangAlternates = [
           <div class="calc">
             <form method="POST" action={FORMSPREE_ENDPOINT}>
               <div class="calc-fields">
+                <h3 class="fhe-h calc-field-full">Property information</h3>
+                <div class="calc-field calc-field-full">
+                  <label for="fhe-address">Address <span class="hint">*</span></label>
+                  <input id="fhe-address" name="address" type="text" required autocomplete="street-address" placeholder="123 Main St">
+                </div>
                 <div class="calc-field">
-                  <label for="fhe-name">Full name <span class="hint">*</span></label>
+                  <label for="fhe-suite">Suite number</label>
+                  <input id="fhe-suite" name="suite" type="text" placeholder="e.g. 1205">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-city">City</label>
+                  <input id="fhe-city" name="city" type="text" autocomplete="address-level2" placeholder="Toronto">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-type">Property type</label>
+                  <select id="fhe-type" name="property_type">
+                    <option value="">Choose one</option>
+                    <option>Condo apartment</option>
+                    <option>Condo townhouse</option>
+                    <option>Loft</option>
+                    <option>Freehold townhouse</option>
+                    <option>Semi-detached house</option>
+                    <option>Detached house</option>
+                    <option>Pre-construction / assignment</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <fieldset class="fhe-group calc-field-full">
+                  <legend>Evaluation request for</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="evaluation_for" value="Sale / Assignment"> Sale / Assignment</label>
+                    <label class="fhe-opt"><input type="radio" name="evaluation_for" value="Rent / Lease"> Rent / Lease</label>
+                    <label class="fhe-opt"><input type="radio" name="evaluation_for" value="Rent / Lease with Property Management Services"> Rent / Lease with Property Management Services</label>
+                    <label class="fhe-opt"><input type="radio" name="evaluation_for" value="Both Sale / Assignment AND Rent / Lease"> Both Sale / Assignment AND Rent / Lease</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full">
+                  <legend>Bedrooms</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="Bachelor / Studio"> Bachelor / Studio</label>
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="1 Bedroom"> 1 Bedroom</label>
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="1 Bedroom + Den / Solarium / Study"> 1 Bedroom + Den / Solarium / Study</label>
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="2 Bedroom"> 2 Bedroom</label>
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="2 Bedroom + Den / Solarium / Study"> 2 Bedroom + Den / Solarium / Study</label>
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="3 Bedroom"> 3 Bedroom</label>
+                    <label class="fhe-opt"><input type="radio" name="bedrooms" value="4 Bedroom +"> 4 Bedroom +</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full fhe-row">
+                  <legend>Bathrooms</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="bathrooms" value="1"> 1</label>
+                    <label class="fhe-opt"><input type="radio" name="bathrooms" value="2"> 2</label>
+                    <label class="fhe-opt"><input type="radio" name="bathrooms" value="3"> 3</label>
+                    <label class="fhe-opt"><input type="radio" name="bathrooms" value="4+"> 4+</label>
+                  </div>
+                </fieldset>
+                <div class="calc-field">
+                  <label for="fhe-sqft">Approximate square footage</label>
+                  <input id="fhe-sqft" name="sqft" type="number" min="100" step="10" placeholder="e.g. 750" inputmode="numeric">
+                </div>
+                <div class="fhe-spacer" aria-hidden="true"></div>
+                <fieldset class="fhe-group calc-field-full fhe-half">
+                  <legend>Do you own a parking spot?</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="parking" value="Yes"> Yes</label>
+                    <label class="fhe-opt"><input type="radio" name="parking" value="No"> No</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full fhe-half">
+                  <legend>Do you own a locker?</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="locker" value="Yes"> Yes</label>
+                    <label class="fhe-opt"><input type="radio" name="locker" value="No"> No</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full fhe-row">
+                  <legend>Condition of suite</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="condition" value="Excellent"> Excellent</label>
+                    <label class="fhe-opt"><input type="radio" name="condition" value="Good"> Good</label>
+                    <label class="fhe-opt"><input type="radio" name="condition" value="Fair"> Fair</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full fhe-row">
+                  <legend>The property is</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="radio" name="occupancy" value="Owner occupied"> Owner occupied</label>
+                    <label class="fhe-opt"><input type="radio" name="occupancy" value="Tenant occupied"> Tenant occupied</label>
+                    <label class="fhe-opt"><input type="radio" name="occupancy" value="Vacant or unoccupied"> Vacant or unoccupied</label>
+                  </div>
+                </fieldset>
+                <h3 class="fhe-h calc-field-full">Suite finishings</h3>
+                <div class="calc-field">
+                  <label for="fhe-floor-main">Flooring type in main living area</label>
+                  <select id="fhe-floor-main" name="flooring_main">
+                    <option value="">Choose one</option>
+                    <option>Hardwood</option>
+                    <option>Engineered hardwood</option>
+                    <option>Laminate</option>
+                    <option>Vinyl plank</option>
+                    <option>Tile</option>
+                    <option>Carpet</option>
+                    <option>Mixed</option>
+                  </select>
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-floor-bed">Flooring type in bedroom(s)</label>
+                  <select id="fhe-floor-bed" name="flooring_bedrooms">
+                    <option value="">Choose one</option>
+                    <option>Hardwood</option>
+                    <option>Engineered hardwood</option>
+                    <option>Laminate</option>
+                    <option>Vinyl plank</option>
+                    <option>Tile</option>
+                    <option>Carpet</option>
+                    <option>Mixed</option>
+                  </select>
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-appliances">Kitchen appliances</label>
+                  <select id="fhe-appliances" name="kitchen_appliances">
+                    <option value="">Choose one</option>
+                    <option>Stainless steel</option>
+                    <option>Built-in / integrated</option>
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Mixed</option>
+                  </select>
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-view">Which best describes your view / exposure</label>
+                  <select id="fhe-view" name="view_exposure">
+                    <option value="">Choose one</option>
+                    <option>North</option>
+                    <option>North-East</option>
+                    <option>East</option>
+                    <option>South-East</option>
+                    <option>South</option>
+                    <option>South-West</option>
+                    <option>West</option>
+                    <option>North-West</option>
+                  </select>
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-balcony">Balcony</label>
+                  <select id="fhe-balcony" name="balcony">
+                    <option>No</option>
+                    <option>Yes, balcony</option>
+                    <option>Yes, terrace</option>
+                    <option>Juliette balcony</option>
+                  </select>
+                </div>
+                <div class="fhe-spacer" aria-hidden="true"></div>
+                <div class="calc-field calc-field-full">
+                  <label for="fhe-notes">Additional information that might be helpful <span class="hint">(recent reno, upgrades, view, etc.)</span></label>
+                  <textarea id="fhe-notes" name="notes" rows="3"></textarea>
+                </div>
+                <h3 class="fhe-h calc-field-full">Personal information</h3>
+                <div class="calc-field">
+                  <label for="fhe-name">Name <span class="hint">*</span></label>
                   <input id="fhe-name" name="name" type="text" required autocomplete="name">
+                </div>
+                <div class="calc-field">
+                  <label for="fhe-phone">Phone <span class="hint">*</span></label>
+                  <input id="fhe-phone" name="phone" type="tel" required autocomplete="tel">
                 </div>
                 <div class="calc-field">
                   <label for="fhe-email">Email <span class="hint">*</span></label>
                   <input id="fhe-email" name="email" type="email" required autocomplete="email">
                 </div>
                 <div class="calc-field">
-                  <label for="fhe-phone">Phone</label>
-                  <input id="fhe-phone" name="phone" type="tel" autocomplete="tel">
-                </div>
-                <div class="calc-field">
-                  <label for="fhe-type">Property type</label>
-                  <select id="fhe-type" name="property_type">
-                    <option>Condo</option>
-                    <option>House, detached</option>
-                    <option>House, semi-detached</option>
-                    <option>Townhouse</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="calc-field calc-field-full">
-                  <label for="fhe-address">Property address <span class="hint">*</span></label>
-                  <input id="fhe-address" name="address" type="text" required placeholder="123 Main St, Toronto, ON">
-                </div>
-                <div class="calc-field">
-                  <label for="fhe-beds">Bedrooms</label>
-                  <input id="fhe-beds" name="bedrooms" type="number" min="0" max="10" step="1" inputmode="decimal">
-                </div>
-                <div class="calc-field">
-                  <label for="fhe-baths">Bathrooms</label>
-                  <input id="fhe-baths" name="bathrooms" type="number" min="0" max="10" step="0.5" inputmode="decimal">
-                </div>
-                <div class="calc-field">
-                  <label for="fhe-sqft">Approximate square footage</label>
-                  <input id="fhe-sqft" name="sqft" type="number" min="100" step="50" placeholder="e.g. 750" inputmode="decimal">
-                </div>
-                <div class="calc-field">
-                  <label for="fhe-timeline">Selling timeline</label>
+                  <label for="fhe-timeline">Thinking of moving out</label>
                   <select id="fhe-timeline" name="timeline">
                     <option>Just curious</option>
-                    <option>Considering in next 3-6 months</option>
-                    <option>Ready in 1-3 months</option>
-                    <option>Listing now / urgent</option>
+                    <option>Within 3 months</option>
+                    <option>3 to 6 months</option>
+                    <option>6 to 12 months</option>
+                    <option>12 months +</option>
                   </select>
                 </div>
-                <div class="calc-field calc-field-full">
-                  <label for="fhe-notes">Anything I should know? <span class="hint">(recent reno, parking, view, etc.)</span></label>
-                  <input id="fhe-notes" name="notes" type="text">
-                </div>
+                <fieldset class="fhe-group calc-field-full">
+                  <legend>Please contact me by (email and / or meeting)</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="checkbox" name="contact_by[]" value="Email"> Email</label>
+                    <label class="fhe-opt"><input type="checkbox" name="contact_by[]" value="Schedule a personal meeting"> Schedule a personal meeting</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full">
+                  <legend>How did you hear about me?</legend>
+                  <div class="fhe-opts">
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="Mail / Flyer"> Mail / Flyer</label>
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="Internet"> Internet</label>
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="Social Media"> Social Media</label>
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="TV Media"> TV Media</label>
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="Magazine"> Magazine</label>
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="Referral"> Referral</label>
+                    <label class="fhe-opt"><input type="checkbox" name="heard_from[]" value="Other"> Other</label>
+                  </div>
+                </fieldset>
+                <fieldset class="fhe-group calc-field-full">
+                  <legend class="visually-hidden">Updates</legend>
+                  <p class="fhe-small">From time to time I would like to send you information about my promotions, services or information updates which I believe may be of interest to you. If you wish to receive updated information, please check the box below.</p>
+                  <div class="fhe-opts fhe-stack">
+                    <label class="fhe-opt"><input type="checkbox" name="consent_correspondence" value="Yes"> I consent to receive future correspondence related to your services.</label>
+                    <label class="fhe-opt"><input type="checkbox" name="monthly_sales_statistics" value="Yes"> Add me to your emailer for Monthly Sales Statistics</label>
+                  </div>
+                </fieldset>
                 <div class="hp-field" aria-hidden="true">
                   <label for="fhe-gotcha">Don't fill this</label>
                   <input id="fhe-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
                 </div>
-                <input type="hidden" name="_subject" value="New Free Home Evaluation Request">
+                <input type="hidden" name="_subject" value="New Home Evaluation Request">
                 <input type="hidden" name="_next" value="https://www.realtorpeterlaw.com/contact/thanks">
               </div>
               <button type="submit" class="btn-primary" style="margin-top: 24px;">
-                Send my evaluation request
+                CLICK HERE for my Home Worth
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </form>
@@ -137,3 +294,22 @@ const hreflangAlternates = [
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .fhe-h { font-size: 17px; margin: 12px 0 -6px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .fhe-h:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+  .fhe-group { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .fhe-group legend { font-size: 13px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0.02em; margin-bottom: 8px; padding: 0; }
+  .fhe-half { grid-column: auto; }
+  .fhe-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fhe-stack { flex-direction: column; }
+  .fhe-opt { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; font-size: 14px; color: var(--ink); cursor: pointer; line-height: 1.3; }
+  .fhe-opt:hover { border-color: var(--ink-mute); }
+  .fhe-opt:has(input:checked) { border-color: var(--ink); background: var(--surface); }
+  .fhe-opt input { margin: 0; accent-color: var(--ink); flex: none; }
+  .fhe-small { font-size: 12.5px; color: var(--ink-mute); margin: 0 0 8px; line-height: 1.45; }
+  .calc-field textarea { width: 100%; box-sizing: border-box; font-family: inherit; font-size: 16px; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); resize: vertical; }
+  .calc-field textarea:focus { outline: none; border-color: var(--ink); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (max-width: 720px) { .fhe-spacer { display: none; } }
+</style>
