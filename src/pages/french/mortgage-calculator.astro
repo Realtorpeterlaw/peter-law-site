@@ -1,32 +1,33 @@
 ---
-import { RATE_DEFAULTS_AS_OF } from '../lib/site-rates';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import TopBar from '../components/TopBar.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import CTASection from '../components/CTASection.astro';
+import { RATE_DEFAULTS_AS_OF } from '../../lib/site-rates';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FrenchTopBar from '../../components/FrenchTopBar.astro';
+import FrenchHeader from '../../components/FrenchHeader.astro';
+import FrenchFooter from '../../components/FrenchFooter.astro';
+import FrenchCTASection from '../../components/FrenchCTASection.astro';
 
 const hreflangAlternates = [
-  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/payment-calculator' },
-  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/payment-calculator' },
-  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/payment-calculator' },
-  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/payment-calculator' },
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/mortgage-calculator' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/mortgage-calculator' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/mortgage-calculator' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/mortgage-calculator' },
 ];
 ---
 <BaseLayout
-  title="Mortgage Calculator (Canadian) | Peter Law"
-  description="Comprehensive Canadian mortgage calculator. Compare 3 scenarios side by side. CMHC, GST/HST, amortization, stress test."
-  bodyClass="calc-page"
+  title="Calculateur hypothécaire (canadien) | Peter Law"
+  description="Calculateur hypothécaire canadien complet. Comparez 3 scénarios. SCHL, TPS/TVH, amortissement, test de résistance."
+  lang="fr"
+  bodyClass="fr calc-page"
   hreflangAlternates={hreflangAlternates}
 >
-  <TopBar />
-  <Header active="buyers" />
+  <FrenchTopBar />
+  <FrenchHeader active="buyers" />
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">Mortgage calculator</div>
-      <h1>Compare 3 mortgage scenarios at once.</h1>
-      <p>Find out what your monthly payments and interest will be. Built for Canadian rules: semi-annual compounding, CMHC tiers, Ontario LTT, and federal stress test.</p>
+      <div class="eyebrow">Calculateur hypothécaire</div>
+      <h1>Comparez 3 scénarios hypothécaires en même temps.</h1>
+      <p>Découvrez à combien s'élèveront vos paiements mensuels et vos intérêts. Conçu pour les règles canadiennes : composition semestrielle, paliers SCHL, droits de cession immobilière de l'Ontario et test de résistance fédéral.</p>
     </div>
   </section>
 
@@ -34,49 +35,48 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="prose-grid">
         <aside class="prose-side">
-          <h2 class="side-h">Buyer resources</h2>
+          <h2 class="side-h">Ressources pour acheteurs</h2>
           <ul>
-            <li><a href="/buyer-guide">Buyer Guide</a></li>
-            <li><a href="/payment-calculator">Mortgage</a></li>
-            <li><a href="/land-transfer-tax">Land Transfer Tax</a></li>
-            <li><a href="/closing-costs">Closing Costs</a></li>
+            <li><a href="/french/buyer-guide">Guide de l'acheteur</a></li>
+            <li><a href="/french/mortgage-calculator">Hypothèque</a></li>
+            <li><a href="/french/land-transfer-tax">Droits de cession</a></li>
+            <li><a href="/french/closing-costs">Frais de clôture</a></li>
           </ul>
         </aside>
         <div class="prose-body">
 
           <!-- Shared inputs -->
           <div class="mc-shared">
-            <h3>The basics (applies to all scenarios)</h3>
+            <h3>Les bases (s'appliquent à tous les scénarios)</h3>
             <div class="mc-shared-fields">
               <div class="calc-field">
-                <label for="mc-price">Purchase price</label>
+                <label for="mc-price">Prix d'achat</label>
                 <div class="input-prefix" data-prefix="$"><input id="mc-price" type="text" value="800000" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
-                <label for="mc-toronto">Location</label>
+                <label for="mc-toronto">Emplacement</label>
                 <select id="mc-toronto">
-                  <option value="yes" selected>Toronto (LTT + MLTT)</option>
-                  <option value="no">Ontario (LTT only)</option>
+                  <option value="yes" selected>Toronto (les deux droits s'appliquent)</option>
+                  <option value="no">Ailleurs en Ontario</option>
                 </select>
               </div>
               <div class="calc-field">
-                <label for="mc-fthb">First-time homebuyer?</label>
+                <label for="mc-fthb">Premier acheteur?</label>
                 <select id="mc-fthb">
-                  <option value="no" selected>No</option>
-                  <!-- shortened labels below -->
-                  <option value="yes">Yes (rebate applies)</option>
+                  <option value="no" selected>Non</option>
+                  <option value="yes">Oui (remboursement applicable)</option>
                 </select>
               </div>
               <div class="calc-field">
-                <label for="mc-tax">Annual property tax</label>
+                <label for="mc-tax">Impôt foncier annuel</label>
                 <div class="input-prefix" data-prefix="$"><input id="mc-tax" type="text" value="5500" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
-                <label for="mc-heat">Monthly heating/utilities</label>
+                <label for="mc-heat">Chauffage / services publics (mensuel)</label>
                 <div class="input-prefix" data-prefix="$"><input id="mc-heat" type="text" value="180" inputmode="decimal" autocomplete="off"></div>
               </div>
               <div class="calc-field">
-                <label for="mc-condo">Monthly condo fee (if any)</label>
+                <label for="mc-condo">Frais de condo (mensuel, s'il y a lieu)</label>
                 <div class="input-prefix" data-prefix="$"><input id="mc-condo" type="text" value="0" inputmode="decimal" autocomplete="off"></div>
               </div>
             </div>
@@ -87,74 +87,74 @@ const hreflangAlternates = [
 
           <!-- LTT block (shared, depends on price + Toronto + FTHB) -->
           <div class="mc-ltt-block">
-            <h3>Land Transfer Tax (one-time, paid at closing)</h3>
+            <h3>Droits de cession immobilière (paiement unique à la clôture)</h3>
             <div class="mc-ltt-rows">
-              <div class="row"><span>Ontario provincial LTT</span><strong id="mc-ltt-ont">$0</strong></div>
-              <div class="row" id="mc-ltt-mltt-row"><span>Toronto Municipal LTT</span><strong id="mc-ltt-mltt">$0</strong></div>
-              <div class="row" id="mc-ltt-rebate-row" style="display:none;"><span>First-time buyer rebate</span><strong id="mc-ltt-rebate">−$0</strong></div>
-              <div class="row total"><span><strong>Total LTT due</strong></span><strong id="mc-ltt-total">$0</strong></div>
+              <div class="row"><span>Droits provinciaux de l'Ontario</span><strong id="mc-ltt-ont">$0</strong></div>
+              <div class="row" id="mc-ltt-mltt-row"><span>Droits municipaux de Toronto</span><strong id="mc-ltt-mltt">$0</strong></div>
+              <div class="row" id="mc-ltt-rebate-row" style="display:none;"><span>Remboursement premier acheteur</span><strong id="mc-ltt-rebate">−$0</strong></div>
+              <div class="row total"><span><strong>Total des droits à payer</strong></span><strong id="mc-ltt-total">$0</strong></div>
             </div>
           </div>
 
           <!-- Cash to close per scenario -->
-          <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; margin-top: 36px; margin-bottom: 16px;">Cash needed to close (per scenario)</h2>
-          <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">Down payment + LTT + estimated legal/title + CMHC PST (if applicable). Doesn't include moving costs or inspection.</p>
+          <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 26px; margin-top: 36px; margin-bottom: 16px;">Liquidités nécessaires à la clôture (par scénario)</h2>
+          <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 16px;">Mise de fonds + droits de cession immobilière + honoraires juridiques et titres estimés + TVP sur la prime SCHL (le cas échéant). N'inclut pas les frais de déménagement ni l'inspection.</p>
           <div class="mc-scenarios" id="mc-cash-scenarios"></div>
 
 
           <!-- Grade-8 mortgage explainer (collapsible) -->
           <details class="mc-collapsible mc-explainer">
-            <summary>Mortgage Type explained</summary>
+            <summary>Types de prêts hypothécaires expliqués</summary>
             <div class="mc-collapsible-body mc-explainer-body">
 
-            <h3>Conventional vs. High-Ratio Mortgages</h3>
-            <p>A regular mortgage is called <strong>conventional</strong>. You get one when your down payment is at least 20% of the home's price. Because your loan is 80% or less of the home's value, you do not need mortgage insurance.</p>
-            <p>If you put down <em>less than</em> 20%, it is a <strong>high-ratio</strong> mortgage. You are borrowing more than 80% of the home's price, so the lender is taking on more risk. You have to pay for mortgage insurance, usually between <strong>2.8% and 4.0%</strong> of the loan amount (plus 0.2% if the amortization is longer than 25 years). There is also a maximum home price you can buy under this option.</p>
+            <h3>Prêts hypothécaires conventionnels vs. à ratio élevé</h3>
+            <p>Un prêt hypothécaire ordinaire est appelé <strong>conventionnel</strong>. Vous y avez droit lorsque votre mise de fonds représente au moins 20 % du prix de la propriété. Puisque votre prêt correspond à 80 % ou moins de la valeur du logement, vous n'avez pas besoin d'assurance prêt hypothécaire.</p>
+            <p>Si vous versez <em>moins de</em> 20 %, il s'agit d'un prêt hypothécaire à <strong>ratio élevé</strong>. Vous empruntez plus de 80 % du prix de la propriété; le prêteur assume donc plus de risques. Vous devez payer une assurance prêt hypothécaire, habituellement entre <strong>2,8 % et 4,0 %</strong> du montant du prêt (plus 0,2 % si l'amortissement dépasse 25 ans). Il existe également un prix maximal pour la propriété admissible à cette option.</p>
 
-            <h3>Second Mortgage</h3>
-            <p>If you already have a mortgage but need more money, you can take a <strong>second mortgage</strong> against your home. It uses your home as security, just like the first one. If you stop paying, the lender can force a sale of the property. The first mortgage always gets paid back first, so the second lender is at higher risk; that is why second mortgages usually charge <strong>higher interest</strong>.</p>
+            <h3>Prêt hypothécaire de deuxième rang</h3>
+            <p>Si vous avez déjà un prêt hypothécaire mais avez besoin de fonds supplémentaires, vous pouvez contracter un <strong>prêt de deuxième rang</strong> garanti par votre maison. Elle sert de garantie, tout comme pour le premier prêt. Si vous cessez de payer, le prêteur peut forcer la vente de la propriété. Le premier prêteur est toujours remboursé en premier; le deuxième prêteur assume donc plus de risques, c'est pourquoi les prêts de deuxième rang portent généralement des <strong>taux d'intérêt plus élevés</strong>.</p>
 
-            <h3>Mortgage Features</h3>
-            <p>Every lender is different. Each one lets you customize the terms of your loan. Here are the features worth asking about before you sign.</p>
+            <h3>Caractéristiques d'un prêt hypothécaire</h3>
+            <p>Chaque prêteur est différent. Chacun vous permet de personnaliser les modalités de votre prêt. Voici les caractéristiques à vérifier avant de signer.</p>
 
-            <h4>Prepayment</h4>
-            <p>A <strong>prepayment</strong> right lets you pay extra toward the loan on top of your regular monthly payments. This is great if you get bonuses or your income changes month to month. An <em>open</em> mortgage lets you pay the whole thing off any time, no penalty. A <em>closed</em> mortgage limits how much extra you can pay each year (usually 10–20%). Extra payments go straight to the principal, so you finish the loan faster.</p>
+            <h4>Remboursement anticipé</h4>
+            <p>Le droit au <strong>remboursement anticipé</strong> vous permet de verser des montants supplémentaires sur votre prêt en plus de vos paiements mensuels réguliers. Utile si vous recevez des primes ou si votre revenu varie d'un mois à l'autre. Un prêt <em>ouvert</em> vous permet de tout rembourser à n'importe quel moment, sans pénalité. Un prêt <em>fermé</em> limite les paiements additionnels annuels (habituellement 10 à 20 %). Les paiements supplémentaires vont directement au capital, ce qui vous permet de terminer le prêt plus rapidement.</p>
 
-            <h4>Portability</h4>
-            <p>If you like your current interest rate and do not want to lose it, ask for <strong>portability</strong>. It lets you move your existing mortgage, same rate, same terms, over to a new home when you move. Very useful when today's market rates are higher than the rate you originally locked in.</p>
+            <h4>Transférabilité</h4>
+            <p>Si vous aimez votre taux d'intérêt actuel et souhaitez le conserver, demandez la <strong>transférabilité</strong>. Elle vous permet de transférer votre prêt hypothécaire existant, même taux, mêmes modalités, vers une nouvelle propriété lors d'un déménagement. Très utile lorsque les taux du marché sont plus élevés que celui que vous aviez initialement bloqué.</p>
 
-            <h4>Assumability</h4>
-            <p>When you sell your home, an <strong>assumable</strong> mortgage means the buyer can take over your existing loan. This is a big selling point when your rate is better than today's market. <strong>Warning:</strong> if the buyer stops paying, you can still be held responsible. Make sure the lender formally approves the new buyer so you are fully released.</p>
+            <h4>Cessibilité</h4>
+            <p>Lorsque vous vendez votre maison, un prêt <strong>cessible</strong> signifie que l'acheteur peut reprendre votre prêt existant. C'est un atout de vente majeur lorsque votre taux est meilleur que celui du marché actuel. <strong>Attention :</strong> si l'acheteur cesse de payer, vous pouvez encore en être tenu responsable. Assurez-vous que le prêteur approuve officiellement le nouvel acheteur afin d'être entièrement libéré.</p>
 
-            <h4>Expandability</h4>
-            <p>An <strong>expandable</strong> mortgage lets you add more money to your loan later without starting from scratch. Your new rate will be a <em>blend</em> of your current rate and the market rate at that time. This is useful if you know large expenses are coming, a renovation, a wedding, tuition, or a second property.</p>
+            <h4>Extensibilité</h4>
+            <p>Un prêt hypothécaire <strong>extensible</strong> vous permet d'ajouter des fonds à votre prêt plus tard sans repartir de zéro. Votre nouveau taux sera un <em>mélange</em> de votre taux actuel et du taux du marché à ce moment. Utile si vous savez que de grandes dépenses s'en viennent, rénovation, mariage, études ou une deuxième propriété.</p>
 
-            <p class="mc-explainer-cta"><em>Not sure which features fit your situation? I work with mortgage brokers who can walk you through this. <a href="#book">Get in touch</a>.</em></p>
+            <p class="mc-explainer-cta"><em>Vous ne savez pas quelles caractéristiques correspondent à votre situation? Je travaille avec des courtiers hypothécaires qui peuvent vous guider. <a href="#book">Communiquez avec moi</a>.</em></p>
             </div>
           </details>
 
           <!-- Monthly expenses collapsible -->
           <details class="mc-collapsible">
-            <summary>Monthly Expenses</summary>
+            <summary>Dépenses mensuelles</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Mortgage payment + property tax + heating + condo fee. The full monthly carrying cost per scenario.</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Paiement hypothécaire + impôt foncier + chauffage + frais de condo. Le coût mensuel total de la propriété, par scénario.</p>
               <div class="mc-scenarios" id="mc-expenses-scenarios"></div>
             </div>
           </details>
 
           <!-- Amortization schedule collapsible -->
           <details class="mc-collapsible">
-            <summary>Amortization schedule (year by year)</summary>
+            <summary>Tableau d'amortissement (année par année)</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Principal vs. interest paid each year, plus remaining balance. Pick which scenario to view.</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Capital et intérêts payés chaque année, plus solde restant. Choisissez le scénario à afficher.</p>
               <div class="mc-amort-tabs">
-                <button class="mc-amort-tab active" data-scenario="a" type="button">Scenario A</button>
-                <button class="mc-amort-tab" data-scenario="b" type="button">Scenario B</button>
-                <button class="mc-amort-tab" data-scenario="c" type="button">Scenario C</button>
+                <button class="mc-amort-tab active" data-scenario="a" type="button">Scénario A</button>
+                <button class="mc-amort-tab" data-scenario="b" type="button">Scénario B</button>
+                <button class="mc-amort-tab" data-scenario="c" type="button">Scénario C</button>
               </div>
-              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Table">
+              <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Tableau">
                 <table class="mc-table" id="mc-amort-table">
-                  <thead><tr><th scope="col">Year</th><th scope="col">Principal paid</th><th scope="col">Interest paid</th><th scope="col">Total paid</th><th scope="col">Balance remaining</th></tr></thead>
+                  <thead><tr><th scope="col">Année</th><th scope="col">Capital payé</th><th scope="col">Intérêts payés</th><th scope="col">Total payé</th><th scope="col">Solde restant</th></tr></thead>
                   <tbody></tbody>
                 </table>
               </div>
@@ -163,30 +163,30 @@ const hreflangAlternates = [
 
           <!-- Stress test collapsible -->
           <details class="mc-collapsible">
-            <summary>Interest rate stress test</summary>
+            <summary>Test de résistance sur le taux d'intérêt</summary>
             <div class="mc-collapsible-body">
-              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">What if rates rise when you renew? Monthly payment for Scenario A at the contract rate, +1%, +2%, +3%.</p>
+              <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 14px;">Que se passe-t-il si les taux montent au renouvellement? Paiement mensuel du scénario A au taux contractuel, +1 %, +2 %, +3 %.</p>
               <div class="mc-stress-grid" id="mc-stress-grid"></div>
             </div>
           </details>
 
-          <p class="calc-disclaimer">For illustrative purposes only. Canadian mortgages compound semi-annually. CMHC premiums shown are standard rates (4.00% / 3.10% / 2.80%) for owner-occupied homes. Federal stress test rule uses the greater of (contract rate + 2%) or 5.25%. Actual rates and lender approvals vary. Consult a licensed mortgage professional before committing. Default interest rates shown are illustrative as of {RATE_DEFAULTS_AS_OF.en}; your lender sets your actual rate.</p>
+          <p class="calc-disclaimer">À titre indicatif seulement. Les prêts hypothécaires canadiens sont composés semestriellement. Les primes SCHL indiquées correspondent aux taux standards (4,00 % / 3,10 % / 2,80 %) pour les propriétés occupées par leur propriétaire. La règle fédérale du test de résistance utilise le plus élevé entre (taux contractuel + 2 %) ou 5,25 %. Les taux réels et les approbations des prêteurs varient. Consultez un professionnel hypothécaire agréé avant de vous engager. Les taux d’intérêt par défaut sont indicatifs en date du {RATE_DEFAULTS_AS_OF.fr}; votre prêteur fixe votre taux réel.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <CTASection heading="Want a real quote?" lead="I work with a few mortgage brokers I trust. Tell me your situation and I'll connect you with the right person." />
-  <Footer />
+  <FrenchCTASection heading="Vous voulez un vrai devis?" lead="Je travaille avec quelques courtiers hypothécaires en qui j'ai confiance. Parlez-moi de votre situation et je vous mettrai en contact avec la bonne personne." />
+  <FrenchFooter />
 
   <script>
-    import { SITE_RATES } from '../lib/site-rates';
+    import { SITE_RATES } from '../../lib/site-rates';
     // === FORMATTING ===
-    function toNum(v) { return Math.max(0, parseFloat(String(v == null ? '' : v).replace(/[^0-9.]/g, '')) || 0); }
+    function toNum(v) { v = String(v == null ? '' : v).replace(/[\s\u00a0\u202f]/g, '').replace(/,(\d{1,2})$/, '.$1'); return Math.max(0, parseFloat(v.replace(/[^0-9.]/g, '')) || 0); }
     function fmtCAD(n, dp) {
       if (dp === undefined) dp = 0;
       if (!isFinite(n) || isNaN(n)) return '$0';
-      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
+      return n.toLocaleString('fr-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: dp, minimumFractionDigits: dp });
     }
 
     // === CANADIAN MORTGAGE MATH ===
@@ -261,68 +261,68 @@ const hreflangAlternates = [
 
     // === DEFAULT SCENARIOS ===
     const defaults = {
-      a: { downPct: 7.5, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'A, 7.5% down' },
-      b: { downPct: 10, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'B, 10% down' },
-      c: { downPct: 20, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'C, 20% down' },
+      a: { downPct: 7.5, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'A, 7,5 % de mise' },
+      b: { downPct: 10, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'B, 10 % de mise' },
+      c: { downPct: 20, rate: SITE_RATES.DEFAULT_RATE_PCT, amort: 25, freq: 12, label: 'C, 20 % de mise' },
     };
-    const freqLabel = { 12: '/mo', 24: '/semi-mo', 26: '/bi-wk', 52: '/wk' };
+    const freqLabel = { 12: '/mois', 24: '/demi-mois', 26: '/2 sem.', 52: '/sem.' };
 
     // === BUILD INITIAL UI ===
     function buildScenarioCard(id, def) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
+          <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-tag="${id}">${def.label.split(', ')[1] || ''}</span></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label for="fld-${id}-down-dollar">Down payment</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
-            <div class="mc-row"><label for="fld-${id}-down-pct">Down %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
+            <div class="mc-row"><label for="fld-${id}-down-dollar">Mise de fonds</label><div class="input-prefix" data-prefix="$"><input id="fld-${id}-down-dollar" type="text" data-input="${id}-down-dollar" value="" inputmode="decimal" autocomplete="off"></div></div>
+            <div class="mc-row"><label for="fld-${id}-down-pct">Mise %</label><input id="fld-${id}-down-pct" type="number" data-input="${id}-down-pct" value="${def.downPct}" min="0" max="100" step="0.5" inputmode="decimal"></div>
           </div>
-          <div class="mc-row"><label for="fld-${id}-rate">Interest rate (%) <span class="hint">${SITE_RATES.HINT.en}</span></label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
+          <div class="mc-row"><label for="fld-${id}-rate">Taux d'intérêt (%) <span class="hint">${SITE_RATES.HINT.fr}</span></label><input id="fld-${id}-rate" type="number" data-input="${id}-rate" value="${def.rate}" min="0" max="20" step="0.05" inputmode="decimal"></div>
           <div class="mc-row-pair">
-            <div class="mc-row"><label for="fld-${id}-amort">Amortization</label>
+            <div class="mc-row"><label for="fld-${id}-amort">Amortissement</label>
               <select id="fld-${id}-amort" data-input="${id}-amort">
-                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 yr</option>
-                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 yr</option>
-                <option value="20">20 yr</option>
-                <option value="15">15 yr</option>
-                <option value="10">10 yr</option>
+                <option value="25" ${def.amort === 25 ? 'selected' : ''}>25 ans</option>
+                <option value="30" ${def.amort === 30 ? 'selected' : ''}>30 ans</option>
+                <option value="20">20 ans</option>
+                <option value="15">15 ans</option>
+                <option value="10">10 ans</option>
               </select>
             </div>
-            <div class="mc-row"><label for="fld-${id}-freq">Frequency</label>
+            <div class="mc-row"><label for="fld-${id}-freq">Fréquence</label>
               <select id="fld-${id}-freq" data-input="${id}-freq">
-                <option value="12" selected>Monthly</option>
-                <option value="24">Semi-mo.</option>
-                <option value="26">Bi-weekly</option>
-                <option value="52">Weekly</option>
+                <option value="12" selected>Mensuel</option>
+                <option value="24">Bimensuel</option>
+                <option value="26">Aux 2 semaines</option>
+                <option value="52">Hebdomadaire</option>
               </select>
             </div>
           </div>
-          <div class="mc-row mc-output"><label>CMHC insurance premium</label><span class="value" data-output="${id}-cmhc">$0</span></div>
-          <div class="mc-row mc-output"><label>Total mortgage</label><span class="value" data-output="${id}-mortgage">$0</span></div>
-          <div class="mc-row mc-payment"><label>Mortgage payment</label><span class="value" data-output="${id}-pmt">$0</span><span class="freq" data-output="${id}-freqLabel"></span></div>
+          <div class="mc-row mc-output"><label>Prime d'assurance SCHL</label><span class="value" data-output="${id}-cmhc">$0</span></div>
+          <div class="mc-row mc-output"><label>Prêt hypothécaire total</label><span class="value" data-output="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-payment"><label>Paiement hypothécaire</label><span class="value" data-output="${id}-pmt">$0</span><span class="freq" data-output="${id}-freqLabel"></span></div>
         </div>`;
     }
 
     function buildCashCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
-          <div class="mc-row mc-output"><label>Down payment</label><span class="value" data-cash="${id}-down">$0</span></div>
-          <div class="mc-row mc-output"><label>Land Transfer Tax</label><span class="value" data-cash="${id}-ltt">$0</span></div>
-          <div class="mc-row mc-output"><label>Legal fees + title (est.)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
-          <div class="mc-row mc-output"><label>CMHC PST (Ontario, on premium)</label><span class="value" data-cash="${id}-pst">$0</span></div>
-          <div class="mc-row mc-payment"><label>Total cash at closing</label><span class="value" data-cash="${id}-total">$0</span></div>
+          <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3><span class="mc-scenario-tag" data-cash-tag="${id}"></span></div>
+          <div class="mc-row mc-output"><label>Mise de fonds</label><span class="value" data-cash="${id}-down">$0</span></div>
+          <div class="mc-row mc-output"><label>Droits de cession</label><span class="value" data-cash="${id}-ltt">$0</span></div>
+          <div class="mc-row mc-output"><label>Honoraires juridiques + titres (est.)</label><span class="value" data-cash="${id}-legal">$2,000</span></div>
+          <div class="mc-row mc-output"><label>TVP SCHL (Ontario, sur la prime)</label><span class="value" data-cash="${id}-pst">$0</span></div>
+          <div class="mc-row mc-payment"><label>Liquidités totales à la clôture</label><span class="value" data-cash="${id}-total">$0</span></div>
         </div>`;
     }
 
     function buildExpenseCard(id) {
       return `
         <div class="mc-scenario" data-scenario="${id}">
-          <div class="mc-scenario-header"><h3>Scenario ${id.toUpperCase()}</h3></div>
-          <div class="mc-row mc-output"><label>Mortgage (monthly)</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
-          <div class="mc-row mc-output"><label>Property tax</label><span class="value" data-exp="${id}-tax">$0</span></div>
-          <div class="mc-row mc-output"><label>Heating / utilities</label><span class="value" data-exp="${id}-heat">$0</span></div>
-          <div class="mc-row mc-output"><label>Condo fee</label><span class="value" data-exp="${id}-condo">$0</span></div>
-          <div class="mc-row mc-payment"><label>Total monthly carrying</label><span class="value" data-exp="${id}-total">$0</span></div>
+          <div class="mc-scenario-header"><h3>Scénario ${id.toUpperCase()}</h3></div>
+          <div class="mc-row mc-output"><label>Hypothèque (mensuel)</label><span class="value" data-exp="${id}-mortgage">$0</span></div>
+          <div class="mc-row mc-output"><label>Impôt foncier</label><span class="value" data-exp="${id}-tax">$0</span></div>
+          <div class="mc-row mc-output"><label>Chauffage / services publics</label><span class="value" data-exp="${id}-heat">$0</span></div>
+          <div class="mc-row mc-output"><label>Frais de condo</label><span class="value" data-exp="${id}-condo">$0</span></div>
+          <div class="mc-row mc-payment"><label>Coût mensuel total</label><span class="value" data-exp="${id}-total">$0</span></div>
         </div>`;
     }
 
@@ -338,13 +338,11 @@ const hreflangAlternates = [
       const pctInput = document.querySelector(`[data-input="${id}-down-pct"]`);
       if (changed === 'dollar' || changed === 'pct') lastEdited[id] = changed;
       if (changed === 'dollar' || (!changed && lastEdited[id] === 'dollar')) {
-        // dollar amount is the source of truth: derive the percentage
         const val = toNum(dollarInput.value);
         pctInput.value = price > 0 ? String(Math.round(val / price * 10000) / 100) : '0';
       } else {
-        // percentage is the source of truth (also on price change): derive the dollars
         const val = toNum(pctInput.value);
-        dollarInput.value = Math.round(price * val / 100).toLocaleString('en-CA');
+        dollarInput.value = Math.round(price * val / 100).toLocaleString('fr-CA');
       }
     }
 
@@ -396,23 +394,23 @@ const hreflangAlternates = [
         const totalMortgage = mortgageBefore + premium;
         const pmt = periodicPayment(totalMortgage, rate, amort, freq);
 
-        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? (notInsurableWhy === 'price' ? 'Not insurable: price $1.5M or more' : 'Not insurable: minimum down payment not met') : premium > 0 ? fmtCAD(premium) : '$0 (not required)';
+        document.querySelector(`[data-output="${id}-cmhc"]`).textContent = premRate === null ? (notInsurableWhy === 'price' ? 'Non assurable : prix de 1,5 M$ ou plus' : 'Non assurable : mise de fonds minimale non atteinte') : premium > 0 ? fmtCAD(premium) : '0 $ (non requis)';
         document.querySelector(`[data-output="${id}-mortgage"]`).textContent = fmtCAD(totalMortgage);
         document.querySelector(`[data-output="${id}-pmt"]`).textContent = fmtCAD(pmt);
         document.querySelector(`[data-output="${id}-freqLabel"]`).textContent = freqLabel[freq] || '';
         const tagEl = document.querySelector(`[data-tag="${id}"]`);
-        if (tagEl) tagEl.textContent = downPct.toFixed(1) + '% down · ' + rate + '%';
+        if (tagEl) tagEl.textContent = downPct.toFixed(1) + ' % de mise · ' + rate + ' %';
 
         // Cash to close
         const legal = 2000;
-        const pstOnPrem = premium * 0.08; // Ontario PST on CMHC premium
+        const pstOnPrem = premium * 0.08;
         const totalCash = down + ltt + legal + pstOnPrem;
         document.querySelector(`[data-cash="${id}-down"]`).textContent = fmtCAD(down);
         document.querySelector(`[data-cash="${id}-ltt"]`).textContent = fmtCAD(ltt);
         document.querySelector(`[data-cash="${id}-pst"]`).textContent = fmtCAD(pstOnPrem);
         document.querySelector(`[data-cash="${id}-total"]`).textContent = fmtCAD(totalCash);
         const cashTag = document.querySelector(`[data-cash-tag="${id}"]`);
-        if (cashTag) cashTag.textContent = downPct.toFixed(1) + '% down';
+        if (cashTag) cashTag.textContent = downPct.toFixed(1) + ' % de mise';
 
         // Monthly expenses
         const monthlyMortgage = freq === 12 ? pmt : pmt * freq / 12;
@@ -441,7 +439,7 @@ const hreflangAlternates = [
       const r = periodicRate(s.rate, s.freq);
       const n = s.amort * s.freq;
       let balance = s.mortgage;
-      const yearly = []; // {year, principal, interest, balance}
+      const yearly = [];
       let currentYearP = 0, currentYearI = 0;
       for (let i = 1; i <= n; i++) {
         const interest = balance * r;
@@ -463,7 +461,7 @@ const hreflangAlternates = [
       }
       const tbody = document.querySelector('#mc-amort-table tbody');
       tbody.innerHTML = yearly.map(y =>
-        `<tr><td>Year ${y.year}</td><td>${fmtCAD(y.principal)}</td><td>${fmtCAD(y.interest)}</td><td>${fmtCAD(y.total)}</td><td>${fmtCAD(y.balance)}</td></tr>`
+        `<tr><td>Année ${y.year}</td><td>${fmtCAD(y.principal)}</td><td>${fmtCAD(y.interest)}</td><td>${fmtCAD(y.total)}</td><td>${fmtCAD(y.balance)}</td></tr>`
       ).join('');
     }
 
@@ -471,18 +469,18 @@ const hreflangAlternates = [
       if (!s) return;
       const grid = document.getElementById('mc-stress-grid');
       const variants = [
-        { rate: s.rate, label: 'Current', baseClass: 'base' },
-        { rate: s.rate + 1, label: '+1%' },
-        { rate: s.rate + 2, label: '+2%' },
-        { rate: s.rate + 3, label: '+3%' },
-        { rate: Math.max(s.rate + 2, 5.25), label: 'Qualifying (stress test)', baseClass: 'qual' },
+        { rate: s.rate, label: 'Actuel', baseClass: 'base' },
+        { rate: s.rate + 1, label: '+1 %' },
+        { rate: s.rate + 2, label: '+2 %' },
+        { rate: s.rate + 3, label: '+3 %' },
+        { rate: Math.max(s.rate + 2, 5.25), label: 'Taux d\'admissibilité', baseClass : 'qual' },
       ];
       const basePmt = periodicPayment(s.mortgage, s.rate, s.amort, 12);
       grid.innerHTML = variants.map(v => {
         const pmt = periodicPayment(s.mortgage, v.rate, s.amort, 12);
         const delta = pmt - basePmt;
-        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mo' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mo' : 'No change';
-        return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label} (${v.rate.toFixed(2)}%)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
+        const deltaStr = delta > 0 ? '+' + fmtCAD(delta) + '/mois' : delta < 0 ? '−' + fmtCAD(Math.abs(delta)) + '/mois' : 'Aucun changement';
+        return `<div class="mc-stress-cell ${v.baseClass || ''}"><div class="rate">${v.label} (${v.rate.toFixed(2)} %)</div><div class="pmt">${fmtCAD(pmt)}</div><div class="delta">${deltaStr}</div></div>`;
       }).join('');
     }
 
@@ -494,7 +492,7 @@ const hreflangAlternates = [
       pct.addEventListener('input', () => { syncDown(id, 'pct'); update(); });
     }
     ['a','b','c'].forEach(id => {
-      syncDown(id); // initialize dollar from pct
+      syncDown(id);
       wireDownSync(id);
       document.querySelectorAll(`[data-input^="${id}-"]`).forEach(el => {
         if (!el.dataset.input.endsWith('-down-dollar') && !el.dataset.input.endsWith('-down-pct')) {
@@ -519,7 +517,6 @@ const hreflangAlternates = [
     });
 
     update();
-  
 
     // ============================================================
     // Comma formatting for dollar inputs (Peter Sep-2026)
@@ -530,8 +527,8 @@ const hreflangAlternates = [
     // ============================================================
     (function initCommaFormat() {
       const DOLLAR_IDS = ['mc-price', 'mc-tax', 'mc-heat', 'mc-condo'];
-      function parseN(v) { return parseFloat(String(v || '').replace(/[^0-9.\-]/g, '')) || 0; }
-      function fmtN(n) { return n.toLocaleString('en-CA', { maximumFractionDigits: 0 }); }
+      function parseN(v) { return toNum(v); }
+      function fmtN(n) { return n.toLocaleString('fr-CA', { maximumFractionDigits: 0 }); }
       function reformat(el) {
         if (!el || el.readOnly) return;
         if (el.value.trim() === '') return;
@@ -558,7 +555,6 @@ const hreflangAlternates = [
       // unnecessary because update() already runs on every keystroke and the
       // display is only comma-formatted on blur.
     })();
-
 
   </script>
 </BaseLayout>
@@ -606,20 +602,19 @@ const hreflangAlternates = [
   .mc-explainer-cta a { color: #b8845b; font-weight: 600; text-decoration: none; }
   .mc-explainer-cta a:hover { text-decoration: underline; }
 
-  /* --- Layout + comma-formatting fixes (Peter Sep-2026) --- */
+  /* --- Basics grid + select-clip fix (Peter Sep 2026, ported from EN) --- */
   /* Selects in scenario cards get compact padding + smaller font so labels fit */
   .mc-row select { padding-right: 22px; }
   .mc-scenario .mc-row-pair .mc-row select { font-size: 14px; padding: 8px 6px 8px 8px; }
 
   /* Basics grid: narrow numeric-dollar columns (col A + col C) and enforce
-     a floor width on col B (Location / heating) so 'Toronto (both LTTs)' can
-     never clip. Col A holds $-values that are short numbers (140px floor is
-     plenty for $9,999,999). Col B needs ~240px floor for the longest select
-     option plus chevron. */
+     a floor width on col B (Location / heating). Middle floor is bumped
+     to 260px because French labels 'Chauffage / services publics (mensuel)'
+     are longer than the EN equivalent. */
   .mc-shared .mc-shared-fields {
     grid-template-columns:
       minmax(140px, 0.8fr)
-      minmax(240px, 1.7fr)
+      minmax(260px, 1.7fr)
       minmax(140px, 1fr);
   }
   @media (max-width: 720px) {
@@ -629,10 +624,7 @@ const hreflangAlternates = [
     .mc-shared .mc-shared-fields { grid-template-columns: 1fr; }
   }
 
-  /* mc-basics selects: adequate right padding for the native chevron.
-     Do NOT set text-overflow: ellipsis on native selects, it was clipping
-     the leading character of the selected value in Chromium.
-     Also enforce box-sizing so nothing pushes past its column edge. */
+  /* mc-basics selects: adequate right padding for the native chevron. */
   .mc-shared .calc-field select {
     padding-right: 26px;
     box-sizing: border-box;
@@ -647,9 +639,7 @@ const hreflangAlternates = [
     width: 100%;
   }
 
-  /* Consistent select rendering, remove native OS chevron, add our own via
-     background-image so the select's text area is fully under our control.
-     Prevents Chromium from clipping the leading character in narrow widths. */
+  /* Custom SVG chevron, prevents Chromium from clipping the leading char */
   .mc-shared .calc-field select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -660,4 +650,5 @@ const hreflangAlternates = [
     background-position: right 12px center;
     background-size: 10px 10px;
   }
+
 </style>

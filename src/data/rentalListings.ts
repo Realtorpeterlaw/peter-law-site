@@ -1,4 +1,4 @@
-// Rental listings shown on /past-deals (EN), /chinese/past-deals, /french/past-deals
+// Rental listings shown on /rental-history (EN), /chinese/rental-history, /french/rental-history
 // by RentalListings.astro. The list is intentionally EMPTY until photos and
 // details are ready; the page shows a "no listings yet" message meanwhile.
 //

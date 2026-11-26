@@ -116,6 +116,96 @@
       "permanent": true
     },
     {
+      "source": "/past-deals",
+      "destination": "/rental-history",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/past-deals",
+      "destination": "/chinese/rental-history",
+      "permanent": true
+    },
+    {
+      "source": "/french/past-deals",
+      "destination": "/french/rental-history",
+      "permanent": true
+    },
+    {
+      "source": "/all-calculator",
+      "destination": "/buy-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/all-calculator",
+      "destination": "/chinese/buy-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/french/all-calculator",
+      "destination": "/french/buy-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/buy-condo-calc",
+      "destination": "/buy-condo-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/buy-condo-calc",
+      "destination": "/chinese/buy-condo-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/french/buy-condo-calc",
+      "destination": "/french/buy-condo-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/payment-calculator",
+      "destination": "/mortgage-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/payment-calculator",
+      "destination": "/chinese/mortgage-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/french/payment-calculator",
+      "destination": "/french/mortgage-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/lease-renewal",
+      "destination": "/rent-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/lease-renewal",
+      "destination": "/chinese/rent-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/french/lease-renewal",
+      "destination": "/french/rent-renewal",
+      "permanent": true
+    },
+    {
+      "source": "/free-home-evaluation",
+      "destination": "/whats-my-home-worth",
+      "permanent": true
+    },
+    {
+      "source": "/chinese/free-home-evaluation",
+      "destination": "/chinese/whats-my-home-worth",
+      "permanent": true
+    },
+    {
+      "source": "/french/free-home-evaluation",
+      "destination": "/french/whats-my-home-worth",
+      "permanent": true
+    },
+    {
       "source": "/downtown-toronto-rental-realtor",
       "destination": "/for-renters",
       "permanent": true
@@ -167,17 +257,17 @@
     },
     {
       "source": "/affordability-calculator",
-      "destination": "/all-calculator",
+      "destination": "/buy-calculator",
       "permanent": true
     },
     {
       "source": "/chinese/affordability-calculator",
-      "destination": "/chinese/all-calculator",
+      "destination": "/chinese/buy-calculator",
       "permanent": true
     },
     {
       "source": "/french/affordability-calculator",
-      "destination": "/french/all-calculator",
+      "destination": "/french/buy-calculator",
       "permanent": true
     },
     {
@@ -216,23 +306,18 @@
       "permanent": true
     },
     {
-      "source": "/mortgage-calculator",
-      "destination": "/payment-calculator",
-      "permanent": true
-    },
-    {
       "source": "/mortgage",
-      "destination": "/payment-calculator",
+      "destination": "/mortgage-calculator",
       "permanent": true
     },
     {
       "source": "/calculator",
-      "destination": "/all-calculator",
+      "destination": "/buy-calculator",
       "permanent": true
     },
     {
       "source": "/calculators",
-      "destination": "/all-calculator",
+      "destination": "/buy-calculator",
       "permanent": true
     },
     {
@@ -242,27 +327,27 @@
     },
     {
       "source": "/testimonials",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
       "source": "/reviews",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
       "source": "/listings",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
       "source": "/properties",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
       "source": "/homes-for-sale",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
@@ -347,17 +432,17 @@
     },
     {
       "source": "/cmhc-insurance-calculator",
-      "destination": "/payment-calculator",
+      "destination": "/mortgage-calculator",
       "permanent": true
     },
     {
       "source": "/chinese/cmhc-insurance-calculator",
-      "destination": "/chinese/payment-calculator",
+      "destination": "/chinese/mortgage-calculator",
       "permanent": true
     },
     {
       "source": "/french/cmhc-insurance-calculator",
-      "destination": "/french/payment-calculator",
+      "destination": "/french/mortgage-calculator",
       "permanent": true
     },
     {
@@ -367,22 +452,22 @@
     },
     {
       "source": "/condo",
-      "destination": "/all-calculator",
+      "destination": "/buy-calculator",
       "permanent": true
     },
     {
       "source": "/condo/:path*",
-      "destination": "/all-calculator",
+      "destination": "/buy-calculator",
       "permanent": true
     },
     {
       "source": "/chinese/condo",
-      "destination": "/chinese/all-calculator",
+      "destination": "/chinese/buy-calculator",
       "permanent": true
     },
     {
       "source": "/chinese/condo/:path*",
-      "destination": "/chinese/all-calculator",
+      "destination": "/chinese/buy-calculator",
       "permanent": true
     },
     {
@@ -436,38 +521,18 @@
       "permanent": true
     },
     {
-      "source": "/rent-renewal",
-      "destination": "/lease-renewal",
-      "permanent": true
-    },
-    {
-      "source": "/chinese/rent-renewal",
-      "destination": "/chinese/lease-renewal",
-      "permanent": true
-    },
-    {
-      "source": "/french/rent-renewal",
-      "destination": "/french/lease-renewal",
-      "permanent": true
-    },
-    {
       "source": "/condo-calculator",
-      "destination": "/buy-condo-calc",
+      "destination": "/buy-condo-calculator",
       "permanent": true
     },
     {
       "source": "/toronto-condo-monthly-cost-calculator",
-      "destination": "/buy-condo-calc",
-      "permanent": true
-    },
-    {
-      "source": "/buy-condo-calculator",
-      "destination": "/buy-condo-calc",
+      "destination": "/buy-condo-calculator",
       "permanent": true
     },
     {
       "source": "/condo-calc",
-      "destination": "/buy-condo-calc",
+      "destination": "/buy-condo-calculator",
       "permanent": true
     },
     {
@@ -492,12 +557,12 @@
     },
     {
       "source": "/sales-history",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
       "source": "/sold",
-      "destination": "/past-deals",
+      "destination": "/rental-history",
       "permanent": true
     },
     {
@@ -532,12 +597,12 @@
     },
     {
       "source": "/sell",
-      "destination": "/free-home-evaluation",
+      "destination": "/whats-my-home-worth",
       "permanent": true
     },
     {
       "source": "/sellers",
-      "destination": "/free-home-evaluation",
+      "destination": "/whats-my-home-worth",
       "permanent": true
     },
     {
@@ -557,12 +622,12 @@
     },
     {
       "source": "/lease",
-      "destination": "/lease-renewal",
+      "destination": "/rent-renewal",
       "permanent": true
     },
     {
       "source": "/leases",
-      "destination": "/lease-renewal",
+      "destination": "/rent-renewal",
       "permanent": true
     },
     {

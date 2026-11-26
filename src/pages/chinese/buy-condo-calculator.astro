@@ -11,10 +11,10 @@ export const prerender = true;
 const rateDate = (() => { const [y, m, d] = CONFIG.RATE_LAST_UPDATED.split('-'); return `${y} 年 ${+m} 月 ${+d} 日`; })();
 
 const hreflangAlternates = [
-  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
-  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buy-condo-calc' },
-  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buy-condo-calc' },
-  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buy-condo-calc' },
+  { hreflang: 'en-CA', href: 'https://www.realtorpeterlaw.com/buy-condo-calculator' },
+  { hreflang: 'zh-CN', href: 'https://www.realtorpeterlaw.com/chinese/buy-condo-calculator' },
+  { hreflang: 'fr-CA', href: 'https://www.realtorpeterlaw.com/french/buy-condo-calculator' },
+  { hreflang: 'x-default', href: 'https://www.realtorpeterlaw.com/buy-condo-calculator' },
 ];
 ---
 <BaseLayout
@@ -245,7 +245,7 @@ const hreflangAlternates = [
         <h2>这个计算器包含什么</h2>
         <p>大多数按揭计算器只算到按揭月供。但在多伦多买公寓，这个数字只是账单的一部分。这个计算器加上了每月管理费、地税、管理费未包含的水电费、公寓保险，以及租用的车位或储物柜，所以顶部那个数字就是每月真正从您账户流出的金额。</p>
         <p>按揭本身按加拿大的方式计算：半年复利、联邦规定的最低首付、首付低于 20% 时的违约保险费（含 30 年摊还期附加费），以及该保险费 8% 的安省销售税。这笔税在交房当天以现金支付，不计入按揭。交房现金板块还列出安省土地转让税、公寓位于多伦多市内时的市政土地转让税，以及两项税的首次购房者退税。</p>
-        <p>在“细化这个估算”中填入家庭收入，还能看到您的住房成本比率，以及贷款机构通常参考的数值。工具只显示比率，不做结论：决定权在您的贷款机构。如果是独立屋或联排屋，或想同时比较几个价位，请使用完整版 <a href="/chinese/all-calculator">BUY 计算器</a>。如果这是您的第一套公寓，<a href="/chinese/blog/first-time-buyer-guide-condos">首次购房指南：公寓篇</a>会带您了解状况证明、储备基金，以及出价前该问的问题。</p>
+        <p>在“细化这个估算”中填入家庭收入，还能看到您的住房成本比率，以及贷款机构通常参考的数值。工具只显示比率，不做结论：决定权在您的贷款机构。如果是独立屋或联排屋，或想同时比较几个价位，请使用完整版 <a href="/chinese/buy-calculator">BUY 计算器</a>。如果这是您的第一套公寓，<a href="/chinese/blog/first-time-buyer-guide-condos">首次购房指南：公寓篇</a>会带您了解状况证明、储备基金，以及出价前该问的问题。</p>
       </div>
     </div>
   </section>

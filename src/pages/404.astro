@@ -23,7 +23,7 @@ export const prerender = true;
         <a href="/for-renters" data-nf="renters">For Renters</a>
         <a href="/buyer-guide" data-nf="buyers">Buyer Guide</a>
         <a href="/rental-calculator" data-nf="rentcalc">Rental Calculator</a>
-        <a href="/all-calculator" data-nf="buycalc">Buyer Calculator</a>
+        <a href="/buy-calculator" data-nf="buycalc">Buyer Calculator</a>
         <a href="/blog" data-nf="blog">Blog</a>
         <a href="/#book" data-nf="contact">Contact Peter</a>
       </nav>
@@ -78,7 +78,7 @@ export const prerender = true;
       ['eyebrow', 'heading', 'lead'].forEach(function (k) { q(k).textContent = t[k]; });
       q('nav').setAttribute('aria-label', t.nav);
       q('home').querySelector('span').textContent = t.home; q('home').href = t.base;
-      [['renters', '/for-renters'], ['buyers', '/buyer-guide'], ['rentcalc', '/rental-calculator'], ['buycalc', '/all-calculator'], ['blog', '/blog']].forEach(function (pair) {
+      [['renters', '/for-renters'], ['buyers', '/buyer-guide'], ['rentcalc', '/rental-calculator'], ['buycalc', '/buy-calculator'], ['blog', '/blog']].forEach(function (pair) {
         var a = q(pair[0]); a.textContent = t[pair[0]]; a.href = t.base + pair[1];
       });
       q('contact').textContent = t.contact; q('contact').href = t.base + '#book';
