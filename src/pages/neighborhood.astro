@@ -76,7 +76,9 @@ const jsonLd = {
   .nb-map-section { padding: 0 0 8px; }
   .nb-frame { position: relative; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #cfe3ee; box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.35); }
   .nb-frame iframe { display: block; width: 100%; height: min(78vh, 820px); min-height: 520px; border: 0; }
-  .nb-fullscreen { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 16px; font-weight: 700; }
+  .nb-fullscreen { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 16px; font-weight: 700; background: #1f3a2d; color: #f4ecd8; border: 1.5px solid #b8975a; border-radius: 14px; letter-spacing: 0.02em; box-shadow: 0 6px 16px -10px rgba(31, 58, 45, 0.7); transition: background 0.15s, border-color 0.15s; }
+  .nb-fullscreen:hover { background: #16291f; border-color: #cdb07a; color: #fbf5e6; }
+  .nb-fullscreen:focus-visible { outline: 3px solid #b8975a; outline-offset: 3px; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   @media (max-width: 720px) {
