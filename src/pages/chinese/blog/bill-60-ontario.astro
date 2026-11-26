@@ -7,15 +7,14 @@ import ChineseCTASection from '../../../components/ChineseCTASection.astro';
 
 const publishedDate = '2026-06-03';
 const articleTitle = '安省 Bill 60:租客与房东必须知道的事';
-const articleDescription = '通俗讲解安省 Bill 60 的五项租房规则变化，前后对比一目了然，以及作为租客或房东您该怎么做。';
+const articleDescription = '通俗讲解安省 Bill 60 的四项租房规则变化，前后对比一目了然，以及作为租客或房东您该怎么做。';
 const articleUrl = 'https://www.realtorpeterlaw.com/chinese/blog/bill-60-ontario';
 
 const changes = [
   { n: 1, label: '欠租了？可补缴的时间变短了。', old: '原来房东向 LTB 申请前，您有 14 天补缴。', newR: '现在只有 7 天。', helps: '房东' },
   { n: 2, label: '房东要自住？不用再赔一个月租金了。', old: '若房东以自用（N12）让您搬走，需向您赔付一个月租金。', newR: '若房东提前 120 天通知，无需赔付。60 天的 N12 仍需赔付。', helps: '房东' },
-  { n: 3, label: '一年期租约不再自动续约。', old: '固定租期结束后，租约自动转为按月续租。您可以一直住下去。', newR: '不再自动续约。房东可终止、提租、或要求签新租约。', helps: '房东' },
-  { n: 4, label: '欠租听证中提出维修问题，要先押钱。', old: '在欠租听证中，租客可以免费把维修问题作为抗辩理由。', newR: '租客必须先把所欠租金的 50% 存入 LTB 信托账户，投诉才会被审理。', helps: '房东' },
-  { n: 5, label: '上诉驱逐令的时间变短了。', old: '原来有 30 天上诉。', newR: '现在只有 15 天。', helps: '房东' },
+  { n: 3, label: '欠租听证中提出维修问题，要先付钱。', old: '在欠租听证中，租客可以免费把维修问题作为抗辩理由。', newR: '租客须在听证前先支付房东所主张欠租的 50%，才能提出这些问题。', helps: '房东' },
+  { n: 4, label: '申请 LTB 复审裁决的时间变短了。', old: '原来有 30 天申请复审。', newR: '现在只有 15 天（个别情况下 LTB 仍可给予更多时间）。', helps: '房东' },
 ];
 
 const jsonLd = {
@@ -27,7 +26,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Peter Law', url: 'https://www.realtorpeterlaw.com/chinese/about' },
   publisher: { '@type': 'Organization', name: 'Peter Law，多伦多房地产', logo: { '@type': 'ImageObject', url: 'https://www.realtorpeterlaw.com/favicon.svg' } },
   datePublished: publishedDate,
-  dateModified: publishedDate,
+  dateModified: '2026-11-26',
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
 };
 
@@ -60,6 +59,8 @@ const hreflangAlternates = [
           <time datetime={publishedDate}>2026 年 6 月 3 日</time>
           <span class="dot">·</span>
           <span>阅读 6 分钟</span>
+          <span class="dot">·</span>
+          <span>2026 年 11 月 26 日更新</span>
         </div>
       </div>
     </section>
@@ -72,8 +73,8 @@ const hreflangAlternates = [
             <ul>
               <li><a href="#what">Bill 60 是什么</a></li>
               <li><a href="#diagram">新旧规则对照</a></li>
-              <li><a href="#five">5 项变化详解</a></li>
-              <li><a href="#status">目前是否生效</a></li>
+              <li><a href="#five">4 项变化详解</a></li>
+              <li><a href="#status">现在是否已生效</a></li>
               <li><a href="#tenants">如果您是租客</a></li>
               <li><a href="#landlords">如果您是房东</a></li>
               <li><a href="#why">为什么重要</a></li>
@@ -90,7 +91,7 @@ const hreflangAlternates = [
             </ul>
             <p>为此，Bill 60 缩短了时间线、移除了一些原本租客拥有的程序。大部分变化对房东有利。</p>
 
-            <p><strong>一句话回答：</strong>Bill 60 是安省的一部新法。它修改了租房规则。对房东更便利、流程更快。对租客时间更紧、保护更少。法律于 2025 年 11 月 24 日通过。大部分条款仍在 Tribunals Ontario 分阶段实施，行动前请先核实。</p>
+            <p><strong>一句话回答：</strong>Bill 60 是安省的一部新法。它修改了租房规则。对房东更便利、流程更快。对租客时间更紧、保护更少。法律于 2025 年 11 月 24 日通过。租房相关条款已于 2026 年生效：缩短的复审期限自 7 月 1 日起，其余自 9 月 21 日起。租约到期后仍会自动转为按月续租，这一点没有改变。</p>
 
             <div class="b60-stats" role="group" aria-label="Bill 60 一图速览">
               <div class="b60-stat">
@@ -99,11 +100,11 @@ const hreflangAlternates = [
               </div>
               <div class="b60-stat">
                 <div class="b60-stat-num">15</div>
-                <div class="b60-stat-cap">天：LTB 裁决上诉窗口 <span>（原为 30）</span></div>
+                <div class="b60-stat-cap">天：申请 LTB 复审裁决的期限 <span>（原为 30）</span></div>
               </div>
               <div class="b60-stat">
                 <div class="b60-stat-num">50<span class="b60-stat-pct">%</span></div>
-                <div class="b60-stat-cap">提出维修抗辩前需先存入的欠租比例</div>
+                <div class="b60-stat-cap">听证前需先支付的所主张欠租比例，才能提出其他问题</div>
               </div>
               <div class="b60-stat">
                 <div class="b60-stat-num">120</div>
@@ -111,12 +112,12 @@ const hreflangAlternates = [
               </div>
             </div>
 
-            <div class="callout"><strong>提醒：</strong>Bill 60 是安省过去十年间对租房法律最大的一次调整。一年前的规则今天未必仍成立。发出或回应任何通知前，请先咨询 LTB 或持牌法律助理（paralegal）。</div>
+            <div class="callout"><strong>提醒：</strong>Bill 60 是安省过去十年间对租房法律最大的一次调整。一年前的规则今天已经不同。发出或回应任何通知前，请先咨询 LTB 或持牌法律助理（paralegal）。</div>
 
             <h2 id="diagram">新旧规则对照</h2>
-            <p>共有 5 项变化。这里一目了然。</p>
+            <p>共有 4 项变化。这里一目了然。</p>
 
-            <div class="b60-intro">五项规则变了。四项削减租客时间或保护。一项免除了房东原本要付的补偿。下表一目了然，详细解释见下文。</div>
+            <div class="b60-intro">四项规则变了。三项削减租客时间或保护。一项免除了房东原本要付的补偿。下表一目了然，详细解释见下文。</div>
 
             <div class="b60-table-wrap" tabindex="0" role="region" aria-label="表格">
               <table class="b60-table">
@@ -135,7 +136,7 @@ const hreflangAlternates = [
               </table>
             </div>
 
-            <h2 id="five">5 项变化详解</h2>
+            <h2 id="five">4 项变化详解</h2>
 
             <details class="b60-change">
               <summary class="b60-change-summary">1. 欠租了？可以补缴的时间变短了。</summary>
@@ -157,56 +158,52 @@ const hreflangAlternates = [
             </details>
 
             <details class="b60-change">
-              <summary class="b60-change-summary">3. 租约不再自动续约。</summary>
-              <div class="b60-change-body">
-                <p>这是对租客打击最大的一项。</p>
-              <p>大多数租客签的是一年租约。原来：一年到期后，租约会自动转为按月续租。您可以一直住，房东每年只能按安省涨幅指导线提租。</p>
-              <p>现在：这个自动续约没有了。固定租期结束时，房东可以选择下一步：让您搬走、提租重签、或重新谈条件。</p>
-              <p>该怎么做：不要等。租约结束前 2 到 3 个月就和房东谈。问对方打算怎么处理。任何新约定都要书面化再签字。</p>
-              </div>
-            </details>
-
-            <details class="b60-change">
-              <summary class="b60-change-summary">4. 在欠租听证中投诉维修问题，先要押钱。</summary>
+              <summary class="b60-change-summary">3. 在欠租听证中投诉维修问题，先要付钱。</summary>
               <div class="b60-change-body">
                 <p>常见情况：租客欠了租。房东把他告到 LTB。听证上，租客说：“房子有问题，我不应该全额付租。” 这往往会拖延流程。</p>
               <p>原来：租客可以免费把维修问题作为抗辩。</p>
-              <p>现在：租客必须先把所欠租金的 50% 存入 LTB 信托账户，投诉才会被审理。</p>
+              <p>现在：对于 2026 年 9 月 21 日及之后提交的申请，租客须在听证前先支付房东所主张欠租的 50%，才能提出这些问题。</p>
               <p>该怎么做：如果您确有维修问题，实时存证。给房东发文字请求（邮件或短信）。拍带日期的照片。不要等到听证才开始收集。</p>
               </div>
             </details>
 
             <details class="b60-change">
-              <summary class="b60-change-summary">5. 上诉驱逐令的时间变短了。</summary>
+              <summary class="b60-change-summary">4. 申请 LTB 复审裁决的时间变短了。</summary>
               <div class="b60-change-body">
-                <p>如果 LTB 判您败诉，您有一段时间可以上诉。</p>
-              <p>原来：30 天。现在：15 天。</p>
+                <p>如果您不同意 LTB 的裁决，可以申请 LTB 复审。</p>
+              <p>原来：30 天。现在：15 天。如情况合理，LTB 仍可延长期限。</p>
               <p>该怎么做：收到不利裁决的当周内就找 paralegal。不要拖。</p>
               </div>
             </details>
 
-            <h2 id="status">Bill 60 目前生效了吗？</h2>
-            <p>Bill 60 于 2025 年 11 月 24 日通过。但“通过”不等于“生效”。Tribunals Ontario 要先更新表格、培训和系统，各项变化才能正式启动。</p>
-            <p>截至 2026 年中，部分租赁条款仍在分阶段实施中。这就是为什么行动前要核实。</p>
-            <div class="callout"><strong>采取行动前：</strong>如果您是房东，准备用 7 天 N4 或不赔付的 120 天 N12，请先向 LTB 核实该条款是否已生效。发错通知，整个案件可能作废。租客也一样：收到看起来奇怪或仓促的通知，先咨询，不要默认它有效。</div>
+            <div class="callout"><strong>没有改变的一点：租约仍会自动续租。</strong>早期方案曾打算取消固定租期结束后自动转为按月续租的规定，但这一想法已被删除。租约到期后，仍按原条款自动按月续租。您不必签新租约，也不必搬走；涨租仍按常规规则（每 12 个月一次，提前 90 天书面通知）。</div>
+
+            <h2 id="status">Bill 60 现在生效了吗？</h2>
+            <p>已生效。Bill 60 于 2025 年 11 月 24 日通过，租房相关条款在 2026 年分两步生效：</p>
+            <ul class="bullets">
+              <li><strong>2026 年 7 月 1 日：</strong>申请 LTB 复审裁决的期限改为 15 天（原 30 天）。</li>
+              <li><strong>2026 年 9 月 21 日：</strong>7 天 N4、欠租听证中提出其他问题前须先付 50%、以及提前 120 天通知可免赔付的 N12。</li>
+            </ul>
+            <p>新规则适用于在上述日期及之后发出的通知和提交的申请。</p>
+            <div class="callout"><strong>采取行动前：</strong>请使用 LTB 最新版表格。表格过时或日期错误，整个案件可能作废。租客也一样：收到看起来奇怪或仓促的通知，先咨询，不要默认它有效。</div>
 
             <details class="b60-section-toggle" id="tenants">
               <summary class="b60-section-toggle-summary">如果您是多伦多的租客</summary>
               <ul class="bullets">
                 <li><strong>开启租金自动扣款。</strong>7 天 N4 太短。一次忘记缴费就可能引发驱逐流程。</li>
-                <li><strong>租约到期前就和房东谈。</strong>提前 2 到 3 个月开始。不要默认旧的权利仍然适用。</li>
+                <li><strong>租约仍会自动续租。</strong>固定租期结束后，您可以按原条款按月续住，不必签新租约。</li>
                 <li><strong>保存维修证据。</strong>所有请求都用邮件或短信。带日期的照片要留。日后可能用得上。</li>
                 <li><strong>N12 不一定是真的。</strong>收到就找 paralegal。常见审阅费 $200 到 $500。</li>
-                <li><strong>LTB 判您败诉，立刻行动。</strong>15 天很短。</li>
+                <li><strong>不同意 LTB 的裁决，立刻行动。</strong>申请复审只有 15 天。</li>
               </ul>
             </details>
 
             <details class="b60-section-toggle" id="landlords">
               <summary class="b60-section-toggle-summary">如果您是多伦多的房东</summary>
               <ul class="bullets">
-                <li><strong>不要急着用新规则。</strong>Bill 60 不是每一项都已生效。引用尚未生效的条款，案件可能作废。</li>
+                <li><strong>使用最新的 LTB 表格和日期。</strong>新规则只适用于生效日期及之后发出的通知和提交的申请。表格用错，案件可能作废。</li>
                 <li><strong>当作明天就要上 LTB 一样存档。</strong>维修记录、租客往来、房屋状况报告：全部保留。</li>
-                <li><strong>慎用固定期限租约的新灵活性。</strong>过激的续约条款会破坏租客关系，也会为下一个选举周期里法律向另一端摆动埋下伏笔。</li>
+                <li><strong>固定期限租约仍会自动续租。</strong>Bill 60 没有改变这一点。租期结束后，除非依法终止，租约按月继续。</li>
                 <li><strong>120 天无赔付 N12 只在情况真实时才值得用。</strong>恶意 N12 在 LTB 现在动辄罚款 5 万以上。</li>
               </ul>
             </details>
@@ -216,7 +213,7 @@ const hreflangAlternates = [
             <p>批评者认为，这部法律削弱了租客保护，却没有解决更深层的问题：租金过高。</p>
             <p>两边的说法都各有道理。对您今天最重要的是，搞清楚自己正在参与的游戏规则。</p>
 
-            <p class="legal-note">本文仅供信息参考，不构成法律意见。Bill 60 内容复杂，仍在分阶段实施。具体情况请咨询在安省律师公会注册的 paralegal、联系 LTB，或前往社区法律诊所。本文参考资料：Tribunals Ontario 实施指引、Canadian Centre for Housing Rights、Globe and Mail 对该法的报道、OntarioLandlord.ca 实施追踪。我是注册房地产经纪，不是律师。</p>
+            <p class="legal-note">本文仅供信息参考，不构成法律意见。Bill 60 内容复杂，LTB 的表格和规则也可能变化。具体情况请咨询在安省律师公会注册的 paralegal、联系 LTB，或前往社区法律诊所。本文参考资料：Tribunals Ontario 实施指引、Canadian Centre for Housing Rights、Globe and Mail 对该法的报道、OntarioLandlord.ca 实施追踪。2026 年 11 月 26 日更新：反映已生效的条款，并更正此前关于固定期限租约的错误说法。我是注册房地产经纪，不是律师。</p>
 
             <div class="seo-tags" role="group" aria-label="关键词">
               <h2 class="seo-tags-h">关键词</h2>
@@ -227,7 +224,7 @@ const hreflangAlternates = [
                 <li>N12 补偿 Bill 60</li>
                 <li>N4 7天通知 安省</li>
                 <li>固定期限租约 安省</li>
-                <li>LTB 上诉 15 天</li>
+                <li>LTB 复审 15 天</li>
                 <li>住宅租赁法 2026</li>
                 <li>多伦多 房东租客法律</li>
                 <li>Bill 60 租客权利</li>

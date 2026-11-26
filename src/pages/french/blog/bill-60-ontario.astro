@@ -7,7 +7,7 @@ import LCTA from '../../../components/FrenchCTASection.astro';
 
 const publishedDate = '2026-06-03';
 const articleTitle = "Loi 60 (Ontario) : ce qu'il faut savoir";
-const articleDescription = "Un guide en langage clair de la Loi 60 de l'Ontario. Cinq changements de règles pour la location, un comparatif avant/après, et ce qu'il faut faire selon que…";
+const articleDescription = "Un guide en langage clair de la Loi 60 de l'Ontario. Quatre changements de règles pour la location, un comparatif avant/après, et ce qu'il faut faire selon que…";
 const articleUrl = 'https://www.realtorpeterlaw.com/french/blog/bill-60-ontario';
 const enUrl = 'https://www.realtorpeterlaw.com/blog/bill-60-ontario';
 
@@ -28,23 +28,16 @@ const changes = [
   },
   {
     n: 3,
-    label: "Votre bail d'un an ne se renouvelle plus automatiquement.",
-    old: "Quand votre bail à durée déterminée se terminait, il passait automatiquement à un bail au mois. Vous pouviez rester aussi longtemps que vous vouliez.",
-    new: "Il ne se renouvelle pas automatiquement. Le propriétaire peut y mettre fin, augmenter le loyer ou signer un nouveau bail à durée déterminée.",
+    label: "Les plaintes d'entretien à une audience de loyer coûtent maintenant de l'argent d'avance.",
+    old: "Vous pouviez soulever gratuitement les problèmes de réparation en défense à une audience pour non-paiement.",
+    new: "Vous devez d'abord payer, avant l'audience, 50 % des arriérés réclamés par le propriétaire pour soulever ces questions.",
     helps: 'Propriétaire',
   },
   {
     n: 4,
-    label: "Les plaintes d'entretien à une audience de loyer coûtent maintenant de l'argent d'avance.",
-    old: "Vous pouviez soulever gratuitement les problèmes de réparation en défense à une audience pour non-paiement.",
-    new: "Vous devez d'abord verser 50 % du loyer dû dans un compte en fiducie avant que la CLI n'écoute.",
-    helps: 'Propriétaire',
-  },
-  {
-    n: 5,
-    label: "Moins de temps pour faire appel d'une éviction.",
-    old: "Vous aviez 30 jours pour faire appel.",
-    new: "Vous avez 15 jours.",
+    label: "Moins de temps pour demander le réexamen d'une ordonnance de la CLI.",
+    old: "Vous aviez 30 jours pour demander un réexamen.",
+    new: "Vous avez 15 jours (la CLI peut encore accorder plus de temps dans certains cas).",
     helps: 'Propriétaire',
   },
 ];
@@ -62,7 +55,7 @@ const jsonLd = {
   },
   inLanguage: 'fr-CA',
   datePublished: publishedDate,
-  dateModified: publishedDate,
+  dateModified: '2026-11-26',
   url: articleUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
   keywords: "Loi 60 Ontario, Fighting Delays Building Faster Act, règles éviction Ontario 2026, indemnité N12 Loi 60, bail à terme fixe Ontario, propriétaire locataire Toronto Loi 60, Loi sur la location résidentielle 2026, changements audiences arriérés Ontario",
@@ -104,6 +97,8 @@ const hreflangAlternates = [
           <time datetime={publishedDate}>3 juin 2026</time>
           <span class="dot">·</span>
           <span>6 min de lecture</span>
+          <span class="dot">·</span>
+          <span>Mis à jour le 26 novembre 2026</span>
         </div>
       </div>
     </section>
@@ -116,7 +111,7 @@ const hreflangAlternates = [
             <ul>
               <li><a href="#what">Qu'est-ce que la Loi 60?</a></li>
               <li><a href="#diagram">Anciennes règles vs nouvelles</a></li>
-              <li><a href="#five">Les 5 changements expliqués</a></li>
+              <li><a href="#five">Les 4 changements expliqués</a></li>
               <li><a href="#status">Est-elle en vigueur maintenant?</a></li>
               <li><a href="#tenants">Si vous êtes locataire</a></li>
               <li><a href="#landlords">Si vous êtes propriétaire</a></li>
@@ -134,7 +129,7 @@ const hreflangAlternates = [
             </ul>
             <p>Pour y arriver, la Loi 60 raccourcit les délais et retire certaines étapes qu'avaient les locataires. La plupart des changements favorisent les propriétaires.</p>
 
-            <p><strong>Réponse rapide :</strong> La Loi 60 est une nouvelle loi ontarienne. Elle change les règles de la location. Elle rend les choses plus rapides et faciles pour les propriétaires. Elle donne aux locataires moins de temps et moins de protection. La loi a été adoptée le 24 novembre 2025. La plupart des dispositions sont encore en phase de déploiement par Tribunaux décisionnels Ontario, alors vérifiez toujours avant d'agir.</p>
+            <p><strong>Réponse rapide :</strong> La Loi 60 est une nouvelle loi ontarienne. Elle change les règles de la location. Elle rend les choses plus rapides et faciles pour les propriétaires. Elle donne aux locataires moins de temps et moins de protection. La loi a été adoptée le 24 novembre 2025. Ses changements locatifs sont entrés en vigueur en 2026 : le délai de réexamen raccourci le 1er juillet, et le reste le 21 septembre. Votre bail continue toujours au mois à la fin de son terme; cela n'a pas changé.</p>
 
             <div class="b60-stats" role="group" aria-label="Loi 60 en un coup d'œil : les quatre chiffres qui ont changé">
               <div class="b60-stat">
@@ -143,11 +138,11 @@ const hreflangAlternates = [
               </div>
               <div class="b60-stat">
                 <div class="b60-stat-num">15</div>
-                <div class="b60-stat-cap">Jours pour faire appel d'une ordonnance de la CLI <span>(auparavant 30)</span></div>
+                <div class="b60-stat-cap">Jours pour demander le réexamen d'une ordonnance de la CLI <span>(auparavant 30)</span></div>
               </div>
               <div class="b60-stat">
                 <div class="b60-stat-num">50<span class="b60-stat-pct">%</span></div>
-                <div class="b60-stat-cap">Des arriérés maintenant exigés d'avance pour invoquer une défense d'entretien</div>
+                <div class="b60-stat-cap">Des arriérés réclamés à payer avant l'audience pour soulever d'autres questions</div>
               </div>
               <div class="b60-stat">
                 <div class="b60-stat-num">120</div>
@@ -155,12 +150,12 @@ const hreflangAlternates = [
               </div>
             </div>
 
-            <div class="callout"><strong>Attention :</strong> La Loi 60 est le plus grand changement au droit locatif ontarien depuis 10 ans. Les règles d'il y a un an ne sont peut-être plus celles d'aujourd'hui. Confirmez toujours auprès de la CLI ou d'un parajuriste avant de signifier un avis ou d'y répondre.</div>
+            <div class="callout"><strong>Attention :</strong> La Loi 60 est le plus grand changement au droit locatif ontarien depuis 10 ans. Les règles d'il y a un an ne sont plus celles d'aujourd'hui. Confirmez toujours auprès de la CLI ou d'un parajuriste avant de signifier un avis ou d'y répondre.</div>
 
             <h2 id="diagram">Anciennes règles vs nouvelles, côte à côte</h2>
-            <p>Cinq choses ont changé. Les voici d'un coup d'œil.</p>
+            <p>Quatre choses ont changé. Les voici d'un coup d'œil.</p>
 
-            <div class="b60-intro">Cinq règles ont changé. Quatre réduisent le temps ou les protections des locataires. Une supprime un paiement que les propriétaires devaient. Vue rapide ci-dessous; les explications complètes suivent.</div>
+            <div class="b60-intro">Quatre règles ont changé. Trois réduisent le temps ou les protections des locataires. Une supprime un paiement que les propriétaires devaient. Vue rapide ci-dessous; les explications complètes suivent.</div>
 
             <div class="b60-table-wrap" tabindex="0" role="region" aria-label="Tableau">
               <table class="b60-table">
@@ -179,7 +174,7 @@ const hreflangAlternates = [
               </table>
             </div>
 
-            <h2 id="five">Les 5 changements expliqués</h2>
+            <h2 id="five">Les 4 changements expliqués</h2>
 
             <details class="b60-change">
               <summary class="b60-change-summary">1. En retard sur le loyer? Vous avez moins de temps pour vous rattraper.</summary>
@@ -201,56 +196,52 @@ const hreflangAlternates = [
             </details>
 
             <details class="b60-change">
-              <summary class="b60-change-summary">3. Votre bail ne se prolonge plus tout seul.</summary>
-              <div class="b60-change-body">
-                <p>C'est le plus grand changement pour les locataires.</p>
-              <p>La plupart des locataires signent un bail d'un an. Avant la Loi 60 : quand cette année se terminait, le bail devenait automatiquement un bail au mois. Vous pouviez rester pour toujours. Le propriétaire ne pouvait augmenter le loyer que du plafond annuel ontarien.</p>
-              <p>Maintenant : ce renouvellement automatique disparaît. Quand votre bail à durée déterminée se termine, le propriétaire peut choisir la suite. Il peut vous demander de partir. Il peut offrir un nouveau bail à un loyer plus élevé. Il peut négocier de nouvelles conditions.</p>
-              <p>Quoi faire : n'attendez pas. Parlez à votre propriétaire 2-3 mois avant la fin du bail. Demandez ce qu'il veut faire. Obtenez toute nouvelle entente par écrit avant de signer.</p>
-              </div>
-            </details>
-
-            <details class="b60-change">
-              <summary class="b60-change-summary">4. Invoquer des plaintes d'entretien à une audience de loyer coûte maintenant de l'argent d'avance.</summary>
+              <summary class="b60-change-summary">3. Invoquer des plaintes d'entretien à une audience de loyer coûte maintenant de l'argent d'avance.</summary>
               <div class="b60-change-body">
                 <p>Manœuvre courante : un locataire est en retard sur le loyer. Le propriétaire l'amène à la CLI. À l'audience, le locataire dit « Je ne devrais pas avoir à payer le plein loyer parce que l'appartement a des problèmes. » Ça ralentissait souvent les choses.</p>
               <p>Avant : les locataires pouvaient soulever les problèmes d'entretien comme défense gratuite.</p>
-              <p>Maintenant : le locataire doit d'abord verser 50 % du loyer dû dans le compte en fiducie de la CLI avant que sa plainte ne soit même entendue.</p>
+              <p>Maintenant : pour les demandes déposées à compter du 21 septembre 2026, le locataire doit d'abord payer, avant l'audience, 50 % des arriérés réclamés par le propriétaire pour soulever ces questions.</p>
               <p>Quoi faire : si vous avez de vrais problèmes d'entretien, documentez-les en temps réel. Envoyez des demandes écrites à votre propriétaire. Prenez des photos datées. N'attendez pas une audience pour commencer à recueillir des preuves.</p>
               </div>
             </details>
 
             <details class="b60-change">
-              <summary class="b60-change-summary">5. Moins de temps pour faire appel d'une ordonnance d'éviction.</summary>
+              <summary class="b60-change-summary">4. Moins de temps pour demander le réexamen d'une ordonnance de la CLI.</summary>
               <div class="b60-change-body">
-                <p>Si la CLI tranche contre vous, vous avez une fenêtre pour faire appel.</p>
-              <p>Avant : 30 jours. Maintenant : 15 jours.</p>
+                <p>Si vous n'êtes pas d'accord avec une ordonnance de la CLI, vous pouvez lui demander de la réexaminer.</p>
+              <p>Avant : 30 jours. Maintenant : 15 jours. La CLI peut encore accorder plus de temps si c'est juste dans les circonstances.</p>
               <p>Quoi faire : si vous recevez une décision avec laquelle vous n'êtes pas d'accord, trouvez un parajuriste dans la même semaine. N'attendez pas.</p>
               </div>
             </details>
 
+            <div class="callout"><strong>Ce qui n'a PAS changé : votre bail continue toujours.</strong> Une première version du projet aurait mis fin au passage automatique au mois à la fin d'un bail à durée déterminée. Cette idée a été abandonnée. À la fin de votre bail, il continue au mois aux mêmes conditions. Vous n'êtes pas obligé de signer un nouveau bail ni de partir, et les augmentations de loyer suivent les règles habituelles (une fois tous les 12 mois, avec un préavis écrit de 90 jours).</div>
+
             <h2 id="status">La Loi 60 est-elle en vigueur maintenant?</h2>
-            <p>La Loi 60 a été adoptée le 24 novembre 2025. Mais « adoptée » ne veut pas dire « en vigueur ». Tribunaux décisionnels Ontario doit mettre à jour ses formulaires, sa formation et ses systèmes en ligne avant que chaque changement ne s'active réellement.</p>
-            <p>À la mi-2026, plusieurs changements locatifs sont encore en phase de déploiement. C'est pourquoi il faut confirmer avant d'agir.</p>
-            <div class="callout"><strong>Avant d'agir :</strong> si vous êtes propriétaire et signifiez un N4 de 7 jours ou un N12 de 120 jours sans paiement, demandez à la CLI si cette règle précise est en vigueur. Si vous signifiez le mauvais avis, votre dossier peut être rejeté. Locataires, pareil. Si un avis semble bizarre ou pressé, obtenez un conseil avant de présumer qu'il est valide.</div>
+            <p>Oui. La Loi 60 a été adoptée le 24 novembre 2025, et ses changements locatifs sont entrés en vigueur en deux étapes en 2026 :</p>
+            <ul class="bullets">
+              <li><strong>1er juillet 2026 :</strong> 15 jours (au lieu de 30) pour demander le réexamen d'une ordonnance de la CLI.</li>
+              <li><strong>21 septembre 2026 :</strong> le N4 de 7 jours, le paiement de 50 % avant de soulever d'autres questions à une audience pour loyer impayé, et le N12 de 120 jours sans indemnité.</li>
+            </ul>
+            <p>Les nouvelles règles s'appliquent aux avis signifiés et aux demandes déposées à compter de ces dates.</p>
+            <div class="callout"><strong>Avant d'agir :</strong> utilisez les formulaires actuels de la CLI. Un formulaire périmé ou une mauvaise date peut faire rejeter votre dossier. Locataires, pareil. Si un avis semble bizarre ou pressé, obtenez un conseil avant de présumer qu'il est valide.</div>
 
             <details class="b60-section-toggle" id="tenants">
               <summary class="b60-section-toggle-summary">Si vous êtes locataire à Toronto</summary>
               <ul class="bullets">
                 <li><strong>Activez les paiements automatiques du loyer.</strong> La fenêtre de 7 jours pour un N4 est courte. Ne laissez pas un paiement oublié déclencher une éviction.</li>
-                <li><strong>Parlez à votre propriétaire avant la fin du bail.</strong> Commencez 2-3 mois avant. Ne présumez pas que vos anciens droits s'appliquent encore.</li>
+                <li><strong>Votre bail continue toujours.</strong> À la fin du terme, vous pouvez rester au mois aux mêmes conditions. Vous n'avez pas à signer un nouveau bail.</li>
                 <li><strong>Gardez les preuves d'entretien.</strong> Écrivez vos demandes par courriel ou texto. Sauvegardez les photos datées. Vous pourriez en avoir besoin.</li>
                 <li><strong>Un N12 n'est pas toujours vrai.</strong> Si vous en recevez un, parlez à un parajuriste. Les cas courants coûtent 200-500 $ à examiner.</li>
-                <li><strong>Si vous recevez une mauvaise décision de la CLI, agissez vite.</strong> 15 jours, c'est court.</li>
+                <li><strong>Si vous êtes en désaccord avec une décision de la CLI, agissez vite.</strong> 15 jours pour demander un réexamen, c'est court.</li>
               </ul>
             </details>
 
             <details class="b60-section-toggle" id="landlords">
               <summary class="b60-section-toggle-summary">Si vous êtes propriétaire à Toronto</summary>
               <ul class="bullets">
-                <li><strong>Ne sautez pas sur les nouvelles règles tout de suite.</strong> Toutes les dispositions de la Loi 60 ne sont pas en vigueur. Utiliser une règle qui n'est pas active peut faire échouer votre dossier.</li>
+                <li><strong>Utilisez les formulaires et les dates actuels de la CLI.</strong> Les nouvelles règles ne s'appliquent qu'aux avis signifiés et aux demandes déposées à compter de leur date d'entrée en vigueur. Un mauvais formulaire peut faire échouer votre dossier.</li>
                 <li><strong>Documentez comme si vous pouviez vous retrouver à la CLI demain.</strong> Gardez les registres d'entretien, les courriels du locataire, les rapports d'état.</li>
-                <li><strong>Attention à la nouvelle flexibilité du bail à durée déterminée.</strong> Des conditions de renouvellement agressives peuvent nuire à la relation locative et pousser la loi à repartir dans l'autre sens à la prochaine élection.</li>
+                <li><strong>Les baux à durée déterminée continuent toujours au mois.</strong> La Loi 60 n'a pas changé cela. À la fin du terme, la location continue au mois à moins d'y mettre fin légalement.</li>
                 <li><strong>Le N12 de 120 jours sans paiement ne vaut la peine que si votre dossier est honnête.</strong> Les faux N12 entraînent maintenant 50 000 $ et plus en pénalités à la CLI.</li>
               </ul>
             </details>
@@ -260,7 +251,7 @@ const hreflangAlternates = [
             <p>Les critiques disent que la loi retire des protections aux locataires sans régler le problème de fond : le loyer est trop cher.</p>
             <p>Les deux peuvent être en partie vrais. Ce qui compte aujourd'hui, c'est de connaître les règles du jeu auquel vous jouez maintenant.</p>
 
-            <p class="legal-note">Cet article est de l'information seulement, pas un conseil juridique. La Loi 60 est complexe et encore en déploiement. Pour votre situation, parlez à un parajuriste inscrit auprès du Barreau de l'Ontario, contactez la CLI ou visitez une clinique juridique communautaire. Sources utilisées pour bâtir cet article : notes de mise en œuvre de Tribunaux décisionnels Ontario, Centre canadien du droit au logement, couverture du Globe and Mail, suivi de mise en œuvre OntarioLandlord.ca. Je suis un courtier immobilier inscrit, pas un avocat.</p>
+            <p class="legal-note">Cet article est de l'information seulement, pas un conseil juridique. La Loi 60 est complexe, et les formulaires et règles de la CLI peuvent changer. Pour votre situation, parlez à un parajuriste inscrit auprès du Barreau de l'Ontario, contactez la CLI ou visitez une clinique juridique communautaire. Sources utilisées pour bâtir cet article : notes de mise en œuvre de Tribunaux décisionnels Ontario, Centre canadien du droit au logement, couverture du Globe and Mail, suivi de mise en œuvre OntarioLandlord.ca. Mis à jour le 26 novembre 2026 pour refléter les dispositions entrées en vigueur et corriger une affirmation antérieure sur les baux à durée déterminée. Je suis un courtier immobilier inscrit, pas un avocat.</p>
 
             <div class="seo-tags" role="group" aria-label="Mots-clés">
               <h2 class="seo-tags-h">Mots-clés</h2>
@@ -271,7 +262,7 @@ const hreflangAlternates = [
                 <li>Indemnité N12 Loi 60</li>
                 <li>Avis N4 7 jours Ontario</li>
                 <li>Bail à durée déterminée Ontario</li>
-                <li>Appel CLI 15 jours</li>
+                <li>Réexamen CLI 15 jours</li>
                 <li>Loi sur la location résidentielle 2026</li>
                 <li>Droit locatif Toronto</li>
                 <li>Loi 60 droits locataires</li>
@@ -283,7 +274,7 @@ const hreflangAlternates = [
     </section>
   </article>
 
-  <LCTA heading="Une question sur la Loi 60 ?" lead="Locataire qui vient de recevoir un avis, ou propriétaire qui essaie de comprendre ce qui est en vigueur ? Envoyez-moi ce que vous avez. Je vous dirai ce que je peux, et je vous référerai à un parajuriste de confiance si vous avez besoin de plus." />
+  <LCTA heading="Une question sur la Loi 60 ?" lead="Locataire qui vient de recevoir un avis, ou propriétaire qui essaie de comprendre ce qui est en vigueur ? Envoyez-moi ce que vous avez. Je vous dirai ce que je peux, et je vous référerai à un parajuriste de confiance si vous avez besoin de plus." />
   <Footer />
 </BaseLayout>
 
