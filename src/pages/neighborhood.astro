@@ -51,7 +51,7 @@ const jsonLd = {
       <h2 id="nb-map-h" class="visually-hidden">Interactive map</h2>
       <a class="btn-primary nb-fullscreen" href="/neighborhood-map">
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Open the map full screen
+        CLICK HERE to expand Map
       </a>
       <div class="nb-frame">
         <iframe id="nb-map" src="/neighborhood-map" title="Interactive map of Toronto real estate districts" loading="eager"></iframe>
@@ -67,7 +67,7 @@ const jsonLd = {
 
 <style>
   .nb-hero { padding-bottom: 28px; }
-  .nb-legend { list-style: none; margin: 4px 0 0; display: inline-grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 10px 28px; font-size: 17px; color: var(--ink-soft); padding: 12px 20px; border: 3px solid transparent; border-radius: 12px; background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(120deg, #e0245e 0%, #7b3fbf 32%, #2a56b0 55%, #1a9a50 78%, #f2b600 100%) border-box; }
+  .nb-legend { list-style: none; margin: 4px 0 0; display: inline-grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 10px 28px; font-size: 17px; color: var(--ink-soft); padding: 12px 20px; border: 3px solid #1f3a2d; border-radius: 14px; background: var(--surface); box-shadow: inset 0 0 0 1px #b8975a; }
   .nb-legend-icon { flex: none; }
   .nb-legend li { display: inline-flex; align-items: center; gap: 10px; }
   .nb-legend-pin { flex: none; }
