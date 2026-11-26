@@ -47,12 +47,12 @@ test('Rental Calculator 80%+ verdict shows the "too high" message', async ({ pag
 });
 
 test('Payment Calculator page loads (Mortgage)', async ({ page }) => {
-  await page.goto('/payment-calculator');
+  await page.goto('/mortgage-calculator');
   await expect(page.locator('h1')).toContainText(/Mortgage|Calculator/i);
 });
 
-test('BUY Calculator (all-calculator) page loads', async ({ page }) => {
-  await page.goto('/all-calculator');
+test('BUY Calculator (buy-calculator) page loads', async ({ page }) => {
+  await page.goto('/buy-calculator');
   await expect(page.locator('h1').first()).toBeVisible();
 });
 

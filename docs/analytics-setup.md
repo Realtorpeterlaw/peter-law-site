@@ -52,15 +52,15 @@ Use these instead of the plain URL. Vercel's Analytics tab then shows exactly wh
 | Where you share it | Link to use |
 |---|---|
 | Instagram bio | `https://www.realtorpeterlaw.com/?utm_source=instagram&utm_medium=social&utm_campaign=bio` |
-| Instagram story / post about a calculator | `https://www.realtorpeterlaw.com/all-calculator/?utm_source=instagram&utm_medium=social&utm_campaign=buy-calculator` |
+| Instagram story / post about a calculator | `https://www.realtorpeterlaw.com/buy-calculator/?utm_source=instagram&utm_medium=social&utm_campaign=buy-calculator` |
 | TikTok bio | `https://www.realtorpeterlaw.com/?utm_source=tiktok&utm_medium=social&utm_campaign=bio` |
 | TikTok video about renting | `https://www.realtorpeterlaw.com/for-renters/?utm_source=tiktok&utm_medium=social&utm_campaign=renters` |
 | LinkedIn profile | `https://www.realtorpeterlaw.com/about/?utm_source=linkedin&utm_medium=social&utm_campaign=profile` |
 | Facebook page | `https://www.realtorpeterlaw.com/?utm_source=facebook&utm_medium=social&utm_campaign=page` |
-| WhatsApp broadcast (new listing) | `https://www.realtorpeterlaw.com/past-deals/?utm_source=whatsapp&utm_medium=message&utm_campaign=broadcast` |
+| WhatsApp broadcast (new listing) | `https://www.realtorpeterlaw.com/rental-history/?utm_source=whatsapp&utm_medium=message&utm_campaign=broadcast` |
 | WhatsApp reply to a lead (calculator) | `https://www.realtorpeterlaw.com/rental-calculator/?utm_source=whatsapp&utm_medium=message&utm_campaign=lead-reply` |
 | Business card QR code | `https://www.realtorpeterlaw.com/?utm_source=business-card&utm_medium=print&utm_campaign=qr` |
-| Open-house sign / flyer QR | `https://www.realtorpeterlaw.com/free-home-evaluation/?utm_source=flyer&utm_medium=print&utm_campaign=open-house` |
+| Open-house sign / flyer QR | `https://www.realtorpeterlaw.com/whats-my-home-worth/?utm_source=flyer&utm_medium=print&utm_campaign=open-house` |
 | Email signature | `https://www.realtorpeterlaw.com/?utm_source=email-signature&utm_medium=email&utm_campaign=signature` |
 | Newsletter (beehiiv) link to a blog post | `https://www.realtorpeterlaw.com/blog/?utm_source=newsletter&utm_medium=email&utm_campaign=monthly` |
 | Google Business Profile website link | `https://www.realtorpeterlaw.com/?utm_source=google-business&utm_medium=organic&utm_campaign=gbp` |

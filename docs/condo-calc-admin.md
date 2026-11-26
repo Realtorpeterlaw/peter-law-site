@@ -1,6 +1,6 @@
 # BUY Condo Calc. — admin note
 
-Page: https://www.realtorpeterlaw.com/buy-condo-calc (also /chinese/buy-condo-calc and /french/buy-condo-calc)
+Page: https://www.realtorpeterlaw.com/buy-condo-calculator (also /chinese/buy-condo-calculator and /french/buy-condo-calculator)
 
 ## Where the rate lives (all calculators)
 
