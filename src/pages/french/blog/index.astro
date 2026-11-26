@@ -78,7 +78,7 @@ const hreflangAlternates = [
     <div class="wrap">
       <div class="blog-list">
         {posts.map((post) => (
-          <article class="blog-card" data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
+          <article class={post.slug === 'oesp' ? 'blog-card blog-card-glow' : 'blog-card'} data-search={`${post.title} ${post.eyebrow}`.toLowerCase()} data-category={(post.categories || []).join(' ')}>
             <a href={`/french/blog/${post.slug}`} class="blog-card-link">
               {post.categories && post.categories.length > 0 && (
                 <span class="blog-card-dots" role="img" aria-label={`Catégories : ${post.categories.map(c => c === 'rent' ? 'Location' : 'Vente').join(', ')}`}>
@@ -165,6 +165,9 @@ const hreflangAlternates = [
   /* Blog-post category dots, top-right corner of the card
      (solid coloured circles, no text; multiple stack side-by-side) */
   .blog-card { position: relative; }
+  .blog-card-glow { border-color: #3fae6a; box-shadow: 0 0 0 1px rgba(26, 154, 80, 0.35), 0 0 18px 2px rgba(26, 154, 80, 0.32); animation: oesp-glow 3s ease-in-out infinite alternate; }
+  @keyframes oesp-glow { to { box-shadow: 0 0 0 1px rgba(26, 154, 80, 0.55), 0 0 30px 6px rgba(26, 154, 80, 0.45); } }
+  @media (prefers-reduced-motion: reduce) { .blog-card-glow { animation: none; } }
   .blog-card-dots {
     position: absolute;
     top: 12px;
