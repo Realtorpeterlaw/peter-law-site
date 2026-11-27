@@ -1,0 +1,1101 @@
+# Licensed child care centres (Active), City of Toronto. Source: Ontario Ministry of Education licensed child care data, snapshot 2026-10-31. lat~lon~name~address~programs~languages
+13482~7833~Les Merveilles Du Monde~150 Carnforth Rd~Full day/Before/after school~French
+19038~-361~Willow World~288 Cummer Ave~Full day~English
+3992~-1672~Liberty Kids~125 Western Battery Rd~Full day~English
+10992~472~Brightway Montessori Academy~65 Broadway Ave~Full day/Half day/Before/after school~English,French
+4691~-16271~Petite Luminaries Montessori~18 Four Seasons Pl~Full day/Half day/Before/after school~English
+11242~-167~St. Clements Early Learning School (1036943 Ontario Inc.)~70 St. Clements Ave~Full day/Half day~English
+12908~7109~Eh To Zed Preschool Canada Early Learning Academy~3 Concorde Gate~Full day~English
+12942~-1966~Mtt Melrose~375 Melrose Ave~Full day~English
+10346~1156~Mtt Davisville~588 Mount Pleasant Rd~Half day~English
+8694~-11439~The Mint School - 4 La Rose Avenue (1118112 Ontario Limited)~4 La Rose Ave~Full day~English
+16358~-260~Central Montessori School.~180 Sheppard Ave~Full day/Half day~English
+16218~-11979~Seafield Day Nursery - (1243015 Ontario Incorporated)~100 York Gate Blvd~Full day/Before/after school~English
+17730~7826~Eyes Abacus Child Care~20 Chichester Pl~Full day~English
+16240~-1077~Angus Valley Montessori~4841 Yonge St~Full day/Before/after school~English
+8321~9975~Kids Connect Daycare~138 Main St~Full day~English
+9809~-6922~Ernie Boccia Creative Child Day Care (Rasheda Alli)~1 Northwestern Ave~Full day~English
+19438~-1496~Forest Grove Montessori Pre-School~53 Madawaska Ave~Full day~English
+9347~4920~Petite Maison Montessori~126 O'Connor Dr~Full day/Half day~English,French,Other,FRENCH,GREEK,SPANISH
+6513~-12895~Hillside Montessori School (1351520 Ontario Ltd.)~76 Anglesey Blvd~Full day/Half day~English
+3591~-12403~Learning Garden Childcare~69 Six Point Rd~Full day~English
+17586~-992~Yorktown Montessori School (1505408 Ontario Inc.)~349 Kenneth Ave~Full day/Half day~English
+3532~-12338~Teddy Bear Educare Advance~86 Advance Rd~Full day~English
+13937~-14236~Gulfstream Day Care Centre - 152244 Association Canada Inc.~20 Gulfstream Rd~Full day/Before/after school~English
+21342~10782~Kinderbrook Montessori & Learning Centre~3660 Midland Ave~Full day~English
+10588~9000~Abacus Montessori Learning Centre~2723 St. Clair Ave~Full day~English
+9518~-14700~Learning Jungle Briarcrest~1982 Islington Ave~Full day~English
+9255~-10971~Learning Jungle Buttonwood~100 Sidney Belsey Cres~Full day/Half day~English
+7064~4616~Bluebird Montessori School South~515 Broadview Ave~Full day/Half day~English
+6576~4761~Kids Way Daycare~369 Broadview Ave~Full day~English
+15533~4147~Central Montessori Schools - York Mills Campus~18 Coldwater Rd~Full day/Half day~English
+20444~5596~Petite Luminaries Childcare~155 Gordon Baker Rd~Full day/Half day/Before/after school~English
+21211~6803~Narmer Montessori School~41 Glendinning Ave~Full day~English
+15656~16005~Friendly Little Campus (2037711 Ontario Ltd.)~3255 Lawrence Ave~Full day~English
+4985~1192~Kinder College Early Learning Centre~218 Richmond St~Full day~English
+1844~-16225~Sunshine Kids~1 Westside Dr~Full day/Before/after school~English
+7881~10100~Waverley Road Montessori School~646 Kingston Rd~Full day/Half day~English
+3661~-12643~Caterpillar & Co~55 Chauncey Ave~Full day~English
+10521~1442~Monarch Manor~240 Manor Rd~Full day~English
+17652~8411~Top Mandarin Daycare Centre~3143 Sheppard Ave~Full day~English
+18578~12396~Top Mandarin Daycare-2~4271 Sheppard Ave~Full day~English,Other,Mandarin
+16654~874~Willowbrae Academy Bayview Village~432 Sheppard Ave~Full day~English
+7261~11280~Ma Premiere Ecole~2383 Queen St East~Full day~French
+-637~-13338~Rec Room Child Care @Long Branch~69 Long Branch Ave~Full day/Half day/Before/after school~English
+1359~-9150~Rec Room Child Care @Mimico~46 Mimico Ave~Full day~English
+8120~4254~Bluebird Montessori School (Mini)~905 Broadview Ave~Full day~English
+15494~-4286~Fantasia Child Care Center~678 Sheppard Ave~Full day/Before/after school~English
+5045~-7835~Simplysmart Childcare Centre & Montessori~2271 Bloor St~Full day~English
+8153~9010~Beach Hill Montessori~2032 Gerrard St~Full day~English
+7923~10251~Bumble Bee Academy~668 Kingston Rd~Full day~English
+6844~-9269~Happy Day Child Care Centre - (341940 Ontario Limited)~676 Jane St~Full day/Before/after school~English
+11158~7067~Gateway Day Care Centre (466559 Ontario Ltd.)~100 Leeward Glenway~Full day/Half day~English
+18644~4634~Van Horne Day Care Centre - (497123 Ontario Ltd.)~201 Van Horne Ave~Full day/Before/after school~English
+7196~7750~Petitecare~1419 Gerrard St~Full day~English
+4976~3875~Distillery District Early Learning Centre~8 Distillery Lane~Full day~English
+17038~11986~Enquiring Minds Montessori~24 Progress Ave~Full day~English
+14840~-16751~Educare Kindergarten And Day Care Centre (Islington Ave) 555033 Ontario Limited~2825 Islington Ave~Full day/Before/after school~English
+17362~-12334~Antica Village Day Care Centre (646508 Ontario Ltd.)~360 Hullmar Dr~Full day/Half day/Before/after school~English
+20973~11019~Tamarack Day Care Centre (765566 Ontario Inc.)~3315 Midland Ave~Full day/Before/after school~English
+10528~3128~Trace Manes School~822 Millwood Rd~Full day~English
+10498~-12583~Tender Loving Care Child Learning Centre (86637 Canada Inc.) (44 Cross Street)~44 Cross St~Full day/Before/after school~English
+14342~18382~Cougar Court Childcare Centre # 25 (Operator: 897623 Ontario Limited)~3225 Eglinton Ave~Full day/Before/after school~English
+14342~18382~Cougar Court Childcare Centre (897623 Ontario Limited) (3225 Eglinton Ave East)~3225 Eglinton Ave~Full day/Before/after school~English
+21652~7617~Agile Innovators Montessori~390 Bamburgh Cir~Full day/Half day/Before/after school~English
+17844~4986~Esterbrooke Child Care (917761 Ontario Ltd.)~35 Esterbrooke Ave~Full day/Half day/Before/after school~English
+20952~10990~A & A Daycare Centre~3380 Midland Ave~Full day/Half day/Before/after school~English
+5929~-8516~A Place To Play Nursery School Of Bloor West Village~680 Annette St~Half day~English
+19082~3504~Northwood Montessori~1080 Finch Ave~Full day/Half day/Before/after school~English
+8659~4371~Abiona Centre For Infant And Early Mental Health Early Learning Centre-Broadview Campus~1102 Broadview Ave~Full day~English
+8398~-2741~Abiona Centre For Infant And Early Mental Health Early Learning Centre Humewood Campus~40 Humewood Dr~Full day~English
+17485~21657~Absorbent Minds (Op: 1756925 Ontario Inc.)~16 Old Kingston Rd~Full day~English
+17529~21627~Absorbent Minds 2~20 Old Kingston Rd~Full day/Half day/Before/after school~English
+19376~24543~Absorbent Minds Montessori East~6534 Kingston Rd~Full day~English
+16112~1413~Absorbent Years Childcare~2737 Bayview Ave~Full day/Half day~English
+17992~5508~Absorbent Years Childcare~128 Fairview Mall Dr~Full day/Half day~English
+16225~9183~After Four Children'S Enrichment Program~10 Japonica Rd~Before/after school~English
+21243~10585~Agape Christian Montessori School (2236800 Ontario Inc.)~301 Silver Star Blvd~Full day/Half day~English
+18629~12126~Agincourt Montessori School Inc.~2575 Midland Ave~Full day/Half day~English
+13064~-7846~Air-O-Down Child Care Centre Inc.~7 Hawksdale Rd~Full day~English
+156~-14845~Alderwood Action After School Inc.~544 Horner Ave~Full day/Before/after school~English
+10196~-2609~Alive Montessori & Private School~2 Wembley Rd~Full day/Half day~English,Other,CHINESE,ENGLISH,FRENCH,HINDI,HUNGARIAN,PANJABI/PUNJABI,PERSIAN,RUSSIAN,SPANISH,TAGALOG,UKRAINIAN
+6899~6398~All About Kids Inc. (1055 Gerrard Street East)~1055 Gerrard St~Full day~English
+17431~6162~All About Kids Sheppard (All About Kids Inc.)~2005 Sheppard Ave~Full day~English
+20832~12763~All My Children Child Care~1590 Sandhurst Cir~Full day/Half day/Before/after school~English
+10964~-1206~Allenby Daycare Inc.~391 St. Clements Ave~Full day/Half day/Before/after school~English
+12968~-1876~Alphabet Treehouse Childcare Centre~1780 Ave Rd~Full day~English
+10584~-2025~Alternative Primary School Parents Group~1100 Spadina Rd~Full day/Before/after school~English
+5680~-7936~Angelgate Daycare Inc.~432 Runnymede Rd~Full day/Before/after school~English
+5487~-8699~Angelgate Daycare Ltd~232 Jane St~Full day~English
+5483~-8688~Angelgate Daycare Ltd~230 Jane~Full day/Before/after school~English
+6606~-570~Annex Montessori School~427 Bloor St~Full day/Half day~English
+8047~9981~Apple Jacks Preschool~19 Benlamond Ave~Full day~English
+20946~4445~Arbor Glen Community Child Care~55 Freshmeadow Dr~Full day/Half day/Before/after school~English
+17026~7849~A.R.S. Nursery School~45 Hallcrown Pl~Full day/Before/after school~Other,Armenian
+14151~-1983~Armour Heights Child Care Program~148 Wilson Ave~Full day/Half day/Before/after school~English
+7372~-4024~Ascot Avenue Community Day Care (95 Regal Road)~95 Regal Rd~Full day/Before/after school~English
+7836~-3670~Ascot Avenue Community Daycare~991 St. Clair Ave~Full day~English
+10768~14905~Aspiring Academics Preschool - Kingston~2372 Kingston Rd~Full day~English
+7111~7605~Aspiring Academics Preschool Inc.~262 Woodfield Rd~Full day~English
+7311~-3188~Aspiring Academics Preschool - Somerset~56 Somerset Ave~Full day~English
+17532~-3847~Hurwich Education Centre - Kamin~252 Finch Ave~Full day~English
+13171~-3410~Posluns Education Centre~18 Neptune Dr~Full day~English,Other,Hebrew
+5480~-6230~Atelier Kids Inc.~15 Oakmount Rd~Full day~English
+6875~-373~Atelier Kids Annex~34 Madison Ave~Full day~English
+8013~6073~Athletic Montessori Academy~890 Danforth Ave~Half day~English
+8415~12452~Avalon Children'S Montessori School~31 Wood Glen Rd~Full day~English
+22618~16296~Cambridge Leaf Montessori School~3875 McNicoll Ave~Full day~English
+12177~-15217~B.F. Toronto Centre For Early Childhood (45 Golfdown)~45 Golfdown Dr~Full day/Before/after school~English
+4423~-18664~Mill Valley Child Care (B.F. Toronto Centre)~411 Mill Rd~Full day/Before/after school~English
+12203~-3280~Bais Yaakov Elementary School~15 Saranac Blvd~Full day~English
+7641~10994~Balmy Beach Community Day Care Centre~14 Pine Ave~Full day/Before/after school~English
+17886~807~Bannockburn School~3080 Bayview Ave~Full day/Half day~English
+22673~12005~Banting And Best Child Care Centre (380 Goldhawk)~380 Goldhawk Trl~Full day/Half day/Before/after school~English
+22535~12114~Banting And Best School Age Satellite (255 Alton Towers)~255 Alton Towers Cir~Before/after school~English
+8061~11219~Beaches Montessori School Inc~950 Kingston Rd~Full day~English
+8055~11454~Beaches Montessori School South~995 Kingston Rd~Full day~English
+4109~-13635~Beamish Academy~3819 Bloor St~Full day~English
+8609~7917~Beatty Buddies Daycare~55 Woodington Ave~Full day/Before/after school~English
+9370~3089~Bennington Heights Child Care Centre Inc.~76 Bennington Heights Dr~Full day/Half day/Before/after school~English
+10678~2973~Bessborough Child Care Centre~211 Bessborough Dr~Before/after school~English
+13852~-3120~Torah Tots Childcare~37 Southbourne Ave~Full day~English
+14414~-3529~Torah Tots Preschool~3995 Bathurst~Full day~English
+20018~24954~Big Bears Daycare~51 Durnford Rd~Full day~English
+9542~13767~Birchmount Bluffs Neighbourhood Centre Community Nursery School~93 Birchmount Rd~Half day~English
+17111~-12654~Blacksmith Childcare Centre Inc.~45 Blacksmith Cres~Full day/Half day/Before/after school~English
+13551~-8625~Blaydon Community Day Care Inc.~25 Blaydon Ave~Full day/Before/after school~English
+12638~-5969~Bloomsbury Academy Sloane~75 Glengate St~Full day~English
+5680~-7936~Bloor West Nursery School~432 Runnymede Rd~Full day/Half day~English
+8344~7529~Blossoming Minds Learning Centre Inc.~1530 Danforth Ave~Full day/Half day/Before/after school~English
+8358~9902~Blue Bell Academy~2189 Gerrard St~Full day~English
+8356~9917~Blue Bell Academy Inc.~2191 Gerrard St~Full day~English
+7185~7700~Blue Bell Academy Inc.~1415 Gerrard St~Full day~English
+4913~834~Blue Butterfly Montessori School Inc.~300 Richmond St~Full day/Half day~English
+14006~5019~Blue Wave Child Care Centre~50 Duncairn Rd~Full day/Before/after school~English
+12199~16443~Bluffer'S Park Montessori School~2857 Kingston Rd~Full day~English
+6963~9945~Boardwalk Montessori School Inc.~1975 Queen St~Full day/Half day~English
+5984~5009~Boulton Avenue Child Care~131 Broadview Ave~Full day~English
+12826~-14867~Braeburn Woods Day Care - (Braeburn Neighbourhood Place Incorporated)~15 Tandridge Cres~Full day/Before/after school~English
+17157~-4314~Branson Pre-School Ltd.~4866 Bathurst St~Full day~English
+18284~6872~Brian'S Petit Amis Children'S Centre - North York~95 Brian Dr~Full day/Before/after school~English
+6675~-18052~Briarcrest Child Care Centre~60 Wellesworth Dr~Full day/Before/after school~English
+19406~7522~Bridlegrove Day Care Centre (Bridlegrove Bible Chapel - Operator)~2575 Pharmacy Ave~Full day/Half day~English
+11379~9275~Bright Minds Childcare & Montessori School~1450 O'Connor Dr~Full day/Before/after school~English
+10212~2596~Brightpath Academy - Davisville Village~1432 Bayview Ave~Full day~English
+10909~3552~Brightpath Academy - Leaside~235 McRae Dr~Full day~English
+6893~9597~Brightpath Academy - The Beach~1923 Queen St~Full day~English
+6894~9585~Brightpath Academy - The Beach Clubzone~1919 Queen St~Half day/Before/after school~English
+6113~5964~Brightpath Leslieville~970 Queen St East~Full day~English
+13281~-508~Brightpath Academy - Wanless Park (20)~20 Melrose Ave~Full day~English
+13288~-473~Brightpath Academy - Wanless Park (18)~18 Melrose Ave~Full day~English
+11277~-2943~Brightpath Academy Forest Hill~5 Glen Park Ave~Full day~English
+5074~-20198~Brightpath Eglinton~5535 Eglinton Ave~Full day~English
+8278~12144~Broad View French Montessori School # 2~1236 Kingston Rd~Full day~French
+8475~5325~Broad View French Montessori Limited~901 Pape Ave~Full day/Half day/Before/after school~English,French
+5326~-3757~Brock Early Learning Centre~93 Margueretta St~Half day/Before/after school~English
+10242~-10046~Brookhaven Child Care - St. Bernard Site~12 Duckworth St~Before/after school~English
+10219~-9579~Brookhaven Child Care (North York)~70 Brookhaven Dr~Full day/Before/after school~English
+6591~8100~Bumble Bee Academy~1560 Queen St~Full day~English
+4928~-2506~Bumble Bee Garden Child Care Ltd.~1275 Dundas St~Full day~English
+11060~-8305~C.A.S.P. Catholic After School Program~53 Gracefield Ave~Before/after school~English
+13846~-10351~Calico Saints Childcare~35 Calico Dr~Full day/Before/after school~English
+6456~-79~Campus Community Co-Operative Day Care~370 Huron St~Full day~English
+13614~9328~Big Dreams Early Learning Centre~1703 Victoria Park Ave~Full day/Before/after school~English
+15939~-72~Avondale Centre For Early Development~171 Avondale Ave~Full day~English
+4690~2079~Mothercraft: Brookfield Place - 161 Bay Street~161 Bay St~Full day~English
+10573~626~Mothercraft Midtown Ced~44 Lillian St~Full day~English
+9021~345~Mothercraft: Robertson House (32 Heath Street West)~32 Heath St~Full day~English
+19324~22454~Cardinal Leger Child Care Centre (Scarborough)~600 Morrish Rd~Full day/Before/after school~English
+9589~-15614~Carefree Pre-School Inc.~370 Dixon Rd~Full day/Before/after school~English
+12558~-8862~St. Theresa'S Day Care Centre - (Carmelite Missionary Sisters Of Saint Theresa)~1196 Wilson Ave~Full day/Before/after school~English
+17055~-5380~Carousel Child Care Development Centre Ltd.~623 Finch Ave~Full day~English
+9738~-7593~Casa Vera Montessori School~2000 Keele St~Full day~English
+14516~-8836~Cast For Kids Child Care Centre~1430 Sheppard Ave~Full day/Before/after school~English
+14414~7369~Little Acorns Montessori School (Cathie Mahoney)~40 Underhill Dr~Full day/Half day~English
+14998~13640~Cedarbrae Day Nurseries (1375 Midland)~1375 Midland Ave~Full day~English
+15132~13518~Cedarbrae Day Nurseries (1385 Midland)~1385 Midland Ave~Full day/Before/after school~English
+15798~17573~Cedarbrae Day Nursery (20 Greencrest Circuit)~20 Greencrest Circuit~Full day~English
+9065~7269~Centennial College Early Childhood Education Centre (550 Mortimer)~550 Mortimer Ave~Full day~English
+9486~6843~Centennial College East York Day Care (Plains Rd)~175 Plains Rd~Before/after school~English
+18579~17219~Centennial College/Progress Campus Child Care (941 Progress)~941 Progress Ave~Full day~English
+9058~449~Centennial Infant & Child Centre - Day Care Program (Licensed) - 1580 Yonge~1580 Yonge St~Half day~English
+11034~242~Central Eglinton Children'S Centre (St. Monica'S Satellite)~14 Broadway Ave~Before/after school~English
+10783~932~Central Eglinton Children'S Centre (223 Eglinton Avenue East)~223 Eglinton Ave~Full day/Before/after school~English
+14049~224~Hillcrest Progressive School (Central Jewish Institute)~59 Plymbridge Rd~Full day/Half day~English
+16407~-275~Central Montessori School - Maplehurst Campus~181 Maplehurst Ave~Full day/Half day/Before/after school~English
+16665~-42~Central Montessori Schools Inc. - Willowdale Campus~157 Willowdale Ave~Full day/Half day~English
+6763~-5514~Centre De La Petite Enfance "Les Amis Du Monde"~55 Pelham Ave~Full day/Before/after school~French
+18282~10046~Birchmount Place Centre For Early Learning (Centres For Early Learning Inc.)~2360 Birchmount Rd~Full day/Before/after school~English
+9394~11229~Cambridge Place Centre For Early Learning (Centres For Early Learning Inc.)~30 Denton Ave~Full day~English
+10184~10323~Dawes Road Centre For Early Learning (Centres For Early Learning Inc.)~391 Dawes Rd~Full day~English
+9394~11229~Denton Place Centre For Early Learning (Centres For Early Learning Inc.)~30 Denton Ave~Full day/Before/after school~English
+19071~4391~Seneca Hill Centre For Early Learning (Centres For Early Learning Inc.)~350 Seneca Hill Dr~Full day~English
+16672~20116~West Hill Centre For Early Learning (Centres For Early Learning Inc.)~4010 Lawrence Ave~Full day~English
+15059~-14396~Lori Gardens Centre For Early Learning (Centres For Early Learning Inc.)~2405 Finch Ave~Full day/Before/after school~English
+15922~-11598~Palisades Centre For Early Learning (Centre For Early Learning Inc.)~15 San Romanoway~Full day/Before/after school~English
+15790~-11188~Sandalwood Centre For Early Learning (Centres For Early Learning Inc.)~1825 Finch Ave~Full day/Before/after school~English
+5782~-1422~Centro-Clinton Day Care Centre~460 Manning Ave~Full day/Before/after school~English
+13702~-16049~Garderie Du Cercle De L'Amitie-Etobicoke~30 Thistle Down Blvd~Full day/Before/after school~French
+7922~-3847~Chabad Of Midtown~1034 St. Clair West~Full day~English
+7950~-1706~Chabad Of Midtown - Bathurst~1344 Bathurst St~Full day~English
+8288~-2090~Chabad Of Midtown - St. Clair~544 St. Clair Ave~Full day~English
+13920~1836~My Little Gan~2437 Bayview Ave~Full day/Half day~English
+13111~-2818~Gan Shalom Preschool (Op: Chabad On The Avenue)~157 Falkirk St~Full day~English
+10987~-2727~Gan Shalom Preschool (South)~396 Cortleigh Blvd~Full day~English
+11520~6753~Champions Children'S Centre - North York~9 Grenoble Dr~Full day/Before/after school~English
+19804~26312~Charlottetown Blvd. Child Care Centre (Facility #16084)~111 Island Rd~Full day/Half day/Before/after school~English
+19997~12198~Chartland Child Care Inc.~109 Chartland Blvd~Full day/Half day/Before/after school~English
+21745~9526~Cheer Day Care Centre~3300 Kennedy Rd~Full day~English
+10549~5648~Fraser Mustard Early Learning Centre~82 Thorncliffe Park Dr~Full day/Before/after school~English
+6769~2547~Wellesley Early Learning Centre - Earlscourt Creche Cdi - 495 Sherbourne Street~495 Sherbourne St~Full day~English
+3717~-3433~Parkdale Early Learning Centre - Cdi - 119 Close Ave.~119 Close Ave~Full day~English
+3629~-7037~Windermere Early Learning Centre~103 The Queensway~Full day/Half day~English
+7726~4766~Children'S Circle Of St. Barnabas~361 Danforth Ave~Full day~English
+5705~-7466~Children'S Creative Corner Co-Operative Nursery School Inc.~125 Evelyn Cres~Half day~English
+11218~2771~Children'S Garden Junior School - Early Start~670 Eglinton Ave~Half day~English
+18309~22922~Children'S Land Learning Center Inc.~297 Old Kingston Rd~Full day~English
+10296~-937~Children'S Magic Moments Child Care And Nursery School Inc.~98 Braemar Ave~Full day~English
+17436~16843~Children'S Village Day Care Centre # 1 (1050 Markham Road)~1050 Markham Rd~Full day/Before/after school~English
+14617~18095~Children'S Village Day Care Centre (225 Markham Road)~225 Markham Rd~Full day/Before/after school~English
+8705~8321~Childspace Day Care Corporation # 1 (50 Woodmount)~50 Woodmount Ave~Before/after school~English
+7744~5276~Childspace Day Care Corporation # 2 (690 Carlaw)~690 Carlaw Ave~Full day/Before/after school~English
+7789~7177~Childspace Day Care Corporation # 3 (49 Felstead Avenue)~49 Felstead Ave~Full day~English
+6135~5868~Mighty Kids~14 Verral Ave~Full day~English
+6773~5678~Riverdale Mighty Kids Corp.~842 Gerrard St~Full day~English
+5557~575~Children'S Primary Centre~177 Beverley St~Full day~English
+6341~2081~Church Street School Day Care Service Inc.~83 Alexander St~Half day/Before/after school~English
+8952~-994~Grace Church-On-The-Hill Child Care Centre (Church Wardens Of Grace)~300 Lonsdale Rd~Full day/Half day~English
+17101~-2656~Churchill Chums School Age Child Care Centre~188 Churchill Ave~Full day/Before/after school~English
+5012~-13~Alexandra Park Early Learning & Child Care Centre~75 Augusta Sq~Full day~English
+20132~17821~Berner Trail Early Learning & Child Care Centre~120 Berner Trl~Full day~English
+7497~6024~Blake Street Early Learning & Child Care Centre~84 Blake St~Full day~English
+19271~4216~Brahms Early Learning & Child Care Centre~5 Brahms Ave~Full day~English
+12601~14924~Canadiana Court Early Learning & Child Care Centre~20 Gordonridge Pl~Full day~English
+18165~19689~Centenary/Seven Oaks Early Learning & Child Care Centre~9 Neilson Rd~Full day~English
+19872~6929~Chester Le Early Learning & Child Care Centre~201 Chester Le Blvd~Full day~English
+4126~-201~City Kids Early Learning & Child Care Centre~34 Bathurst St~Full day~English
+6024~3392~Cole Street Early Learning & Child Care Centre~10 Cole St~Full day~English
+6632~8445~Coxwell Early Learning & Child Care Centre~1631 Queen St~Full day~English
+8084~6619~Danforth Early Learning & Child Care Centre~1125 Danforth Ave~Full day~English
+11812~6800~Flemingdon Early Learning & Child Care Centre~29 St. Dennis Dr~Full day~English
+16191~20558~Galloway Early Learning & Child Care Centre~4299 Kingston Rd~Full day/Half day~English
+13607~14376~Gilder Early Learning & Child Care Centre~31 Gilder Dr~Full day~English
+13635~14469~Gilder Satellite Early Learning & Child Care Centre~47 Gilder Dr~Full day~English
+13620~17971~Kingston Road East Early Learning & Child Care Centre~3392 Kingston Rd~Full day~English
+16405~19501~Lawrence Orton Early Learning And Child Care Centre~3947 Lawrence Ave~Full day~English
+20829~18114~Malvern Early Learning & Child Care Centre~1321 Neilson Rd~Full day~English
+4608~1124~Metro Hall Early Learning & Child Care Centre~55 John St~Full day~English
+11765~9818~O'Connor Early Learning & Child Care Centre~1386 Victoria Park Ave~Full day~English
+11643~9588~O'Connor Satellite Early Learning & Child Care Centre~1665 O'Connor Dr~Full day~English
+5956~3543~Regent Park Early Learning & Child Care Centre~40 Regent St~Full day~English
+10006~12261~Taylor Creek Early Learning & Child Care Centre~644 Warden Ave~Full day~English
+14026~-18643~Albion Early Learning & Child Care Centre~1545 Albion Rd~Full day~English
+13301~-6597~Ancaster Early Learning & Child Care Centre~45 Ancaster Rd~Full day~English
+16717~-11607~Edgeley Early Learning & Child Care Centre~405 Driftwood Ave~Full day~English
+14881~-13816~Emery Early Learning & Child Care Centre~3395 Weston Rd~Full day~English
+15192~-12005~Firgrove Satellite Early Learning & Child Care Centre~270 Firgrove Cres~Full day~English
+12508~-17140~Kipling Early Learning & Child Care Centre~2233 Kipling Ave~Full day~English
+14374~-16721~Rowntree Child Care Centre - City Of Toronto - 2765 Islington Ave (#6930)~2765 Islington Ave~Full day~English
+13360~-13800~Westown Early Learning & Child Care Centre~3101 Weston Rd~Full day~English
+7620~-17046~Willowridge Early Learning & Child Care Centre~30 Earldown Dr~Full day/Before/after school~English
+7074~-5468~Davenport Perth Early Learning & Child Care Centre~1900 Davenport Rd~Full day~English
+11608~-10666~Falstaff Early Learning & Child Care Centre~10 Falstaff Ave~Full day~English
+7325~815~Jesse Ketchum Early Learning & Child Care Centre~7 Berryman St~Full day/Half day/Before/after school~English
+-293~-11847~Marguerite Butt Early Learning & Child Care Centre~3197 Lake Shore Blvd W~Full day~English
+8802~-9306~Mount Dennis Early Learning & Childcare Centre~1234 Weston Rd~Full day~English
+8357~-3885~Rawlinson Early Learning & Child Care Centre~40 Earnscliffe Rd~Full day~English
+-535~-13103~Thomas Berry Early Learning & Child Care Centre~3495 Lake Shore Blvd W~Full day~English
+14543~5351~Clearview Child Care Centre~1300 Don Mills Rd~Full day~English
+20614~3997~Cliffwood Community Child Care - North York~140 Cliffwood Rd~Full day/Half day/Before/after school~English
+8337~11103~Community Centre 55~400 Scarborough Rd~Before/after school~English
+8206~10086~Community Centre 55 - Children Services (97 Main Street)~97 Main St~Half day/Before/after school~English
+8287~10104~Community Centre 55 - Kimberly Public School~50 Swanwick Ave~Before/after school~English
+8439~10003~Community Centre 55 - Ted Reeves Arena~175 Main St~Full day~English
+14155~-11437~Mount Carmel Day Care~2700 Jane St~Full day/Before/after school~English
+20489~13590~Garderie Mon Petit Jardin~500 Sandhurst Cir~Full day/Before/after school~French
+8020~447~Cottingham Day Care Program~85 Birch Ave~Full day/Before/after school~English
+16289~6204~Courtleigh Place Child Care Centre~135 Fenelon Dr~Full day~English
+18702~24783~Creative Minds Montessori Academy~285 Lawson Rd~Full day/Before/after school~English
+7255~11058~Alphabet Station~2206 Queen St~Full day~English
+10906~1549~Curious Caterpillars - Petman Ave~87 Petman Ave~Full day~English
+10349~896~Alphabet Academy~111 Manor Rd~Full day~English
+10216~-689~Curious Caterpillars~28 College View Ave~Full day~English
+14215~8360~Curlew Montessori School Inc.~81 Curlew Dr~Full day/Half day~English,French
+9053~13306~Mon Petit Univers~1578 Kingston Rd~Full day~English,French
+11347~-3516~Dalemount Child Care Inc.~101 Englemount Ave~Full day/Half day/Before/after school~English
+8135~6257~Dandylion Day Care Centre~108 Strathmore Blvd~Full day/Before/after school~English
+9900~532~Davisville Care Programme Inc.~50 Davisville Ave~Full day/Before/after school~English
+7900~7886~Downtown Montessori At Coatsworth (Formerly Ward Nine -Coatsworth)~11 Coatsworth Cres~Full day~English
+4048~809~Downtown Montessori At Concord City Place~335 Bremner Blvd~Full day/Half day~English
+4200~1722~Downtown Montessori At Infinity Place (Day Care Connection)~26 Grand Trunk Cres~Full day~English
+4496~1414~Downtown Montessori At Simcoe Place (Formerly Day Care Connection Simcoe)~200 Front St~Full day~English
+8052~10528~Kids Club (Day Care Connection)~780 Kingston Rd~Full day/Before/after school~English
+15426~21227~Dearham Wood Day Care~66 Dearham Wood~Full day/Half day~English
+14660~3584~Denlow Community Child Care - North York~50 Denlow Blvd~Full day/Half day/Before/after school~English
+10070~11453~Dian Child Care Centre Inc.~283 Pharmacy Ave~Full day~English
+18054~17036~Discovery Place Child Care Centre Ltd.~22 Tuxedo Crt~Full day/Before/after school~English
+14890~4968~Don Mills Children'S Centre~33 Kern Rd~Full day/Half day~English
+18865~4781~Don Valley Christian Child Care (Don Valley Bible Chapel) (25 Axsmith)~25 Axsmith Cres~Full day~English
+6731~-3640~Dover Gardens Nursery School~228 Bartlett Ave~Half day~English
+6580~-3275~Kids' Korner Daycare Centre (Dovercourt Boys And Girls Club)~180 Westmoreland Ave~Full day/Before/after school~English
+12302~-8709~Downsview Child Care Centre~159 Sir William Hearst Ave~Full day~English
+4168~-1221~Downtown Kids Academy, Inc.~905 King St~Full day~English
+14927~-4704~Dublin Heights Community Child Care Inc.~100 Bainbridge Ave~Full day/Before/after school~English
+16275~3010~Dunlace Children'S Centre - North York~20 Dunlace Dr~Full day/Half day/Before/after school~English
+9544~-1446~Dunloe Children'S Centre~78 Dunloe Rd~Full day/Half day/Before/after school~English
+7608~8536~Bowmore Child Enrichment Centre (Operator: Earl Haig) (80 Bowmore Road)~80 Bowmore Rd~Full day/Half day/Before/after school~English
+8114~7869~Earl Haig Community Day Care Centre (15 Earl Haig Avenue)~15 Earl Haig Ave~Full day/Before/after school~English
+2075~-9831~Early Adventures Nursery School & Child Care Ltd. (200 Melrose St.)~200 Melrose St~Full day/Before/after school~English
+6062~-6916~St. John'S Early Enrichment Day Care Centre (Early Enrichment Day Care - St.)~288 Humberside Ave~Full day~English
+20887~13476~Early Foundations Learning Centre~25 Thunder Grove~Full day~English
+17131~-10172~York University Co-Operative Day Care Centre~90 Atkinson Rd~Full day/Before/after school~English
+19230~6744~Early Years Education System (E.Y.E.S)~3000 Victoria Park Ave~Full day/Half day/Before/after school~English
+16254~15541~Bendale Licensed Before And After School Program~61 Benshire Dr~Before/after school~English
+10211~13991~Birch Cliff Heights Licensed Before And After School Program~120 Highview Ave~Before/after school~English
+18211~25781~Charlottetown Licensed Before And After School Program~85 Charlottetown Blvd~Before/after school~English
+10955~15855~Chine Drive Licensed Before And After School Program~51 Chine Dr~Before/after school~English
+15901~20878~East Scarborough Boys' And Girls' Club (Eastside Child Care Centre - 20 Waldock)~20 Waldock St~Full day/Before/after school~English
+16709~21313~East Scarborough Child Care Centre (East Scarborough Boys And Girls Club)~230 Morningside Ave~Full day~English
+15768~20695~Eastside Club Day Care - 100 Galloway Road~100 Galloway Rd~Full day~English
+18257~25059~St. Brendan Kindergarten Before & After School Program~186 Centennial Rd~Before/after school~English
+17066~23349~St. Malachy Licensed Before And After School Program~80 Bennett Rd~Before/after school~English
+14990~20118~St. Ursula Licensed Before And After School Program~215 Livingston Rd~Before/after school~English
+19551~26636~West Rouge Kindergarten Extended Care Program~401 Friendship Ave~Before/after school~English
+18534~26541~William G. Davis Kindergarten Extended Care Program~128 East Ave~Before/after school~English
+8264~10205~East Toronto Village Children'S Centre~43 Kimberley Ave~Full day~English
+9182~9888~Eyet Early Learning Centre (Annie'S Place)~101 Barrington Ave~Full day/Before/after school~English
+5575~3819~Eyet Early Learning Centre (Tom'S Place)~80 Sackville St~Full day/Before/after school~English
+9695~10820~Eyet Early Learning Centre, Crescent Town Elementary School~4 Massey Sq~Full day/Before/after school~English
+9305~6625~East York Montessori School~484 Cosburn Ave~Full day/Before/after school~English
+6618~-14508~Eco Kids-Child Care Centre Inc.~1315 Kipling Ave~Full day/Before/after school~English
+10983~-2793~Eitz Chaim Schools Vm~2742 Bathurst St~Full day/Half day~English
+6949~9884~Castle Park Playschool~1971 Queen St~Before/after school~English
+12473~6321~Engaging Minds Child Care~29 Gervais Dr~Full day~English
+21859~9736~Enjoy Learning Centre Ltd.~27 Passmore Ave~Before/after school~English
+18781~-4770~Enriched Child Care Learning Centre (Op: Unique Care Ltd.)~6030 Bathurst St~Full day/Half day~English
+14560~18881~Apple Day Care Centre (Evans Development Corporation)~3434 Eglinton Ave~Full day/Before/after school~English
+15145~19665~Guildwood Child Care Centre (Evans Development Corporation - Kingston Rd)~3969 Kingston Rd~Full day/Before/after school~English
+13380~-19334~Martingrove Childcare Centre (Evans Development Corporation)~256 John Garland Blvd~Full day/Before/after school~English
+15560~-9700~Faith Lutheran Day Care Centre Of Downsview Inc.~96 Hucknall Rd~Full day/Half day~English
+15309~-10316~Rainbow'S End Faith Lutheran Daycare "Satellite"~33 Lamberton Blvd~Full day/Before/after school~English
+15232~9970~Family Day Buchanan Extended Day And School Age Program~4 Bucannan Rd~Before/after school~English
+14026~9535~Family Day Care Service Wexford Extended Day And School Age Program~1050 Pharmacy Ave~Before/after school~English
+23012~16737~Family Day Care Services - Blessed Pier Giorgio Frassati Extended Day/Before And After School Progra~8 Seasons Dr~Before/after school~English
+23009~16642~Family Day Care Services - Brookside Child Care Centre~75 Oasis Blvd~Full day~English
+21474~9530~Family Day Care Services - Mary Ward Child Care Centre~3200 Kennedy Rd~Full day~English
+20537~9744~Family Day Care Services (St. Sylvester Child Care Centre)~260 Silver Springs Blvd~Full day/Before/after school~English
+21846~9140~Family Day Kennedy Extended Day And School Age Program~20 Elmfield Cres~Before/after school~English
+18480~5421~Family Day Kingslake Before And After School Program~90 Kingslake Rd~Before/after school~English
+19689~10871~Family Day Lynnwood Heights Extended Day And School Age Program~50 Southlawn Dr~Before/after school~English
+17912~6253~Family Day Muirhead Extended Day And School Age Program~25 Muirhead Rd~Before/after school~English
+19639~12336~Family Day North Agincourt Before And After School Program~60 Moran Rd~Before/after school~English
+21230~18008~Family Day Sacred Heart Toronto Before And After School Program~75 Hupfield Trl~Before/after school~English
+20424~9751~Family Day Silver Springs Extended Day And School Age Program~222 Silver Springs Blvd~Before/after school~English
+19747~17098~Family Day St Barnabas Child Care Centre~30 Washburn Way~Full day/Before/after school~English
+16345~9178~Family Day Terraview-Willowfield Extended Day And School Age Program~95 Pachino Blvd~Before/after school~English
+22415~17379~Family Day Thomas L Wells Extended Day And School Age Program~69 Nightstar Rd~Before/after school~English
+22173~12983~The Divine Infant Child Care Centre (Op: Family Day Care Services)~30 Ingleton Blvd~Full day/Before/after school~English
+14033~-4669~Faywood Boulevard Child Care Program~95 Faywood Blvd~Full day/Half day/Before/after school~English
+16474~7117~Fenside Drive Children'S Centre Inc.~131 Fenside Dr~Full day/Before/after school~English
+4548~-4609~Ferncliff Daycare And After School Group~128 Fern Ave~Full day/Before/after school~English
+18355~543~Finch Flyers~277 Finch Ave~Full day/Before/after school~English
+9811~-3758~Beth Sholom First Foundations Community Preschool~1445 Eglinton Ave West~Half day~English
+14535~-18927~First Stage Child Care Centre - Highfield~85 Mount Olive Dr~Full day~English
+13125~-18698~First Stage Child Care Centre (1675 Martingrove)~1675 Martin Grove Rd~Full day~English
+14767~-18611~First Stage Child Care Centre (2580 Kipling Ave)~2580 Kipling Ave~Full day~English
+4864~-16215~First Stage Child Care Centre (500 The East Mall)~500 The East Mall~Full day~English
+5433~2473~Bloomsbury Academy~29 Dalhousie St~Full day/Half day/Before/after school~English
+10681~13104~Follow The Child Inc.~462 Birchmount Rd~Full day/Before/after school~English
+7701~4932~Frankland Day Care Centre~816 Logan Ave~Before/after school~English
+4871~-921~Fraser School - Community Day Care Centre~79 Manning Ave~Full day/Before/after school~English
+17519~21929~Friendly Little Campus Daycare 2~63 Orchard Park Dr~Full day~English
+7059~122~Friends Day Care Centre~60 Lowther Ave~Full day/Half day~English
+16066~-5425~Gan Yeladim Day Care Centre~100 Elder St~Full day~English
+22238~12252~Garderie Chez Tante Laure~339 Alton Towers Cir~Full day/Before/after school~French
+16191~21981~Garderie Chez Tante Laure 2~255 Coronation Dr~Full day/Before/after school~French
+18563~2813~Garderie Du Soleil Levant Paul-Demers~44 Appian Dr~Before/after school~French
+11788~-7580~Garderie Du Soleil Levant~116 Cornelius Pkwy~Full day/Before/after school~French
+5662~2755~Garderie La Farandole De Toronto Inc.~14 Pembroke St~Full day/Before/after school~French
+8911~-16116~Garderie La Farandole - Felix Leclerc~50 Celestine Dr~Full day/Before/after school~French
+5307~-1454~Garderie La Farandole Sur Grace~77 Grace St~Full day/Before/after school~French
+16251~7717~Garderie Rayon De Soleil~1 Ness Dr~Full day/Half day/Before/after school~French
+4380~-812~Garrison Creek Community Day Care~222 Niagara St~Full day/Before/after school~English
+5103~-269~George Brown - Fashion District/Ryerson Child Care Centre~96 Denison Ave~Half day/Before/after school~English
+5844~3885~George Brown - Nelson Mandela Child Care Centre~440 Shuter St~Full day/Before/after school~English
+4968~1624~George Brown - Richmond Adelaide Childcare Centre~130 Adelaide St~Full day~English
+6997~2762~George Brown - Rose Avenue Child Care Centre~675 Ontario St~Full day/Before/after school~English
+4459~3410~George Brown College -Mary'S Place Child Care Centre~185 Queens Quay East~Full day~English
+6225~5158~George Brown-Dundas Street East Child Care Centre~935 Dundas St~Before/after school~English
+6455~3625~Sprucecourt Child Care Centre~70 Spruce St~Before/after school~English
+6935~1545~University Of Toronto Childcare Centre On Charles~35 Charles St~Full day~English
+14792~-14719~Daystrom Childcare Centre~25 Daystrom Dr~Before/after school~English
+11626~-14996~Elmlea Childcare Centre~50 Hadrian Dr~Before/after school~English
+7587~-1091~George Brown - Casa Loma Child Care Centre~160 Kendal Ave~Full day/Half day~English
+8430~-8731~George Brown - Dennis Avenue Child Care Centre~17 Dennis Ave~Full day/Before/after school~English
+4364~-3714~Parkdale Childcare Centre~78 Seaforth Ave~Full day/Before/after school~English
+15231~-5067~The Toronto Heschel School~819 Sheppard Ave~Full day~English
+1618~2123~Gibraltar Point Day Nursery Inc.~30 Centre Island Park~Full day~English
+4611~-1749~Givins/Shaw School Community Day Care~49 Givins St~Full day/Before/after school~English
+8760~9012~Gledhill Avenue Child Care Centre~2 Gledhill Ave~Full day/Before/after school~English
+15451~-2145~Glen Cameron For Kids Co-Op Day Care Inc.~211 Cameron Ave~Full day/Half day/Before/after school~English
+9043~-14913~Gold Circle Early Childhood Day Care Centre Toronto~25 Poynter Dr~Full day/Before/after school~English
+9700~621~Golden Minds Academy~84 Merton~Full day/Before/after school~English
+16367~18264~Golf Road School Child Care Centre Inc.~730 Scarborough Golf Club Rd~Full day/Before/after school~English
+17960~11680~Village Green Child Care Centre~275 Village Green Sq~Full day~English
+17911~10246~Good Shepherd Day Care Centre (Association Of Chinese Evangelical Ministries)~2230 Birchmount Rd~Full day/Half day~English
+20530~6023~Grace Christian School-Day Nursery~201 Tempo Ave~Full day~English
+2837~-9457~Grand Avenue Montessori School - 600~600 The Queensway~Full day/Half day~English
+2838~-9474~Grand Avenue Montessori School - 602~602 The Queensway~Full day/Half day~English
+18161~941~Bayview Gardens Daycare Centre - Graydon Hall (3125 Bayview)~3125 Bayview Ave~Full day~English
+12103~6791~Graydon Hall Child Care Services In Don Valley Business Park~150 Ferrand Dr~Full day~English
+17440~3217~Sheppard Business Park Child Care Centre - Graydon Hall (1220 Sheppard East)~1220 Sheppard Ave~Full day~English
+19494~16358~Sheppard Square Child Care Centre - Graydon Hall (5600 Sheppard East)~5600 Sheppard Ave~Full day/Before/after school~English
+12205~-1567~Avenue Road Child Care (1498 Avenue Road)~1498 Ave Rd~Full day~English
+16479~-8312~Finch Business Park Child Care - Graydon Hall (1183A Finch West)~1183 Finch Ave~Full day/Before/after school~English
+6557~-9361~Green Apple Kids~3605 Dundas St~Full day~English
+13351~6213~Greenland Recreational After School Program~15 Greenland Rd~Before/after school~English
+15837~20264~Greenwood Montessori School~38 Payzac Ave~Full day~English
+16632~20499~Growing Tykes Child Care (4105 Lawrence Avenue East)~4105 Lawrence Ave~Full day~English
+16919~17086~Growing Tykes Child Care (910 Markham Road)~910 Markham Rd~Full day/Before/after school~English
+16481~16462~Growing Tykes Learning Centre~112 Sedgemount Dr~Before/after school~English
+4357~-13395~Growing Tykes Child Care (5150 Dundas Street West)~5150 Dundas St~Full day~English
+16975~-12277~Happyland Childcare Learning Centre~225 Gosford Blvd~Full day~English
+7929~-4164~Harmony Child Care Centre (Harmony Community School Centre) 124 Northcliffe Blvd~124 Northcliffe Blvd~Full day/Half day/Before/after school~English
+15154~4508~Hawthorn School Day Care~101 Scarsdale Rd~Full day~English
+6838~-2240~Hawthorne-On-Essex Day Care~50 Essex St~Full day/Before/after school~English
+12740~16821~Heart Beatz - Halbert Child Care Site~25 Halbert Pl~Full day/Before/after school~English
+13960~16447~Heart Beatz Child Care - Cliffcrest Site~2938 Eglinton Ave~Full day~English
+17773~11930~Heart Beatz Child Care - Solaris Site (Op: Cliffcrest Community Child Care)~141 Village Green Sq~Full day~English
+14740~17009~Heart Beatz Childcare - Cedarbrook Site~56 Nelson St~Before/after school~English
+8982~874~Heath And Ferndale Child Care Program~23 Ferndale Ave~Full day/Before/after school~English
+21681~11136~Heritage Child Care & Early Learning - Milliken Site~130 Port Royal Trl~Full day~English
+21919~11192~Heritage Child Care And Early Learning Centre~44 Port Royal Trl~Full day/Half day/Before/after school~English
+5360~1599~Hester How Early Learning Centre~100 Queen St~Full day~English
+12195~-9757~Highview Wilson Child Care Centre~22 Highview Ave~Full day/Before/after school~English
+19917~4925~Hillmount Child Care Centre~245 McNicoll Ave~Full day/Half day/Before/after school~English
+11532~13425~Hilltop Day Care Centre Inc.~160 North Bonnington Ave~Full day/Before/after school~English
+13853~10646~Holland Bloorview Kids Rehab (Scarborough Site)~1 Wayne Ave~Half day~English
+10246~-2016~Holland Bloorview Kids Rehab (Play & Learn Nursery)~666 Eglinton Ave~Half day~English
+17085~740~Hollywood All-Stars Child Care Program~360 Hollywood Ave~Full day/Before/after school~English
+8716~337~Hopscotch Montessori Canada~55 St. Clair West Ave~Full day/Half day/Before/after school~English
+5072~-5197~Howard Park Children'S Centre~30 Marmaduke St~Before/after school~English
+12837~-20823~Humber Child Development Centre (Humber College (205 Humber College Blvd.)~205 Humber College Blvd~Full day~English
+6352~-8946~Humbercrest Nursery School~569 Jane St~Half day~English
+5114~-7533~Humberside Montessori School~121 Kennedy Ave~Full day~English
+8646~-12780~Humbervale Montessori School Inc (Facility #15068)~1447 Royal York Rd~Full day~English
+6596~-61~Huron Play School~383 Huron St~Half day~English
+7084~-247~Huron Superfriends Inc.~541 Huron St~Before/after school~English
+2925~-13100~Hydro Bright Lights Child Care Centre~800 Kipling Ave~Full day~English
+5911~879~Hydrokids - Opg~700 University Ave~Full day~English
+12592~76~Weybourne School~54 Lawrence Ave~Full day~English
+4000~-2730~Bonaventure Child Care Centre - (Ideal Child Services Group)~295 Dufferin St~Full day~English
+19669~2530~Pineway Children'S Learning Centre (Ideal Child Services Group)~110 Pineway Blvd~Full day/Before/after school~English
+12793~-4083~Baycrest Child Care Centre~50 Ameer Ave~Full day/Before/after school~English
+15438~-5882~Children Are People - (Ideal Child Services Group)~272 Codsell Ave~Full day/Before/after school~English
+12653~-10288~Tumpane Child Care Centre - (Ideal Child Services Group)~48 Tumpane St~Full day/Before/after school~English
+12642~6495~Ikebata Nursery School~6 Sakura Way~Full day~Other,Japanese
+5268~-3119~Denisa Childcare~1065 College St~Full day~English
+16825~-11806~Impact Childcare Centre~4545 Jane St~Full day~English
+6955~-597~Institute Of Child Study After School Daycare~45 Walmer Rd~Half day/Before/after school~English
+12934~12259~Isabella Walton Childcare Centre (Scarborough) Inc.~835 Birchmount Rd~Full day~English
+2902~-11817~Islington Village Childcare Centre~112 Jutland Rd~Full day~English
+7842~-14756~Itty Bitty Scholars Daycare Inc.~4650 Eglinton Ave~Full day~English
+8488~-12822~Ivy Montessori School Inc.~1428 Royal York Rd~Full day/Half day/Before/after school~English
+8043~4635~Jackman Community Daycare~79 Jackman Ave~Full day/Half day/Before/after school~English
+1652~-11535~Jean Tweed Child Development Centre~215 Evans Ave~Full day~English
+18330~-4607~Jrcc Preschool Day Care~5950 Bathurst St~Full day~English
+11470~15115~John A. Leslie Child Care - Scarborough~459 Midland Ave~Full day/Before/after school~English
+11870~-902~John Ross Robertson Child Centre~130 Glengrove Ave~Full day/Half day/Before/after school~English
+9200~-13237~Jolly Juniors~1500 Royal York Rd~Full day~English
+6137~-7312~Junction Day Care Centre~265 Annette St~Full day/Before/after school~English
+17441~-3759~Tree Of Life Montessori Academy~255 Finch Ave~Full day~English
+18588~6196~Kateri Kids Child Care Centre~70 Margaret Ave~Full day/Half day/Before/after school~English
+5724~-6160~Keelmount Day Care Of Toronto~99 Mountview Ave~Full day/Before/after school~English
+13054~12763~Kenlinton Child Care Centre (Operator: Stonehill) Facility #16008~2283 Eglinton Ave~Full day/Before/after school~English
+12559~13533~Kennedy Road Kiddy Kare - (Kennedy Road Church Of The Nazarene)~661 Kennedy Rd~Full day/Before/after school~English
+5634~-563~Kensington Kids Early Learning Centre~401 College St~Full day/Before/after school~English
+20705~18163~Kepalen Angelic Child Care~1301 Neilson Rd~Full day~English
+6867~9716~Kew Beach Day Care Co-Op Inc.~101 Kippendavie Ave~Full day/Half day/Before/after school~English
+7090~7791~Kew Park Montessori Day School Inc. (Hiawatha Road)~79 Hiawatha Rd~Full day/Before/after school~English
+13791~-19462~Silverstone Learning Centre (Khatau Daya Management Limited)~520 Silverstone Dr~Full day/Before/after school~English
+16442~11241~Kiddies Lodge Daycare Centre~764 Ellesmere Rd~Full day/Before/after school~English
+18016~-1620~Kids & Company - Finch Site~5650 Yonge St~Full day~English
+4425~909~Kids & Company - Front Street Site~320 Front St~Full day~English
+4013~-2224~Kids & Company King And Highline~1100 King St~Full day~English
+17012~6949~Kids & Company Ltd. - Consumers Site~251 Consumers Rd~Full day/Half day~English
+4942~597~Kids & Company Queen West~308 Queen St~Full day~English
+4977~2164~Kids & Company Scotia Plaza~104 Yonge St~Full day~English
+4716~1444~Kids & Company St Andrews~73 Simcoe St~Full day~English
+7164~1704~Kids & Company - Bloor Street Site~160 Bloor St~Full day/Half day~English
+7595~1990~Kids & Company - Rosedale~129 Mt. Pleasant Rd~Full day~English
+4538~-12130~Kids & Company Etobicoke~3250 Bloor St~Full day~English
+6352~-1761~Kids & Company Ltd. - Bloor Christie~703 Bloor St~Full day~English
+7454~-6991~Kids & Company The Stockyards~100 Weston Rd~Full day~English
+3613~-12128~Kids Club Daycare & Learning Centre (Op: Aaa Childrens Inc.)~104 Advance Rd~Full day~English
+19712~3606~Kids Haven Community Child Care (46 Cresthaven Drive)~46 Cresthaven Dr~Full day/Before/after school~English
+4250~-5087~Kids Zone Daycare Inc.~123 Glendale Ave~Full day~English
+4935~-5356~Kids Zone Daycare On Constance~76 Constance St~Full day~English
+4247~1924~Kidz Kare Daycare~15 York St~Full day~English
+19101~16081~Kimbercroft Day Nurseries # 2 (39 Kimbercroft Court)~39 Kimbercroft Crt~Full day/Before/after school~English
+5964~4186~Kinder College Early Learning Centre~25 Nicholas Ave~Full day~English
+12487~8239~Kinderbrook Montessori School~1 Credit Union Dr~Full day~English
+11866~2642~Kindercircle Day Care Inc.~150 Kilgour Rd~Full day~English
+9606~-15412~Kingsview Child Care Inc.~340 Dixon Rd~Full day/Before/after school~English
+5292~-10803~Kingsway Nursery Schools Limited~85 The Kingsway~Half day~English
+14899~15091~Knob Hill Day Nursery~23 Gage Ave~Full day~English
+6248~-256~Kodomoen Childcare Centre~630 Spadina Ave~Full day/Before/after school~Other,Japanese
+21372~7208~Kreative Kids Child Care Centre~100 Bamburgh Cir~Full day/Half day/Before/after school~English
+21581~8108~Kreative Kids Terry Fox~185 Wintermute Blvd~Before/after school~English
+11064~-2790~Score Day Camp~2760 Bathurst St~Half day~English
+13328~-474~Viva Kids Academy~3420 Yonge St~Full day~English
+14744~4517~La Citadelle International Academy Of Arts & Science~36 Scarsdale~Full day/Before/after school~English
+5086~-7561~La Petite Ecole~130 Kennedy Ave~Full day~French
+4666~-15643~Lady Bug Day Care (943241 Ontario Inc.)~400 Burnhamthorpe Rd~Full day/Half day~English
+-507~-12393~Lakeshore Community Childcare Centre~99 Seventh St~Full day/Before/after school~English
+7283~11201~Lakeside Co-Operative Playschool~2226 Queen St~Full day~English
+5856~-10871~Lambton Kingsway Before And After School Program Inc.~525 Prince Edward Dr~Before/after school~English
+6766~-9847~Lambton Park Child Care Centre~50 Bernice Cres~Full day/Before/after school~English
+17493~-974~Lansing Co-Op Nursery School Inc.~80 Church Ave~Full day~English
+12024~-4404~Lawrence Heights Community Day Care Centre~10 Flemington Rd~Full day~English
+2498~-11014~Le Jardin De Molière~866 The Queensway~Full day~French
+-23~-10886~Le Jardin De Molière Inc.~3029 Lake Shore Blvd~Full day~French
+7725~7949~Le Petit Chaperon Rouge - Coxwell~419 Coxwell Ave~Full day~French
+7808~8028~Le Petit Chaperon Rouge - Gainsborough~250 Gainsborough Rd~Full day~French
+7244~6352~Le Petit Chaperon Rouge - Jones~343 Jones Ave~Full day~French
+8744~6954~Le Petit Chaperon Rouge - Queensdale~80 Queensdale Ave~Full day/Before/after school~French
+8889~8487~Le Petit Chaperon Rouge Milverton~700 Milverton Blvd~Full day~French
+17770~24386~Le Petit Chaperon Rouge Scarborough~29 Meadowvale Rd~Full day/Before/after school~French
+7905~-15951~Le Petit Chaperon Rouge - Richview~59 Clement Rd~Full day/Before/after school~French
+3612~-10617~Le Petit Chaperon Rouge D'Etobicoke (Facility #12270)~755 Royal York Rd~Full day/Before/after school~French
+10442~3269~Leaside Children'S House~839 Millwood Rd~Full day/Half day~English
+12743~-2643~Ledbury Park Child Care Program~95 Falkirk St~Full day/Half day/Before/after school~English
+11287~-5730~Leonardo Da Vinci Academy Of Arts & Science~901 Lawrence Ave~Full day~English
+8109~10051~Leroux Froebel Bilingual School~72 Main St~Full day/Half day/Before/after school~English,French
+6804~-2406~Les Bouts D'Choux~98 Essex St~Full day/Half day/Before/after school~French
+-957~-14339~Les Étoiles Brillantes-Garderie~85 Forty First St~Full day/Before/after school~French
+18084~4223~Lescon (North York) Child Care Program Inc. - Lescon Learners~34 Lescon Rd~Full day/Before/after school~English
+5540~3544~Liberty Prep Parliament~162 Parliament St~Full day/Half day/Before/after school~English
+6139~5997~Liberty Preparatory School Inc.~181 Carlaw Ave~Full day~English
+5124~1211~Life-Bridge Child Care~180 Simcoe~Full day~English
+9682~7064~Lily'S House Inc.~1032 Coxwell Ave~Full day~English
+7874~-4325~Little Angels Childcare Learning Centre~1695 Dufferin St~Full day/Half day~English
+8802~12923~Little Bugs Nursery Corporation~1448 Kingston Rd~Full day~English
+5545~-8396~Little Footsteps Childcare Inc.~404 Willard Ave~Full day/Before/after school~English
+17221~5465~Little Giants~38 Forest Manor Rd~Half day/Before/after school~English
+17344~5529~Little Giants Childcare Centre Inc.~50 Forest Manor Rd~Full day/Half day~English
+5566~-8726~Little Learners Academy Inc.~268 Jane St~Full day/Before/after school~English
+14695~-7817~Uptown Montessori School~39 Carl Hall Rd~Full day/Before/after school~English
+9976~1458~Little Tots' Manor 2~376 Balliol St~Full day~English
+10249~1319~Little Tots' Manor Inc. (211 Belsize Drive)~211 Belsize Dr~Full day~English
+6054~3278~Lord Dufferin Community Day Care Centre~350 Parliament St~Before/after school~English
+5446~-2385~Lullaboo Childcare Center (College)~860 College St~Full day~English
+10961~-1065~Lullaboo Nursery And Childcare Center - Avenue Campus~1133 Ave Rd~Full day~English
+12717~-361~Lullaboo Nursery And Childcare Center - Bedford Campus~11 Bedford Park Ave~Full day~English
+7375~11653~Lullaboo Nursery And Childcare Center~2316 Queen St~Full day~English
+9360~-4847~Lycee Francais De Toronto~2327 Dufferin St~Full day~French
+4309~505~Macaulay -The Well~486 Front St~Full day~English
+12826~-21954~Macaulay - Humberwood Child Care Centre~850 Humberwood Blvd~Full day/Before/after school~English
+10308~-4097~Macaulay - Marlee Child Care Centre~145 Marlee Ave~Full day~English
+12390~-11801~Macaulay - St. Andre Child Care Centre~36 Yvonne Ave~Before/after school~English
+14033~-13892~Macaulay - St. Jude Child Care Centre~3251 Weston Rd~Before/after school~English
+14159~-11711~Macaulay - Stanley Child Care Centre~75 Stanley Rd~Full day/Before/after school~English
+13359~-4883~Macaulay - Tippett Child Care Centre~38 Monte Kwinter Crt~Full day~English
+14229~-11276~Macaulay Centres For Chidren- St. Jane Frances~2745 Jane St~Before/after school~English
+9382~-13813~Macaulay-Valleyfield Child Care Centre~35 Saskatoon Dr~Before/after school~English
+6731~-3640~Macaulay - Dovercourt Child Care Centre~228 Bartlett Ave~Full day/Before/after school~English
+8375~-5903~Macaulay - Fh Miller Child Care Centre~300 Caledonia Rd~Before/after school~English
+6509~-9123~Macaulay - Jane Street Child Care Centre~610 Jane St~Full day~English
+8698~-7710~Macaulay - Keelesdale Child Care Centre~200 Bicknell Ave~Full day/Before/after school~English
+6352~-8946~Macaulay - Mountview Child Care Centre~569 Jane St~Before/after school~English
+11219~-11756~Macaulay - Pelmo Park Child Care Centre~180 Gary Dr~Half day/Before/after school~English
+9521~-4607~Macaulay - St. Thomas Aquinas Child Care Centre~636 Glenholme Ave~Before/after school~English
+10315~-12036~Macaulay - St. John The Evangelist Child Care Centre~23 George St~Full day/Before/after school~English
+8193~-5999~Macaulay - St. Nicholas Of Bari Child Care Centre~363 Rogers Rd~Before/after school~English
+7391~-5779~Macaulay - St. Paul Vi Child Care Centre~270 Laughton Ave~Full day/Before/after school~English
+6317~-9929~Macaulay - Warren Park Child Care Centre~135 Varsity Rd~Full day/Half day/Before/after school~English
+10235~-12071~Macaulay- Hj Alexander Child Care Centre~30 King St~Half day/Before/after school~English
+6883~-9093~Macaulay-George Syme Child Care Centre~69 Pritchard Ave~Full day/Before/after school~English
+17627~22664~Beechgrove Sunshine Child Care Centre (Mackie Sunshine Child Care Centre)~4679 Kingston Rd~Full day/Before/after school~English
+11928~16941~Fairmount Sunshine Child Care Centre (Mackie Sunshine Child Care Centre)~31 Sloley Rd~Full day/Half day/Before/after school~English
+6582~6804~Mackie Sunshine Child Care Inc. - St. Joseph'S Sunshine~176 Leslie St~Full day/Before/after school~English
+7305~11032~Mackie Sunshine Childcare Inc. - St. Denis Sunshine~67 Balsam Ave~Before/after school~English
+13795~19373~Simcoe Sunshine Child Care Centre (166 Sylvan Avenue)~166 Sylvan Ave~Full day/Half day/Before/after school~English
+14000~18792~Sunshine Child Care Centre (Mackie Sunshine Child Care Inc) - 60 Heathfield~60 Heathfield Dr~Before/after school~English
+4701~-4812~Mackie Sunshine Childcare Inc. - St. Vincent Sunshine~116 Fermanagh Ave~Full day/Half day/Before/after school~English
+8762~10012~Main Square Day Care Centre~265 Main St~Full day/Before/after school~English
+11953~-16569~Mandi Day Care~30 Barrhead Cres~Full day/Before/after school~English
+11159~886~Manor Montessori School~909 Mount Pleasant Rd~Full day/Half day~English
+11164~896~Manor Montessori School~9 Elvina Gdns~Full day/Half day~English
+10310~1021~Manor Montessori School Inc. - 14 De Savery Crescent~14 De Savery Cres~Full day/Half day~English
+8685~-2811~Maplewood Before And After Care Program~15 Cherrywood Ave~Before/after school~English
+11737~3698~Maria Montessori School Young Children'S Community~125 Brentcliffe Rd~Full day/Half day~English
+8352~-2138~Kinder Grove St. Clair~94 Vaughan Rd~Full day~English
+1533~-8800~Martin Luther Child Care (Lakeshore)~2379 Lake Shore Blvd W~Full day/Before/after school~English
+1495~-8763~Martin Luther Child Care (Superior)~5 Superior Ave~Full day~English
+6541~5283~Matthew-John Early Learning Centre~135 First Ave~Full day/Before/after school~English
+10527~2192~Maurice Cody Child Care~364 Belsize Dr~Full day/Before/after school~English
+17402~-1098~Mckee Mckids Enrichment Centre (Operator: Mckee Mckids Inc.)~35 Church Ave~Full day/Half day/Before/after school~English
+7815~-3058~Mcmurrich Co-Operative Playschool Inc.~115 Winona Dr~Half day~English
+7815~-3058~Mcmurrich Sprouts Day Care Centre~115 Winona Dr~Full day/Before/after school~English
+19942~4292~Mcnicoll Avenue Child Care Program~155 McNicoll Ave~Full day~English
+20228~22836~John G Diefenbaker Child Care Centre~70 Dean Park Rd~Half day/Before/after school~English
+19539~23591~Meadowvale Daycare Centre~761 Meadowvale Rd~Full day~English
+5233~-2519~The Orchard Montessori School~375 Dovercourt Rd~Full day/Half day~English
+22497~10280~Midland Child Care Centre - Chung Wah Tao Tak Tong (Ontario) Corporation~4220 Midland Ave~Full day~English
+13417~13719~Rainbow Village Childcare Centre (Mid-Scarborough Child Care)~2460 Eglinton Ave~Full day/Before/after school~English
+4866~-5740~High Park Gardens Montessori School~35 High Park Gdns~Full day/Half day/Before/after school~English
+6856~-423~Taddle Creek Montessori School~39 Spadina Rd~Full day/Half day/Before/after school~English
+1624~-10776~The Mildenhall School~35 Ourland Ave~Full day/Half day/Before/after school~English
+6620~-419~Miles Nadal Community Centre Nursery School / The Libbie Cowan Childcare Centre~750 Spadina Ave~Full day~English
+16313~19213~Future Stars Child Care Centre (Mini World Ltd)~3895 Lawrence Ave~Full day/Before/after school~English
+16521~19459~Sandbox Day Care (Mini World Ltd)~15 Orton Park Rd~Full day~English
+12990~13283~The Birds And The Bees Day Care (Mini World Ltd)~720 Kennedy Rd~Full day/Before/after school~English
+13257~-504~North Yonge Child Care~27 Melrose Ave~Full day~English
+13255~-497~North Yonge Child Care 2~25 Melrose Ave~Full day/Half day~English
+15320~4900~Miracle Montessori School Inc~20 Upjohn Rd~Full day~English
+16091~4859~Bayview Glen~275 Duncan Mill Rd~Full day/Half day~English
+6029~3703~Momentum Montessori~237 Sackville St~Full day~English
+8540~7191~Monarch Park Montessori Inc.~201 Monarch Park Ave~Full day~English
+10405~5256~Montessori Education Centre~16 Thorncliffe Park Dr~Full day~English
+8931~734~Montessori For Children (St. Clair) Inc.~25 Alvin Ave~Full day/Half day~English
+14901~-4004~Montessori Jewish Day School~55 Yeomans Rd~Full day/Half day~English,Hebrew
+11111~-6719~Montessori Start Inc.~1195 Lawrence Ave~Full day~English
+18878~16007~Montessori Villa Wisdom Inc.~231 Milner Ave~Full day/Half day/Before/after school~English,French
+5869~-1841~Montrose Child Care Centre Inc.~301 Montrose Ave~Full day/Before/after school~English
+2357~-8345~Tiny Hoppers Park Lawn~20 Park Lawn Rd~Full day/Before/after school~English
+15231~-5067~Moshava Ba'Ir Day Camp Of Toronto- Preschool~819 Sheppard Ave~Full day/Half day~English
+20948~18481~Mother Of Compassion Child Care Centre~40 Sewells Rd~Full day~English
+14190~14973~Little Munchkins Academy~1 Graylee Ave~Full day/Half day/Before/after school~English
+2977~-8823~Munchkinz Preschool Inc. (2193117 Ontario Inc.)~260 The Queensway~Full day~English
+4701~-4812~My School Co-Operative Nursery Inc.~116 Fermanagh Ave~Half day~English
+16243~20494~Native Child And Family Services - 156 Galloway~156 Galloway Rd~Full day~English
+6127~1560~Shaawnaong Aboriginal Head Start~30 College St~Half day~English,Other,Ojibwa
+15901~20878~Waabanong Aboriginal Head Start~20 Waldock St~Half day~English
+9213~-4331~Aboriginal Head Start- Epnigishmok~20 Bansley Ave~Half day~English
+8894~-9570~Kiiwednong Aboriginal Head Start~1288 Weston Rd~Half day~English
+11311~-2703~Netivot Hatorah - South Campus~470 Glencairn Ave~Full day~English
+15326~7952~Annunciation~65 Avonwick Gate~Before/after school~English
+15480~14809~Bendale Acres Child Care Centre~2920 Lawrence Ave~Full day~English
+15990~-1277~Lansing Child Care Centre~49 Bogert Ave~Full day~English
+8949~5273~Network Child Care - Child'S Nest Early Years And Child Care Centre -123 Cosburn~123 Cosburn Ave~Full day~English
+8948~5261~Network Child Care Services - Child'S Nest Early Learning And Child Care Centre~121 Cosburn Ave~Full day~English
+9010~5934~Network Child Care Services - Holy Cross~299 Donlands Ave~Before/after school~English
+3969~-1137~Network Child Care Services - Liberty Village Child Care Centre~21 Western Battery Rd~Full day~English
+8133~6214~Network Child Care Services - Metamorphosis Child Care Centre~40 Donlands Ave~Full day~English
+19703~9076~Network Child Care Services - St. Aidan Early Learning Centre~3521 Finch Ave~Full day~English
+16730~14502~Network Child Care Services - St. Andrews Before And After School Program~60 Brimorton Dr~Before/after school~English
+18917~12878~Network Child Care Services - St. Bartholomew Child Care Centre~51 Heather Rd~Full day/Before/after school~English
+21296~17317~Network Child Care Services - St. Gabriel Lalemant Early Learning Centre~160 Crow Trl~Full day/Half day~English
+12982~13416~Network Child Care Services-St. Maria Goretti~21 Kenmark Blvd~Before/after school~English
+12420~16998~St Agatha Catholic Before & After School Program~49 Cathedral Bluffs Dr~Before/after school~English
+20574~6399~St Nicholas Child Care Centre~1020 McNicoll Ave~Full day~English
+16955~14067~St Victor~20 Bernadine St~Before/after school~English
+11611~-5428~Dane Avenue Child Care Centre~120 Via Bagnato~Full day~English
+13385~-2301~Network Child Care Services - Bannockburn Before And After School Program~12 Bannockburn Ave~Before/after school~English,French
+8864~-10344~Jubilee Child Care Centre~55 Emmett Ave~Full day~English
+5464~924~Network Child Care Services - Children'S Gallery Child Care Centre~292 Dundas St~Full day~English
+8511~-7270~Network Child Care Services - Just Kids Child Care Centre~1695 Keele St~Full day~English
+6163~-2588~Network Child Care Services - Ossington Avenue North~756 Ossington Ave~Full day~English
+6174~-2577~Network Child Care Services - Ossington Avenue South~720 Ossington Ave~Full day~English
+5942~-4333~Network Child Care Services - Wade Avenue Centre~544 Lansdowne Ave~Full day~English
+-547~-10526~New Toronto Nursery Co-Operative Inc.~153 Lake Shore Dr~Half day~English
+18676~860~Blessed Trinity After School Club - (North York Little Prints Daycare)~3205 Bayview Ave~Full day/Before/after school~English
+14458~-470~North York Little Prints Daycare (York Mills)~20 York Mills Rd~Full day~English
+17710~-1680~St. Cyril'S B&A School Program - (North York Little Prints Daycare)~18 Kempford Blvd~Half day/Before/after school~English
+6024~-14474~St. Gregory'S Before And After School Club (North York Little Prints)~126 Rathburn Rd~Before/after school~English
+5161~-2094~Pope Francis (North York Little Prints Daycare)~319 Ossington Ave~Before/after school~English
+11458~3089~Northlea Community Child Care~305 Rumsey Rd~Full day/Half day/Before/after school~English
+17089~-4609~Northview Advent Child Care~541 Finch Ave~Full day~English
+17452~-4548~Northview Heights Early Learning Centre - North York~550 Finch Ave~Full day~English
+15865~-17122~Northwest Childhood Learning Centre Inc.~2978 Islington Ave~Full day~English
+18567~21189~N'Sheemaehn: The Scarborough Campus Child Care Centre~1255 Military Trl~Full day~English
+14648~18490~N.Y.A.D. - Cedar Drive~21 Gatesview Ave~Before/after school~English
+13933~17458~N.Y.A.D. - Mason Road~78 Mason Rd~Before/after school~English
+12687~13781~Nyad - Corvette~30 Corvette Ave~Full day/Before/after school~English
+15691~13741~Nyad - Donwood Inc.~61 Dorcot Ave~Full day/Before/after school~English
+15110~20080~Nyad - Guildwood~225 Livingston Rd~Full day/Before/after school~English
+12810~14232~Nyad - Midland~720 Midland Ave~Full day~English
+14356~17784~Nyad - Scarborough Village (15 Luella Street)~15 Luella St~Full day/Before/after school~English
+7815~-3058~Oakwood Children'S House~115 Winona Dr~Full day~English
+7061~-2134~Odyssey Montessori School~256 Christie St~Full day/Before/after school~English
+4351~-4286~Odyssey Montessori School Incorporated~136 Sorauren Ave~Full day~English
+4996~453~Ogden Day Care Centre~33 Phoebe St~Full day/Before/after school~English
+5364~-5191~Ola Day Care Inc.~2211 Dundas St~Full day~English
+13430~-916~Orchard Grove Nursery Inc~100 Old Orchard Grove~Full day/Half day/Before/after school~English
+5384~961~Orde Day Care Satellite (St. Patrick Street)~132 St. Patrick St~Full day~English
+5854~795~Orde Day Care Centre (Orde Street)~18 Orde St~Full day/Half day/Before/after school~English
+9030~425~Oriole Nursery School~1570 Yonge St~Half day~English
+14892~738~Owen Community Learning Centre - North York~111 Owen Blvd~Full day/Before/after school~English
+6840~-1574~Palmerston Community Daycare~734 Palmerston Ave~Full day/Half day/Before/after school~English
+7789~6048~Pape Children'S House~540 Jones Ave~Full day/Before/after school~English
+3538~-8962~Humber Bay Child Care Centre (Park Lawn Preschool Inc.)~50 Cloverhill Rd~Full day/Before/after school~English
+3787~-9638~Park Lawn Preschool Inc.~71 Ballacaine Dr~Full day/Before/after school~English
+3437~-9050~Plp Early Learning Centre At St. Mark (Op: Park Lawn Preschool Inc.)~45 Cloverhill Rd~Full day/Before/after school~English
+7448~4008~Pat Schulz Child Care Centre~1 Danforth Ave~Full day~English
+16872~2420~Ethennonnhawahstihnen Childcare Centre~100 Ethennonnhawahstihnen Lane~Full day~English
+19247~1226~Petit Pearson Child Care - North York~7 Snowcrest Ave~Full day/Half day/Before/after school~English,French
+19097~4984~Phoenix Child Centre~625 Seneca Hill Dr~Half day/Before/after school~English
+9839~8024~Plains Road Child Care Inc.~520 Plains Rd~Full day/Before/after school~English
+9370~3089~Plasp Bennington Heights Elementary School~76 Bennington Heights Dr~Before/after school~English
+11993~1006~Plasp Blythwood Junior Public School~2 Strathgowan Cres~Before/after school~English
+18449~4052~Plasp Divine Mercy C.S.~101 Van Horne Ave~Full day/Before/after school~English
+17943~10772~Plasp Inglewood Heights Junior Public School~45 Dempster St~Half day/Before/after school~English
+18949~8163~Plasp North Bridlewood Junior Public School~50 Collingsbrook Blvd~Half day/Before/after school~English
+19896~-270~Plasp St. Agnes - Toronto~280 Otonabee Ave~Before/after school~English
+14383~13915~Plasp St. Albert Catholic School~1125 Midland Ave~Before/after school~English
+17770~-2967~Plasp St. Antoine Daniel~160 Finch Ave~Before/after school~English
+16294~7815~Plasp St. Isaac Jogues C.S. - Tor~1330 York Mills Rd~Before/after school~English
+14910~12015~Plasp St. Lawrence C.S.~2216 Lawrence Ave~Before/after school~English
+20239~1426~Plasp Steelesview Public School~105 Bestview Dr~Before/after school~English
+8545~-12695~Plasp All Saints Catholic School~1435 Royal York Rd~Before/after school~English
+12763~-393~Plasp Blessed Sacrament C.S.~24 Bedford Park~Before/after school~English
+8611~-13673~Plasp Father Serra Catholic School~111 Sun Row Dr~Before/after school~English
+6541~-12650~Plasp Humber Valley Village Junior Middle School~65 Hartfield Rd~Before/after school~English
+9779~-15050~Plasp Kingsview Village Junior School~1 York Rd~Half day/Before/after school~English
+6244~-18469~Plasp Mother Cabrini Catholic Schoool~720 Renforth Dr~Before/after school~English
+5307~-17552~Plasp Nativity Of Our Lord Catholic School~35 Saffron Cres~Before/after school~English
+8199~-16954~Plasp Parkfield Junior School~31 Redgrave Dr~Before/after school~English
+3225~-17381~Plasp St. Clement Catholic School~4319 Bloor St~Full day/Before/after school~English
+12973~-9357~Plasp St. Conrad Catholic School~5 Exbury Rd~Half day/Before/after school~English
+9251~-13758~Plasp St. Eugene Catholic School~30 Westroyal Rd~Before/after school~English
+13583~-2652~Plasp St. Margaret C.S.~85 Carmichael Ave~Before/after school~English
+13417~-6442~Plasp St. Norbert Catholic School~60 Maniza Rd~Before/after school~English
+11887~-13296~Plasp St. Simon C.S.~24 Strathburn Blvd~Before/after school~English
+10693~-4484~Plasp Sts. Cosmas And Damian C.S.~111 Danesbury Ave~Before/after school~English
+14127~-2950~Plasp Summit Heights P.S.~139 Armour Blvd~Before/after school~English
+9131~-16295~Plasp Transfiguration Of Our Lord Catholic School~55 Ludstone Dr~Before/after school~English
+1933~-8896~Plasp David Hornell Junior School~32 Victoria St~Before/after school~English
+2805~-11762~Plasp Holy Angels C.S.~65 Jutland Rd~Full day/Before/after school~English
+4731~-12811~Plasp Islington Junior Middle School~44 Cordova Ave~Before/after school~English
+6110~-8543~Plasp James Culnan Catholic School~605 Willard Ave~Before/after school~English
+-602~-13049~Plasp James S Bell Junior Middle School~90 Thirty-First St~Before/after school~English
+976~-14450~Plasp Lanor Junior Middle School~450 Lanor Ave~Before/after school~English
+6266~-3923~Plasp Pauline Jr. P.S.~100 Pauline Ave~Before/after school~English
+6074~-7454~Plasp St. Cecilia Catholic School~355 Annette St~Before/after school~English
+-536~-13836~Plasp St. Elizabeth C.S. - Temporary~3672 Lake Shore Blvd W~Before/after school~English
+3461~-15753~Plasp St. Elizabeth Catholic School~5 Redcar Ave~Before/after school~English
+2598~-10078~Plasp St. Louis C.S.~11 Morgan Ave~Before/after school~English
+5098~-8471~Plasp St. Pius X Catholic School~71 Jane St~Before/after school~English
+-162~-12002~Plasp Twentieth Street Junior School~3190 Lake Shore Blvd W~Before/after school~English
+5418~-6513~High Park Early Learning Centre (Op: Plato Adult Education Centre)~17 High Park Ave~Full day~English
+6064~2590~Gerrard Early Learning Centre (Plato Adult Education Centre Of Toronto)~163 Gerrard St~Full day/Half day~English
+18381~-2676~Play And Grow Child Care Centre~227 Drewry Ave~Before/after school~English
+13351~6213~Playhouse Child Care Centre Inc. (15 Greenland Rd.)~15 Greenland Rd~Full day/Before/after school~English
+18287~-7035~Playland Ltd - Daycare Centre~5050 Dufferin St~Full day/Half day/Before/after school~English
+7844~5345~Play Loft~583 Danforth Ave~Full day/Half day/Before/after school~English
+18999~-3461~Pleasant Child Care Of North York Inc.~288 Pleasant Ave~Full day/Before/after school~English
+19216~-3094~St. Paschal Baylon Child Care Centre (Pleasant Child Care Of North York Inc.)~15 St. Paschal Crt~Full day/Half day~English
+11324~9505~Precious Ones Bilingual Preschool Corp.~233 Westview Blvd~Full day~English,French
+11173~6833~Pride In Heritage Children'S Centre - North York~55 Gateway Blvd~Full day/Before/after school~English
+4906~-10506~Prince Edward Montessori School Inc.~2850 Bloor St~Full day~English
+7259~-14128~Princess Margaret Nursery School (Etobicoke)~70 Princess Anne Cres~Half day~English
+7103~-15941~Princess Margaret School-Age Child Care Program~65 Tromley Dr~Before/after school~English
+9853~-10194~Prodigy Learning Centre Inc.~1545 Jane St~Full day~English
+16869~11724~Progress Childcare (Scarborough Inc. #1) (3 Glamorgan)~3 Glamorgan Ave~Full day~English
+16282~-4167~Prosserman Jcc - Daycare And Preschool~4588 Bathurst St~Full day/Half day~English
+10718~1581~Purple Tree Child Care Inc.~384 Soudan Ave~Full day/Half day/Before/after school~English
+3853~-3468~Holy Family Childcare Centre (Op: Queen Victoria)~141 Close Ave~Before/after school~English
+3615~-3460~Queen Victoria Childcare Centre (Formerly Parkdale Beach Childcare Centre)~100 Close Ave~Full day/Before/after school~English
+6103~1049~Queen'S Park Child Care Centre~7 Queen's Park Cres~Full day~English
+15238~7685~Ranchdale Rompers Day Care Incorporated~60 Ranchdale Cres~Full day/Before/after school~English
+12750~-6~Ranleigh Rascals Day Care Centre~81 Ranleigh Ave~Full day/Half day/Before/after school~English
+10825~6543~Red Apple Day Care (Overlea)~135 Overlea Blvd~Full day~English
+11259~7034~Red Apple Day Care (Overlea) Early Learning Program~175 Grenoble Dr~Full day/Before/after school~English
+20429~20986~Red Apple Day Care--Rouge Valley~8450 Sheppard Ave~Full day~English
+11114~-6422~Rejoyce Caledon Community Child Care~26 Joyce Pkwy~Full day/Half day/Before/after school~English
+17692~4541~Rendezvous Child Care Centre~18 Dallington Dr~Full day/Half day/Before/after school~English
+13545~-16253~Rexdale Day Nursery (925 Albion)~925 Albion Rd~Full day/Half day/Before/after school~English
+264~-14611~Rhyme & Reason Day Care~474 Browns Line~Full day/Before/after school~English
+13359~-1986~Ridley Orchard~1920 Ave Rd~Full day/Half day/Before/after school~English
+14109~4100~Rippleton Roadsters Child Care Program~21 Rippleton Rd~Full day/Before/after school~English
+13284~4348~Rippleton Roadsters Satellite Program~1340 Leslie St~Before/after school~English
+7121~5852~Riverdale Learning Loft Inc.~433 Pape Ave~Full day~English
+9554~-2424~Robbins Hebrew Academy~1700 Bathurst St~Full day~English
+7342~7713~Roden Community Child Care Centre~151 Hiawatha Rd~Full day/Before/after school~English
+11099~3606~Leaside Day Care Centre (Rolph Road Day Care)~206 Laird Dr~Full day~English
+10535~2827~Leaside Day Care Centre (St. Anselm)~182 Bessborough Dr~Half day/Before/after school~English
+10017~3439~Rolph Road Day Care (31 Rolph)~31 Rolph Rd~Full day/Before/after school~English
+8309~-2029~St. Alphonsus Day Care Centre/Roman Catholic Episcopal Corp.~540 St. Clair Ave~Full day/Half day/Before/after school~English
+15559~15148~Rosalie Hall Early Learning And Child Care Centre~3020 Lawrence Ave~Full day~English
+7858~1956~Rosedale Moore Park Association/Mooredale Preschool - Coach House~146 Cres Rd~Full day/Half day~English
+7858~1956~Rosedale Moore Park Association/Mooredale Preschool - Main House~146 Cres Rd~Half day~English
+5951~-13994~Rosethorn Before And After School Program~2 Remington Dr~Before/after school~English
+9864~-11062~Royal Day Care Weston Inc.~1737 Weston Rd~Full day/Before/after school~English
+655~-9471~The Mint School - Mimico~74 Royal York Rd~Full day/Before/after school~English
+4274~-10881~Royal York Road School~851 Royal York Rd~Half day/Before/after school~English
+16485~7799~Roywood Child Care North York, Inc.~11 Roywood Dr~Full day/Before/after school~English
+5580~-7738~Runnymede Adventure Club~357 Runnymede Rd~Before/after school~English
+5424~-7785~Stepping Stones Montessori School (S.S. Day Nursery Limited)~342 Runnymede Rd~Full day~English
+5929~-16570~Sadochok Preschool Centre (West Deane Park)~35 West Deane Park Dr~Full day/Before/after school~English,Other,Ukrainian
+15845~-11650~San Romanoway Boys And Girls Club~10 San Romanoway~Before/after school~English
+11236~-3566~Gan Sameach~585 Glengrove Ave~Half day~English
+14174~18214~Scarborough Village Day Nurseries # 2 (155 Markham Road)~155 Markham Rd~Full day/Before/after school~English
+14470~18123~Scarborough Village Day Nursery # 1 (215 Markham Road)~215 Markham Rd~Full day/Before/after school~English
+10861~9402~Selwyn Community Child Care Centre~1 Selwyn Ave~Full day/Before/after school~English
+17018~4828~Shaughnessy Children'S Centre~30 Shaughnessy Blvd~Full day/Before/after school~English
+18618~-5239~Rockford Child Care (Shaughnessy Blvd. Children'S Centre Inc.)~60 Rockford Rd~Full day/Before/after school~English
+8330~-14512~Silver Creek Pre-School (Silver Creek Centre For Early Learning & Development)~65 Hartsdale Dr~Half day~English
+16159~-8954~Simple Learners Early Learning Academy And Childcare Centre Inc.~3905 Keele St~Full day~English
+14239~13899~Small World Big Dreams Child Care Centre Inc.~1085 Midland Ave~Full day~English
+19568~10614~Smart Start Montessori School (1416786 Ontario Limited)~2660 Kennedy Rd~Full day~English
+1120~-13358~Sonechko Daycare Incorporated~301 Lanor Ave~Full day~English
+7143~-1577~St. Alban'S Boys And Girls Club Preschool~843 Palmerston Ave~Full day/Half day~English
+5860~3573~St. Bartholomew'S Children'S Centre, Regent Park Inc.~38 Regent St~Before/after school~English
+21793~19365~St. Bede Child Care Centre~521 Sewells Rd~Full day/Before/after school~English
+9213~-4331~St. Bernadette'S Family Resource Centre (Metropolitan Toronto) Inc.~20 Bansley Ave~Full day/Before/after school~Other,English,Filipino,Italian,Portuguese
+11724~14910~St. Crispin'S Day Care Centre~530 Midland Ave~Full day/Before/after school~English
+14721~5098~St. George Mini School~25 Mallard Rd~Full day~English
+14761~5091~St. George Mini School - Mallard~33 Mallard Rd~Full day~English
+14563~5272~St. George Mini School Inc.~141 Bond Ave~Full day~English
+7259~-14128~St. George'S School Age Child Care Programme (Facility #11987)~70 Princess Anne Cres~Before/after school~English
+4783~3428~St. Lawrence Co-Operative Day Care (2 Princess Street)~2 Princess St~Full day~English
+4965~3477~St. Lawrence Co-Operative Day Care School Age (230 The Esplanade)~230 The Esplanade~Full day/Before/after school~English
+4771~2828~St. Lawrence Infant Toddler Centre (4 Market Street)~4 Market St~Full day~English
+13334~6060~St. Mark'S Day Care Centre (1 Greenland Rd)~1 Greenland Rd~Full day/Half day/Before/after school~English
+8187~-2294~St. Michael And All Angels Day Care Centre~611 St. Clair Ave~Full day~English
+13562~-12913~Head Start Montessori School~2235 Sheppard Ave~Full day/Before/after school~English
+12011~-6001~Start Right Child Care Centre~38 Orfus Rd~Full day~English
+15107~-9319~Stilecroft Superkids Child Care Program~50 Stilecroft Dr~Full day/Before/after school~English
+4783~531~Studio 1, 2, 3 Early Learning Centre~401 Richmond St~Full day~English
+18129~-6831~Sunburst Children'S Centre Inc.~4905 Dufferin St~Full day~English
+3696~-3336~Sunflower House Childcare Centre~162 Dunn Ave~Full day~English
+9402~-4161~La Maison Du Dodo~582 Oakwood Ave~Full day~English,French
+12315~-17329~Sunny Faces Day Care Centre - St. Benedict Site~2202 Kipling Ave~Before/after school~English
+12934~-16986~Sunny Faces Day Care Centre Inc.~30 Harefield Dr~Full day/Before/after school~English
+12275~2446~Sunnybrook Creche~2075 Bayview Ave~Full day~English
+4227~-10663~Sunnylea Child Care Centre~35 Glenroy Ave~Full day/Before/after school~English
+4978~-12251~Sunnylea Cooperative Nursery School~86 Montgomery Rd~Half day~English
+6053~-6276~Sunnyside - Keele~236 Keele St~Full day~English
+4636~-5045~Sunnyside Day Care - Roncesvalles~10 High Park Blvd~Full day~English
+4305~-4912~Sunnyside Garden Daycare Centre~225 Garden Ave~Full day/Before/after school~English
+5715~-4736~The Candy Factory Of Swallows Day Care Inc. (Op: Swallows Day Care Inc.)~1411 Bloor St~Full day~English
+6315~-2970~Bloorcourt Village Early Learning Centre~823 Dovercourt Rd~Full day/Before/after school~English
+4325~-7652~Swansea Kids' Place~207 Windermere Ave~Before/after school~English
+8829~11922~Teach Me To Fly Preschool Inc. (Op: Carole Adriaans)~2560 Gerrard St~Full day~English
+5939~-6739~Teddy Bear Academy (Op: Mvg Ventures Ltd.)~167 High Park Ave~Full day~English
+13961~-2572~Temple Sinai Nursery School~210 Wilson Ave~Full day/Half day~English
+3822~-16637~Terry Tan Child Care (Rossburn) Facility #4450~15 Rossburn Dr~Full day/Before/after school~English
+3462~-16885~Terry Tan Child Centre (Bloordale)~4258 Bloor St~Full day/Before/after school~English
+4355~-16533~The Alderbuds Child Care Centre Of Etobicoke~399 The West Mall~Full day~English
+8064~-13839~The Castle Child Care Centre~4480 Eglinton Ave~Full day~English
+12290~-3079~The Clover School~3180 Bathurst St~Full day/Before/after school~English
+6284~-7214~The Clover School - High Park~411 Clendenan Ave~Full day/Half day/Before/after school~English
+6263~-7162~The Clover School - High Park Annette Campus~250 Annette St~Full day~English
+8101~6298~The Creative Preschool Of East Toronto~49 Donlands Ave~Before/after school~English
+7267~11454~The Creative Preschool Of East Toronto - St. Aidan'S In The Beach~2423 Queen St~Half day/Before/after school~English
+11192~213~The French Connection At John Fisher Inc.~40 Erskine Ave~Full day/Half day/Before/after school~English
+15031~4412~The Giles School~80 Scarsdale Rd~Full day~English
+20408~9075~Agincourt Temple Day Care (Governing Council Of The Salvation Army)~3080 Birchmount Rd~Full day/Before/after school~English
+14519~10510~Scarborough Citadel Child Care~2021 Lawrence Ave~Full day~English
+6523~3190~Buds And Blossoms~517 Parliament St~Half day/Before/after school~English
+18540~14315~Immanuel Day Care Centre~21 Channel Nine Crt~Full day~English
+12883~-1261~The John Wanless Child Care Program~245 Fairlawn Ave~Full day/Half day/Before/after school~English
+14153~1656~The Junior Academy~2454 Bayview Ave~Full day/Half day/Before/after school~English
+15164~5038~The Laurel School~44 Upjohn Rd~Full day/Half day~English
+11643~10354~Clairlea Child Care Centre~25 Rosalind Cres~Before/after school~English
+14507~-18141~Lef - St. Andrew Child Care Centre~2533 Kipling Ave~Full day/Before/after school~English
+13140~-19200~Lef - St. Dorothy Child Care Centre~155 John Garland Blvd~Full day/Before/after school~English
+15376~-16669~Lef - St. Roch Child Care Centre~174 Duncanwoods Dr~Full day/Before/after school~English
+7940~-15411~St. Marcellus Early Learning Centre~15 Denfield St~Full day/Before/after school~English
+9786~-15361~St. Maurice Child Care Centre~45 Kingsview Blvd~Full day~English
+12162~-15424~St. Stephen Child Care Centre~55 Golfdown Dr~Full day~English
+7274~-6015~Carleton Village Early Learning Centre~315 Osler St~Full day/Before/after school~English
+7947~-6425~General Mercer Early Learning Centre~30 Turnberry Ave~Full day~English
+9384~-9371~Lef - Donald C. Macdonald Child Care Centre~116 Industry St~Full day/Half day~English
+9161~-5537~Lef - Fairbank Memorial Day Care Centre~555 Harvie Ave~Full day/Before/after school~English
+8453~-7376~Lef - George Harvey Child Care Centre~1700 Keele St~Full day~English
+8685~-2811~Lef - Humewood Day Care Centre~15 Cherrywood Ave~Full day/Half day/Before/after school~English
+9771~-7785~Lef - Immaculate Conception Child Care Centre~23 Comay Rd~Full day/Half day/Before/after school~English
+9458~-3626~Lef - J. R. Wilcox Day Care Centre~231 Ava Rd~Full day/Before/after school~English
+6306~-8675~Lef - King George Before And After School Care Program (Licence #773)~25 Rexford Rd~Before/after school~English
+6279~-5271~Lef - Perth Avenue Early Learning Centre~14 Ruskin Ave~Full day/Before/after school~English
+8394~-3958~Lef - Rawlinson Before And After School Care Program (Licence #786)~231 Glenholme Ave~Before/after school~English
+8047~-8000~Lef - Romero Bears Child Care Centre~99 Humber Blvd~Full day~English
+8175~-9919~Lef - Roseland Day Care~990 Jane St~Full day/Before/after school~English
+8992~-7828~Lef - Silverthorn Early Learning Earth Centre~2700 Eglinton Ave~Full day~English
+9083~-3704~Lef - Vaughan Road Infant And Toddler Centre~529 Vaughan Rd~Full day/Half day~English
+10611~-10910~Lef - Weston Memorial Before And After School Care Program~200 John St~Before/after school~English
+8847~-10639~Lef - York Humber Child Care Centre~100 Emmett Ave~Full day~English
+11805~-9461~St. Fidelis Child Care Centre~155 Falstaff Ave~Full day/Before/after school~English
+16023~-1570~The Learning Nest Academy~95 Sheppard Ave~Full day~English
+6650~-6691~The Learning Nest Academy~51 Vine Ave~Full day~English
+2852~-10272~The Little Campus~48 Rosemeade Ave~Full day~English
+5250~-7713~The Montessori Schoolhouse~290 Runnymede Rd~Full day~English
+19856~-1043~The Munchkin Manor Daycare & Early Learning Centre~1087 Lillian St~Full day~English
+7180~2621~The Munchkin Manor Early Learning Centre~525 Bloor St~Full day~English
+6052~3112~Central Neighbourhood House~349 Ontario St~Full day~English
+3971~517~The Neighbourhood Group Canoe Landing Before And After Program~20 Brunel Crt~Before/after school~English
+3936~569~The Neighbourhood Group Canoe Landing Child Care~26 Brunel Crt~Full day~English
+3556~107~The Neighbourhood Group Harbourfront Child Care~650 Queens Quay~Full day~English
+6593~2507~The Neighbourhood Group Our Lady Of Lourdes~444 Sherbourne St~Before/after school~English
+3588~287~The Neighbourhood Group Waterfront Child Care Centre~635 Queens Quay~Full day/Before/after school~English
+16208~-1007~The Neighbourhood Group Yonge And Sheppard Child Care Centre~30 Sheppard Ave~Full day~English
+6589~2924~Winchester Site Day Care (Central Neighbourhood House)~15 Prospect St~Full day/Before/after school~English
+13127~-8212~The Neighbourhood Group Downsview Child Care~2829 Keele St~Before/after school~English
+5630~-364~The Neighbourhood Group Bellevue Child Care~91 Bellevue Ave~Full day~English
+5804~-760~The Neighbourhood Group King Edward Child Care~112 Lippincott St~Full day/Before/after school~English
+5875~-158~The Neighbourhood Group Lord Lansdowne Child Care~33 Robert St~Before/after school~English
+1299~-9368~The Phoenix Montessori School Inc.~2 Station Rd~Full day/Half day/Before/after school~English
+1335~-9649~The Rec Room Before & After School Program - (1469615 Ontario Ltd.)~255 Royal York Rd~Full day/Half day/Before/after school~English,Other,FILIPINO,JAPANESE,KOREAN,RUSSIAN,SPANISH,UKRAINIAN
+11437~9355~The Scott Mission Child Care Centre~1550 O'Connor Dr~Full day~English
+8769~1641~Garfield Avenue Children'S Circle (Op: The South Drive Children'S Circle)~1 Garfield Ave~Before/after school~English
+7753~1848~The South Drive Children'S Circle~22 South Dr~Full day/Half day/Before/after school~English
+16978~13803~The Squirrels' Nest Child Care Centre~1305 Ellesmere Rd~Full day~English
+17044~15225~The Squirrels' Nest Child Care Centre - North Bendale~29 Aveline Cres~Before/after school~English
+15029~-7011~Toronto Military Family Resource Centre~5 Yukon Lane~Full day/Half day~English
+5430~-5208~The Village Nursery School~2241 Dundas St~Full day~English
+9989~-3131~The Village Shul And Learning Centre Of Toronto~1072 Eglinton Ave~Half day~English
+20834~20929~Alvin Curling Ymca~50 Upper Rouge Trl~Before/after school~English
+19850~7676~Beverly Glen Ymca~85 Beverly Glen Blvd~Full day/Before/after school~English
+18284~6872~Brian Drive School Age Program (Ymca)~95 Brian Dr~Before/after school~English
+18131~8448~Bridlewood Jr. Y. Day Care - (Ymca)~60 Bridlewood Blvd~Full day/Before/after school~English
+21129~12558~Brimwood Blvd. School Age Program (Ymca)~151 Brimwood Blvd~Before/after school~English
+14636~8333~Broadlands School Age Program (Ymca)~106 Broadlands Blvd~Before/after school~English
+18485~13448~C.D. Farquharson Ymca Child Care~1965 Brimley Rd~Full day/Half day/Before/after school~English
+8739~4824~Chester Junior Y (Ymca)~115 Gowan Ave~Full day/Before/after school~English
+18831~4009~Crestview School Age Program (Ymca)~101 Seneca Hill Dr~Before/after school~English
+20914~8220~David Lewis Junior Y (Ymca)~130 Fundy Bay Blvd~Full day/Before/after school~English
+17126~1958~Elkhorn Junior Y - (Ymca)~10 Elkhorn Dr~Full day/Before/after school~English
+19907~7074~Epiphany Of Our Lord Ymca Child Care (Op: Ymca Of Greater Toronto)~3150 Pharmacy Ave~Full day/Before/after school~English
+21572~19654~Fleming Junior Y (Ymca)~22 Littles Rd~Full day/Before/after school~English
+17123~5688~Forest Manor Ymca~25 Forest Manor Rd~Before/after school~English
+10143~10056~George Webster Ymca Child Care~50 Chapman Ave~Full day/Before/after school~English
+17132~11027~Glamorgan School Age Program - (Ymca)~51 Antrim Cres~Before/after school~English
+18154~9737~Holy Spirit Ymca Child Care (Ymca)~3530 Sheppard Ave~Full day~English
+14508~14021~Hunters Glen School Age Program - (Ymca)~16 Haileybury Dr~Before/after school~English
+14529~15051~Knob Hill School Age Program (Ymca)~25 Seminole Ave~Before/after school~English
+19710~19108~Lucy Maud Montgomery Jr. Y (Ymca)~95 Murison Blvd~Full day/Before/after school~English
+17630~9942~Lynngate Junior Y - (Ymca)~129 Cass Ave~Full day/Before/after school~English
+15473~9193~Maryvale Junior Y - (Ymca)~1325 Pharmacy Ave~Full day~English
+8937~7287~Mcgregor Junior Y (Ymca)~555 Mortimer Ave~Full day/Before/after school~English
+19328~22073~Morrish Jr. Y (Ymca)~61 Canmore Blvd~Full day/Before/after school~English
+14006~5019~Norman Ingram School Age Program - (Ymca)~50 Duncairn Rd~Before/after school~English
+16571~1317~North York Junior Y (Ymca)~567 Sheppard Ave~Full day~English
+7609~9341~Norway School Age Program (Ymca)~390 Kingston Rd~Before/after school~English
+11024~10650~Our Lady Of Fatima Ymca~3176 St. Clair Ave~Before/after school~English
+21201~12502~Our Lady Of Grace Ymca Child Care Centre (Ymca)~121 Brimwood Blvd~Full day/Before/after school~English
+16225~9183~Our Lady Of Wisdom Ymca~10 Japonica Rd~Before/after school~English
+17254~5611~Parkway Forest Ymca~55 Forest Manor Rd~Full day~English
+21271~13443~Percy Williams Ymca~35 White Heather Blvd~Before/after school~English
+4288~2379~Pinnacle Ymca Childcare Program (Ymca)~12 Yonge St~Full day~English
+22471~11039~Port Royal Jr. Y (Ymca)~410 Port Royal Trl~Full day/Before/after school~English
+16177~5939~Rene Gordon School Age (Ymca)~20 Karen Rd~Before/after school~English
+19929~24835~Rouge Valley Jr. Y (Ymca)~30 Durnford Rd~Full day/Before/after school~English
+17464~14564~Scarborough Junior Y (Ymca)~230 Town Centre Crt~Full day~English
+9108~9850~Secord School Age Program (Ymca)~91 Barrington Ave~Before/after school~English
+20712~7258~Sir Samuel B Steele Ymca Child Care (Ymca)~131 Huntsmill Blvd~Full day/Before/after school~English
+14072~18017~St. Boniface Ymca Childcare (Ymca)~20 Markanna Dr~Full day/Before/after school~English
+20651~18845~St. Columba Ymca Child Care~10 John Tabor Trl~Full day/Before/after school~English
+16931~944~St. Gabriel'S Jr. Y (Ymca)~396 Spring Garden Ave~Full day/Before/after school~English
+6582~6804~St. Joseph Child Care (Ymca)~176 Leslie St~Full day/Before/after school~English
+15769~15915~St. Rose Of Lima Ymca Child Care~3220 Lawrence Ave~Full day/Before/after school~English
+15326~-1288~St.Edward Ymca~1 Botham Rd~Before/after school~English
+3993~1853~Waterclub Ymca Child Care (Ymca)~208 Queens Quay~Full day~English
+9224~5202~William Burgess Jr Y Day Care (Ymca)~100 Torrens Ave~Full day/Before/after school~English
+16848~23442~William G. Miller School Age Program (Ymca)~60 Bennett Rd~Before/after school~English
+18467~9679~Ymca - Pauline Johnson School Age Program~35 Dunmurray Blvd~Before/after school~English
+13933~9787~Ymca - Precious Blood Child Care~1035 Pharmacy Ave~Before/after school~English
+17537~4908~Ymca - St. Timothy Ymca Child Care~25 Rochelle Cres~Before/after school~English
+6365~1512~Ymca Child Development Centre (Ymca)~15 Breadalbane St~Full day/Half day/Before/after school~English
+13126~-19421~Albion Heights School Age Program (Ymca)~45 Lynmont Rd~Before/after school~English
+15858~-9413~Derrydown School Age Program - (Ymca)~120 Derrydown Rd~Before/after school~English
+3296~-17707~Millwood Junior Y. - (Ymca)~222 Mill Rd~Full day/Before/after school~English
+13170~-19870~North Etobicoke Junior Y. - (Ymca)~88 Humber College Blvd~Full day~English
+4659~-14102~Our Lady Of Peace School Age Program - Ymca~70 Mattice Ave~Before/after school~English
+16853~-12488~St Augustine Of Canterbury Ymca~98 Shoreham Dr~Before/after school~English
+15382~-11937~St. Francis De Sales Ymca Child Care~333 Firgrove Cres~Full day/Before/after school~English
+14885~-8854~St. Jerome Ymca Child Care (Ymca)~111 Sharpecroft Blvd~Full day/Before/after school~English
+14985~-4437~St. Robert Ymca School Age Program (Ymca Of Greater Toronto)~70 Bainbridge Ave~Before/after school~English
+15957~-10249~St. Wilfrid Ymca~1685 Finch Ave~Before/after school~English
+16231~-10035~University City Jr Y - Ymca~453 Sentinel Rd~Full day/Before/after school~English
+5600~-17598~Wellesworth School Age Program (Ymca)~225 Wellesworth Dr~Before/after school~English
+4484~-14605~Ymca - Wedgewood School Age Program~5 Swan Ave~Before/after school~English
+4646~-2939~Alexander Muir Gladstone Ymca Child Care Program (Ymca)~108 Gladstone Ave~Full day/Before/after school~English
+3054~-11454~Castlebar Ymca~70 Chartwell Rd~Before/after school~English
+5603~-2401~Dewson Street Ymca~65 Concord Ave~Before/after school~English
+6454~-5938~High Park Ymca Day Care Centre - (Ymca)~2665 Dundas St~Full day~English
+-295~-11762~Holy Trinity Ymca~6 Colonel Samuel Smith Dr~Before/after school~English
+6295~-6022~Indian Rd Ymca~285 Indian Rd Cres~Before/after school~English
+1187~-9414~John English Ymca~95 Mimico Ave~Before/after school~English
+356~-10343~Lamp Junior Y Day Care Centre (Ymca)~185 Fifth St~Full day~English
+3952~-11925~Norseman Junior Y. (Ymca)~80 Lothian Ave~Full day~English
+3419~-11624~Norseman School Age Program (Ymca)~105 Norseman St~Before/after school~English
+4883~-11966~Our Lady Of Sorrows School Age Program - Ymca~32 Montgomery Rd~Before/after school~English
+8356~-9001~Our Lady Of Victory Ymca~70 Guestville Ave~Before/after school~English
+396~-9953~Second Street Ymca School Age Program (Formerly Lamp Jr. Y On Second Street)~71 Second St~Full day/Before/after school~English
+4869~-3682~Shirley Street Ymca Childcare (Ymca)~38 Shirley St~Full day/Before/after school~English
+1332~-9662~St Leo'S Ymca Child Care~271 Royal York Rd~Before/after school~English
+850~-15020~St.Ambrose Ymca~20 Coules Crt~Before/after school~English
+5346~-2589~West End Junior Y Day Care (Ymca)~931 College St~Full day/Before/after school~English
+6241~3166~The Yonge Street Mission / Davis Centre~270 Gerrard St~Full day~English
+17418~-10475~The Lee Wiggins Childcare Centre~4700 Keele St~Full day/Half day~English,Other,FRENCH,ITALIAN,OTHER,SPANISH
+8872~9757~Muppets Children'S Centre # 316 (There'S No Place Like Home Inc.)~316 Main St~Full day~English
+10325~5696~Thorncliffe Park Day Care Centre~48 Thorncliffe Park Dr~Full day~English
+10494~5568~Thorncliffe Park School Age Program~80 Thorncliffe Park Dr~Full day/Before/after school~English
+17861~861~Toronto Woods Daycare (Op: Thornhill Woods Daycare)~3072 Bayview Ave~Full day/Half day~English
+5600~-17598~Three R'S Early Learning Centre Inc~225 Wellesworth Dr~Full day/Half day~English
+9886~-13347~Three R'S Schoolhouse Inc.~1577 Royal York Rd~Full day/Before/after school~English
+15058~6183~Three Valleys Children'S Centre~76 Three Valleys Dr~Full day/Half day/Before/after school~English
+11251~10168~Tiago Avenue Community Child Care~145 Tiago Ave~Full day/Before/after school~English
+13803~11943~Tic Toc Day Care Centre Inc.~1117 Birchmount Rd~Full day/Before/after school~English
+19542~-2648~Tiki'S Day Care Centre~20 Tangreen Crt~Full day~English
+5705~-7466~Time For Play Nursery School~125 Evelyn Cres~Half day~English
+19430~9979~Timothy Eaton Infant & Toddler Centre~35 Glendower Circuit~Full day~English
+10166~1017~Tiny Bumblebees Childcare Inc.~47 Acacia Rd~Full day~English
+5114~-5117~Tiny Explorers Academy~402 Roncesvalles Ave~Full day~English
+9664~725~Tiny Explorers Academy Inc~115 Merton St~Full day~English
+4367~-17314~Tiny Treasure Montessori~627 Burnhamthorpe Rd~Full day/Half day~English
+8495~11591~Today'S Child Tomorrow'S Future Children'S Centre (290 Blantyre) Facility #15031~290 Blantyre Ave~Full day/Before/after school~English
+11950~14245~Today'S Child Tomorrow'S Future Children'S Centre (725 Danforth) Facility #8470~725 Danforth Rd~Full day/Before/after school~English
+15508~-11041~Topcliff Community Childcare~65 Topcliff Ave~Full day/Before/after school~English
+12503~1951~Lawrence Park School~2180 Bayview Ave~Half day~English
+18368~-4403~The Toronto Cheder~475 Patricia Ave~Half day~English
+12098~-2390~Toronto Cheder~410 Lawrence Ave~Half day~English
+5103~-269~Jingbao (Downtown) Bilingual Children'S Centre (96 Denison Avenue)~96 Denison Ave~Full day~English,Other,Chinese
+20322~13465~Jingbao Bilingual Children'S Centre (2350 Mccowan Road)~2350 McCowan Rd~Full day/Before/after school~English,Other,ENGLISH,MANDARIN
+18996~4679~Jingbao Bilingual Children'S Centre (3105 Don Mills Road)~3105 Don Mills Rd~Full day/Half day/Before/after school~English
+12860~1445~Jardin D'Éveil~294 Lawrence Ave~Full day/Before/after school~English,French
+12935~1347~Tfs Canada'S International School (Mildehall Branch)~101 Mildenhall Rd~Full day~English,French
+9832~-2548~Holy Blossom Temple Preschool (Toronto Hebrew Congregation)~1950 Bathurst St~Full day/Half day/Before/after school~English
+5844~2079~Toronto Metropolitan University Early Learning Centre (Tmu Elc)~40 Gould St~Full day~English
+2653~3784~Waterfront Montessori Childrens Centre~18 Wyandot Ave~Full day~English
+15029~-11389~Tot World (Operator: Totworld Child Care Centre (North York)~25 Yorkwoods Gate~Full day/Before/after school~English
+4866~-14831~Treasured Moments (316 Burnhamthorpe Road)~316 Burnhamthorpe Rd~Full day~English
+4608~-11601~Treasured Moments (Facility #16165 - 3107 Bloor St W)~3107 Bloor St~Full day~English
+10215~-944~Treetop Children'S Centre~80 Braemar Ave~Full day/Half day~English
+4625~-1490~Trinity Bellwoods Community Children'S Group/Care (Crawford Street)~155 Crawford St~Before/after school~English
+14362~16107~Children Of Tomorrow~425 McCowan Rd~Full day~English
+14353~16015~Children Of Tomorrow Childcare~431 McCowan Rd~Before/after school~English
+8088~714~Trust Child Care Inc.~29 Birch Ave~Full day~English
+6701~4641~Two Short Storeys~430 Broadview Ave~Full day~English
+7345~-14799~Ukrainian Co-Operative Nursery School~516 The Kingsway~Full day~English
+8483~-180~Unicorn Day Care Centre (Toronto) Inc.~454 Ave Rd~Half day/Before/after school~English
+7691~211~Unicorn Day Care Centre Inc.~240 Ave Rd~Full day/Half day~English
+6392~-118~University Of Toronto Early Learning Centre - Glen Morris~7 Glen Morris St~Full day~English
+6821~150~University Of Toronto Early Learning Centre - O.I.S.E.~252 Bloor St~Full day~English
+6955~-597~Dr. Eric Jackman Institute Of Child Study Laboratory School Nursery~45 Walmer Rd~Half day~English
+5198~860~University Settlement Day Care Centre~23 Grange Rd~Full day~English
+16250~-5741~Gan Chabad Preschool~147 Overbrook Pl~Full day~English
+15242~-717~Uptown Yonge Preschool & Child Development Centre~1 Lord Seaton Rd~Half day/Before/after school~English
+8121~-2747~Hippo Nursery School~729 St. Clair Ave~Full day/Half day~English
+18102~16931~Vedic Roots Montessori Academy (Scarborough)~42 Tuxedo Crt~Full day/Half day/Before/after school~English
+8742~8603~Victoria Education Centre, Montessori & Child Care~1038 Woodbine Ave~Full day~English
+15583~7947~Victoria Park Child Care Centre~15 Wallingford Rd~Full day~English
+17215~21206~Morningside Children'S Centre (Op: Victoria Village) - 292 Morningside Avenue~292 Morningside Ave~Full day~English
+8864~9763~Muppets Children'S Centre (Victoria Village Cs Ltd.) - 314 Main Street~314 Main St~Full day~English
+8858~9767~Muppets Infant And Toddler Centre - (Victoria Village) - 312 Main Street~312 Main St~Full day~English
+13585~8584~Muppets Preschool Centre (Victoria Village) - 88 Sweeney Drive~88 Sweeney Dr~Full day/Before/after school~English
+14850~7092~Muppets Too Preschool Centre - (Victoria Village) - 45 Cassandra Blvd.~45 Cassandra Blvd~Full day/Before/after school~English
+12368~9735~My Little School - (Victoria Village Children'S Services) - 1492 Victoria Park~1492 Victoria Park Ave~Full day~English
+9192~13229~Scarborough Day Nursery - (Victoria Village Children'S Services) - 51 Eastwood~51 Eastwood Ave~Full day~English
+11185~-5499~Casa Del Zotto~3010 Dufferin St~Full day~English
+11045~-5811~Columbus Early Learning Centres-Regina Mundi~60 Playfair Ave~Full day/Before/after school~English
+11343~-5101~Columbus Early Learning Centres-St Charles~50 Claver Ave~Full day/Before/after school~English
+12860~-8852~Columbus Early Learning-St Raphael~3 Gade Dr~Before/after school~English
+11642~-3130~Villa Charities-Our Lady Of Assumption~125 Glenmount Ave~Before/after school~English
+12050~-8230~Columbus Early Learning Centres~340 Falstaff Ave~Full day/Before/after school~English
+-215~-12825~Vincent Massey Academy - (521909 Ontario Ltd.)~68 Daisy Ave~Full day~English
+361~-13801~Vincent Massey Academy- Franklin Horner Campus~432 Horner Ave~Full day/Before/after school~English
+17444~9156~Vradenburg Community Child Care Centre~50 Vradenberg Dr~Full day/Before/after school~English
+7702~-764~Waldorf Academy Childcare Centre~263 Spadina Rd~Full day~English
+7723~-705~Waldorf Academy Childcare Centre-Madison~250 Madison Ave~Full day/Half day~English
+10294~11900~Woodland Nursery School (Op: Warden Woods Community Centre) Facility #6867)~1 Firvalley Crt~Full day~English
+4719~-12966~Willowbrae Academy Etobicoke~4975 Dundas St~Full day/Before/after school~English
+14071~5772~Wee Leprechauns Child Care Centre Ltd~235 The Donway~Full day/Half day~English
+4572~180~Westend Parents Daycare Centre Alpha~20 Brant St~Before/after school~English
+5233~-2519~West End Parents Day Care Centre~375 Dovercourt Rd~Full day/Before/after school~English
+5252~-2344~West End Parents Day Care Satellite~380 Ossington Ave~Before/after school~English
+10286~-3319~West Prep Children'S Centre Of Toronto~70 Ridge Hill Dr~Full day/Half day/Before/after school~English
+10821~12909~Danforth Gardens Playcare~20 Santamonica Blvd~Before/after school~English
+9516~11835~Oakridge Junior Playcare~110 Byng Ave~Before/after school~English
+5644~-382~Westside Montessori School~95 Bellevue Ave~Full day/Half day~English
+5436~-3242~Westside Montessori School~57 Sylvan Ave~Full day~English
+13853~10646~Wexford Community Child Care Centre~1 Wayne Ave~Full day/Before/after school~English
+8718~2203~Whitney Child Centre~119 Rosedale Heights Dr~Full day/Half day/Before/after school~English
+7480~10241~Williamson Road Day Care Centre~24 Williamson Rd~Before/after school~English
+16845~-6102~Wilmington Best Child Care Centre~330 Wilmington Ave~Full day/Before/after school~English
+16735~-5865~Wilmington Best Childcare 10 Plus Program~285 Wilmington Ave~Before/after school~English
+4880~-8042~Windermere Kids Inc.~356 Windermere Ave~Full day~English
+7054~4852~Withrow Childcare Centre~25 Bain Ave~Full day/Before/after school~English
+5198~-17494~Wonderkids Daycare Inc.~475 Rathburn~Full day~English
+4552~3788~Aquabella Child Care~75 Edgewater Dr~Full day~English
+6105~6679~Woodgreen Community Services (Bruce Woodgreen Early Learning Centre)~51 Larchmount Ave~Full day/Before/after school~English
+8510~9759~Woodgreen Community Services (Enderby Child Care)~118 Enderby Rd~Full day/Half day~English
+6769~6724~Woodgreen Community Services (Leslieville Child Care)~254 Leslie St~Full day/Half day/Before/after school~English
+5999~5969~Woodgreen Community Services (Morse Street Child Care Centre)~180 Carlaw Ave~Full day/Half day/Before/after school~English
+7027~6580~Woodgreen Community Services (Riverdale Child Care)~1094 Gerrard St~Full day~English
+9056~5792~Woodgreen Community Services (The)(Debbie Yeung Child Care Centre)~249 Cosburn Ave~Full day~English
+6610~7681~Woodgreen Community Services (Woodfield Child Care Centre)~70 Woodfield Rd~Full day/Half day/Before/after school~English
+7950~-1622~Wychwood Tigers Daycare~44 Hilton Ave~Full day/Half day/Before/after school~English
+14342~-431~Yes I Can Nursery School Of Toronto (25 Old York Mills Road)~25 Old York Mills Rd~Half day~English
+11954~-2738~Yeshivas Nachalas Zvi Childcare~471 Lawrence Ave~Full day~English,French,Other,Hebrew
+11788~-2528~Yeshivat Yesodei Hatora~77 Glen Rush Blvd~Full day/Before/after school~English
+17023~-1437~Yonge Hearts Child Care Centre (City Centre Child Care - North York)~5176 Yonge St~Full day~English
+17414~-1457~Yonge-Churchill Child Care~5350 Yonge St~Full day/Before/after school~English
+15961~6495~York Mills Child Care Centre~1200 York Mills Rd~Full day/Before/after school~English
+17241~-3631~Yorkview Kids Care - North York Inc.~130 Yorkview Dr~Full day/Half day/Before/after school~English
+17390~7245~Young Talents Academy~2255 Sheppard Ave~Full day~English
+11684~-15790~Ywca - Bergamot Early Learning Centre (Op: Ywca)~66 Bergamot Ave~Full day~English
+5441~1804~Mothercraft: Toronto Eaton Centre~14 Trinity Sq~Full day~English
+9595~10782~Eyet - Crescent Town Centre~2 The Market Place~Full day/Before/after school~English
+4176~-2072~Queen Street Childcare Centre~10 White Squirrel Way~Full day~English

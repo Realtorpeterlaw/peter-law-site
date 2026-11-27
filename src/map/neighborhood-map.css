@@ -725,6 +725,8 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 @media (prefers-reduced-motion:reduce){.glow-run{animation:none;display:none}.sel-glow-halo,.sel-glow-ring{animation:none}}
 .gl{background:none;border:0;font-weight:800;font-size:11px;color:#7a4b00;white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 5px #fff}
 .shop{background:none;border:0;cursor:pointer}.shop svg{display:block}
+.day{background:none;border:0;cursor:pointer}.day svg{display:block}.wide .day{display:none}
+.lbody .sw-day{display:inline-block;width:16px;height:16px;margin:0 6px 0 -1px;vertical-align:-3px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11.4' fill='%23fff' stroke='%2316202b' stroke-width='.8'/%3E%3Ccircle cx='12' cy='7.1' r='2.9' fill='none' stroke='%2316202b' stroke-width='1.8'/%3E%3Cpath d='M5.4 12.3c0-1.4 3-2.4 6.6-2.4s6.6 1 6.6 2.4-3 2.4-6.6 2.4-6.6-1-6.6-2.4z' fill='%2316202b'/%3E%3Cpath d='M10.2 14.4h3.6v2.5a1.8 1.8 0 0 1-3.6 0z' fill='%23fff' stroke='%2316202b' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat center/contain}
 .zpop .leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 3px 16px rgba(0,0,0,.25)}
 .zpop .leaflet-popup-content{margin:11px 14px 12px;font:13px/1.35 "Segoe UI",system-ui,sans-serif}
 .zp b{display:block;font-size:14px;margin-right:14px}.zp span{display:block;color:#5d6976;font-size:12.5px;margin-top:2px}
