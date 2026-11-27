@@ -15,7 +15,7 @@ if(small.matches)$("layers").open=false;
 const map=L.map("map",{zoomSnap:.5,minZoom:7,maxZoom:18,maxBounds:[[42.3,-82.4],[45.7,-76.3]],zoomControl:false});
 L.control.zoom({position:"bottomright"}).addTo(map);
 map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pMall").style.zIndex=635;map.createPane("pShop").style.zIndex=620;map.createPane("pDay").style.zIndex=615;map.createPane("pSch").style.zIndex=617;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
+["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;map.getPane("pCondo").style.pointerEvents="none";["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pMall").style.zIndex=635;map.createPane("pShop").style.zIndex=620;map.createPane("pDay").style.zIndex=615;map.createPane("pSch").style.zIndex=617;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
 const cityBounds=L.geoJSON(DIST).getBounds();
 map.fitBounds(cityBounds,{padding:[10,10]});
 
@@ -126,14 +126,47 @@ const kindOf=cs=>cs.some(c=>c[2]==="pre")?"pre":cs.some(c=>c[2]==="loft"||/\blof
 const KIND={pre:"Pre-construction",loft:"Loft",condo:"Condo"},showKind={pre:$("l-pre").checked,condo:$("l-condo").checked,loft:$("l-loft").checked};
 const preWhen=x=>x&&x[3]?" \u00b7 "+x[3]:"";
 const pinOf={};let hotPin=null;
+/* Condo pins are painted on one canvas instead of being ~1,800 separate page elements; the DOM pins were what
+   made panning and zooming lag. The canvas lets pointer events through (districts underneath keep working);
+   hover and click on a pin are found by a small hit test below. */
+const PCOL={condo:"#e0245e",loft:"#7b3fbf",pre:"#aab1ba"};
+const pinCanvas=L.canvas({pane:"pCondo",padding:.25});
+const pinSize=m=>{const far=map.getZoom()<11,k=m._hot?2.2:1;return[(far?5:6)*k,(far?8.5:10.5)*k]};
+const PinMark=L.CircleMarker.extend({
+  _updateBounds(){const[R,h]=pinSize(this),w=3;this._pxBounds=new L.Bounds(this._point.subtract([R+w,h+R+w]),this._point.add([R+w,w]))},
+  _containsPoint(pt){const[R,h]=pinSize(this);return pt.distanceTo(this._point.subtract([0,h]))<=R+3||(Math.abs(pt.x-this._point.x)<=R*.6&&pt.y<=this._point.y+1&&pt.y>=this._point.y-h)},
+  _updatePath(){const r=this._renderer;if(!r._drawing||this._empty())return;const c=r._ctx,p=this._point,[R,h]=pinSize(this),cx=p.x,cy=p.y-h,a=Math.acos(R/h);
+    c.beginPath();c.moveTo(p.x,p.y);c.arc(cx,cy,R,Math.PI/2+a,Math.PI*2.5-a);c.closePath();
+    c.shadowColor="rgba(0,0,0,.38)";c.shadowBlur=this._hot?4:2;c.shadowOffsetX=-1;c.shadowOffsetY=1;c.fillStyle=PCOL[this._k]||PCOL.condo;c.fill();
+    c.shadowColor="transparent";c.shadowBlur=0;c.shadowOffsetX=c.shadowOffsetY=0;c.lineWidth=this._hot?2:1.5;c.strokeStyle=this._k==="pre"?"#f4f6f8":"#fff";c.stroke();
+    if(this._k==="pre"){c.lineWidth=.6;c.strokeStyle="#6b737d";c.stroke()}
+    c.beginPath();c.arc(cx,cy,R*.3,0,Math.PI*2);c.fillStyle="#fff";c.fill()}});
+const setHot=(m,on)=>{m.redraw();m._hot=on;if(m._map){m._updateBounds();m.redraw();if(on)m.bringToFront()}};
 const condoLayer=L.layerGroup();
 Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DISTRICTS[id].condos[i].split(";").map(x=>x.split("|"));
-  const m=L.marker([p[0],p[1]],{pane:"pCondo",keyboard:false,icon:L.divIcon({className:"pin pin-"+kindOf(cs),html:"<span></span>",iconSize:[18,18],iconAnchor:[9,17],tooltipAnchor:[0,-17]})});
-  const w=walkTo(p);m.bindTooltip((cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction"+esc(preWhen(cs.find(c=>c[2]==="pre")))+"</i>":kindOf(cs)==="loft"?"<br><i>Loft</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{className:"tt",direction:"top"});
+  const m=new PinMark([p[0],p[1]],{renderer:pinCanvas,pane:"pCondo",radius:6,interactive:false,bubblingMouseEvents:false});m._k=kindOf(cs);
+  const w=walkTo(p);m.bindTooltip((cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction"+esc(preWhen(cs.find(c=>c[2]==="pre")))+"</i>":kindOf(cs)==="loft"?"<br><i>Loft</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{offset:[0,-14],className:"tt",direction:"top"});
   m.on("click",()=>{if(sel!==id)pick(id,null);hot(id,i,false,true);m.closeTooltip();zoomPop(m.getLatLng())});
-  m.on("mouseover",()=>hot(id,i,false,false));m.on("mouseout",()=>{if(!stick)hot(null)});
-  m._k=kindOf(cs);pinOf[id+"|"+i]=m}));
+  m.on("mouseover",()=>{hot(id,i,false,false);m.openTooltip()});m.on("mouseout",()=>{if(!stick)hot(null);else if(m!==hotPin)m.closeTooltip()});
+  pinOf[id+"|"+i]=m}));
 const condoMarkers=Object.values(pinOf);
+/* hit test for the canvas pins: hover shows the label and lights the list entry, a click picks the building.
+   The click is caught before it reaches the district underneath. */
+let pinOver=null,downAt=null,hitQ=0,dragging=false;
+map.on("dragstart",()=>{dragging=true});map.on("dragend",()=>{dragging=false});
+function pinAt(cp){if(!map.hasLayer(condoLayer))return null;let best=null;
+  const lp=map.containerPointToLayerPoint(cp);if(hotPin&&hotPin._point&&hotPin._containsPoint(lp))return hotPin;
+  condoLayer.eachLayer(m=>{if(m._point&&m._containsPoint(lp))best=m});return best}
+const mc=map.getContainer();
+map.on("mousemove",e=>{if(hitQ)return;hitQ=requestAnimationFrame(()=>{hitQ=0;if(map._animatingZoom||dragging)return;const m=pinAt(e.containerPoint);
+  if(m!==pinOver){if(pinOver)pinOver.fire("mouseout");pinOver=m;if(m)m.fire("mouseover")}
+  mc.classList.toggle("on-pin",!!m)})});
+map.on("mouseout",()=>{if(pinOver){pinOver.fire("mouseout");pinOver=null}mc.classList.remove("on-pin")});
+mc.addEventListener("pointerdown",e=>{downAt=[e.clientX,e.clientY]},true);
+mc.addEventListener("click",e=>{if(e.target.closest&&e.target.closest(".panel,.layers,.leaflet-control,.leaflet-tooltip,.leaflet-marker-icon"))return;
+  if(downAt&&Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1])>6)return;
+  const r=mc.getBoundingClientRect(),m=pinAt(L.point(e.clientX-r.left,e.clientY-r.top));if(!m)return;
+  e.stopPropagation();e.preventDefault();m.fire("click")},true);
 condoLayer.addTo(map);
 /* Keep on the page only the markers in (or just around) the visible area. With all ~1,300 pins, carts and
    labels on the page at once, every pan and zoom had to move and repaint each one. */
@@ -165,12 +198,12 @@ map.getContainer().addEventListener("mouseleave",()=>{if(!stick)hot(null);tipClo
 map.on("zoomstart",()=>{if(!stick)tipClose()});
 document.addEventListener("visibilitychange",()=>{if(document.hidden)tipClose()});
 function hot(id,i,pan,keep){
-  if(hotPin){const e=hotPin.getElement();if(e)e.classList.remove("hot");hotPin.setZIndexOffset(0);hotPin.closeTooltip();hotPin=null}
+  if(hotPin){setHot(hotPin,false);hotPin.closeTooltip();hotPin=null}
   document.querySelectorAll("ul.condos li.hot,ul.condos li.picked").forEach(l=>l.classList.remove("hot","picked"));
   stick=!!keep;if(id==null)return;
   if(keep&&id===sel)nearby(id,i);
   const m=pinOf[id+"|"+i];if(!m||!map.hasLayer(condoLayer))return;if(!condoLayer.hasLayer(m))condoLayer.addLayer(m);
-  hotPin=m;m.setZIndexOffset(5000);const e=m.getElement();if(e)e.classList.add("hot");
+  hotPin=m;setHot(m,true);
   if(pan){const ll=m.getLatLng(),pad=small.matches?L.latLngBounds(map.containerPointToLatLng([20,60]),map.containerPointToLatLng([innerWidth-20,innerHeight*.36])):L.latLngBounds(map.containerPointToLatLng([400,60]),map.containerPointToLatLng([map.getSize().x-340,map.getSize().y-40]));
     if(!pad.contains(ll)){const off=small.matches?[0,map.getSize().y*.22]:[-190,0];map.panTo(map.unproject(map.project(ll).add(off)),{animate:true,duration:.35})}
     m.openTooltip()}
