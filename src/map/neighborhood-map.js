@@ -107,7 +107,7 @@ regLabels.addLayer(L.marker(cityBounds.getCenter(),{pane:"pSel",interactive:fals
 const allBounds=L.latLngBounds(cityBounds.getSouthWest(),cityBounds.getNorthEast());regLayer.eachLayer(p=>allBounds.extend(p.getBounds()));
 regLayer.addTo(map);
 let showReg=true;
-const JUMPS=[["The Well",43.6430,-79.3955,16.5],["King West",43.6440,-79.4010,15],["Liberty Village",43.6385,-79.4195,15.5],["UofT",43.6629,-79.3957,15],["TMU",43.6585,-79.3785,16],["Financial District",43.6480,-79.3810,16],["Downtown Toronto",43.6544,-79.3807,16]];
+const JUMPS=[["Yorkville",43.6710,-79.3925,16],["King West",43.6440,-79.4010,15],["Liberty Village",43.6385,-79.4195,15.5],["UofT",43.6629,-79.3957,15],["TMU",43.6585,-79.3785,16],["Financial District",43.6480,-79.3810,16],["Downtown Toronto",43.6544,-79.3807,16]];
 $("jump").innerHTML=JUMPS.map((j,k)=>'<button data-k="'+k+'">'+j[0]+'</button>').join("");
 /* view buttons: a button is highlighted only while the map is showing that button's view.
    Clicking highlights it at once; moving or zooming the map away clears it; coming back by any route lights it again. */
