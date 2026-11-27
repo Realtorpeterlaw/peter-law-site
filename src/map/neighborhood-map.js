@@ -15,7 +15,7 @@ if(small.matches)$("layers").open=false;
 const map=L.map("map",{zoomSnap:.5,minZoom:7,maxZoom:18,maxBounds:[[42.3,-82.4],[45.7,-76.3]],zoomControl:false});
 L.control.zoom({position:"bottomright"}).addTo(map);
 map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pMall").style.zIndex=635;map.createPane("pShop").style.zIndex=620;map.createPane("pDay").style.zIndex=615;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
+["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pMall").style.zIndex=635;map.createPane("pShop").style.zIndex=620;map.createPane("pDay").style.zIndex=615;map.createPane("pSch").style.zIndex=617;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
 const cityBounds=L.geoJSON(DIST).getBounds();
 map.fitBounds(cityBounds,{padding:[10,10]});
 
@@ -77,6 +77,18 @@ function dayData(){return dayLoad||(dayLoad=fetch("/map/daycares.txt").then(r=>{
     m.bindTooltip("<b>"+esc(a[2])+"</b><br><span style=\"font-weight:400\">"+esc(a[3])+"</span><br><i>Licensed child care"+(a[4]?" \u00b7 "+esc(a[4]).replace(/\//g," \u00b7 "):"")+"</i>",{className:"tt",direction:"top"});
     m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m})}).catch(e=>{dayLoad=null;throw e}))}
 function dayShow(){const z=map.getZoom();if(dayOn&&z>=13&&dayMarkers.length){dayLayer.addTo(map);cull(dayLayer,dayMarkers)}else map.removeLayer(dayLayer)}
+/* GTA schools (public/map/schools.txt): public incl. Catholic (green caps) and private (red caps), split K-8 / 9-12.
+   All four layers are off by default; the file is only downloaded the first time one is switched on. */
+const SCAP=c=>'<svg viewBox="0 0 24 24" width="20" height="20" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="11.4" fill="#fff" fill-opacity=".92" stroke="'+c+'" stroke-width="1.2"/><path d="M12 5.2 3.4 9.4l8.6 4.2 8.6-4.2z" fill="'+c+'" stroke="'+c+'" stroke-width="1.2"/><path d="M7 11.6v3.9c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-3.9" fill="'+c+'"/><path d="M5 10.2v4.4" stroke="'+c+'" stroke-width="1.3" fill="none"/></svg>';
+const SCH_PUB=SCAP("#1f7a3a"),SCH_PRI=SCAP("#c62828");
+const schLayer=L.layerGroup();let schMarkers=[],schMask=0,schLoad=null;
+function schData(){return schLoad||(schLoad=fetch("/map/schools.txt").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(tx=>{
+  schMarkers=tx.split("\n").filter(l=>l&&l[0]!=="#").map(l=>{const a=l.split("~");const la=(+a[0]+4360000)/1e5,lo=(+a[1]-7940000)/1e5,f=+a[2];
+    const m=L.marker([la,lo],{pane:"pSch",keyboard:false,icon:L.divIcon({className:"schm",html:f&3?SCH_PUB:SCH_PRI,iconSize:[20,20],iconAnchor:[10,10],tooltipAnchor:[0,-10]})});
+    m._f=f;m.bindTooltip("<b>"+esc(a[3])+"</b><br><span style=\"font-weight:400\">"+esc(a[4])+"</span><br><i>"+esc(a[5])+"</i>",{className:"tt",direction:"top"});
+    m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m})}).catch(e=>{schLoad=null;throw e}))}
+const schOk=m=>m._f&schMask;
+function schShow(){if(schMask&&map.getZoom()>=13&&schMarkers.length){schLayer.addTo(map);cull(schLayer,schMarkers,null,schOk)}else map.removeLayer(schLayer)}
 /* universities and colleges */
 const CAP='<svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" stroke="#16202b" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="11.6" stroke="none" fill-opacity=".85"/><path d="M12 4.2 2.2 9l9.8 4.8L21.8 9z"/><path d="M6.2 11.2v4.6c0 1.6 2.6 2.9 5.8 2.9s5.8-1.3 5.8-2.9v-4.6" fill="none"/><path d="M3.4 9.9v4.9"/><rect x="2.5" y="14.8" width="1.8" height="2.6" rx=".6"/></svg>';
 const uniLayer=L.layerGroup(UNIS.map(u=>L.marker([u[1],u[2]],{pane:"pUni",keyboard:false,icon:L.divIcon({className:"uni",html:CAP,iconSize:[26,26],iconAnchor:[13,13],tooltipAnchor:[0,-12]})}).bindTooltip(u[0],{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
@@ -128,12 +140,12 @@ condoLayer.addTo(map);
 function cull(group,list,keep,ok){if(!map.hasLayer(group))return;const b=map.getBounds().pad(.3);
   for(const m of list){const inb=b.contains(m.getLatLng())&&(!ok||ok(m));if(inb){if(!group.hasLayer(m))group.addLayer(m)}else if(group.hasLayer(m)&&m!==keep)group.removeLayer(m)}}
 const kindOk=m=>showKind[m._k];
-function cullAll(){cull(condoLayer,condoMarkers,hotPin,kindOk);if(dayMarkers.length)cull(dayLayer,dayMarkers);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
+function cullAll(){cull(condoLayer,condoMarkers,hotPin,kindOk);if(dayMarkers.length)cull(dayLayer,dayMarkers);if(schMarkers.length)cull(schLayer,schMarkers,null,schOk);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
 map.on("moveend",cullAll);cullAll();
 /* Phones: while a pinch or zoom animation runs, Leaflet repositions every pin on every frame. Hiding the pin,
    shop and label panes for those few hundred milliseconds skips the layout and paint work; they reappear on zoomend. */
 const touch=matchMedia("(pointer:coarse)").matches||small.matches;
-if(touch){const zp=["pCondo","pDay","markerPane","tooltipPane"].map(n=>map.getPane(n)).filter(Boolean);
+if(touch){const zp=["pCondo","pDay","pSch","markerPane","tooltipPane"].map(n=>map.getPane(n)).filter(Boolean);
   map.on("zoomstart",()=>zp.forEach(p=>p.style.visibility="hidden"));map.on("zoomend",()=>zp.forEach(p=>p.style.visibility=""))}
 /* Inside the Neighborhood page on a phone, one finger should scroll the page, not get trapped moving the map:
    two fingers move and zoom the map; the full-screen map keeps normal one-finger dragging. */
@@ -175,7 +187,7 @@ function restyle(){distLayer.setStyle(f=>dStyle(f.properties.d));commLayer.setSt
   (showReg&&z<11.5)?regLabels.addTo(map):map.removeLayer(regLabels);
   (z>=12.5)?glowLabels.addTo(map):map.removeLayer(glowLabels);
   if(z>=12.5){shopLayer.addTo(map);cull(shopLayer,shopMarkers)}else map.removeLayer(shopLayer);
-  dayShow();
+  dayShow();schShow();
   glowLayer.eachLayer(l=>{const c=l.options.className;l.setStyle({weight:c==="glow-halo"?(z<10?6:z<12?11:z<14?15:20):(z<10?2:z<12?3:z<14?4.5:6)})});
   if(showComm&&z>=13.5){cLabels.addTo(map);cull(cLabels,cLabelMarkers)}else map.removeLayer(cLabels);
   subLayer.eachLayer(m=>m.setRadius(z<11?3:z<13?5:7));!wide?subLayer.addTo(map):map.removeLayer(subLayer)}
@@ -184,6 +196,8 @@ function setComm(on){showComm=true;commLayer.addTo(map);restyle()}
 $("l-dist").onchange=e=>{e.target.checked?(distLayer.addTo(map),dLabels.addTo(map)):(map.removeLayer(distLayer),map.removeLayer(dLabels))};
 $("l-day").onchange=e=>{dayOn=e.target.checked;if(!dayOn){map.removeLayer(dayLayer);return}
   dayData().then(()=>{dayShow();if(map.getZoom()<13)note("Daycares show when you zoom in closer.")},()=>{e.target.checked=dayOn=false;note("Daycares could not be loaded just now. Please try again.")})};
+[1,2,4,8].forEach(f=>{$("l-s"+f).onchange=e=>{schMask=e.target.checked?schMask|f:schMask&~f;if(!schMask){map.removeLayer(schLayer);return}
+  schData().then(()=>{schShow();if(map.getZoom()<13)note("Schools show when you zoom in closer.")},()=>{e.target.checked=false;schMask&=~f;note("Schools could not be loaded just now. Please try again.")})}});
 ["pre","condo","loft"].forEach(k=>{$("l-"+k).onchange=e=>{showKind[k]=e.target.checked;cullAll()}});
 $("l-base").onchange=e=>{tilesOk=tilesBad=0;setBase(e.target.checked)};
 base.addTo(map);

@@ -26,12 +26,22 @@ export const prerender = true;
   <details class="layers" id="layers" open>
     <summary><span class="lt-open">CLICK HERE to minimize</span><span class="lt-closed">CLICK HERE to expand</span></summary>
     <div class="lbody">
-      <label><input type="checkbox" id="l-dist" checked><span>Districts</span></label>
-      <label><input type="checkbox" id="l-pre"><span><i class="sw sw-pre" aria-hidden="true"></i>Pre-Con</span></label>
-      <label><input type="checkbox" id="l-condo" checked><span><i class="sw sw-condo" aria-hidden="true"></i>Condos</span></label>
-      <label><input type="checkbox" id="l-loft" checked><span><i class="sw sw-loft" aria-hidden="true"></i>Lofts</span></label>
-      <label><input type="checkbox" id="l-day"><span><i class="sw-day" aria-hidden="true"></i>Daycares</span></label>
-      <label><input type="checkbox" id="l-base" checked><span>Street background</span></label>
+      <div class="lcols">
+        <div class="lcol">
+          <label><input type="checkbox" id="l-dist" checked><span>Districts</span></label>
+          <label><input type="checkbox" id="l-pre"><span><i class="sw sw-pre" aria-hidden="true"></i>Pre-Con</span></label>
+          <label><input type="checkbox" id="l-condo" checked><span><i class="sw sw-condo" aria-hidden="true"></i>Condos</span></label>
+          <label><input type="checkbox" id="l-loft" checked><span><i class="sw sw-loft" aria-hidden="true"></i>Lofts</span></label>
+          <label><input type="checkbox" id="l-base" checked><span>Street background</span></label>
+        </div>
+        <div class="lcol">
+          <label><input type="checkbox" id="l-day"><span><i class="sw-day" aria-hidden="true"></i>Daycares</span></label>
+          <label><input type="checkbox" id="l-s1" data-f="1"><span><i class="sw-cap sw-pub" aria-hidden="true"></i>K-8 (Public School)</span></label>
+          <label><input type="checkbox" id="l-s2" data-f="2"><span><i class="sw-cap sw-pub" aria-hidden="true"></i>9-12 (Public School)</span></label>
+          <label><input type="checkbox" id="l-s4" data-f="4"><span><i class="sw-cap sw-pri" aria-hidden="true"></i>K-8 (Private School)</span></label>
+          <label><input type="checkbox" id="l-s8" data-f="8"><span><i class="sw-cap sw-pri" aria-hidden="true"></i>9-12 (Private School)</span></label>
+        </div>
+      </div>
       <div class="views"><button type="button" id="v-all">ZOOM out</button></div>
       <div class="views jump" id="jump"></div>
       <div class="find"><label for="find" class="find-label">Find a district, community, condo, school or park</label>
