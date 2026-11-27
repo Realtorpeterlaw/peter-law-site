@@ -233,7 +233,8 @@ function pick(id,comm,fly){plStatic().catch(()=>{});
   if($("nearby"))$("nearby").addEventListener("toggle",e=>{nbOpen=e.target.open});
   hot(null);cfilter="";if($("cfind"))$("cfind").oninput=e=>{cfilter=e.target.value;hot(null);fillCondos(id)};if($("csort")){$("csort").value=csort;$("csort").onchange=e=>{csort=e.target.value;hot(null);fillCondos(id)};fillCondos(id)}
   $("cta").innerHTML='<b>For more information,</b><div>'+esc(AGENT.line)+'</div><p><a href="tel:+1'+AGENT.phone.replace(/\D/g,"")+'">'+esc(AGENT.phone)+'</a> \u00b7 <a href="mailto:'+esc(AGENT.email)+'?subject='+encodeURIComponent("Question about "+id+(comm?" – "+comm:""))+'">'+esc(AGENT.email)+'</a></p><div>'+esc(AGENT.extra||"")+'</div>';
-  $("panel").classList.add("open");
+  $("panel").classList.remove("mini");$("panel").classList.add("open");
+  $("pbar").innerHTML='<span class="pb-badge" style="background:'+COL[id[0]][1]+'">'+id+'</span><span class="pb-txt"><b>'+esc(comm||d.name)+'</b><small>'+(nb?nb+(nb===1?" building":" buildings")+" \u00b7 ":"")+'Show details</small></span><svg class="pb-up" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 10l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   if(fly){let b=null;(comm?commLayer:distLayer).eachLayer(l=>{const p=l.feature.properties;if(p.d===id&&(!comm||p.n===comm))b=b?b.extend(l.getBounds()):L.latLngBounds(l.getBounds().getSouthWest(),l.getBounds().getNorthEast())});
     if(b)map.flyToBounds(b,{paddingTopLeft:small.matches?[20,20]:[400,30],paddingBottomRight:small.matches?[20,innerHeight*.5]:[30,30],maxZoom:14.5,duration:.6})}
 }
@@ -326,7 +327,11 @@ function fillCondos(id){
     li.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();li.click()}});
     li.addEventListener("click",()=>{const same=stick&&hotPin===pinOf[id+"|"+i];hot(null);if(!same)hot(id,i,true,true)})});
 }
-function unpick(){hot(null);glowClear();$("panel").classList.remove("open");sel=selComm=null;restyle()}
+function unpick(){hot(null);glowClear();$("panel").classList.remove("open","mini");sel=selComm=null;restyle()}
+/* minimize: the panel folds into a small bar (district badge, name, "Show details") so the map is free again;
+   clicking the bar brings the full panel back exactly where it was. */
+$("pmin").onclick=()=>{$("panel").classList.add("mini");$("pbar").focus({preventScroll:true})};
+$("pbar").onclick=()=>{$("panel").classList.remove("mini");$("pmin").focus({preventScroll:true})};
 $("close").onclick=()=>{unpick();map.getContainer().focus({preventScroll:true})};
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("panel").classList.contains("open")&&!e.defaultPrevented){unpick();map.getContainer().focus({preventScroll:true})}});
 map.on("click",()=>{if(stick)hot(null)});
