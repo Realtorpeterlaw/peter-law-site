@@ -720,6 +720,8 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 .sel-glow-halo,.sel-glow-ring{animation:selPulse .7s ease-in-out 2}
 @keyframes selPulse{50%{stroke-opacity:.12}}
 @keyframes glowRun{from{stroke-dashoffset:176}to{stroke-dashoffset:0}}
+@media (max-width:720px),(pointer:coarse){.glow-run{animation:none;display:none}}
+@media (pointer:coarse){.lbody label{padding:9px 0;align-items:center}.lbody label small{margin-top:2px}.views button{min-height:40px}.lbody input[type=checkbox]{margin:0}}
 @media (prefers-reduced-motion:reduce){.glow-run{animation:none;display:none}.sel-glow-halo,.sel-glow-ring{animation:none}}
 .gl{background:none;border:0;font-weight:800;font-size:11px;color:#7a4b00;white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 5px #fff}
 .shop{background:none;border:0;cursor:pointer}.shop svg{display:block}

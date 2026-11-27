@@ -120,6 +120,15 @@ function cull(group,list,keep,ok){if(!map.hasLayer(group))return;const b=map.get
 const kindOk=m=>showKind[m._k];
 function cullAll(){cull(condoLayer,condoMarkers,hotPin,kindOk);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
 map.on("moveend",cullAll);cullAll();
+/* Phones: while a pinch or zoom animation runs, Leaflet repositions every pin on every frame. Hiding the pin,
+   shop and label panes for those few hundred milliseconds skips the layout and paint work; they reappear on zoomend. */
+const touch=matchMedia("(pointer:coarse)").matches||small.matches;
+if(touch){const zp=["pCondo","markerPane","tooltipPane"].map(n=>map.getPane(n)).filter(Boolean);
+  map.on("zoomstart",()=>zp.forEach(p=>p.style.visibility="hidden"));map.on("zoomend",()=>zp.forEach(p=>p.style.visibility=""))}
+/* Inside the Neighborhood page on a phone, one finger should scroll the page, not get trapped moving the map:
+   two fingers move and zoom the map; the full-screen map keeps normal one-finger dragging. */
+if(touch&&window.top!==window){map.dragging.disable();let hintT=0;
+  map.getContainer().addEventListener("touchmove",e=>{if(e.touches.length===1&&Date.now()-hintT>6000){hintT=Date.now();note("Use two fingers to move the map, or open it full screen.")}},{passive:true})}
 let stick=false;
 /* Hover labels (districts, communities, condos, groceries, stations, campuses): at most one on screen at a time,
    and never left behind. Browsers sometimes skip the "mouse left" signal (fast moves, page scrolling under a
@@ -152,7 +161,7 @@ function panelScrollTo(li,center){const sc=$("pbody");if(!sc)return;const a=sc.g
   else if(b.top<a.top)top=sc.scrollTop+(b.top-a.top)-8;else if(b.bottom>a.bottom)top=sc.scrollTop+(b.bottom-a.bottom)+8;else return;
   sc.scrollTop=Math.max(0,top)}   /* instant: a smooth scroll was cut short when the Nearby section redrew */
 function restyle(){distLayer.setStyle(f=>dStyle(f.properties.d));commLayer.setStyle(cStyle);
-  const c=map.getContainer(),z=map.getZoom(),wide=z<9.5;c.classList.toggle("z-far",z<11);c.classList.toggle("z-near",z>=13);c.classList.toggle("z-reg",z<8);c.classList.toggle("wide",wide);
+  const c=map.getContainer(),z=map.getZoom(),wide=z<9.5;c.classList.toggle("z-far",z<11);c.classList.toggle("z-near",z>=13);c.classList.toggle("z-reg",z<8);c.classList.toggle("wide",wide);if(wide)map.removeLayer(condoLayer);else if(!map.hasLayer(condoLayer)){condoLayer.addTo(map);cullAll()}
   (showReg&&z<11.5)?regLabels.addTo(map):map.removeLayer(regLabels);
   (z>=12.5)?glowLabels.addTo(map):map.removeLayer(glowLabels);
   if(z>=12.5){shopLayer.addTo(map);cull(shopLayer,shopMarkers)}else map.removeLayer(shopLayer);
