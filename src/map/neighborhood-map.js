@@ -132,7 +132,7 @@ map.on("zoomanim",e=>{if(!mkReady||!map._animatingZoom||!mkLL)return;
 /* one shared hover label for whichever symbol is under the pointer */
 const mkTT=L.tooltip({className:"tt",direction:"top"});let mkTipIt=null;
 function mkTip(it){if(!it){if(mkTipIt){mkTipIt=null;map.closeTooltip(mkTT)}return}
-  mkTipIt=it;mkTT.options.offset=L.point(0,-it.g.off);mkTT.setContent(it.tip).setLatLng(it.ll);if(!map.hasLayer(mkTT))map.openTooltip(mkTT)}
+  mkTipIt=it;const o=it.g.off;mkTT.options.offset=L.point(0,-(typeof o==="function"?o():o));mkTT.setContent(it.tip).setLatLng(it.ll);if(!map.hasLayer(mkTT))map.openTooltip(mkTT)}
 
 /* layers */
 let sel=null,selComm=null,showComm=true;const walk=false;
@@ -221,19 +221,23 @@ const KIND={pre:"Pre-construction",loft:"Loft",condo:"Condo"},showKind={pre:$("l
 const preWhen=x=>x&&x[3]?" \u00b7 "+x[3]:"";
 const pinOf={};
 const PCOL={condo:"#e0245e",loft:"#7b3fbf",pre:"#aab1ba"};
-/* the pin picture: a teardrop with a white dot; smaller when zoomed far out, 2.2 times larger while highlighted */
-function sprPin(kind,far,big){const key="pin"+kind+(far?"f":"")+(big?"b":"")+"@"+DPR;if(SPR[key])return SPR[key];
-  const f=big?2.2:1,R=(far?5:6)*f,h=(far?8.5:10.5)*f,m=big?10:8,w=2*Math.ceil(R+m),H=Math.ceil(h+R+2*m),c=document.createElement("canvas"),x=c.getContext("2d"),px=w/2,py=H-m,cy=py-h,a=Math.acos(R/h);
+/* Pins keep one size up to the zoom that a click or a jump button brings you to (16.5). Zooming in further they grow
+   evenly, to 1.5 times at full zoom (18), so they still stand out against the large buildings. */
+const pinK=()=>mkZ<=16.5?1:Math.min(1.5,1+(mkZ-16.5)/3);
+/* the pin picture: a teardrop with a white dot; smaller when zoomed far out, 2.2 times larger while highlighted,
+   k times larger for the zoom (pinK) */
+function sprPin(kind,far,big,k){const key="pin"+kind+(far?"f":"")+(big?"b":"")+Math.round(k*100)+"@"+DPR;if(SPR[key])return SPR[key];
+  const f=(big?2.2:1)*k,R=(far?5:6)*f,h=(far?8.5:10.5)*f,m=big?10:8,w=2*Math.ceil(R+m),H=Math.ceil(h+R+2*m),c=document.createElement("canvas"),x=c.getContext("2d"),px=w/2,py=H-m,cy=py-h,a=Math.acos(R/h);
   c.width=Math.round(w*DPR);c.height=Math.round(H*DPR);x.scale(DPR,DPR);
   x.beginPath();x.moveTo(px,py);x.arc(px,cy,R,Math.PI/2+a,Math.PI*2.5-a);x.closePath();
-  x.shadowColor="rgba(0,0,0,.38)";x.shadowBlur=(big?4:2)*DPR;x.shadowOffsetX=-DPR;x.shadowOffsetY=DPR;x.fillStyle=PCOL[kind]||PCOL.condo;x.fill();
-  x.shadowColor="transparent";x.shadowBlur=0;x.shadowOffsetX=x.shadowOffsetY=0;x.lineWidth=big?2:1.5;x.strokeStyle=kind==="pre"?"#f4f6f8":"#fff";x.stroke();
-  if(kind==="pre"){x.lineWidth=.6;x.strokeStyle="#6b737d";x.stroke()}
+  x.shadowColor="rgba(0,0,0,.38)";x.shadowBlur=(big?4:2)*k*DPR;x.shadowOffsetX=-DPR;x.shadowOffsetY=DPR;x.fillStyle=PCOL[kind]||PCOL.condo;x.fill();
+  x.shadowColor="transparent";x.shadowBlur=0;x.shadowOffsetX=x.shadowOffsetY=0;x.lineWidth=(big?2:1.5)*k;x.strokeStyle=kind==="pre"?"#f4f6f8":"#fff";x.stroke();
+  if(kind==="pre"){x.lineWidth=.6*k;x.strokeStyle="#6b737d";x.stroke()}
   x.beginPath();x.arc(px,cy,R*.3,0,Math.PI*2);x.fillStyle="#fff";x.fill();
   return SPR[key]={c,w,h:H,ax:px,ay:py}}
-const gPin=mkGroup({z:640,on:()=>mkZ>=9.5,ok:it=>showKind[it.k],off:14,
-  spr:big=>{const far=mkZ<11,m={condo:sprPin("condo",far,big),loft:sprPin("loft",far,big),pre:sprPin("pre",far,big)};return it=>m[it.k]},
-  hit:(it,dx,dy)=>{const f=it===hotPin?2.2:1,far=mkZ<11,R=(far?5:6)*f,h=(far?8.5:10.5)*f;return dx*dx+(dy+h)*(dy+h)<=(R+3)*(R+3)||(Math.abs(dx)<=R*.6&&dy<=1&&dy>=-h)},
+const gPin=mkGroup({z:640,on:()=>mkZ>=9.5,ok:it=>showKind[it.k],off:()=>14*pinK(),
+  spr:big=>{const far=mkZ<11,k=pinK(),m={condo:sprPin("condo",far,big,k),loft:sprPin("loft",far,big,k),pre:sprPin("pre",far,big,k)};return it=>m[it.k]},
+  hit:(it,dx,dy)=>{const f=(it===hotPin?2.2:1)*pinK(),far=mkZ<11,R=(far?5:6)*f,h=(far?8.5:10.5)*f;return dx*dx+(dy+h)*(dy+h)<=(R+3)*(R+3)||(Math.abs(dx)<=R*.6&&dy<=1&&dy>=-h)},
   click:it=>{if(sel!==it.id)pick(it.id,null);hot(it.id,it.i,false,true);mkTip(mkMouse?null:it);zoomPop(it.ll)}});   /* by touch there is no hover, so the tapped building keeps its name label */
 Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DISTRICTS[id].condos[i].split(";").map(x=>x.split("|")),w=walkTo(p);
   pinOf[id+"|"+i]=mkAdd(gPin,p[0],p[1],(cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction"+esc(preWhen(cs.find(c=>c[2]==="pre")))+"</i>":kindOf(cs)==="loft"?"<br><i>Loft</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{id,i,k:kindOf(cs)})}));
