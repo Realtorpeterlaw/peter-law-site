@@ -15,7 +15,7 @@ if(small.matches)$("layers").open=false;
 const map=L.map("map",{zoomSnap:.5,minZoom:7,maxZoom:18,maxBounds:[[42.3,-82.4],[45.7,-76.3]],zoomControl:false});
 L.control.zoom({position:"bottomright"}).addTo(map);
 map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;map.getPane("pCondo").style.pointerEvents="none";["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pUni").style.zIndex=630;map.createPane("pMall").style.zIndex=635;map.createPane("pShop").style.zIndex=620;map.createPane("pDay").style.zIndex=615;map.createPane("pSch").style.zIndex=617;map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
+["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;map.getPane("pCondo").style.pointerEvents="none";["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
 const cityBounds=L.geoJSON(DIST).getBounds();
 map.fitBounds(cityBounds,{padding:[10,10]});
 
@@ -37,6 +37,103 @@ function walkTo(p){if(!p||!p[2])return null;const n=nearest([p[0],p[1]]),min=Mat
 const walkTxt=w=>w?'About '+w.min+' min walk to '+w.st+' station':'';
 const fmt=d=>d<1?Math.round(d*100)*10+" m":d.toFixed(1)+" km";
 
+/* ---------- Map symbols and name labels: two canvases instead of one page element each ----------
+   Condo pins, grocery carts, campuses, shopping centres, daycares, schools and every name label are small pictures,
+   drawn once and then stamped onto a canvas. Each used to be its own page element, which the browser kept as a
+   separate layer and re-composed on every frame: about 500 of them at neighbourhood zoom, 1,900 with daycares and
+   schools switched on, is what made dragging and zooming the map lag. Symbols go on one canvas (top pane), labels
+   on a second one in the pane the labels always had, so stations and glows still draw over them. The canvases let
+   the pointer through, so districts underneath keep working; hover and click on a symbol are found by the hit
+   test further down. */
+const MK=[],SPR={},MK_PAD=.25,MK_MAXPX=12e6;
+let DPR=Math.min(window.devicePixelRatio||1,2),mkReady=false,mkZ=map.getZoom(),mkMin=L.point(0,0),mkW=0,mkH=0,mkQ=1,mkLL=null,mkPZ=mkZ,mkRq=0,mkAnim=0,mkSlow=0,mkGap=0,mkLast=0,hotPin=null;
+const mkCs=["pCondo","pSel"].map(n=>L.DomUtil.create("canvas","leaflet-zoom-animated",map.getPane(n))),mkX=mkCs[0].getContext("2d"),mkLX=mkCs[1].getContext("2d");
+mkCs.forEach(c=>{c.style.cssText="position:absolute;left:0;top:0;pointer-events:none";c.setAttribute("aria-hidden","true")});
+const mkMx=window.DOMMatrixReadOnly||window.WebKitCSSMatrix||null;   /* reads how far a zoom animation has got */
+/* a group of symbols or labels: z = drawing order (as the old panes), x = which canvas (symbols unless given),
+   on() = shown at this zoom / with these switches, ok(it) = this one passes the filter, spr() = picture for each,
+   hit() = the pointer is on it (labels have none), off = how far above it the hover label sits, click */
+function mkGroup(o){o.items=[];o.vis=false;MK.push(o);MK.sort((a,b)=>a.z-b.z);return o}
+function mkAdd(g,lat,lng,tip,x){const q=map.project([lat,lng],0),it=Object.assign({g,ll:[lat,lng],wx:q.x,wy:q.y,tip,sx:NaN,sy:0},x);g.items.push(it);return it}
+const mkSort=g=>g.items.sort((a,b)=>b.ll[0]-a.ll[0]);   /* north first, so a symbol further south overlaps the one above it */
+const mkBox=h=>(it,dx,dy)=>dx<=h&&dx>=-h&&dy<=h&&dy>=-h;   /* the square the old icon element covered */
+const mkFly=it=>{mkTip(null);zoomPop(it.ll)};
+/* an SVG icon drawn once into a small bitmap, sized for this screen's pixel density */
+function sprSvg(name,svg,size){const key=name+"@"+DPR;if(key in SPR)return SPR[key];SPR[key]=null;
+  const px=Math.round(size*DPR),c=document.createElement("canvas"),x=c.getContext("2d"),img=new Image(),done=()=>{SPR[key]={c,w:size,h:size,ax:size/2,ay:size/2};mkDirty()};
+  c.width=c.height=px;
+  img.onload=()=>{x.drawImage(img,0,0,px,px);done()};
+  img.onerror=()=>{x.beginPath();x.arc(px/2,px/2,px/2-1,0,7);x.fillStyle="#fff";x.fill();x.strokeStyle="#16202b";x.stroke();done()};   /* a plain disc if the icon cannot be decoded */
+  img.src="data:image/svg+xml,"+encodeURIComponent(svg.replace("<svg ",'<svg xmlns="http://www.w3.org/2000/svg" ').replace(/width="\d+" height="\d+"/,'width="'+px+'" height="'+px+'"'));return null}
+/* a name label drawn once into a small bitmap, laid out the way the page-element labels were: same font, weight,
+   size, colour and soft white halo, centred on its point (st: weight, size, colour, halo blur radii, line height,
+   height of the old label box, and for some a wrap width or letter spacing) */
+const LBF=getComputedStyle(map.getContainer()).fontFamily;
+function sprText(text,st){const key=st.k+"|"+text+"@"+DPR;if(SPR[key])return SPR[key];
+  const c=document.createElement("canvas"),x=c.getContext("2d"),font=st.wt+" "+st.fs+"px "+LBF,ls=(st.ls||0)*st.fs;x.font=font;
+  const W=t=>x.measureText(t).width+ls*t.length;let lines=[text];
+  if(st.wrap){lines=[];let cur="";(text.match(/[^ -]+[ -]*|[ -]+/g)||[text]).forEach(t=>{if(cur&&W((cur+t).trimEnd())>st.wrap){lines.push(cur.trimEnd());cur=t}else cur+=t});if(cur.trim())lines.push(cur.trimEnd())}
+  const mt=x.measureText("Mg"),A=Math.round(mt.fontBoundingBoxAscent||st.fs*.93),D=Math.round(mt.fontBoundingBoxDescent||st.fs*.25),LH=st.lh*st.fs,half=(LH-A-D)/2,pad=8,
+    w=2*Math.ceil(Math.max(...lines.map(W))/2+pad),y0=pad-Math.floor(Math.min(0,half)),H=y0+Math.ceil(Math.max(st.box,lines.length*LH-half))+pad;
+  c.width=Math.round(w*DPR);c.height=Math.round(H*DPR);x.scale(DPR,DPR);x.font=font;x.textBaseline="alphabetic";
+  const draw=()=>lines.forEach((t,i)=>{let px=w/2-W(t)/2;const py=y0+Math.round(i*LH)+Math.floor(half+A);if(ls)for(const ch of t){x.fillText(ch,px,py);px+=x.measureText(ch).width+ls}else x.fillText(t,px,py)});
+  x.fillStyle=x.shadowColor="#fff";st.halo.forEach(r=>{x.shadowBlur=r*DPR;draw()});
+  x.shadowColor="transparent";x.shadowBlur=0;x.fillStyle=st.col;draw();
+  return SPR[key]={c,w,h:H,ax:w/2,ay:y0+st.box/2}}
+const lbSpr=st=>it=>sprText(it.t,st);
+const LB={};[["dl11",800,11,"#16202b",[3,3,4,4],1.45,20],["dl15",800,15,"#16202b",[3,3,4,4],1.45,20],["dl20",800,20,"#16202b",[3,3,4,4],1.45,20],["cl",600,11,"#3c4754",[3,3,3],1.1,14,110],
+  ["rl13",800,13,"#1c5fa8",[3,3,4,5],1.45,18,0,.22],["rl11",800,11,"#1c5fa8",[3,3,4,5],1.45,18,0,.14],["ct13",800,13,"#16202b",[3,3,4,5],1.45,18,0,.22],["ct11",800,11,"#16202b",[3,3,4,5],1.45,18,0,.14],
+  ["gl",800,11,"#7a4b00",[3,3,4,5],1.45,14]].forEach(a=>LB[a[0]]={k:a[0],wt:a[1],fs:a[2],col:a[3],halo:a[4],lh:a[5],box:a[6],wrap:a[7]||0,ls:a[8]||0});
+/* stamp one picture: pixel for pixel when it is drawn at its own size (sharp at any screen scaling), scaled otherwise */
+function mkPut(x,it,sp,k){if(!sp)return;
+  if(k===1&&mkQ===DPR)x.drawImage(sp.c,Math.round((it.sx-sp.ax-mkMin.x)*mkQ),Math.round((it.sy-sp.ay-mkMin.y)*mkQ));
+  else x.drawImage(sp.c,(it.sx-sp.ax*k-mkMin.x)*mkQ,(it.sy-sp.ay*k-mkMin.y)*mkQ,sp.w*k*mkQ,sp.h*k*mkQ)}
+/* mkPaint(): place and draw everything for the map as it is now.
+   mkPaint(k): redraw it all where it already is at k times its size; used while a zoom animation is scaling the
+   canvases, so symbols and labels keep their size on screen. */
+function mkPaint(k){if(!mkReady)return;const live=!k;k=k||1;let S=0,ox=0,oy=0;const x0=mkMin.x-90,y0=mkMin.y-50,x1=mkMin.x+mkW+90,y1=mkMin.y+mkH+70;
+  if(live){S=map.getZoomScale(map.getZoom(),0);const o=map.getPixelOrigin();ox=o.x;oy=o.y;mkPZ=map.getZoom();mkLL=map.layerPointToLatLng(mkMin)}
+  [mkX,mkLX].forEach(x=>x.clearRect(0,0,x.canvas.width,x.canvas.height));
+  for(const g of MK){if(live)g.vis=!!g.on();if(!g.vis)continue;const spr=g.spr(),x=g.x||mkX;
+    for(const it of g.items){
+      if(live){if(g.ok&&it!==hotPin&&!g.ok(it)){it.sx=NaN;continue}const px=Math.round(it.wx*S-ox),py=Math.round(it.wy*S-oy);if(px<x0||px>x1||py<y0||py>y1){it.sx=NaN;continue}it.sx=px;it.sy=py}
+      else if(it.sx!==it.sx)continue;
+      if(it!==hotPin)mkPut(x,it,spr(it),k)}}
+  if(hotPin&&hotPin.g.vis&&hotPin.sx===hotPin.sx)mkPut(mkX,hotPin,hotPin.g.spr(true)(hotPin),k)}
+function mkDirty(){if(!mkRq)mkRq=requestAnimationFrame(()=>{mkRq=0;if(!map._animatingZoom)mkPaint()})}
+/* size the canvases to the view plus a margin all round, place them, repaint */
+function mkReset(){if(!mkReady||map._animatingZoom)return;cancelAnimationFrame(mkAnim);
+  const s=map.getSize(),px=Math.round(s.x*MK_PAD),py=Math.round(s.y*MK_PAD),w=s.x+2*px,h=s.y+2*py,d=Math.min(window.devicePixelRatio||1,2);
+  if(d!==DPR){DPR=d;for(const k in SPR)delete SPR[k]}   /* pictures are drawn per pixel density: start afresh when it changes (browser zoom, another screen) */
+  const q=Math.min(DPR,Math.sqrt(MK_MAXPX/(w*h)));
+  if(w!==mkW||h!==mkH||q!==mkQ){mkW=w;mkH=h;mkQ=q;mkCs.forEach(c=>{c.width=Math.round(w*q);c.height=Math.round(h*q);c.style.width=w+"px";c.style.height=h+"px"})}
+  mkMin=map.containerPointToLayerPoint([-px,-py]).round();mkCs.forEach(c=>L.DomUtil.setPosition(c,mkMin));mkPaint()}
+map.on("moveend",()=>{if(mkSlow>0&&map.getZoom()!==mkZ)mkSlow--;mkZ=map.getZoom();mkReset()});
+map.on("resize",mkReset);
+/* Repainting on every frame of a zoom is cheap where the browser draws canvases on the graphics card. Where it does
+   not, frames arrive late: after several late frames in one zoom (not counted while the page is still loading) the
+   canvases are simply scaled with the map for the next few zooms (symbols grow or shrink with it and snap back when
+   it ends), then per-frame repainting is tried again. */
+function mkPace(){const now=performance.now(),d=now-mkLast;mkLast=now;if(d>400)mkGap=0;else if(d>60&&now>4000&&++mkGap>=4)mkSlow=6}
+/* While the map is dragged the canvases simply ride along with it; they are repainted only if the view reaches
+   their margin. A fly-to moves the map frame by frame, so they are repainted with every frame. During a two-finger
+   pinch they are scaled with the map instead (no work per frame at all) and repainted when the fingers lift. */
+map.on("move",e=>{if(!mkReady||map._animatingZoom)return;
+  if(e&&(e.flyTo||e.pinch)){if(e.flyTo){mkPace();if(!mkSlow){mkReset();return}}
+    if(mkLL){const at=map.project(mkLL)._subtract(map.getPixelOrigin()),sc=map.getZoomScale(map.getZoom(),mkPZ);mkCs.forEach(c=>L.DomUtil.setTransform(c,at,sc))}return}
+  const tl=map.containerPointToLayerPoint([0,0]),s=map.getSize();if(tl.x<mkMin.x||tl.y<mkMin.y||tl.x+s.x>mkMin.x+mkW||tl.y+s.y>mkMin.y+mkH)mkReset()});
+/* An animated zoom step (wheel, buttons, double-click): the browser scales the canvases together with the map
+   tiles, so nothing can slip against the streets, and on every frame everything on them is redrawn smaller or
+   larger by the opposite amount, so it holds its size. When the step ends it is all repainted sharp. */
+map.on("zoomanim",e=>{if(!mkReady||!map._animatingZoom||!mkLL)return;
+  const at=map._latLngToNewLayerPoint(mkLL,e.zoom,e.center),sc=map.getZoomScale(e.zoom,mkPZ);mkCs.forEach(c=>L.DomUtil.setTransform(c,at,sc));
+  cancelAnimationFrame(mkAnim);const tick=()=>{if(!map._animatingZoom)return;mkPace();if(mkSlow)return;const a=new mkMx(getComputedStyle(mkCs[0]).transform).a;if(a>0)mkPaint(1/a);mkAnim=requestAnimationFrame(tick)};
+  if(!mkSlow&&mkMx)mkAnim=requestAnimationFrame(tick)});
+/* one shared hover label for whichever symbol is under the pointer */
+const mkTT=L.tooltip({className:"tt",direction:"top"});let mkTipIt=null;
+function mkTip(it){if(!it){if(mkTipIt){mkTipIt=null;map.closeTooltip(mkTT)}return}
+  mkTipIt=it;mkTT.options.offset=L.point(0,-it.g.off);mkTT.setContent(it.tip).setLatLng(it.ll);if(!map.hasLayer(mkTT))map.openTooltip(mkTT)}
+
 /* layers */
 let sel=null,selComm=null,showComm=true;const walk=false;
 const distLayer=L.geoJSON(DIST,{pane:"pDist",style:f=>dStyle(f.properties.d),onEachFeature:(f,l)=>{
@@ -48,62 +145,59 @@ const commLayer=L.geoJSON(COMM,{pane:"pComm",style:cStyle,onEachFeature:(f,l)=>{
   l.bindTooltip(()=>f.properties.n+" · "+f.properties.d,{sticky:true,className:"tt",direction:"top"});
   l.on({mouseover:()=>l.setStyle({weight:2.5,color:"#16202b"}),mouseout:()=>commLayer.resetStyle(l),click:()=>{const p=f.properties;if(sel===p.d&&(selComm===null||selComm===p.n))unpick();else pick(p.d,p.n)}});}});
 function cStyle(f){const p=f.properties,on=p.n===selComm&&p.d===sel;return{color:on?"#16202b":"#5d6976",weight:on?2.6:.9,dashArray:on?null:"3 3",fillColor:walk?walkCol(p.near.d):"#fff",fillOpacity:walk?.62:(on?.25:.01)}}
-const dLabels=L.layerGroup(Object.keys(DLABEL).map(k=>L.marker(DLABEL[k].slice(0,2),{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"dl",html:DLABEL[k][2]||k,iconSize:[60,20]})}))).addTo(map);
-const cLabelMarkers=COMM.features.filter(f=>!f.properties.dup).map(f=>L.marker(f.properties.c,{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"cl",html:esc(f.properties.n),iconSize:[110,14]})}));
-const cLabels=L.layerGroup();
+const gDL=mkGroup({z:441,x:mkLX,on:()=>map.hasLayer(distLayer)&&mkZ>=9.5,spr:()=>lbSpr(mkZ<11?LB.dl11:mkZ>=13?LB.dl20:LB.dl15)});
+Object.keys(DLABEL).forEach(k=>mkAdd(gDL,DLABEL[k][0],DLABEL[k][1],null,{t:DLABEL[k][2]||k}));mkSort(gDL);
+const gCL=mkGroup({z:442,x:mkLX,on:()=>showComm&&mkZ>=13.5,spr:()=>lbSpr(LB.cl)});
+COMM.features.forEach(f=>mkAdd(gCL,f.properties.c[0],f.properties.c[1],null,{t:f.properties.n}));mkSort(gCL);
 const subLayer=L.layerGroup(STATIONS.map(s=>L.circleMarker([s[1],s[2]],{pane:"pSub",radius:5,color:"#fff",weight:1.5,fillColor:LINE[s[3]],fillOpacity:1,bubblingMouseEvents:false}).bindTooltip(s[0]+" station",{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
 /* Yonge St and Bloor St: glowing main streets (halo that pulses, bright core, light that travels along the street) */
-const glowLayer=L.layerGroup(),glowLabels=L.layerGroup();
+const glowLayer=L.layerGroup();
 Object.keys(STREETS).forEach(n=>{const p=STREETS[n];
   [["halo",14],["core",4],["run",4]].forEach(k=>glowLayer.addLayer(L.polyline(p,{pane:"pGlow",interactive:false,className:"glow-"+k[0],weight:k[1],lineCap:"round",lineJoin:"round"})))});
-glowLabels.addLayer(L.marker([43.7300,-79.4034],{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"gl",html:"Yonge St",iconSize:[70,14]})}));
-glowLabels.addLayer(L.marker([43.6520,-79.4760],{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"gl",html:"Bloor St W",iconSize:[80,14]})}));
-glowLabels.addLayer(L.marker([43.6722,-79.3790],{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"gl",html:"Bloor St E",iconSize:[80,14]})}));
+const gGL=mkGroup({z:444,x:mkLX,on:()=>mkZ>=12.5,spr:()=>lbSpr(LB.gl)});
+[[43.7300,-79.4034,"Yonge St"],[43.6520,-79.4760,"Bloor St W"],[43.6722,-79.3790,"Bloor St E"]].forEach(a=>mkAdd(gGL,a[0],a[1],null,{t:a[2]}));
 glowLayer.addTo(map);
 /* click any icon: zoom straight in to browse the area around it (no card). Already close: just centre on it */
 function zoomPop(ll){ll=L.latLng(ll);map.closePopup();map.flyTo(ll,Math.max(map.getZoom(),16.5),{duration:.7})}
 /* grocery stores */
 const CART='<svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12.5" r="11.5" fill="#fff" fill-opacity=".85"/><path d="M2.2 3.4h3.1l2.3 10.2h10.3l2-7.4H6.2" fill="#fff" stroke="#16202b" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.6 9.3h10.2M12.9 6.4v7M9.3 6.4l.9 7M16.6 6.4l-.6 7" stroke="#16202b" stroke-width="1.1" fill="none"/><circle cx="9.3" cy="18.6" r="1.9" fill="#16202b"/><circle cx="16.6" cy="18.6" r="1.9" fill="#16202b"/></svg>';
-const shopMarkers=GROCERY.map(g=>{const m=L.marker([g[1],g[2]],{pane:"pShop",keyboard:false,icon:L.divIcon({className:"shop",html:CART,iconSize:[20,20],iconAnchor:[10,10],tooltipAnchor:[0,-10]})});
-  m.bindTooltip(g[0],{className:"tt",direction:"top"});m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m});
-const shopLayer=L.layerGroup();
+const gShop=mkGroup({z:620,on:()=>mkZ>=12.5,off:10,spr:()=>{const sp=sprSvg("cart",CART,20);return()=>sp},hit:mkBox(10),click:mkFly});
+GROCERY.forEach(g=>mkAdd(gShop,g[1],g[2],g[0]));mkSort(gShop);
 /* licensed child care centres (public/map/daycares.txt, Ontario licensed child care data). Off by default; the file
    is only downloaded the first time someone switches the layer on. */
 const PACI='<svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="11.4" fill="#fff" fill-opacity=".92" stroke="#16202b" stroke-width=".8"/><circle cx="12" cy="7.1" r="2.9" fill="none" stroke="#16202b" stroke-width="1.8"/><path d="M5.4 12.3c0-1.4 3-2.4 6.6-2.4s6.6 1 6.6 2.4-3 2.4-6.6 2.4-6.6-1-6.6-2.4z" fill="#16202b"/><path d="M10.2 14.4h3.6v2.5a1.8 1.8 0 0 1-3.6 0z" fill="#fff" stroke="#16202b" stroke-width="1.4"/></svg>';
-const dayLayer=L.layerGroup();let dayMarkers=[],dayOn=false,dayLoad=null;
-function dayData(){return dayLoad||(dayLoad=fetch("/map/daycares.txt").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(tx=>{
-  dayMarkers=tx.split("\n").filter(l=>l&&l[0]!=="#").map(l=>{const a=l.split("~");const la=(+a[0]+4360000)/1e5,lo=(+a[1]-7940000)/1e5;
-    const m=L.marker([la,lo],{pane:"pDay",keyboard:false,icon:L.divIcon({className:"day",html:PACI,iconSize:[20,20],iconAnchor:[10,10],tooltipAnchor:[0,-10]})});
-    m.bindTooltip("<b>"+esc(a[2])+"</b><br><span style=\"font-weight:400\">"+esc(a[3])+"</span><br><i>Licensed child care"+(a[4]?" \u00b7 "+esc(a[4]).replace(/\//g," \u00b7 "):"")+"</i>",{className:"tt",direction:"top"});
-    m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m})}).catch(e=>{dayLoad=null;throw e}))}
-function dayShow(){const z=map.getZoom();if(dayOn&&z>=13&&dayMarkers.length){dayLayer.addTo(map);cull(dayLayer,dayMarkers)}else map.removeLayer(dayLayer)}
+let dayOn=false,dayLoad=null;
+const gDay=mkGroup({z:615,on:()=>dayOn&&mkZ>=13,off:10,spr:()=>{const sp=sprSvg("day",PACI,20);return()=>sp},hit:mkBox(10),click:mkFly});
+function dayData(){return dayLoad||(dayLoad=fetch("/map/daycares.txt").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(tx=>{gDay.items.length=0;
+  tx.split("\n").forEach(l=>{if(!l||l[0]==="#")return;const a=l.split("~");
+    mkAdd(gDay,(+a[0]+4360000)/1e5,(+a[1]-7940000)/1e5,"<b>"+esc(a[2])+"</b><br><span style=\"font-weight:400\">"+esc(a[3])+"</span><br><i>Licensed child care"+(a[4]?" \u00b7 "+esc(a[4]).replace(/\//g," \u00b7 "):"")+"</i>")});mkSort(gDay)}).catch(e=>{dayLoad=null;throw e}))}
 /* GTA schools (public/map/schools.txt): public incl. Catholic (green caps) and private (red caps), split K-8 / 9-12.
    All four layers are off by default; the file is only downloaded the first time one is switched on. */
 const SCAP=c=>'<svg viewBox="0 0 24 24" width="20" height="20" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="11.4" fill="#fff" fill-opacity=".92" stroke="'+c+'" stroke-width="1.2"/><path d="M12 5.2 3.4 9.4l8.6 4.2 8.6-4.2z" fill="'+c+'" stroke="'+c+'" stroke-width="1.2"/><path d="M7 11.6v3.9c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-3.9" fill="'+c+'"/><path d="M5 10.2v4.4" stroke="'+c+'" stroke-width="1.3" fill="none"/></svg>';
 const SCH_PUB=SCAP("#1f7a3a"),SCH_PRI=SCAP("#c62828");
-const schLayer=L.layerGroup();let schMarkers=[],schMask=0,schLoad=null;
-function schData(){return schLoad||(schLoad=fetch("/map/schools.txt").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(tx=>{
-  schMarkers=tx.split("\n").filter(l=>l&&l[0]!=="#").map(l=>{const a=l.split("~");const la=(+a[0]+4360000)/1e5,lo=(+a[1]-7940000)/1e5,f=+a[2];
-    const m=L.marker([la,lo],{pane:"pSch",keyboard:false,icon:L.divIcon({className:"schm",html:f&3?SCH_PUB:SCH_PRI,iconSize:[20,20],iconAnchor:[10,10],tooltipAnchor:[0,-10]})});
-    m._f=f;m.bindTooltip("<b>"+esc(a[3])+"</b><br><span style=\"font-weight:400\">"+esc(a[4])+"</span><br><i>"+esc(a[5])+"</i>",{className:"tt",direction:"top"});
-    m.on("click",()=>{m.closeTooltip();zoomPop(m.getLatLng())});return m})}).catch(e=>{schLoad=null;throw e}))}
-const schOk=m=>m._f&schMask;
-function schShow(){if(schMask&&map.getZoom()>=13&&schMarkers.length){schLayer.addTo(map);cull(schLayer,schMarkers,null,schOk)}else map.removeLayer(schLayer)}
+let schMask=0,schLoad=null;
+const gSch=mkGroup({z:617,on:()=>schMask&&mkZ>=13,ok:it=>it.f&schMask,off:10,spr:()=>{const pu=sprSvg("schp",SCH_PUB,20),pr=sprSvg("schv",SCH_PRI,20);return it=>it.f&3?pu:pr},hit:mkBox(10),click:mkFly});
+function schData(){return schLoad||(schLoad=fetch("/map/schools.txt").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(tx=>{gSch.items.length=0;
+  tx.split("\n").forEach(l=>{if(!l||l[0]==="#")return;const a=l.split("~");
+    mkAdd(gSch,(+a[0]+4360000)/1e5,(+a[1]-7940000)/1e5,"<b>"+esc(a[3])+"</b><br><span style=\"font-weight:400\">"+esc(a[4])+"</span><br><i>"+esc(a[5])+"</i>",{f:+a[2]})});mkSort(gSch)}).catch(e=>{schLoad=null;throw e}))}
 /* universities and colleges */
 const CAP='<svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" stroke="#16202b" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="11.6" stroke="none" fill-opacity=".85"/><path d="M12 4.2 2.2 9l9.8 4.8L21.8 9z"/><path d="M6.2 11.2v4.6c0 1.6 2.6 2.9 5.8 2.9s5.8-1.3 5.8-2.9v-4.6" fill="none"/><path d="M3.4 9.9v4.9"/><rect x="2.5" y="14.8" width="1.8" height="2.6" rx=".6"/></svg>';
-const uniLayer=L.layerGroup(UNIS.map(u=>L.marker([u[1],u[2]],{pane:"pUni",keyboard:false,icon:L.divIcon({className:"uni",html:CAP,iconSize:[26,26],iconAnchor:[13,13],tooltipAnchor:[0,-12]})}).bindTooltip(u[0],{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
+const gUni=mkGroup({z:630,on:()=>mkZ>=9.5,off:12,spr:()=>{const sp=mkZ<11?sprSvg("uni20",CAP,20):sprSvg("uni",CAP,26);return()=>sp},hit:mkBox(13),click:mkFly});
+UNIS.forEach(u=>mkAdd(gUni,u[1],u[2],u[0]));mkSort(gUni);
 /* shopping centres: two shopping bags, grey on a white circle (no CSS filter, so it stays cheap to draw) */
 const BAGS='<svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="11.6" fill="#fff" fill-opacity=".9" stroke="#16202b" stroke-width=".8"/><path d="M5.2 9.4h7.6l.7 9.1H4.5z" fill="#5d6976" stroke="#16202b" stroke-width="1" stroke-linejoin="round"/><path d="M7 9.4V8a2 2 0 0 1 4 0v1.4" fill="none" stroke="#16202b" stroke-width="1.2" stroke-linecap="round"/><path d="M11.4 11.6h7.3l.7 7.6h-8.7z" fill="#c3cad3" stroke="#16202b" stroke-width="1" stroke-linejoin="round"/><path d="M13.3 11.6v-1.1a1.75 1.75 0 0 1 3.5 0v1.1" fill="none" stroke="#16202b" stroke-width="1.2" stroke-linecap="round"/></svg>';
-const mallLayer=L.layerGroup(MALLS.map(m=>L.marker([m[1],m[2]],{pane:"pMall",keyboard:false,icon:L.divIcon({className:"mall",html:BAGS,iconSize:[24,24],iconAnchor:[12,12],tooltipAnchor:[0,-12]})}).bindTooltip(esc(m[0]),{className:"tt",direction:"top"}).on("click",e=>{e.target.closeTooltip();zoomPop(e.target.getLatLng())}))).addTo(map);
+const gMall=mkGroup({z:635,on:()=>mkZ>=9.5,off:12,spr:()=>{const sp=mkZ<11?sprSvg("mall20",BAGS,20):sprSvg("mall",BAGS,24);return()=>sp},hit:mkBox(12),click:mkFly});
+MALLS.forEach(m=>mkAdd(gMall,m[1],m[2],esc(m[0])));mkSort(gMall);
 /* surrounding regions */
-const regLayer=L.layerGroup(),regLabels=L.layerGroup(),regPoly={};
+const regLayer=L.layerGroup(),regPoly={};
+const gRL=mkGroup({z:443,x:mkLX,on:()=>showReg&&mkZ<11.5,ok:it=>!it.city||mkZ<9.5,spr:()=>{const a=lbSpr(mkZ<8?LB.rl11:LB.rl13),b=lbSpr(mkZ<8?LB.ct11:LB.ct13);return it=>(it.city?b:a)(it)}});
 Object.keys(REGIONS).forEach(n=>{const r=REGIONS[n],name=n==="Grey"?"Grey County":n;
   const p=L.polygon(r.p,{pane:"pReg",color:"#1c5fa8",weight:2.4,dashArray:"7 4 2 4",fillColor:"#1c5fa8",fillOpacity:.04});
   p.bindTooltip(name,{sticky:true,className:"tt",direction:"top"});
   p.on({mouseover:()=>p.setStyle({fillOpacity:.16,weight:3.4}),mouseout:()=>p.setStyle({fillOpacity:.04,weight:2.4}),click:()=>{glowShape([p.getLatLngs()]);map.flyToBounds(p.getBounds(),{padding:[30,30],duration:.6})}});
   regPoly[name.toLowerCase()]=p;regLayer.addLayer(p);
-  regLabels.addLayer(L.marker(r.c,{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"rl",html:name,iconSize:[200,18]})}))});
-regLabels.addLayer(L.marker(cityBounds.getCenter(),{pane:"pSel",interactive:false,keyboard:false,icon:L.divIcon({className:"rl city",html:"Toronto",iconSize:[200,18]})}));
+  mkAdd(gRL,r.c[0],r.c[1],null,{t:name.toUpperCase()})});
+{const c=cityBounds.getCenter();mkAdd(gRL,c.lat,c.lng,null,{t:"TORONTO",city:1})}   /* shown only when zoomed out past the pins */
 const allBounds=L.latLngBounds(cityBounds.getSouthWest(),cityBounds.getNorthEast());regLayer.eachLayer(p=>allBounds.extend(p.getBounds()));
 regLayer.addTo(map);
 let showReg=true;
@@ -125,60 +219,62 @@ map.on("moveend",syncView);
 const kindOf=cs=>cs.some(c=>c[2]==="pre")?"pre":cs.some(c=>c[2]==="loft"||/\blofts?\b/i.test(c[0]))?"loft":"condo";
 const KIND={pre:"Pre-construction",loft:"Loft",condo:"Condo"},showKind={pre:$("l-pre").checked,condo:$("l-condo").checked,loft:$("l-loft").checked};
 const preWhen=x=>x&&x[3]?" \u00b7 "+x[3]:"";
-const pinOf={};let hotPin=null;
-/* Condo pins are painted on one canvas instead of being ~1,800 separate page elements; the DOM pins were what
-   made panning and zooming lag. The canvas lets pointer events through (districts underneath keep working);
-   hover and click on a pin are found by a small hit test below. */
+const pinOf={};
 const PCOL={condo:"#e0245e",loft:"#7b3fbf",pre:"#aab1ba"};
-const pinCanvas=L.canvas({pane:"pCondo",padding:.25});
-const pinSize=m=>{const far=map.getZoom()<11,k=m._hot?2.2:1;return[(far?5:6)*k,(far?8.5:10.5)*k]};
-const PinMark=L.CircleMarker.extend({
-  _updateBounds(){const[R,h]=pinSize(this),w=3;this._pxBounds=new L.Bounds(this._point.subtract([R+w,h+R+w]),this._point.add([R+w,w]))},
-  _containsPoint(pt){const[R,h]=pinSize(this);return pt.distanceTo(this._point.subtract([0,h]))<=R+3||(Math.abs(pt.x-this._point.x)<=R*.6&&pt.y<=this._point.y+1&&pt.y>=this._point.y-h)},
-  _updatePath(){const r=this._renderer;if(!r._drawing||this._empty())return;const c=r._ctx,p=this._point,[R,h]=pinSize(this),cx=p.x,cy=p.y-h,a=Math.acos(R/h);
-    c.beginPath();c.moveTo(p.x,p.y);c.arc(cx,cy,R,Math.PI/2+a,Math.PI*2.5-a);c.closePath();
-    c.shadowColor="rgba(0,0,0,.38)";c.shadowBlur=this._hot?4:2;c.shadowOffsetX=-1;c.shadowOffsetY=1;c.fillStyle=PCOL[this._k]||PCOL.condo;c.fill();
-    c.shadowColor="transparent";c.shadowBlur=0;c.shadowOffsetX=c.shadowOffsetY=0;c.lineWidth=this._hot?2:1.5;c.strokeStyle=this._k==="pre"?"#f4f6f8":"#fff";c.stroke();
-    if(this._k==="pre"){c.lineWidth=.6;c.strokeStyle="#6b737d";c.stroke()}
-    c.beginPath();c.arc(cx,cy,R*.3,0,Math.PI*2);c.fillStyle="#fff";c.fill()}});
-const setHot=(m,on)=>{m.redraw();m._hot=on;if(m._map){m._updateBounds();m.redraw();if(on)m.bringToFront()}};
-const condoLayer=L.layerGroup();
-Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DISTRICTS[id].condos[i].split(";").map(x=>x.split("|"));
-  const m=new PinMark([p[0],p[1]],{renderer:pinCanvas,pane:"pCondo",radius:6,interactive:false,bubblingMouseEvents:false});m._k=kindOf(cs);
-  const w=walkTo(p);m.bindTooltip((cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction"+esc(preWhen(cs.find(c=>c[2]==="pre")))+"</i>":kindOf(cs)==="loft"?"<br><i>Loft</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{offset:[0,-14],className:"tt",direction:"top"});
-  m.on("click",()=>{if(sel!==id)pick(id,null);hot(id,i,false,true);m.closeTooltip();zoomPop(m.getLatLng())});
-  m.on("mouseover",()=>{hot(id,i,false,false);m.openTooltip()});m.on("mouseout",()=>{if(!stick)hot(null);else if(m!==hotPin)m.closeTooltip()});
-  pinOf[id+"|"+i]=m}));
-const condoMarkers=Object.values(pinOf);
-/* hit test for the canvas pins: hover shows the label and lights the list entry, a click picks the building.
+/* the pin picture: a teardrop with a white dot; smaller when zoomed far out, 2.2 times larger while highlighted */
+function sprPin(kind,far,big){const key="pin"+kind+(far?"f":"")+(big?"b":"")+"@"+DPR;if(SPR[key])return SPR[key];
+  const f=big?2.2:1,R=(far?5:6)*f,h=(far?8.5:10.5)*f,m=big?10:8,w=2*Math.ceil(R+m),H=Math.ceil(h+R+2*m),c=document.createElement("canvas"),x=c.getContext("2d"),px=w/2,py=H-m,cy=py-h,a=Math.acos(R/h);
+  c.width=Math.round(w*DPR);c.height=Math.round(H*DPR);x.scale(DPR,DPR);
+  x.beginPath();x.moveTo(px,py);x.arc(px,cy,R,Math.PI/2+a,Math.PI*2.5-a);x.closePath();
+  x.shadowColor="rgba(0,0,0,.38)";x.shadowBlur=(big?4:2)*DPR;x.shadowOffsetX=-DPR;x.shadowOffsetY=DPR;x.fillStyle=PCOL[kind]||PCOL.condo;x.fill();
+  x.shadowColor="transparent";x.shadowBlur=0;x.shadowOffsetX=x.shadowOffsetY=0;x.lineWidth=big?2:1.5;x.strokeStyle=kind==="pre"?"#f4f6f8":"#fff";x.stroke();
+  if(kind==="pre"){x.lineWidth=.6;x.strokeStyle="#6b737d";x.stroke()}
+  x.beginPath();x.arc(px,cy,R*.3,0,Math.PI*2);x.fillStyle="#fff";x.fill();
+  return SPR[key]={c,w,h:H,ax:px,ay:py}}
+const gPin=mkGroup({z:640,on:()=>mkZ>=9.5,ok:it=>showKind[it.k],off:14,
+  spr:big=>{const far=mkZ<11,m={condo:sprPin("condo",far,big),loft:sprPin("loft",far,big),pre:sprPin("pre",far,big)};return it=>m[it.k]},
+  hit:(it,dx,dy)=>{const f=it===hotPin?2.2:1,far=mkZ<11,R=(far?5:6)*f,h=(far?8.5:10.5)*f;return dx*dx+(dy+h)*(dy+h)<=(R+3)*(R+3)||(Math.abs(dx)<=R*.6&&dy<=1&&dy>=-h)},
+  click:it=>{if(sel!==it.id)pick(it.id,null);hot(it.id,it.i,false,true);mkTip(mkMouse?null:it);zoomPop(it.ll)}});   /* by touch there is no hover, so the tapped building keeps its name label */
+Object.keys(PINS).forEach(id=>PINS[id].forEach((p,i)=>{if(!p)return;const cs=DISTRICTS[id].condos[i].split(";").map(x=>x.split("|")),w=walkTo(p);
+  pinOf[id+"|"+i]=mkAdd(gPin,p[0],p[1],(cs.every(c=>c[0]===cs[0][0])?"<b>"+esc(cs[0][0])+"</b><br><span style=\"font-weight:400\">"+cs.map(c=>esc(c[1])).join(" \u00b7 ")+"</span>":cs.map(c=>"<b>"+esc(c[0])+"</b><br><span style=\"font-weight:400\">"+esc(c[1])+"</span>").join("<br>"))+(cs.some(c=>c[2]==="pre")?"<br><i>Pre-construction"+esc(preWhen(cs.find(c=>c[2]==="pre")))+"</i>":kindOf(cs)==="loft"?"<br><i>Loft</i>":"")+(p[2]?"":"<br><i>approximate spot</i>")+(w?"<br><span style=\"font-weight:400\">"+esc(walkTxt(w))+"</span>":""),{id,i,k:kindOf(cs)})}));
+mkSort(gPin);
+/* hit test for the symbols: hover shows the label (and, for a condo, lights its list entry); a click acts on it.
    The click is caught before it reaches the district underneath. */
-let pinOver=null,downAt=null,hitQ=0,dragging=false;
+let mkOver=null,mkPt=null,mkXY=null,mkMouse=true,downAt=null,hitQ=0,dragging=false;
 map.on("dragstart",()=>{dragging=true});map.on("dragend",()=>{dragging=false});
-function pinAt(cp){if(!map.hasLayer(condoLayer))return null;let best=null;
-  const lp=map.containerPointToLayerPoint(cp);if(hotPin&&hotPin._point&&hotPin._containsPoint(lp))return hotPin;
-  condoLayer.eachLayer(m=>{if(m._point&&m._containsPoint(lp))best=m});return best}
+function mkAt(cp){const q=map.containerPointToLayerPoint(cp);
+  if(hotPin&&hotPin.g.vis&&hotPin.sx===hotPin.sx&&hotPin.g.hit(hotPin,q.x-hotPin.sx,q.y-hotPin.sy))return hotPin;
+  for(let a=MK.length-1;a>=0;a--){const g=MK[a];if(!g.vis||!g.hit)continue;
+    for(let b=g.items.length-1;b>=0;b--){const it=g.items[b],dx=q.x-it.sx,dy=q.y-it.sy;if(dx<32&&dx>-32&&dy<16&&dy>-48&&g.hit(it,dx,dy))return it}}
+  return null}
+function mkEnter(it){if(it.g===gPin)hot(it.id,it.i,false,false);mkTip(it)}
+function mkLeave(it){if(it.g===gPin){if(!stick)hot(null);else if(it!==hotPin&&mkTipIt===it)mkTip(null)}else if(mkTipIt===it)mkTip(null)}
+/* The pointer has come off a symbol: whatever lies underneath (a district, a community, a station) is told the
+   pointer is over it, so its own label comes back, as it did when symbols were page elements on top of it. */
 const mc=map.getContainer();
-map.on("mousemove",e=>{if(hitQ)return;hitQ=requestAnimationFrame(()=>{hitQ=0;if(map._animatingZoom||dragging)return;const m=pinAt(e.containerPoint);
-  if(m!==pinOver){if(pinOver)pinOver.fire("mouseout");pinOver=m;if(m)m.fire("mouseover")}
-  mc.classList.toggle("on-pin",!!m)})});
-map.on("mouseout",()=>{if(pinOver){pinOver.fire("mouseout");pinOver=null}mc.classList.remove("on-pin")});
-mc.addEventListener("pointerdown",e=>{downAt=[e.clientX,e.clientY]},true);
+function mkUnder(){const el=mkXY&&document.elementFromPoint(mkXY[0],mkXY[1]);
+  if(el&&el!==mc&&mc.contains(el))el.dispatchEvent(new MouseEvent("mouseover",{bubbles:true,cancelable:true,view:window,clientX:mkXY[0],clientY:mkXY[1]}))}
+function mkHover(){hitQ=0;if(map._animatingZoom||dragging)return;const it=mkPt?mkAt(mkPt):null,was=mkOver;
+  if(it!==was){if(was)mkLeave(was);mkOver=it;if(it)mkEnter(it);else if(mkPt)mkUnder()}
+  mc.classList.toggle("on-pin",!!it)}
+map.on("mousemove",e=>{const o=e.originalEvent;if(o){mkXY=[o.clientX,o.clientY];mkPt=o.target&&o.target.closest&&o.target.closest(".leaflet-control")?null:e.containerPoint}
+  if(!hitQ)hitQ=requestAnimationFrame(mkHover)});
+/* the map has moved or zoomed under a mouse pointer that stayed still: look again at what is under it */
+map.on("moveend",()=>{if(mkPt&&mkMouse&&!hitQ)hitQ=requestAnimationFrame(mkHover)});
+mc.addEventListener("mouseleave",()=>{mkPt=null;if(mkOver){mkLeave(mkOver);mkOver=null}mc.classList.remove("on-pin")});
+mc.addEventListener("pointermove",e=>{mkMouse=e.pointerType==="mouse"},{capture:true,passive:true});
+mc.addEventListener("pointerdown",e=>{downAt=[e.clientX,e.clientY];mkMouse=e.pointerType==="mouse"},true);
 mc.addEventListener("click",e=>{if(e.target.closest&&e.target.closest(".panel,.layers,.leaflet-control,.leaflet-tooltip,.leaflet-marker-icon"))return;
   if(downAt&&Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1])>6)return;
-  const r=mc.getBoundingClientRect(),m=pinAt(L.point(e.clientX-r.left,e.clientY-r.top));if(!m)return;
-  e.stopPropagation();e.preventDefault();m.fire("click")},true);
-condoLayer.addTo(map);
-/* Keep on the page only the markers in (or just around) the visible area. With all ~1,300 pins, carts and
-   labels on the page at once, every pan and zoom had to move and repaint each one. */
-function cull(group,list,keep,ok){if(!map.hasLayer(group))return;const b=map.getBounds().pad(.3);
-  for(const m of list){const inb=b.contains(m.getLatLng())&&(!ok||ok(m));if(inb){if(!group.hasLayer(m))group.addLayer(m)}else if(group.hasLayer(m)&&m!==keep)group.removeLayer(m)}}
-const kindOk=m=>showKind[m._k];
-function cullAll(){cull(condoLayer,condoMarkers,hotPin,kindOk);if(dayMarkers.length)cull(dayLayer,dayMarkers);if(schMarkers.length)cull(schLayer,schMarkers,null,schOk);cull(shopLayer,shopMarkers);cull(cLabels,cLabelMarkers)}
-map.on("moveend",cullAll);cullAll();
-/* Phones: while a pinch or zoom animation runs, Leaflet repositions every pin on every frame. Hiding the pin,
-   shop and label panes for those few hundred milliseconds skips the layout and paint work; they reappear on zoomend. */
+  const r=mc.getBoundingClientRect(),it=mkAt(L.point(e.clientX-r.left,e.clientY-r.top));if(!it)return;
+  e.stopPropagation();e.preventDefault();mkOver=it;it.g.click(it)},true);   /* mkOver: the pointer is on it, so its label stays closed until the pointer leaves and returns */
+mkReady=true;mkReset();
+/* The name labels' pictures are drawn ahead of time, a few per idle moment, so that work never lands in the middle of a zoom. */
+{const idle=window.requestIdleCallback||(f=>setTimeout(f,80)),todo=[[gDL,LB.dl15],[gDL,LB.dl11],[gDL,LB.dl20],[gCL,LB.cl]];let a=0,b=0;
+  const step=d=>{let n=0;while(a<todo.length&&n<10&&!(d&&d.timeRemaining&&d.timeRemaining()<3)){const g=todo[a][0];if(b<g.items.length){lbSpr(todo[a][1])(g.items[b++]);n++}else{a++;b=0}}if(a<todo.length)idle(step)};idle(step)}
+/* Phones: hover labels are hidden while a pinch or zoom animation runs; they reappear on zoomend. */
 const touch=matchMedia("(pointer:coarse)").matches||small.matches;
-if(touch){const zp=["pCondo","pDay","pSch","markerPane","tooltipPane"].map(n=>map.getPane(n)).filter(Boolean);
+if(touch){const zp=["markerPane","tooltipPane"].map(n=>map.getPane(n)).filter(Boolean);
   map.on("zoomstart",()=>zp.forEach(p=>p.style.visibility="hidden"));map.on("zoomend",()=>zp.forEach(p=>p.style.visibility=""))}
 /* Inside the Neighborhood page on a phone, one finger should scroll the page, not get trapped moving the map:
    two fingers move and zoom the map; the full-screen map keeps normal one-finger dragging. */
@@ -190,23 +286,25 @@ let stick=false;
    still pointer, zooming), which left labels stranded on the map; these checks close them regardless. */
 let openTip=null;
 const tipEl=t=>{const s=t&&t._source;return s&&(s._path||s._icon)};
-const tipClose=()=>{const t=openTip;openTip=null;if(t&&t._source)t._source.closeTooltip()};
-map.on("tooltipopen",e=>{if(openTip&&openTip!==e.tooltip)tipClose();openTip=e.tooltip});
-map.on("tooltipclose",e=>{if(openTip===e.tooltip)openTip=null});
+const tipClose=()=>{const t=openTip;openTip=null;if(t===mkTT)mkTip(null);else if(t&&t._source)t._source.closeTooltip()};
+map.on("tooltipopen",e=>{
+  if(e.tooltip!==mkTT&&mkOver&&mkTipIt===mkOver){const src=e.tooltip._source;Promise.resolve().then(()=>{if(src&&mkOver)src.closeTooltip()});return}   /* the pointer is on a symbol: its label stays, the area label underneath does not replace it */
+  if(openTip&&openTip!==e.tooltip)tipClose();openTip=e.tooltip});
+map.on("tooltipclose",e=>{if(openTip===e.tooltip)openTip=null;if(e.tooltip===mkTT)mkTipIt=null});
 map.getContainer().addEventListener("mousemove",ev=>{if(!openTip)return;const el=tipEl(openTip);if(el&&!el.contains(ev.target))tipClose()},{passive:true});
 map.getContainer().addEventListener("mouseleave",()=>{if(!stick)hot(null);tipClose()});
 map.on("zoomstart",()=>{if(!stick)tipClose()});
 document.addEventListener("visibilitychange",()=>{if(document.hidden)tipClose()});
 function hot(id,i,pan,keep){
-  if(hotPin){setHot(hotPin,false);hotPin.closeTooltip();hotPin=null}
+  if(hotPin){if(mkTipIt===hotPin)mkTip(null);hotPin=null;mkDirty()}
   document.querySelectorAll("ul.condos li.hot,ul.condos li.picked").forEach(l=>l.classList.remove("hot","picked"));
   stick=!!keep;if(id==null)return;
   if(keep&&id===sel)nearby(id,i);
-  const m=pinOf[id+"|"+i];if(!m||!map.hasLayer(condoLayer))return;if(!condoLayer.hasLayer(m))condoLayer.addLayer(m);
-  hotPin=m;setHot(m,true);
-  if(pan){const ll=m.getLatLng(),pad=small.matches?L.latLngBounds(map.containerPointToLatLng([20,60]),map.containerPointToLatLng([innerWidth-20,innerHeight*.36])):L.latLngBounds(map.containerPointToLatLng([400,60]),map.containerPointToLatLng([map.getSize().x-340,map.getSize().y-40]));
+  const m=pinOf[id+"|"+i];if(!m||!gPin.on())return;   /* pins are not shown when zoomed far out */
+  hotPin=m;mkDirty();
+  if(pan){const ll=L.latLng(m.ll),pad=small.matches?L.latLngBounds(map.containerPointToLatLng([20,60]),map.containerPointToLatLng([innerWidth-20,innerHeight*.36])):L.latLngBounds(map.containerPointToLatLng([400,60]),map.containerPointToLatLng([map.getSize().x-340,map.getSize().y-40]));
     if(!pad.contains(ll)){const off=small.matches?[0,map.getSize().y*.22]:[-190,0];map.panTo(map.unproject(map.project(ll).add(off)),{animate:true,duration:.35})}
-    m.openTooltip()}
+    mkTip(m)}
   if(id===sel){const li=document.querySelector('ul.condos li[data-i="'+i+'"]');if(li){li.classList.add("hot");if(keep)li.classList.add("picked");if(!pan)panelScrollTo(li,keep)}}
 }
 /* Scroll only the side panel (never the page around the map): a clicked condo is brought to the middle of the
@@ -216,22 +314,17 @@ function panelScrollTo(li,center){const sc=$("pbody");if(!sc)return;const a=sc.g
   else if(b.top<a.top)top=sc.scrollTop+(b.top-a.top)-8;else if(b.bottom>a.bottom)top=sc.scrollTop+(b.bottom-a.bottom)+8;else return;
   sc.scrollTop=Math.max(0,top)}   /* instant: a smooth scroll was cut short when the Nearby section redrew */
 function restyle(){distLayer.setStyle(f=>dStyle(f.properties.d));commLayer.setStyle(cStyle);
-  const c=map.getContainer(),z=map.getZoom(),wide=z<9.5;c.classList.toggle("z-far",z<11);c.classList.toggle("z-near",z>=13);c.classList.toggle("z-reg",z<8);c.classList.toggle("wide",wide);if(wide)map.removeLayer(condoLayer);else if(!map.hasLayer(condoLayer)){condoLayer.addTo(map);cullAll()}
-  (showReg&&z<11.5)?regLabels.addTo(map):map.removeLayer(regLabels);
-  (z>=12.5)?glowLabels.addTo(map):map.removeLayer(glowLabels);
-  if(z>=12.5){shopLayer.addTo(map);cull(shopLayer,shopMarkers)}else map.removeLayer(shopLayer);
-  dayShow();schShow();
+  const z=map.getZoom(),wide=z<9.5;
   glowLayer.eachLayer(l=>{const c=l.options.className;l.setStyle({weight:c==="glow-halo"?(z<10?6:z<12?11:z<14?15:20):(z<10?2:z<12?3:z<14?4.5:6)})});
-  if(showComm&&z>=13.5){cLabels.addTo(map);cull(cLabels,cLabelMarkers)}else map.removeLayer(cLabels);
   subLayer.eachLayer(m=>m.setRadius(z<11?3:z<13?5:7));!wide?subLayer.addTo(map):map.removeLayer(subLayer)}
 map.on("zoomend",restyle);
 function setComm(on){showComm=true;commLayer.addTo(map);restyle()}
-$("l-dist").onchange=e=>{e.target.checked?(distLayer.addTo(map),dLabels.addTo(map)):(map.removeLayer(distLayer),map.removeLayer(dLabels))};
-$("l-day").onchange=e=>{dayOn=e.target.checked;if(!dayOn){map.removeLayer(dayLayer);return}
-  dayData().then(()=>{dayShow();if(map.getZoom()<13)note("Daycares show when you zoom in closer.")},()=>{e.target.checked=dayOn=false;note("Daycares could not be loaded just now. Please try again.")})};
-[1,2,4,8].forEach(f=>{$("l-s"+f).onchange=e=>{schMask=e.target.checked?schMask|f:schMask&~f;if(!schMask){map.removeLayer(schLayer);return}
-  schData().then(()=>{schShow();if(map.getZoom()<13)note("Schools show when you zoom in closer.")},()=>{e.target.checked=false;schMask&=~f;note("Schools could not be loaded just now. Please try again.")})}});
-["pre","condo","loft"].forEach(k=>{$("l-"+k).onchange=e=>{showKind[k]=e.target.checked;cullAll()}});
+$("l-dist").onchange=e=>{e.target.checked?distLayer.addTo(map):map.removeLayer(distLayer);mkDirty()};
+$("l-day").onchange=e=>{dayOn=e.target.checked;if(!dayOn){mkDirty();return}
+  dayData().then(()=>{mkDirty();if(map.getZoom()<13)note("Daycares show when you zoom in closer.")},()=>{e.target.checked=dayOn=false;note("Daycares could not be loaded just now. Please try again.")})};
+[1,2,4,8].forEach(f=>{$("l-s"+f).onchange=e=>{schMask=e.target.checked?schMask|f:schMask&~f;mkDirty();if(!schMask)return;
+  schData().then(()=>{mkDirty();if(map.getZoom()<13)note("Schools show when you zoom in closer.")},()=>{e.target.checked=false;schMask&=~f;note("Schools could not be loaded just now. Please try again.")})}});
+["pre","condo","loft"].forEach(k=>{$("l-"+k).onchange=e=>{showKind[k]=e.target.checked;mkDirty()}});
 $("l-base").onchange=e=>{tilesOk=tilesBad=0;setBase(e.target.checked)};
 base.addTo(map);
 

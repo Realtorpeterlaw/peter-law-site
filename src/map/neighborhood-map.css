@@ -705,11 +705,8 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .legend small{display:block;color:var(--mute);margin-top:4px;max-width:210px;line-height:1.3}
 .note{position:absolute;z-index:1060;left:50%;transform:translateX(-50%);top:10px;background:#fff6e4;border:1px solid #e9c987;border-radius:9px;padding:6px 12px;font-size:12.5px;display:none;max-width:60%}
-.dl{background:none;border:0;font-weight:800;color:#16202b;text-align:center;white-space:nowrap;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 4px #fff;font-size:15px;pointer-events:none}
-.rl{background:none;border:0;font-weight:800;color:#1c5fa8;text-align:center;white-space:nowrap;letter-spacing:.22em;text-transform:uppercase;font-size:13px;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 5px #fff;pointer-events:none}
-.z-reg .rl{font-size:11px;letter-spacing:.14em}
-.z-far .dl{font-size:11px}.z-near .dl{font-size:20px}
-.cl{background:none;border:0;font-weight:600;color:#3c4754;text-align:center;font-size:11px;line-height:1.1;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;pointer-events:none;width:110px!important;margin-left:-55px!important}
+/* Map symbols (pins, carts, caps, bags, pacifiers) and the name labels are drawn on canvas by neighborhood-map.js
+   (see "Map symbols and name labels" there: sprPin, sprSvg, sprText and the LB table hold their looks). */
 .glow-halo{stroke:#ffb400;stroke-opacity:.035;fill:none}
 .glow-core{stroke:#ffb400;stroke-opacity:.22;fill:none}
 /* The travelling light plays four times after the map opens, then fades out: left running forever it kept
@@ -723,32 +720,13 @@ body{font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sa
 @media (max-width:720px),(pointer:coarse){.glow-run{animation:none;display:none}}
 @media (pointer:coarse){.lbody label{padding:9px 0;align-items:center}.lbody label small{margin-top:2px}.views button{min-height:40px}.lbody input[type=checkbox]{margin:0}}
 @media (prefers-reduced-motion:reduce){.glow-run{animation:none;display:none}.sel-glow-halo,.sel-glow-ring{animation:none}}
-.gl{background:none;border:0;font-weight:800;font-size:11px;color:#7a4b00;white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 5px #fff}
-.shop{background:none;border:0;cursor:pointer}.shop svg{display:block}
-.day{background:none;border:0;cursor:pointer}.day svg{display:block}.wide .day{display:none}
 .lbody .sw-day{display:inline-block;width:16px;height:16px;margin:0 6px 0 -1px;vertical-align:-3px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11.4' fill='%23fff' stroke='%2316202b' stroke-width='.8'/%3E%3Ccircle cx='12' cy='7.1' r='2.9' fill='none' stroke='%2316202b' stroke-width='1.8'/%3E%3Cpath d='M5.4 12.3c0-1.4 3-2.4 6.6-2.4s6.6 1 6.6 2.4-3 2.4-6.6 2.4-6.6-1-6.6-2.4z' fill='%2316202b'/%3E%3Cpath d='M10.2 14.4h3.6v2.5a1.8 1.8 0 0 1-3.6 0z' fill='%23fff' stroke='%2316202b' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat center/contain}
 .zpop .leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 3px 16px rgba(0,0,0,.25)}
 .zpop .leaflet-popup-content{margin:11px 14px 12px;font:13px/1.35 "Segoe UI",system-ui,sans-serif}
 .zp b{display:block;font-size:14px;margin-right:14px}.zp span{display:block;color:#5d6976;font-size:12.5px;margin-top:2px}
 .zp button{display:block;width:100%;margin-top:9px;font:inherit;font-weight:700;font-size:13px;color:#fff;background:#16202b;border:0;border-radius:8px;padding:7px 10px;cursor:pointer}
-.uni{background:none;border:0;cursor:pointer}.uni svg{display:block}
-.mall{background:none;border:0;cursor:pointer}.mall svg{display:block}
-.z-far .mall svg{width:20px;height:20px;margin:2px}
-.z-far .uni svg{width:20px;height:20px;margin:3px}
-.wide .pin,.wide .dl,.wide .cl,.wide .uni,.wide .shop,.wide .mall{display:none}
-.rl.city{display:none}.wide .rl.city{display:block;color:#16202b}
-/* The pin grows on hover, but only its original 18px box reacts to the mouse: otherwise the enlarged pin kept
-   catching the pointer, so its label stayed up after the visitor had moved away. */
-.pin{background:none;border:0;cursor:pointer}
-/* red map pin drawn with CSS (a turned rounded square with a white dot): no emoji font and no filter, so
-   hundreds of pins stay cheap to draw while the map moves */
-.pin span{position:absolute;left:3px;top:0;width:12px;height:12px;box-sizing:border-box;background:#e0245e;border:1.5px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);transform-origin:0 100%;box-shadow:-1px 1px 2px rgba(0,0,0,.35);transition:transform .12s;pointer-events:none}
-.pin span::after{content:"";position:absolute;left:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}
-.z-far .pin span{width:10px;height:10px;left:4px;top:2px}.z-far .pin span::after{left:2px;top:2px}
 .cfind{width:100%;box-sizing:border-box;margin:8px 0 2px;padding:7px 9px;border:1px solid #cfd6de;border-radius:8px;font:inherit;font-size:13px}
 u.pre{text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff3d6;color:#8a5a00;border-radius:4px;padding:1px 5px;white-space:nowrap}
-.pin-loft span{background:#7b3fbf}.pin-pre span{background:#aab1ba;box-shadow:-1px 1px 2px rgba(0,0,0,.45),0 0 0 .5px #6b737d}
-.pin.hot span{transform:rotate(-45deg) scale(2.2);box-shadow:-1px 1px 3px rgba(0,0,0,.5),0 0 0 1px #fff}
 .leaflet-tooltip.tt{font-weight:700;border-radius:7px;padding:3px 8px}
 .panel{position:absolute;z-index:1100;top:10px;left:10px;bottom:10px;width:370px;max-width:calc(100% - 20px);background:#fff;border-radius:14px;box-shadow:0 4px 22px rgba(0,0,0,.22);display:none;flex-direction:column;overflow:hidden}
 .panel.open{display:flex}
@@ -833,7 +811,6 @@ ul.condos li:focus-visible,.views button:focus-visible,.layers summary:focus-vis
 .lbody input:focus-visible,.find input:focus-visible,.sort select:focus-visible,.cfind:focus-visible{outline:3px solid #2a56b0;outline-offset:1px}
 
 .lcols{display:grid;grid-template-columns:auto auto;justify-content:space-between;gap:8px;align-items:start}.lcol{min-width:0}
-.schm{background:none;border:0;cursor:pointer}.schm svg{display:block}.wide .schm{display:none}
 .lbody .sw-cap{display:inline-block;width:16px;height:16px;margin:0 6px 0 -1px;vertical-align:-3px;background:no-repeat center/contain}
 .lbody .sw-pub{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11.4' fill='%23fff' stroke='%231f7a3a' stroke-width='1.2'/%3E%3Cpath d='M12 5.2 3.4 9.4l8.6 4.2 8.6-4.2z' fill='%231f7a3a'/%3E%3Cpath d='M7 11.6v3.9c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-3.9' fill='%231f7a3a'/%3E%3Cpath d='M5 10.2v4.4' stroke='%231f7a3a' stroke-width='1.3'/%3E%3C/svg%3E")}
 .lbody .sw-pri{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11.4' fill='%23fff' stroke='%23c62828' stroke-width='1.2'/%3E%3Cpath d='M12 5.2 3.4 9.4l8.6 4.2 8.6-4.2z' fill='%23c62828'/%3E%3Cpath d='M7 11.6v3.9c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-3.9' fill='%23c62828'/%3E%3Cpath d='M5 10.2v4.4' stroke='%23c62828' stroke-width='1.3'/%3E%3C/svg%3E")}
