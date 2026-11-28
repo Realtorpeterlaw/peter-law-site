@@ -17,7 +17,12 @@ L.control.zoom({position:"bottomright"}).addTo(map);
 map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
 ["pReg","pDist","pComm","pSel","pSub"].forEach((p,i)=>{map.createPane(p).style.zIndex=410+i*10});map.createPane("pCondo").style.zIndex=640;map.getPane("pCondo").style.pointerEvents="none";["pHalo",425,"pRing",625].forEach((v,i,a)=>{if(i%2)return;const pn=map.createPane(v);pn.style.zIndex=a[i+1];pn.style.pointerEvents="none"});map.createPane("pGlow").style.zIndex=445;map.getPane("pGlow").style.pointerEvents="none";
 const cityBounds=L.geoJSON(DIST).getBounds();
-map.fitBounds(cityBounds,{padding:[10,10]});
+/* Opening view: zoomed in on the Eaton Centre, the same view as the "Downtown Toronto" button. (The whole city at once
+   showed every pin and was too much to take in; "ZOOM out" still gives the wide view.) A link to one district, such as
+   /neighborhood-map#C08, starts from the whole city as before and zooms in to that district. */
+const HOME=[43.6544,-79.3807,16];
+function hashDistrict(){try{const h=decodeURIComponent(location.hash.slice(1)).trim().toUpperCase();return DISTRICTS[h]?h:null}catch(e){return null}}
+if(hashDistrict())map.fitBounds(cityBounds,{padding:[10,10]});else map.setView([HOME[0],HOME[1]],HOME[2]);
 
 /* street background, with a fallback when tiles cannot load */
 let tilesOk=0,tilesBad=0,hasBase=true;
@@ -201,7 +206,7 @@ Object.keys(REGIONS).forEach(n=>{const r=REGIONS[n],name=n==="Grey"?"Grey County
 const allBounds=L.latLngBounds(cityBounds.getSouthWest(),cityBounds.getNorthEast());regLayer.eachLayer(p=>allBounds.extend(p.getBounds()));
 regLayer.addTo(map);
 let showReg=true;
-const JUMPS=[["Yorkville",43.6710,-79.3925,16],["King West",43.6440,-79.4010,15],["Water Front",43.6448,-79.3719,16.5],["UofT",43.6629,-79.3957,15],["TMU",43.6585,-79.3785,16],["Financial District",43.6480,-79.3810,16],["Downtown Toronto",43.6544,-79.3807,16]];
+const JUMPS=[["Yorkville",43.6710,-79.3925,16],["King West",43.6440,-79.4010,15],["Water Front",43.6448,-79.3719,16.5],["UofT",43.6629,-79.3957,15],["TMU",43.6585,-79.3785,16],["Financial District",43.6480,-79.3810,16],["Downtown Toronto",...HOME]];
 $("jump").innerHTML=JUMPS.map((j,k)=>'<button data-k="'+k+'">'+j[0]+'</button>').join("");
 /* view buttons: a button is highlighted only while the map is showing that button's view.
    Clicking highlights it at once; moving or zooming the map away clears it; coming back by any route lights it again. */
@@ -514,7 +519,7 @@ function find(){const q=$("find").value.trim().toLowerCase();if(!q)return;if(q==
 $("find").addEventListener("change",find);$("find").addEventListener("keydown",e=>{if(e.key==="Enter")find()});
 setComm(true);syncView();
 /* Deep link: /neighborhood-map#C08 opens that district (the guide on /neighborhood uses this). */
-function fromHash(){const h=decodeURIComponent(location.hash.slice(1)).trim().toUpperCase();if(DISTRICTS[h]){pick(h,null,true);if(small.matches)$("layers").open=false}}
+function fromHash(){const h=hashDistrict();if(h){pick(h,null,true);if(small.matches)$("layers").open=false}}
 window.addEventListener("hashchange",fromHash);fromHash();
 /* Inside a page, the mouse wheel scrolls the page until the visitor clicks the map; after that it zooms. */
 if(window.top!==window){map.scrollWheelZoom.disable();let told=false;
